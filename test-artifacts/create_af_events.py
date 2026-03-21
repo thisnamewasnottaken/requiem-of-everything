@@ -1,0 +1,292 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Generate Afrikaans events.json translation."""
+import json
+import os
+
+events_af = {
+    "gutenberg-printing-press": {
+        "title": "Gutenberg se drukpers",
+        "description": "Johannes Gutenberg vind beweegbare lettertipe-drukwerk in Europa uit, wat die verspreiding van kennis revolusioneer en uiteindelik gedrukte musiek wyd toeganklik maak.",
+        "musicalSignificance": "Het die massaverspreiding van musiekpartiture moontlik gemaak. Ottaviano Petrucci het die eerste versameling polifoniese musiek (Harmonice Musices Odhecaton) in 1501 gepubliseer.",
+        "region": "Europa"
+    },
+    "fall-of-constantinople": {
+        "title": "Val van Konstantinopel",
+        "description": "Die Ottomaanse Ryk verower Konstantinopel en beëindig die Bisantynse Ryk. Griekse geleerdes vlug na Italië en kataliseer die Renaissance.",
+        "musicalSignificance": "Die instroming van Bisantynse geleerdes en manuskripte na Italië het bygedra tot die kulturele gisting van die Renaissance, wat musikale ontwikkeling diepgaande beïnvloed het.",
+        "region": "Middellandse See"
+    },
+    "columbus-americas": {
+        "title": "Columbus bereik die Amerikas",
+        "description": "Christoffel Columbus se reis begin die Europese kolonisasie van die Amerikas, wat wêreldhandel, kultuur en magstrukture transformeer.",
+        "region": "Amerikas"
+    },
+    "protestant-reformation": {
+        "title": "Protestantse Hervorming begin",
+        "description": "Martin Luther plaas sy 95 Stellings, wat die Protestantse Hervorming ontketen wat die Westerse Christendom verdeel.",
+        "musicalSignificance": "Luther het gemeentesang en die koraal verdedig, wat die grondslag van Protestantse kerkmusiek geword het en J.S. Bach se komposisielewe diepgaande beïnvloed het.",
+        "region": "Europa"
+    },
+    "council-of-trent": {
+        "title": "Konsilie van Trente",
+        "description": "Die Katolieke Kerk se belangrike konsilie van die Kontra-Hervorming, wat leerstellige kwessies en kerklike praktyke, insluitend die gebruik van musiek in aanbidding, aangespreek het.",
+        "musicalSignificance": "Het oorweeg om polifoniese musiek uit aanbidding te verban omdat dit die teks verduister. Palestrina se musiek het na bewering gedemonstreer dat polifonie die woorde duidelik kon dien, en so die kunsvorm gered.",
+        "region": "Europa"
+    },
+    "spanish-armada": {
+        "title": "Nederlaag van die Spaanse Armada",
+        "description": "Koning Filips II van Spanje stuur 'n massiewe vloot om Engeland binne te val, maar die Armada word deur die Engelse vloot onder Sir Francis Drake verslaan en deur storms verstrooi. Die oorwinning verseker Engeland as 'n Protestantse nasie en opkomende seemoondheid.",
+        "musicalSignificance": "Engeland se nuutgevonde selfvertroue en kulturele bloei onder Elizabeth I het die Engelse madrigaalskool gekoester — Byrd, Morley, Dowland en Weelkes — een van die goue eeue van Engelse musiek.",
+        "region": "Europa"
+    },
+    "shakespeare-active": {
+        "title": "Shakespeare se aktiewe loopbaan",
+        "description": "William Shakespeare skryf sy toneelstukke en sonnette en skep die grootste liggaam van dramatiese letterkunde in die Engelse taal.",
+        "musicalSignificance": "Shakespeare se werke sou later talle musikale komposisies inspireer: Verdi se Otello en Falstaff, Mendelssohn se A Midsummer Night's Dream, Tchaikovsky se Romeo en Juliet, Prokofiev se Romeo-ballet, Berlioz se opera Béatrice et Bénédict.",
+        "region": "Engeland"
+    },
+    "galileo-telescope": {
+        "title": "Galileo se teleskoop-waarnemings",
+        "description": "Galileo Galilei gebruik sy verbeterde teleskoop om die mane van Jupiter waar te neem, wat die Kopernikaanse heliosentriese model bevestig en die Wetenskaplike Revolusie begin.",
+        "musicalSignificance": "Die Wetenskaplike Revolusie se klem op wiskundige verhoudings het Barokteorieë van harmonie en temperering beïnvloed.",
+        "region": "Italië"
+    },
+    "thirty-years-war": {
+        "title": "Dertigjarige Oorlog",
+        "description": "'n Verwoestende konflik hoofsaaklik in Sentraal-Europa, aanvanklik 'n godsdiensoorlog tussen Protestantse en Katolieke state wat in 'n breër politieke stryd ontwikkel het.",
+        "musicalSignificance": "Het Duitse musieklewe vir 'n generasie verwoes. Heinrich Schütz, die grootste Duitse komponis voor Bach, het daardeur geleef en sy musiek weerspieël die era se angs.",
+        "region": "Sentraal-Europa"
+    },
+    "english-civil-war": {
+        "title": "Engelse Burgeroorlog",
+        "description": "Burgeroorlog tussen Parlementariërs en Koningsgesindes in Engeland, wat lei tot die teregstelling van Koning Karel I en die vestiging van die Statebond.",
+        "musicalSignificance": "Die Puriteinse Statebond het teatrale en musikale vermaak onderdruk. Toe die monargie in 1660 herstel is, het dit 'n renaissance van Engelse musiek ontketen wat die verhoog vir Purcell voorberei het.",
+        "region": "Engeland"
+    },
+    "peace-of-westphalia": {
+        "title": "Vrede van Wesfale",
+        "description": "'n Reeks verdrae wat die Dertigjarige Oorlog en die Tagtigjarige Oorlog beëindig het. Die vrede het die beginsel van staatsoewereiniteit gevestig en die politieke en godsdienstige kaart van Europa herteken.",
+        "musicalSignificance": "Die herstel van vrede het Duitse musieklewe laat herbou. Die politieke fragmentasie van Duitsland in honderde klein howe het 'n uitgestrekte netwerk van musikale beskerming geskep wat komponiste van Buxtehude tot Bach sou onderhou.",
+        "region": "Europa"
+    },
+    "great-fire-of-london": {
+        "title": "Groot Brand van Londen",
+        "description": "'n Verwoestende brand sweep oor vier dae deur Londen en vernietig 13 200 huise, 87 kerke en die meeste burgerlike geboue. Die brand lei tot 'n massiewe herbouprojek wat die stad transformeer.",
+        "musicalSignificance": "Die herbou van Londen se kerke, insluitend die St. Paul's-katedraal, het nuwe plekke vir gewyde musiek geskep. Die stad se kulturele heropbou het saamgeval met die opkoms van Henry Purcell, Engeland se grootste Barokkomponis.",
+        "region": "Europa"
+    },
+    "newton-principia": {
+        "title": "Newton publiseer Principia Mathematica",
+        "description": "Isaac Newton publiseer sy bewegingswette en universele gravitasie, een van die belangrikste werke in die geskiedenis van die wetenskap.",
+        "musicalSignificance": "Die Newtoniaanse wêreldbeskouing van orde, proporsie en universele wette het Verligtingsdenke diepgaande beïnvloed, wat weer die estetiese ideale van helderheid en balans in Klassieke-era musiek gevorm het.",
+        "region": "Engeland"
+    },
+    "glorious-revolution": {
+        "title": "Glorieryke Revolusie",
+        "description": "Koning Jakobus II van Engeland word afgesit en vervang deur Willem III en Maria II in 'n grootliks bloedlose revolusie. Die gebeurtenis vestig konstitusionele monargie en parlementêre oppergesag in Engeland.",
+        "musicalSignificance": "Die nuwe monarge het Nederlandse en Kontinentale musikale invloede na Engeland gebring. Purcell het feesodes vir die nuwe vorste gekomponeer, en die politieke stabiliteit het 'n generasie later gehelp om Handel na Londen te lok.",
+        "region": "Europa"
+    },
+    "war-of-spanish-succession": {
+        "title": "Spaanse Opvolgingsoorlog",
+        "description": "'n Groot Europese konflik oor die opvolging van die Spaanse troon, waarby die meeste groot moondhede van Europa betrokke was.",
+        "musicalSignificance": "Die politieke omwentelinge het beskermingsnetwerke hervorm. Handel het deels weens die politieke onstabiliteit op die vasteland van Italië na Londen verhuis.",
+        "region": "Europa"
+    },
+    "seven-years-war": {
+        "title": "Sewejarige Oorlog",
+        "description": "'n Wêreldwye konflik waarby elke groot Europese moondheid betrokke was, geveg oor Europa, die Amerikas, Afrika en Asië. Word dikwels die eerste ware wêreldoorlog genoem en het Britse oorheersing in Noord-Amerika en Indië gevestig.",
+        "musicalSignificance": "Die oorlog het musieklewe oor Europa ontwrig. Frederik die Grote van Pruise, self 'n fluitspeler en komponis, het sy hofmusikante selfs tydens veldtogte behou. Die naoorlogse ekonomiese herstel het die groei van openbare konsertlewe in die Klassieke era help aanvuur.",
+        "region": "Wêreldwyd"
+    },
+    "american-independence": {
+        "title": "Amerikaanse Onafhanklikheidsverklaring",
+        "description": "Die dertien Amerikaanse kolonies verklaar onafhanklikheid van Groot-Brittanje en stig die Verenigde State van Amerika, gebaseer op Verligtingsideale.",
+        "musicalSignificance": "Die Verligtingswaardes van individuele vryheid en rasionele orde wat die Revolusie geïnspireer het, het ook die Klassieke styl se ideale van helderheid, balans en universele uitdrukking onderlê.",
+        "region": "Noord-Amerika"
+    },
+    "french-revolution": {
+        "title": "Franse Revolusie",
+        "description": "Die omverwerping van die Franse monargie en die vestiging van 'n republiek gebaseer op die beginsels van vryheid, gelykheid en broederskap.",
+        "musicalSignificance": "Het Beethoven en die ontluikende Romantiese beweging diepgaande beïnvloed. Die ideale van individuele vryheid en heldhaftige stryd het sentraal geword in die Romantiese estetika. Beethoven se Eroica-simfonie was oorspronklik aan Napoleon opgedra.",
+        "region": "Frankryk"
+    },
+    "declaration-rights-of-man": {
+        "title": "Verklaring van die Regte van die Mens en die Burger",
+        "description": "Die Franse Nasionale Grondwetlike Vergadering aanvaar die Verklaring wat universele regte van vryheid, eiendom, veiligheid en weerstand teen onderdrukking verkondig. Dit word 'n grondliggende dokument van moderne demokratiese bestuur.",
+        "musicalSignificance": "Die Verklaring se ideale van universele menslike waardigheid het deur Romantiese musiek weerklink. Revolusionêre liedere soos La Marseillaise het musiek se krag as politieke uitdrukking gedemonstreer, 'n konsep wat komponiste van Beethoven tot Verdi sou omhels.",
+        "region": "Europa"
+    },
+    "napoleonic-wars": {
+        "title": "Napoleontiese Oorloë",
+        "description": "'n Reeks konflikte waarby Napoleon se Franse Ryk en verskeie Europese koalisies betrokke was, wat die politieke kaart van Europa hervorm het.",
+        "musicalSignificance": "Beethoven het die Eroica-simfonie (oorspronklik vir Napoleon) en die Keiserkonsert (tydens die bombardement van Wene) gekomponeer. Die oorloë het beskermingstelstels ontwrig en musikante na openbare konsertlewe gestoot.",
+        "region": "Europa"
+    },
+    "congress-of-vienna": {
+        "title": "Kongres van Wene",
+        "description": "Die groot moondhede van Europa vergader om die kaart na Napoleon se nederlaag te herteken en stel 'n konserwatiewe orde in wat tot 1848 sou duur.",
+        "musicalSignificance": "Die konserwatiewe Metternich-era wat gevolg het, het politieke uitdrukking ondergronds en na die kuns gedryf. Die Romantiese beweging het revolusionêre energie in musiek en letterkunde gekanaliseer.",
+        "region": "Europa"
+    },
+    "abolition-british-slavery": {
+        "title": "Afskaffing van slawerny in die Britse Ryk",
+        "description": "Die Wet op Afskaffing van Slawerny verban slawerny regdeur die grootste deel van die Britse Ryk en bevry meer as 800 000 verslaafde mense. Dit merk 'n waterskeidingsmoment in die wêreldwye afskaffingsbeweging.",
+        "region": "Wêreldwyd"
+    },
+    "revolutions-of-1848": {
+        "title": "Revolusies van 1848",
+        "description": "'n Golf van revolusionêre opstande oor Europa wat liberale hervormings, nasionale eenwording en grondwetlike regering eis. Die \"Lente van Nasies.\"",
+        "musicalSignificance": "Wagner het op die barrikades in Dresden geveg en is in ballingskap gedwing. Die nasionalistiese geesdrif het direk in musikale nasionalisme gevoed — Hongaarse, Tsjeggiese en Poolse komponiste het begin om nasionale identiteite deur musiek te bevestig.",
+        "region": "Europa"
+    },
+    "crimean-war": {
+        "title": "Krimoorlog",
+        "description": "'n Konflik tussen Rusland en 'n alliansie van die Ottomaanse Ryk, Frankryk, Brittanje en Sardinië, hoofsaaklik op die Krim-skiereiland geveg. Bekend vir Florence Nightingale se verpleginghervormings en vroeë oorlogsfotografie.",
+        "musicalSignificance": "Die oorlog se nasleep het Russiese kulturele nasionalisme aangevuur en Die Magtige Handvol (Balakirev, Cui, Mussorgsky, Rimsky-Korsakov, Borodin) gemotiveer om 'n eiesoortig Russiese musikale identiteit te smee, onafhanklik van Wes-Europese tradisies.",
+        "region": "Europa"
+    },
+    "darwin-origin-of-species": {
+        "title": "Darwin publiseer On the Origin of Species",
+        "description": "Charles Darwin se teorie van evolusie deur natuurlike seleksie transformeer biologie en daag tradisionele sienings van die mensdom se plek in die natuur uit.",
+        "musicalSignificance": "Het bygedra tot 'n breër filosofiese omwenteling wat Laat-Romantiese opvattings van vooruitgang, stryd en die belangrikheid van individuele uitdrukking beïnvloed het.",
+        "region": "Engeland"
+    },
+    "italian-unification": {
+        "title": "Italiaanse Eenwording (Risorgimento)",
+        "description": "Die Koninkryk Italië word uitgeroep, wat die Italiaanse skiereiland onder een regering verenig na dekades van stryd.",
+        "musicalSignificance": "Verdi het 'n simbool van Italiaanse eenwording geword. \"VIVA VERDI\" was 'n politieke akroniem (Vittorio Emanuele Re D'Italia). Sy operas se temas van vryheid en patriotisme het die nasionalistiese beweging aangevuur.",
+        "region": "Italië"
+    },
+    "opening-suez-canal": {
+        "title": "Opening van die Suezkanaal",
+        "description": "Die Suezkanaal word geopen en verbind die Middellandse See met die Rooi See, wat maritieme handelsroetes tussen Europa en Asië dramaties verkort.",
+        "musicalSignificance": "Verdi is opdrag gegee om Aida vir die nuwe Kaïro-operahuis te komponeer, gebou om die kanaal se opening te vier. Hoewel die opera eers in 1871 in première gegaan het eerder as by die inhuldiging, bly dit een van die beroemdste opdragte in operageskiedenis.",
+        "region": "Wêreldwyd"
+    },
+    "franco-prussian-war": {
+        "title": "Frans-Pruisiese Oorlog",
+        "description": "Konflik tussen Frankryk en Pruise wat lei tot die Franse nederlaag, die val van Napoleon III en die Paryse Kommune.",
+        "musicalSignificance": "Die Franse nederlaag het 'n musikale nasionalisme in Frankryk ontketen. Saint-Saëns het die Société Nationale de Musique gestig met die leuse \"Ars Gallica\" om Franse komposisie teen Duitse musikale oorheersing te bevorder. Hierdie omgewing het Debussy en Ravel gevoed.",
+        "region": "Europa"
+    },
+    "german-unification": {
+        "title": "Duitse Eenwording",
+        "description": "Die Duitse Ryk word by Versailles uitgeroep na die Frans-Pruisiese Oorlog, wat Duitse state onder Pruisiese leierskap verenig.",
+        "musicalSignificance": "Wagner se kuns het met Duitse nasionale identiteit geassosieer geword. Die nuwe Duitse staat het Bayreuth en die kultus van Duitse musikale oppergesag ondersteun, met diepgaande kulturele gevolge.",
+        "region": "Duitsland"
+    },
+    "first-phonograph": {
+        "title": "Edison vind die fonograaf uit",
+        "description": "Thomas Edison vind die fonograaf uit, wat dit vir die eerste keer in die geskiedenis moontlik maak om klank op te neem en te reproduseer.",
+        "musicalSignificance": "Het revolusioneer hoe musiek verbruik word. Teen die vroeë 20ste eeu sou opnames klassieke musiek transformeer, dit wêreldwyd toeganklik maak en uitvoerders in internasionale sterre verander.",
+        "region": "Noord-Amerika"
+    },
+    "dreyfus-affair": {
+        "title": "Dreyfus-saak",
+        "description": "'n Politieke skandaal in Frankryk rondom die onregverdige skuldigbevinding van die Joodse leëroffisier Alfred Dreyfus vir spioenasie, wat diep antisemitisme in die Franse samelewing blootlê.",
+        "musicalSignificance": "Het die Franse kulturele lewe verdeel, insluitend die musikale establishment. Die saak se onthullings het kunstenaars se betrokkenheid by maatskaplike geregtigheid en nasionale identiteit beïnvloed.",
+        "region": "Frankryk"
+    },
+    "russo-japanese-war": {
+        "title": "Russies-Japanse Oorlog",
+        "description": "Japan verslaan Rusland in 'n konflik oor imperialistiese ambisies in Mandjoerye en Korea, wat die eerste moderne oorwinning van 'n Asiatiese moondheid oor 'n Europese een merk en die 1905 Russiese Revolusie ontketen.",
+        "musicalSignificance": "Die oorlog het die 1905 Russiese Revolusie ontketen, wat Russiese artistieke kringe geradikaliseer en bygedra het tot die avant-garde gisting wat Scriabin se laat mistieke werke en Stravinsky se vroeë eksperimente opgelewer het.",
+        "region": "Asië"
+    },
+    "world-war-1": {
+        "title": "Eerste Wêreldoorlog",
+        "description": "Die Groot Oorlog — 'n wêreldwye konflik wat miljoene gedood, ryke vernietig en die politieke kaart van Europa en die Midde-Ooste hervorm het.",
+        "musicalSignificance": "Het die Romantiese wêreldbeskouing verpletter. Debussy se laat werke word deur oorlogstydse nasionalisme oorskadu. Ravel het 'n ambulans aan die front bestuur. Die naoorlogse ontnugtering het neoklassisisme, ekspressionisme en 'n wending na ironie en objektiwiteit in musiek aangevuur.",
+        "region": "Wêreldwyd"
+    },
+    "russian-revolution": {
+        "title": "Russiese Revolusie",
+        "description": "Die omverwerping van die Russiese Ryk en vestiging van die Sowjetunie, een van die mees transformerende politieke gebeure van die 20ste eeu.",
+        "musicalSignificance": "Rachmaninoff, Stravinsky en Prokofiev het geëmigreer. Diegene wat gebly het (of teruggekeer het, soos Prokofiev) het toenemende staatsbeheer oor artistieke uitdrukking in die gesig gestaar. Sowjet-musiekbeleid, veral onder Stalin, sou Shostakovich se hele loopbaan definieer.",
+        "region": "Rusland"
+    },
+    "treaty-of-versailles": {
+        "title": "Verdrag van Versailles",
+        "description": "Die vredesverdrag wat die Eerste Wêreldoorlog beëindig en strawwe voorwaardes aan Duitsland oplê en Europese grense herteken.",
+        "musicalSignificance": "Die strafmaatreëls het bygedra tot die opkoms van Nasisme, wat Europese musieklewe sou verwoes — en Schoenberg, Bartók, Stravinsky, Hindemith en baie ander in ballingskap sou dwing.",
+        "region": "Europa"
+    },
+    "rise-of-nazism": {
+        "title": "Hitler word Kanselier van Duitsland",
+        "description": "Adolf Hitler word as Kanselier van Duitsland aangestel, wat die Nazi-regime begin wat tot die Tweede Wêreldoorlog en die Holocaust sou lei.",
+        "musicalSignificance": "Die Nazi's het \"ontaarde musiek\" (entartete Musik) verban — jazz, atonale musiek en werke deur Joodse komponiste. Schoenberg het na Amerika gevlug. Bartók het Hongarye verlaat. Die grootste gedwonge migrasie van musikale talent in die geskiedenis.",
+        "region": "Duitsland"
+    },
+    "spanish-civil-war": {
+        "title": "Spaanse Burgeroorlog",
+        "description": "'n Brutale konflik tussen Republikeinse en Nasionalistiese magte in Spanje, wat as 'n plaasvervangingsoorlog tussen fascisme en demokrasie gedien het. Franco se Nasionalistiese oorwinning het 'n diktatuur tot 1975 gevestig.",
+        "musicalSignificance": "Manuel de Falla, Spanje se grootste moderne komponis, was tussen die strydende faksies vasgevang. Die konflik en Franco se daaropvolgende regime het Spaanse musieklewe vir dekades van Europese ontwikkelings geïsoleer.",
+        "region": "Europa"
+    },
+    "world-war-2": {
+        "title": "Tweede Wêreldoorlog",
+        "description": "Die dodelikste konflik in die menslike geskiedenis, met na beraming 70–85 miljoen sterftes, insluitend die Holocaust.",
+        "musicalSignificance": "Shostakovich se Leningrad-simfonie het 'n simbool van weerstand geword. Messiaen het die Kwartet vir die Einde van Tyd in 'n krygsgevangenekamp gekomponeer. Bartók, Stravinsky en Schoenberg het groot werke in Amerikaanse ballingskap gekomponeer. Die oorlog het die middelpunt van musikale gewig permanent van Europa na Amerika verskuif.",
+        "region": "Wêreldwyd"
+    },
+    "atomic-bombings": {
+        "title": "Atoombombardering van Hiroshima en Nagasaki",
+        "description": "Die Verenigde State laat val atoombomme op die Japanse stede Hiroshima en Nagasaki, wat die Tweede Wêreldoorlog beëindig en die kernera begin.",
+        "musicalSignificance": "Die eksistensiële bedreiging van kernvernietiging het naoorlogse komponiste diepgaande beïnvloed. Penderecki se Treurlied vir die Slagoffers van Hiroshima (1960) is die mees direkte musikale reaksie.",
+        "region": "Japan"
+    },
+    "founding-of-un": {
+        "title": "Stigting van die Verenigde Nasies",
+        "description": "Die Verenigde Nasies word gestig om internasionale samewerking te bevorder en toekomstige wêreldoorloë te voorkom.",
+        "musicalSignificance": "Beethoven se Negende Simfonie en sy \"Ode aan Vreugde\" het 'n onamptelike volkslied van internasionale samewerking geword en is later aangeneem as die volkslied van die Europese Unie.",
+        "region": "Wêreldwyd"
+    },
+    "cold-war-begins": {
+        "title": "Koue Oorlog begin",
+        "description": "Die geopolitieke spanning tussen die Verenigde State en die Sowjetunie vorm wêreldpolitiek vir meer as vier dekades.",
+        "musicalSignificance": "Klassieke musiek het 'n wapen in die kulturele Koue Oorlog geword. Die CIA het in die geheim Amerikaanse avant-garde musiek en internasionale toere befonds. Sowjet-musiekbeleid het Shostakovich en Prokofiev voortdurend beperk.",
+        "region": "Wêreldwyd"
+    },
+    "zhdanov-doctrine": {
+        "title": "Zjdanov-doktrine oor musiek",
+        "description": "Die Sowjetregering veroordeel Shostakovich, Prokofiev en ander vooraanstaande komponiste vir \"formalisme\" en eis musiek wat die staat dien en vir die massas toeganklik is.",
+        "musicalSignificance": "Het Sowjetkomponis gedwing om in 'n meer konserwatiewe, tonale styl te skryf of vervolging in die gesig te staar. Het Shostakovich en Prokofiev se laat werke diepgaande beïnvloed. Prokofiev se dood in 1953 is feitlik onberapporteer — hy het op dieselfde dag as Stalin gesterf.",
+        "region": "Sowjetunie"
+    },
+    "korean-war": {
+        "title": "Koreaanse Oorlog",
+        "description": "'n Konflik tussen Noord-Korea (gesteun deur China en die Sowjetunie) en Suid-Korea (gesteun deur die Verenigde Nasies, hoofsaaklik die Verenigde State). Die oorlog het geëindig met 'n wapenstilstand, met Korea steeds verdeel.",
+        "region": "Asië"
+    },
+    "death-of-stalin": {
+        "title": "Dood van Stalin",
+        "description": "Josef Stalin sterf, wat 'n dooi in Sowjet-kultuurbeleid onder Chroesjtsjov begin.",
+        "musicalSignificance": "Prokofiev het op dieselfde dag gesterf. Die post-Stalin-dooi het ietwat groter kreatiewe vryheid moontlik gemaak — Shostakovich se latere werke het meer openlik persoonlik en eksperimenteel geword.",
+        "region": "Sowjetunie"
+    },
+    "launch-of-sputnik": {
+        "title": "Lansering van Spoetnik",
+        "description": "Die Sowjetunie lanseer Spoetnik 1, die eerste kunsmatige satelliet wat om die Aarde wentel, wat die Ruimte-era inlui en die Koue Oorlog-ruimtewedloop verskerp.",
+        "musicalSignificance": "Die Ruimte-era het komponiste geïnspireer om nuwe klankgrense te verken. Stockhausen se elektroniese werke en Xenakis se wiskundig afgeleide komposisies het 'n fassinasie met tegnologie en die kosmos weerspieël wat Spoetnik help ontketen het.",
+        "region": "Wêreldwyd"
+    },
+    "construction-berlin-wall": {
+        "title": "Bou van die Berlynse Muur",
+        "description": "Oos-Duitsland rig 'n versperring op wat Berlyn verdeel, wat Oos en Wes fisies skei en die kragtigste simbool van die Ystergordyn en Koue Oorlog-verdeling word.",
+        "musicalSignificance": "Die Muur het die Duitse musiekwêreld verdeel. Komponiste in die Ooste, soos Hanns Eisler en Paul Dessau, het onder staatsbeperkings gewerk, terwyl die Weste die avant-garde Darmstadt-skool gehuisves het. Die kulturele skeiding het twee afsonderlike trajekte van Duitse nuwe musiek gevorm.",
+        "region": "Europa"
+    },
+    "moon-landing": {
+        "title": "Apollo 11-maanlanding",
+        "description": "NASA-ruimtevaarders Neil Armstrong en Buzz Aldrin word die eerste mense wat op die Maan loop, wat President Kennedy se uitdaging vervul en een van die mensdom se grootste prestasies merk.",
+        "musicalSignificance": "Die maanlanding het die Ruimte-era se kulturele invloed beliggaam. Stockhausen het werke gekomponeer wat deur kosmiese temas geïnspireer is, en die gebeurtenis het die ambisies van elektroniese en eksperimentele komponiste verbreed wat musiek wou skep wat 'n ruimtevarende beskawing waardig is.",
+        "region": "Wêreldwyd"
+    }
+}
+
+out_dir = r"D:\Requiem of Everything\public\locales\af-ZA"
+with open(os.path.join(out_dir, "events.json"), "w", encoding="utf-8") as f:
+    json.dump(events_af, f, indent=2, ensure_ascii=False)
+print(f"events.json created successfully with {len(events_af)} events")

@@ -1,0 +1,129 @@
+{
+  "app": {
+    "title": "Requiem of Everything",
+    "subtitle": "An interactive timeline of classical music",
+    "filters": "Filters",
+    "helpAriaLabel": "Help",
+    "helpTitle": "Help (Shift+?)",
+    "languageSelect": "Select language"
+  },
+  "common": {
+    "close": "Close",
+    "present": "present",
+    "readOnWikipedia": "Read on Wikipedia"
+  },
+  "comparison": {
+    "comparing": "Comparing",
+    "selected": "Selected",
+    "remove": "Remove {{name}}",
+    "ctrlClickHint": "Ctrl+click more to compare",
+    "clearAllTitle": "Clear all comparisons",
+    "clear": "Clear"
+  },
+  "composerBar": {
+    "ariaLabel": "{{name}}, {{birth}}–{{death}}"
+  },
+  "composer": {
+    "focusTimeline": "Focus Timeline",
+    "comparing": "✓ Comparing",
+    "compare": "+ Compare",
+    "biography": "Biography",
+    "notableWorks": "Notable Works",
+    "contemporaries": "Contemporaries"
+  },
+  "composition": {
+    "ariaLabel": "Composition details",
+    "closeAriaLabel": "Close composition details",
+    "openProfile": "Open {{name}}'s profile",
+    "instrumentation": "Instrumentation",
+    "key": "Key",
+    "catalogue": "Catalogue",
+    "listenOnSpotify": "Listen on Spotify"
+  },
+  "compositionMarker": {
+    "ariaLabel": "{{title}} by {{composer}}, {{year}}"
+  },
+  "eventMarker": {
+    "ariaLabel": "Historical event: {{title}}, {{year}}"
+  },
+  "filters": {
+    "ariaLabel": "Timeline filters",
+    "title": "Filters",
+    "closeAriaLabel": "Close filters",
+    "searchPlaceholder": "Search composers…",
+    "searchAriaLabel": "Search composers and compositions",
+    "musicalEra": "Musical Era",
+    "filterByEra": "Filter by era",
+    "nationality": "Nationality",
+    "filterByNationality": "Filter by nationality",
+    "genre": "Genre",
+    "filterByGenre": "Filter by genre",
+    "historicalEvents": "Historical Events",
+    "toggleEvents": "Toggle historical events",
+    "clearAll": "Clear All Filters",
+    "removeFilter": "Remove {{name}} filter",
+    "addFilter": "Add {{name}} filter"
+  },
+  "timeline": {
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "resetView": "Reset view"
+  },
+  "help": {
+    "ariaLabel": "Help",
+    "title": "Help & Shortcuts",
+    "closeAriaLabel": "Close help",
+    "keyboardShortcuts": "Keyboard Shortcuts",
+    "shortcut": {
+      "toggleFilter": "Toggle filter panel",
+      "resetView": "Reset timeline view",
+      "toggleHelp": "Toggle this help panel",
+      "closePanels": "Close open panels",
+      "zoom": "Zoom in / out at cursor",
+      "pan": "Pan the timeline",
+      "comparison": "Add / remove from comparison"
+    },
+    "navigation": "Navigation",
+    "nav": {
+      "item1": "Scroll to zoom in/out, centred on your cursor position.",
+      "item2": "Click and drag to pan across time periods.",
+      "item3": "On touch screens, drag to pan and pinch to zoom.",
+      "item4": "Click a composer bar to open their detail panel.",
+      "item5": "Click a composition dot on the timeline to open its detail card.",
+      "item6": "Use the <strong>+</strong> / <strong>−</strong> / <strong>↺</strong> controls in the top-right corner.",
+      "item7": "The year range indicator at the top shows your current view."
+    },
+    "filtersTitle": "Filters",
+    "filter": {
+      "item1": "Open with <kbd>F</kbd> or the <strong>⚙ Filters</strong> button.",
+      "item2": "Filter by <strong>musical era</strong> — Renaissance, Baroque, Classical, Romantic, and Modern.",
+      "item3": "Filter by <strong>nationality</strong> — shows only composers from selected countries.",
+      "item4": "Filter by <strong>genre</strong> — shows only composers who wrote in at least one selected genre.",
+      "item5": "Search composers by name or tag.",
+      "item6": "Toggle historical event markers on or off.",
+      "item7": "The active filter count badge shows how many filters are on."
+    },
+    "compositionDetail": "Composition Detail",
+    "comp": {
+      "item1": "Zoom in enough to reveal composition dots on each composer bar, then click any dot to open its detail card.",
+      "item2": "You can also click a work title in the composer's detail panel to open the same card.",
+      "item3": "The card shows the title, composer, year, genre, instrumentation, description, and a Wikipedia link if available.",
+      "item4": "Click the composer's name inside the card to jump to their profile.",
+      "item5": "Press <kbd>Esc</kbd> or click <strong>×</strong> to dismiss."
+    },
+    "comparisonMode": "Comparison Mode",
+    "compare": {
+      "item1": "<strong>Ctrl+click</strong> (Cmd+click on Mac) composer bars to add them to comparison.",
+      "item2": "If a composer detail panel is open, Ctrl+clicking another composer adds <em>both</em> to comparison automatically.",
+      "item3": "Ctrl+click a compared composer again to remove it.",
+      "item4": "When 2 or more are selected, non-compared composers dim immediately, then collapse after a few seconds.",
+      "item5": "On collapse, the timeline auto-zooms to frame the compared composers' combined lifespans.",
+      "item6": "Hover collapsed bars to expand and identify them.",
+      "item7": "Clearing comparison restores the original timeline view.",
+      "item8": "Up to 5 composers can be compared simultaneously.",
+      "item9": "You can also use the <strong>+ Compare</strong> button in the composer detail panel.",
+      "item10": "Manage or clear comparisons using the comparison bar in the header."
+    },
+    "footer": "Requiem of Everything — Classical Music 1400–1970"
+  }
+}
