@@ -1,0 +1,49 @@
+.eraBackdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.eraFill {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  transition: opacity var(--transition-default);
+}
+
+.eraLabel {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.5;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.eraBorder {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  opacity: 0.15;
+}
+
+/* Hover effect when composing elements are inside an era zone */
+.eraBackdrop:hover .eraFill {
+  opacity: 0.1;
+}
+
+.eraBackdrop:hover .eraLabel {
+  opacity: 0.85;
+}

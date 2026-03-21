@@ -1,0 +1,281 @@
+{
+  "gutenberg-printing-press": {
+    "title": "L'imprimerie de Gutenberg",
+    "description": "Johannes Gutenberg invente l'imprimerie à caractères mobiles en Europe, révolutionnant la diffusion du savoir et rendant finalement la musique imprimée largement accessible.",
+    "musicalSignificance": "Permit la distribution de masse des partitions musicales. Ottaviano Petrucci publia le premier recueil de musique polyphonique (Harmonice Musices Odhecaton) en 1501.",
+    "region": "Europe"
+  },
+  "fall-of-constantinople": {
+    "title": "Chute de Constantinople",
+    "description": "L'Empire ottoman conquiert Constantinople, mettant fin à l'Empire byzantin. Les érudits grecs fuient vers l'Italie, catalysant la Renaissance.",
+    "musicalSignificance": "L'afflux de savants et de manuscrits byzantins en Italie contribua à l'effervescence culturelle de la Renaissance, qui façonna profondément le développement musical.",
+    "region": "Méditerranée"
+  },
+  "columbus-americas": {
+    "title": "Christophe Colomb atteint les Amériques",
+    "description": "Le voyage de Christophe Colomb marque le début de la colonisation européenne des Amériques, transformant le commerce mondial, la culture et les structures de pouvoir.",
+    "region": "Amériques"
+  },
+  "protestant-reformation": {
+    "title": "Début de la Réforme protestante",
+    "description": "Martin Luther affiche ses 95 thèses, déclenchant la Réforme protestante qui divise la chrétienté occidentale.",
+    "musicalSignificance": "Luther défendit le chant de la congrégation et le choral, qui devinrent le fondement de la musique d'église protestante et influencèrent profondément la vie compositionnelle de J.-S. Bach.",
+    "region": "Europe"
+  },
+  "council-of-trent": {
+    "title": "Concile de Trente",
+    "description": "Le grand concile de la Contre-Réforme de l'Église catholique, qui aborda les questions doctrinales et les pratiques ecclésiastiques, y compris l'usage de la musique dans le culte.",
+    "musicalSignificance": "Débattit de l'interdiction de la musique polyphonique dans le culte pour cause d'obscurcissement du texte. La musique de Palestrina aurait démontré que la polyphonie pouvait servir clairement les paroles, sauvant ainsi cette forme d'art.",
+    "region": "Europe"
+  },
+  "spanish-armada": {
+    "title": "Défaite de l'Invincible Armada",
+    "description": "Le roi Philippe II d'Espagne envoie une imposante flotte navale pour envahir l'Angleterre, mais l'Armada est vaincue par la marine anglaise sous le commandement de Sir Francis Drake et dispersée par les tempêtes. La victoire assure la position de l'Angleterre comme nation protestante et puissance maritime émergente.",
+    "musicalSignificance": "La confiance retrouvée de l'Angleterre et son épanouissement culturel sous Élisabeth Iᵉʳᵉ contribuèrent à nourrir l'école du madrigal anglais — Byrd, Morley, Dowland et Weelkes — l'un des âges d'or de la musique anglaise.",
+    "region": "Europe"
+  },
+  "shakespeare-active": {
+    "title": "Carrière active de Shakespeare",
+    "description": "William Shakespeare écrit ses pièces et ses sonnets, créant le plus grand corpus de littérature dramatique en langue anglaise.",
+    "musicalSignificance": "Les œuvres de Shakespeare inspirèrent par la suite d'innombrables compositions musicales : l'Otello et le Falstaff de Verdi, le Songe d'une nuit d'été de Mendelssohn, le Roméo et Juliette de Tchaïkovski, le ballet Roméo de Prokofiev, l'opéra Béatrice et Bénédict de Berlioz.",
+    "region": "Angleterre"
+  },
+  "galileo-telescope": {
+    "title": "Observations au télescope de Galilée",
+    "description": "Galilée utilise son télescope amélioré pour observer les lunes de Jupiter, confirmant le modèle héliocentrique de Copernic et lançant la Révolution scientifique.",
+    "musicalSignificance": "L'accent mis par la Révolution scientifique sur les proportions mathématiques influença les théories baroques de l'harmonie et du tempérament.",
+    "region": "Italie"
+  },
+  "thirty-years-war": {
+    "title": "Guerre de Trente Ans",
+    "description": "Un conflit dévastateur principalement en Europe centrale, d'abord une guerre de religion entre États protestants et catholiques qui évolua en une lutte politique plus large.",
+    "musicalSignificance": "Dévasta la vie musicale allemande pendant une génération. Heinrich Schütz, le plus grand compositeur allemand avant Bach, la traversa et sa musique reflète l'angoisse de l'époque.",
+    "region": "Europe centrale"
+  },
+  "english-civil-war": {
+    "title": "Guerre civile anglaise",
+    "description": "Guerre civile entre les Parlementaires et les Royalistes en Angleterre, aboutissant à l'exécution du roi Charles Iᵉʳ et à l'établissement du Commonwealth.",
+    "musicalSignificance": "Le Commonwealth puritain réprima les divertissements théâtraux et musicaux. Quand la monarchie fut restaurée en 1660, cela provoqua une renaissance de la musique anglaise, préparant le terrain pour Purcell.",
+    "region": "Angleterre"
+  },
+  "peace-of-westphalia": {
+    "title": "Paix de Westphalie",
+    "description": "Une série de traités mettant fin à la guerre de Trente Ans et à la guerre de Quatre-Vingts Ans. La paix établit le principe de souveraineté des États et redessina la carte politique et religieuse de l'Europe.",
+    "musicalSignificance": "La restauration de la paix permit à la vie musicale allemande de se reconstruire. La fragmentation politique de l'Allemagne en des centaines de petites cours créa un vaste réseau de mécénat musical qui allait soutenir les compositeurs de Buxtehude à Bach.",
+    "region": "Europe"
+  },
+  "great-fire-of-london": {
+    "title": "Grand incendie de Londres",
+    "description": "Un incendie dévastateur ravage Londres pendant quatre jours, détruisant 13 200 maisons, 87 églises et la plupart des bâtiments publics. L'incendie entraîne un effort de reconstruction massif qui transforme la ville.",
+    "musicalSignificance": "La reconstruction des églises de Londres, notamment la cathédrale Saint-Paul, créa de nouveaux lieux pour la musique sacrée. La reconstruction culturelle de la ville coïncida avec l'essor de Henry Purcell, le plus grand compositeur baroque d'Angleterre.",
+    "region": "Europe"
+  },
+  "newton-principia": {
+    "title": "Newton publie les Principia Mathematica",
+    "description": "Isaac Newton publie ses lois du mouvement et de la gravitation universelle, l'un des ouvrages les plus importants de l'histoire des sciences.",
+    "musicalSignificance": "La vision newtonienne du monde fondée sur l'ordre, la proportion et les lois universelles influença profondément la pensée des Lumières, qui à son tour façonna les idéaux esthétiques de clarté et d'équilibre dans la musique de l'ère classique.",
+    "region": "Angleterre"
+  },
+  "glorious-revolution": {
+    "title": "Glorieuse Révolution",
+    "description": "Le roi Jacques II d'Angleterre est déposé et remplacé par Guillaume III et Marie II dans une révolution essentiellement pacifique. L'événement établit la monarchie constitutionnelle et la suprématie parlementaire en Angleterre.",
+    "musicalSignificance": "Les nouveaux monarques apportèrent des influences musicales néerlandaises et continentales en Angleterre. Purcell composa des odes de célébration pour les nouveaux souverains, et la stabilité politique contribua à attirer Haendel à Londres une génération plus tard.",
+    "region": "Europe"
+  },
+  "war-of-spanish-succession": {
+    "title": "Guerre de Succession d'Espagne",
+    "description": "Un conflit européen majeur au sujet de la succession au trône d'Espagne, impliquant la plupart des grandes puissances européennes.",
+    "musicalSignificance": "Les bouleversements politiques remodelèrent les réseaux de mécénat. Haendel quitta l'Italie pour Londres en partie à cause de l'instabilité politique sur le continent.",
+    "region": "Europe"
+  },
+  "seven-years-war": {
+    "title": "Guerre de Sept Ans",
+    "description": "Un conflit mondial impliquant toutes les grandes puissances européennes, mené en Europe, dans les Amériques, en Afrique et en Asie. Souvent qualifiée de première véritable guerre mondiale, elle établit la domination britannique en Amérique du Nord et en Inde.",
+    "musicalSignificance": "La guerre perturba la vie musicale à travers l'Europe. Frédéric le Grand de Prusse, lui-même flûtiste et compositeur, conserva ses musiciens de cour même pendant les campagnes. La reprise économique d'après-guerre contribua à alimenter le développement de la vie de concert publique à l'ère classique.",
+    "region": "Mondial"
+  },
+  "american-independence": {
+    "title": "Déclaration d'indépendance américaine",
+    "description": "Les treize colonies américaines déclarent leur indépendance vis-à-vis de la Grande-Bretagne, fondant les États-Unis d'Amérique sur les idéaux des Lumières.",
+    "musicalSignificance": "Les valeurs des Lumières de liberté individuelle et d'ordre rationnel qui inspirèrent la Révolution sous-tendaient également les idéaux de clarté, d'équilibre et d'expression universelle du style classique.",
+    "region": "Amérique du Nord"
+  },
+  "french-revolution": {
+    "title": "Révolution française",
+    "description": "Le renversement de la monarchie française et l'établissement d'une république fondée sur les principes de liberté, d'égalité et de fraternité.",
+    "musicalSignificance": "Influença profondément Beethoven et le mouvement romantique naissant. Les idéaux de liberté individuelle et de lutte héroïque devinrent centraux dans l'esthétique romantique. La Symphonie Héroïque de Beethoven fut initialement dédiée à Napoléon.",
+    "region": "France"
+  },
+  "declaration-rights-of-man": {
+    "title": "Déclaration des droits de l'homme et du citoyen",
+    "description": "L'Assemblée nationale constituante française adopte la Déclaration, proclamant les droits universels de liberté, de propriété, de sûreté et de résistance à l'oppression. Elle devient un document fondateur de la gouvernance démocratique moderne.",
+    "musicalSignificance": "Les idéaux de dignité humaine universelle de la Déclaration trouvèrent un écho dans la musique romantique. Des chants révolutionnaires comme La Marseillaise démontrèrent le pouvoir de la musique comme expression politique, un concept que des compositeurs de Beethoven à Verdi allaient embrasser.",
+    "region": "Europe"
+  },
+  "napoleonic-wars": {
+    "title": "Guerres napoléoniennes",
+    "description": "Une série de conflits impliquant l'Empire français de Napoléon et diverses coalitions européennes, redessinant la carte politique de l'Europe.",
+    "musicalSignificance": "Beethoven composa la Symphonie Héroïque (initialement pour Napoléon) et le Concerto Empereur (pendant le bombardement de Vienne). Les guerres perturbèrent les systèmes de mécénat et poussèrent les musiciens vers la vie de concert publique.",
+    "region": "Europe"
+  },
+  "congress-of-vienna": {
+    "title": "Congrès de Vienne",
+    "description": "Les grandes puissances européennes se réunissent pour redessiner la carte après la défaite de Napoléon, établissant un ordre conservateur qui durera jusqu'en 1848.",
+    "musicalSignificance": "L'ère conservatrice de Metternich qui suivit poussa l'expression politique dans la clandestinité et vers l'art. Le mouvement romantique canalisa l'énergie révolutionnaire dans la musique et la littérature.",
+    "region": "Europe"
+  },
+  "abolition-british-slavery": {
+    "title": "Abolition de l'esclavage dans l'Empire britannique",
+    "description": "La loi sur l'abolition de l'esclavage interdit l'esclavage dans la majeure partie de l'Empire britannique, émancipant plus de 800 000 personnes asservies. Elle marque un tournant dans le mouvement abolitionniste mondial.",
+    "region": "Mondial"
+  },
+  "revolutions-of-1848": {
+    "title": "Révolutions de 1848",
+    "description": "Une vague de soulèvements révolutionnaires à travers l'Europe exigeant des réformes libérales, l'unification nationale et un gouvernement constitutionnel. Le « Printemps des peuples ».",
+    "musicalSignificance": "Wagner combattit sur les barricades à Dresde et fut contraint à l'exil. La ferveur nationaliste nourrit directement le nationalisme musical — les compositeurs hongrois, tchèques et polonais commencèrent à affirmer leurs identités nationales à travers la musique.",
+    "region": "Europe"
+  },
+  "crimean-war": {
+    "title": "Guerre de Crimée",
+    "description": "Un conflit entre la Russie et une alliance de l'Empire ottoman, de la France, de la Grande-Bretagne et de la Sardaigne, mené principalement dans la péninsule de Crimée. Notable pour les réformes infirmières de Florence Nightingale et les débuts de la photographie de guerre.",
+    "musicalSignificance": "Les suites de la guerre stimulèrent le nationalisme culturel russe, galvanisant le Groupe des Cinq (Balakirev, Cui, Moussorgski, Rimski-Korsakov, Borodine) pour forger une identité musicale distinctement russe, indépendante des traditions d'Europe occidentale.",
+    "region": "Europe"
+  },
+  "darwin-origin-of-species": {
+    "title": "Darwin publie De l'origine des espèces",
+    "description": "La théorie de l'évolution par la sélection naturelle de Charles Darwin transforme la biologie et remet en question les conceptions traditionnelles de la place de l'humanité dans la nature.",
+    "musicalSignificance": "Contribua à un bouleversement philosophique plus large qui influença les notions du Romantisme tardif de progrès, de lutte et d'importance de l'expression individuelle.",
+    "region": "Angleterre"
+  },
+  "italian-unification": {
+    "title": "Unification italienne (Risorgimento)",
+    "description": "Le Royaume d'Italie est proclamé, unifiant la péninsule italienne sous un seul gouvernement après des décennies de lutte.",
+    "musicalSignificance": "Verdi devint un symbole de l'unification italienne. « VIVA VERDI » était un acronyme politique (Vittorio Emanuele Re D'Italia). Les thèmes de liberté et de patriotisme de ses opéras alimentèrent le mouvement nationaliste.",
+    "region": "Italie"
+  },
+  "opening-suez-canal": {
+    "title": "Ouverture du canal de Suez",
+    "description": "Le canal de Suez est inauguré, reliant la mer Méditerranée à la mer Rouge et raccourcissant considérablement les routes commerciales maritimes entre l'Europe et l'Asie.",
+    "musicalSignificance": "Verdi reçut la commande de composer Aida pour le nouvel Opéra du Caire, construit pour célébrer l'ouverture du canal. Bien que l'opéra ait été créé en 1871 plutôt qu'à l'inauguration, il demeure l'une des commandes les plus célèbres de l'histoire de l'opéra.",
+    "region": "Mondial"
+  },
+  "franco-prussian-war": {
+    "title": "Guerre franco-prussienne",
+    "description": "Conflit entre la France et la Prusse aboutissant à la défaite française, la chute de Napoléon III et la Commune de Paris.",
+    "musicalSignificance": "La défaite française suscita un nationalisme musical en France. Saint-Saëns fonda la Société Nationale de Musique avec la devise « Ars Gallica », promouvant la composition française face à la domination musicale allemande. Ce climat nourrit Debussy et Ravel.",
+    "region": "Europe"
+  },
+  "german-unification": {
+    "title": "Unification allemande",
+    "description": "L'Empire allemand est proclamé à Versailles après la guerre franco-prussienne, unifiant les États allemands sous la direction prussienne.",
+    "musicalSignificance": "L'art de Wagner devint associé à l'identité nationale allemande. Le nouvel État allemand soutint Bayreuth et le culte de la suprématie musicale allemande, avec de profondes conséquences culturelles.",
+    "region": "Allemagne"
+  },
+  "first-phonograph": {
+    "title": "Edison invente le phonographe",
+    "description": "Thomas Edison invente le phonographe, rendant possible pour la première fois dans l'histoire l'enregistrement et la reproduction du son.",
+    "musicalSignificance": "Révolutionna la manière dont la musique était consommée. Au début du XXᵉ siècle, les enregistrements allaient transformer la musique classique, la rendant accessible dans le monde entier et faisant des interprètes des vedettes internationales.",
+    "region": "Amérique du Nord"
+  },
+  "dreyfus-affair": {
+    "title": "Affaire Dreyfus",
+    "description": "Un scandale politique en France impliquant la condamnation injuste de l'officier juif Alfred Dreyfus pour espionnage, révélant un antisémitisme profond dans la société française.",
+    "musicalSignificance": "Divisa la vie culturelle française, y compris l'establishment musical. Les révélations de l'affaire influencèrent l'engagement des artistes pour la justice sociale et l'identité nationale.",
+    "region": "France"
+  },
+  "russo-japanese-war": {
+    "title": "Guerre russo-japonaise",
+    "description": "Le Japon vainc la Russie dans un conflit portant sur les ambitions impériales en Mandchourie et en Corée, marquant la première victoire moderne d'une puissance asiatique sur une puissance européenne et déclenchant la Révolution russe de 1905.",
+    "musicalSignificance": "La guerre déclencha la Révolution russe de 1905, qui radicalisa les cercles artistiques russes et contribua à la fermentation avant-gardiste qui produisit les dernières œuvres mystiques de Scriabine et les premières expériences de Stravinski.",
+    "region": "Asie"
+  },
+  "world-war-1": {
+    "title": "Première Guerre mondiale",
+    "description": "La Grande Guerre — un conflit mondial qui tua des millions de personnes, détruisit des empires et remodela la carte politique de l'Europe et du Moyen-Orient.",
+    "musicalSignificance": "Brisa la vision du monde romantique. Les dernières œuvres de Debussy sont assombries par le nationalisme de guerre. Ravel conduisit une ambulance au front. La désillusion d'après-guerre alimenta le néoclassicisme, l'expressionnisme et un virage vers l'ironie et l'objectivité en musique.",
+    "region": "Mondial"
+  },
+  "russian-revolution": {
+    "title": "Révolution russe",
+    "description": "Le renversement de l'Empire russe et l'établissement de l'Union soviétique, l'un des événements politiques les plus transformateurs du XXᵉ siècle.",
+    "musicalSignificance": "Rachmaninov, Stravinski et Prokofiev émigrèrent. Ceux qui restèrent (ou revinrent, comme Prokofiev) firent face à un contrôle étatique croissant sur l'expression artistique. La politique musicale soviétique, notamment sous Staline, allait définir toute la carrière de Chostakovitch.",
+    "region": "Russie"
+  },
+  "treaty-of-versailles": {
+    "title": "Traité de Versailles",
+    "description": "Le traité de paix mettant fin à la Première Guerre mondiale, imposant des conditions sévères à l'Allemagne et redessinant les frontières européennes.",
+    "musicalSignificance": "Les conditions punitives contribuèrent à la montée du nazisme, qui allait dévaster la vie musicale européenne — forçant Schönberg, Bartók, Stravinski, Hindemith et beaucoup d'autres à l'exil.",
+    "region": "Europe"
+  },
+  "rise-of-nazism": {
+    "title": "Hitler devient chancelier d'Allemagne",
+    "description": "Adolf Hitler est nommé chancelier d'Allemagne, marquant le début du régime nazi qui allait mener à la Seconde Guerre mondiale et à la Shoah.",
+    "musicalSignificance": "Les nazis interdirent la « musique dégénérée » (entartete Musik) — le jazz, la musique atonale et les œuvres de compositeurs juifs. Schönberg s'enfuit en Amérique. Bartók quitta la Hongrie. La plus grande migration forcée de talents musicaux de l'histoire.",
+    "region": "Allemagne"
+  },
+  "spanish-civil-war": {
+    "title": "Guerre civile espagnole",
+    "description": "Un conflit brutal entre les forces républicaines et nationalistes en Espagne, servant de guerre par procuration entre fascisme et démocratie. La victoire nationaliste de Franco établit une dictature qui dura jusqu'en 1975.",
+    "musicalSignificance": "Manuel de Falla, le plus grand compositeur moderne espagnol, fut pris entre les factions en guerre. Le conflit et le régime de Franco qui suivit isolèrent la vie musicale espagnole des développements européens pendant des décennies.",
+    "region": "Europe"
+  },
+  "world-war-2": {
+    "title": "Seconde Guerre mondiale",
+    "description": "Le conflit le plus meurtrier de l'histoire humaine, causant la mort d'environ 70 à 85 millions de personnes, y compris la Shoah.",
+    "musicalSignificance": "La Symphonie Leningrad de Chostakovitch devint un symbole de résistance. Messiaen composa le Quatuor pour la fin du temps dans un camp de prisonniers de guerre. Bartók, Stravinski et Schönberg composèrent des œuvres majeures en exil américain. La guerre déplaça définitivement le centre de gravité musical de l'Europe vers l'Amérique.",
+    "region": "Mondial"
+  },
+  "atomic-bombings": {
+    "title": "Bombardements atomiques d'Hiroshima et Nagasaki",
+    "description": "Les États-Unis larguent des bombes atomiques sur les villes japonaises d'Hiroshima et Nagasaki, mettant fin à la Seconde Guerre mondiale et inaugurant l'ère nucléaire.",
+    "musicalSignificance": "La menace existentielle de l'anéantissement nucléaire influença profondément les compositeurs d'après-guerre. Le Thrène à la mémoire des victimes d'Hiroshima de Penderecki (1960) en est la réponse musicale la plus directe.",
+    "region": "Japon"
+  },
+  "founding-of-un": {
+    "title": "Fondation des Nations unies",
+    "description": "Les Nations unies sont créées pour promouvoir la coopération internationale et prévenir de futures guerres mondiales.",
+    "musicalSignificance": "La Neuvième Symphonie de Beethoven et son « Ode à la joie » devinrent un hymne officieux de la coopération internationale et furent ensuite adoptés comme hymne de l'Union européenne.",
+    "region": "Mondial"
+  },
+  "cold-war-begins": {
+    "title": "Début de la Guerre froide",
+    "description": "La tension géopolitique entre les États-Unis et l'Union soviétique façonne la politique mondiale pendant plus de quatre décennies.",
+    "musicalSignificance": "La musique classique devint une arme dans la Guerre froide culturelle. La CIA finança secrètement la musique avant-gardiste américaine et les tournées internationales. La politique musicale soviétique continua de contraindre Chostakovitch et Prokofiev.",
+    "region": "Mondial"
+  },
+  "zhdanov-doctrine": {
+    "title": "Doctrine Jdanov sur la musique",
+    "description": "Le gouvernement soviétique dénonce Chostakovitch, Prokofiev et d'autres compositeurs de premier plan pour « formalisme » et exige une musique au service de l'État et accessible aux masses.",
+    "musicalSignificance": "Contraignit les compositeurs soviétiques à écrire dans un style plus conservateur et tonal sous peine de persécution. Affecta profondément les œuvres tardives de Chostakovitch et de Prokofiev. La mort de Prokofiev en 1953 passa pratiquement inaperçue — il mourut le même jour que Staline.",
+    "region": "Union soviétique"
+  },
+  "korean-war": {
+    "title": "Guerre de Corée",
+    "description": "Un conflit entre la Corée du Nord (soutenue par la Chine et l'Union soviétique) et la Corée du Sud (soutenue par les Nations unies, principalement les États-Unis). La guerre se termina par un armistice, la Corée restant divisée.",
+    "region": "Asie"
+  },
+  "death-of-stalin": {
+    "title": "Mort de Staline",
+    "description": "Joseph Staline meurt, amorçant un dégel de la politique culturelle soviétique sous Khrouchtchev.",
+    "musicalSignificance": "Prokofiev mourut le même jour. Le dégel post-stalinien permit une liberté créative un peu plus grande — les dernières œuvres de Chostakovitch devinrent plus ouvertement personnelles et expérimentales.",
+    "region": "Union soviétique"
+  },
+  "launch-of-sputnik": {
+    "title": "Lancement de Spoutnik",
+    "description": "L'Union soviétique lance Spoutnik 1, le premier satellite artificiel en orbite autour de la Terre, inaugurant l'ère spatiale et intensifiant la course à l'espace de la Guerre froide.",
+    "musicalSignificance": "L'ère spatiale inspira les compositeurs à explorer de nouvelles frontières sonores. Les œuvres électroniques de Stockhausen et les compositions mathématiques de Xenakis reflétèrent une fascination pour la technologie et le cosmos que Spoutnik contribua à allumer.",
+    "region": "Mondial"
+  },
+  "construction-berlin-wall": {
+    "title": "Construction du mur de Berlin",
+    "description": "L'Allemagne de l'Est érige une barrière divisant Berlin, séparant physiquement l'Est et l'Ouest et devenant le symbole le plus puissant du Rideau de fer et de la division de la Guerre froide.",
+    "musicalSignificance": "Le Mur divisa le monde musical allemand. Les compositeurs de l'Est, comme Hanns Eisler et Paul Dessau, travaillèrent sous les contraintes étatiques, tandis que l'Ouest accueillit l'école avant-gardiste de Darmstadt. La division culturelle façonna deux trajectoires distinctes de la nouvelle musique allemande.",
+    "region": "Europe"
+  },
+  "moon-landing": {
+    "title": "Alunissage d'Apollo 11",
+    "description": "Les astronautes de la NASA Neil Armstrong et Buzz Aldrin deviennent les premiers humains à marcher sur la Lune, accomplissant le défi du président Kennedy et marquant l'un des plus grands exploits de l'humanité.",
+    "musicalSignificance": "L'alunissage incarna l'influence culturelle de l'ère spatiale. Stockhausen composa des œuvres inspirées par des thèmes cosmiques, et l'événement élargit les ambitions des compositeurs électroniques et expérimentaux qui cherchaient à créer une musique digne d'une civilisation spatiale.",
+    "region": "Mondial"
+  }
+}

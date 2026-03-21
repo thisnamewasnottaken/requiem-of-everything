@@ -1,0 +1,3523 @@
+[
+  {
+    "id": "palestrina-missa-papae-marcelli",
+    "title": "Missa Papae Marcelli",
+    "composerId": "giovanni-pierluigi-da-palestrina",
+    "yearComposed": 1562,
+    "genre": "mass",
+    "instrumentation": "SATB choir (6 voices)",
+    "description": "The most famous mass of the Renaissance. Legend holds that Palestrina composed it to demonstrate that polyphonic music could be both complex and intelligible, saving polyphony from being banned by the Council of Trent.",
+    "significance": "Became the model for Counter-Reformation sacred music and the foundation of species counterpoint teaching.",
+    "wikipediaSlug": "Missa_Papae_Marcelli",
+    "tags": [
+      "sacred",
+      "polyphony",
+      "renaissance",
+      "counterpoint"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Palestrina%20Missa%20Papae%20Marcelli"
+  },
+  {
+    "id": "victoria-o-magnum-mysterium",
+    "title": "O Magnum Mysterium",
+    "composerId": "tomas-luis-de-victoria",
+    "yearComposed": 1572,
+    "genre": "motet",
+    "instrumentation": "SATB choir (4 voices)",
+    "description": "A Christmas motet of extraordinary tenderness, setting the text that marvels at the miracle of Christ's birth. Its luminous harmonies have made it one of the most beloved works of the Renaissance.",
+    "wikipediaSlug": "O_Magnum_Mysterium_(Victoria)",
+    "spotifyUrl": "https://open.spotify.com/search/Victoria%20O%20Magnum%20Mysterium",
+    "tags": [
+      "sacred",
+      "choral",
+      "renaissance",
+      "christmas"
+    ]
+  },
+  {
+    "id": "victoria-ave-maria",
+    "title": "Ave Maria (4 voices)",
+    "composerId": "tomas-luis-de-victoria",
+    "yearComposed": 1572,
+    "genre": "motet",
+    "instrumentation": "SATB choir (4 voices)",
+    "description": "A beautifully crafted setting of the Marian prayer, demonstrating Victoria's gift for elegant melodic lines woven into rich polyphonic textures.",
+    "wikipediaSlug": "Ave_Maria_(Victoria)",
+    "spotifyUrl": "https://open.spotify.com/search/Victoria%20Ave%20Maria%20%284%20voices%29",
+    "tags": [
+      "sacred",
+      "choral",
+      "renaissance"
+    ]
+  },
+  {
+    "id": "victoria-o-vos-omnes",
+    "title": "O Vos Omnes",
+    "composerId": "tomas-luis-de-victoria",
+    "yearComposed": 1572,
+    "genre": "motet",
+    "instrumentation": "SATB choir (4 voices)",
+    "description": "A deeply expressive Holy Week responsory whose stark harmonies and plaintive melodic lines convey profound grief. One of the most emotionally intense works of the Renaissance.",
+    "wikipediaSlug": "O_Vos_Omnes",
+    "spotifyUrl": "https://open.spotify.com/search/Victoria%20O%20Vos%20Omnes",
+    "tags": [
+      "sacred",
+      "choral",
+      "renaissance",
+      "lent"
+    ]
+  },
+  {
+    "id": "palestrina-stabat-mater",
+    "title": "Stabat Mater",
+    "composerId": "giovanni-pierluigi-da-palestrina",
+    "yearComposed": 1590,
+    "genre": "motet",
+    "instrumentation": "Double choir (8 voices)",
+    "description": "A sublime setting of the medieval hymn about Mary's sorrow at the crucifixion, for double choir. Its serene beauty exemplifies Palestrina's mature style.",
+    "tags": [
+      "sacred",
+      "choral",
+      "renaissance"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Palestrina%20Stabat%20Mater"
+  },
+  {
+    "id": "victoria-officium-defunctorum",
+    "title": "Officium Defunctorum",
+    "composerId": "tomas-luis-de-victoria",
+    "yearComposed": 1605,
+    "genre": "choral",
+    "instrumentation": "SATB choir (6 voices), organ",
+    "description": "Victoria's last and greatest work, a Requiem Mass for the Dowager Empress María. Its austere beauty and profound emotion make it one of the supreme achievements of Renaissance polyphony.",
+    "significance": "Considered the finest Requiem of the Renaissance era.",
+    "wikipediaSlug": "Officium_Defunctorum_(Victoria)",
+    "spotifyUrl": "https://open.spotify.com/search/Victoria%20Officium%20Defunctorum",
+    "tags": [
+      "sacred",
+      "choral",
+      "renaissance",
+      "requiem"
+    ]
+  },
+  {
+    "id": "monteverdi-lorfeo",
+    "title": "L'Orfeo",
+    "composerId": "claudio-monteverdi",
+    "yearComposed": 1607,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra (recorders, strings, brass, continuo)",
+    "description": "Often considered the first great opera. Monteverdi took the new Florentine invention of dramma per musica and transformed it into a work of genuine dramatic and musical power, deploying the orchestra with unprecedented expressiveness.",
+    "significance": "Established opera as a major art form and demonstrated the dramatic possibilities of the new Baroque monodic style.",
+    "wikipediaSlug": "L'Orfeo",
+    "tags": [
+      "opera",
+      "baroque",
+      "pioneer",
+      "dramatic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Monteverdi%20L%27Orfeo"
+  },
+  {
+    "id": "monteverdi-vespers-1610",
+    "title": "Vespro della Beata Vergine (Vespers of 1610)",
+    "composerId": "claudio-monteverdi",
+    "yearComposed": 1610,
+    "genre": "choral",
+    "instrumentation": "Soloists, chorus, orchestra, organ",
+    "description": "A monumental collection of sacred music that encompasses virtually every style available in 1610 — Renaissance polyphony, Baroque monody, concertato brilliance, and intimate solo writing.",
+    "significance": "One of the greatest sacred works ever composed, bridging Renaissance and Baroque sacred traditions.",
+    "wikipediaSlug": "Vespro_della_Beata_Vergine",
+    "tags": [
+      "sacred",
+      "choral",
+      "baroque",
+      "monumental"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Monteverdi%20Vespro%20della%20Beata%20Vergine%20%28Vespers%20of%201610%29"
+  },
+  {
+    "id": "purcell-dido-and-aeneas",
+    "title": "Dido and Aeneas",
+    "composerId": "henry-purcell",
+    "yearComposed": 1689,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, strings, continuo",
+    "description": "A compact masterpiece containing one of the most famous arias in all opera: Dido's Lament ('When I am laid in earth'), built over a descending chromatic ground bass of devastating emotional power.",
+    "significance": "The first great English opera and a landmark of Baroque vocal writing.",
+    "wikipediaSlug": "Dido_and_Aeneas",
+    "tags": [
+      "opera",
+      "english",
+      "baroque",
+      "lament"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Purcell%20Dido%20and%20Aeneas"
+  },
+  {
+    "id": "purcell-king-arthur",
+    "title": "King Arthur",
+    "composerId": "henry-purcell",
+    "yearComposed": 1691,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A semi-opera with text by John Dryden, blending spoken drama with musical scenes. The Frost Scene and Fairest Isle are among Purcell's most inspired inventions.",
+    "wikipediaSlug": "King_Arthur_(opera)",
+    "spotifyUrl": "https://open.spotify.com/search/Purcell%20King%20Arthur",
+    "tags": [
+      "baroque",
+      "opera",
+      "british"
+    ]
+  },
+  {
+    "id": "purcell-come-ye-sons",
+    "title": "Come, Ye Sons of Art, Away",
+    "composerId": "henry-purcell",
+    "yearComposed": 1694,
+    "genre": "choral",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A birthday ode for Queen Mary, featuring the celebrated duet 'Sound the Trumpet.' Its joyous ceremonial splendour represents Purcell's finest occasional music.",
+    "wikipediaSlug": "Come,_Ye_Sons_of_Art",
+    "spotifyUrl": "https://open.spotify.com/search/Purcell%20Come%2C%20Ye%20Sons%20of%20Art%2C%20Away",
+    "tags": [
+      "baroque",
+      "choral",
+      "ceremonial"
+    ]
+  },
+  {
+    "id": "purcell-funeral-sentences",
+    "title": "Music for the Funeral of Queen Mary",
+    "composerId": "henry-purcell",
+    "yearComposed": 1695,
+    "genre": "choral",
+    "instrumentation": "Chorus, brass, timpani",
+    "description": "Solemn funeral sentences and a march composed for the state funeral of Queen Mary II. The march's muffled drums and canzona's stately brass have a timeless ceremonial grandeur.",
+    "wikipediaSlug": "Music_for_the_Funeral_of_Queen_Mary",
+    "spotifyUrl": "https://open.spotify.com/search/Purcell%20Music%20for%20the%20Funeral%20of%20Queen%20Mary",
+    "tags": [
+      "baroque",
+      "sacred",
+      "choral",
+      "ceremonial"
+    ]
+  },
+  {
+    "id": "bach-toccata-fugue-d-minor",
+    "title": "Toccata and Fugue in D minor",
+    "catalogueNumber": "BWV 565",
+    "composerId": "johann-sebastian-bach",
+    "yearComposed": 1708,
+    "genre": "fugue",
+    "instrumentation": "Organ",
+    "key": "D minor",
+    "description": "The most famous organ work ever written. Its dramatic opening flourish is instantly recognizable worldwide, though scholars debate whether Bach actually wrote it.",
+    "tags": [
+      "organ",
+      "fugue",
+      "baroque",
+      "dramatic",
+      "iconic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/J.S.%20Bach%20Toccata%20and%20Fugue%20in%20D%20minor"
+  },
+  {
+    "id": "vivaldi-gloria",
+    "title": "Gloria in D major",
+    "catalogueNumber": "RV 589",
+    "composerId": "antonio-vivaldi",
+    "yearComposed": 1715,
+    "genre": "choral",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "key": "D major",
+    "description": "A radiant and energetic setting of the Gloria text, written for the Ospedale della Pietà. Its opening movement is one of the most recognizable in all choral music.",
+    "tags": [
+      "sacred",
+      "choral",
+      "baroque",
+      "joyful"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Vivaldi%20Gloria%20in%20D%20major",
+    "wikipediaSlug": "Gloria_(Vivaldi)"
+  },
+  {
+    "id": "scarlatti-d-stabat-mater",
+    "title": "Stabat Mater",
+    "composerId": "domenico-scarlatti",
+    "yearComposed": 1715,
+    "genre": "choral",
+    "instrumentation": "SSAATTBB choir, continuo",
+    "description": "A ten-voice setting of the medieval hymn, composed in Rome. Its rich polyphonic textures and expressive harmonies show Scarlatti's mastery of the vocal tradition he inherited from his father Alessandro.",
+    "wikipediaSlug": "Stabat_Mater_(Domenico_Scarlatti)",
+    "spotifyUrl": "https://open.spotify.com/search/D.%20Scarlatti%20Stabat%20Mater",
+    "tags": [
+      "baroque",
+      "sacred",
+      "choral"
+    ]
+  },
+  {
+    "id": "telemann-viola-concerto-g",
+    "title": "Viola Concerto in G major",
+    "composerId": "georg-philipp-telemann",
+    "yearComposed": 1716,
+    "genre": "concerto",
+    "instrumentation": "Solo viola, strings, continuo",
+    "description": "The first known concerto for viola, showcasing Telemann's progressive approach to featuring instruments usually relegated to inner voices.",
+    "significance": "The first major concerto for viola in the repertoire.",
+    "wikipediaSlug": "Viola_Concerto_in_G_major_(Telemann)",
+    "spotifyUrl": "https://open.spotify.com/search/Telemann%20Viola%20Concerto%20in%20G%20major",
+    "tags": [
+      "baroque",
+      "concerto",
+      "viola"
+    ]
+  },
+  {
+    "id": "handel-water-music",
+    "title": "Water Music",
+    "catalogueNumber": "HWV 348–350",
+    "composerId": "george-frideric-handel",
+    "yearComposed": 1717,
+    "genre": "suite",
+    "instrumentation": "Orchestra (winds, brass, strings)",
+    "description": "Three orchestral suites composed for King George I's royal barge trip on the River Thames. The King liked it so much he ordered it played three times.",
+    "tags": [
+      "orchestral",
+      "suite",
+      "baroque",
+      "royal",
+      "outdoor"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Handel%20Water%20Music"
+  },
+  {
+    "id": "bach-cello-suites",
+    "title": "Cello Suites",
+    "catalogueNumber": "BWV 1007–1012",
+    "composerId": "johann-sebastian-bach",
+    "yearComposed": 1720,
+    "genre": "suite",
+    "instrumentation": "Solo cello",
+    "description": "Six suites for unaccompanied cello that explore the instrument's full potential — from dance movements to profound sarabandes. Rediscovered by Pablo Casals in the early 20th century, they are now considered the cello's supreme repertoire.",
+    "tags": [
+      "cello",
+      "solo",
+      "suite",
+      "baroque",
+      "dance"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/J.S.%20Bach%20Cello%20Suites"
+  },
+  {
+    "id": "bach-brandenburg-concertos",
+    "title": "Brandenburg Concertos",
+    "catalogueNumber": "BWV 1046–1051",
+    "composerId": "johann-sebastian-bach",
+    "yearComposed": 1721,
+    "genre": "concerto",
+    "instrumentation": "Various solo instruments with strings and continuo",
+    "description": "Six concertos, each scored for a different combination of instruments, showcasing the concerto form in dazzling variety. From the festive brass of No. 1 to the intimate keyboard virtuosity of No. 5, they represent the pinnacle of the Baroque concerto grosso.",
+    "significance": "The greatest set of orchestral works from the Baroque era.",
+    "wikipediaSlug": "Brandenburg_Concertos",
+    "tags": [
+      "concerto",
+      "orchestral",
+      "baroque",
+      "varied"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/J.S.%20Bach%20Brandenburg%20Concertos"
+  },
+  {
+    "id": "bach-well-tempered-clavier-1",
+    "title": "The Well-Tempered Clavier, Book I",
+    "catalogueNumber": "BWV 846–869",
+    "composerId": "johann-sebastian-bach",
+    "yearComposed": 1722,
+    "genre": "prelude",
+    "instrumentation": "Keyboard (harpsichord/clavichord/piano)",
+    "description": "24 preludes and fugues in all major and minor keys — a complete exploration of tonal space and contrapuntal possibility. Each pair is a unique world: from the serene C major Prelude to the thunderous B-flat minor Fugue.",
+    "significance": "The 'Old Testament' of keyboard music. Demonstrated the viability of well temperament and became the supreme study in counterpoint for all subsequent composers.",
+    "wikipediaSlug": "The_Well-Tempered_Clavier",
+    "tags": [
+      "keyboard",
+      "fugue",
+      "counterpoint",
+      "baroque",
+      "pedagogical"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/J.S.%20Bach%20The%20Well-Tempered%20Clavier%2C%20Book%20I"
+  },
+  {
+    "id": "telemann-wassermusik",
+    "title": "Wassermusik (Water Music)",
+    "composerId": "georg-philipp-telemann",
+    "yearComposed": 1723,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "A festive suite depicting the gods and commerce of Hamburg's harbour, composed for the centenary of the city's Admiralty. Its vivid tone-painting rivals Handel's famous Water Music.",
+    "wikipediaSlug": "Hamburger_Ebb_und_Fluth",
+    "spotifyUrl": "https://open.spotify.com/search/Telemann%20Wassermusik%20%28Water%20Music%29",
+    "tags": [
+      "baroque",
+      "orchestral",
+      "suite",
+      "programmatic"
+    ]
+  },
+  {
+    "id": "vivaldi-four-seasons",
+    "title": "The Four Seasons",
+    "catalogueNumber": "Op. 8, No. 1–4",
+    "composerId": "antonio-vivaldi",
+    "yearComposed": 1725,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, string orchestra, continuo",
+    "key": "E major / G minor / F major / F minor",
+    "description": "Four violin concertos, each depicting a season through vivid musical imagery: birdsong in Spring, thunderstorms in Summer, harvest dances in Autumn, shivering cold in Winter. Accompanied by sonnets (possibly by Vivaldi himself) that describe each movement's program.",
+    "significance": "The most famous and commercially successful work of the Baroque era. Pioneered programmatic instrumental music.",
+    "wikipediaSlug": "The_Four_Seasons_(Vivaldi)",
+    "tags": [
+      "concerto",
+      "violin",
+      "programmatic",
+      "baroque",
+      "popular"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Vivaldi%20The%20Four%20Seasons"
+  },
+  {
+    "id": "vivaldi-winter",
+    "title": "The Four Seasons: Winter (Concerto No. 4 in F minor)",
+    "composerId": "antonio-vivaldi",
+    "yearComposed": 1725,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, strings, continuo",
+    "description": "The final concerto of The Four Seasons, depicting chattering teeth, slipping on ice, and howling winter winds. Its driving rhythms and brilliant solo writing make it as popular as its companion Spring.",
+    "wikipediaSlug": "The_Four_Seasons_(Vivaldi)",
+    "spotifyUrl": "https://open.spotify.com/search/Vivaldi%20The%20Four%20Seasons%3A%20Winter%20%28Concerto%20No.%204%20in%20F%20minor%29",
+    "tags": [
+      "baroque",
+      "concerto",
+      "violin",
+      "programmatic"
+    ]
+  },
+  {
+    "id": "bach-st-matthew-passion",
+    "title": "St. Matthew Passion",
+    "catalogueNumber": "BWV 244",
+    "composerId": "johann-sebastian-bach",
+    "yearComposed": 1727,
+    "genre": "oratorio",
+    "instrumentation": "Soloists, double chorus, double orchestra",
+    "description": "A monumental setting of the Passion story from Matthew's Gospel, scored for two full choruses and orchestras. Its emotional scope — from intimate arias of repentance to the devastating chorus 'Barabbam!' — makes it one of the most powerful dramatic works before opera.",
+    "significance": "Its revival by Mendelssohn in 1829 sparked the Bach Revival and transformed the history of music.",
+    "wikipediaSlug": "St_Matthew_Passion",
+    "tags": [
+      "passion",
+      "oratorio",
+      "sacred",
+      "baroque",
+      "dramatic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/J.S.%20Bach%20St.%20Matthew%20Passion"
+  },
+  {
+    "id": "telemann-paris-quartets",
+    "title": "Paris Quartets",
+    "composerId": "georg-philipp-telemann",
+    "yearComposed": 1730,
+    "genre": "chamber",
+    "instrumentation": "Flute, violin, viola da gamba, continuo",
+    "description": "Twelve quartets composed for the Concert Spirituel in Paris, brilliantly blending French and Italian styles with Telemann's characteristic melodic inventiveness.",
+    "wikipediaSlug": "Paris_Quartets_(Telemann)",
+    "spotifyUrl": "https://open.spotify.com/search/Telemann%20Paris%20Quartets",
+    "tags": [
+      "baroque",
+      "chamber",
+      "flute"
+    ]
+  },
+  {
+    "id": "telemann-tafelmusik",
+    "title": "Tafelmusik (Musique de table)",
+    "composerId": "georg-philipp-telemann",
+    "yearComposed": 1733,
+    "genre": "orchestral",
+    "instrumentation": "Various ensembles: strings, winds, continuo",
+    "description": "A monumental collection of orchestral suites, concertos, quartets, and solo sonatas designed for banquet entertainment. It was the most widely distributed publication of the era.",
+    "significance": "One of the most ambitious and popular publications of the Baroque era.",
+    "wikipediaSlug": "Tafelmusik_(Telemann)",
+    "spotifyUrl": "https://open.spotify.com/search/Telemann%20Tafelmusik%20%28Musique%20de%20table%29",
+    "tags": [
+      "baroque",
+      "orchestral",
+      "suite"
+    ]
+  },
+  {
+    "id": "rameau-hippolyte-et-aricie",
+    "title": "Hippolyte et Aricie",
+    "composerId": "jean-philippe-rameau",
+    "yearComposed": 1733,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Rameau's first opera, which caused a sensation with its bold harmonies and dramatic intensity. The Lullistes condemned it as too Italian; the Italianists found it too French.",
+    "significance": "Sparked the Querelle des Bouffons, one of music history's great aesthetic debates.",
+    "wikipediaSlug": "Hippolyte_et_Aricie",
+    "spotifyUrl": "https://open.spotify.com/search/Rameau%20Hippolyte%20et%20Aricie",
+    "tags": [
+      "baroque",
+      "opera",
+      "french",
+      "dramatic"
+    ]
+  },
+  {
+    "id": "rameau-les-indes-galantes",
+    "title": "Les Indes galantes",
+    "composerId": "jean-philippe-rameau",
+    "yearComposed": 1735,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra, dancers",
+    "description": "An opéra-ballet in a prologue and four entrées, set in exotic locales from Turkey to Peru. Its dazzling orchestration and sophisticated dances represent the pinnacle of the French Baroque stage.",
+    "significance": "The greatest opéra-ballet of the French Baroque.",
+    "wikipediaSlug": "Les_Indes_galantes",
+    "spotifyUrl": "https://open.spotify.com/search/Rameau%20Les%20Indes%20galantes",
+    "tags": [
+      "baroque",
+      "opera",
+      "ballet",
+      "french"
+    ]
+  },
+  {
+    "id": "rameau-castor-et-pollux",
+    "title": "Castor et Pollux",
+    "composerId": "jean-philippe-rameau",
+    "yearComposed": 1737,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A tragédie en musique based on the myth of the Dioscuri, regarded as Rameau's operatic masterpiece for its emotional depth, particularly the Act IV tomb scene.",
+    "wikipediaSlug": "Castor_et_Pollux",
+    "spotifyUrl": "https://open.spotify.com/search/Rameau%20Castor%20et%20Pollux",
+    "tags": [
+      "baroque",
+      "opera",
+      "french"
+    ]
+  },
+  {
+    "id": "scarlatti-d-keyboard-sonata-k141",
+    "title": "Keyboard Sonata in D minor, K.141",
+    "composerId": "domenico-scarlatti",
+    "yearComposed": 1738,
+    "genre": "keyboard",
+    "instrumentation": "Harpsichord",
+    "description": "One of the most electrifying of Scarlatti's 555 sonatas, featuring rapid repeated notes, hand-crossing, and brilliant virtuosity that anticipates techniques not seen again until Liszt.",
+    "wikipediaSlug": "Keyboard_sonatas_by_Domenico_Scarlatti",
+    "spotifyUrl": "https://open.spotify.com/search/D.%20Scarlatti%20Keyboard%20Sonata%20in%20D%20minor%2C%20K.141",
+    "tags": [
+      "baroque",
+      "keyboard",
+      "virtuosic"
+    ]
+  },
+  {
+    "id": "scarlatti-d-keyboard-sonata-k27",
+    "title": "Keyboard Sonata in B minor, K.27",
+    "composerId": "domenico-scarlatti",
+    "yearComposed": 1738,
+    "genre": "keyboard",
+    "instrumentation": "Harpsichord",
+    "description": "A tender, lyrical sonata of exquisite beauty, its singing melody and delicate ornamentation revealing the contemplative side of Scarlatti's art.",
+    "wikipediaSlug": "Keyboard_sonatas_by_Domenico_Scarlatti",
+    "spotifyUrl": "https://open.spotify.com/search/D.%20Scarlatti%20Keyboard%20Sonata%20in%20B%20minor%2C%20K.27",
+    "tags": [
+      "baroque",
+      "keyboard",
+      "lyrical"
+    ]
+  },
+  {
+    "id": "bach-goldberg-variations",
+    "title": "Goldberg Variations",
+    "catalogueNumber": "BWV 988",
+    "composerId": "johann-sebastian-bach",
+    "yearComposed": 1741,
+    "genre": "variation",
+    "instrumentation": "Harpsichord (two manuals) / Piano",
+    "key": "G major",
+    "description": "An aria and 30 variations of astonishing variety and intellectual brilliance, structured with mathematical precision yet overflowing with musical personality. Legend has it they were commissioned to soothe an insomniac count.",
+    "significance": "One of the greatest sets of variations ever composed. Glenn Gould's 1955 recording made it one of the most famous piano recordings in history.",
+    "wikipediaSlug": "Goldberg_Variations",
+    "tags": [
+      "keyboard",
+      "variation",
+      "counterpoint",
+      "baroque"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/J.S.%20Bach%20Goldberg%20Variations"
+  },
+  {
+    "id": "handel-messiah",
+    "title": "Messiah",
+    "catalogueNumber": "HWV 56",
+    "composerId": "george-frideric-handel",
+    "yearComposed": 1741,
+    "genre": "oratorio",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Composed in just 24 days, Messiah is the most performed large-scale choral work in Western music. Its 'Hallelujah' chorus is so famous that King George II allegedly stood during its first London performance, creating a tradition that persists today.",
+    "significance": "Defined the English oratorio tradition and became the world's most beloved choral work.",
+    "wikipediaSlug": "Messiah_(Handel)",
+    "tags": [
+      "oratorio",
+      "choral",
+      "sacred",
+      "baroque",
+      "iconic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Handel%20Messiah"
+  },
+  {
+    "id": "rameau-pieces-de-clavecin",
+    "title": "Pièces de clavecin en concerts",
+    "composerId": "jean-philippe-rameau",
+    "yearComposed": 1741,
+    "genre": "chamber",
+    "instrumentation": "Harpsichord, violin (or flute), viola da gamba",
+    "description": "Five suites of character pieces that pioneered the concept of true chamber music with keyboard, where all instruments are equal partners rather than the harpsichord merely providing continuo.",
+    "wikipediaSlug": "Pièces_de_clavecin_en_concerts",
+    "spotifyUrl": "https://open.spotify.com/search/Rameau%20Pi%C3%A8ces%20de%20clavecin%20en%20concerts",
+    "tags": [
+      "baroque",
+      "chamber",
+      "harpsichord"
+    ]
+  },
+  {
+    "id": "bach-mass-in-b-minor",
+    "title": "Mass in B minor",
+    "catalogueNumber": "BWV 232",
+    "composerId": "johann-sebastian-bach",
+    "yearComposed": 1749,
+    "genre": "mass",
+    "instrumentation": "Soloists, double chorus, orchestra",
+    "key": "B minor",
+    "description": "Bach's supreme choral work, assembled over decades and completed near the end of his life. A vast synthesis of every contrapuntal, vocal, and orchestral technique available to the Baroque, containing some of the most sublime music ever written.",
+    "significance": "Often considered the greatest single musical composition in Western music.",
+    "wikipediaSlug": "Mass_in_B_minor",
+    "tags": [
+      "mass",
+      "sacred",
+      "choral",
+      "baroque",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/J.S.%20Bach%20Mass%20in%20B%20minor"
+  },
+  {
+    "id": "handel-music-for-royal-fireworks",
+    "title": "Music for the Royal Fireworks",
+    "catalogueNumber": "HWV 351",
+    "composerId": "george-frideric-handel",
+    "yearComposed": 1749,
+    "genre": "suite",
+    "instrumentation": "Large wind band and orchestra",
+    "description": "Composed to accompany a fireworks display celebrating the Treaty of Aix-la-Chapelle. The rehearsal drew 12,000 people and caused a three-hour traffic jam on London Bridge.",
+    "tags": [
+      "orchestral",
+      "suite",
+      "baroque",
+      "ceremonial"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Handel%20Music%20for%20the%20Royal%20Fireworks"
+  },
+  {
+    "id": "scarlatti-d-keyboard-sonata-k380",
+    "title": "Keyboard Sonata in E major, K.380",
+    "composerId": "domenico-scarlatti",
+    "yearComposed": 1754,
+    "genre": "keyboard",
+    "instrumentation": "Harpsichord",
+    "description": "A radiant, courtly sonata with a stately processional character, one of the most popular and frequently performed of Scarlatti's works.",
+    "wikipediaSlug": "Keyboard_sonatas_by_Domenico_Scarlatti",
+    "spotifyUrl": "https://open.spotify.com/search/D.%20Scarlatti%20Keyboard%20Sonata%20in%20E%20major%2C%20K.380",
+    "tags": [
+      "baroque",
+      "keyboard"
+    ]
+  },
+  {
+    "id": "scarlatti-d-keyboard-sonata-k466",
+    "title": "Keyboard Sonata in F minor, K.466",
+    "composerId": "domenico-scarlatti",
+    "yearComposed": 1756,
+    "genre": "keyboard",
+    "instrumentation": "Harpsichord",
+    "description": "A deeply melancholic sonata whose haunting melody and dark harmonies give it an almost Romantic expressiveness, making it one of Scarlatti's most emotionally profound works.",
+    "wikipediaSlug": "Keyboard_sonatas_by_Domenico_Scarlatti",
+    "spotifyUrl": "https://open.spotify.com/search/D.%20Scarlatti%20Keyboard%20Sonata%20in%20F%20minor%2C%20K.466",
+    "tags": [
+      "baroque",
+      "keyboard",
+      "melancholic"
+    ]
+  },
+  {
+    "id": "gluck-orfeo-ed-euridice",
+    "title": "Orfeo ed Euridice",
+    "composerId": "christoph-willibald-gluck",
+    "yearComposed": 1762,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra, ballet",
+    "description": "The first of Gluck's reform operas, stripping away Baroque vocal excess to achieve 'a beautiful simplicity.' The Dance of the Blessed Spirits and Che farò senza Euridice remain beloved.",
+    "significance": "Revolutionised opera by subordinating music to dramatic truth.",
+    "wikipediaSlug": "Orfeo_ed_Euridice",
+    "spotifyUrl": "https://open.spotify.com/search/Gluck%20Orfeo%20ed%20Euridice",
+    "tags": [
+      "classical",
+      "opera",
+      "reform",
+      "landmark"
+    ]
+  },
+  {
+    "id": "gluck-dance-blessed-spirits",
+    "title": "Dance of the Blessed Spirits",
+    "composerId": "christoph-willibald-gluck",
+    "yearComposed": 1762,
+    "genre": "orchestral",
+    "instrumentation": "Solo flute, strings",
+    "description": "An ethereal ballet interlude from Orfeo ed Euridice depicting the Elysian Fields. Its serene flute melody is one of the most recognisable pieces in classical music.",
+    "wikipediaSlug": "Dance_of_the_Blessed_Spirits",
+    "spotifyUrl": "https://open.spotify.com/search/Gluck%20Dance%20of%20the%20Blessed%20Spirits",
+    "tags": [
+      "classical",
+      "ballet",
+      "flute"
+    ]
+  },
+  {
+    "id": "gluck-alceste",
+    "title": "Alceste",
+    "composerId": "christoph-willibald-gluck",
+    "yearComposed": 1767,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Gluck's second reform opera, whose preface became a manifesto for operatic reform. He declared that music should serve the poetry and 'not leave [the audience] to feel the displeasure of superfluity.'",
+    "significance": "Its preface is one of the most important documents in opera history.",
+    "wikipediaSlug": "Alceste_(Gluck)",
+    "spotifyUrl": "https://open.spotify.com/search/Gluck%20Alceste",
+    "tags": [
+      "classical",
+      "opera",
+      "reform"
+    ]
+  },
+  {
+    "id": "gluck-iphigenie-en-tauride",
+    "title": "Iphigénie en Tauride",
+    "composerId": "christoph-willibald-gluck",
+    "yearComposed": 1779,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "The culmination of Gluck's operatic reforms, praised by Berlioz as the greatest French opera. Its relentless dramatic pacing and orchestral mastery set the standard for later generations.",
+    "wikipediaSlug": "Iphigénie_en_Tauride",
+    "spotifyUrl": "https://open.spotify.com/search/Gluck%20Iphig%C3%A9nie%20en%20Tauride",
+    "tags": [
+      "classical",
+      "opera",
+      "french",
+      "dramatic"
+    ]
+  },
+  {
+    "id": "mozart-piano-concerto-21",
+    "title": "Piano Concerto No. 21",
+    "catalogueNumber": "K. 467",
+    "composerId": "wolfgang-amadeus-mozart",
+    "yearComposed": 1785,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "C major",
+    "description": "Famous for its ethereally beautiful slow movement, popularized by the 1967 Swedish film Elvira Madigan. The outer movements sparkle with Mozartean wit and virtuosity.",
+    "wikipediaSlug": "Piano_Concerto_No._21_(Mozart)",
+    "tags": [
+      "concerto",
+      "piano",
+      "classical",
+      "popular"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mozart%20Piano%20Concerto%20No.%2021"
+  },
+  {
+    "id": "mozart-marriage-of-figaro",
+    "title": "The Marriage of Figaro",
+    "catalogueNumber": "K. 492",
+    "composerId": "wolfgang-amadeus-mozart",
+    "yearComposed": 1786,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A comedy of revolutionary politics and human desire. Based on Beaumarchais' politically incendiary play, Mozart and Da Ponte created an opera of incomparable ensemble writing, where multiple characters think and feel simultaneously.",
+    "significance": "The supreme comic opera and a masterpiece of humanistic art.",
+    "wikipediaSlug": "The_Marriage_of_Figaro",
+    "tags": [
+      "opera",
+      "comedy",
+      "classical",
+      "political",
+      "ensemble"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mozart%20The%20Marriage%20of%20Figaro"
+  },
+  {
+    "id": "mozart-don-giovanni",
+    "title": "Don Giovanni",
+    "catalogueNumber": "K. 527",
+    "composerId": "wolfgang-amadeus-mozart",
+    "yearComposed": 1787,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Mozart's darkest and most complex opera — a 'dramma giocoso' that blends comedy and tragedy with demonic power. The final scene, where the stone statue of the Commendatore drags Don Giovanni to hell, is opera's most terrifying moment.",
+    "significance": "Considered by many the greatest opera ever written.",
+    "wikipediaSlug": "Don_Giovanni",
+    "tags": [
+      "opera",
+      "classical",
+      "dramatic",
+      "comedy",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mozart%20Don%20Giovanni"
+  },
+  {
+    "id": "mozart-symphony-41",
+    "title": "Symphony No. 41 'Jupiter'",
+    "catalogueNumber": "K. 551",
+    "composerId": "wolfgang-amadeus-mozart",
+    "yearComposed": 1788,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "C major",
+    "description": "Mozart's last and greatest symphony. The finale is a miracle of contrapuntal writing — five themes combined simultaneously in a fugal coda of staggering complexity, all sounding completely natural and inevitable.",
+    "significance": "The supreme achievement of the Classical symphony before Beethoven.",
+    "wikipediaSlug": "Symphony_No._41_(Mozart)",
+    "tags": [
+      "symphony",
+      "classical",
+      "counterpoint",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mozart%20Symphony%20No.%2041%20%27Jupiter%27"
+  },
+  {
+    "id": "haydn-symphony-94",
+    "title": "Symphony No. 94 'Surprise'",
+    "composerId": "joseph-haydn",
+    "yearComposed": 1791,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "G major",
+    "description": "Famous for the sudden fortissimo chord in the quiet slow movement — Haydn's musical joke to wake up dozing audience members. A perfect example of his wit and mastery of the Classical symphony.",
+    "wikipediaSlug": "Symphony_No._94_(Haydn)",
+    "tags": [
+      "symphony",
+      "classical",
+      "humor",
+      "london"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Haydn%20Symphony%20No.%2094%20%27Surprise%27"
+  },
+  {
+    "id": "mozart-magic-flute",
+    "title": "The Magic Flute",
+    "catalogueNumber": "K. 620",
+    "composerId": "wolfgang-amadeus-mozart",
+    "yearComposed": 1791,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Mozart's final opera — a Masonic fairy tale that moves from slapstick comedy to sublime ritual solemnity. The Queen of the Night's aria, with its stratospheric coloratura, is one of the most famous in all opera.",
+    "wikipediaSlug": "The_Magic_Flute",
+    "tags": [
+      "opera",
+      "singspiel",
+      "classical",
+      "masonic",
+      "fairy-tale"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mozart%20The%20Magic%20Flute"
+  },
+  {
+    "id": "mozart-requiem",
+    "title": "Requiem in D minor",
+    "catalogueNumber": "K. 626",
+    "composerId": "wolfgang-amadeus-mozart",
+    "yearComposed": 1791,
+    "genre": "requiem",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "key": "D minor",
+    "description": "Mozart's final, unfinished work — a Requiem Mass of shattering power, surrounded by legend and mystery. The anonymous commissioner, Mozart's conviction that he was writing his own funeral music, and the completion by his student Süssmayr all contribute to its mythic status.",
+    "significance": "One of the most famous and moving requiems ever composed.",
+    "wikipediaSlug": "Requiem_(Mozart)",
+    "tags": [
+      "requiem",
+      "sacred",
+      "choral",
+      "classical",
+      "unfinished",
+      "iconic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mozart%20Requiem%20in%20D%20minor"
+  },
+  {
+    "id": "haydn-string-quartets-op76",
+    "title": "String Quartets, Op. 76",
+    "composerId": "joseph-haydn",
+    "yearComposed": 1797,
+    "genre": "string-quartet",
+    "instrumentation": "String quartet",
+    "description": "Six quartets representing the summit of Haydn's achievement in the medium he invented. Includes the 'Emperor' Quartet (whose slow movement became the Austrian and later German national anthem) and the 'Sunrise' Quartet.",
+    "tags": [
+      "string-quartet",
+      "chamber-music",
+      "classical",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Haydn%20String%20Quartets%2C%20Op.%2076"
+  },
+  {
+    "id": "haydn-creation",
+    "title": "The Creation",
+    "composerId": "joseph-haydn",
+    "yearComposed": 1798,
+    "genre": "oratorio",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Haydn's late masterpiece, depicting the creation of the world from Genesis and Milton's Paradise Lost. The moment when 'there was LIGHT' — a blazing C major chord after hushed chaos — is one of music's most thrilling effects.",
+    "significance": "The greatest oratorio since Handel's Messiah and the crowning achievement of Haydn's career.",
+    "wikipediaSlug": "The_Creation_(Haydn)",
+    "tags": [
+      "oratorio",
+      "choral",
+      "classical",
+      "sacred",
+      "dramatic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Haydn%20The%20Creation"
+  },
+  {
+    "id": "beethoven-moonlight-sonata",
+    "title": "Piano Sonata No. 14 'Moonlight'",
+    "catalogueNumber": "Op. 27, No. 2",
+    "composerId": "ludwig-van-beethoven",
+    "yearComposed": 1801,
+    "genre": "sonata",
+    "instrumentation": "Piano",
+    "key": "C-sharp minor",
+    "description": "The 'Moonlight' nickname (not Beethoven's) comes from the dreamy first movement — a revolutionary opening that begins with a slow movement instead of the expected fast one. The tempestuous finale blazes with virtuosic fury.",
+    "wikipediaSlug": "Piano_Sonata_No._14_(Beethoven)",
+    "tags": [
+      "sonata",
+      "piano",
+      "popular",
+      "innovative"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Beethoven%20Piano%20Sonata%20No.%2014%20%27Moonlight%27"
+  },
+  {
+    "id": "beethoven-symphony-3",
+    "title": "Symphony No. 3 'Eroica'",
+    "catalogueNumber": "Op. 55",
+    "composerId": "ludwig-van-beethoven",
+    "yearComposed": 1803,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "E-flat major",
+    "description": "Originally dedicated to Napoleon, Beethoven famously tore up the title page when Napoleon declared himself Emperor. The 'Eroica' shattered every convention of the symphony — twice as long as any before it, with a funeral march of devastating power and a finale of dazzling variation.",
+    "significance": "The work that marks the beginning of Romantic music and the modern concept of the symphony.",
+    "wikipediaSlug": "Symphony_No._3_(Beethoven)",
+    "tags": [
+      "symphony",
+      "revolutionary",
+      "romantic",
+      "napoleon",
+      "landmark"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Beethoven%20Symphony%20No.%203%20%27Eroica%27"
+  },
+  {
+    "id": "beethoven-fidelio",
+    "title": "Fidelio",
+    "catalogueNumber": "Op. 72",
+    "composerId": "ludwig-van-beethoven",
+    "yearComposed": 1805,
+    "yearCompleted": 1814,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Beethoven's only opera — a story of political imprisonment and marital devotion that became a potent symbol of freedom. The 'Prisoners' Chorus' and the trumpet call announcing liberation are among the most moving moments in all opera.",
+    "tags": [
+      "opera",
+      "freedom",
+      "political",
+      "rescue-opera"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Beethoven%20Fidelio"
+  },
+  {
+    "id": "beethoven-symphony-5",
+    "title": "Symphony No. 5",
+    "catalogueNumber": "Op. 67",
+    "composerId": "ludwig-van-beethoven",
+    "yearComposed": 1808,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "C minor",
+    "description": "The four most famous notes in music: da-da-da-DUM. Beethoven's Fifth traces a monumental journey from C minor struggle to C major triumph — from 'Fate knocking at the door' to a blazing finale of liberation. Used as a symbol of victory in World War II.",
+    "significance": "The most recognized symphony in the world and the archetype of the 'dark to light' dramatic arc.",
+    "wikipediaSlug": "Symphony_No._5_(Beethoven)",
+    "tags": [
+      "symphony",
+      "iconic",
+      "dramatic",
+      "fate",
+      "triumph"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Beethoven%20Symphony%20No.%205"
+  },
+  {
+    "id": "beethoven-piano-concerto-5",
+    "title": "Piano Concerto No. 5 'Emperor'",
+    "catalogueNumber": "Op. 73",
+    "composerId": "ludwig-van-beethoven",
+    "yearComposed": 1809,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "E-flat major",
+    "description": "The grandest piano concerto of the Classical era, composed while Napoleon's armies bombarded Vienna. Its heroic opening — the soloist crashing in with brilliant cadenza-like passages before the orchestra even states the theme — was unprecedented.",
+    "tags": [
+      "concerto",
+      "piano",
+      "heroic",
+      "war"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Beethoven%20Piano%20Concerto%20No.%205%20%27Emperor%27"
+  },
+  {
+    "id": "weber-clarinet-concerto-1",
+    "title": "Clarinet Concerto No. 1 in F minor, Op. 73",
+    "composerId": "carl-maria-von-weber",
+    "yearComposed": 1811,
+    "genre": "concerto",
+    "instrumentation": "Solo clarinet, orchestra",
+    "description": "Written for virtuoso Heinrich Baermann, this concerto exploits the clarinet's full range with lyrical cantilenas and virtuosic passages, becoming a cornerstone of the clarinet repertoire.",
+    "wikipediaSlug": "Clarinet_Concerto_No._1_(Weber)",
+    "spotifyUrl": "https://open.spotify.com/search/Weber%20Clarinet%20Concerto%20No.%201%20in%20F%20minor%2C%20Op.%2073",
+    "tags": [
+      "early-romantic",
+      "concerto",
+      "clarinet"
+    ]
+  },
+  {
+    "id": "schubert-erlkoenig",
+    "title": "Erlkönig",
+    "catalogueNumber": "D. 328",
+    "composerId": "franz-schubert",
+    "yearComposed": 1815,
+    "genre": "art-song",
+    "instrumentation": "Voice and piano",
+    "description": "A dramatic setting of Goethe's ballad about a father riding through the night with his dying child, pursued by the supernatural Erlking. The pianist's relentless triplets depict the horse's gallop, while the singer portrays four characters. Schubert was 18 when he wrote it.",
+    "significance": "Established the art song as a serious musical form and demonstrated Schubert's precocious dramatic genius.",
+    "wikipediaSlug": "Erlkönig_(Schubert)",
+    "tags": [
+      "lied",
+      "dramatic",
+      "goethe",
+      "virtuosic",
+      "supernatural"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Schubert%20Erlk%C3%B6nig"
+  },
+  {
+    "id": "paganini-24-caprices",
+    "title": "24 Caprices for Solo Violin, Op. 1",
+    "composerId": "niccolo-paganini",
+    "yearComposed": 1817,
+    "genre": "solo",
+    "instrumentation": "Solo violin",
+    "description": "Twenty-four studies that redefined the possibilities of the violin, demanding harmonics, left-hand pizzicato, ricochet bowing, and double stops. The 24th Caprice's theme inspired Brahms, Rachmaninoff, and Lutosławski.",
+    "significance": "Permanently expanded the technical vocabulary of the violin.",
+    "wikipediaSlug": "24_Caprices_for_Solo_Violin_(Paganini)",
+    "spotifyUrl": "https://open.spotify.com/search/Paganini%2024%20Caprices%20for%20Solo%20Violin%2C%20Op.%201",
+    "tags": [
+      "early-romantic",
+      "virtuosic",
+      "violin",
+      "solo"
+    ]
+  },
+  {
+    "id": "paganini-violin-concerto-1",
+    "title": "Violin Concerto No. 1 in D major, Op. 6",
+    "composerId": "niccolo-paganini",
+    "yearComposed": 1817,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, orchestra",
+    "description": "A showpiece of dazzling brilliance written to display Paganini's superhuman technique. Its soaring melodies and acrobatic passages established the model for the Romantic violin concerto.",
+    "wikipediaSlug": "Violin_Concerto_No._1_(Paganini)",
+    "spotifyUrl": "https://open.spotify.com/search/Paganini%20Violin%20Concerto%20No.%201%20in%20D%20major%2C%20Op.%206",
+    "tags": [
+      "early-romantic",
+      "concerto",
+      "violin",
+      "virtuosic"
+    ]
+  },
+  {
+    "id": "weber-invitation-to-dance",
+    "title": "Invitation to the Dance, Op. 65",
+    "composerId": "carl-maria-von-weber",
+    "yearComposed": 1819,
+    "genre": "keyboard",
+    "instrumentation": "Piano (also orchestrated by Berlioz)",
+    "description": "A concert waltz that dramatises a ballroom scene — the gentleman's invitation, the dance, and the farewell. It established the concert waltz as a genre and was brilliantly orchestrated by Berlioz.",
+    "significance": "Created the concert waltz genre.",
+    "wikipediaSlug": "Invitation_to_the_Dance_(Weber)",
+    "spotifyUrl": "https://open.spotify.com/search/Weber%20Invitation%20to%20the%20Dance%2C%20Op.%2065",
+    "tags": [
+      "early-romantic",
+      "piano",
+      "waltz",
+      "programmatic"
+    ]
+  },
+  {
+    "id": "weber-der-freischutz",
+    "title": "Der Freischütz",
+    "composerId": "carl-maria-von-weber",
+    "yearComposed": 1821,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "The first great German Romantic opera, whose Wolf's Glen scene terrified audiences with its supernatural orchestral effects. Weber's use of folk-like melody and nature painting defined the German Romantic operatic style.",
+    "significance": "Established German Romantic opera and influenced Wagner profoundly.",
+    "wikipediaSlug": "Der_Freischütz",
+    "spotifyUrl": "https://open.spotify.com/search/Weber%20Der%20Freisch%C3%BCtz",
+    "tags": [
+      "early-romantic",
+      "opera",
+      "german",
+      "supernatural",
+      "landmark"
+    ]
+  },
+  {
+    "id": "schubert-symphony-8",
+    "title": "Symphony No. 8 'Unfinished'",
+    "catalogueNumber": "D. 759",
+    "composerId": "franz-schubert",
+    "yearComposed": 1822,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "B minor",
+    "description": "Only two movements were completed, but they are so perfect that no completion has ever been satisfying. The 'Unfinished' opens with one of the most famous melodies in symphonic music — a lonely theme rising from shadowy depths.",
+    "wikipediaSlug": "Symphony_No._8_(Schubert)",
+    "tags": [
+      "symphony",
+      "unfinished",
+      "romantic",
+      "mysterious"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Schubert%20Symphony%20No.%208%20%27Unfinished%27"
+  },
+  {
+    "id": "beethoven-symphony-9",
+    "title": "Symphony No. 9 'Choral'",
+    "catalogueNumber": "Op. 125",
+    "composerId": "ludwig-van-beethoven",
+    "yearComposed": 1824,
+    "genre": "symphony",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "key": "D minor",
+    "description": "Beethoven's last completed symphony and Western music's most powerful statement of universal brotherhood. The finale sets Schiller's 'Ode to Joy' for soloists, chorus, and orchestra in a revolutionary fusion of symphony and oratorio. Composed almost entirely while deaf.",
+    "significance": "The basis for the EU anthem. Changed the course of symphonic music forever — after Beethoven's Ninth, every symphonist had to decide how to respond to it.",
+    "wikipediaSlug": "Symphony_No._9_(Beethoven)",
+    "tags": [
+      "symphony",
+      "choral",
+      "ode-to-joy",
+      "masterwork",
+      "landmark",
+      "deafness"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Beethoven%20Symphony%20No.%209%20%27Choral%27"
+  },
+  {
+    "id": "mendelssohn-octet",
+    "title": "Octet in E-flat major, Op. 20",
+    "composerId": "felix-mendelssohn",
+    "yearComposed": 1825,
+    "genre": "chamber",
+    "instrumentation": "String octet (4 violins, 2 violas, 2 cellos)",
+    "description": "Written when Mendelssohn was just sixteen, this is perhaps the most astonishing work of youthful genius in all music. Its fairy scherzo anticipates the Midsummer Night's Dream overture.",
+    "significance": "The greatest work of youthful genius in chamber music.",
+    "wikipediaSlug": "Octet_(Mendelssohn)",
+    "spotifyUrl": "https://open.spotify.com/search/Mendelssohn%20Octet%20in%20E-flat%20major%2C%20Op.%2020",
+    "tags": [
+      "early-romantic",
+      "chamber",
+      "strings"
+    ]
+  },
+  {
+    "id": "paganini-violin-concerto-2",
+    "title": "Violin Concerto No. 2 in B minor, Op. 7 'La campanella'",
+    "composerId": "niccolo-paganini",
+    "yearComposed": 1826,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, orchestra",
+    "description": "Famous for its bell-like rondo finale (La campanella), later immortalised by Liszt's piano transcription. The concerto combines operatic lyricism with breathtaking virtuosity.",
+    "wikipediaSlug": "Violin_Concerto_No._2_(Paganini)",
+    "spotifyUrl": "https://open.spotify.com/search/Paganini%20Violin%20Concerto%20No.%202%20in%20B%20minor%2C%20Op.%207%20%27La%20campanella%27",
+    "tags": [
+      "early-romantic",
+      "concerto",
+      "violin"
+    ]
+  },
+  {
+    "id": "weber-oberon",
+    "title": "Oberon",
+    "composerId": "carl-maria-von-weber",
+    "yearComposed": 1826,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Weber's final opera, composed for London, with a fairy-tale plot and some of his most brilliant orchestral writing. The overture remains a concert favourite.",
+    "wikipediaSlug": "Oberon_(opera)",
+    "spotifyUrl": "https://open.spotify.com/search/Weber%20Oberon",
+    "tags": [
+      "early-romantic",
+      "opera",
+      "fairy-tale"
+    ]
+  },
+  {
+    "id": "schubert-winterreise",
+    "title": "Winterreise (Winter Journey)",
+    "catalogueNumber": "D. 911",
+    "composerId": "franz-schubert",
+    "yearComposed": 1827,
+    "genre": "art-song",
+    "instrumentation": "Voice and piano",
+    "description": "A cycle of 24 songs tracing a rejected lover's journey through a frozen winter landscape — an allegory of despair, madness, and death. The final song, 'Der Leiermann' (The Hurdy-Gurdy Man), with its bleak, circular accompaniment, is one of music's most desolate endings.",
+    "significance": "The greatest song cycle ever composed and the supreme achievement of German Romantic Lied.",
+    "wikipediaSlug": "Winterreise",
+    "tags": [
+      "lied",
+      "song-cycle",
+      "romantic",
+      "poetry",
+      "despair"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Schubert%20Winterreise%20%28Winter%20Journey%29"
+  },
+  {
+    "id": "chopin-nocturnes",
+    "title": "Nocturnes",
+    "composerId": "frederic-chopin",
+    "yearComposed": 1827,
+    "yearCompleted": 1846,
+    "genre": "nocturne",
+    "instrumentation": "Piano",
+    "description": "21 nocturnes spanning Chopin's entire career — lyrical, introspective night-pieces that sing on the keyboard. The Op. 9, No. 2 in E-flat major is one of the most popular piano works ever written.",
+    "tags": [
+      "piano",
+      "nocturne",
+      "lyrical",
+      "romantic",
+      "popular"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Chopin%20Nocturnes"
+  },
+  {
+    "id": "schubert-string-quintet",
+    "title": "String Quintet in C major",
+    "catalogueNumber": "D. 956",
+    "composerId": "franz-schubert",
+    "yearComposed": 1828,
+    "genre": "chamber-music",
+    "instrumentation": "String quintet (2 violins, viola, 2 cellos)",
+    "key": "C major",
+    "description": "Composed in the final weeks of Schubert's life, this quintet is among the most transcendent works in all chamber music. The slow movement inhabits a world of unearthly beauty, and the work's emotional range — from seraphic peace to violent anguish — is overwhelming.",
+    "significance": "Often cited as the single greatest work of chamber music.",
+    "tags": [
+      "chamber-music",
+      "quintet",
+      "romantic",
+      "sublime",
+      "final-work"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Schubert%20String%20Quintet%20in%20C%20major"
+  },
+  {
+    "id": "chopin-etudes-op10",
+    "title": "Études, Op. 10",
+    "composerId": "frederic-chopin",
+    "yearComposed": 1829,
+    "yearCompleted": 1832,
+    "genre": "etude",
+    "instrumentation": "Piano",
+    "description": "12 études that redefined the concept of a piano study — no longer mere exercises but fully realized works of art. The 'Revolutionary' Étude (No. 12) was supposedly written in fury upon hearing of the fall of Warsaw to Russian forces.",
+    "significance": "Transformed the étude from a technical exercise into a concert form.",
+    "tags": [
+      "piano",
+      "etude",
+      "virtuosic",
+      "romantic",
+      "revolutionary"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Chopin%20%C3%89tudes%2C%20Op.%2010"
+  },
+  {
+    "id": "paganini-god-save-the-king",
+    "title": "Variations on 'God Save the King', Op. 9",
+    "composerId": "niccolo-paganini",
+    "yearComposed": 1829,
+    "genre": "solo",
+    "instrumentation": "Solo violin",
+    "description": "A set of dazzling variations on the British national anthem that showcases Paganini's full arsenal of effects: harmonics, pizzicato, rapid arpeggios, and double stops.",
+    "wikipediaSlug": "Variations_on_God_Save_the_King",
+    "spotifyUrl": "https://open.spotify.com/search/Paganini%20Variations%20on%20%27God%20Save%20the%20King%27%2C%20Op.%209",
+    "tags": [
+      "early-romantic",
+      "virtuosic",
+      "violin",
+      "variations"
+    ]
+  },
+  {
+    "id": "berlioz-symphonie-fantastique",
+    "title": "Symphonie fantastique",
+    "catalogueNumber": "Op. 14",
+    "composerId": "hector-berlioz",
+    "yearComposed": 1830,
+    "genre": "symphony",
+    "instrumentation": "Large orchestra",
+    "description": "A hallucinatory, autobiographical symphony in which a young artist, crazed by unrequited love, poisons himself with opium and experiences terrifying visions: a witches' sabbath, his own execution, a pastoral dream that turns nightmarish. Each movement uses an 'idée fixe' — a recurring melody representing the beloved.",
+    "significance": "The first great programmatic symphony. Revolutionized orchestration and expanded the orchestra's expressive range dramatically.",
+    "wikipediaSlug": "Symphonie_fantastique",
+    "tags": [
+      "symphony",
+      "programmatic",
+      "orchestration",
+      "romantic",
+      "revolutionary",
+      "autobiographical"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Berlioz%20Symphonie%20fantastique"
+  },
+  {
+    "id": "chopin-piano-concerto-1",
+    "title": "Piano Concerto No. 1",
+    "catalogueNumber": "Op. 11",
+    "composerId": "frederic-chopin",
+    "yearComposed": 1830,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "E minor",
+    "description": "Chopin's youthful concerto, written at age 20, full of poetic melody and brilliant piano writing. The slow movement is a nocturne of heavenly beauty.",
+    "tags": [
+      "concerto",
+      "piano",
+      "romantic",
+      "youthful"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Chopin%20Piano%20Concerto%20No.%201"
+  },
+  {
+    "id": "mendelssohn-symphony-4",
+    "title": "Symphony No. 4 'Italian'",
+    "catalogueNumber": "Op. 90",
+    "composerId": "felix-mendelssohn",
+    "yearComposed": 1833,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "A major",
+    "description": "A radiant evocation of Italy, inspired by Mendelssohn's travels. The sunny first movement bursts with Mediterranean energy, while the finale is a whirling Italian saltarello dance.",
+    "tags": [
+      "symphony",
+      "romantic",
+      "travel",
+      "joyful"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mendelssohn%20Symphony%20No.%204%20%27Italian%27"
+  },
+  {
+    "id": "mendelssohn-italian-symphony",
+    "title": "Symphony No. 4 in A major, Op. 90 'Italian'",
+    "composerId": "felix-mendelssohn",
+    "yearComposed": 1833,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "Inspired by Mendelssohn's Italian journey, this symphony radiates Mediterranean warmth and light, from its exhilarating opening to the whirling saltarello finale.",
+    "wikipediaSlug": "Symphony_No._4_(Mendelssohn)",
+    "spotifyUrl": "https://open.spotify.com/search/Mendelssohn%20Symphony%20No.%204%20in%20A%20major%2C%20Op.%2090%20%27Italian%27",
+    "tags": [
+      "early-romantic",
+      "symphonic"
+    ]
+  },
+  {
+    "id": "berlioz-harold-in-italy",
+    "title": "Harold in Italy, Op. 16",
+    "composerId": "hector-berlioz",
+    "yearComposed": 1834,
+    "genre": "symphonic",
+    "instrumentation": "Solo viola, orchestra",
+    "description": "A symphony with solo viola inspired by Byron's Childe Harold. Commissioned by Paganini (who never played it, declaring the viola part too simple), it blends concerto and symphony in a unique way.",
+    "wikipediaSlug": "Harold_in_Italy",
+    "spotifyUrl": "https://open.spotify.com/search/Berlioz%20Harold%20in%20Italy%2C%20Op.%2016",
+    "tags": [
+      "early-romantic",
+      "symphonic",
+      "viola",
+      "programmatic"
+    ]
+  },
+  {
+    "id": "chopin-ballades",
+    "title": "Ballades (Nos. 1–4)",
+    "composerId": "frederic-chopin",
+    "yearComposed": 1835,
+    "yearCompleted": 1842,
+    "genre": "piano-solo",
+    "instrumentation": "Piano",
+    "description": "Four large-scale piano works that essentially created a new genre. The Ballade No. 1 in G minor is perhaps the most perfect single work for solo piano — a dramatic narrative that builds from a questioning introduction to a cataclysmic coda.",
+    "significance": "Invented the ballade as an instrumental form. Among the peaks of the piano repertoire.",
+    "tags": [
+      "piano",
+      "ballade",
+      "romantic",
+      "narrative",
+      "virtuosic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Chopin%20Ballades%20%28Nos.%201%E2%80%934%29"
+  },
+  {
+    "id": "berlioz-requiem",
+    "title": "Grande Messe des morts (Requiem), Op. 5",
+    "composerId": "hector-berlioz",
+    "yearComposed": 1837,
+    "genre": "choral",
+    "instrumentation": "Tenor solo, chorus, orchestra (with four brass ensembles, 16 timpani)",
+    "description": "A colossal Requiem deploying vast forces including four offstage brass choirs and sixteen timpani for the Dies Irae. Its apocalyptic vision and intimate Sanctus create extremes unique in music.",
+    "significance": "One of the most monumental choral works ever conceived.",
+    "wikipediaSlug": "Requiem_(Berlioz)",
+    "spotifyUrl": "https://open.spotify.com/search/Berlioz%20Grande%20Messe%20des%20morts%20%28Requiem%29%2C%20Op.%205",
+    "tags": [
+      "early-romantic",
+      "choral",
+      "sacred",
+      "monumental"
+    ]
+  },
+  {
+    "id": "berlioz-romeo-juliet",
+    "title": "Roméo et Juliette, Op. 17",
+    "composerId": "hector-berlioz",
+    "yearComposed": 1839,
+    "genre": "symphonic",
+    "instrumentation": "Mezzo-soprano, tenor, bass soloists, chorus, orchestra",
+    "description": "A dramatic symphony combining orchestra, soloists, and chorus in a radical retelling of Shakespeare. The Love Scene is one of the most sensuous passages in all orchestral music.",
+    "wikipediaSlug": "Roméo_et_Juliette_(Berlioz)",
+    "spotifyUrl": "https://open.spotify.com/search/Berlioz%20Rom%C3%A9o%20et%20Juliette%2C%20Op.%2017",
+    "tags": [
+      "early-romantic",
+      "symphonic",
+      "dramatic",
+      "programmatic"
+    ]
+  },
+  {
+    "id": "schumann-dichterliebe",
+    "title": "Dichterliebe",
+    "catalogueNumber": "Op. 48",
+    "composerId": "robert-schumann",
+    "yearComposed": 1840,
+    "genre": "art-song",
+    "instrumentation": "Voice and piano",
+    "description": "A song cycle setting 16 poems by Heine about the joy and despair of love. The piano is no mere accompanist but an equal partner, and the famous postlude — a solo piano epilogue after the voice has fallen silent — is one of music's most poignant moments.",
+    "tags": [
+      "lied",
+      "song-cycle",
+      "romantic",
+      "heine",
+      "love"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/R.%20Schumann%20Dichterliebe",
+    "wikipediaSlug": "Dichterliebe"
+  },
+  {
+    "id": "mendelssohn-violin-concerto",
+    "title": "Violin Concerto in E minor",
+    "catalogueNumber": "Op. 64",
+    "composerId": "felix-mendelssohn",
+    "yearComposed": 1844,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, orchestra",
+    "key": "E minor",
+    "description": "One of the most beloved violin concertos, combining Romantic passion with Classical elegance. Its innovations — the soloist entering immediately with the main theme, linking the movements without pause — influenced all subsequent concertos.",
+    "significance": "One of the three great Romantic violin concertos (with Brahms and Tchaikovsky).",
+    "wikipediaSlug": "Violin_Concerto_(Mendelssohn)",
+    "tags": [
+      "concerto",
+      "violin",
+      "romantic",
+      "popular",
+      "elegant"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mendelssohn%20Violin%20Concerto%20in%20E%20minor"
+  },
+  {
+    "id": "schumann-piano-concerto",
+    "title": "Piano Concerto in A minor",
+    "catalogueNumber": "Op. 54",
+    "composerId": "robert-schumann",
+    "yearComposed": 1845,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "A minor",
+    "description": "The quintessential Romantic piano concerto, full of poetic fantasy and intimate dialogue between piano and orchestra. Written for and premiered by his wife Clara, one of the greatest pianists of the 19th century.",
+    "tags": [
+      "concerto",
+      "piano",
+      "romantic",
+      "intimate"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/R.%20Schumann%20Piano%20Concerto%20in%20A%20minor",
+    "wikipediaSlug": "Piano_Concerto_(Schumann)"
+  },
+  {
+    "id": "liszt-hungarian-rhapsodies",
+    "title": "Hungarian Rhapsodies",
+    "catalogueNumber": "S. 244",
+    "composerId": "franz-liszt",
+    "yearComposed": 1847,
+    "yearCompleted": 1853,
+    "genre": "rhapsody",
+    "instrumentation": "Piano (some orchestrated)",
+    "description": "19 piano pieces based on Hungarian folk and Romani music. The Second Rhapsody is one of the most famous piano works in existence, and the set became synonymous with Liszt's dazzling virtuosity.",
+    "tags": [
+      "piano",
+      "rhapsody",
+      "hungarian",
+      "folk",
+      "virtuosic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Liszt%20Hungarian%20Rhapsodies"
+  },
+  {
+    "id": "wagner-ring-cycle",
+    "title": "Der Ring des Nibelungen",
+    "composerId": "richard-wagner",
+    "yearComposed": 1848,
+    "yearCompleted": 1874,
+    "genre": "opera",
+    "instrumentation": "Massive orchestra, soloists, chorus",
+    "description": "Four operas (Das Rheingold, Die Walküre, Siegfried, Götterdämmerung) totaling about 15 hours — the most ambitious work of art ever created. It tells the story of gods, heroes, and a cursed ring, using a web of leitmotifs that creates a continuous musical argument of unprecedented scope.",
+    "significance": "Reshaped opera, harmony, and the concept of what music could achieve. Wagner built an entire opera house (Bayreuth) to stage it.",
+    "wikipediaSlug": "Der_Ring_des_Nibelungen",
+    "tags": [
+      "opera",
+      "music-drama",
+      "leitmotif",
+      "mythology",
+      "monumental"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Wagner%20Der%20Ring%20des%20Nibelungen"
+  },
+  {
+    "id": "liszt-totentanz",
+    "title": "Totentanz",
+    "composerId": "franz-liszt",
+    "yearComposed": 1849,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "description": "Variations on the Dies Irae for piano and orchestra, inspired by a fresco of the Triumph of Death. Its demonic virtuosity and macabre atmosphere make it one of Liszt's most gripping works.",
+    "wikipediaSlug": "Totentanz_(Liszt)",
+    "spotifyUrl": "https://open.spotify.com/search/Liszt%20Totentanz",
+    "tags": [
+      "early-romantic",
+      "piano",
+      "orchestral",
+      "virtuosic",
+      "dark"
+    ]
+  },
+  {
+    "id": "liszt-piano-sonata-b-minor",
+    "title": "Piano Sonata in B minor",
+    "catalogueNumber": "S. 178",
+    "composerId": "franz-liszt",
+    "yearComposed": 1853,
+    "genre": "sonata",
+    "instrumentation": "Piano",
+    "key": "B minor",
+    "description": "One of the greatest piano works ever written — a single colossal movement lasting 30 minutes that transforms a handful of themes through an entire range of emotions and textures. Its radical single-movement structure was unprecedented.",
+    "significance": "A landmark in piano literature and the supreme example of thematic transformation.",
+    "wikipediaSlug": "Piano_Sonata_in_B_minor_(Liszt)",
+    "tags": [
+      "sonata",
+      "piano",
+      "virtuosic",
+      "romantic",
+      "innovative"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Liszt%20Piano%20Sonata%20in%20B%20minor"
+  },
+  {
+    "id": "verdi-la-traviata",
+    "title": "La Traviata",
+    "composerId": "giuseppe-verdi",
+    "yearComposed": 1853,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Based on Alexandre Dumas' novel, La Traviata tells the story of the courtesan Violetta — her love for Alfredo, her sacrifice, and her death from tuberculosis. Verdi's score captures her joy, agony, and dignity with melodies of heartbreaking beauty.",
+    "significance": "One of the most performed operas worldwide and a touchstone of the Romantic operatic tradition.",
+    "wikipediaSlug": "La_traviata",
+    "tags": [
+      "opera",
+      "romantic",
+      "tragedy",
+      "popular"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Verdi%20La%20Traviata"
+  },
+  {
+    "id": "wagner-tristan-und-isolde",
+    "title": "Tristan und Isolde",
+    "composerId": "richard-wagner",
+    "yearComposed": 1859,
+    "genre": "opera",
+    "instrumentation": "Large orchestra, soloists",
+    "description": "The opera that broke music. Wagner's tale of doomed lovers pushed chromaticism to a point where tonality itself began to dissolve. The famous 'Tristan chord' — the very first sound in the opera — remained unresolved for decades of musical analysis.",
+    "significance": "The harmonic starting point for everything that followed: Mahler, Strauss, Debussy, Schoenberg. Perhaps the single most influential work in Western music history.",
+    "wikipediaSlug": "Tristan_und_Isolde",
+    "tags": [
+      "opera",
+      "chromaticism",
+      "love",
+      "revolutionary",
+      "landmark"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Wagner%20Tristan%20und%20Isolde"
+  },
+  {
+    "id": "saint-saens-introduction-rondo",
+    "title": "Introduction and Rondo Capriccioso, Op. 28",
+    "composerId": "camille-saint-saens",
+    "yearComposed": 1863,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, orchestra",
+    "description": "A dazzling showpiece written for Pablo de Sarasate, combining a brooding introduction with a brilliant Spanish-flavoured rondo. A staple of the virtuoso violin repertoire.",
+    "wikipediaSlug": "Introduction_and_Rondo_Capriccioso",
+    "spotifyUrl": "https://open.spotify.com/search/Saint-Sa%C3%ABns%20Introduction%20and%20Rondo%20Capriccioso%2C%20Op.%2028",
+    "tags": [
+      "late-romantic",
+      "violin",
+      "virtuosic",
+      "spanish"
+    ]
+  },
+  {
+    "id": "smetana-bartered-bride",
+    "title": "The Bartered Bride",
+    "composerId": "bedrich-smetana",
+    "yearComposed": 1866,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A sparkling comic opera full of Czech folk dances and infectious melodies. Its international success established Czech opera on the world stage.",
+    "significance": "The most successful Czech opera internationally.",
+    "wikipediaSlug": "The_Bartered_Bride",
+    "spotifyUrl": "https://open.spotify.com/search/Smetana%20The%20Bartered%20Bride",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "czech",
+      "comic"
+    ]
+  },
+  {
+    "id": "mussorgsky-night-bald-mountain",
+    "title": "Night on Bald Mountain",
+    "composerId": "modest-mussorgsky",
+    "yearComposed": 1867,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "A vivid tone poem depicting a witches' sabbath, best known in Rimsky-Korsakov's posthumous orchestration. Its wild energy and dark colours make it one of the most gripping orchestral works of the 19th century.",
+    "wikipediaSlug": "Night_on_Bald_Mountain",
+    "spotifyUrl": "https://open.spotify.com/search/Mussorgsky%20Night%20on%20Bald%20Mountain",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "programmatic",
+      "supernatural"
+    ]
+  },
+  {
+    "id": "wagner-die-meistersinger",
+    "title": "Die Meistersinger von Nürnberg",
+    "composerId": "richard-wagner",
+    "yearComposed": 1868,
+    "genre": "opera",
+    "instrumentation": "Large orchestra, soloists, chorus",
+    "description": "Wagner's only mature comedy, and the longest opera in the standard repertoire (~4.5 hours). A warmhearted tribute to art, tradition, and the creative spirit, set among the medieval mastersingers of Nuremberg.",
+    "tags": [
+      "opera",
+      "comedy",
+      "art",
+      "tradition"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Wagner%20Die%20Meistersinger%20von%20N%C3%BCrnberg"
+  },
+  {
+    "id": "brahms-german-requiem",
+    "title": "Ein deutsches Requiem (A German Requiem)",
+    "catalogueNumber": "Op. 45",
+    "composerId": "johannes-brahms",
+    "yearComposed": 1868,
+    "genre": "requiem",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Not a liturgical requiem but a personal meditation on death and consolation, setting texts Brahms selected from Luther's Bible. 'Blessed are they that mourn, for they shall be comforted.' Written in the shadow of his mother's death and Robert Schumann's decline.",
+    "significance": "The greatest religious choral work of the 19th century after Beethoven's Missa Solemnis.",
+    "tags": [
+      "requiem",
+      "choral",
+      "protestant",
+      "consolation",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Brahms%20Ein%20deutsches%20Requiem%20%28A%20German%20Requiem%29"
+  },
+  {
+    "id": "grieg-piano-concerto",
+    "title": "Piano Concerto",
+    "catalogueNumber": "Op. 16",
+    "composerId": "edvard-grieg",
+    "yearComposed": 1868,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "A minor",
+    "description": "One of the most popular piano concertos, opening with a dramatically cascading flourish that is instantly recognizable. The work captures the spirit of Norwegian landscapes and folk music within a Romantic concerto framework.",
+    "tags": [
+      "concerto",
+      "piano",
+      "norwegian",
+      "popular",
+      "romantic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Grieg%20Piano%20Concerto",
+    "wikipediaSlug": "Piano_Concerto_(Grieg)"
+  },
+  {
+    "id": "saint-saens-piano-concerto-2",
+    "title": "Piano Concerto No. 2 in G minor, Op. 22",
+    "composerId": "camille-saint-saens",
+    "yearComposed": 1868,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "description": "Composed in just 17 days, this concerto ranges from a Bach-like opening improvisation through a Mendelssohnian scherzo to a Offenbachian tarantella finale. Its eclecticism delighted audiences and critics alike.",
+    "wikipediaSlug": "Piano_Concerto_No._2_(Saint-Saëns)",
+    "spotifyUrl": "https://open.spotify.com/search/Saint-Sa%C3%ABns%20Piano%20Concerto%20No.%202%20in%20G%20minor%2C%20Op.%2022",
+    "tags": [
+      "late-romantic",
+      "concerto",
+      "piano"
+    ]
+  },
+  {
+    "id": "verdi-aida",
+    "title": "Aida",
+    "composerId": "giuseppe-verdi",
+    "yearComposed": 1871,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, large orchestra, onstage band",
+    "description": "An epic grand opera set in ancient Egypt, commissioned for the opening of the Cairo Opera House. The Triumphal March, with its onstage trumpets, is one of opera's most spectacular scenes. But beneath the pageantry lies an intimate story of impossible love.",
+    "wikipediaSlug": "Aida",
+    "tags": [
+      "opera",
+      "grand-opera",
+      "egypt",
+      "spectacle"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Verdi%20Aida"
+  },
+  {
+    "id": "mussorgsky-boris-godunov",
+    "title": "Boris Godunov",
+    "composerId": "modest-mussorgsky",
+    "yearComposed": 1872,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A monumental historical opera about the tormented Tsar Boris, revolutionary in its use of prose libretto, raw harmonic language, and the chorus as a collective protagonist.",
+    "significance": "Transformed Russian opera and influenced generations of composers.",
+    "wikipediaSlug": "Boris_Godunov_(opera)",
+    "spotifyUrl": "https://open.spotify.com/search/Mussorgsky%20Boris%20Godunov",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "russian",
+      "historical"
+    ]
+  },
+  {
+    "id": "verdi-requiem",
+    "title": "Requiem",
+    "composerId": "giuseppe-verdi",
+    "yearComposed": 1874,
+    "genre": "requiem",
+    "instrumentation": "Soloists, double chorus, orchestra",
+    "description": "Brahms reportedly called it 'an opera in church vestments' — and the thundering Dies Irae, with its massive choral and orchestral forces, is indeed the most dramatically terrifying movement in all sacred music. Written in memory of the novelist Alessandro Manzoni.",
+    "significance": "One of the greatest requiems, rivaling Mozart's and Brahms's.",
+    "tags": [
+      "requiem",
+      "sacred",
+      "choral",
+      "dramatic",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Verdi%20Requiem"
+  },
+  {
+    "id": "smetana-vltava",
+    "title": "Vltava (The Moldau)",
+    "composerId": "bedrich-smetana",
+    "yearComposed": 1874,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "The second and most beloved of the Má vlast cycle, tracing the river Vltava from its twin sources through forests, villages, and moonlit landscapes to its triumphant arrival in Prague.",
+    "wikipediaSlug": "Vltava_(Smetana)",
+    "spotifyUrl": "https://open.spotify.com/search/Smetana%20Vltava%20%28The%20Moldau%29",
+    "tags": [
+      "late-romantic",
+      "symphonic",
+      "programmatic",
+      "czech"
+    ]
+  },
+  {
+    "id": "saint-saens-danse-macabre",
+    "title": "Danse macabre, Op. 40",
+    "composerId": "camille-saint-saens",
+    "yearComposed": 1874,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra (with solo violin)",
+    "description": "A tone poem depicting Death playing the violin at midnight while skeletons dance. The solo violin is tuned with a tritone (the 'devil's interval') and the xylophone evokes rattling bones.",
+    "wikipediaSlug": "Danse_macabre_(Saint-Saëns)",
+    "spotifyUrl": "https://open.spotify.com/search/Saint-Sa%C3%ABns%20Danse%20macabre%2C%20Op.%2040",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "programmatic",
+      "supernatural"
+    ]
+  },
+  {
+    "id": "mussorgsky-pictures",
+    "title": "Pictures at an Exhibition",
+    "composerId": "modest-mussorgsky",
+    "yearComposed": 1874,
+    "genre": "keyboard",
+    "instrumentation": "Piano (also orchestrated by Ravel)",
+    "description": "A suite of ten musical paintings inspired by artworks of Viktor Hartmann, linked by a recurring Promenade theme. Ravel's orchestration has become even more famous than the piano original.",
+    "significance": "A landmark of musical pictorialism and one of the most orchestrated piano works.",
+    "wikipediaSlug": "Pictures_at_an_Exhibition",
+    "spotifyUrl": "https://open.spotify.com/search/Mussorgsky%20Pictures%20at%20an%20Exhibition",
+    "tags": [
+      "late-romantic",
+      "piano",
+      "programmatic",
+      "russian"
+    ]
+  },
+  {
+    "id": "tchaikovsky-piano-concerto-1",
+    "title": "Piano Concerto No. 1",
+    "catalogueNumber": "Op. 23",
+    "composerId": "pyotr-ilyich-tchaikovsky",
+    "yearComposed": 1875,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "B-flat minor",
+    "description": "The most popular piano concerto in the repertoire. Its thunderous opening chords are instantly recognizable. Initially rejected by Nikolai Rubinstein as 'worthless and unplayable,' it has since become a warhorse of the concert hall.",
+    "tags": [
+      "concerto",
+      "piano",
+      "popular",
+      "virtuosic",
+      "dramatic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Tchaikovsky%20Piano%20Concerto%20No.%201"
+  },
+  {
+    "id": "grieg-peer-gynt",
+    "title": "Peer Gynt Suites",
+    "catalogueNumber": "Op. 46 & 55",
+    "composerId": "edvard-grieg",
+    "yearComposed": 1875,
+    "genre": "suite",
+    "instrumentation": "Orchestra",
+    "description": "Incidental music for Ibsen's play, extracted into two orchestral suites. 'Morning Mood,' 'In the Hall of the Mountain King,' and 'Solveig's Song' are among the most familiar melodies in classical music.",
+    "tags": [
+      "suite",
+      "orchestral",
+      "theatre",
+      "popular",
+      "norwegian"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Grieg%20Peer%20Gynt%20Suites"
+  },
+  {
+    "id": "tchaikovsky-swan-lake",
+    "title": "Swan Lake",
+    "catalogueNumber": "Op. 20",
+    "composerId": "pyotr-ilyich-tchaikovsky",
+    "yearComposed": 1876,
+    "genre": "ballet",
+    "instrumentation": "Orchestra",
+    "description": "The archetypal Romantic ballet. Tchaikovsky's score elevated ballet music from functional dance accompaniment to symphonic drama, with the Swan Theme becoming one of the most iconic melodies in all music.",
+    "significance": "Transformed ballet into a serious art form with music of symphonic quality.",
+    "tags": [
+      "ballet",
+      "romantic",
+      "transformation",
+      "iconic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Tchaikovsky%20Swan%20Lake"
+  },
+  {
+    "id": "smetana-string-quartet-1",
+    "title": "String Quartet No. 1 in E minor 'From My Life'",
+    "composerId": "bedrich-smetana",
+    "yearComposed": 1876,
+    "genre": "chamber",
+    "instrumentation": "String quartet",
+    "description": "An autobiographical quartet tracing Smetana's life from youthful enthusiasm to the onset of deafness, depicted by a piercing high-E harmonic in the finale.",
+    "wikipediaSlug": "String_Quartet_No._1_(Smetana)",
+    "spotifyUrl": "https://open.spotify.com/search/Smetana%20String%20Quartet%20No.%201%20in%20E%20minor%20%27From%20My%20Life%27",
+    "tags": [
+      "late-romantic",
+      "chamber",
+      "autobiographical"
+    ]
+  },
+  {
+    "id": "borodin-symphony-2",
+    "title": "Symphony No. 2 in B minor",
+    "composerId": "alexander-borodin",
+    "yearComposed": 1876,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "A powerful, heroic symphony evoking the spirit of ancient Russia. Its bold themes and vivid orchestration prompted Liszt to declare Borodin a symphonic talent of the first rank.",
+    "wikipediaSlug": "Symphony_No._2_(Borodin)",
+    "spotifyUrl": "https://open.spotify.com/search/Borodin%20Symphony%20No.%202%20in%20B%20minor",
+    "tags": [
+      "late-romantic",
+      "symphonic",
+      "russian",
+      "heroic"
+    ]
+  },
+  {
+    "id": "mussorgsky-songs-dances-death",
+    "title": "Songs and Dances of Death",
+    "composerId": "modest-mussorgsky",
+    "yearComposed": 1877,
+    "genre": "vocal",
+    "instrumentation": "Voice, piano",
+    "description": "A harrowing song cycle in which Death appears in four guises — as a lullaby singer, a dancer, a commander, and a serenade singer. Among the most powerful vocal works of the 19th century.",
+    "wikipediaSlug": "Songs_and_Dances_of_Death",
+    "spotifyUrl": "https://open.spotify.com/search/Mussorgsky%20Songs%20and%20Dances%20of%20Death",
+    "tags": [
+      "late-romantic",
+      "vocal",
+      "russian",
+      "dark"
+    ]
+  },
+  {
+    "id": "brahms-violin-concerto",
+    "title": "Violin Concerto",
+    "catalogueNumber": "Op. 77",
+    "composerId": "johannes-brahms",
+    "yearComposed": 1878,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, orchestra",
+    "key": "D major",
+    "description": "Written for and with advice from Joseph Joachim, this concerto balances heroic grandeur with lyrical warmth. The slow movement's oboe theme is one of the most beautiful melodies Brahms ever wrote.",
+    "tags": [
+      "concerto",
+      "violin",
+      "late-romantic",
+      "heroic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Brahms%20Violin%20Concerto"
+  },
+  {
+    "id": "tchaikovsky-violin-concerto",
+    "title": "Violin Concerto",
+    "catalogueNumber": "Op. 35",
+    "composerId": "pyotr-ilyich-tchaikovsky",
+    "yearComposed": 1878,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, orchestra",
+    "key": "D major",
+    "description": "A work of soaring Russian lyricism. The critic Hanslick notoriously called it 'music that stinks to the ear,' but audiences adored it from the start. Its fusion of virtuosity and emotional depth makes it one of the great violin concertos.",
+    "tags": [
+      "concerto",
+      "violin",
+      "lyrical",
+      "romantic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Tchaikovsky%20Violin%20Concerto"
+  },
+  {
+    "id": "smetana-ma-vlast",
+    "title": "Má vlast (My Fatherland)",
+    "composerId": "bedrich-smetana",
+    "yearComposed": 1879,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "A cycle of six symphonic poems celebrating Czech history, legend, and landscape. Vltava (The Moldau) is the most famous, depicting the great river's journey from mountain springs to Prague.",
+    "significance": "The foundational work of Czech musical nationalism.",
+    "wikipediaSlug": "Má_vlast",
+    "spotifyUrl": "https://open.spotify.com/search/Smetana%20M%C3%A1%20vlast%20%28My%20Fatherland%29",
+    "tags": [
+      "late-romantic",
+      "symphonic",
+      "programmatic",
+      "czech",
+      "nationalist"
+    ]
+  },
+  {
+    "id": "borodin-in-the-steppes",
+    "title": "In the Steppes of Central Asia",
+    "composerId": "alexander-borodin",
+    "yearComposed": 1880,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "A tone poem depicting a caravan crossing the Central Asian steppe, combining Russian and Oriental melodies over a persistent rhythmic figure. Its evocative simplicity has made it one of the most popular orchestral miniatures.",
+    "wikipediaSlug": "In_the_Steppes_of_Central_Asia",
+    "spotifyUrl": "https://open.spotify.com/search/Borodin%20In%20the%20Steppes%20of%20Central%20Asia",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "programmatic",
+      "exotic"
+    ]
+  },
+  {
+    "id": "brahms-piano-concerto-2",
+    "title": "Piano Concerto No. 2",
+    "catalogueNumber": "Op. 83",
+    "composerId": "johannes-brahms",
+    "yearComposed": 1881,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "B-flat major",
+    "description": "Brahms described this four-movement colossus as 'a tiny, tiny piano concerto with a tiny, tiny wisp of a scherzo' — characteristically understating a work of symphonic scope and depth. The cello solo in the slow movement is ravishing.",
+    "tags": [
+      "concerto",
+      "piano",
+      "late-romantic",
+      "monumental",
+      "humor"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Brahms%20Piano%20Concerto%20No.%202"
+  },
+  {
+    "id": "borodin-string-quartet-2",
+    "title": "String Quartet No. 2 in D major",
+    "composerId": "alexander-borodin",
+    "yearComposed": 1881,
+    "genre": "chamber",
+    "instrumentation": "String quartet",
+    "description": "Beloved for its lyrical Nocturne third movement, this quartet is one of the most popular in the repertoire, full of warmth, colour, and songful melodies.",
+    "wikipediaSlug": "String_Quartet_No._2_(Borodin)",
+    "spotifyUrl": "https://open.spotify.com/search/Borodin%20String%20Quartet%20No.%202%20in%20D%20major",
+    "tags": [
+      "late-romantic",
+      "chamber",
+      "lyrical"
+    ]
+  },
+  {
+    "id": "rimsky-korsakov-snow-maiden",
+    "title": "The Snow Maiden",
+    "composerId": "nikolai-rimsky-korsakov",
+    "yearComposed": 1882,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A lyrical fairy-tale opera based on Ostrovsky's play, rich in folk-inspired melody and nature painting. Rimsky-Korsakov considered it his finest opera.",
+    "wikipediaSlug": "The_Snow_Maiden_(opera)",
+    "spotifyUrl": "https://open.spotify.com/search/Rimsky-Korsakov%20The%20Snow%20Maiden",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "russian",
+      "fairy-tale"
+    ]
+  },
+  {
+    "id": "franck-prelude-chorale-fugue",
+    "title": "Prélude, Choral et Fugue",
+    "composerId": "cesar-franck",
+    "yearComposed": 1884,
+    "genre": "keyboard",
+    "instrumentation": "Piano",
+    "description": "A monumental piano work that fuses Bachian forms with Romantic harmony, creating a unique synthesis of old and new. Its three sections are linked by cyclic themes.",
+    "wikipediaSlug": "Prélude,_Choral_et_Fugue",
+    "spotifyUrl": "https://open.spotify.com/search/Franck%20Pr%C3%A9lude%2C%20Choral%20et%20Fugue",
+    "tags": [
+      "late-romantic",
+      "piano",
+      "fugue"
+    ]
+  },
+  {
+    "id": "grieg-holberg-suite",
+    "title": "Holberg Suite, Op. 40",
+    "composerId": "edvard-grieg",
+    "yearComposed": 1884,
+    "genre": "orchestral",
+    "instrumentation": "String orchestra (originally piano)",
+    "description": "A suite in Baroque style honouring the Danish-Norwegian playwright Ludvig Holberg, combining 18th-century dance forms with Grieg's characteristic Nordic harmonies.",
+    "wikipediaSlug": "Holberg_Suite",
+    "spotifyUrl": "https://open.spotify.com/search/Grieg%20Holberg%20Suite%2C%20Op.%2040",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "strings",
+      "neoclassical"
+    ]
+  },
+  {
+    "id": "brahms-symphony-4",
+    "title": "Symphony No. 4",
+    "catalogueNumber": "Op. 98",
+    "composerId": "johannes-brahms",
+    "yearComposed": 1885,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "E minor",
+    "description": "Brahms's final symphony, and perhaps his greatest. The finale is a passacaglia — a Baroque form — built on 30 variations over a repeating bass line, demonstrating that old forms could contain utterly new emotional content. It ends not in triumph but in an acceptance that is more powerful than triumph.",
+    "significance": "A supreme synthesis of Classical form and Romantic expression.",
+    "tags": [
+      "symphony",
+      "passacaglia",
+      "late-romantic",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Brahms%20Symphony%20No.%204"
+  },
+  {
+    "id": "franck-symphonic-variations",
+    "title": "Symphonic Variations",
+    "composerId": "cesar-franck",
+    "yearComposed": 1885,
+    "genre": "concerto",
+    "instrumentation": "Piano, orchestra",
+    "description": "A concise, brilliantly crafted work for piano and orchestra that distils the variation form into a continuous, organic whole. One of the finest works in the piano-and-orchestra repertoire.",
+    "wikipediaSlug": "Symphonic_Variations_(Franck)",
+    "spotifyUrl": "https://open.spotify.com/search/Franck%20Symphonic%20Variations",
+    "tags": [
+      "late-romantic",
+      "piano",
+      "orchestral",
+      "variations"
+    ]
+  },
+  {
+    "id": "franck-violin-sonata",
+    "title": "Violin Sonata in A major",
+    "composerId": "cesar-franck",
+    "yearComposed": 1886,
+    "genre": "chamber",
+    "instrumentation": "Violin, piano",
+    "description": "A wedding gift for Eugène Ysaÿe, this sonata is one of the supreme masterpieces of the chamber repertoire. Its four movements are unified by cyclic themes of extraordinary beauty.",
+    "significance": "One of the greatest violin sonatas ever written.",
+    "wikipediaSlug": "Violin_Sonata_(Franck)",
+    "spotifyUrl": "https://open.spotify.com/search/Franck%20Violin%20Sonata%20in%20A%20major",
+    "tags": [
+      "late-romantic",
+      "chamber",
+      "violin",
+      "cyclic"
+    ]
+  },
+  {
+    "id": "saint-saens-organ-symphony",
+    "title": "Symphony No. 3 in C minor, Op. 78 'Organ'",
+    "composerId": "camille-saint-saens",
+    "yearComposed": 1886,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra, organ, piano (four hands)",
+    "description": "A magnificent symphony incorporating organ and piano, dedicated to the memory of Liszt. Its triumphant finale, with the full organ blazing, is one of the most exhilarating moments in symphonic music.",
+    "significance": "Revitalised the French symphony and pioneered the use of organ in symphonic music.",
+    "wikipediaSlug": "Symphony_No._3_(Saint-Saëns)",
+    "spotifyUrl": "https://open.spotify.com/search/Saint-Sa%C3%ABns%20Symphony%20No.%203%20in%20C%20minor%2C%20Op.%2078%20%27Organ%27",
+    "tags": [
+      "late-romantic",
+      "symphonic",
+      "organ",
+      "french"
+    ]
+  },
+  {
+    "id": "saint-saens-carnival-animals",
+    "title": "The Carnival of the Animals",
+    "composerId": "camille-saint-saens",
+    "yearComposed": 1886,
+    "genre": "orchestral",
+    "instrumentation": "Two pianos, flute, clarinet, glass harmonica, xylophone, strings",
+    "description": "A witty zoological fantasy in fourteen movements, featuring musical portraits of lions, elephants, kangaroos, and pianists. Saint-Saëns suppressed it during his lifetime, fearing it would harm his serious reputation.",
+    "wikipediaSlug": "The_Carnival_of_the_Animals",
+    "spotifyUrl": "https://open.spotify.com/search/Saint-Sa%C3%ABns%20The%20Carnival%20of%20the%20Animals",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "humorous",
+      "programmatic"
+    ]
+  },
+  {
+    "id": "verdi-otello",
+    "title": "Otello",
+    "composerId": "giuseppe-verdi",
+    "yearComposed": 1887,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Composed when Verdi was 73, Otello is often considered his greatest work — a searing musical adaptation of Shakespeare. The vocal writing, orchestration, and dramatic pacing reach a level of sophistication that synthesizes everything Verdi learned over half a century.",
+    "significance": "Proof that Italian opera could match Wagner in musical depth without sacrificing vocal melody.",
+    "wikipediaSlug": "Otello",
+    "tags": [
+      "opera",
+      "shakespeare",
+      "late-work",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Verdi%20Otello"
+  },
+  {
+    "id": "rimsky-korsakov-capriccio-espagnol",
+    "title": "Capriccio espagnol, Op. 34",
+    "composerId": "nikolai-rimsky-korsakov",
+    "yearComposed": 1887,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "A five-movement orchestral work of dazzling brilliance inspired by Spanish themes, designed to showcase the virtuosity of individual orchestral sections.",
+    "wikipediaSlug": "Capriccio_Espagnol",
+    "spotifyUrl": "https://open.spotify.com/search/Rimsky-Korsakov%20Capriccio%20espagnol%2C%20Op.%2034",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "spanish",
+      "virtuosic"
+    ]
+  },
+  {
+    "id": "franck-symphony-d-minor",
+    "title": "Symphony in D minor",
+    "composerId": "cesar-franck",
+    "yearComposed": 1888,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "Franck's only symphony, a tightly constructed three-movement work built on cyclic principles. Initially dismissed by the Parisian establishment, it has become one of the most frequently performed French symphonies.",
+    "significance": "A landmark of French symphonic music and cyclic form.",
+    "wikipediaSlug": "Symphony_in_D_minor_(Franck)",
+    "spotifyUrl": "https://open.spotify.com/search/Franck%20Symphony%20in%20D%20minor",
+    "tags": [
+      "late-romantic",
+      "symphonic",
+      "french",
+      "cyclic"
+    ]
+  },
+  {
+    "id": "rimsky-korsakov-scheherazade",
+    "title": "Scheherazade, Op. 35",
+    "composerId": "nikolai-rimsky-korsakov",
+    "yearComposed": 1888,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra (with solo violin)",
+    "description": "A symphonic suite based on One Thousand and One Nights, glittering with exotic orchestral colour. The solo violin represents Scheherazade herself, weaving her tales to save her life.",
+    "significance": "One of the supreme achievements of orchestral colour.",
+    "wikipediaSlug": "Scheherazade_(Rimsky-Korsakov)",
+    "spotifyUrl": "https://open.spotify.com/search/Rimsky-Korsakov%20Scheherazade%2C%20Op.%2035",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "programmatic",
+      "exotic"
+    ]
+  },
+  {
+    "id": "rimsky-korsakov-russian-easter",
+    "title": "Russian Easter Festival Overture, Op. 36",
+    "composerId": "nikolai-rimsky-korsakov",
+    "yearComposed": 1888,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "A brilliantly scored overture based on Russian Orthodox liturgical chants, depicting the Easter celebration from solemn darkness to jubilant triumph.",
+    "wikipediaSlug": "Russian_Easter_Festival_Overture",
+    "spotifyUrl": "https://open.spotify.com/search/Rimsky-Korsakov%20Russian%20Easter%20Festival%20Overture%2C%20Op.%2036",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "russian",
+      "sacred"
+    ]
+  },
+  {
+    "id": "satie-gymnopedies",
+    "title": "Gymnopédies",
+    "composerId": "erik-satie",
+    "yearComposed": 1888,
+    "genre": "keyboard",
+    "instrumentation": "Piano",
+    "description": "Three slow, dreamlike pieces whose bare, modal harmonies and static quality broke completely with late-Romantic excess. They anticipate ambient music by nearly a century.",
+    "significance": "Pioneered musical minimalism and influenced Debussy, Cage, and ambient music.",
+    "wikipediaSlug": "Gymnopédies_(Satie)",
+    "spotifyUrl": "https://open.spotify.com/search/Satie%20Gymnop%C3%A9dies",
+    "tags": [
+      "modern",
+      "piano",
+      "minimalist",
+      "influential"
+    ]
+  },
+  {
+    "id": "debussy-clair-de-lune",
+    "title": "Clair de Lune",
+    "composerId": "claude-debussy",
+    "yearComposed": 1890,
+    "genre": "piano-solo",
+    "instrumentation": "Piano",
+    "key": "D-flat major",
+    "description": "The third movement of the Suite bergamasque, and one of the most famous piano pieces ever written. Its shimmering arpeggios and luminous melody evoke moonlight with a tenderness that transcends the Impressionist label.",
+    "tags": [
+      "piano",
+      "impressionism",
+      "popular",
+      "moonlight",
+      "lyrical"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Debussy%20Clair%20de%20Lune"
+  },
+  {
+    "id": "borodin-prince-igor",
+    "title": "Prince Igor (including Polovtsian Dances)",
+    "composerId": "alexander-borodin",
+    "yearComposed": 1890,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra, ballet",
+    "description": "An epic opera left unfinished at Borodin's death and completed by Rimsky-Korsakov and Glazunov. The Polovtsian Dances are among the most thrilling and colourful pages in all opera.",
+    "wikipediaSlug": "Prince_Igor_(opera)",
+    "spotifyUrl": "https://open.spotify.com/search/Borodin%20Prince%20Igor%20%28including%20Polovtsian%20Dances%29",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "russian",
+      "exotic"
+    ]
+  },
+  {
+    "id": "tchaikovsky-nutcracker",
+    "title": "The Nutcracker",
+    "catalogueNumber": "Op. 71",
+    "composerId": "pyotr-ilyich-tchaikovsky",
+    "yearComposed": 1892,
+    "genre": "ballet",
+    "instrumentation": "Orchestra",
+    "description": "A Christmas fairy-tale ballet that has become inseparable from the holiday season. The Dance of the Sugar Plum Fairy (featuring the celesta, an instrument Tchaikovsky discovered in Paris) and the Waltz of the Flowers are among the most beloved orchestral pieces in existence.",
+    "wikipediaSlug": "The_Nutcracker",
+    "tags": [
+      "ballet",
+      "christmas",
+      "popular",
+      "fairy-tale",
+      "celesta"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Tchaikovsky%20The%20Nutcracker"
+  },
+  {
+    "id": "tchaikovsky-symphony-6",
+    "title": "Symphony No. 6 'Pathétique'",
+    "catalogueNumber": "Op. 74",
+    "composerId": "pyotr-ilyich-tchaikovsky",
+    "yearComposed": 1893,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "B minor",
+    "description": "Tchaikovsky's final symphony, premiered nine days before his death. It breaks convention by ending with a devastating slow movement — an Adagio lamentoso that fades into silence. The composer described it as his most sincere work, 'a programme which shall remain an enigma.'",
+    "significance": "One of the most emotionally overwhelming symphonies ever written.",
+    "wikipediaSlug": "Symphony_No._6_(Tchaikovsky)",
+    "tags": [
+      "symphony",
+      "death",
+      "despair",
+      "final-work",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Tchaikovsky%20Symphony%20No.%206%20%27Path%C3%A9tique%27"
+  },
+  {
+    "id": "dvorak-symphony-9",
+    "title": "Symphony No. 9 'From the New World'",
+    "catalogueNumber": "Op. 95",
+    "composerId": "antonin-dvorak",
+    "yearComposed": 1893,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "E minor",
+    "description": "Composed during Dvořák's time as director of the National Conservatory in New York, this symphony blends Bohemian warmth with the spirit of America. The Largo movement's English horn theme — 'Goin' Home' — is one of the most hauntingly beautiful melodies in symphonic music.",
+    "significance": "One of the most popular symphonies ever written. Buzz Aldrin played it during the Apollo 11 mission.",
+    "wikipediaSlug": "Symphony_No._9_(Dvořák)",
+    "tags": [
+      "symphony",
+      "america",
+      "czech",
+      "popular",
+      "folk"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Dvo%C5%99%C3%A1k%20Symphony%20No.%209%20%27From%20the%20New%20World%27"
+  },
+  {
+    "id": "satie-gnossiennes",
+    "title": "Gnossiennes",
+    "composerId": "erik-satie",
+    "yearComposed": 1893,
+    "genre": "keyboard",
+    "instrumentation": "Piano",
+    "description": "Six enigmatic pieces written without bar lines or key signatures, with eccentric performance directions ('Open your head,' 'Be a clairvoyant'). Their exotic modality hints at Middle Eastern music.",
+    "wikipediaSlug": "Gnossiennes",
+    "spotifyUrl": "https://open.spotify.com/search/Satie%20Gnossiennes",
+    "tags": [
+      "modern",
+      "piano",
+      "minimalist",
+      "exotic"
+    ]
+  },
+  {
+    "id": "satie-vexations",
+    "title": "Vexations",
+    "composerId": "erik-satie",
+    "yearComposed": 1893,
+    "genre": "keyboard",
+    "instrumentation": "Piano",
+    "description": "A short passage with instructions to repeat it 840 times, lasting approximately 18 hours. Rediscovered by John Cage in 1963, it anticipated conceptual art and endurance performance.",
+    "wikipediaSlug": "Vexations_(Satie)",
+    "spotifyUrl": "https://open.spotify.com/search/Satie%20Vexations",
+    "tags": [
+      "modern",
+      "piano",
+      "conceptual",
+      "experimental"
+    ]
+  },
+  {
+    "id": "mahler-symphony-2",
+    "title": "Symphony No. 2 'Resurrection'",
+    "composerId": "gustav-mahler",
+    "yearComposed": 1894,
+    "genre": "symphony",
+    "instrumentation": "Soloists, chorus, massive orchestra, offstage brass",
+    "key": "C minor",
+    "description": "A 90-minute journey from death to resurrection. Beginning with a violent funeral march and ending with a chorus singing of rising from the dead, the 'Resurrection' Symphony deploys forces of Beethovenian ambition — including offstage brass, bells, and a massive chorus — to ask: Why do we live? Is there life after death?",
+    "significance": "One of the most overwhelming concert experiences in all music.",
+    "tags": [
+      "symphony",
+      "choral",
+      "metaphysical",
+      "monumental",
+      "late-romantic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mahler%20Symphony%20No.%202%20%27Resurrection%27"
+  },
+  {
+    "id": "debussy-prelude-apres-midi",
+    "title": "Prélude à l'après-midi d'un faune",
+    "composerId": "claude-debussy",
+    "yearComposed": 1894,
+    "genre": "tone-poem",
+    "instrumentation": "Orchestra",
+    "description": "A sensuous orchestral evocation of Mallarmé's poem about a faun's afternoon reverie. The opening flute solo — languorous, chromatic, floating free of bar lines — announced a new musical world. Boulez called it 'the beginning of modern music.'",
+    "significance": "Often cited as the starting point of musical modernism and Impressionism.",
+    "wikipediaSlug": "Prélude_à_l'après-midi_d'un_faune",
+    "tags": [
+      "orchestral",
+      "impressionism",
+      "modern",
+      "flute",
+      "landmark"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Debussy%20Pr%C3%A9lude%20%C3%A0%20l%27apr%C3%A8s-midi%20d%27un%20faune"
+  },
+  {
+    "id": "dvorak-cello-concerto",
+    "title": "Cello Concerto",
+    "catalogueNumber": "Op. 104",
+    "composerId": "antonin-dvorak",
+    "yearComposed": 1895,
+    "genre": "concerto",
+    "instrumentation": "Solo cello, orchestra",
+    "key": "B minor",
+    "description": "The greatest cello concerto ever written. Brahms, upon seeing the score, exclaimed, 'Why didn't I know that one could write a cello concerto like this? Had I known, I would have written one long ago!' Its emotional depth and orchestral brilliance set a standard no subsequent cello concerto has surpassed.",
+    "significance": "The supreme concerto for cello, unmatched in the repertoire.",
+    "tags": [
+      "concerto",
+      "cello",
+      "masterwork",
+      "late-romantic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Dvo%C5%99%C3%A1k%20Cello%20Concerto",
+    "wikipediaSlug": "Cello_Concerto_(Dvořák)"
+  },
+  {
+    "id": "strauss-also-sprach-zarathustra",
+    "title": "Also sprach Zarathustra",
+    "catalogueNumber": "Op. 30",
+    "composerId": "richard-strauss",
+    "yearComposed": 1896,
+    "genre": "tone-poem",
+    "instrumentation": "Large orchestra with organ",
+    "description": "The opening sunrise fanfare — C-G-C over a rumbling organ pedal — became one of the most iconic musical moments in history after Stanley Kubrick used it in 2001: A Space Odyssey. The full tone poem is a 30-minute philosophical journey inspired by Nietzsche.",
+    "tags": [
+      "tone-poem",
+      "orchestral",
+      "film",
+      "philosophical",
+      "iconic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/R.%20Strauss%20Also%20sprach%20Zarathustra"
+  },
+  {
+    "id": "puccini-la-boheme",
+    "title": "La bohème",
+    "composerId": "giacomo-puccini",
+    "yearComposed": 1896,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A heartbreaking tale of young love and death in the Latin Quarter of Paris, told with Puccini's unerring dramatic instinct and gift for melody. Musetta's Waltz and Mimì's death scene are among opera's most beloved moments.",
+    "significance": "One of the most performed operas in the world.",
+    "wikipediaSlug": "La_bohème",
+    "spotifyUrl": "https://open.spotify.com/search/Puccini%20La%20boh%C3%A8me",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "italian",
+      "verismo"
+    ]
+  },
+  {
+    "id": "schoenberg-verklarte-nacht",
+    "title": "Verklärte Nacht (Transfigured Night)",
+    "catalogueNumber": "Op. 4",
+    "composerId": "arnold-schoenberg",
+    "yearComposed": 1899,
+    "genre": "chamber-music",
+    "instrumentation": "String sextet (or string orchestra)",
+    "description": "A lushly Romantic tone poem for string sextet, based on a poem by Richard Dehmel about a moonlit walk and a confession of love. One of the last great works of tonal Romanticism — before Schoenberg himself dismantled tonality.",
+    "tags": [
+      "chamber-music",
+      "strings",
+      "romantic",
+      "programmatic",
+      "tonal"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Schoenberg%20Verkl%C3%A4rte%20Nacht%20%28Transfigured%20Night%29"
+  },
+  {
+    "id": "elgar-enigma-variations",
+    "title": "Enigma Variations, Op. 36",
+    "composerId": "edward-elgar",
+    "yearComposed": 1899,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "Fourteen variations portraying Elgar's friends and wife, each a vivid character sketch. The noble Nimrod variation has become an unofficial British anthem, played at state occasions and Remembrance services.",
+    "significance": "Established Elgar as a major international composer overnight.",
+    "wikipediaSlug": "Enigma_Variations",
+    "spotifyUrl": "https://open.spotify.com/search/Elgar%20Enigma%20Variations%2C%20Op.%2036",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "variations",
+      "british"
+    ]
+  },
+  {
+    "id": "sibelius-finlandia",
+    "title": "Finlandia, Op. 26",
+    "composerId": "jean-sibelius",
+    "yearComposed": 1899,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "A tone poem that became an anthem of Finnish national identity during the struggle for independence from Russia. The Russian authorities banned performances under its real title.",
+    "significance": "Became a symbol of Finnish independence.",
+    "wikipediaSlug": "Finlandia_(Sibelius)",
+    "spotifyUrl": "https://open.spotify.com/search/Sibelius%20Finlandia%2C%20Op.%2026",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "finnish",
+      "nationalist"
+    ]
+  },
+  {
+    "id": "rimsky-korsakov-flight-bumblebee",
+    "title": "Flight of the Bumblebee",
+    "composerId": "nikolai-rimsky-korsakov",
+    "yearComposed": 1900,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "An orchestral interlude from the opera The Tale of Tsar Saltan, depicting a prince transformed into a bumblebee. Its whirling chromatic scales have made it one of the most famous virtuoso showpieces.",
+    "wikipediaSlug": "Flight_of_the_Bumblebee",
+    "spotifyUrl": "https://open.spotify.com/search/Rimsky-Korsakov%20Flight%20of%20the%20Bumblebee",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "virtuosic"
+    ]
+  },
+  {
+    "id": "elgar-dream-gerontius",
+    "title": "The Dream of Gerontius, Op. 38",
+    "composerId": "edward-elgar",
+    "yearComposed": 1900,
+    "genre": "choral",
+    "instrumentation": "Mezzo-soprano, tenor, bass soloists, chorus, orchestra",
+    "description": "A large-scale oratorio setting Cardinal Newman's poem about the soul's journey after death. After a disastrous première, it was championed in Germany by Richard Strauss, who toasted Elgar as 'the first English progressive.'",
+    "wikipediaSlug": "The_Dream_of_Gerontius",
+    "spotifyUrl": "https://open.spotify.com/search/Elgar%20The%20Dream%20of%20Gerontius%2C%20Op.%2038",
+    "tags": [
+      "late-romantic",
+      "choral",
+      "oratorio",
+      "british",
+      "sacred"
+    ]
+  },
+  {
+    "id": "puccini-tosca",
+    "title": "Tosca",
+    "composerId": "giacomo-puccini",
+    "yearComposed": 1900,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A gripping thriller set in Rome during Napoleon's campaign, famous for Vissi d'arte and the dramatic final act. Its pace, violence, and emotional intensity anticipated cinematic storytelling.",
+    "wikipediaSlug": "Tosca",
+    "spotifyUrl": "https://open.spotify.com/search/Puccini%20Tosca",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "italian",
+      "dramatic"
+    ]
+  },
+  {
+    "id": "rachmaninoff-piano-concerto-2",
+    "title": "Piano Concerto No. 2",
+    "catalogueNumber": "Op. 18",
+    "composerId": "sergei-rachmaninoff",
+    "yearComposed": 1901,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "C minor",
+    "description": "Composed after Rachmaninoff overcame a creative crisis through hypnotherapy, this concerto opens with slowly building bell-like chords and unfolds in waves of lush, passionate melody. One of the most popular concertos ever written.",
+    "significance": "A defining work of late Romanticism and one of the most commercially successful classical works.",
+    "wikipediaSlug": "Piano_Concerto_No._2_(Rachmaninoff)",
+    "tags": [
+      "concerto",
+      "piano",
+      "popular",
+      "romantic",
+      "lush"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Rachmaninoff%20Piano%20Concerto%20No.%202"
+  },
+  {
+    "id": "elgar-pomp-circumstance-1",
+    "title": "Pomp and Circumstance March No. 1 in D major",
+    "composerId": "edward-elgar",
+    "yearComposed": 1901,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "The first and most famous of five marches, whose trio melody (Land of Hope and Glory) became a second national anthem. King Edward VII suggested words be set to the great tune.",
+    "wikipediaSlug": "Pomp_and_Circumstance_Marches",
+    "spotifyUrl": "https://open.spotify.com/search/Elgar%20Pomp%20and%20Circumstance%20March%20No.%201%20in%20D%20major",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "march",
+      "british"
+    ]
+  },
+  {
+    "id": "mahler-symphony-5",
+    "title": "Symphony No. 5",
+    "composerId": "gustav-mahler",
+    "yearComposed": 1902,
+    "genre": "symphony",
+    "instrumentation": "Large orchestra",
+    "key": "C-sharp minor",
+    "description": "From funeral march to exuberant rondo — a symphony of transformation. The fourth movement, the Adagietto for strings and harp, became famous through Visconti's film Death in Venice and is now one of the most beloved slow movements in the repertoire.",
+    "tags": [
+      "symphony",
+      "late-romantic",
+      "film",
+      "adagietto",
+      "transformation"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mahler%20Symphony%20No.%205"
+  },
+  {
+    "id": "sibelius-symphony-2",
+    "title": "Symphony No. 2 in D major, Op. 43",
+    "composerId": "jean-sibelius",
+    "yearComposed": 1902,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "A heroic symphony interpreted in Finland as a declaration of national independence from Russia. Its triumphant finale, building from fragments to a blazing peroration, remains one of the most thrilling in the repertoire.",
+    "wikipediaSlug": "Symphony_No._2_(Sibelius)",
+    "spotifyUrl": "https://open.spotify.com/search/Sibelius%20Symphony%20No.%202%20in%20D%20major%2C%20Op.%2043",
+    "tags": [
+      "late-romantic",
+      "symphonic",
+      "finnish",
+      "heroic"
+    ]
+  },
+  {
+    "id": "sibelius-valse-triste",
+    "title": "Valse triste, Op. 44",
+    "composerId": "jean-sibelius",
+    "yearComposed": 1903,
+    "genre": "orchestral",
+    "instrumentation": "String orchestra",
+    "description": "A haunting waltz from incidental music for a play, depicting a dying woman's hallucination of a ghostly ball. Its melancholic beauty made it Sibelius's most popular short work.",
+    "wikipediaSlug": "Valse_triste",
+    "spotifyUrl": "https://open.spotify.com/search/Sibelius%20Valse%20triste%2C%20Op.%2044",
+    "tags": [
+      "late-romantic",
+      "orchestral",
+      "finnish",
+      "waltz"
+    ]
+  },
+  {
+    "id": "puccini-madama-butterfly",
+    "title": "Madama Butterfly",
+    "composerId": "giacomo-puccini",
+    "yearComposed": 1904,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "The tragic story of a Japanese geisha abandoned by an American naval officer. After a disastrous première, Puccini revised it into one of the most emotionally devastating operas ever written.",
+    "wikipediaSlug": "Madama_Butterfly",
+    "spotifyUrl": "https://open.spotify.com/search/Puccini%20Madama%20Butterfly",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "italian",
+      "tragic"
+    ]
+  },
+  {
+    "id": "debussy-la-mer",
+    "title": "La Mer",
+    "composerId": "claude-debussy",
+    "yearComposed": 1905,
+    "genre": "tone-poem",
+    "instrumentation": "Orchestra",
+    "description": "Three symphonic sketches depicting the sea — from dawn to noon, the play of waves, and the dialogue of wind and sea. Not a depiction but an evocation: Debussy captures not the look of the sea but how it feels.",
+    "significance": "The greatest orchestral work of Impressionism.",
+    "wikipediaSlug": "La_mer_(Debussy)",
+    "tags": [
+      "orchestral",
+      "impressionism",
+      "nature",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Debussy%20La%20Mer"
+  },
+  {
+    "id": "elgar-introduction-allegro",
+    "title": "Introduction and Allegro, Op. 47",
+    "composerId": "edward-elgar",
+    "yearComposed": 1905,
+    "genre": "chamber",
+    "instrumentation": "String quartet, string orchestra",
+    "description": "A magnificent work for string quartet and string orchestra, combining sonata form with fugal writing. Its soaring Welsh-inspired themes and rich textures make it one of the finest works for strings.",
+    "wikipediaSlug": "Introduction_and_Allegro_(Elgar)",
+    "spotifyUrl": "https://open.spotify.com/search/Elgar%20Introduction%20and%20Allegro%2C%20Op.%2047",
+    "tags": [
+      "late-romantic",
+      "strings",
+      "british"
+    ]
+  },
+  {
+    "id": "sibelius-violin-concerto",
+    "title": "Violin Concerto in D minor, Op. 47",
+    "composerId": "jean-sibelius",
+    "yearComposed": 1905,
+    "genre": "concerto",
+    "instrumentation": "Solo violin, orchestra",
+    "description": "The only concerto Sibelius completed, combining icy Nordic atmosphere with passionate lyricism and formidable technical demands. One of the most popular and challenging violin concertos.",
+    "wikipediaSlug": "Violin_Concerto_(Sibelius)",
+    "spotifyUrl": "https://open.spotify.com/search/Sibelius%20Violin%20Concerto%20in%20D%20minor%2C%20Op.%2047",
+    "tags": [
+      "late-romantic",
+      "concerto",
+      "violin",
+      "finnish"
+    ]
+  },
+  {
+    "id": "mahler-das-lied-von-der-erde",
+    "title": "Das Lied von der Erde (The Song of the Earth)",
+    "composerId": "gustav-mahler",
+    "yearComposed": 1909,
+    "genre": "symphony",
+    "instrumentation": "Mezzo-soprano, tenor, orchestra",
+    "description": "A symphony in all but name (Mahler feared the 'curse' of the ninth symphony). Setting ancient Chinese poems in German translation, it is a farewell to life of heartbreaking beauty. The final word — 'ewig' (forever) — dissolves into silence over a chord that never fully resolves.",
+    "significance": "Perhaps Mahler's greatest work, and one of music's supreme expressions of mortality and transcendence.",
+    "tags": [
+      "symphony",
+      "lied",
+      "farewell",
+      "chinese-poetry",
+      "late-romantic",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Mahler%20Das%20Lied%20von%20der%20Erde%20%28The%20Song%20of%20the%20Earth%29"
+  },
+  {
+    "id": "rachmaninoff-piano-concerto-3",
+    "title": "Piano Concerto No. 3",
+    "catalogueNumber": "Op. 30",
+    "composerId": "sergei-rachmaninoff",
+    "yearComposed": 1909,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "D minor",
+    "description": "The 'Mount Everest' of the piano concerto repertoire. Written for Rachmaninoff's first American tour, it demands staggering technical prowess while maintaining an unbroken flow of inspired melody. Horowitz and others made it a test of supreme pianistic ability.",
+    "tags": [
+      "concerto",
+      "piano",
+      "virtuosic",
+      "demanding",
+      "romantic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Rachmaninoff%20Piano%20Concerto%20No.%203"
+  },
+  {
+    "id": "stravinsky-firebird",
+    "title": "The Firebird",
+    "composerId": "igor-stravinsky",
+    "yearComposed": 1910,
+    "genre": "ballet",
+    "instrumentation": "Large orchestra",
+    "description": "Stravinsky's breakthrough — a ballet based on Russian fairy tales, commissioned by Diaghilev. The finale's coronation scene, with its slowly building horn theme, is one of the most thrilling climaxes in orchestral music.",
+    "tags": [
+      "ballet",
+      "orchestral",
+      "fairy-tale",
+      "russian",
+      "debut"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Stravinsky%20The%20Firebird"
+  },
+  {
+    "id": "strauss-der-rosenkavalier",
+    "title": "Der Rosenkavalier",
+    "catalogueNumber": "Op. 59",
+    "composerId": "richard-strauss",
+    "yearComposed": 1911,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, large orchestra",
+    "description": "A bittersweet comedy of love and aging set in 18th-century Vienna. The final trio, where three women's voices intertwine in farewell, is one of the most sublime moments in all opera. Strauss's rich, waltzing score is both a tribute to and a farewell from the Romantic era.",
+    "tags": [
+      "opera",
+      "comedy",
+      "waltz",
+      "vienna",
+      "bittersweet"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/R.%20Strauss%20Der%20Rosenkavalier"
+  },
+  {
+    "id": "stravinsky-petrushka",
+    "title": "Petrushka",
+    "composerId": "igor-stravinsky",
+    "yearComposed": 1911,
+    "genre": "ballet",
+    "instrumentation": "Large orchestra with piano",
+    "description": "A ballet about a puppet who comes to life at a Russian carnival. The famous 'Petrushka chord' — C major and F-sharp major played simultaneously — became a symbol of polytonality and the modern disintegration of traditional harmony.",
+    "tags": [
+      "ballet",
+      "bitonality",
+      "puppet",
+      "russian",
+      "carnival"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Stravinsky%20Petrushka"
+  },
+  {
+    "id": "schoenberg-pierrot-lunaire",
+    "title": "Pierrot lunaire",
+    "catalogueNumber": "Op. 21",
+    "composerId": "arnold-schoenberg",
+    "yearComposed": 1912,
+    "genre": "chamber-music",
+    "instrumentation": "Voice (Sprechstimme), flute, clarinet, violin, cello, piano",
+    "description": "21 settings of Albert Giraud's poems about the moonstruck clown Pierrot, using Sprechstimme (speech-song) — a technique between singing and speaking. The tiny chamber ensemble creates an extraordinary range of colors and atmospheres.",
+    "significance": "A landmark of expressionism and the single most influential chamber work of the 20th century.",
+    "tags": [
+      "chamber-music",
+      "sprechstimme",
+      "expressionism",
+      "modern",
+      "atonal"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Schoenberg%20Pierrot%20lunaire",
+    "wikipediaSlug": "Pierrot_lunaire"
+  },
+  {
+    "id": "ravel-daphnis-et-chloe",
+    "title": "Daphnis et Chloé",
+    "composerId": "maurice-ravel",
+    "yearComposed": 1912,
+    "genre": "ballet",
+    "instrumentation": "Large orchestra, wordless chorus",
+    "description": "A ballet score commissioned by Diaghilev for the Ballets Russes. The dawn scene in Part III — often extracted as an orchestral suite — is one of the most breathtaking passages in all orchestral music, with the orchestra physically rising like the sun.",
+    "significance": "Ravel considered it his best work. Often called 'the greatest French orchestral composition.'",
+    "tags": [
+      "ballet",
+      "orchestral",
+      "impressionism",
+      "nature",
+      "masterwork"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Ravel%20Daphnis%20et%20Chlo%C3%A9"
+  },
+  {
+    "id": "stravinsky-rite-of-spring",
+    "title": "The Rite of Spring",
+    "composerId": "igor-stravinsky",
+    "yearComposed": 1913,
+    "genre": "ballet",
+    "instrumentation": "Very large orchestra",
+    "description": "A ballet depicting a pagan ritual of sacrifice in prehistoric Russia. Its Paris premiere on May 29, 1913, provoked one of history's most famous riots — the audience screamed, fought, and drowned out the music. Its savage, irregular rhythms, polytonal harmonies, and orchestral violence changed music forever.",
+    "significance": "The single most important orchestral work of the 20th century. Dividing line between Romantic and Modern music.",
+    "wikipediaSlug": "The_Rite_of_Spring",
+    "tags": [
+      "ballet",
+      "modern",
+      "revolutionary",
+      "rhythm",
+      "riot",
+      "landmark"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Stravinsky%20The%20Rite%20of%20Spring"
+  },
+  {
+    "id": "satie-parade",
+    "title": "Parade",
+    "composerId": "erik-satie",
+    "yearComposed": 1917,
+    "genre": "ballet",
+    "instrumentation": "Orchestra (with typewriter, pistol, siren)",
+    "description": "A Cubist ballet created with Cocteau, Picasso, and Diaghilev. Its score incorporates typewriters, pistols, and a siren, scandalising audiences and earning the first use of the word 'surrealist' (by Apollinaire).",
+    "significance": "A landmark of avant-garde collaboration.",
+    "wikipediaSlug": "Parade_(ballet)",
+    "spotifyUrl": "https://open.spotify.com/search/Satie%20Parade",
+    "tags": [
+      "modern",
+      "ballet",
+      "avant-garde",
+      "cubist"
+    ]
+  },
+  {
+    "id": "puccini-gianni-schicchi",
+    "title": "Gianni Schicchi",
+    "composerId": "giacomo-puccini",
+    "yearComposed": 1918,
+    "genre": "opera",
+    "instrumentation": "Soloists, orchestra",
+    "description": "A sparkling one-act comedy — rare in Puccini's output — set in medieval Florence. O mio babbino caro is one of the most popular soprano arias ever written.",
+    "wikipediaSlug": "Gianni_Schicchi",
+    "spotifyUrl": "https://open.spotify.com/search/Puccini%20Gianni%20Schicchi",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "italian",
+      "comic"
+    ]
+  },
+  {
+    "id": "elgar-cello-concerto",
+    "title": "Cello Concerto in E minor, Op. 85",
+    "composerId": "edward-elgar",
+    "yearComposed": 1919,
+    "genre": "concerto",
+    "instrumentation": "Solo cello, orchestra",
+    "description": "A valedictory masterpiece composed in the aftermath of World War I, suffused with autumnal melancholy. Jacqueline du Pré's legendary recording made it one of the most beloved cello concertos.",
+    "wikipediaSlug": "Cello_Concerto_(Elgar)",
+    "spotifyUrl": "https://open.spotify.com/search/Elgar%20Cello%20Concerto%20in%20E%20minor%2C%20Op.%2085",
+    "tags": [
+      "late-romantic",
+      "concerto",
+      "cello",
+      "elegiac"
+    ]
+  },
+  {
+    "id": "sibelius-symphony-5",
+    "title": "Symphony No. 5 in E-flat major, Op. 82",
+    "composerId": "jean-sibelius",
+    "yearComposed": 1919,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "A work of cosmic grandeur inspired by the sight of sixteen swans in flight. Its finale's great horn theme, arriving in massive swinging phrases, is one of the most sublime moments in all symphonic music.",
+    "wikipediaSlug": "Symphony_No._5_(Sibelius)",
+    "spotifyUrl": "https://open.spotify.com/search/Sibelius%20Symphony%20No.%205%20in%20E-flat%20major%2C%20Op.%2082",
+    "tags": [
+      "late-romantic",
+      "symphonic",
+      "finnish",
+      "nature"
+    ]
+  },
+  {
+    "id": "prokofiev-piano-concerto-3",
+    "title": "Piano Concerto No. 3",
+    "catalogueNumber": "Op. 26",
+    "composerId": "sergei-prokofiev",
+    "yearComposed": 1921,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "C major",
+    "description": "A dazzling display of pianistic brilliance and energy, combining lyrical Russian melody with modernist motor rhythms. The clarinet opening theme is one of Prokofiev's most memorable, and the finale's driving energy is irresistible.",
+    "tags": [
+      "concerto",
+      "piano",
+      "virtuosic",
+      "modern",
+      "energetic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Prokofiev%20Piano%20Concerto%20No.%203"
+  },
+  {
+    "id": "puccini-turandot",
+    "title": "Turandot",
+    "composerId": "giacomo-puccini",
+    "yearComposed": 1926,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "Puccini's final, unfinished opera, set in legendary China. Nessun dorma has become the most famous tenor aria in the world. The work was completed after Puccini's death by Franco Alfano.",
+    "wikipediaSlug": "Turandot",
+    "spotifyUrl": "https://open.spotify.com/search/Puccini%20Turandot",
+    "tags": [
+      "late-romantic",
+      "opera",
+      "italian",
+      "exotic"
+    ]
+  },
+  {
+    "id": "ravel-bolero",
+    "title": "Boléro",
+    "composerId": "maurice-ravel",
+    "yearComposed": 1928,
+    "genre": "ballet",
+    "instrumentation": "Large orchestra",
+    "description": "A single melody repeated over and over for 15 minutes, with only the orchestration changing — building from a whispered snare drum solo to a full-orchestra explosion. Ravel himself called it 'a piece for orchestra without music.' Audiences disagreed; it became the most performed French composition.",
+    "significance": "The most popular work in the French orchestral repertoire and a masterclass in orchestration.",
+    "tags": [
+      "ballet",
+      "orchestration",
+      "hypnotic",
+      "popular",
+      "crescendo"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Ravel%20Bol%C3%A9ro"
+  },
+  {
+    "id": "bartok-string-quartet-4",
+    "title": "String Quartet No. 4",
+    "composerId": "bela-bartok",
+    "yearComposed": 1928,
+    "genre": "chamber",
+    "instrumentation": "String quartet",
+    "description": "A five-movement arch-form work of ferocious intensity and structural perfection. Its night-music and percussive pizzicato movements expanded the quartet's expressive range beyond anything previously imagined.",
+    "wikipediaSlug": "String_Quartet_No._4_(Bartók)",
+    "spotifyUrl": "https://open.spotify.com/search/Bart%C3%B3k%20String%20Quartet%20No.%204",
+    "tags": [
+      "modern",
+      "chamber",
+      "hungarian"
+    ]
+  },
+  {
+    "id": "stravinsky-symphony-of-psalms",
+    "title": "Symphony of Psalms",
+    "composerId": "igor-stravinsky",
+    "yearComposed": 1930,
+    "genre": "choral",
+    "instrumentation": "Chorus, orchestra (without violins or violas)",
+    "description": "A neoclassical setting of three Latin psalms, composed 'to the glory of God.' The austere, ritualistic sound — no violins, no violas — creates a unique, archaic atmosphere. The final 'Laudate Dominum' achieves a serenity rare in Stravinsky.",
+    "tags": [
+      "choral",
+      "neoclassical",
+      "sacred",
+      "psalms",
+      "austere"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Stravinsky%20Symphony%20of%20Psalms"
+  },
+  {
+    "id": "ravel-piano-concerto-g",
+    "title": "Piano Concerto in G major",
+    "composerId": "maurice-ravel",
+    "yearComposed": 1931,
+    "genre": "concerto",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "G major",
+    "description": "Jazzy, sparkling, and witty in the outer movements; the slow movement is one of the most beautiful things Ravel ever wrote — a long, lonely piano melody unfolding over gently rocking accompaniment, inspired by Mozart.",
+    "tags": [
+      "concerto",
+      "piano",
+      "jazz",
+      "neoclassical",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Ravel%20Piano%20Concerto%20in%20G%20major"
+  },
+  {
+    "id": "rachmaninoff-rhapsody-paganini",
+    "title": "Rhapsody on a Theme of Paganini",
+    "catalogueNumber": "Op. 43",
+    "composerId": "sergei-rachmaninoff",
+    "yearComposed": 1934,
+    "genre": "variation",
+    "instrumentation": "Solo piano, orchestra",
+    "key": "A minor",
+    "description": "24 variations on Paganini's famous A minor caprice. The 18th variation — where Rachmaninoff inverts the theme into one of the most soaringly romantic melodies in all music — is one of classical music's most beloved moments.",
+    "tags": [
+      "variation",
+      "piano",
+      "paganini",
+      "romantic",
+      "popular"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Rachmaninoff%20Rhapsody%20on%20a%20Theme%20of%20Paganini"
+  },
+  {
+    "id": "hindemith-mathis-der-maler",
+    "title": "Mathis der Maler (Symphony)",
+    "composerId": "paul-hindemith",
+    "yearComposed": 1934,
+    "genre": "symphonic",
+    "instrumentation": "Orchestra",
+    "description": "A three-movement symphony drawn from Hindemith's opera about Matthias Grünewald. The Nazis banned the opera's première, sparking Furtwängler's public protest and resignation.",
+    "significance": "Its suppression by the Nazis became a cause célèbre for artistic freedom.",
+    "wikipediaSlug": "Mathis_der_Maler_(symphony)",
+    "spotifyUrl": "https://open.spotify.com/search/Hindemith%20Mathis%20der%20Maler%20%28Symphony%29",
+    "tags": [
+      "modern",
+      "symphonic",
+      "german",
+      "neoclassical"
+    ]
+  },
+  {
+    "id": "bartok-music-for-strings",
+    "title": "Music for Strings, Percussion and Celesta",
+    "composerId": "bela-bartok",
+    "yearComposed": 1936,
+    "genre": "other",
+    "instrumentation": "String orchestra (divided), percussion, celesta, harp, piano",
+    "description": "One of the supreme masterpieces of 20th-century music. The first movement's fugue — creeping chromatically outward from A — is a feat of pure musical architecture. Kubrick used the third movement in The Shining.",
+    "significance": "A pinnacle of 20th-century composition, combining folk elements with modernist structure.",
+    "tags": [
+      "strings",
+      "percussion",
+      "modern",
+      "fugue",
+      "film"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Bart%C3%B3k%20Music%20for%20Strings%2C%20Percussion%20and%20Celesta"
+  },
+  {
+    "id": "prokofiev-romeo-and-juliet",
+    "title": "Romeo and Juliet",
+    "catalogueNumber": "Op. 64",
+    "composerId": "sergei-prokofiev",
+    "yearComposed": 1936,
+    "genre": "ballet",
+    "instrumentation": "Large orchestra",
+    "description": "Prokofiev's greatest ballet score — vivid, dramatic, and bursting with unforgettable melodies. The 'Dance of the Knights' (Montagues and Capulets) is one of the most powerful and instantly recognizable pieces of 20th-century music.",
+    "tags": [
+      "ballet",
+      "shakespeare",
+      "dramatic",
+      "popular",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Prokofiev%20Romeo%20and%20Juliet"
+  },
+  {
+    "id": "prokofiev-peter-and-wolf",
+    "title": "Peter and the Wolf",
+    "catalogueNumber": "Op. 67",
+    "composerId": "sergei-prokofiev",
+    "yearComposed": 1936,
+    "genre": "other",
+    "instrumentation": "Narrator and orchestra",
+    "description": "A symphonic fairy tale written to introduce children to the instruments of the orchestra. Each character is represented by a different instrument: Peter by the strings, the bird by the flute, the duck by the oboe, the cat by the clarinet, the wolf by the french horns.",
+    "significance": "The most successful piece of musical pedagogy ever composed.",
+    "tags": [
+      "children",
+      "pedagogical",
+      "narrator",
+      "fairy-tale",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Prokofiev%20Peter%20and%20the%20Wolf"
+  },
+  {
+    "id": "hindemith-trauermusik",
+    "title": "Trauermusik",
+    "composerId": "paul-hindemith",
+    "yearComposed": 1936,
+    "genre": "chamber",
+    "instrumentation": "Solo viola, string orchestra",
+    "description": "Composed in just six hours on the day of King George V's death, this brief elegy is one of the most deeply felt occasional works ever written. Its final chorale is profoundly moving.",
+    "wikipediaSlug": "Trauermusik_(Hindemith)",
+    "spotifyUrl": "https://open.spotify.com/search/Hindemith%20Trauermusik",
+    "tags": [
+      "modern",
+      "chamber",
+      "viola",
+      "elegy"
+    ]
+  },
+  {
+    "id": "shostakovich-symphony-5",
+    "title": "Symphony No. 5",
+    "catalogueNumber": "Op. 47",
+    "composerId": "dmitri-shostakovich",
+    "yearComposed": 1937,
+    "genre": "symphony",
+    "instrumentation": "Orchestra",
+    "key": "D minor",
+    "description": "Written after Shostakovich was publicly denounced by Stalin's regime, this symphony was officially described as 'a Soviet artist's creative reply to just criticism.' The jubilant finale — is it genuine triumph or forced celebration under duress? — remains one of music's most endlessly debated questions.",
+    "significance": "The defining work of music under totalitarianism. Its ambiguity is its power.",
+    "wikipediaSlug": "Symphony_No._5_(Shostakovich)",
+    "tags": [
+      "symphony",
+      "political",
+      "ambiguous",
+      "soviet",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Shostakovich%20Symphony%20No.%205"
+  },
+  {
+    "id": "copland-billy-the-kid",
+    "title": "Billy the Kid",
+    "composerId": "aaron-copland",
+    "yearComposed": 1938,
+    "genre": "ballet",
+    "instrumentation": "Orchestra",
+    "description": "A ballet suite depicting the legendary outlaw's life on the open prairie, using cowboy tunes and spare, wide-open orchestral textures that evoke the vast American landscape.",
+    "wikipediaSlug": "Billy_the_Kid_(ballet)",
+    "spotifyUrl": "https://open.spotify.com/search/Copland%20Billy%20the%20Kid",
+    "tags": [
+      "modern",
+      "ballet",
+      "american",
+      "western"
+    ]
+  },
+  {
+    "id": "shostakovich-symphony-7",
+    "title": "Symphony No. 7 'Leningrad'",
+    "catalogueNumber": "Op. 60",
+    "composerId": "dmitri-shostakovich",
+    "yearComposed": 1941,
+    "genre": "symphony",
+    "instrumentation": "Large orchestra",
+    "key": "C major",
+    "description": "Begun during the Nazi siege of Leningrad, smuggled out on microfilm, and performed worldwide as a symbol of Soviet resistance. The first movement's famous 'invasion theme' — a banal march repeated and amplified into overwhelming brutality — is either a depiction of Nazi invasion or (some argue) Stalinist terror, or both.",
+    "significance": "A cultural weapon in World War II and a monument to artistic resistance under siege.",
+    "tags": [
+      "symphony",
+      "war",
+      "siege",
+      "political",
+      "monumental",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Shostakovich%20Symphony%20No.%207%20%27Leningrad%27"
+  },
+  {
+    "id": "hindemith-ludus-tonalis",
+    "title": "Ludus Tonalis",
+    "composerId": "paul-hindemith",
+    "yearComposed": 1942,
+    "genre": "keyboard",
+    "instrumentation": "Piano",
+    "description": "A modern counterpart to Bach's Well-Tempered Clavier: twelve fugues linked by interludes, framed by a prelude and a postlude that is the prelude played backwards and upside down.",
+    "wikipediaSlug": "Ludus_Tonalis",
+    "spotifyUrl": "https://open.spotify.com/search/Hindemith%20Ludus%20Tonalis",
+    "tags": [
+      "modern",
+      "piano",
+      "fugue",
+      "contrapuntal"
+    ]
+  },
+  {
+    "id": "copland-fanfare-common-man",
+    "title": "Fanfare for the Common Man",
+    "composerId": "aaron-copland",
+    "yearComposed": 1942,
+    "genre": "orchestral",
+    "instrumentation": "Brass, percussion",
+    "description": "A majestic three-minute fanfare for brass and percussion, commissioned during World War II. Its simple, powerful gestures have made it one of the most iconic pieces of American music.",
+    "wikipediaSlug": "Fanfare_for_the_Common_Man",
+    "spotifyUrl": "https://open.spotify.com/search/Copland%20Fanfare%20for%20the%20Common%20Man",
+    "tags": [
+      "modern",
+      "orchestral",
+      "american",
+      "brass"
+    ]
+  },
+  {
+    "id": "copland-rodeo",
+    "title": "Rodeo: Four Dance Episodes",
+    "composerId": "aaron-copland",
+    "yearComposed": 1942,
+    "genre": "ballet",
+    "instrumentation": "Orchestra",
+    "description": "A ballet about a cowgirl at a ranch, whose Hoe-Down finale has become synonymous with the American West. Its infectious rhythms and folk-tune quotations embody Copland's populist style.",
+    "wikipediaSlug": "Rodeo_(Copland)",
+    "spotifyUrl": "https://open.spotify.com/search/Copland%20Rodeo%3A%20Four%20Dance%20Episodes",
+    "tags": [
+      "modern",
+      "ballet",
+      "american",
+      "western"
+    ]
+  },
+  {
+    "id": "bartok-concerto-for-orchestra",
+    "title": "Concerto for Orchestra",
+    "composerId": "bela-bartok",
+    "yearComposed": 1943,
+    "genre": "concerto",
+    "instrumentation": "Orchestra",
+    "description": "Written in New York during Bartók's final illness, this concerto treats the entire orchestra as a virtuoso soloist. Each section gets a chance to shine. The 'Interrupted Intermezzo' parodies a theme from Shostakovich's Seventh Symphony, and the finale blazes with Hungarian energy.",
+    "significance": "The most popular orchestral work of the 20th century and Bartók's most accessible masterpiece.",
+    "tags": [
+      "concerto",
+      "orchestral",
+      "modern",
+      "hungarian",
+      "virtuosic"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Bart%C3%B3k%20Concerto%20for%20Orchestra",
+    "wikipediaSlug": "Concerto_for_Orchestra_(Bartók)"
+  },
+  {
+    "id": "hindemith-symphonic-metamorphosis",
+    "title": "Symphonic Metamorphosis of Themes by Carl Maria von Weber",
+    "composerId": "paul-hindemith",
+    "yearComposed": 1943,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra",
+    "description": "A brilliant orchestral showpiece transforming four of Weber's lesser-known themes into dazzling orchestral tableaux. The exuberant March finale has become one of the most popular orchestral encores.",
+    "wikipediaSlug": "Symphonic_Metamorphosis_of_Themes_by_Carl_Maria_von_Weber",
+    "spotifyUrl": "https://open.spotify.com/search/Hindemith%20Symphonic%20Metamorphosis%20of%20Themes%20by%20Carl%20Maria%20von%20Weber",
+    "tags": [
+      "modern",
+      "orchestral",
+      "neoclassical"
+    ]
+  },
+  {
+    "id": "britten-serenade-tenor-horn",
+    "title": "Serenade for Tenor, Horn and Strings, Op. 31",
+    "composerId": "benjamin-britten",
+    "yearComposed": 1943,
+    "genre": "vocal",
+    "instrumentation": "Tenor, horn, string orchestra",
+    "description": "A song cycle setting six English poems about evening and night, framed by an offstage horn solo. Written for Peter Pears and Dennis Brain, it is one of the supreme English vocal works.",
+    "wikipediaSlug": "Serenade_for_Tenor,_Horn_and_Strings",
+    "spotifyUrl": "https://open.spotify.com/search/Britten%20Serenade%20for%20Tenor%2C%20Horn%20and%20Strings%2C%20Op.%2031",
+    "tags": [
+      "modern",
+      "vocal",
+      "british",
+      "song-cycle"
+    ]
+  },
+  {
+    "id": "copland-appalachian-spring",
+    "title": "Appalachian Spring",
+    "composerId": "aaron-copland",
+    "yearComposed": 1944,
+    "genre": "ballet",
+    "instrumentation": "Orchestra (originally 13 instruments)",
+    "description": "A ballet depicting a pioneer celebration in the Pennsylvania hills, culminating in luminous variations on the Shaker hymn Simple Gifts. It won the Pulitzer Prize and defines the 'American sound' in classical music.",
+    "significance": "Defined the sound of American classical music.",
+    "wikipediaSlug": "Appalachian_Spring",
+    "spotifyUrl": "https://open.spotify.com/search/Copland%20Appalachian%20Spring",
+    "tags": [
+      "modern",
+      "ballet",
+      "american",
+      "pastoral"
+    ]
+  },
+  {
+    "id": "britten-peter-grimes",
+    "title": "Peter Grimes",
+    "composerId": "benjamin-britten",
+    "yearComposed": 1945,
+    "genre": "opera",
+    "instrumentation": "Soloists, chorus, orchestra",
+    "description": "A powerful opera about a fisherman persecuted by his Suffolk community. Its four Sea Interludes are frequently performed as an orchestral suite. The work revitalised English opera after two centuries of dormancy.",
+    "significance": "Revitalised English opera and established Britten's international reputation.",
+    "wikipediaSlug": "Peter_Grimes",
+    "spotifyUrl": "https://open.spotify.com/search/Britten%20Peter%20Grimes",
+    "tags": [
+      "modern",
+      "opera",
+      "british",
+      "dramatic"
+    ]
+  },
+  {
+    "id": "britten-young-persons-guide",
+    "title": "The Young Person's Guide to the Orchestra, Op. 34",
+    "composerId": "benjamin-britten",
+    "yearComposed": 1946,
+    "genre": "orchestral",
+    "instrumentation": "Orchestra (with optional narrator)",
+    "description": "Variations and a fugue on a theme of Purcell, designed to introduce each orchestral family. Its brilliant orchestration and joyous concluding fugue have made it the most popular educational orchestral work.",
+    "wikipediaSlug": "The_Young_Person's_Guide_to_the_Orchestra",
+    "spotifyUrl": "https://open.spotify.com/search/Britten%20The%20Young%20Person%27s%20Guide%20to%20the%20Orchestra%2C%20Op.%2034",
+    "tags": [
+      "modern",
+      "orchestral",
+      "educational",
+      "british"
+    ]
+  },
+  {
+    "id": "strauss-four-last-songs",
+    "title": "Four Last Songs",
+    "composerId": "richard-strauss",
+    "yearComposed": 1948,
+    "genre": "art-song",
+    "instrumentation": "Soprano and orchestra",
+    "description": "Written in the final year of Strauss's life at age 84, these four songs are a serene farewell to life and to the Romantic era itself. The last song, 'Im Abendrot' (At Sunset), ends with a quotation from his own Death and Transfiguration, composed 60 years earlier: 'Is this perhaps death?'",
+    "significance": "The last great work of German Romanticism.",
+    "tags": [
+      "art-song",
+      "orchestral",
+      "farewell",
+      "final-work",
+      "sublime"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/R.%20Strauss%20Four%20Last%20Songs"
+  },
+  {
+    "id": "copland-clarinet-concerto",
+    "title": "Clarinet Concerto",
+    "composerId": "aaron-copland",
+    "yearComposed": 1948,
+    "genre": "concerto",
+    "instrumentation": "Solo clarinet, strings, harp, piano",
+    "description": "Written for Benny Goodman, this concerto bridges classical and jazz styles with a lyrical first half connected by a cadenza to a jazzy, riff-based second half.",
+    "wikipediaSlug": "Clarinet_Concerto_(Copland)",
+    "spotifyUrl": "https://open.spotify.com/search/Copland%20Clarinet%20Concerto",
+    "tags": [
+      "modern",
+      "concerto",
+      "clarinet",
+      "jazz-influenced"
+    ]
+  },
+  {
+    "id": "britten-turn-of-the-screw",
+    "title": "The Turn of the Screw",
+    "composerId": "benjamin-britten",
+    "yearComposed": 1954,
+    "genre": "opera",
+    "instrumentation": "Six soloists, chamber orchestra (13 instruments)",
+    "description": "A chamber opera based on Henry James's ghost story, structured as a theme and fifteen variations. Its atmosphere of ambiguity and dread is achieved with extraordinary economy of means.",
+    "wikipediaSlug": "The_Turn_of_the_Screw_(opera)",
+    "spotifyUrl": "https://open.spotify.com/search/Britten%20The%20Turn%20of%20the%20Screw",
+    "tags": [
+      "modern",
+      "opera",
+      "chamber",
+      "gothic"
+    ]
+  },
+  {
+    "id": "shostakovich-string-quartet-8",
+    "title": "String Quartet No. 8",
+    "catalogueNumber": "Op. 110",
+    "composerId": "dmitri-shostakovich",
+    "yearComposed": 1960,
+    "genre": "string-quartet",
+    "instrumentation": "String quartet",
+    "key": "C minor",
+    "description": "Officially dedicated 'to the memory of victims of fascism and war,' but many believe it was a covert suicide note. Shostakovich weaves his personal musical signature (D-S-C-H) throughout, along with quotations from many of his other works, creating an intensely autobiographical cry of anguish.",
+    "tags": [
+      "string-quartet",
+      "chamber-music",
+      "autobiographical",
+      "dark",
+      "modern"
+    ],
+    "spotifyUrl": "https://open.spotify.com/search/Shostakovich%20String%20Quartet%20No.%208"
+  },
+  {
+    "id": "britten-war-requiem",
+    "title": "War Requiem, Op. 66",
+    "composerId": "benjamin-britten",
+    "yearComposed": 1962,
+    "genre": "choral",
+    "instrumentation": "Soprano, tenor, baritone soloists, chorus, boys' choir, orchestra, chamber orchestra",
+    "description": "A monumental anti-war statement interleaving the Latin Requiem Mass with Wilfred Owen's war poetry. Composed for the consecration of the rebuilt Coventry Cathedral, destroyed in the Blitz.",
+    "significance": "One of the most powerful musical statements against war.",
+    "wikipediaSlug": "War_Requiem_(Britten)",
+    "spotifyUrl": "https://open.spotify.com/search/Britten%20War%20Requiem%2C%20Op.%2066",
+    "tags": [
+      "modern",
+      "choral",
+      "anti-war",
+      "british"
+    ]
+  }
+]

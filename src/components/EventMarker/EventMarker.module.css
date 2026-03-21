@@ -1,0 +1,192 @@
+.marker {
+  position: absolute;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: var(--z-markers);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.marker:hover {
+  z-index: calc(var(--z-markers) + 10);
+}
+
+/* Diamond shape for events */
+.diamond {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.marker:hover .diamond {
+  width: 12px;
+  height: 12px;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Vertical dashed line for events */
+.eventLine {
+  width: 1px;
+  opacity: 0.2;
+  border-left: 1px dashed;
+  transition: opacity var(--transition-fast);
+}
+
+.marker:hover .eventLine {
+  opacity: 0.5;
+}
+
+/* Event range (e.g., for wars) */
+.eventRange {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* Category colors */
+.war {
+  --event-color: #c0392b;
+}
+.revolution {
+  --event-color: #e74c3c;
+}
+.political {
+  --event-color: #8e44ad;
+}
+.scientific {
+  --event-color: #2980b9;
+}
+.cultural {
+  --event-color: #27ae60;
+}
+.literary {
+  --event-color: #f39c12;
+}
+.artistic {
+  --event-color: #e67e22;
+}
+.technological {
+  --event-color: #3498db;
+}
+.religious {
+  --event-color: #9b59b6;
+}
+.naturalDisaster {
+  --event-color: #7f8c8d;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  padding: 8px 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: var(--z-tooltip);
+  min-width: 200px;
+  max-width: 300px;
+  box-shadow: var(--shadow-md);
+}
+
+.marker:hover .tooltip {
+  opacity: 1;
+}
+
+/* Selected (pinned) state */
+.selected {
+  z-index: calc(var(--z-markers) + 20);
+}
+
+.selected .diamond {
+  width: 12px;
+  height: 12px;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.selected .eventLine {
+  opacity: 0.6;
+}
+
+.selected .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Wikipedia link */
+.wikiLink {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: var(--text-xs);
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+.wikiLink:hover {
+  text-decoration: underline;
+}
+
+.tooltipTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.tooltipYear {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.tooltipDescription {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.tooltipSignificance {
+  font-size: var(--text-xs);
+  color: var(--accent-warm);
+  font-style: italic;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.tooltipCategory {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+/* Dimmed state: during focus/comparison mode, reduce event visibility */
+.dimmed {
+  opacity: 0.15;
+}
+
+.dimmed:hover {
+  opacity: 0.7;
+}
+
+.dimmed .eventLine {
+  opacity: 0.08;
+}

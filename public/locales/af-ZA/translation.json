@@ -1,0 +1,129 @@
+{
+  "app": {
+    "title": "Requiem of Everything",
+    "subtitle": "'n Interaktiewe tydlyn van klassieke musiek",
+    "filters": "Filters",
+    "helpAriaLabel": "Hulp",
+    "helpTitle": "Hulp (Shift+?)",
+    "languageSelect": "Kies taal"
+  },
+  "common": {
+    "close": "Sluit",
+    "present": "hede",
+    "readOnWikipedia": "Lees op Wikipedia"
+  },
+  "comparison": {
+    "comparing": "Vergelyk tans",
+    "selected": "Gekies",
+    "remove": "Verwyder {{name}}",
+    "ctrlClickHint": "Ctrl+klik meer om te vergelyk",
+    "clearAllTitle": "Verwyder alle vergelykings",
+    "clear": "Verwyder"
+  },
+  "composerBar": {
+    "ariaLabel": "{{name}}, {{birth}}–{{death}}"
+  },
+  "composer": {
+    "focusTimeline": "Fokus tydlyn",
+    "comparing": "✓ Vergelyk",
+    "compare": "+ Vergelyk",
+    "biography": "Biografie",
+    "notableWorks": "Bekende werke",
+    "contemporaries": "Tydgenote"
+  },
+  "composition": {
+    "ariaLabel": "Komposisiebesonderhede",
+    "closeAriaLabel": "Sluit komposisiebesonderhede",
+    "openProfile": "Maak {{name}} se profiel oop",
+    "instrumentation": "Instrumentasie",
+    "key": "Toonaard",
+    "catalogue": "Katalogus",
+    "listenOnSpotify": "Luister op Spotify"
+  },
+  "compositionMarker": {
+    "ariaLabel": "{{title}} deur {{composer}}, {{year}}"
+  },
+  "eventMarker": {
+    "ariaLabel": "Historiese gebeurtenis: {{title}}, {{year}}"
+  },
+  "filters": {
+    "ariaLabel": "Tydlynfilters",
+    "title": "Filters",
+    "closeAriaLabel": "Sluit filters",
+    "searchPlaceholder": "Soek komponiste…",
+    "searchAriaLabel": "Soek komponiste en komposisies",
+    "musicalEra": "Musiekera",
+    "filterByEra": "Filter volgens era",
+    "nationality": "Nasionaliteit",
+    "filterByNationality": "Filter volgens nasionaliteit",
+    "genre": "Genre",
+    "filterByGenre": "Filter volgens genre",
+    "historicalEvents": "Historiese gebeurtenisse",
+    "toggleEvents": "Skakel historiese gebeurtenisse aan/af",
+    "clearAll": "Verwyder alle filters",
+    "removeFilter": "Verwyder {{name}}-filter",
+    "addFilter": "Voeg {{name}}-filter by"
+  },
+  "timeline": {
+    "zoomIn": "Zoem in",
+    "zoomOut": "Zoem uit",
+    "resetView": "Herstel aansig"
+  },
+  "help": {
+    "ariaLabel": "Hulp",
+    "title": "Hulp en sneltoetse",
+    "closeAriaLabel": "Sluit hulp",
+    "keyboardShortcuts": "Sneltoetse",
+    "shortcut": {
+      "toggleFilter": "Skakel filterpaneel aan/af",
+      "resetView": "Herstel tydlynaansig",
+      "toggleHelp": "Skakel hierdie hulppaneel aan/af",
+      "closePanels": "Sluit oop panele",
+      "zoom": "Zoem in / uit by wyser",
+      "pan": "Skuif die tydlyn",
+      "comparison": "Voeg by / verwyder uit vergelyking"
+    },
+    "navigation": "Navigasie",
+    "nav": {
+      "item1": "Rollwiel om in/uit te zoem, gesentreer op jou wyserposisie.",
+      "item2": "Klik en sleep om deur tydperke te beweeg.",
+      "item3": "Op raakskerms, sleep om te skuif en knyp om te zoem.",
+      "item4": "Klik op 'n komponisbalk om hul detailpaneel oop te maak.",
+      "item5": "Klik op 'n komposisiepunt op die tydlyn om die detailkaart oop te maak.",
+      "item6": "Gebruik die <strong>+</strong> / <strong>−</strong> / <strong>↺</strong> kontroles in die regter boonste hoek.",
+      "item7": "Die jaarbereik-aanwyser bo wys jou huidige aansig."
+    },
+    "filtersTitle": "Filters",
+    "filter": {
+      "item1": "Maak oop met <kbd>F</kbd> of die <strong>⚙ Filters</strong>-knoppie.",
+      "item2": "Filter volgens <strong>musiekera</strong> — Renaissance, Barok, Klassiek, Romanties en Modern.",
+      "item3": "Filter volgens <strong>nasionaliteit</strong> — wys slegs komponiste van geselekteerde lande.",
+      "item4": "Filter volgens <strong>genre</strong> — wys slegs komponiste wat in minstens een geselekteerde genre gekomponeer het.",
+      "item5": "Soek komponiste op naam of etiket.",
+      "item6": "Skakel historiese gebeurtenismerkers aan of af.",
+      "item7": "Die aktiewe filtertelling wys hoeveel filters aan is."
+    },
+    "compositionDetail": "Komposisiedetail",
+    "comp": {
+      "item1": "Zoem genoeg in om komposisiepunte op elke komponisbalk te sien, en klik dan op enige punt om die detailkaart oop te maak.",
+      "item2": "Jy kan ook op 'n werktitel in die komponis se detailpaneel klik om dieselfde kaart oop te maak.",
+      "item3": "Die kaart wys die titel, komponis, jaar, genre, instrumentasie, beskrywing en 'n Wikipedia-skakel indien beskikbaar.",
+      "item4": "Klik op die komponis se naam binne die kaart om na hul profiel te spring.",
+      "item5": "Druk <kbd>Esc</kbd> of klik <strong>×</strong> om te sluit."
+    },
+    "comparisonMode": "Vergelykingsmodus",
+    "compare": {
+      "item1": "<strong>Ctrl+klik</strong> (Cmd+klik op Mac) op komponisbalke om hulle by die vergelyking te voeg.",
+      "item2": "As 'n komponisdetailpaneel oop is, voeg Ctrl+klik op 'n ander komponis <em>albei</em> outomaties by die vergelyking.",
+      "item3": "Ctrl+klik weer op 'n vergelekte komponis om hom te verwyder.",
+      "item4": "Wanneer 2 of meer gekies is, word nie-vergelekte komponiste dadelik dowwer en vou na 'n paar sekondes in.",
+      "item5": "Na invou zoem die tydlyn outomaties om die vergelekte komponiste se gesamentlike lewensduur te omraam.",
+      "item6": "Beweeg oor ingevouide balke om hulle uit te brei en te identifiseer.",
+      "item7": "As die vergelyking verwyder word, herstel die oorspronklike tydlynaansig.",
+      "item8": "Tot 5 komponiste kan gelyktydig vergelyk word.",
+      "item9": "Jy kan ook die <strong>+ Vergelyk</strong>-knoppie in die komponisdetailpaneel gebruik.",
+      "item10": "Bestuur of verwyder vergelykings met die vergelykingsbalk in die kopstuk."
+    },
+    "footer": "Requiem of Everything — Klassieke Musiek 1400–1970"
+  }
+}

@@ -1,0 +1,103 @@
+[
+  {
+    "id": "renaissance",
+    "name": "Renaissance",
+    "startYear": 1400,
+    "endYear": 1600,
+    "description": "A period of 'rebirth' in arts and culture. Music became increasingly polyphonic, with growing importance of secular forms alongside sacred music. The printing press enabled wider distribution of musical scores.",
+    "color": "#8B6914",
+    "characteristics": [
+      "Polyphony",
+      "Vocal music dominance",
+      "Sacred and secular forms",
+      "Modal harmony",
+      "A cappella choral traditions",
+      "Madrigals and motets"
+    ]
+  },
+  {
+    "id": "baroque",
+    "name": "Baroque",
+    "startYear": 1600,
+    "endYear": 1750,
+    "description": "An era of grandeur and ornamentation. The birth of opera, the development of tonality, the invention of the concerto and sonata. Composers began writing more idiomatic instrumental music, and the basso continuo became the foundation of ensemble playing.",
+    "color": "#C4A035",
+    "characteristics": [
+      "Ornamentation and embellishment",
+      "Basso continuo",
+      "Birth of opera",
+      "Concerto grosso and solo concerto",
+      "Fugue and counterpoint",
+      "Terraced dynamics",
+      "Tonal harmony established"
+    ]
+  },
+  {
+    "id": "classical",
+    "name": "Classical",
+    "startYear": 1750,
+    "endYear": 1820,
+    "description": "Clarity, balance, and structural elegance define this era. The symphony, string quartet, and piano sonata became the dominant forms. Music moved from aristocratic courts to public concert halls.",
+    "color": "#4A90A4",
+    "characteristics": [
+      "Clarity and balance",
+      "Sonata form",
+      "Symphony as a major form",
+      "String quartet development",
+      "Homophonic texture",
+      "Dynamic contrast (crescendo/decrescendo)",
+      "Public concert culture"
+    ]
+  },
+  {
+    "id": "early-romantic",
+    "name": "Early Romantic",
+    "startYear": 1820,
+    "endYear": 1850,
+    "description": "Emotion, individualism, and poetic expression take center stage. Composers pushed harmonic boundaries and explored programmatic music — telling stories through sound. The piano became the dominant solo instrument.",
+    "color": "#A45B8B",
+    "characteristics": [
+      "Emotional expression",
+      "Programmatic music",
+      "Expanded harmonic language",
+      "Virtuoso performers",
+      "Art song (Lied)",
+      "Miniature forms (nocturne, étude, ballade)",
+      "The composer as Romantic hero"
+    ]
+  },
+  {
+    "id": "late-romantic",
+    "name": "Late Romantic",
+    "startYear": 1850,
+    "endYear": 1910,
+    "description": "Massive orchestral forces, extreme chromaticism, and nationalist movements characterize the Late Romantic. Composers built vast symphonic structures and dramatic operas. Musical nationalism brought folk traditions into the concert hall.",
+    "color": "#7B3F8D",
+    "characteristics": [
+      "Expanded orchestra",
+      "Extreme chromaticism",
+      "Musical nationalism",
+      "Wagner's Gesamtkunstwerk",
+      "Tone poems",
+      "Verismo opera",
+      "Pushing tonal boundaries"
+    ]
+  },
+  {
+    "id": "modern",
+    "name": "Modern",
+    "startYear": 1890,
+    "endYear": 1970,
+    "description": "A fracturing of tradition into multiple movements: Impressionism, Expressionism, Neoclassicism, Serialism, and beyond. Composers rejected or radically extended Romantic conventions, experimenting with new scales, rhythms, timbres, and forms.",
+    "color": "#3D6B5E",
+    "characteristics": [
+      "Atonality and serialism",
+      "Impressionism",
+      "Neoclassicism",
+      "Experimentation with rhythm and timbre",
+      "Twelve-tone technique",
+      "Electronic music beginnings",
+      "Rejection of traditional forms"
+    ]
+  }
+]
