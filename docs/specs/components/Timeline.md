@@ -18,13 +18,13 @@ The root timeline component. Renders the full interactive, zoomable, pannable ti
 - **Default**: Full timeline visible (~1580–1970), showing era bands and composer bars.
 - **Zoomed**: A narrower year range fills the viewport; more detail visible per composer.
 - **Filtered**: Only matching composers/compositions shown; others hidden or dimmed.
-- **Focus Mode (single composer)**: Timeline is zoomed to a single composer's lifespan. Other composers and historical events remain visible but events are dimmed, providing contextual exploration of the era around that composer's life.
+- **Focus Mode (single composer)**: Timeline is zoomed to a single composer's lifespan. Non-focused composers and historical events are dimmed; non-focused composers collapse to 6px height after 1.5 seconds (same visual treatment as comparison mode). Composition markers for non-focused composers are also dimmed.
 - **Comparison Mode**: Two or more composers highlighted; non-compared composers dim immediately, then collapse to 6px height after 3 seconds. Historical events and composition markers for non-compared composers are dimmed. Timeline auto-zooms to the union of compared composers' lifespans. This deliberately strips away surrounding context to focus on comparing the selected composers.
 - **Loading**: Skeleton or shimmer state while data loads.
 
 ## Design Philosophy: Focus vs Comparison
 
-- **Focus Mode** (single composer via ComposerCard → "Focus Timeline"): The timeline zooms to show a composer's full lifespan while keeping other composers and events visible. Composition markers for non-focused composers are dimmed. This supports *contextual exploration* — seeing who else was composing, what events were happening, and understanding an individual composer's world.
+- **Focus Mode** (single composer via ComposerCard → "Focus Timeline"): The timeline zooms to show a composer's full lifespan while dimming all other composers, their compositions, and historical events. After 1.5 seconds non-focused composer bars collapse to 6px height — the same visual treatment used in comparison mode. Focus mode is toggled via the ComposerCard button and is automatically cleared when comparison mode activates. This supports *contextual exploration* — the dimmed (but still visible) context lets the user see who else was composing and what events were happening.
 - **Comparison Mode** (2+ composers via Ctrl+click): Non-compared elements collapse, events dim, and composition markers for non-compared composers dim, narrowing the view to *only* the selected composers. This supports *analytical comparison* — examining how lifespans, works, and eras overlap between a specific set of composers.
 
 Both modes zoom the timeline to frame the relevant composers, but focus mode preserves context while comparison mode removes it.

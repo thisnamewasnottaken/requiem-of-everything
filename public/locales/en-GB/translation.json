@@ -5,7 +5,10 @@
     "filters": "Filters",
     "helpAriaLabel": "Help",
     "helpTitle": "Help (Shift+?)",
-    "languageSelect": "Select language"
+    "languageSelect": "Select language",
+    "viewTimeline": "Timeline",
+    "viewTerms": "Terms",
+    "viewOrchestra": "Orchestra"
   },
   "common": {
     "close": "Close",
@@ -125,5 +128,37 @@
       "item10": "Manage or clear comparisons using the comparison bar in the header."
     },
     "footer": "Requiem of Everything — Classical Music 1400–1970"
+  },
+  "termExplorer": {
+    "title": "Musical Terms & Forms",
+    "searchPlaceholder": "Search terms…",
+    "backToTimeline": "← Timeline",
+    "allCategories": "All",
+    "formsAndStructures": "Forms & Structures",
+    "genres": "Genres",
+    "techniques": "Techniques",
+    "vocalAndChoral": "Vocal & Choral",
+    "danceAndCharacter": "Dance & Character",
+    "soloAndChamber": "Solo & Chamber",
+    "exampleWorks": "Example Works",
+    "readMore": "Read more →",
+    "noResults": "No terms match your search."
+  },
+  "orchestraExplorer": {
+    "title": "Orchestra Explorer",
+    "backToTimeline": "← Timeline",
+    "strings": "Strings",
+    "woodwinds": "Woodwinds",
+    "brass": "Brass",
+    "percussion": "Percussion",
+    "keyboards": "Keyboards",
+    "voice": "Voice",
+    "range": "Range",
+    "role": "Role",
+    "eraProminence": "Era Prominence",
+    "featuredIn": "Featured In",
+    "readMore": "Read more →",
+    "instruments": "{{count}} instruments",
+    "closeDetail": "Close"
   }
 }

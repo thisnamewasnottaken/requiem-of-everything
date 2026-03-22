@@ -38,7 +38,9 @@ The "View on Wikipedia" link is localised to match the user's current i18n langu
 
 ## Focus Timeline Behavior
 
-The "Focus Timeline" button zooms the main timeline to the composer's lifespan with padding. Because the ComposerCard panel (420px wide) overlaps the right side of the viewport, the zoom accounts for this by adding proportional right-side padding (`rightInsetFraction = panelWidth / viewportWidth`). This ensures the composer's full lifespan is visible in the unobscured area to the left of the panel.
+The "Focus Timeline" button zooms the main timeline to the composer's lifespan with padding **and** activates **focus mode** — non-focused composers are dimmed and eventually collapsed (identical to comparison mode's visual treatment). Because the ComposerCard panel (420px wide) overlaps the right side of the viewport, the zoom accounts for this by adding proportional right-side padding (`rightInsetFraction = panelWidth / viewportWidth`). This ensures the composer's full lifespan is visible in the unobscured area to the left of the panel.
+
+The button is a **toggle**: clicking it again clears focus mode (label changes to "Unfocus"). Focus mode is also cleared when comparison mode is activated. The focused composer's ID is stored as `focusedComposerId` in `useSelectionStore`.
 
 ## Interactions
 

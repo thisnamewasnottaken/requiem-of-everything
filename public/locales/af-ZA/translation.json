@@ -5,7 +5,10 @@
     "filters": "Filters",
     "helpAriaLabel": "Hulp",
     "helpTitle": "Hulp (Shift+?)",
-    "languageSelect": "Kies taal"
+    "languageSelect": "Kies taal",
+    "viewTimeline": "Tydlyn",
+    "viewTerms": "Terme",
+    "viewOrchestra": "Orkes"
   },
   "common": {
     "close": "Sluit",
@@ -125,5 +128,37 @@
       "item10": "Bestuur of verwyder vergelykings met die vergelykingsbalk in die kopstuk."
     },
     "footer": "Requiem of Everything — Klassieke Musiek 1400–1970"
+  },
+  "termExplorer": {
+    "title": "Musiekterme en -vorme",
+    "searchPlaceholder": "Soek terme…",
+    "backToTimeline": "← Tydlyn",
+    "allCategories": "Alles",
+    "formsAndStructures": "Vorme en strukture",
+    "genres": "Genres",
+    "techniques": "Tegnieke",
+    "vocalAndChoral": "Vokaal en koraal",
+    "danceAndCharacter": "Dans en karakter",
+    "soloAndChamber": "Solo en kamermusiek",
+    "exampleWorks": "Voorbeeldwerke",
+    "readMore": "Lees meer →",
+    "noResults": "Geen terme pas by jou soektog nie."
+  },
+  "orchestraExplorer": {
+    "title": "Orkesverkenner",
+    "backToTimeline": "← Tydlyn",
+    "strings": "Snare",
+    "woodwinds": "Houtblasers",
+    "brass": "Koperblasers",
+    "percussion": "Perkussie",
+    "keyboards": "Klawerborde",
+    "voice": "Stem",
+    "range": "Omvang",
+    "role": "Rol",
+    "eraProminence": "Era-prominensie",
+    "featuredIn": "Uitgebeeld in",
+    "readMore": "Lees meer →",
+    "instruments": "{{count}} instrumente",
+    "closeDetail": "Sluit"
   }
 }

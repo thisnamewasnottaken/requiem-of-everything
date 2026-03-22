@@ -62,9 +62,14 @@ Appears on hover (preview) or when pinned (interactive). Contains:
 
 The tooltip repositions to avoid clipping by the timeline container's `overflow: hidden`:
 
+#### Horizontal
 - **Near left edge** (x < 160): tooltip aligns left (`left: 0; transform: none`)
 - **Near right edge** (x > width − 160): tooltip aligns right (`right: 0; left: auto; transform: none`)
 - **Default**: centred via `left: 50%; transform: translateX(-50%)`
+
+#### Vertical
+- **Default**: tooltip opens **above** the marker (`bottom: calc(100% + 8px)`) since markers sit at the bottom of the timeline and a downward tooltip would clip.
+- **Near top of viewport** (marker `getBoundingClientRect().top < 200`): tooltip flips **below** the marker (`top: calc(100% + 8px)`) via the `.tooltipFlipped` CSS class. Recalculated when `isSelected` changes.
 
 ## Layout
 

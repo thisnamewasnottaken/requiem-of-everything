@@ -121,9 +121,12 @@ export default function Timeline() {
     selectedCompositionId,
     selectedEventId,
     selectEvent,
+    focusedComposerId,
   } = useSelectionStore();
   const { comparisonComposerIds, isComparisonMode, toggleComposerInComparison, addMultipleToComparison } =
     useComparisonStore();
+
+  const isFocusMode = focusedComposerId !== null;
   const { eraFilters, nationalityFilters, genreFilters, showHistoricalEvents, searchQuery } = useFilterStore();
 
   const allComposers = useComposers();
@@ -180,6 +183,39 @@ export default function Timeline() {
     }
     return list;
   }, [allComposers, allCompositions, eraFilters, nationalityFilters, genreFilters, searchQuery]);
+
+  // Auto-zoom to fit filtered composers when filters change
+  const hasActiveFilters = eraFilters.length > 0 || nationalityFilters.length > 0 || genreFilters.length > 0 || searchQuery.length > 0;
+  const preFilterViewRef = useRef<{ startYear: number; endYear: number } | null>(null);
+  const prevHadFiltersRef = useRef(false);
+
+  useEffect(() => {
+    // Skip if comparison mode is active (comparison zoom takes priority)
+    if (isComparisonMode) return;
+
+    // When filters are applied and we have results (but not showing all composers), zoom to fit
+    if (hasActiveFilters && filteredComposers.length > 0 && filteredComposers.length < allComposers.length) {
+      // Save viewport on first filter application
+      if (!preFilterViewRef.current) {
+        const { viewStartYear: curStart, viewEndYear: curEnd } = useTimelineStore.getState();
+        preFilterViewRef.current = { startYear: curStart, endYear: curEnd };
+      }
+
+      const minBirth = Math.min(...filteredComposers.map((c) => c.birthYear));
+      const maxDeath = Math.max(...filteredComposers.map((c) => c.deathYear ?? 2025));
+      zoomToRange(minBirth, maxDeath, 15);
+    }
+
+    // Restore viewport when all filters are cleared
+    if (!hasActiveFilters && prevHadFiltersRef.current) {
+      if (preFilterViewRef.current) {
+        setViewRange(preFilterViewRef.current.startYear, preFilterViewRef.current.endYear);
+        preFilterViewRef.current = null;
+      }
+    }
+
+    prevHadFiltersRef.current = hasActiveFilters;
+  }, [filteredComposers, hasActiveFilters, zoomToRange, setViewRange, isComparisonMode, allComposers.length]);
 
   // Composer row layout
   const composerRows = useMemo(
@@ -310,6 +346,25 @@ export default function Timeline() {
     }
     prevComparisonModeRef.current = isComparisonMode;
   }, [isComparisonMode, setViewRange]);
+
+  // Focus mode collapse: after 1.5s, collapse non-focused composers
+  useEffect(() => {
+    if (!isFocusMode) return;
+
+    setIsCollapsed(false);
+    const timer = setTimeout(() => {
+      setIsCollapsed(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [focusedComposerId, isFocusMode]);
+
+  // Clear focus when entering comparison mode
+  useEffect(() => {
+    if (isComparisonMode && focusedComposerId) {
+      useSelectionStore.getState().setFocusedComposer(null);
+    }
+  }, [isComparisonMode, focusedComposerId]);
 
   // --- Interaction handlers ---
 
@@ -580,8 +635,8 @@ export default function Timeline() {
               eraColor={eraColorForComposer(composer)}
               isSelected={selectedComposerIds.includes(composer.id)}
               isComparison={inComparison}
-              isDimmed={isComparisonMode && !inComparison}
-              isCollapsed={isCollapsed && isComparisonMode && !inComparison}
+              isDimmed={(isComparisonMode && !inComparison) || (isFocusMode && composer.id !== focusedComposerId)}
+              isCollapsed={isCollapsed && ((isComparisonMode && !inComparison) || (isFocusMode && composer.id !== focusedComposerId))}
               onClick={handleComposerClick}
             />
           );
@@ -608,8 +663,10 @@ export default function Timeline() {
                 isDimmed={
                   isComparisonMode
                     ? !comparisonComposerIds.includes(comp.composerId)
-                    : selectedComposerIds.length > 0 &&
-                      !selectedComposerIds.includes(comp.composerId)
+                    : isFocusMode
+                      ? comp.composerId !== focusedComposerId
+                      : selectedComposerIds.length > 0 &&
+                        !selectedComposerIds.includes(comp.composerId)
                 }
                 onClick={selectComposition}
               />
@@ -625,7 +682,7 @@ export default function Timeline() {
             endYear={viewEndYear}
             width={containerWidth}
             timelineHeight={timelineHeight}
-            isDimmed={isComparisonMode || selectedComposerIds.length > 0}
+            isDimmed={isComparisonMode || isFocusMode || selectedComposerIds.length > 0}
             isSelected={selectedEventId === event.id}
             onClick={handleEventClick}
           />

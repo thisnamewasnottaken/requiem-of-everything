@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { HistoricalEvent } from "@/types";
 import { createTimeScale, formatYear } from "@/utils/scales";
@@ -52,6 +52,15 @@ export default function EventMarker({
   const hasRange = event.endYear && event.endYear !== event.year;
   const rangeWidth = hasRange ? scale(event.endYear!) - x : 0;
 
+  const markerRef = useRef<HTMLDivElement>(null);
+  const [flipped, setFlipped] = useState(false);
+
+  useEffect(() => {
+    if (!markerRef.current) return;
+    const rect = markerRef.current.getBoundingClientRect();
+    setFlipped(rect.top < 200);
+  }, [isSelected]);
+
   // Viewport-aware tooltip positioning
   const tooltipStyle: React.CSSProperties = {};
   if (x < 160) {
@@ -96,6 +105,7 @@ export default function EventMarker({
       <div
         className={markerClass}
         style={{ left: x, bottom: 8 }}
+        ref={markerRef}
         onClick={(e) => {
           e.stopPropagation();
           onClick?.(event.id);
@@ -110,7 +120,7 @@ export default function EventMarker({
           style={{ height: timelineHeight - 60, borderColor: color }}
         />
         <div className={styles.diamond} style={{ backgroundColor: color }} />
-        <div className={styles.tooltip} style={tooltipStyle}>
+        <div className={`${styles.tooltip} ${flipped ? styles.tooltipFlipped : ''}`} style={tooltipStyle}>
           <div className={styles.tooltipTitle}>{event.title}</div>
           <div className={styles.tooltipYear}>
             {formatYear(event.year)}

@@ -9,11 +9,16 @@ import HelpPanel from "@/components/HelpPanel/HelpPanel";
 import ComparisonBar from "@/components/ComparisonBar/ComparisonBar";
 import CompositionDetail from "@/components/CompositionDetail/CompositionDetail";
 import SearchFilterBar from "@/components/SearchFilterBar/SearchFilterBar";
+import TermExplorer from "@/components/TermExplorer/TermExplorer";
+import OrchestraExplorer from "@/components/OrchestraExplorer/OrchestraExplorer";
+
+type AppView = "timeline" | "terms" | "orchestra";
 
 export default function App() {
   const { t, i18n } = useTranslation();
   const [filterOpen, setFilterOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [activeView, setActiveView] = useState<AppView>("timeline");
   const { selectedComposerIds, selectedCompositionId, selectComposition, selectEvent } = useSelectionStore();
   const { resetView } = useTimelineStore();
 
@@ -69,6 +74,28 @@ export default function App() {
             }}
           >
             <ComparisonBar />
+            <nav style={{ display: "flex", gap: "2px", background: "var(--bg-surface)", borderRadius: "6px", padding: "2px", border: "1px solid var(--border-default)" }}>
+              {(["timeline", "terms", "orchestra"] as const).map((view) => (
+                <button
+                  key={view}
+                  onClick={() => setActiveView(view)}
+                  style={{
+                    padding: "4px 12px",
+                    border: "none",
+                    borderRadius: "4px",
+                    background: activeView === view ? "var(--text-accent)" : "transparent",
+                    color: activeView === view ? "var(--bg-primary)" : "var(--text-secondary)",
+                    cursor: "pointer",
+                    fontFamily: "var(--font-body)",
+                    fontSize: "var(--text-sm)",
+                    fontWeight: activeView === view ? 600 : 400,
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  {view === "timeline" ? t("app.viewTimeline", "Timeline") : view === "terms" ? t("app.viewTerms", "Terms") : t("app.viewOrchestra", "Orchestra")}
+                </button>
+              ))}
+            </nav>
             <select
               value={i18n.language}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
@@ -121,7 +148,9 @@ export default function App() {
         </div>
       </header>
       <main className="app-main">
-        <Timeline />
+        {activeView === "timeline" && <Timeline />}
+        {activeView === "terms" && <TermExplorer onNavigateToTimeline={() => setActiveView("timeline")} />}
+        {activeView === "orchestra" && <OrchestraExplorer onNavigateToTimeline={() => setActiveView("timeline")} />}
       </main>
 
       {/* Filter panel (slide-in left) */}

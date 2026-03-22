@@ -4,13 +4,19 @@ import type {
   Composer,
   Composition,
   HistoricalEvent,
+  Instrument,
+  InstrumentFamily,
   MusicalEraDefinition,
+  MusicalTerm,
+  TermCategory,
 } from "@/types";
 
 import composersData from "@/data/composers.json";
 import compositionsData from "@/data/compositions.json";
 import eventsData from "@/data/events.json";
 import erasData from "@/data/eras.json";
+import termsData from "@/data/terms.json";
+import instrumentsData from "@/data/instruments.json";
 
 // ---------------------------------------------------------------------------
 // Internal helpers — compute full translated arrays, memoised per language
@@ -224,4 +230,56 @@ export function useEventsInRange(
       ),
     [events, startYear, endYear],
   );
+}
+
+// ---------------------------------------------------------------------------
+// Musical Terms / Glossary hooks
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns all musical term definitions.
+ */
+export function useTerms(): MusicalTerm[] {
+  return termsData as MusicalTerm[];
+}
+
+/**
+ * Returns a single musical term by ID.
+ */
+export function useTerm(id: string): MusicalTerm | undefined {
+  return (termsData as MusicalTerm[]).find((t) => t.id === id);
+}
+
+/**
+ * Returns musical terms filtered by category.
+ */
+export function useTermsByCategory(category: TermCategory): MusicalTerm[] {
+  return (termsData as MusicalTerm[]).filter((t) =>
+    t.categories.includes(category),
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Instrument hooks
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns all orchestral instruments.
+ */
+export function useInstruments(): Instrument[] {
+  return instrumentsData as Instrument[];
+}
+
+/**
+ * Returns a single instrument by ID.
+ */
+export function useInstrument(id: string): Instrument | undefined {
+  return (instrumentsData as Instrument[]).find((i) => i.id === id);
+}
+
+/**
+ * Returns instruments belonging to a specific family.
+ */
+export function useInstrumentsByFamily(family: InstrumentFamily): Instrument[] {
+  return (instrumentsData as Instrument[]).filter((i) => i.family === family);
 }

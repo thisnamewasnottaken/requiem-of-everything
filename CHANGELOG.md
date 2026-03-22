@@ -8,8 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **View navigation tabs** — header now includes Timeline | Terms | Orchestra tab switcher to navigate between the main timeline, the musical terms glossary, and the orchestra explorer. Fully localised (en-GB, fr-FR, af-ZA).
+- **TermExplorer component** — full-page browsable/searchable glossary of 27 musical terms. Features category tab filtering (Forms & Structures, Genres, Techniques, etc.), text search across names and definitions, expandable cards with era-origin badges, example compositions with composer names and Spotify indicators, and locale-aware Wikipedia links. Spec at `docs/specs/components/TermExplorer.md`.
+- **OrchestraExplorer component** — interactive visual explorer for orchestral instruments, organized by family in a grid layout. Features expandable family sections with instrument cards showing range, role, and era-prominence dots; a slide-in detail panel with full description, era timeline, featured compositions matched from instrumentation data, and Wikipedia links. Spec at `docs/specs/components/OrchestraExplorer.md`.
+- **Musical terms glossary data** — `src/data/terms.json` with definitions for all 27 `CompositionGenre` values. Each term includes short/long definitions, category assignments, era origins, example composition IDs, and Wikipedia slugs. Types and hooks added.
+- **Orchestral instruments data** — `src/data/instruments.json` with 26 instruments across 6 families (strings, woodwinds, brass, percussion, keyboards, voice). Each entry includes range, role, description, era prominence, and Wikipedia slug. Types and hooks added.
+- **Focus mode dimming/collapse** — "Focus Timeline" button in ComposerCard now activates full focus mode: non-focused composers are dimmed and collapse after 1.5s, matching comparison mode's visual treatment. Toggleable; auto-clears on comparison mode entry.
+- **Auto-zoom on filter change** — applying filters now auto-zooms the timeline to fit filtered composers' combined lifespan. Viewport is saved and restored when filters are cleared. Skipped when comparison mode is active.
 - **Inline search bar in header** — replaced the standalone "⚙ Filters" button with a `SearchFilterBar` component containing an inline search input and a filter toggle button. Typing in the search box filters the timeline immediately via `useFilterStore.searchQuery`. The filter button shows an active-filter count badge when sidebar filters are engaged. Spec at `docs/specs/components/SearchFilterBar.md`.
 - **Wikipedia link localisation** — all "Read on Wikipedia" links (ComposerCard, CompositionDetail, EventMarker) and the WikipediaService API calls now use the Wikipedia subdomain matching the current i18n language (e.g. `fr.wikipedia.org` when the UI is set to French). Centralised in `src/utils/wikipedia.ts`.
+
+### Fixed
+
+- **EventMarker tooltip viewport clipping** — tooltip now opens above the marker by default (`bottom: calc(100% + 8px)`) instead of below, preventing clipping when markers are near the bottom of the viewport. Flips below when marker is near the top.
+- **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved to native `addEventListener` with `{ passive: false }`. Added `touch-action: none` to timeline container.
 
 ### Changed
 
@@ -50,10 +62,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Focus Timeline occlusion** — "Focus Timeline" in the ComposerCard now accounts for the panel width, adding proportional right-side padding so the composer's full lifespan is visible in the unobscured area.
 - **Collapsed bar hover info** — hovering a collapsed composer bar now correctly shows the name and year labels (previously missing due to React conditional preventing render).
 - **Portrait URLs** — switched from broken `upload.wikimedia.org/thumb/` format to Wikimedia `Special:FilePath` redirect URLs.
-
-### Fixed
-
-- **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved from React `onWheel` prop to a native `addEventListener` with `{ passive: false }` so `preventDefault()` is honoured. Only Ctrl+wheel (pinch) events are intercepted; plain scroll is left to the browser. Added `touch-action: none` to the timeline container CSS.
 
 ### Changed
 

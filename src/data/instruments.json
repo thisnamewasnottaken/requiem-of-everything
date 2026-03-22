@@ -1,0 +1,427 @@
+[
+  {
+    "id": "violin",
+    "name": "Violin",
+    "family": "strings",
+    "range": "G3 – E7",
+    "role": "Principal melody instrument; leads the string section",
+    "description": "The highest-pitched standard string instrument. The violin carries most orchestral melodies and is the backbone of the string section. Its expressive range spans from lyrical singing lines to virtuosic passage work.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Violin"
+  },
+  {
+    "id": "viola",
+    "name": "Viola",
+    "family": "strings",
+    "range": "C3 – E6",
+    "role": "Inner voice of the string section; provides harmonic depth",
+    "description": "Slightly larger than the violin, the viola fills the alto register of the string family. It provides essential harmonic support and inner voices, lending warmth and richness to the orchestral texture. Its darker, more veiled tone has inspired many solo works from the Romantic era onward.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "secondary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Viola"
+  },
+  {
+    "id": "cello",
+    "name": "Cello",
+    "family": "strings",
+    "range": "C2 – A5",
+    "role": "Bass and tenor voice of the string section; equally strong in melody and harmony",
+    "description": "The cello spans tenor and bass registers, making it one of the most versatile orchestral instruments. It anchors the string section's bass line while also carrying expressive solo melodies. Its rich, singing tone is often compared to the human voice.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Cello"
+  },
+  {
+    "id": "double-bass",
+    "name": "Double Bass",
+    "family": "strings",
+    "range": "E1 – G4",
+    "role": "Foundation of the orchestral bass; reinforces the lowest register",
+    "description": "The largest and lowest-pitched bowed string instrument in the orchestra. The double bass provides the fundamental bass line that supports the entire ensemble. It is typically played with a bow in orchestral settings and plucked in jazz and popular music.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "secondary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Double_bass"
+  },
+  {
+    "id": "harp",
+    "name": "Harp",
+    "family": "strings",
+    "range": "C1 – G♯7",
+    "role": "Provides arpeggiated textures, glissandi, and coloristic effects",
+    "description": "The orchestral pedal harp spans nearly the full range of the piano. It contributes shimmering arpeggios, ethereal glissandi, and harmonic colour to the orchestra. Though ancient in origin, the modern double-action pedal harp became a standard orchestral fixture in the Romantic period.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "rare" },
+      { "era": "baroque", "prominence": "rare" },
+      { "era": "classical", "prominence": "secondary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Harp"
+  },
+  {
+    "id": "viola-da-gamba",
+    "name": "Viola da Gamba",
+    "family": "strings",
+    "range": "D2 – D5",
+    "role": "Principal bowed string instrument of the Renaissance and Baroque; continuo and solo roles",
+    "description": "A fretted, bowed string instrument held between the legs. The viola da gamba was central to Renaissance and Baroque chamber music, serving as both a solo and continuo instrument. It was gradually displaced by the cello family during the Classical period.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "rare" },
+      { "era": "early-romantic", "prominence": "rare" },
+      { "era": "late-romantic", "prominence": "rare" },
+      { "era": "modern", "prominence": "rare" }
+    ],
+    "wikipediaSlug": "Viol"
+  },
+  {
+    "id": "flute",
+    "name": "Flute",
+    "family": "woodwinds",
+    "range": "C4 – C7",
+    "role": "Highest standard woodwind; carries bright melodies and ornamental passages",
+    "description": "A transverse instrument blown across an embouchure hole. The modern Boehm-system flute produces a clear, brilliant tone that cuts through the orchestral texture. It excels in rapid passage work and lyrical melodies in the upper register.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "secondary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Western_concert_flute"
+  },
+  {
+    "id": "oboe",
+    "name": "Oboe",
+    "family": "woodwinds",
+    "range": "B♭3 – A6",
+    "role": "Penetrating soprano voice of the woodwinds; tunes the orchestra",
+    "description": "A double-reed instrument with a distinctive, penetrating tone. The oboe provides the tuning pitch (A4) for the orchestra and carries poignant solo melodies. Its expressive, slightly nasal timbre has been prized since the Baroque era.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Oboe"
+  },
+  {
+    "id": "clarinet",
+    "name": "Clarinet",
+    "family": "woodwinds",
+    "range": "D3 – B♭6",
+    "role": "Most agile woodwind; wide dynamic and timbral range",
+    "description": "A single-reed instrument with the widest pitch range of the standard woodwinds. The clarinet's smooth, warm tone and exceptional agility make it equally suited to lyrical melodies and rapid technical passages. It entered the orchestra in the mid-18th century and quickly became indispensable.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "rare" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Clarinet"
+  },
+  {
+    "id": "bassoon",
+    "name": "Bassoon",
+    "family": "woodwinds",
+    "range": "B♭1 – E5",
+    "role": "Bass voice of the woodwind section; blends with strings and horns",
+    "description": "A large double-reed instrument that provides the bass and tenor of the woodwind family. The bassoon's warm, reedy tone blends naturally with strings and horns. It is valued for both its sonorous low register and its capacity for dry, comic staccato effects.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Bassoon"
+  },
+  {
+    "id": "recorder",
+    "name": "Recorder",
+    "family": "woodwinds",
+    "range": "C4 – D7 (soprano)",
+    "role": "Principal wind instrument of the Renaissance and early Baroque; largely superseded by the flute",
+    "description": "A family of end-blown wooden flutes with a gentle, pure tone. The recorder was one of the most important wind instruments from the Medieval period through the Baroque, appearing prominently in works by Bach, Handel, and Vivaldi. It was largely replaced by the transverse flute by the Classical era.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "rare" },
+      { "era": "early-romantic", "prominence": "rare" },
+      { "era": "late-romantic", "prominence": "rare" },
+      { "era": "modern", "prominence": "secondary" }
+    ],
+    "wikipediaSlug": "Recorder_(musical_instrument)"
+  },
+  {
+    "id": "french-horn",
+    "name": "French Horn",
+    "family": "brass",
+    "range": "B1 – F5",
+    "role": "Bridge between woodwinds and brass; provides warmth and heroic colour",
+    "description": "A coiled brass instrument with a wide, conical bell. The French horn's mellow, rounded tone blends seamlessly with both woodwinds and strings, making it the principal link between orchestral sections. It is renowned for its noble, heroic sound and notoriously challenging intonation.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "secondary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "French_horn"
+  },
+  {
+    "id": "trumpet",
+    "name": "Trumpet",
+    "family": "brass",
+    "range": "F♯3 – D6",
+    "role": "Brilliant soprano brass voice; fanfares, signals, and heroic themes",
+    "description": "The highest-pitched standard brass instrument. The trumpet's bright, cutting tone has served ceremonial and military functions for centuries. In the orchestra it delivers fanfares, bold thematic statements, and brilliant climactic passages.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "secondary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Trumpet"
+  },
+  {
+    "id": "trombone",
+    "name": "Trombone",
+    "family": "brass",
+    "range": "E2 – F5",
+    "role": "Powerful tenor-bass brass voice; chorales, climaxes, and dramatic emphasis",
+    "description": "A brass instrument using a telescoping slide to change pitch. The trombone's bold, noble tone makes it ideal for chorale-like passages and powerful climaxes. Its slide mechanism allows unmatched legato and glissando effects among brass instruments.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "secondary" },
+      { "era": "baroque", "prominence": "secondary" },
+      { "era": "classical", "prominence": "secondary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Trombone"
+  },
+  {
+    "id": "tuba",
+    "name": "Tuba",
+    "family": "brass",
+    "range": "D1 – F4",
+    "role": "Lowest brass instrument; anchors the brass section's bass register",
+    "description": "The largest and lowest-pitched standard brass instrument. The tuba provides the fundamental bass for the brass section, much as the double bass does for strings. Invented in the 1830s, it replaced the ophicleide and serpent to become the standard orchestral bass brass voice.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "rare" },
+      { "era": "baroque", "prominence": "rare" },
+      { "era": "classical", "prominence": "rare" },
+      { "era": "early-romantic", "prominence": "secondary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Tuba"
+  },
+  {
+    "id": "timpani",
+    "name": "Timpani",
+    "family": "percussion",
+    "range": "D2 – C4 (set of four)",
+    "role": "Pitched percussion; provides rhythmic emphasis and harmonic reinforcement",
+    "description": "Large copper kettledrums tuned to definite pitches. Timpani are the oldest and most important orchestral percussion instruments, reinforcing rhythmic accents and harmonic bass notes. A standard set of four drums covers roughly two octaves and can be retuned with pedals during performance.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Timpani"
+  },
+  {
+    "id": "snare-drum",
+    "name": "Snare Drum",
+    "family": "percussion",
+    "range": "Unpitched",
+    "role": "Sharp, rhythmic articulation; military and dramatic effects",
+    "description": "A shallow, double-headed drum with metal snares stretched across the bottom head, producing a crisp, rattling sound. The snare drum entered orchestral music from military bands and is used for rhythmic precision, martial effects, and dramatic tension in orchestral scores.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "rare" },
+      { "era": "classical", "prominence": "secondary" },
+      { "era": "early-romantic", "prominence": "secondary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Snare_drum"
+  },
+  {
+    "id": "cymbals-and-percussion",
+    "name": "Cymbals & Auxiliary Percussion",
+    "family": "percussion",
+    "range": "Unpitched / various",
+    "role": "Colour, accent, and special effects across a wide family of instruments",
+    "description": "A collective grouping of orchestral percussion beyond timpani and snare drum, including crash cymbals, suspended cymbals, bass drum, triangle, tambourine, glockenspiel, xylophone, and tubular bells. These instruments add rhythmic accent, tonal colour, and dramatic punctuation to the orchestral palette.",
+    "eraProminence": [
+      { "era": "baroque", "prominence": "rare" },
+      { "era": "classical", "prominence": "secondary" },
+      { "era": "early-romantic", "prominence": "secondary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Percussion_instrument"
+  },
+  {
+    "id": "piano",
+    "name": "Piano",
+    "family": "keyboards",
+    "range": "A0 – C8",
+    "role": "Solo and concerto instrument; occasional orchestral colour",
+    "description": "A keyboard instrument in which hammers strike strings. The piano's enormous dynamic and pitch range made it the dominant solo and chamber instrument from the late 18th century onward. In the orchestra it appears most often as a concerto soloist but also adds percussive colour in modern scores.",
+    "eraProminence": [
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Piano"
+  },
+  {
+    "id": "organ",
+    "name": "Organ",
+    "family": "keyboards",
+    "range": "C2 – C7 (varies by instrument)",
+    "role": "Provides massive sustained sonority; sacred and concert hall instrument",
+    "description": "A keyboard instrument in which pressurized air sounds through ranks of pipes. The pipe organ's vast tonal palette and ability to sustain indefinitely made it central to sacred music from the Renaissance through the Baroque. It continues to appear in orchestral works requiring monumental sonority.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "secondary" },
+      { "era": "early-romantic", "prominence": "secondary" },
+      { "era": "late-romantic", "prominence": "secondary" },
+      { "era": "modern", "prominence": "secondary" }
+    ],
+    "wikipediaSlug": "Pipe_organ"
+  },
+  {
+    "id": "harpsichord",
+    "name": "Harpsichord",
+    "family": "keyboards",
+    "range": "F1 – F6",
+    "role": "Continuo and solo keyboard of the Baroque; plucked-string mechanism",
+    "description": "A keyboard instrument that plucks strings rather than striking them, producing a bright, incisive tone. The harpsichord was the principal keyboard instrument from the Renaissance through the Baroque, central to basso continuo accompaniment. It was gradually supplanted by the piano in the late 18th century.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "rare" },
+      { "era": "early-romantic", "prominence": "rare" },
+      { "era": "late-romantic", "prominence": "rare" },
+      { "era": "modern", "prominence": "secondary" }
+    ],
+    "wikipediaSlug": "Harpsichord"
+  },
+  {
+    "id": "celesta",
+    "name": "Celesta",
+    "family": "keyboards",
+    "range": "C4 – C8",
+    "role": "Ethereal bell-like colour; used sparingly for magical or delicate effects",
+    "description": "A keyboard instrument in which hammers strike metal plates over wooden resonators, producing a shimmering, bell-like sound. Invented in 1886, the celesta became famous through Tchaikovsky's 'Dance of the Sugar Plum Fairy' and is used for ethereal or otherworldly orchestral colour.",
+    "eraProminence": [
+      { "era": "late-romantic", "prominence": "secondary" },
+      { "era": "modern", "prominence": "secondary" }
+    ],
+    "wikipediaSlug": "Celesta"
+  },
+  {
+    "id": "soprano",
+    "name": "Soprano",
+    "family": "voice",
+    "range": "C4 – C6",
+    "role": "Highest standard female voice; carries leading vocal melodies in choral and operatic works",
+    "description": "The highest standard singing voice type, typically ranging from middle C to high C. The soprano voice leads melodic lines in opera, oratorio, and choral music. Across all eras, sopranos have carried the most prominent vocal roles, from Renaissance masses to modern opera.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Soprano"
+  },
+  {
+    "id": "alto-mezzo",
+    "name": "Alto / Mezzo-Soprano",
+    "family": "voice",
+    "range": "A3 – A5",
+    "role": "Lower female voice; harmonic inner voice and dramatic supporting roles",
+    "description": "The lower female voice type encompassing both mezzo-soprano and contralto registers. In choral music, altos provide essential harmonic inner voices. In opera, mezzo-sopranos often portray complex, dramatic characters — from trouser roles to femmes fatales.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Mezzo-soprano"
+  },
+  {
+    "id": "tenor",
+    "name": "Tenor",
+    "family": "voice",
+    "range": "C3 – C5",
+    "role": "Higher male voice; heroic leads in opera and prominent choral lines",
+    "description": "The higher standard male singing voice. Tenors carry leading roles in opera — the romantic hero, the tragic protagonist — and provide bright upper lines in choral writing. The tenor voice's carrying power and expressive intensity make it central to vocal music across all eras.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Tenor"
+  },
+  {
+    "id": "bass-baritone",
+    "name": "Bass-Baritone / Bass",
+    "family": "voice",
+    "range": "A2 – A4",
+    "role": "Lowest male voice; authority figures, villains, and foundational choral bass",
+    "description": "The lowest standard male singing voice, spanning bass and baritone registers. In opera, bass-baritones portray kings, priests, villains, and father figures. In choral music, the bass section provides the harmonic foundation, anchoring the vocal ensemble much as the cello and bass anchor the strings.",
+    "eraProminence": [
+      { "era": "renaissance", "prominence": "primary" },
+      { "era": "baroque", "prominence": "primary" },
+      { "era": "classical", "prominence": "primary" },
+      { "era": "early-romantic", "prominence": "primary" },
+      { "era": "late-romantic", "prominence": "primary" },
+      { "era": "modern", "prominence": "primary" }
+    ],
+    "wikipediaSlug": "Bass-baritone"
+  }
+]

@@ -4,18 +4,21 @@ interface SelectionStore {
   selectedComposerIds: string[];
   selectedCompositionId: string | null;
   selectedEventId: string | null;
+  focusedComposerId: string | null;
 
   selectComposer: (id: string) => void;
   deselectComposer: (id: string) => void;
   clearComposerSelection: () => void;
   selectComposition: (id: string | null) => void;
   selectEvent: (id: string | null) => void;
+  setFocusedComposer: (id: string | null) => void;
 }
 
 export const useSelectionStore = create<SelectionStore>((set, get) => ({
   selectedComposerIds: [],
   selectedCompositionId: null,
   selectedEventId: null,
+  focusedComposerId: null,
 
   selectComposer: (id) => {
     set({ selectedComposerIds: [id], selectedCompositionId: null, selectedEventId: null });
@@ -30,7 +33,7 @@ export const useSelectionStore = create<SelectionStore>((set, get) => ({
   },
 
   clearComposerSelection: () => {
-    set({ selectedComposerIds: [], selectedCompositionId: null });
+    set({ selectedComposerIds: [], selectedCompositionId: null, focusedComposerId: null });
   },
 
   selectComposition: (id) => {
@@ -40,4 +43,6 @@ export const useSelectionStore = create<SelectionStore>((set, get) => ({
   selectEvent: (id) => {
     set({ selectedEventId: id, selectedCompositionId: null });
   },
+
+  setFocusedComposer: (id) => set({ focusedComposerId: id }),
 }));

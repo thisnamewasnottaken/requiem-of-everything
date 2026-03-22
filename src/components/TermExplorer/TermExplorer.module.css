@@ -1,0 +1,251 @@
+.container {
+  padding: var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ── Header ────────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 180px;
+  max-width: 320px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+.searchInput:focus {
+  border-color: var(--text-accent);
+}
+
+.backBtn {
+  padding: 6px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.backBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-accent);
+}
+
+/* ── Category tabs ─────────────────────────────────────────────────── */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.tabActive {
+  background: var(--text-accent);
+  color: var(--bg-primary);
+  border-color: var(--text-accent);
+}
+
+.tabActive:hover {
+  background: var(--text-accent);
+  color: var(--bg-primary);
+}
+
+/* ── Card grid ─────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-md);
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  padding: var(--space-xl) 0;
+}
+
+/* ── Term card ─────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: var(--space-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--text-accent);
+  background: var(--bg-elevated);
+}
+
+.termName {
+  font-family: var(--font-display);
+  color: var(--text-accent);
+  font-size: 1.1rem;
+  margin: 0 0 var(--space-sm);
+}
+
+.definition {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.longDefinition {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin-top: var(--space-sm);
+}
+
+/* ── Era badges ────────────────────────────────────────────────────── */
+
+.eraBadges {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin: var(--space-sm) 0;
+}
+
+.eraBadge {
+  font-family: var(--font-body);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  border: 1px solid;
+}
+
+/* ── Example compositions ──────────────────────────────────────────── */
+
+.examples {
+  margin-top: 12px;
+  border-top: 1px solid var(--border-default);
+  padding-top: var(--space-sm);
+}
+
+.examplesTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 4px;
+}
+
+.exampleItem {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  padding: 2px 0;
+}
+
+.spotifyIcon {
+  color: #1db954;
+  margin-left: 4px;
+}
+
+/* ── Wikipedia link ────────────────────────────────────────────────── */
+
+.wikiLink {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-accent);
+  text-decoration: none;
+  margin-top: var(--space-sm);
+  display: inline-block;
+  transition: opacity var(--transition-fast);
+}
+
+.wikiLink:hover {
+  opacity: 0.8;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchInput {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: var(--space-md);
+  }
+}

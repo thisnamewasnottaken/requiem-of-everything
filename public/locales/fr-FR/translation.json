@@ -5,7 +5,10 @@
     "filters": "Filtres",
     "helpAriaLabel": "Aide",
     "helpTitle": "Aide (Shift+?)",
-    "languageSelect": "Choisir la langue"
+    "languageSelect": "Choisir la langue",
+    "viewTimeline": "Chronologie",
+    "viewTerms": "Termes",
+    "viewOrchestra": "Orchestre"
   },
   "common": {
     "close": "Fermer",
@@ -125,5 +128,37 @@
       "item10": "Gérez ou effacez les comparaisons via la barre de comparaison dans l'en-tête."
     },
     "footer": "Requiem of Everything — Musique classique 1400–1970"
+  },
+  "termExplorer": {
+    "title": "Termes et formes musicaux",
+    "searchPlaceholder": "Rechercher des termes…",
+    "backToTimeline": "← Frise chronologique",
+    "allCategories": "Tous",
+    "formsAndStructures": "Formes et structures",
+    "genres": "Genres",
+    "techniques": "Techniques",
+    "vocalAndChoral": "Vocal et choral",
+    "danceAndCharacter": "Danse et caractère",
+    "soloAndChamber": "Solo et musique de chambre",
+    "exampleWorks": "Œuvres exemples",
+    "readMore": "En savoir plus →",
+    "noResults": "Aucun terme ne correspond à votre recherche."
+  },
+  "orchestraExplorer": {
+    "title": "Explorateur d'orchestre",
+    "backToTimeline": "← Frise",
+    "strings": "Cordes",
+    "woodwinds": "Bois",
+    "brass": "Cuivres",
+    "percussion": "Percussions",
+    "keyboards": "Claviers",
+    "voice": "Voix",
+    "range": "Tessiture",
+    "role": "Rôle",
+    "eraProminence": "Prédominance par époque",
+    "featuredIn": "Présent dans",
+    "readMore": "En savoir plus →",
+    "instruments": "{{count}} instruments",
+    "closeDetail": "Fermer"
   }
 }

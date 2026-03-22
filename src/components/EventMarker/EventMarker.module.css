@@ -84,7 +84,8 @@
 /* Tooltip */
 .tooltip {
   position: absolute;
-  top: calc(100% + 8px);
+  bottom: calc(100% + 8px);
+  top: auto;
   left: 50%;
   transform: translateX(-50%);
   background: var(--bg-elevated);
@@ -98,6 +99,11 @@
   min-width: 200px;
   max-width: 300px;
   box-shadow: var(--shadow-md);
+}
+
+.tooltipFlipped {
+  bottom: auto;
+  top: calc(100% + 8px);
 }
 
 .marker:hover .tooltip {
