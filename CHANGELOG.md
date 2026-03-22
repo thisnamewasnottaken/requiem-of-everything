@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **OrchestraExplorer header** — moved view title and subtitle from the component body into the App header for consistency with other views.
 - **OrchestraExplorer seating layout** — redesigned family positions to match standard modern orchestral seating (strings front, woodwinds centre-mid, keyboards left-wing, brass back-left, percussion back-centre, voice/choir at the very rear). Repositioned SVG centre from bottom-edge to mid-viewport to use available space. Improved instrument-node spacing algorithm with collision-aware minimum angular gaps to prevent overlapping bubbles.
 - **TermExplorer global filter integration** — TermExplorer now respects global filters from `useFilterStore`. Era filters restrict terms to those originating in selected eras; the header search query applies as an additional text filter alongside the local search input.
+- **View-scoped panel visibility** — ComposerCard and CompositionDetail panels now only render on the Timeline view (preserved when switching away, restored when returning). FilterPanel and SearchFilterBar are visible on Timeline and Terms views but hidden on Orchestra.
 
 ### Added
 
@@ -33,7 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - **Z-index stacking for overlay panels** — app header now uses `var(--z-overlay)` instead of a hardcoded z-index of 50, so FilterPanel, ComposerCard, HelpPanel, and CompositionDetail panels correctly render above the header.
-- **EventMarker tooltip viewport clipping**— tooltip now opens above the marker by default (`bottom: calc(100% + 8px)`) instead of below, preventing clipping when markers are near the bottom of the viewport. Flips below when marker is near the top.
+- **Event tooltip positioning** — tooltip now renders just above the diamond marker (`bottom: 20px` from marker bottom) instead of above the entire marker div including the tall event line. Previously the tooltip opened above the invisible event line top or flipped below the diamond off-screen. Removed vertical flip logic since event markers are always at the timeline bottom.
 - **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved to native `addEventListener` with `{ passive: false }`. Added `touch-action: none` to timeline container.
 
 ### Changed

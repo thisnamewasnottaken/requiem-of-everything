@@ -190,10 +190,12 @@ export default function App() {
               <option value="fr-FR">Français</option>
               <option value="af-ZA">Afrikaans</option>
             </select>
-            <SearchFilterBar
-              filterOpen={filterOpen}
-              onToggleFilters={() => setFilterOpen((p) => !p)}
-            />
+            {activeView !== "orchestra" && (
+              <SearchFilterBar
+                filterOpen={filterOpen}
+                onToggleFilters={() => setFilterOpen((p) => !p)}
+              />
+            )}
             <button
               onClick={() => setHelpOpen((p) => !p)}
               style={{
@@ -236,14 +238,18 @@ export default function App() {
         )}
       </main>
 
-      {/* Filter panel (slide-in left) */}
-      {filterOpen && <FilterPanel onClose={() => setFilterOpen(false)} />}
+      {/* Filter panel (slide-in left) — visible on timeline and terms only */}
+      {filterOpen && activeView !== "orchestra" && (
+        <FilterPanel onClose={() => setFilterOpen(false)} />
+      )}
 
-      {/* Composer detail panel (slide-in right) */}
-      {selectedComposerId && <ComposerCard composerId={selectedComposerId} />}
+      {/* Composer detail panel (slide-in right) — timeline only */}
+      {selectedComposerId && activeView === "timeline" && (
+        <ComposerCard composerId={selectedComposerId} />
+      )}
 
-      {/* Composition detail panel (bottom-center floating card) */}
-      {selectedCompositionId && (
+      {/* Composition detail panel (bottom-center floating card) — timeline only */}
+      {selectedCompositionId && activeView === "timeline" && (
         <CompositionDetail compositionId={selectedCompositionId} />
       )}
 

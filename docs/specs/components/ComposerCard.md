@@ -22,6 +22,7 @@ A detail panel that shows comprehensive information about a selected composer. A
 - **Expanded**: Shows full biography, all works listed, contemporaries grid.
 - **Loading Wikipedia**: Skeleton for Wikipedia-enriched content.
 - **Comparison Selected**: Visual indicator that this composer is in comparison mode.
+- **Hidden by view switch**: Not rendered when the active view is Terms or Orchestra. Selection state in `useSelectionStore` is preserved so the card reappears when the user returns to Timeline.
 
 ## Sections
 

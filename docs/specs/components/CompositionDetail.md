@@ -6,18 +6,19 @@ Display full details of a selected composition in a compact floating card anchor
 
 ## Props / Inputs
 
-| Prop              | Type     | Description                       |
-| ----------------- | -------- | --------------------------------- |
-| compositionId     | string   | ID of the composition to display  |
+| Prop          | Type   | Description                      |
+| ------------- | ------ | -------------------------------- |
+| compositionId | string | ID of the composition to display |
 
 ## Visual States
 
-- **Visible**: Compact card slides up from the bottom when a composition is selected.
-- **Hidden**: Not rendered when no composition is selected.
+- **Visible**: Compact card slides up from the bottom when a composition is selected and the active view is Timeline.
+- **Hidden**: Not rendered when no composition is selected, or when the active view is Terms or Orchestra. Selection state is preserved so the card reappears when returning to Timeline.
 
 ## Layout
 
 The panel is a fixed bottom-center card:
+
 - **Width**: 560px max, `calc(100vw - 32px)` on narrow screens.
 - **Position**: fixed, bottom: 24px, centered horizontally.
 - **z-index**: `var(--z-panel)`.

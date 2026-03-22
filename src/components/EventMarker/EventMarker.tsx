@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState } from "react";
+import React, { useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import type { HistoricalEvent } from "@/types";
 import { createTimeScale, formatYear } from "@/utils/scales";
@@ -53,13 +53,6 @@ export default function EventMarker({
   const rangeWidth = hasRange ? scale(event.endYear!) - x : 0;
 
   const markerRef = useRef<HTMLDivElement>(null);
-  const [flipped, setFlipped] = useState(false);
-
-  useEffect(() => {
-    if (!markerRef.current) return;
-    const rect = markerRef.current.getBoundingClientRect();
-    setFlipped(rect.top < 200);
-  }, [isSelected]);
 
   // Viewport-aware tooltip positioning
   const tooltipStyle: React.CSSProperties = {};
@@ -113,14 +106,17 @@ export default function EventMarker({
         onKeyDown={handleKeyDown}
         role="button"
         tabIndex={0}
-        aria-label={t('eventMarker.ariaLabel', { title: event.title, year: event.year })}
+        aria-label={t("eventMarker.ariaLabel", {
+          title: event.title,
+          year: event.year,
+        })}
       >
         <div
           className={styles.eventLine}
           style={{ height: timelineHeight - 60, borderColor: color }}
         />
         <div className={styles.diamond} style={{ backgroundColor: color }} />
-        <div className={`${styles.tooltip} ${flipped ? styles.tooltipFlipped : ''}`} style={tooltipStyle}>
+        <div className={styles.tooltip} style={tooltipStyle}>
           <div className={styles.tooltipTitle}>{event.title}</div>
           <div className={styles.tooltipYear}>
             {formatYear(event.year)}
@@ -146,7 +142,7 @@ export default function EventMarker({
               className={styles.wikiLink}
               onClick={(e) => e.stopPropagation()}
             >
-              {t('common.readOnWikipedia')}
+              {t("common.readOnWikipedia")}
             </a>
           )}
         </div>

@@ -6,16 +6,16 @@ A vertical marker representing a historical event on the timeline. Rendered at t
 
 ## Props / Inputs
 
-| Prop             | Type                                   | Description                                        |
-| ---------------- | -------------------------------------- | -------------------------------------------------- |
-| `event`          | `HistoricalEvent`                      | The event to render                                |
-| `startYear`      | `number`                               | Viewport left bound                                |
-| `endYear`        | `number`                               | Viewport right bound                               |
-| `width`          | `number`                               | Container pixel width                              |
-| `timelineHeight` | `number`                               | Full pixel height of the timeline container        |
-| `isDimmed`       | `boolean` (optional)                   | Whether to reduce visual salience                  |
-| `onClick`        | `(eventId: string) => void` (optional) | Click handler (toggles pinned card)                |
-| `isSelected`     | `boolean` (optional)                   | Whether this event's card is pinned open           |
+| Prop             | Type                                   | Description                                 |
+| ---------------- | -------------------------------------- | ------------------------------------------- |
+| `event`          | `HistoricalEvent`                      | The event to render                         |
+| `startYear`      | `number`                               | Viewport left bound                         |
+| `endYear`        | `number`                               | Viewport right bound                        |
+| `width`          | `number`                               | Container pixel width                       |
+| `timelineHeight` | `number`                               | Full pixel height of the timeline container |
+| `isDimmed`       | `boolean` (optional)                   | Whether to reduce visual salience           |
+| `onClick`        | `(eventId: string) => void` (optional) | Click handler (toggles pinned card)         |
+| `isSelected`     | `boolean` (optional)                   | Whether this event's card is pinned open    |
 
 ## Visual States
 
@@ -63,13 +63,14 @@ Appears on hover (preview) or when pinned (interactive). Contains:
 The tooltip repositions to avoid clipping by the timeline container's `overflow: hidden`:
 
 #### Horizontal
+
 - **Near left edge** (x < 160): tooltip aligns left (`left: 0; transform: none`)
 - **Near right edge** (x > width − 160): tooltip aligns right (`right: 0; left: auto; transform: none`)
 - **Default**: centred via `left: 50%; transform: translateX(-50%)`
 
 #### Vertical
-- **Default**: tooltip opens **above** the marker (`bottom: calc(100% + 8px)`) since markers sit at the bottom of the timeline and a downward tooltip would clip.
-- **Near top of viewport** (marker `getBoundingClientRect().top < 200`): tooltip flips **below** the marker (`top: calc(100% + 8px)`) via the `.tooltipFlipped` CSS class. Recalculated when `isSelected` changes.
+
+- Tooltip always opens **above** the diamond (`bottom: 20px` from the marker's bottom edge), placing it just above the 8×8 diamond. Since the marker div includes the tall event line, using `bottom: calc(100% + 8px)` would incorrectly position the tooltip at the top of the event line, far from the diamond. No vertical flipping is needed because event markers are always anchored to the bottom of the timeline.
 
 ## Layout
 
