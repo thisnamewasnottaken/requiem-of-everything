@@ -10,3 +10,4 @@ test-results/
 test-artifacts/
 screenshot*.png
 test_*.py
+*.tsbuildinfo
