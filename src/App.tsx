@@ -8,6 +8,7 @@ import FilterPanel from "@/components/FilterPanel/FilterPanel";
 import HelpPanel from "@/components/HelpPanel/HelpPanel";
 import ComparisonBar from "@/components/ComparisonBar/ComparisonBar";
 import CompositionDetail from "@/components/CompositionDetail/CompositionDetail";
+import SearchFilterBar from "@/components/SearchFilterBar/SearchFilterBar";
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -87,24 +88,10 @@ export default function App() {
               <option value="fr-FR">Français</option>
               <option value="af-ZA">Afrikaans</option>
             </select>
-            <button
-              onClick={() => setFilterOpen((p) => !p)}
-              style={{
-                padding: "6px 14px",
-                border: "1px solid var(--border-default)",
-                borderRadius: "6px",
-                background: filterOpen
-                  ? "var(--bg-elevated)"
-                  : "var(--bg-surface)",
-                color: "var(--text-secondary)",
-                cursor: "pointer",
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-sm)",
-                transition: "all 0.15s ease",
-              }}
-            >
-              ⚙ {t('app.filters')}
-            </button>
+            <SearchFilterBar
+              filterOpen={filterOpen}
+              onToggleFilters={() => setFilterOpen((p) => !p)}
+            />
             <button
               onClick={() => setHelpOpen((p) => !p)}
               style={{
