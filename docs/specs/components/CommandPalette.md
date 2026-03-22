@@ -1,5 +1,7 @@
 # Component Spec: CommandPalette
 
+> **Status: Planned / Deferred** — This component has not yet been implemented. The spec below describes the intended design for future implementation.
+
 ## Purpose
 
 A search + command interface inspired by VS Code's command palette. Provides quick access to composers, compositions, eras, and (in the future) natural language AI queries.

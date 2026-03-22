@@ -309,10 +309,86 @@ type TimelineAction =
   | { type: "show-comparison"; composerIds: string[] };
 ```
 
-## 8. Data File Conventions
+## 8. Musical Term (Glossary)
+
+```typescript
+type TermCategory =
+  | "forms-and-structures"
+  | "genres"
+  | "techniques"
+  | "vocal-and-choral"
+  | "dance-and-character"
+  | "solo-and-chamber";
+
+interface MusicalTerm {
+  /** Unique identifier (kebab-case: "symphony") */
+  id: string;
+
+  /** Display name */
+  term: string;
+
+  /** One-sentence definition for card previews */
+  shortDefinition: string;
+
+  /** Multi-sentence definition for detail view */
+  longDefinition: string;
+
+  /** Classification categories */
+  categories: TermCategory[];
+
+  /** Eras in which this form/genre originated or flourished */
+  eraOrigin: MusicalEra[];
+
+  /** Example composition IDs (foreign keys) */
+  exampleCompositionIds: string[];
+
+  /** Wikipedia article slug */
+  wikipediaSlug: string;
+}
+```
+
+## 9. Orchestral Instrument
+
+```typescript
+type InstrumentFamily =
+  | "strings"
+  | "woodwinds"
+  | "brass"
+  | "percussion"
+  | "keyboards"
+  | "voice";
+
+interface Instrument {
+  /** Unique identifier (kebab-case: "violin") */
+  id: string;
+
+  /** Display name */
+  name: string;
+
+  /** Instrument family */
+  family: InstrumentFamily;
+
+  /** Pitch range description */
+  range: string;
+
+  /** Orchestral role description */
+  role: string;
+
+  /** Extended description */
+  description: string;
+
+  /** Era-specific prominence levels */
+  eraProminence: { era: MusicalEra; prominence: "primary" | "secondary" | "rare" }[];
+
+  /** Wikipedia article slug */
+  wikipediaSlug: string;
+}
+```
+
+## 10. Data File Conventions
 
 - All data lives in `src/data/`
-- One file per entity type: `composers.json`, `compositions.json`, `events.json`, `eras.json`
+- One file per entity type: `composers.json`, `compositions.json`, `events.json`, `eras.json`, `terms.json`, `instruments.json`
 - IDs are kebab-case and globally unique within their type
 - Years are integers (negative for BCE if ever needed)
 - All text fields support Markdown

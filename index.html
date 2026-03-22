@@ -14,8 +14,8 @@
       - Scripts: own bundle only (no inline scripts or eval)
       - Styles: own CSS + Google Fonts CDN + inline style attributes (required by React visualisation)
       - Fonts: self + Google Fonts static CDN
-      - Images: self + Wikimedia Commons (composer portraits)
-      - Connections: self + Wikipedia REST API (summaries/bios)
+      - Images: self + Wikimedia Commons (composer portraits) + localised Wikipedia
+      - Connections: self + Wikipedia REST API (all language subdomains for i18n)
       - frame-ancestors/base-uri/form-action: locked to self
     -->
     <meta
@@ -25,8 +25,8 @@
         script-src 'self';
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
-        img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org https://en.wikipedia.org;
-        connect-src 'self' https://en.wikipedia.org;
+        img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org https://*.wikipedia.org;
+        connect-src 'self' https://*.wikipedia.org;
         frame-ancestors 'none';
         base-uri 'self';
         form-action 'self';

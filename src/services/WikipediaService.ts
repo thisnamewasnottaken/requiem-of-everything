@@ -109,6 +109,12 @@ export const WikipediaService = {
 
   /**
    * Get the full article HTML for a Wikipedia article.
+   *
+   * @security This returns **raw, unsanitized HTML** from Wikipedia.
+   * It must NEVER be injected into the DOM via dangerous React props or
+   * direct DOM element property assignment. Use structured data from
+   * {@link getSummary} for display instead. Automated tests in
+   * WikipediaService.test.ts enforce this constraint.
    */
   async getArticleHtml(slug: string): Promise<string> {
     const apiBase = getWikipediaApiBase();

@@ -36,9 +36,10 @@ The panel is a fixed bottom-center card:
 3. **Description**: Multi-line paragraph.
 4. **Instrumentation** row (small label + value).
 5. **Key** row — only shown when `key` field is present.
-6. **Significance** block — only shown when `significance` field is present.
-7. **Wikipedia link** — only shown when `wikipediaSlug` is present; opens in new tab with `rel="noopener noreferrer"`.
-8. **Spotify link** — only shown when `spotifyUrl` is present; opens in new tab with `rel="noopener noreferrer"`. Displays as "Listen on Spotify" with a play icon. Styled distinctly from the Wikipedia link (Spotify green accent `#1DB954`).
+6. **Catalogue number** row — only shown when `catalogueNumber` field is present.
+7. **Significance** block — only shown when `significance` field is present.
+8. **Wikipedia link** — only shown when `wikipediaSlug` is present; opens in new tab with `rel="noopener noreferrer"`.
+9. **Spotify link**— only shown when `spotifyUrl` is present; opens in new tab with `rel="noopener noreferrer"`. Displays as "Listen on Spotify" with a play icon (`▶`). Styled with Spotify green accent `#1DB954` text, a rounded pill background (`rgba(29, 185, 84, 0.12)`), and hover state (`rgba(29, 185, 84, 0.24)`). This styling is implemented in `CompositionDetail.module.css` (`.spotifyLink` class).
 
 ## Interactions
 

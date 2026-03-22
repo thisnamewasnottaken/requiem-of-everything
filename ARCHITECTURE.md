@@ -11,7 +11,7 @@
 │  ┌─────────────┐  ┌──────────────┐  ┌───────────────┐  │
 │  │  Timeline    │  │  Discovery   │  │  Command      │  │
 │  │  Viewport    │  │  Panels      │  │  Palette      │  │
-│  │  (D3 + React)│  │  (React)     │  │  (React)      │  │
+│  │  (D3 + React)│  │  (React)     │  │  (Planned)    │  │
 │  └──────┬───────┘  └──────┬───────┘  └──────┬────────┘  │
 │         │                 │                  │           │
 │  ┌──────┴─────────────────┴──────────────────┴────────┐  │
@@ -31,7 +31,7 @@
 
 ### ADR-001: React + TypeScript + Vite
 
-**Decision**: Use React 18+ with TypeScript, bundled by Vite.
+**Decision**: Use React 19 with TypeScript, bundled by Vite.
 
 **Rationale**: React provides the component model needed for composable UI elements (timeline, panels, markers). TypeScript ensures that the data contracts from `DATA_SCHEMA.md` are enforced at compile time. Vite provides instant HMR for a fast development loop.
 
@@ -106,7 +106,7 @@ export function useComposers(): Composer[] {
 **Endpoints Used**:
 
 - `/page/summary/{slug}` — Short summary and thumbnail
-- `/page/html/{slug}` — Full article HTML (for detail views)
+- `/page/mobile-html/{slug}` — Full article HTML (for detail views)
 
 **Caching**: Responses are cached in `localStorage` with a 24-hour TTL to avoid redundant requests.
 
@@ -158,11 +158,11 @@ export function useComposers(): Composer[] {
 
 ```
 Layer 5: UI Overlays (tooltips, detail panels)          — HTML/CSS
-Layer 4: Historical Event Markers                       — SVG
-Layer 3: Composition Markers                            — SVG
-Layer 2: Composer Lifespan Bars                         — SVG
-Layer 1: Era Backdrop Bands                             — SVG
-Layer 0: Time Ruler & Grid Lines                        — SVG
+Layer 4: Historical Event Markers                       — HTML/CSS
+Layer 3: Composition Markers                            — HTML/CSS
+Layer 2: Composer Lifespan Bars                         — HTML/CSS
+Layer 1: Era Backdrop Bands                             — HTML/CSS (div overlays)
+Layer 0: Time Ruler & Grid Lines                        — HTML/CSS
 ```
 
 Each layer is a React component that receives the D3 scale and renders its content. Layers are composable and independently toggleable.
