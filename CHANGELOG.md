@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **Inline search bar in header** — replaced the standalone "⚙ Filters" button with a `SearchFilterBar` component containing an inline search input and a filter toggle button. Typing in the search box filters the timeline immediately via `useFilterStore.searchQuery`. The filter button shows an active-filter count badge when sidebar filters are engaged. Spec at `docs/specs/components/SearchFilterBar.md`.
 - **Wikipedia link localisation** — all "Read on Wikipedia" links (ComposerCard, CompositionDetail, EventMarker) and the WikipediaService API calls now use the Wikipedia subdomain matching the current i18n language (e.g. `fr.wikipedia.org` when the UI is set to French). Centralised in `src/utils/wikipedia.ts`.
 
 ### Changed
@@ -49,6 +50,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Focus Timeline occlusion** — "Focus Timeline" in the ComposerCard now accounts for the panel width, adding proportional right-side padding so the composer's full lifespan is visible in the unobscured area.
 - **Collapsed bar hover info** — hovering a collapsed composer bar now correctly shows the name and year labels (previously missing due to React conditional preventing render).
 - **Portrait URLs** — switched from broken `upload.wikimedia.org/thumb/` format to Wikimedia `Special:FilePath` redirect URLs.
+
+### Fixed
+
+- **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved from React `onWheel` prop to a native `addEventListener` with `{ passive: false }` so `preventDefault()` is honoured. Only Ctrl+wheel (pinch) events are intercepted; plain scroll is left to the browser. Added `touch-action: none` to the timeline container CSS.
 
 ### Changed
 

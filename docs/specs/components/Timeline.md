@@ -31,7 +31,7 @@ Both modes zoom the timeline to frame the relevant composers, but focus mode pre
 
 ## Interactions
 
-- **Scroll zoom**: Mouse wheel zooms in/out, centered on cursor position.
+- **Scroll zoom**: Ctrl+wheel (or trackpad pinch, which the browser reports as Ctrl+wheel) zooms in/out, centered on cursor position. The wheel listener is attached natively with `{ passive: false }` so `preventDefault()` stops the browser's built-in page zoom. Plain (non-Ctrl) wheel events are not intercepted.
 - **Click-drag pan**: Left mouse drag pans the timeline horizontally.
 - **Click composer bar**: Selects the composer, opens detail panel.
 - **Click composition marker**: Selects the composition, opens detail panel.

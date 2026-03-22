@@ -313,12 +313,18 @@ export default function Timeline() {
 
   // --- Interaction handlers ---
 
-  const handleWheel = useCallback(
-    (e: React.WheelEvent) => {
-      e.preventDefault();
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
+  // Native wheel listener for non-passive preventDefault support
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
+    const onWheel = (e: WheelEvent) => {
+      // Only handle zoom gestures (Ctrl+wheel or trackpad pinch)
+      if (!e.ctrlKey && !e.metaKey) return;
+
+      e.preventDefault();
+
+      const rect = el.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const centerYear = scale.invert(mouseX);
 
@@ -327,11 +333,13 @@ export default function Timeline() {
       } else {
         zoomOut(centerYear);
       }
-    },
-    [scale, zoomIn, zoomOut],
-  );
+    };
 
-  const handleMouseDown = useCallback(
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [scale, zoomIn, zoomOut]);
+
+  const handleMouseDown= useCallback(
     (e: React.MouseEvent) => {
       if (e.button !== 0) return;
       setIsPanning(true);
@@ -485,7 +493,6 @@ export default function Timeline() {
     <div
       ref={containerRef}
       className={styles.timelineContainer}
-      onWheel={handleWheel}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
