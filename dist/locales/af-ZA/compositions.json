@@ -1,1064 +1,1064 @@
 {
   "palestrina-missa-papae-marcelli": {
     "title": "Missa Papae Marcelli",
-    "description": "The most famous mass of the Renaissance. Legend holds that Palestrina composed it to demonstrate that polyphonic music could be both complex and intelligible, saving polyphony from being banned by the Council of Trent.",
-    "instrumentation": "SATB koor (6 stems)",
-    "significance": "Became the model for Counter-Reformation sacred music and the foundation of species counterpoint teaching."
+    "description": "Die beroemdste mis van die Renaissance. Volgens oorlewering het Palestrina dit gekomponeer om te bewys dat polifoniese musiek terselfdertyd kompleks en verstaanbaar kan wees, en sodoende polifonie van verbanning deur die Konsilie van Trente gered.",
+    "instrumentation": "SATB-koor (6 stemme)",
+    "significance": "Het die model vir Kontrareformasie-gewyde musiek geword en die grondslag van spesie-kontrapuntonderrig."
   },
   "victoria-o-magnum-mysterium": {
     "title": "O Magnum Mysterium",
-    "description": "A Christmas motet of extraordinary tenderness, setting the text that marvels at the miracle of Christ's birth. Its luminous harmonies have made it one of the most beloved works of the Renaissance.",
-    "instrumentation": "SATB koor (4 stems)"
+    "description": "'n Kersmotet van buitengewone teerheid, wat die teks toonsit wat oor die wonderwerk van Christus se geboorte verwonder. Die liggewende harmonieë het dit een van die mees geliefde werke van die Renaissance gemaak.",
+    "instrumentation": "SATB-koor (4 stemme)"
   },
   "victoria-ave-maria": {
-    "title": "Ave Maria (4 voices)",
-    "description": "A beautifully crafted setting of the Marian prayer, demonstrating Victoria's gift for elegant melodic lines woven into rich polyphonic textures.",
-    "instrumentation": "SATB koor (4 stems)"
+    "title": "Ave Maria (4 stemme)",
+    "description": "'n Pragtig vervaardigde toonsetting van die Mariagebed, wat Victoria se gawe vir elegante melodiese lyne verweef in ryk polifoniese teksture demonstreer.",
+    "instrumentation": "SATB-koor (4 stemme)"
   },
   "victoria-o-vos-omnes": {
     "title": "O Vos Omnes",
-    "description": "A deeply expressive Holy Week responsory whose stark harmonies and plaintive melodic lines convey profound grief. One of the most emotionally intense works of the Renaissance.",
-    "instrumentation": "SATB koor (4 stems)"
+    "description": "'n Diep ekspressiewe Stil Weeksresponsorium waarvan die strak harmonieë en klaende melodiese lyne diepgaande droefheid oordra. Een van die mees emosioneel intense werke van die Renaissance.",
+    "instrumentation": "SATB-koor (4 stemme)"
   },
   "palestrina-stabat-mater": {
     "title": "Stabat Mater",
-    "description": "A sublime setting of the medieval hymn about Mary's sorrow at the crucifixion, for double choir. Its serene beauty exemplifies Palestrina's mature style.",
-    "instrumentation": "Dubbelkoor (8 stems)"
+    "description": "'n Sublieme toonsetting van die Middeleeuse himne oor Maria se droefheid by die kruisiging, vir dubbelkoor. Die serene skoonheid daarvan beliggaam Palestrina se rypste styl.",
+    "instrumentation": "Dubbelkoor (8 stemme)"
   },
   "victoria-officium-defunctorum": {
     "title": "Officium Defunctorum",
-    "description": "Victoria's last and greatest work, a Requiem Mass for the Dowager Empress María. Its austere beauty and profound emotion make it one of the supreme achievements of Renaissance polyphony.",
-    "instrumentation": "SATB koor (6 stems), orrel",
-    "significance": "Considered the finest Requiem of the Renaissance era."
+    "description": "Victoria se laaste en grootste werk, 'n Requiem-mis vir die Dowairierkeiserin María. Die streng skoonheid en diepgaande emosie maak dit een van die opperste prestasies van Renaissance-polifonie.",
+    "instrumentation": "SATB-koor (6 stemme), orrel",
+    "significance": "Beskou as die beste Requiem van die Renaissance-era."
   },
   "monteverdi-lorfeo": {
     "title": "L'Orfeo",
-    "description": "Often considered the first great opera. Monteverdi took the new Florentine invention of dramma per musica and transformed it into a work of genuine dramatic and musical power, deploying the orchestra with unprecedented expressiveness.",
+    "description": "Dikwels beskou as die eerste groot opera. Monteverdi het die nuwe Florentynse uitvinding van dramma per musica geneem en dit omskep in 'n werk van ware dramatiese en musikale krag, met ongekende ekspressiwiteit in die orkes.",
     "instrumentation": "Soliste, koor, orkes (blokfluite, strykers, koper, continuo)",
-    "significance": "Established opera as a major art form and demonstrated the dramatic possibilities of the new Baroque monodic style."
+    "significance": "Het opera as 'n groot kunsvorm gevestig en die dramatiese moontlikhede van die nuwe Barokse monodiese styl gedemonstreer."
   },
   "monteverdi-vespers-1610": {
-    "title": "Vespro della Beata Vergine (Vespers of 1610)",
-    "description": "A monumental collection of sacred music that encompasses virtually every style available in 1610 — Renaissance polyphony, Baroque monody, concertato brilliance, and intimate solo writing.",
+    "title": "Vespro della Beata Vergine (Vespers van 1610)",
+    "description": "'n Monumentale versameling gewyde musiek wat feitlik elke styl beskikbaar in 1610 omvat — Renaissance-polifonie, Barokse monodie, concertato-briljansie en intieme soloskrif.",
     "instrumentation": "Soliste, koor, orkes, orrel",
-    "significance": "One of the greatest sacred works ever composed, bridging Renaissance and Baroque sacred traditions."
+    "significance": "Een van die grootste gewyde werke ooit gekomponeer, wat die Renaissance- en Barokse gewyde tradisies oorbrug."
   },
   "purcell-dido-and-aeneas": {
-    "title": "Dido and Aeneas",
-    "description": "A compact masterpiece containing one of the most famous arias in all opera: Dido's Lament ('When I am laid in earth'), built over a descending chromatic ground bass of devastating emotional power.",
+    "title": "Dido en Aeneas",
+    "description": "'n Kompakte meesterwerk wat een van die beroemdste arias in alle opera bevat: Dido se Klaaggesang ('When I am laid in earth'), gebou oor 'n dalende chromatiese grondbasstema van verwoestende emosionele krag.",
     "instrumentation": "Soliste, koor, strykers, continuo",
-    "significance": "The first great English opera and a landmark of Baroque vocal writing."
+    "significance": "Die eerste groot Engelse opera en 'n mylpaal van Barokse vokale skryfkuns."
   },
   "purcell-king-arthur": {
     "title": "King Arthur",
-    "description": "A semi-opera with text by John Dryden, blending spoken drama with musical scenes. The Frost Scene and Fairest Isle are among Purcell's most inspired inventions.",
+    "description": "'n Semi-opera met teks deur John Dryden, wat gesproke drama met musikale tonele vermeng. Die Vorstoneel en Fairest Isle is van Purcell se mees geïnspireerde uitvindings.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "purcell-come-ye-sons": {
     "title": "Come, Ye Sons of Art, Away",
-    "description": "A birthday ode for Queen Mary, featuring the celebrated duet 'Sound the Trumpet.' Its joyous ceremonial splendour represents Purcell's finest occasional music.",
+    "description": "'n Verjaardag-ode vir Koningin Mary, met die beroemde duet 'Sound the Trumpet.' Die vreugdevolle seremoniële prag verteenwoordig Purcell se beste geleentheidsmusiek.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "purcell-funeral-sentences": {
-    "title": "Music for the Funeral of Queen Mary",
-    "description": "Solemn funeral sentences and a march composed for the state funeral of Queen Mary II. The march's muffled drums and canzona's stately brass have a timeless ceremonial grandeur.",
-    "instrumentation": "Koor, koper, timpani"
+    "title": "Musiek vir die Begrafnis van Koningin Mary",
+    "description": "Plegtige begrafnissinne en 'n mars gekomponeer vir die staatsbegrafnis van Koningin Mary II. Die mars se gedempte tromme en die canzona se statige koper het 'n tydlose seremoniële grootsheid.",
+    "instrumentation": "Koor, koper, pauketrommels"
   },
   "bach-toccata-fugue-d-minor": {
-    "title": "Toccata and Fugue in D minor",
-    "description": "The most famous organ work ever written. Its dramatic opening flourish is instantly recognizable worldwide, though scholars debate whether Bach actually wrote it.",
+    "title": "Toccata en Fuga in D mineur",
+    "description": "Die beroemdste orrelwerk ooit geskryf. Die dramatiese openingsversiersel is wêreldwyd onmiddellik herkenbaar, hoewel geleerdes debatteer of Bach dit werklik geskryf het.",
     "instrumentation": "Orrel"
   },
   "vivaldi-gloria": {
-    "title": "Gloria in D major, RV 589",
-    "description": "A jubilant setting of the Gloria text that is Vivaldi's most frequently performed choral work. Its infectious energy and melodic charm have made it a staple of choral societies worldwide.",
+    "title": "Gloria in D majeur, RV 589",
+    "description": "'n Jubilante toonsetting van die Gloria-teks wat Vivaldi se mees opgevoerde koorwerk is. Die aansteeklike energie en melodiese sjarme het dit 'n stapelstuk van koorverenigings wêreldwyd gemaak.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "scarlatti-d-stabat-mater": {
     "title": "Stabat Mater",
-    "description": "A ten-voice setting of the medieval hymn, composed in Rome. Its rich polyphonic textures and expressive harmonies show Scarlatti's mastery of the vocal tradition he inherited from his father Alessandro.",
-    "instrumentation": "SSAATTBB koor, continuo"
+    "description": "'n Tienstemige toonsetting van die Middeleeuse himne, gekomponeer in Rome. Die ryk polifoniese teksture en ekspressiewe harmonieë toon Scarlatti se meesterskap van die vokale tradisie wat hy van sy vader Alessandro geërf het.",
+    "instrumentation": "SSAATTBB-koor, continuo"
   },
   "telemann-viola-concerto-g": {
-    "title": "Viola Concerto in G major",
-    "description": "The first known concerto for viola, showcasing Telemann's progressive approach to featuring instruments usually relegated to inner voices.",
-    "instrumentation": "Solo altviool, strykers, continuo",
-    "significance": "The first major concerto for viola in the repertoire."
+    "title": "Altvioolkonsert in G majeur",
+    "description": "Die eerste bekende konsert vir altviool, wat Telemann se progressiewe benadering ten toon stel om instrumente wat gewoonlik tot binneste stemme gerelegeer word, uit te lig.",
+    "instrumentation": "Solo-altviool, strykers, continuo",
+    "significance": "Die eerste groot konsert vir altviool in die repertorium."
   },
   "handel-water-music": {
     "title": "Watermusiek",
-    "description": "Three orchestral suites composed for King George I's royal barge trip on the River Thames. The King liked it so much he ordered it played three times.",
+    "description": "Drie orkessuites gekomponeer vir Koning George I se koninklike skuitreis op die Teems. Die Koning het dit so geniet dat hy beveel het dit moet drie keer gespeel word.",
     "instrumentation": "Orkes (houtblasers, koper, strykers)"
   },
   "bach-cello-suites": {
-    "title": "Cello Suites",
-    "description": "Six suites for unaccompanied cello that explore the instrument's full potential — from dance movements to profound sarabandes. Rediscovered by Pablo Casals in the early 20th century, they are now considered the cello's supreme repertoire.",
-    "instrumentation": "Solo tjello"
+    "title": "Tjellosuites",
+    "description": "Ses suites vir onbegeleide tjello wat die instrument se volle potensiaal verken — van dansbewegings tot diepsinnige sarabandes. Herontdek deur Pablo Casals in die vroeë 20ste eeu, word hulle nou as die tjello se opperste repertorium beskou.",
+    "instrumentation": "Solo-tjello"
   },
   "bach-brandenburg-concertos": {
-    "title": "Brandenburg Concertos",
-    "description": "Six concertos, each scored for a different combination of instruments, showcasing the concerto form in dazzling variety. From the festive brass of No. 1 to the intimate keyboard virtuosity of No. 5, they represent the pinnacle of the Baroque concerto grosso.",
-    "instrumentation": "Various solo instrumente with strykers and continuo",
-    "significance": "The greatest set of orchestral works from the Baroque era."
+    "title": "Brandenburgse Konserte",
+    "description": "Ses konserte, elk geskryf vir 'n ander kombinasie van instrumente, wat die konsertvorm in skitterende verskeidenheid ten toon stel. Van die feestelike koper van Nr. 1 tot die intieme klaviervirtuositeit van Nr. 5 verteenwoordig hulle die hoogtepunt van die Barok-concerto grosso.",
+    "instrumentation": "Verskeie solo-instrumente met strykers en continuo",
+    "significance": "Die grootste versameling orkeswerke uit die Barok-era."
   },
   "bach-well-tempered-clavier-1": {
-    "title": "The Well-Tempered Clavier, Book I",
-    "description": "24 preludes and fugues in all major and minor keys — a complete exploration of tonal space and contrapuntal possibility. Each pair is a unique world: from the serene C major Prelude to the thunderous B-flat minor Fugue.",
-    "instrumentation": "Keyboard (klavesimbel/clavichord/klavier)",
-    "significance": "The 'Old Testament' of keyboard music. Demonstrated the viability of well temperament and became the supreme study in counterpoint for all subsequent composers."
+    "title": "Die Welgetempereerde Klavier, Boek I",
+    "description": "24 voorspele en fugas in alle majeur- en mineurtoonlere — 'n volledige verkenning van tonale ruimte en kontrapuntale moontlikheid. Elke paar is 'n unieke wêreld: van die serene C-majeur-voorspel tot die donderende B-mol-mineur-fuga.",
+    "instrumentation": "Klawerbord (klavesimbel/klavichord/klavier)",
+    "significance": "Die 'Ou Testament' van klawerbordmusiek. Het die lewensvatbaarheid van gelykswewende temperatuur bewys en die opperste studie in kontrapunt vir alle daaropvolgende komponiste geword."
   },
   "telemann-wassermusik": {
-    "title": "Wassermusik (Water Music)",
-    "description": "A festive suite depicting the gods and commerce of Hamburg's harbour, composed for the centenary of the city's Admiralty. Its vivid tone-painting rivals Handel's famous Water Music.",
+    "title": "Wassermusik (Watermusiek)",
+    "description": "'n Feestelike suite wat die gode en handel van Hamburg se hawe uitbeeld, gekomponeer vir die eeufees van die stad se Admiraliteit. Die lewendige toonskildering wedywer met Handel se beroemde Watermusiek.",
     "instrumentation": "Orkes"
   },
   "vivaldi-four-seasons": {
     "title": "Die Vier Seisoene",
-    "description": "Four violin concertos, each depicting a season through vivid musical imagery: birdsong in Spring, thunderstorms in Summer, harvest dances in Autumn, shivering cold in Winter. Accompanied by sonnets (possibly by Vivaldi himself) that describe each movement's program.",
-    "instrumentation": "Solo viool, strykorkes, continuo",
-    "significance": "The most famous and commercially successful work of the Baroque era. Pioneered programmatic instrumental music."
+    "description": "Vier vioolkonserte wat elk 'n seisoen deur lewendige musikale beeldspraak uitbeeld: voëlgesang in die Lente, donderstorms in die Somer, oesdanse in die Herfs, bibberige koue in die Winter. Vergesel van sonnette (moontlik deur Vivaldi self) wat elke beweging se program beskryf.",
+    "instrumentation": "Solo-viool, strykorkes, continuo",
+    "significance": "Die beroemdste en kommersieel suksesvolste werk van die Barok-era. Het programmatiese instrumentale musiek gepionieer."
   },
   "vivaldi-winter": {
-    "title": "The Four Seasons: Winter (Concerto No. 4 in F minor)",
-    "description": "The final concerto of The Four Seasons, depicting chattering teeth, slipping on ice, and howling winter winds. Its driving rhythms and brilliant solo writing make it as popular as its companion Spring.",
-    "instrumentation": "Solo viool, strykers, continuo"
+    "title": "Die Vier Seisoene: Winter (Konsert Nr. 4 in F mineur)",
+    "description": "Die laaste konsert van Die Vier Seisoene, wat klappertande, gly op ys en huilende winterwinde uitbeeld. Die drywende ritmes en briljante soloskryfkuns maak dit so gewild soos sy metgesel Lente.",
+    "instrumentation": "Solo-viool, strykers, continuo"
   },
   "bach-st-matthew-passion": {
-    "title": "St. Matthew Passion",
-    "description": "A monumental setting of the Passion story from Matthew's Gospel, scored for two full choruses and orchestras. Its emotional scope — from intimate arias of repentance to the devastating chorus 'Barabbam!' — makes it one of the most powerful dramatic works before opera.",
-    "instrumentation": "Soliste, double koor, double orkes",
-    "significance": "Its revival by Mendelssohn in 1829 sparked the Bach Revival and transformed the history of music."
+    "title": "Mattheuspassie",
+    "description": "'n Monumentale toonsetting van die Passieverhaal uit die Evangelie van Mattheus, geskryf vir twee volle kore en orkeste. Die emosionele omvang — van intieme arias van berou tot die verwoestende koor 'Barabbam!' — maak dit een van die kragtigste dramatiese werke voor die opera.",
+    "instrumentation": "Soliste, dubbelkoor, dubbelorkes",
+    "significance": "Die herlewing daarvan deur Mendelssohn in 1829 het die Bach-herlewing aangevuur en die musiekgeskiedenis getransformeer."
   },
   "telemann-paris-quartets": {
-    "title": "Paris Quartets",
-    "description": "Twelve quartets composed for the Concert Spirituel in Paris, brilliantly blending French and Italian styles with Telemann's characteristic melodic inventiveness.",
-    "instrumentation": "Fluit, viool, altviool da gamba, continuo"
+    "title": "Parys-kwartette",
+    "description": "Twaalf kwartette gekomponeer vir die Concert Spirituel in Parys, wat Franse en Italiaanse style briljant met Telemann se kenmerkende melodiese vindingrypheid vermeng.",
+    "instrumentation": "Fluit, viool, viola da gamba, continuo"
   },
   "telemann-tafelmusik": {
     "title": "Tafelmusik (Musique de table)",
-    "description": "A monumental collection of orchestral suites, concertos, quartets, and solo sonatas designed for banquet entertainment. It was the most widely distributed publication of the era.",
-    "instrumentation": "Various ensembles: strykers, houtblasers, continuo",
-    "significance": "One of the most ambitious and popular publications of the Baroque era."
+    "description": "'n Monumentale versameling orkessuites, konserte, kwartette en solosonates ontwerp vir bankettvermaak. Dit was die wyd verspreidste publikasie van die era.",
+    "instrumentation": "Verskeie ensembles: strykers, houtblasers, continuo",
+    "significance": "Een van die mees ambisieuse en gewilde publikasies van die Barok-era."
   },
   "rameau-hippolyte-et-aricie": {
     "title": "Hippolyte et Aricie",
-    "description": "Rameau's first opera, which caused a sensation with its bold harmonies and dramatic intensity. The Lullistes condemned it as too Italian; the Italianists found it too French.",
+    "description": "Rameau se eerste opera, wat 'n sensasie veroorsaak het met sy gedurfde harmonieë en dramatiese intensiteit. Die Lulliste het dit as te Italiaans veroordeel; die Italianiste het dit te Frans gevind.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Sparked the Querelle des Bouffons, one of music history's great aesthetic debates."
+    "significance": "Het die Querelle des Bouffons ontketen, een van musiekgeskiedenis se groot estetiese debatte."
   },
   "rameau-les-indes-galantes": {
     "title": "Les Indes galantes",
-    "description": "An opéra-ballet in a prologue and four entrées, set in exotic locales from Turkey to Peru. Its dazzling orchestration and sophisticated dances represent the pinnacle of the French Baroque stage.",
+    "description": "'n Opéra-ballet in 'n proloog en vier entrées, wat in eksotiese locales van Turkye tot Peru afspeel. Die skitterende orkestrasie en gesofistikeerde danse verteenwoordig die hoogtepunt van die Franse Barokse verhoog.",
     "instrumentation": "Soliste, koor, orkes, dansers",
-    "significance": "The greatest opéra-ballet of the French Baroque."
+    "significance": "Die grootste opéra-ballet van die Franse Barok."
   },
   "rameau-castor-et-pollux": {
     "title": "Castor et Pollux",
-    "description": "A tragédie en musique based on the myth of the Dioscuri, regarded as Rameau's operatic masterpiece for its emotional depth, particularly the Act IV tomb scene.",
+    "description": "'n Tragédie en musique gebaseer op die mite van die Dioscuri, beskou as Rameau se operameesterwerk vanweë die emosionele diepte, veral die Bedryf IV-graftoneel.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "scarlatti-d-keyboard-sonata-k141": {
-    "title": "Keyboard Sonata in D minor, K.141",
-    "description": "One of the most electrifying of Scarlatti's 555 sonatas, featuring rapid repeated notes, hand-crossing, and brilliant virtuosity that anticipates techniques not seen again until Liszt.",
+    "title": "Klawerbord-sonate in D mineur, K.141",
+    "description": "Een van die mees elektriserende van Scarlatti se 555 sonates, met vinnige herhaalde note, handkruising en briljante virtuositeit wat tegnieke antisipeer wat eers weer by Liszt gesien sou word.",
     "instrumentation": "Klavesimbel"
   },
   "scarlatti-d-keyboard-sonata-k27": {
-    "title": "Keyboard Sonata in B minor, K.27",
-    "description": "A tender, lyrical sonata of exquisite beauty, its singing melody and delicate ornamentation revealing the contemplative side of Scarlatti's art.",
+    "title": "Klawerbord-sonate in B mineur, K.27",
+    "description": "'n Teer, liriese sonate van uitsonderlike skoonheid, waarvan die singende melodie en delikate ornamentasie die besinnende kant van Scarlatti se kuns openbaar.",
     "instrumentation": "Klavesimbel"
   },
   "bach-goldberg-variations": {
-    "title": "Goldberg Variations",
-    "description": "An aria and 30 variations of astonishing variety and intellectual brilliance, structured with mathematical precision yet overflowing with musical personality. Legend has it they were commissioned to soothe an insomniac count.",
-    "instrumentation": "Klavesimbel (two manuals) / Klavier",
-    "significance": "One of the greatest sets of variations ever composed. Glenn Gould's 1955 recording made it one of the most famous piano recordings in history."
+    "title": "Goldberg-variasies",
+    "description": "'n Aria en 30 variasies van verstommende verskeidenheid en intellektuele briljansie, gestruktureer met wiskundige presisie maar oorvloeiend met musikale persoonlikheid. Volgens oorlewering is dit in opdrag gegee om 'n slaaplose graaf te sus.",
+    "instrumentation": "Klavesimbel (twee manuale) / Klavier",
+    "significance": "Een van die grootste stelle variasies ooit gekomponeer. Glenn Gould se 1955-opname het dit een van die beroemdste klavieropnames in die geskiedenis gemaak."
   },
   "handel-messiah": {
     "title": "Messiah",
-    "description": "Composed in just 24 days, Messiah is the most performed large-scale choral work in Western music. Its 'Hallelujah' chorus is so famous that King George II allegedly stood during its first London performance, creating a tradition that persists today.",
+    "description": "In net 24 dae gekomponeer, is Messiah die mees uitgevoerde grootskaalse koorwerk in Westerse musiek. Die 'Halleluja'-koor is so beroemd dat Koning George II na bewering tydens die eerste Londense uitvoering opgestaan het, wat 'n tradisie geskep het wat vandag voortduur.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Defined the English oratorio tradition and became the world's most beloved choral work."
+    "significance": "Het die Engelse oratoriumtradisie gedefinieer en die wêreld se mees geliefde koorwerk geword."
   },
   "rameau-pieces-de-clavecin": {
     "title": "Pièces de clavecin en concerts",
-    "description": "Five suites of character pieces that pioneered the concept of true chamber music with keyboard, where all instruments are equal partners rather than the harpsichord merely providing continuo.",
-    "instrumentation": "Klavesimbel, viool (or fluit), altviool da gamba"
+    "description": "Vyf suites van karakterstukke wat die konsep van ware kamermusiek met klawerbord gepionieer het, waar alle instrumente gelyke vennote is eerder as dat die klavesimbel bloot continuo verskaf.",
+    "instrumentation": "Klavesimbel, viool (of fluit), viola da gamba"
   },
   "bach-mass-in-b-minor": {
-    "title": "Mass in B minor",
-    "description": "Bach's supreme choral work, assembled over decades and completed near the end of his life. A vast synthesis of every contrapuntal, vocal, and orchestral technique available to the Baroque, containing some of the most sublime music ever written.",
-    "instrumentation": "Soliste, double koor, orkes",
-    "significance": "Often considered the greatest single musical composition in Western music."
+    "title": "Mis in B mineur",
+    "description": "Bach se opperste koorwerk, oor dekades saamgestel en naby die einde van sy lewe voltooi. 'n Geweldige sintese van elke kontrapuntale, vokale en orkestrale tegniek beskikbaar in die Barok, met van die mees sublieme musiek ooit geskryf.",
+    "instrumentation": "Soliste, dubbelkoor, orkes",
+    "significance": "Dikwels beskou as die grootste enkele musiekkomposisie in Westerse musiek."
   },
   "handel-music-for-royal-fireworks": {
-    "title": "Music for the Royal Fireworks",
-    "description": "Composed to accompany a fireworks display celebrating the Treaty of Aix-la-Chapelle. The rehearsal drew 12,000 people and caused a three-hour traffic jam on London Bridge.",
-    "instrumentation": "Large wind band and orkes"
+    "title": "Musiek vir die Koninklike Vuurwerk",
+    "description": "Gekomponeer om 'n vuurwerkvertoning te begelei wat die Verdrag van Aix-la-Chapelle gevier het. Die repetisie het 12 000 mense gelok en 'n drie-uur-verkeersopeenhoping op Londenbrüg veroorsaak.",
+    "instrumentation": "Groot blaasensemble en orkes"
   },
   "scarlatti-d-keyboard-sonata-k380": {
-    "title": "Keyboard Sonata in E major, K.380",
-    "description": "A radiant, courtly sonata with a stately processional character, one of the most popular and frequently performed of Scarlatti's works.",
+    "title": "Klawerbord-sonate in E majeur, K.380",
+    "description": "'n Stralende, hoofse sonate met 'n statige optogkarakter, een van die gewildste en mees uitgevoerde van Scarlatti se werke.",
     "instrumentation": "Klavesimbel"
   },
   "scarlatti-d-keyboard-sonata-k466": {
-    "title": "Keyboard Sonata in F minor, K.466",
-    "description": "A deeply melancholic sonata whose haunting melody and dark harmonies give it an almost Romantic expressiveness, making it one of Scarlatti's most emotionally profound works.",
+    "title": "Klawerbord-sonate in F mineur, K.466",
+    "description": "'n Diep melankoliese sonate waarvan die onthutsende melodie en donker harmonieë dit 'n byna Romantiese ekspressiwiteit gee, wat dit een van Scarlatti se mees emosioneel diepgaande werke maak.",
     "instrumentation": "Klavesimbel"
   },
   "gluck-orfeo-ed-euridice": {
     "title": "Orfeo ed Euridice",
-    "description": "The first of Gluck's reform operas, stripping away Baroque vocal excess to achieve 'a beautiful simplicity.' The Dance of the Blessed Spirits and Che farò senza Euridice remain beloved.",
+    "description": "Die eerste van Gluck se hervormingsoperas, wat Barok-vokale oordaad afgestroop het om 'n 'pragtige eenvoud' te bereik. Die Dans van die Salige Geeste en Che farò senza Euridice bly geliefd.",
     "instrumentation": "Soliste, koor, orkes, ballet",
-    "significance": "Revolutionised opera by subordinating music to dramatic truth."
+    "significance": "Het opera revolusioneer deur musiek aan dramatiese waarheid ondergeskik te stel."
   },
   "gluck-dance-blessed-spirits": {
-    "title": "Dance of the Blessed Spirits",
-    "description": "An ethereal ballet interlude from Orfeo ed Euridice depicting the Elysian Fields. Its serene flute melody is one of the most recognisable pieces in classical music.",
-    "instrumentation": "Solo fluit, strykers"
+    "title": "Dans van die Salige Geeste",
+    "description": "'n Eteriese ballet-tussenspel uit Orfeo ed Euridice wat die Elisiese Velde uitbeeld. Die serene fluitmelodie is een van die mees herkenbare stukke in klassieke musiek.",
+    "instrumentation": "Solo-fluit, strykers"
   },
   "gluck-alceste": {
     "title": "Alceste",
-    "description": "Gluck's second reform opera, whose preface became a manifesto for operatic reform. He declared that music should serve the poetry and 'not leave [the audience] to feel the displeasure of superfluity.'",
+    "description": "Gluck se tweede hervormingsopera, waarvan die voorwoord 'n manifes vir operahervorming geword het. Hy het verklaar dat musiek die poësie moet dien en 'nie die gehoor die ongenoee van oordaad laat voel nie.'",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Its preface is one of the most important documents in opera history."
+    "significance": "Die voorwoord daarvan is een van die belangrikste dokumente in operageskiedenis."
   },
   "gluck-iphigenie-en-tauride": {
     "title": "Iphigénie en Tauride",
-    "description": "The culmination of Gluck's operatic reforms, praised by Berlioz as the greatest French opera. Its relentless dramatic pacing and orchestral mastery set the standard for later generations.",
+    "description": "Die hoogtepunt van Gluck se operahervormings, deur Berlioz geprys as die grootste Franse opera. Die onverbiddelike dramatiese tempo en orkestrale meesterskap het die standaard vir latere geslagte gestel.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "mozart-piano-concerto-21": {
-    "title": "Piano Concerto No. 21",
-    "description": "Famous for its ethereally beautiful slow movement, popularized by the 1967 Swedish film Elvira Madigan. The outer movements sparkle with Mozartean wit and virtuosity.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 21",
+    "description": "Beroemd vir sy eteries pragtige stadige beweging, gewild gemaak deur die 1967 Sweedse film Elvira Madigan. Die buitenste bewegings skitter van Mozartiaanse geestigheid en virtuositeit.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "mozart-marriage-of-figaro": {
     "title": "Die Huwelik van Figaro",
-    "description": "A comedy of revolutionary politics and human desire. Based on Beaumarchais' politically incendiary play, Mozart and Da Ponte created an opera of incomparable ensemble writing, where multiple characters think and feel simultaneously.",
+    "description": "'n Komedie van revolusionêre politiek en menslike begeerte. Gebaseer op Beaumarchais se polities ontvlambare toneelstuk, het Mozart en Da Ponte 'n opera van onvergelykbare ensembleskryfkuns geskep, waar veelvuldige karakters gelyktydig dink en voel.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "The supreme comic opera and a masterpiece of humanistic art."
+    "significance": "Die opperste komiese opera en 'n meesterwerk van humanistiese kuns."
   },
   "mozart-don-giovanni": {
     "title": "Don Giovanni",
-    "description": "Mozart's darkest and most complex opera — a 'dramma giocoso' that blends comedy and tragedy with demonic power. The final scene, where the stone statue of the Commendatore drags Don Giovanni to hell, is opera's most terrifying moment.",
+    "description": "Mozart se donkerste en mees komplekse opera — 'n 'dramma giocoso' wat komedie en tragedie met demoniese krag vermeng. Die slottoneel, waar die klipstandbeeld van die Commendatore Don Giovanni na die hel sleep, is die opera se mees verskriklike oomblik.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Considered by many the greatest opera ever written."
+    "significance": "Deur baie beskou as die grootste opera ooit geskryf."
   },
   "mozart-symphony-41": {
-    "title": "Symphony No. 41 'Jupiter'",
-    "description": "Mozart's last and greatest symphony. The finale is a miracle of contrapuntal writing — five themes combined simultaneously in a fugal coda of staggering complexity, all sounding completely natural and inevitable.",
+    "title": "Simfonie Nr. 41 'Jupiter'",
+    "description": "Mozart se laaste en grootste simfonie. Die finale is 'n wonderwerk van kontrapuntale skryfkuns — vyf temas gelyktydig gekombineer in 'n fugale coda van verbluffende kompleksiteit, wat alles volkome natuurlik en onvermydelik klink.",
     "instrumentation": "Orkes",
-    "significance": "The supreme achievement of the Classical symphony before Beethoven."
+    "significance": "Die opperste prestasie van die Klassieke simfonie voor Beethoven."
   },
   "haydn-symphony-94": {
-    "title": "Symphony No. 94 'Surprise'",
-    "description": "Famous for the sudden fortissimo chord in the quiet slow movement — Haydn's musical joke to wake up dozing audience members. A perfect example of his wit and mastery of the Classical symphony.",
+    "title": "Simfonie Nr. 94 'Verrassing'",
+    "description": "Beroemd vir die skielike fortissimo-akkoord in die stil stadige beweging — Haydn se musikale grap om duttende gehoorlede wakker te maak. 'n Perfekte voorbeeld van sy geestigheid en meesterskap van die Klassieke simfonie.",
     "instrumentation": "Orkes"
   },
   "mozart-magic-flute": {
     "title": "Die Towerfluit",
-    "description": "Mozart's final opera — a Masonic fairy tale that moves from slapstick comedy to sublime ritual solemnity. The Queen of the Night's aria, with its stratospheric coloratura, is one of the most famous in all opera.",
+    "description": "Mozart se laaste opera — 'n Vrymesselaarssprokiesvertelling wat van lawwe komedie na sublieme rituele plegtigheid beweeg. Die Koningin van die Nag se aria, met haar stratosferiese koloratuur, is een van die beroemdste in alle opera.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "mozart-requiem": {
-    "title": "Requiem in D minor",
-    "description": "Mozart's final, unfinished work — a Requiem Mass of shattering power, surrounded by legend and mystery. The anonymous commissioner, Mozart's conviction that he was writing his own funeral music, and the completion by his student Süssmayr all contribute to its mythic status.",
+    "title": "Requiem in D mineur",
+    "description": "Mozart se laaste, onvoltooide werk — 'n Requiem-mis van verpletterende krag, omring deur legende en misterie. Die anonieme opdraggewer, Mozart se oortuiging dat hy sy eie begrafnismusiek skryf, en die voltooiing deur sy student Süssmayr dra alles by tot die mitiese status.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "One of the most famous and moving requiems ever composed."
+    "significance": "Een van die beroemdste en aangrypendste requiems ooit gekomponeer."
   },
   "haydn-string-quartets-op76": {
-    "title": "String Quartets, Op. 76",
-    "description": "Six quartets representing the summit of Haydn's achievement in the medium he invented. Includes the 'Emperor' Quartet (whose slow movement became the Austrian and later German national anthem) and the 'Sunrise' Quartet.",
-    "instrumentation": "Strykerkwartet"
+    "title": "Strykkwartette, Op. 76",
+    "description": "Ses kwartette wat die hoogtepunt van Haydn se prestasie verteenwoordig in die medium wat hy uitgevind het. Sluit die 'Keiser'-kwartet in (waarvan die stadige beweging die Oostenrykse en later Duitse volkslied geword het) en die 'Sonsopgang'-kwartet.",
+    "instrumentation": "Strykkwartet"
   },
   "haydn-creation": {
     "title": "Die Skepping",
-    "description": "Haydn's late masterpiece, depicting the creation of the world from Genesis and Milton's Paradise Lost. The moment when 'there was LIGHT' — a blazing C major chord after hushed chaos — is one of music's most thrilling effects.",
+    "description": "Haydn se laat meesterwerk wat die skepping van die wêreld uit Genesis en Milton se Paradise Lost uitbeeld. Die oomblik wanneer 'daar LIG was' — 'n vlammende C-majeur-akkoord ná gedempte chaos — is een van musiek se mees opwindende effekte.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "The greatest oratorio since Handel's Messiah and the crowning achievement of Haydn's career."
+    "significance": "Die grootste oratorium sedert Handel se Messiah en die kroon op Haydn se loopbaan."
   },
   "beethoven-moonlight-sonata": {
-    "title": "Piano Sonata No. 14 'Moonlight'",
-    "description": "The 'Moonlight' nickname (not Beethoven's) comes from the dreamy first movement — a revolutionary opening that begins with a slow movement instead of the expected fast one. The tempestuous finale blazes with virtuosic fury.",
+    "title": "Klaviersonate Nr. 14 'Maanlig'",
+    "description": "Die 'Maanlig'-bynaam (nie Beethoven s'n nie) kom van die dromerige eerste beweging — 'n revolusionêre opening wat met 'n stadige beweging begin in plaas van die verwagte vinnige een. Die onstuimige finale brand met virtuose woede.",
     "instrumentation": "Klavier"
   },
   "beethoven-symphony-3": {
-    "title": "Symphony No. 3 'Eroica'",
-    "description": "Originally dedicated to Napoleon, Beethoven famously tore up the title page when Napoleon declared himself Emperor. The 'Eroica' shattered every convention of the symphony — twice as long as any before it, with a funeral march of devastating power and a finale of dazzling variation.",
+    "title": "Simfonie Nr. 3 'Eroica'",
+    "description": "Oorspronklik opgedra aan Napoleon; Beethoven het beroemdelik die titelblad geskeur toe Napoleon homself tot Keiser verklaar het. Die 'Eroica' het elke konvensie van die simfonie verbreek — twee keer so lank as enige voorganger, met 'n begrafnismars van verwoestende krag en 'n finale van skitterende variasie.",
     "instrumentation": "Orkes",
-    "significance": "The work that marks the beginning of Romantic music and the modern concept of the symphony."
+    "significance": "Die werk wat die begin van Romantiese musiek en die moderne konsep van die simfonie aandui."
   },
   "beethoven-fidelio": {
     "title": "Fidelio",
-    "description": "Beethoven's only opera — a story of political imprisonment and marital devotion that became a potent symbol of freedom. The 'Prisoners' Chorus' and the trumpet call announcing liberation are among the most moving moments in all opera.",
+    "description": "Beethoven se enigste opera — 'n verhaal van politieke gevangenskap en huwelikstrou wat 'n kragtige simbool van vryheid geword het. Die 'Gevangekoor' en die trompetoproep wat bevryding aankondig, is van die mees aangrypende oomblikke in alle opera.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "beethoven-symphony-5": {
-    "title": "Symphony No. 5",
-    "description": "The four most famous notes in music: da-da-da-DUM. Beethoven's Fifth traces a monumental journey from C minor struggle to C major triumph — from 'Fate knocking at the door' to a blazing finale of liberation. Used as a symbol of victory in World War II.",
+    "title": "Simfonie Nr. 5",
+    "description": "Die vier beroemdste note in musiek: da-da-da-DAM. Beethoven se Vyfde volg 'n monumentale reis van C-mineur-stryd na C-majeur-triomf — van 'die Noodlot wat aan die deur klop' tot 'n vlammende finale van bevryding. Gebruik as 'n simbool van oorwinning in die Tweede Wêreldoorlog.",
     "instrumentation": "Orkes",
-    "significance": "The most recognized symphony in the world and the archetype of the 'dark to light' dramatic arc."
+    "significance": "Die mees herkende simfonie ter wêreld en die argetipe van die 'donker na lig'-dramatiese boog."
   },
   "beethoven-piano-concerto-5": {
-    "title": "Piano Concerto No. 5 'Emperor'",
-    "description": "The grandest piano concerto of the Classical era, composed while Napoleon's armies bombarded Vienna. Its heroic opening — the soloist crashing in with brilliant cadenza-like passages before the orchestra even states the theme — was unprecedented.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 5 'Keiser'",
+    "description": "Die grandioosste klavierkonsert van die Klassieke era, gekomponeer terwyl Napoleon se leërs Wene gebombardeer het. Die heldhaftige opening — die solis wat inval met briljante kadensagtige passasies voordat die orkes selfs die tema stel — was ongeëwenaard.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "weber-clarinet-concerto-1": {
-    "title": "Clarinet Concerto No. 1 in F minor, Op. 73",
-    "description": "Written for virtuoso Heinrich Baermann, this concerto exploits the clarinet's full range with lyrical cantilenas and virtuosic passages, becoming a cornerstone of the clarinet repertoire.",
-    "instrumentation": "Solo klarinet, orkes"
+    "title": "Klarinetconcert Nr. 1 in F mineur, Op. 73",
+    "description": "Geskryf vir virtuoos Heinrich Baermann; hierdie konsert ontgin die klarinet se volle omvang met liriese cantilenas en virtuose passasies en het 'n hoeksteen van die klarinetrepertorium geword.",
+    "instrumentation": "Solo-klarinet, orkes"
   },
   "schubert-erlkoenig": {
     "title": "Erlkönig",
-    "description": "A dramatic setting of Goethe's ballad about a father riding through the night with his dying child, pursued by the supernatural Erlking. The pianist's relentless triplets depict the horse's gallop, while the singer portrays four characters. Schubert was 18 when he wrote it.",
-    "instrumentation": "Stem and klavier",
-    "significance": "Established the art song as a serious musical form and demonstrated Schubert's precocious dramatic genius."
+    "description": "'n Dramatiese toonsetting van Goethe se ballade oor 'n vader wat deur die nag ry met sy sterwende kind, agtervolg deur die bonatuurlike Erlkönig. Die pianis se meedoënlose drieklanke beeld die perd se galop uit, terwyl die sanger vier karakters vertolk. Schubert was 18 toe hy dit geskryf het.",
+    "instrumentation": "Stem en klavier",
+    "significance": "Het die kunslied as 'n ernstige musikale vorm gevestig en Schubert se vroeë dramatiese genialiteit gedemonstreer."
   },
   "paganini-24-caprices": {
-    "title": "24 Caprices for Solo Violin, Op. 1",
-    "description": "Twenty-four studies that redefined the possibilities of the violin, demanding harmonics, left-hand pizzicato, ricochet bowing, and double stops. The 24th Caprice's theme inspired Brahms, Rachmaninoff, and Lutosławski.",
-    "instrumentation": "Solo viool",
-    "significance": "Permanently expanded the technical vocabulary of the violin."
+    "title": "24 Caprices vir Soloviool, Op. 1",
+    "description": "Vier-en-twintig studies wat die moontlikhede van die viool herdefinieer het, wat harmonieke, linkerhand-pizzicato, ricochet-stryking en dubbelgrepe vereis. Die 24ste Caprice se tema het Brahms, Rachmaninoff en Lutosławski geïnspireer.",
+    "instrumentation": "Solo-viool",
+    "significance": "Het die tegniese woordeskat van die viool permanent uitgebrei."
   },
   "paganini-violin-concerto-1": {
-    "title": "Violin Concerto No. 1 in D major, Op. 6",
-    "description": "A showpiece of dazzling brilliance written to display Paganini's superhuman technique. Its soaring melodies and acrobatic passages established the model for the Romantic violin concerto.",
-    "instrumentation": "Solo viool, orkes"
+    "title": "Vioolkonsert Nr. 1 in D majeur, Op. 6",
+    "description": "'n Vitrinestuk van skitterende briljansie geskryf om Paganini se bomenslike tegniek te vertoon. Die swewendehoë melodieë en akrobatiese passasies het die model vir die Romantiese vioolkonsert gevestig.",
+    "instrumentation": "Solo-viool, orkes"
   },
   "weber-invitation-to-dance": {
-    "title": "Invitation to the Dance, Op. 65",
-    "description": "A concert waltz that dramatises a ballroom scene — the gentleman's invitation, the dance, and the farewell. It established the concert waltz as a genre and was brilliantly orchestrated by Berlioz.",
-    "instrumentation": "Klavier (also orkested by Berlioz)",
-    "significance": "Created the concert waltz genre."
+    "title": "Uitnodiging tot die Dans, Op. 65",
+    "description": "'n Konsertwals wat 'n balsaaltoneel dramatiseer — die heer se uitnodiging, die dans en die afskeid. Dit het die konsertwals as 'n genre gevestig en is briljant deur Berlioz georkestreer.",
+    "instrumentation": "Klavier (ook deur Berlioz georkestreer)",
+    "significance": "Het die konsertwals-genre geskep."
   },
   "weber-der-freischutz": {
     "title": "Der Freischütz",
-    "description": "The first great German Romantic opera, whose Wolf's Glen scene terrified audiences with its supernatural orchestral effects. Weber's use of folk-like melody and nature painting defined the German Romantic operatic style.",
+    "description": "Die eerste groot Duitse Romantiese opera, waarvan die Wolf se Glen-toneel gehore met sy bonatuurlike orkestrale effekte geskok het. Weber se gebruik van volksagtige melodie en natuurskildering het die Duitse Romantiese operastyl gedefinieer.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Established German Romantic opera and influenced Wagner profoundly."
+    "significance": "Het Duitse Romantiese opera gevestig en Wagner diepgaande beïnvloed."
   },
   "schubert-symphony-8": {
-    "title": "Symphony No. 8 'Unfinished'",
-    "description": "Only two movements were completed, but they are so perfect that no completion has ever been satisfying. The 'Unfinished' opens with one of the most famous melodies in symphonic music — a lonely theme rising from shadowy depths.",
+    "title": "Simfonie Nr. 8 'Onvoltooide'",
+    "description": "Slegs twee bewegings is voltooi, maar hulle is so volmaak dat geen voltooiing ooit bevredigend was nie. Die 'Onvoltooide' open met een van die beroemdste melodieë in simfoniese musiek — 'n eensame tema wat uit skaduweeagtige dieptes styg.",
     "instrumentation": "Orkes"
   },
   "beethoven-symphony-9": {
-    "title": "Symphony No. 9 'Choral'",
-    "description": "Beethoven's last completed symphony and Western music's most powerful statement of universal brotherhood. The finale sets Schiller's 'Ode to Joy' for soloists, chorus, and orchestra in a revolutionary fusion of symphony and oratorio. Composed almost entirely while deaf.",
+    "title": "Simfonie Nr. 9 'Koor'",
+    "description": "Beethoven se laaste voltooide simfonie en Westerse musiek se kragtigste verklaring van universele broederskap. Die finale toonsit Schiller se 'Ode aan Vreugde' vir soliste, koor en orkes in 'n revolusionêre versmelting van simfonie en oratorium. Byna heeltemal gekomponeer terwyl hy doof was.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "The basis for the EU anthem. Changed the course of symphonic music forever — after Beethoven's Ninth, every symphonist had to decide how to respond to it."
+    "significance": "Die basis vir die EU-volkslied. Het die koers van simfoniese musiek vir altyd verander — ná Beethoven se Negende moes elke simfonis besluit hoe om daarop te reageer."
   },
   "mendelssohn-octet": {
-    "title": "Octet in E-flat major, Op. 20",
-    "description": "Written when Mendelssohn was just sixteen, this is perhaps the most astonishing work of youthful genius in all music. Its fairy scherzo anticipates the Midsummer Night's Dream overture.",
-    "instrumentation": "Strykeroktet (4 viools, 2 altviools, 2 tjellos)",
-    "significance": "The greatest work of youthful genius in chamber music."
+    "title": "Oktet in E-mol majeur, Op. 20",
+    "description": "Geskryf toe Mendelssohn net sestien was; dit is miskien die mees verstommende werk van jeugdige genialiteit in alle musiek. Die feeagtige scherzo antisipeer die Midzomernagdroom-ouverture.",
+    "instrumentation": "Strykoktet (4 viole, 2 altviole, 2 tjellos)",
+    "significance": "Die grootste werk van jeugdige genialiteit in kamermusiek."
   },
   "paganini-violin-concerto-2": {
-    "title": "Violin Concerto No. 2 in B minor, Op. 7 'La campanella'",
-    "description": "Famous for its bell-like rondo finale (La campanella), later immortalised by Liszt's piano transcription. The concerto combines operatic lyricism with breathtaking virtuosity.",
-    "instrumentation": "Solo viool, orkes"
+    "title": "Vioolkonsert Nr. 2 in B mineur, Op. 7 'La campanella'",
+    "description": "Beroemd vir die klokagtige rondofinale (La campanella), later vereewig deur Liszt se klaviertranskipsie. Die konsert kombineer operalirisme met asemrowende virtuositeit.",
+    "instrumentation": "Solo-viool, orkes"
   },
   "weber-oberon": {
     "title": "Oberon",
-    "description": "Weber's final opera, composed for London, with a fairy-tale plot and some of his most brilliant orchestral writing. The overture remains a concert favourite.",
+    "description": "Weber se laaste opera, gekomponeer vir Londen, met 'n sprokie-plot en van sy mees briljante orkestrale skryfkuns. Die ouverture bly 'n konsertgunsteling.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "schubert-winterreise": {
-    "title": "Winterreise (Winter Journey)",
-    "description": "A cycle of 24 songs tracing a rejected lover's journey through a frozen winter landscape — an allegory of despair, madness, and death. The final song, 'Der Leiermann' (The Hurdy-Gurdy Man), with its bleak, circular accompaniment, is one of music's most desolate endings.",
-    "instrumentation": "Stem and klavier",
-    "significance": "The greatest song cycle ever composed and the supreme achievement of German Romantic Lied."
+    "title": "Winterreise (Winterreis)",
+    "description": "'n Siklus van 24 liedere wat 'n verworpe minnaar se reis deur 'n bevrore winterlandskap volg — 'n allegorie van wanhoop, waansin en die dood. Die laaste lied, 'Der Leiermann' (Die Lierdraaier), met sy somber, siklies begeleiding, is een van musiek se mees troostelose eindes.",
+    "instrumentation": "Stem en klavier",
+    "significance": "Die grootste liedsiklus ooit gekomponeer en die opperste prestasie van die Duitse Romantiese Lied."
   },
   "chopin-nocturnes": {
     "title": "Nocturnes",
-    "description": "21 nocturnes spanning Chopin's entire career — lyrical, introspective night-pieces that sing on the keyboard. The Op. 9, No. 2 in E-flat major is one of the most popular piano works ever written.",
+    "description": "21 nocturnes wat Chopin se hele loopbaan oorspan — liriese, introspektiewe nagstukke wat op die klawerbord sing. Die Op. 9, Nr. 2 in E-mol majeur is een van die gewildste klavierwerke ooit geskryf.",
     "instrumentation": "Klavier"
   },
   "schubert-string-quintet": {
-    "title": "String Quintet in C major",
-    "description": "Composed in the final weeks of Schubert's life, this quintet is among the most transcendent works in all chamber music. The slow movement inhabits a world of unearthly beauty, and the work's emotional range — from seraphic peace to violent anguish — is overwhelming.",
-    "instrumentation": "String quintet (2 viools, altviool, 2 tjellos)",
-    "significance": "Often cited as the single greatest work of chamber music."
+    "title": "Strykkwintet in C majeur",
+    "description": "Gekomponeer in die laaste weke van Schubert se lewe; hierdie kwintet is onder die mees transendente werke in alle kamermusiek. Die stadige beweging bewoon 'n wêreld van bo-aardse skoonheid, en die werk se emosionele reikwydte — van serafiese vrede tot gewelddadige angs — is oorweldigend.",
+    "instrumentation": "Strykkwintet (2 viole, altviool, 2 tjellos)",
+    "significance": "Dikwels aangehaal as die enkele grootste werk van kamermusiek."
   },
   "chopin-etudes-op10": {
     "title": "Études, Op. 10",
-    "description": "12 études that redefined the concept of a piano study — no longer mere exercises but fully realized works of art. The 'Revolutionary' Étude (No. 12) was supposedly written in fury upon hearing of the fall of Warsaw to Russian forces.",
+    "description": "12 études wat die konsep van 'n klavierstudie herdefinieer het — nie meer blote oefeninge nie, maar ten volle gerealiseerde kunswerke. Die 'Revolusionêre' Étude (Nr. 12) is na bewering in woede geskryf toe hy gehoor het van die val van Warskou aan Russiese magte.",
     "instrumentation": "Klavier",
-    "significance": "Transformed the étude from a technical exercise into a concert form."
+    "significance": "Het die étude van 'n tegniese oefening na 'n konsertvorm getransformeer."
   },
   "paganini-god-save-the-king": {
-    "title": "Variations on 'God Save the King', Op. 9",
-    "description": "A set of dazzling variations on the British national anthem that showcases Paganini's full arsenal of effects: harmonics, pizzicato, rapid arpeggios, and double stops.",
-    "instrumentation": "Solo viool"
+    "title": "Variasies op 'God Save the King', Op. 9",
+    "description": "'n Stel skitterende variasies op die Britse volkslied wat Paganini se volle arsenaal van effekte ten toon stel: harmonieke, pizzicato, vinnige arpeggio's en dubbelgrepe.",
+    "instrumentation": "Solo-viool"
   },
   "berlioz-symphonie-fantastique": {
     "title": "Symphonie fantastique",
-    "description": "A hallucinatory, autobiographical symphony in which a young artist, crazed by unrequited love, poisons himself with opium and experiences terrifying visions: a witches' sabbath, his own execution, a pastoral dream that turns nightmarish. Each movement uses an 'idée fixe' — a recurring melody representing the beloved.",
-    "instrumentation": "Large orkes",
-    "significance": "The first great programmatic symphony. Revolutionized orchestration and expanded the orchestra's expressive range dramatically."
+    "description": "'n Hallusinerende, outobiografiese simfonie waarin 'n jong kunstenaar, waansinnig van onbeantwoorde liefde, homself met opium vergiftig en verskriklike visioene beleef: 'n heksesabbat, sy eie teregstelling, 'n pastorale droom wat nagmerrie word. Elke beweging gebruik 'n 'idée fixe' — 'n herhalende melodie wat die geliefde voorstel.",
+    "instrumentation": "Groot orkes",
+    "significance": "Die eerste groot programmatiese simfonie. Het orkestrasie revolusioneer en die orkes se ekspressiewe reikwydte dramaties uitgebrei."
   },
   "chopin-piano-concerto-1": {
-    "title": "Piano Concerto No. 1",
-    "description": "Chopin's youthful concerto, written at age 20, full of poetic melody and brilliant piano writing. The slow movement is a nocturne of heavenly beauty.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 1",
+    "description": "Chopin se jeugdige konsert, op 20-jarige ouderdom geskryf, vol poëtiese melodie en briljante klavierskryfkuns. Die stadige beweging is 'n nocturne van hemelse skoonheid.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "mendelssohn-symphony-4": {
-    "title": "Symphony No. 4 'Italian'",
-    "description": "A radiant evocation of Italy, inspired by Mendelssohn's travels. The sunny first movement bursts with Mediterranean energy, while the finale is a whirling Italian saltarello dance.",
+    "title": "Simfonie Nr. 4 'Italiaans'",
+    "description": "'n Stralende oproeping van Italië, geïnspireer deur Mendelssohn se reise. Die sonnige eerste beweging bars van Mediterreense energie, terwyl die finale 'n dwarrelende Italiaanse saltarello-dans is.",
     "instrumentation": "Orkes"
   },
   "mendelssohn-italian-symphony": {
-    "title": "Symphony No. 4 in A major, Op. 90 'Italian'",
-    "description": "Inspired by Mendelssohn's Italian journey, this symphony radiates Mediterranean warmth and light, from its exhilarating opening to the whirling saltarello finale.",
+    "title": "Simfonie Nr. 4 in A majeur, Op. 90 'Italiaans'",
+    "description": "Geïnspireer deur Mendelssohn se Italiaanse reis; hierdie simfonie straal Mediterreense warmte en lig uit, van sy opwindende opening tot die dwarrelende saltarello-finale.",
     "instrumentation": "Orkes"
   },
   "berlioz-harold-in-italy": {
-    "title": "Harold in Italy, Op. 16",
-    "description": "A symphony with solo viola inspired by Byron's Childe Harold. Commissioned by Paganini (who never played it, declaring the viola part too simple), it blends concerto and symphony in a unique way.",
-    "instrumentation": "Solo altviool, orkes"
+    "title": "Harold in Italië, Op. 16",
+    "description": "'n Simfonie met solo-altviool geïnspireer deur Byron se Childe Harold. In opdrag van Paganini (wat dit nooit gespeel het nie, aangesien hy die altvioolparty te eenvoudig verklaar het), vermeng dit konsert en simfonie op 'n unieke manier.",
+    "instrumentation": "Solo-altviool, orkes"
   },
   "chopin-ballades": {
-    "title": "Ballades (Nos. 1–4)",
-    "description": "Four large-scale piano works that essentially created a new genre. The Ballade No. 1 in G minor is perhaps the most perfect single work for solo piano — a dramatic narrative that builds from a questioning introduction to a cataclysmic coda.",
+    "title": "Ballades (Nr. 1–4)",
+    "description": "Vier grootskaalse klavierwerke wat in wese 'n nuwe genre geskep het. Die Ballade Nr. 1 in G mineur is miskien die mees volmaakte enkele werk vir soloklavier — 'n dramatiese narratief wat bou van 'n vraende inleiding tot 'n kataklismiese coda.",
     "instrumentation": "Klavier",
-    "significance": "Invented the ballade as an instrumental form. Among the peaks of the piano repertoire."
+    "significance": "Het die ballade as 'n instrumentale vorm uitgevind. Onder die hoogtepunte van die klavierrepertorium."
   },
   "berlioz-requiem": {
     "title": "Grande Messe des morts (Requiem), Op. 5",
-    "description": "A colossal Requiem deploying vast forces including four offstage brass choirs and sixteen timpani for the Dies Irae. Its apocalyptic vision and intimate Sanctus create extremes unique in music.",
-    "instrumentation": "Tenoor solo, koor, orkes (with four koper ensembles, 16 timpani)",
-    "significance": "One of the most monumental choral works ever conceived."
+    "description": "'n Kolossale Requiem wat geweldige kragte ontplooi, insluitend vier buiteverhoog-koperensembles en sestien pauketrommels vir die Dies Irae. Die apokaliptiese visie en intieme Sanctus skep uiterstes wat uniek in musiek is.",
+    "instrumentation": "Tenoorsoolis, koor, orkes (met vier koperensembles, 16 pauketrommels)",
+    "significance": "Een van die mees monumentale koorwerke ooit bedink."
   },
   "berlioz-romeo-juliet": {
     "title": "Roméo et Juliette, Op. 17",
-    "description": "A dramatic symphony combining orchestra, soloists, and chorus in a radical retelling of Shakespeare. The Love Scene is one of the most sensuous passages in all orchestral music.",
-    "instrumentation": "Mezzosoppraan, tenoor, bas soliste, koor, orkes"
+    "description": "'n Dramatiese simfonie wat orkes, soliste en koor kombineer in 'n radikale hervertelling van Shakespeare. Die Liefdescène is een van die mees sensuele passasies in alle orkesmusiek.",
+    "instrumentation": "Mezzosopraansoolis, tenoorsoolis, bassoolis, koor, orkes"
   },
   "schumann-dichterliebe": {
     "title": "Dichterliebe, Op. 48",
-    "description": "Sixteen songs setting Heine's bittersweet love poetry, composed during Schumann's miraculous 'year of song.' The piano postlude to Im wunderschönen Monat Mai and the final song's extended piano epilogue are among music's most poignant moments.",
+    "description": "Sestien liedere wat Heine se bittersoet liefdespoësie toonsit, gekomponeer tydens Schumann se wonderbaarlike 'jaar van die lied.' Die klaviernaspel tot Im wunderschönen Monat Mai en die laaste lied se uitgebreide klavier-epiloog is van musiek se mees aangrypende oomblikke.",
     "instrumentation": "Stem, klavier"
   },
   "mendelssohn-violin-concerto": {
-    "title": "Violin Concerto in E minor",
-    "description": "One of the most beloved violin concertos, combining Romantic passion with Classical elegance. Its innovations — the soloist entering immediately with the main theme, linking the movements without pause — influenced all subsequent concertos.",
-    "instrumentation": "Solo viool, orkes",
-    "significance": "One of the three great Romantic violin concertos (with Brahms and Tchaikovsky)."
+    "title": "Vioolkonsert in E mineur",
+    "description": "Een van die mees geliefde vioolkonserte, wat Romantiese passie met Klassieke elegansie kombineer. Die vernuwings — die solis tree onmiddellik in met die hooftema, die bewegings word sonder pouse verbind — het alle daaropvolgende konserte beïnvloed.",
+    "instrumentation": "Solo-viool, orkes",
+    "significance": "Een van die drie groot Romantiese vioolkonserte (saam met Brahms en Tchaikovsky)."
   },
   "schumann-piano-concerto": {
-    "title": "Piano Concerto in A minor, Op. 54",
-    "description": "One of the most beloved piano concertos, seamlessly blending intimate lyricism with orchestral grandeur. Its opening horn call and Clara-inspired themes make it the epitome of Romantic piano concerto writing.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert in A mineur, Op. 54",
+    "description": "Een van die mees geliefde klavierkonserte, wat intieme lirisme naatloos met orkestrale grootsheid vermeng. Die openingshoringoproep en Clara-geïnspireerde temas maak dit die toonbeeld van Romantiese klavierkonsertskryfkuns.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "liszt-hungarian-rhapsodies": {
-    "title": "Hungarian Rhapsodies",
-    "description": "19 piano pieces based on Hungarian folk and Romani music. The Second Rhapsody is one of the most famous piano works in existence, and the set became synonymous with Liszt's dazzling virtuosity.",
-    "instrumentation": "Klavier (some orkested)"
+    "title": "Hongaarse Rapsodieë",
+    "description": "19 klavierstukke gebaseer op Hongaarse volks- en Romani-musiek. Die Tweede Rapsodie is een van die beroemdste klavierwerke in bestaan, en die stel het sinoniem met Liszt se skitterende virtuositeit geword.",
+    "instrumentation": "Klavier (sommige georkestreer)"
   },
   "wagner-ring-cycle": {
     "title": "Der Ring des Nibelungen",
-    "description": "Four operas (Das Rheingold, Die Walküre, Siegfried, Götterdämmerung) totaling about 15 hours — the most ambitious work of art ever created. It tells the story of gods, heroes, and a cursed ring, using a web of leitmotifs that creates a continuous musical argument of unprecedented scope.",
-    "instrumentation": "Massive orkes, soliste, koor",
-    "significance": "Reshaped opera, harmony, and the concept of what music could achieve. Wagner built an entire opera house (Bayreuth) to stage it."
+    "description": "Vier operas (Das Rheingold, Die Walküre, Siegfried, Götterdämmerung) wat altesaam ongeveer 15 uur duur — die mees ambisieuse kunswerk ooit geskep. Dit vertel die verhaal van gode, helde en 'n vervloekte ring, met 'n web van leitmotiewe wat 'n deurlopende musikale betoog van ongekende omvang skep.",
+    "instrumentation": "Massiewe orkes, soliste, koor",
+    "significance": "Het opera, harmonie en die konsep van wat musiek kon bereik, hervorm. Wagner het 'n hele operahuis (Bayreuth) gebou om dit op te voer."
   },
   "liszt-totentanz": {
     "title": "Totentanz",
-    "description": "Variations on the Dies Irae for piano and orchestra, inspired by a fresco of the Triumph of Death. Its demonic virtuosity and macabre atmosphere make it one of Liszt's most gripping works.",
-    "instrumentation": "Solo klavier, orkes"
+    "description": "Variasies op die Dies Irae vir klavier en orkes, geïnspireer deur 'n fresco van die Triomf van die Dood. Die demoniese virtuositeit en makabere atmosfeer maak dit een van Liszt se mees meesleurende werke.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "liszt-piano-sonata-b-minor": {
-    "title": "Piano Sonata in B minor",
-    "description": "A revolutionary single-movement sonata of epic proportions, transforming a handful of themes through a continuous half-hour arc. Its structural daring was decades ahead of its time.",
+    "title": "Klaviersonate in B mineur",
+    "description": "'n Revolusionêre enkelbeweging-sonate van epiese proporsies, wat 'n handvol temas deur 'n deurlopende halfuur-boog transformeer. Die strukturele waagmoed was dekades voor sy tyd.",
     "instrumentation": "Klavier",
-    "significance": "One of the greatest piano sonatas and a landmark of musical form."
+    "significance": "Een van die grootste klaviersonates en 'n mylpaal van musikale vorm."
   },
   "verdi-la-traviata": {
     "title": "La Traviata",
-    "description": "Based on Alexandre Dumas' novel, La Traviata tells the story of the courtesan Violetta — her love for Alfredo, her sacrifice, and her death from tuberculosis. Verdi's score captures her joy, agony, and dignity with melodies of heartbreaking beauty.",
+    "description": "Gebaseer op Alexandre Dumas se roman; La Traviata vertel die verhaal van die kurtisane Violetta — haar liefde vir Alfredo, haar opoffering en haar dood aan tuberkulose. Verdi se partituur vang haar vreugde, angs en waardigheid met melodieë van hartverskeurende skoonheid.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "One of the most performed operas worldwide and a touchstone of the Romantic operatic tradition."
+    "significance": "Een van die mees opgevoerde operas wêreldwyd en 'n toetssteen van die Romantiese operatradisie."
   },
   "wagner-tristan-und-isolde": {
     "title": "Tristan und Isolde",
-    "description": "The opera that broke music. Wagner's tale of doomed lovers pushed chromaticism to a point where tonality itself began to dissolve. The famous 'Tristan chord' — the very first sound in the opera — remained unresolved for decades of musical analysis.",
-    "instrumentation": "Large orkes, soliste",
-    "significance": "The harmonic starting point for everything that followed: Mahler, Strauss, Debussy, Schoenberg. Perhaps the single most influential work in Western music history."
+    "description": "Die opera wat musiek gebreek het. Wagner se verhaal van verdoemde geliefdes het chromatisisme tot 'n punt gedruk waar tonaliteit self begin ontbind het. Die beroemde 'Tristan-akkoord' — die allereerste klank in die opera — het dekades lank onopgelos gebly vir musikale analise.",
+    "instrumentation": "Groot orkes, soliste",
+    "significance": "Die harmoniese vertrekpunt vir alles wat gevolg het: Mahler, Strauss, Debussy, Schoenberg. Miskien die enkele mees invloedryke werk in Westerse musiekgeskiedenis."
   },
   "saint-saens-introduction-rondo": {
-    "title": "Introduction and Rondo Capriccioso, Op. 28",
-    "description": "A dazzling showpiece written for Pablo de Sarasate, combining a brooding introduction with a brilliant Spanish-flavoured rondo. A staple of the virtuoso violin repertoire.",
-    "instrumentation": "Solo viool, orkes"
+    "title": "Inleiding en Rondo Capriccioso, Op. 28",
+    "description": "'n Skitterende vitrinestuk geskryf vir Pablo de Sarasate, wat 'n sombere inleiding met 'n briljante Spaans-gekleurde rondo kombineer. 'n Stapelstuk van die virtuose vioolrepertorium.",
+    "instrumentation": "Solo-viool, orkes"
   },
   "smetana-bartered-bride": {
-    "title": "The Bartered Bride",
-    "description": "A sparkling comic opera full of Czech folk dances and infectious melodies. Its international success established Czech opera on the world stage.",
+    "title": "Die Verruilde Bruid",
+    "description": "'n Sprankelende komiese opera vol Tsjeggiese volksdanse en aansteeklike melodieë. Die internasionale sukses het Tsjeggiese opera op die wêreldverhoog gevestig.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "The most successful Czech opera internationally."
+    "significance": "Die suksesvolste Tsjeggiese opera internasionaal."
   },
   "mussorgsky-night-bald-mountain": {
     "title": "Nag op Kaalkopberg",
-    "description": "A vivid tone poem depicting a witches' sabbath, best known in Rimsky-Korsakov's posthumous orchestration. Its wild energy and dark colours make it one of the most gripping orchestral works of the 19th century.",
+    "description": "'n Lewendige toonddig wat 'n heksesabbat uitbeeld, meestal bekend in Rimski-Korsakov se postume orkestrasie. Die wilde energie en donker kleure maak dit een van die mees meesleurende orkeswerke van die 19de eeu.",
     "instrumentation": "Orkes"
   },
   "wagner-die-meistersinger": {
     "title": "Die Meistersinger von Nürnberg",
-    "description": "Wagner's only mature comedy, and the longest opera in the standard repertoire (~4.5 hours). A warmhearted tribute to art, tradition, and the creative spirit, set among the medieval mastersingers of Nuremberg.",
-    "instrumentation": "Large orkes, soliste, koor"
+    "description": "Wagner se enigste rypste komedie, en die langste opera in die standaardrepertorium (~4.5 uur). 'n Warmhartige huldeblyk aan kuns, tradisie en die skeppende gees, wat onder die Middeleeuse meestersingers van Nürnberg afspeel.",
+    "instrumentation": "Groot orkes, soliste, koor"
   },
   "brahms-german-requiem": {
-    "title": "Ein deutsches Requiem (A German Requiem)",
-    "description": "Not a liturgical requiem but a personal meditation on death and consolation, setting texts Brahms selected from Luther's Bible. 'Blessed are they that mourn, for they shall be comforted.' Written in the shadow of his mother's death and Robert Schumann's decline.",
+    "title": "Ein deutsches Requiem ('n Duitse Requiem)",
+    "description": "Nie 'n liturgiese requiem nie, maar 'n persoonlike meditasie oor die dood en vertroosting, met tekste wat Brahms uit Luther se Bybel gekies het. 'Salig is die wat treur, want hulle sal vertroos word.' Geskryf in die skaduwee van sy moeder se dood en Robert Schumann se agteruitgang.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "The greatest religious choral work of the 19th century after Beethoven's Missa Solemnis."
+    "significance": "Die grootste godsdienstige koorwerk van die 19de eeu ná Beethoven se Missa Solemnis."
   },
   "grieg-piano-concerto": {
-    "title": "Piano Concerto in A minor, Op. 16",
-    "description": "One of the most popular piano concertos, opening with a dramatic cascading flourish. Its Norwegian folk-inspired themes and lyrical beauty made it an instant success and a concert favourite ever since.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert in A mineur, Op. 16",
+    "description": "Een van die gewildste klavierkonserte, wat oopmaak met 'n dramatiese kaskadende versiersel. Die Noorse volksgeïnspireerde temas en liriese skoonheid het dit 'n onmiddellike sukses en sedertdien 'n konsertgunsteling gemaak.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "saint-saens-piano-concerto-2": {
-    "title": "Piano Concerto No. 2 in G minor, Op. 22",
-    "description": "Composed in just 17 days, this concerto ranges from a Bach-like opening improvisation through a Mendelssohnian scherzo to a Offenbachian tarantella finale. Its eclecticism delighted audiences and critics alike.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 2 in G mineur, Op. 22",
+    "description": "In net 17 dae gekomponeer; hierdie konsert strek van 'n Bach-agtige openingsimprovisasie deur 'n Mendelssohniaanse scherzo tot 'n Offenbachiaanse tarantella-finale. Die eklektisisme het gehore en kritici ewe behaag.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "verdi-aida": {
     "title": "Aida",
-    "description": "An epic grand opera set in ancient Egypt, commissioned for the opening of the Cairo Opera House. The Triumphal March, with its onstage trumpets, is one of opera's most spectacular scenes. But beneath the pageantry lies an intimate story of impossible love.",
-    "instrumentation": "Soliste, koor, large orkes, onstage band"
+    "description": "'n Epiese grand opera wat in antieke Egipte afspeel, in opdrag vir die opening van die Kaïro-operahuis. Die Triomfmars, met sy verhoogtrompette, is een van die opera se mees spektakulêre tonele. Maar onder die praal lê 'n intieme verhaal van onmoontlike liefde.",
+    "instrumentation": "Soliste, koor, groot orkes, verhoogensemble"
   },
   "mussorgsky-boris-godunov": {
-    "title": "Boris Godunov",
-    "description": "A monumental historical opera about the tormented Tsar Boris, revolutionary in its use of prose libretto, raw harmonic language, and the chorus as a collective protagonist.",
+    "title": "Boris Godoenov",
+    "description": "'n Monumentale historiese opera oor die gekwelde Tsaar Boris, revolusionêr in sy gebruik van 'n prosa-libretto, rou harmoniese taal en die koor as 'n kollektiewe protagonis.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Transformed Russian opera and influenced generations of composers."
+    "significance": "Het Russiese opera getransformeer en geslagte komponiste beïnvloed."
   },
   "verdi-requiem": {
     "title": "Requiem",
-    "description": "Brahms reportedly called it 'an opera in church vestments' — and the thundering Dies Irae, with its massive choral and orchestral forces, is indeed the most dramatically terrifying movement in all sacred music. Written in memory of the novelist Alessandro Manzoni.",
-    "instrumentation": "Soliste, double koor, orkes",
-    "significance": "One of the greatest requiems, rivaling Mozart's and Brahms's."
+    "description": "Brahms het dit na bewering ''n opera in kerksgewaad' genoem — en die donderende Dies Irae, met sy massiewe koor- en orkeskragte, is inderdaad die mees dramaties verskriklike beweging in alle gewyde musiek. Geskryf ter nagedagtenis van die romanskrywer Alessandro Manzoni.",
+    "instrumentation": "Soliste, dubbelkoor, orkes",
+    "significance": "Een van die grootste requiems, wat met Mozart en Brahms s'n meeding."
   },
   "smetana-vltava": {
-    "title": "Vltava (The Moldau)",
-    "description": "The second and most beloved of the Má vlast cycle, tracing the river Vltava from its twin sources through forests, villages, and moonlit landscapes to its triumphant arrival in Prague.",
+    "title": "Vltava (Die Moldau)",
+    "description": "Die tweede en mees geliefde van die Má vlast-siklus, wat die rivier Vltava volg van sy tweelingbronne deur woude, dorpe en maanliglandskappe tot sy triomfantlike aankoms in Praag.",
     "instrumentation": "Orkes"
   },
   "saint-saens-danse-macabre": {
     "title": "Danse macabre, Op. 40",
-    "description": "A tone poem depicting Death playing the violin at midnight while skeletons dance. The solo violin is tuned with a tritone (the 'devil's interval') and the xylophone evokes rattling bones.",
-    "instrumentation": "Orkes (with solo viool)"
+    "description": "'n Toonddig wat die Dood uitbeeld wat middernag viool speel terwyl geraamtes dans. Die solo-viool is gestem met 'n tritonus (die 'duiwelsinterval') en die xilofoon roep rammelende bene op.",
+    "instrumentation": "Orkes (met solo-viool)"
   },
   "mussorgsky-pictures": {
     "title": "Skilderye by 'n Uitstalling",
-    "description": "A suite of ten musical paintings inspired by artworks of Viktor Hartmann, linked by a recurring Promenade theme. Ravel's orchestration has become even more famous than the piano original.",
-    "instrumentation": "Klavier (also orkested by Ravel)",
-    "significance": "A landmark of musical pictorialism and one of the most orchestrated piano works."
+    "description": "'n Suite van tien musikale skilderye geïnspireer deur kunswerke van Viktor Hartmann, verbind deur 'n herhalende Promenade-tema. Ravel se orkestrasie het selfs beroemder as die oorspronklike klavierwerk geword.",
+    "instrumentation": "Klavier (ook georkestreer deur Ravel)",
+    "significance": "'n Mylpaal van musikale skilderagtigheid en een van die mees georkestreerde klavierwerke."
   },
   "tchaikovsky-piano-concerto-1": {
-    "title": "Piano Concerto No. 1",
-    "description": "The most popular piano concerto in the repertoire. Its thunderous opening chords are instantly recognizable. Initially rejected by Nikolai Rubinstein as 'worthless and unplayable,' it has since become a warhorse of the concert hall.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 1",
+    "description": "Die gewildste klavierkonsert in die repertorium. Die donderende openingsakkoorde is onmiddellik herkenbaar. Aanvanklik deur Nikolai Rubinstein as 'waardeloos en onspeelbaar' verwerp, het dit sedertdien 'n strydrosperd van die konsertsaal geword.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "grieg-peer-gynt": {
-    "title": "Peer Gynt Suites",
-    "description": "Incidental music for Ibsen's play, extracted into two orchestral suites. 'Morning Mood,' 'In the Hall of the Mountain King,' and 'Solveig's Song' are among the most familiar melodies in classical music.",
+    "title": "Peer Gynt-suites",
+    "description": "Toneelmusiek vir Ibsen se toneelstuk, onttrek in twee orkessuites. 'Oggendgevoelens,' 'In die Saal van die Bergkoning' en 'Solveig se Lied' is van die mees bekende melodieë in klassieke musiek.",
     "instrumentation": "Orkes"
   },
   "tchaikovsky-swan-lake": {
-    "title": "Swan Lake",
-    "description": "The archetypal Romantic ballet. Tchaikovsky's score elevated ballet music from functional dance accompaniment to symphonic drama, with the Swan Theme becoming one of the most iconic melodies in all music.",
+    "title": "Swanemeer",
+    "description": "Die argetipiese Romantiese ballet. Tchaikovsky se partituur het balletmusiek van funksionele dansbegeleiding tot simfoniese drama verhef, met die Swaantema wat een van die mees ikoniese melodieë in alle musiek geword het.",
     "instrumentation": "Orkes",
-    "significance": "Transformed ballet into a serious art form with music of symphonic quality."
+    "significance": "Het ballet tot 'n ernstige kunsvorm getransformeer met musiek van simfoniese gehalte."
   },
   "smetana-string-quartet-1": {
-    "title": "String Quartet No. 1 in E minor 'From My Life'",
-    "description": "An autobiographical quartet tracing Smetana's life from youthful enthusiasm to the onset of deafness, depicted by a piercing high-E harmonic in the finale.",
-    "instrumentation": "Strykerkwartet"
+    "title": "Strykkwartet Nr. 1 in E mineur 'Uit my Lewe'",
+    "description": "'n Outobiografiese kwartet wat Smetana se lewe volg van jeugdige entoesiasme tot die aanvang van doofheid, uitgebeeld deur 'n deurdringende hoë-E-harmoniek in die finale.",
+    "instrumentation": "Strykkwartet"
   },
   "borodin-symphony-2": {
-    "title": "Symphony No. 2 in B minor",
-    "description": "A powerful, heroic symphony evoking the spirit of ancient Russia. Its bold themes and vivid orchestration prompted Liszt to declare Borodin a symphonic talent of the first rank.",
+    "title": "Simfonie Nr. 2 in B mineur",
+    "description": "'n Kragtige, heroïese simfonie wat die gees van antieke Rusland oproep. Die gedurfde temas en lewendige orkestrasie het Liszt daartoe gebring om Borodin as 'n simfoniese talent van die eerste rang te verklaar.",
     "instrumentation": "Orkes"
   },
   "mussorgsky-songs-dances-death": {
-    "title": "Songs and Dances of Death",
-    "description": "A harrowing song cycle in which Death appears in four guises — as a lullaby singer, a dancer, a commander, and a serenade singer. Among the most powerful vocal works of the 19th century.",
+    "title": "Liedere en Danse van die Dood",
+    "description": "'n Ontstellende liedsiklus waarin die Dood in vier gedaantes verskyn — as 'n wiegelied-sanger, 'n danser, 'n bevelvoerder en 'n serenademaker. Onder die kragtigste vokale werke van die 19de eeu.",
     "instrumentation": "Stem, klavier"
   },
   "brahms-violin-concerto": {
-    "title": "Violin Concerto",
-    "description": "Written for and with advice from Joseph Joachim, this concerto balances heroic grandeur with lyrical warmth. The slow movement's oboe theme is one of the most beautiful melodies Brahms ever wrote.",
-    "instrumentation": "Solo viool, orkes"
+    "title": "Vioolkonsert",
+    "description": "Geskryf vir en met advies van Joseph Joachim; hierdie konsert balanseer heroïese grandeur met liriese warmte. Die stadige beweging se hobo-tema is een van die mooiste melodieë wat Brahms ooit geskryf het.",
+    "instrumentation": "Solo-viool, orkes"
   },
   "tchaikovsky-violin-concerto": {
-    "title": "Violin Concerto",
-    "description": "A work of soaring Russian lyricism. The critic Hanslick notoriously called it 'music that stinks to the ear,' but audiences adored it from the start. Its fusion of virtuosity and emotional depth makes it one of the great violin concertos.",
-    "instrumentation": "Solo viool, orkes"
+    "title": "Vioolkonsert",
+    "description": "'n Werk van swewendehoë Russiese lirisme. Die kritikus Hanslick het dit berugt 'musiek wat na die oor stink' genoem, maar gehore was van die begin af mal daaroor. Die versmelting van virtuositeit en emosionele diepte maak dit een van die groot vioolkonserte.",
+    "instrumentation": "Solo-viool, orkes"
   },
   "smetana-ma-vlast": {
-    "title": "Má vlast (My Fatherland)",
-    "description": "A cycle of six symphonic poems celebrating Czech history, legend, and landscape. Vltava (The Moldau) is the most famous, depicting the great river's journey from mountain springs to Prague.",
+    "title": "Má vlast (My Vaderland)",
+    "description": "'n Siklus van ses simfoniese digstukke wat Tsjeggiese geskiedenis, legende en landskap vier. Vltava (Die Moldau) is die beroemdste, wat die groot rivier se reis van bergbronne na Praag uitbeeld.",
     "instrumentation": "Orkes",
-    "significance": "The foundational work of Czech musical nationalism."
+    "significance": "Die grondliggende werk van Tsjeggiese musikale nasionalisme."
   },
   "borodin-in-the-steppes": {
-    "title": "In the Steppes of Central Asia",
-    "description": "A tone poem depicting a caravan crossing the Central Asian steppe, combining Russian and Oriental melodies over a persistent rhythmic figure. Its evocative simplicity has made it one of the most popular orchestral miniatures.",
+    "title": "In die Steppe van Sentraal-Asië",
+    "description": "'n Toonddig wat 'n karavaan uitbeeld wat die Sentraal-Asiatiese steppe oorsteek, met 'n kombinasie van Russiese en Oosterse melodieë oor 'n volgehoue ritmiese figuur. Die suggestiewe eenvoud daarvan het dit een van die gewildste orkesminiatuure gemaak.",
     "instrumentation": "Orkes"
   },
   "brahms-piano-concerto-2": {
-    "title": "Piano Concerto No. 2",
-    "description": "Brahms described this four-movement colossus as 'a tiny, tiny piano concerto with a tiny, tiny wisp of a scherzo' — characteristically understating a work of symphonic scope and depth. The cello solo in the slow movement is ravishing.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 2",
+    "description": "Brahms het hierdie vierbeweging-kolos beskryf as ''n piepklein klavierkonsertjie met 'n piepklein wissie van 'n scherzo' — hy het kenmerkend 'n werk van simfoniese omvang en diepte onderskat. Die tjellosolo in die stadige beweging is bekoorlik.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "borodin-string-quartet-2": {
-    "title": "String Quartet No. 2 in D major",
-    "description": "Beloved for its lyrical Nocturne third movement, this quartet is one of the most popular in the repertoire, full of warmth, colour, and songful melodies.",
-    "instrumentation": "Strykerkwartet"
+    "title": "Strykkwartet Nr. 2 in D majeur",
+    "description": "Geliefd vir sy liriese Nocturne-derde beweging; hierdie kwartet is een van die gewildste in die repertorium, vol warmte, kleur en sangvolle melodieë.",
+    "instrumentation": "Strykkwartet"
   },
   "rimsky-korsakov-snow-maiden": {
-    "title": "The Snow Maiden",
-    "description": "A lyrical fairy-tale opera based on Ostrovsky's play, rich in folk-inspired melody and nature painting. Rimsky-Korsakov considered it his finest opera.",
+    "title": "Die Sneeumeisie",
+    "description": "'n Liriese sprokie-opera gebaseer op Ostrovsky se toneelstuk, ryk aan volksgeïnspireerde melodie en natuurskildering. Rimski-Korsakov het dit as sy beste opera beskou.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "franck-prelude-chorale-fugue": {
     "title": "Prélude, Choral et Fugue",
-    "description": "A monumental piano work that fuses Bachian forms with Romantic harmony, creating a unique synthesis of old and new. Its three sections are linked by cyclic themes.",
+    "description": "'n Monumentale klavierwerk wat Bach-agtige vorme met Romantiese harmonie versmelt en 'n unieke sintese van oud en nuut skep. Die drie afdelings word deur sikliese temas verbind.",
     "instrumentation": "Klavier"
   },
   "grieg-holberg-suite": {
-    "title": "Holberg Suite, Op. 40",
-    "description": "A suite in Baroque style honouring the Danish-Norwegian playwright Ludvig Holberg, combining 18th-century dance forms with Grieg's characteristic Nordic harmonies.",
-    "instrumentation": "Strykorkes (originally klavier)"
+    "title": "Holberg-suite, Op. 40",
+    "description": "'n Suite in Barok-styl ter ere van die Deens-Noorse dramaturg Ludvig Holberg, wat 18de-eeuse dansvorme met Grieg se kenmerkende Nordiese harmonieë kombineer.",
+    "instrumentation": "Strykorkes (oorspronklik klavier)"
   },
   "brahms-symphony-4": {
-    "title": "Symphony No. 4",
-    "description": "Brahms's final symphony, and perhaps his greatest. The finale is a passacaglia — a Baroque form — built on 30 variations over a repeating bass line, demonstrating that old forms could contain utterly new emotional content. It ends not in triumph but in an acceptance that is more powerful than triumph.",
+    "title": "Simfonie Nr. 4",
+    "description": "Brahms se laaste simfonie, en miskien sy grootste. Die finale is 'n passacaglia — 'n Barok-vorm — gebou op 30 variasies oor 'n herhalende baslyn, wat bewys dat ou vorme totaal nuwe emosionele inhoud kon bevat. Dit eindig nie in triomf nie, maar in 'n aanvaarding wat kragtiger as triomf is.",
     "instrumentation": "Orkes",
-    "significance": "A supreme synthesis of Classical form and Romantic expression."
+    "significance": "'n Opperste sintese van Klassieke vorm en Romantiese uitdrukking."
   },
   "franck-symphonic-variations": {
-    "title": "Symphonic Variations",
-    "description": "A concise, brilliantly crafted work for piano and orchestra that distils the variation form into a continuous, organic whole. One of the finest works in the piano-and-orchestra repertoire.",
+    "title": "Simfoniese Variasies",
+    "description": "'n Bondig, briljant vervaardigde werk vir klavier en orkes wat die variasievorm tot 'n deurlopende, organiese geheel distilleer. Een van die beste werke in die klavier-en-orkes-repertorium.",
     "instrumentation": "Klavier, orkes"
   },
   "franck-violin-sonata": {
-    "title": "Violin Sonata in A major",
-    "description": "A wedding gift for Eugène Ysaÿe, this sonata is one of the supreme masterpieces of the chamber repertoire. Its four movements are unified by cyclic themes of extraordinary beauty.",
+    "title": "Vioolsonate in A majeur",
+    "description": "'n Huweliksgeskenk vir Eugène Ysaÿe; hierdie sonate is een van die opperste meesterwerke van die kamermusiekrepertorium. Die vier bewegings word deur sikliese temas van buitengewone skoonheid verenig.",
     "instrumentation": "Viool, klavier",
-    "significance": "One of the greatest violin sonatas ever written."
+    "significance": "Een van die grootste vioolsonates ooit geskryf."
   },
   "saint-saens-organ-symphony": {
-    "title": "Symphony No. 3 in C minor, Op. 78 'Organ'",
-    "description": "A magnificent symphony incorporating organ and piano, dedicated to the memory of Liszt. Its triumphant finale, with the full organ blazing, is one of the most exhilarating moments in symphonic music.",
-    "instrumentation": "Orkes, orrel, klavier (vier hande)",
-    "significance": "Revitalised the French symphony and pioneered the use of organ in symphonic music."
+    "title": "Simfonie Nr. 3 in C mineur, Op. 78 'Orrel'",
+    "description": "'n Manjifieke simfonie wat orrel en klavier inkorporeer, opgedra aan die nagedagtenis van Liszt. Die triomfantlike finale, met die volle orrel wat blaker, is een van die mees opwindende oomblikke in simfoniese musiek.",
+    "instrumentation": "Orkes, orrel, klavier (vierhandig)",
+    "significance": "Het die Franse simfonie herleef en die gebruik van orrel in simfoniese musiek gepionieer."
   },
   "saint-saens-carnival-animals": {
-    "title": "The Carnival of the Animals",
-    "description": "A witty zoological fantasy in fourteen movements, featuring musical portraits of lions, elephants, kangaroos, and pianists. Saint-Saëns suppressed it during his lifetime, fearing it would harm his serious reputation.",
+    "title": "Die Karnaval van die Diere",
+    "description": "'n Geestige soölogiese fantasie in veertien bewegings, met musikale portrette van leeus, olifante, kangaroes en pianiste. Saint-Saëns het dit tydens sy leeftyd onderdruk uit vrees dat dit sy ernstige reputasie sou skaad.",
     "instrumentation": "Twee klaviere, fluit, klarinet, glasharmonika, xilofoon, strykers"
   },
   "verdi-otello": {
     "title": "Otello",
-    "description": "Composed when Verdi was 73, Otello is often considered his greatest work — a searing musical adaptation of Shakespeare. The vocal writing, orchestration, and dramatic pacing reach a level of sophistication that synthesizes everything Verdi learned over half a century.",
+    "description": "Gekomponeer toe Verdi 73 was; Otello word dikwels as sy grootste werk beskou — 'n verskroeiende musikale verwerking van Shakespeare. Die vokale skryfkuns, orkestrasie en dramatiese tempo bereik 'n vlak van gesofistikeerdheid wat alles wat Verdi oor 'n halwe eeu geleer het, sinteseer.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Proof that Italian opera could match Wagner in musical depth without sacrificing vocal melody."
+    "significance": "Bewys dat Italiaanse opera Wagner in musikale diepte kon ewenaar sonder om vokale melodie op te offer."
   },
   "rimsky-korsakov-capriccio-espagnol": {
     "title": "Capriccio espagnol, Op. 34",
-    "description": "A five-movement orchestral work of dazzling brilliance inspired by Spanish themes, designed to showcase the virtuosity of individual orchestral sections.",
+    "description": "'n Vyfbeweging-orkeswerk van skitterende briljansie geïnspireer deur Spaanse temas, ontwerp om die virtuositeit van individuele orkesafdelings te vertoon.",
     "instrumentation": "Orkes"
   },
   "franck-symphony-d-minor": {
-    "title": "Symphony in D minor",
-    "description": "Franck's only symphony, a tightly constructed three-movement work built on cyclic principles. Initially dismissed by the Parisian establishment, it has become one of the most frequently performed French symphonies.",
+    "title": "Simfonie in D mineur",
+    "description": "Franck se enigste simfonie, 'n styf gekonstrueerde driebeweging-werk gebou op sikliese beginsels. Aanvanklik deur die Paryse establishment verwerp, het dit een van die mees uitgevoerde Franse simfonieë geword.",
     "instrumentation": "Orkes",
-    "significance": "A landmark of French symphonic music and cyclic form."
+    "significance": "'n Mylpaal van Franse simfoniese musiek en sikliese vorm."
   },
   "rimsky-korsakov-scheherazade": {
     "title": "Scheherazade, Op. 35",
-    "description": "A symphonic suite based on One Thousand and One Nights, glittering with exotic orchestral colour. The solo violin represents Scheherazade herself, weaving her tales to save her life.",
-    "instrumentation": "Orkes (with solo viool)",
-    "significance": "One of the supreme achievements of orchestral colour."
+    "description": "'n Simfoniese suite gebaseer op Duisend-en-een-nagte, wat skitter met eksotiese orkestrale kleur. Die solo-viool verteenwoordig Scheherazade self, wat haar verhale weef om haar lewe te red.",
+    "instrumentation": "Orkes (met solo-viool)",
+    "significance": "Een van die opperste prestasies van orkestrale kleur."
   },
   "rimsky-korsakov-russian-easter": {
-    "title": "Russian Easter Festival Overture, Op. 36",
-    "description": "A brilliantly scored overture based on Russian Orthodox liturgical chants, depicting the Easter celebration from solemn darkness to jubilant triumph.",
+    "title": "Russiese Paasfees-ouverture, Op. 36",
+    "description": "'n Briljant georkestreerde ouverture gebaseer op Russies-Ortodokse liturgiese gesange, wat die Paasviering van plegtige donkerte tot jubilante triomf uitbeeld.",
     "instrumentation": "Orkes"
   },
   "satie-gymnopedies": {
     "title": "Gymnopédies",
-    "description": "Three slow, dreamlike pieces whose bare, modal harmonies and static quality broke completely with late-Romantic excess. They anticipate ambient music by nearly a century.",
+    "description": "Drie stadige, dromerige stukke waarvan die kaal, modale harmonieë en statiese aard heeltemal met laat-Romantiese oordaad gebreek het. Hulle antisipeer omgewingsmusiek met byna 'n eeu.",
     "instrumentation": "Klavier",
-    "significance": "Pioneered musical minimalism and influenced Debussy, Cage, and ambient music."
+    "significance": "Het musikale minimalisme gepionieer en Debussy, Cage en omgewingsmusiek beïnvloed."
   },
   "debussy-clair-de-lune": {
     "title": "Clair de Lune",
-    "description": "The third movement of the Suite bergamasque, and one of the most famous piano pieces ever written. Its shimmering arpeggios and luminous melody evoke moonlight with a tenderness that transcends the Impressionist label.",
+    "description": "Die derde beweging van die Suite bergamasque, en een van die beroemdste klavierstukke ooit geskryf. Die skitterende arpeggio's en liggewende melodie roep maanlig op met 'n teerheid wat die Impressionistiese etiket oortref.",
     "instrumentation": "Klavier"
   },
   "borodin-prince-igor": {
-    "title": "Prince Igor (including Polovtsian Dances)",
-    "description": "An epic opera left unfinished at Borodin's death and completed by Rimsky-Korsakov and Glazunov. The Polovtsian Dances are among the most thrilling and colourful pages in all opera.",
+    "title": "Prins Igor (insluitend Polovetsiese Danse)",
+    "description": "'n Epiese opera wat onvoltooid gelaat is by Borodin se dood en deur Rimski-Korsakov en Glazoenov voltooi is. Die Polovetsiese Danse is van die mees opwindende en kleurvolle bladsye in alle opera.",
     "instrumentation": "Soliste, koor, orkes, ballet"
   },
   "tchaikovsky-nutcracker": {
     "title": "Die Neutekraker",
-    "description": "A Christmas fairy-tale ballet that has become inseparable from the holiday season. The Dance of the Sugar Plum Fairy (featuring the celesta, an instrument Tchaikovsky discovered in Paris) and the Waltz of the Flowers are among the most beloved orchestral pieces in existence.",
+    "description": "'n Kerssprokiesballet wat onafskeidbaar van die vakansieseisoen geword het. Die Dans van die Suikerboontjie-fee (met die celesta, 'n instrument wat Tchaikovsky in Parys ontdek het) en die Blommewaltz is van die mees geliefde orkesstukke in bestaan.",
     "instrumentation": "Orkes"
   },
   "tchaikovsky-symphony-6": {
-    "title": "Symphony No. 6 'Pathétique'",
-    "description": "Tchaikovsky's final symphony, premiered nine days before his death. It breaks convention by ending with a devastating slow movement — an Adagio lamentoso that fades into silence. The composer described it as his most sincere work, 'a programme which shall remain an enigma.'",
+    "title": "Simfonie Nr. 6 'Pathétique'",
+    "description": "Tchaikovsky se laaste simfonie, nege dae voor sy dood vir die eerste keer opgevoer. Dit breek konvensie deur met 'n verwoestende stadige beweging te eindig — 'n Adagio lamentoso wat in stilte vervaag. Die komponis het dit as sy opregtste werk beskryf, 'n program wat 'n raaisel sal bly.'",
     "instrumentation": "Orkes",
-    "significance": "One of the most emotionally overwhelming symphonies ever written."
+    "significance": "Een van die mees emosioneel oorweldigende simfonieë ooit geskryf."
   },
   "dvorak-symphony-9": {
-    "title": "Symphony No. 9 in E minor, Op. 95 'From the New World'",
-    "description": "Composed during Dvořák's tenure in New York, this symphony blends Czech nostalgia with American influences. The Largo's English horn melody has become one of the most recognisable tunes in classical music.",
+    "title": "Simfonie Nr. 9 in E mineur, Op. 95 'Uit die Nuwe Wêreld'",
+    "description": "Gekomponeer tydens Dvořák se dienstermyn in New York; hierdie simfonie vermeng Tsjeggiese nostalgie met Amerikaanse invloede. Die Largo se Engelse horing-melodie het een van die mees herkenbare wysies in klassieke musiek geword.",
     "instrumentation": "Orkes",
-    "significance": "One of the most popular symphonies ever written."
+    "significance": "Een van die gewildste simfonieë ooit geskryf."
   },
   "satie-gnossiennes": {
     "title": "Gnossiennes",
-    "description": "Six enigmatic pieces written without bar lines or key signatures, with eccentric performance directions ('Open your head,' 'Be a clairvoyant'). Their exotic modality hints at Middle Eastern music.",
+    "description": "Ses enigmatiese stukke geskryf sonder maatstrepe of toonsoorttekens, met eksentrieke uitvoeringaanwysings ('Maak jou kop oop,' 'Wees heldersiende'). Hul eksotiese modaliteit sinspeel op Midde-Oosterse musiek.",
     "instrumentation": "Klavier"
   },
   "satie-vexations": {
     "title": "Vexations",
-    "description": "A short passage with instructions to repeat it 840 times, lasting approximately 18 hours. Rediscovered by John Cage in 1963, it anticipated conceptual art and endurance performance.",
+    "description": "'n Kort passasie met instruksies om dit 840 keer te herhaal, wat ongeveer 18 uur duur. Herontdek deur John Cage in 1963, het dit konseptuele kuns en uithouvermoëoptrede vooruitgeloop.",
     "instrumentation": "Klavier"
   },
   "mahler-symphony-2": {
-    "title": "Symphony No. 2 'Resurrection'",
-    "description": "A 90-minute journey from death to resurrection. Beginning with a violent funeral march and ending with a chorus singing of rising from the dead, the 'Resurrection' Symphony deploys forces of Beethovenian ambition — including offstage brass, bells, and a massive chorus — to ask: Why do we live? Is there life after death?",
-    "instrumentation": "Soliste, koor, massive orkes, offstage koper",
-    "significance": "One of the most overwhelming concert experiences in all music."
+    "title": "Simfonie Nr. 2 'Opstanding'",
+    "description": "'n 90-minuut-reis van die dood na opstanding. Begin met 'n gewelddadige begrafnismars en eindig met 'n koor wat sing van opstaan uit die dood; die 'Opstandingsimfonie' ontplooi kragte van Beethoviaanse ambisie — insluitend buiteverhoog-koper, klokke en 'n massiewe koor — om te vra: Hoekom lewe ons? Is daar lewe ná die dood?",
+    "instrumentation": "Soliste, koor, massiewe orkes, buiteverhoog-koper",
+    "significance": "Een van die mees oorweldigende konsertervarings in alle musiek."
   },
   "debussy-prelude-apres-midi": {
     "title": "Prélude à l'après-midi d'un faune",
-    "description": "A sensuous orchestral evocation of Mallarmé's poem about a faun's afternoon reverie. The opening flute solo — languorous, chromatic, floating free of bar lines — announced a new musical world. Boulez called it 'the beginning of modern music.'",
+    "description": "'n Sensuele orkesoproeping van Mallarmé se gedig oor 'n faun se middagdroombeeld. Die openingsfluit-solo — lusteloos, chromaties, vry van maatstrepe — het 'n nuwe musikale wêreld aangekondig. Boulez het dit 'die begin van moderne musiek' genoem.",
     "instrumentation": "Orkes",
-    "significance": "Often cited as the starting point of musical modernism and Impressionism."
+    "significance": "Dikwels aangehaal as die beginpunt van musikale modernisme en Impressionisme."
   },
   "dvorak-cello-concerto": {
-    "title": "Cello Concerto in B minor, Op. 104",
-    "description": "Brahms declared upon reading the score, 'Why on earth didn't I know one could write a cello concerto like this? Had I known, I'd have written one long ago!' Widely regarded as the greatest cello concerto.",
-    "instrumentation": "Solo tjello, orkes",
-    "significance": "Widely regarded as the greatest cello concerto ever written."
+    "title": "Tjellokonsert in B mineur, Op. 104",
+    "description": "Brahms het by die lees van die partituur verklaar: 'Hoekom op aarde het ek nie geweet 'n mens kan so 'n tjellokonsert skryf nie? As ek geweet het, sou ek lankal een geskryf het!' Allerweë beskou as die grootste tjellokonsert.",
+    "instrumentation": "Solo-tjello, orkes",
+    "significance": "Allerweë beskou as die grootste tjellokonsert ooit geskryf."
   },
   "strauss-also-sprach-zarathustra": {
     "title": "Also sprach Zarathustra",
-    "description": "The opening sunrise fanfare — C-G-C over a rumbling organ pedal — became one of the most iconic musical moments in history after Stanley Kubrick used it in 2001: A Space Odyssey. The full tone poem is a 30-minute philosophical journey inspired by Nietzsche.",
-    "instrumentation": "Large orkes with orrel"
+    "description": "Die openingsonsopgangsfanfare — C-G-C oor 'n dreunings orrelpedaal — het een van die mees ikoniese musikale oomblikke in die geskiedenis geword nadat Stanley Kubrick dit in 2001: A Space Odyssey gebruik het. Die volle toonddig is 'n 30-minuut-filosofiese reis geïnspireer deur Nietzsche.",
+    "instrumentation": "Groot orkes met orrel"
   },
   "puccini-la-boheme": {
     "title": "La bohème",
-    "description": "A heartbreaking tale of young love and death in the Latin Quarter of Paris, told with Puccini's unerring dramatic instinct and gift for melody. Musetta's Waltz and Mimì's death scene are among opera's most beloved moments.",
+    "description": "'n Hartverskeurende verhaal van jong liefde en dood in die Latynse Kwartier van Parys, vertel met Puccini se onfeilbare dramatiese instink en gawe vir melodie. Musetta se Wals en Mimì se sterftoneel is van die opera se mees geliefde oomblikke.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "One of the most performed operas in the world."
+    "significance": "Een van die mees opgevoerde operas ter wêreld."
   },
   "schoenberg-verklarte-nacht": {
-    "title": "Verklärte Nacht (Transfigured Night)",
-    "description": "A lushly Romantic tone poem for string sextet, based on a poem by Richard Dehmel about a moonlit walk and a confession of love. One of the last great works of tonal Romanticism — before Schoenberg himself dismantled tonality.",
-    "instrumentation": "String sextet (or strykorkes)"
+    "title": "Verklärte Nacht (Verheerlikte Nag)",
+    "description": "'n Weelderig Romantiese toonddig vir stryksekstet, gebaseer op 'n gedig deur Richard Dehmel oor 'n maanligwandeling en 'n liefdesbelydenis. Een van die laaste groot werke van tonale Romantiek — voordat Schoenberg self tonaliteit ontmantel het.",
+    "instrumentation": "Stryksekstet (of strykorkes)"
   },
   "elgar-enigma-variations": {
-    "title": "Enigma Variations, Op. 36",
-    "description": "Fourteen variations portraying Elgar's friends and wife, each a vivid character sketch. The noble Nimrod variation has become an unofficial British anthem, played at state occasions and Remembrance services.",
+    "title": "Enigma-variasies, Op. 36",
+    "description": "Veertien variasies wat Elgar se vriende en vrou uitbeeld, elk 'n lewendige karakterskets. Die edele Nimrod-variasie het 'n onamptelike Britse volkslied geword, gespeel by staatsgebeure en herdenkingsdienste.",
     "instrumentation": "Orkes",
-    "significance": "Established Elgar as a major international composer overnight."
+    "significance": "Het Elgar oornag as 'n groot internasionale komponis gevestig."
   },
   "sibelius-finlandia": {
     "title": "Finlandia, Op. 26",
-    "description": "A tone poem that became an anthem of Finnish national identity during the struggle for independence from Russia. The Russian authorities banned performances under its real title.",
+    "description": "'n Toonddig wat 'n volkslied van Finse nasionale identiteit geword het tydens die stryd om onafhanklikheid van Rusland. Die Russiese owerhede het opvoerings onder die ware titel verbied.",
     "instrumentation": "Orkes",
-    "significance": "Became a symbol of Finnish independence."
+    "significance": "Het 'n simbool van Finse onafhanklikheid geword."
   },
   "rimsky-korsakov-flight-bumblebee": {
-    "title": "Flight of the Bumblebee",
-    "description": "An orchestral interlude from the opera The Tale of Tsar Saltan, depicting a prince transformed into a bumblebee. Its whirling chromatic scales have made it one of the most famous virtuoso showpieces.",
+    "title": "Vlug van die Hommelby",
+    "description": "'n Orkestrale tussenspel uit die opera Die Verhaal van Tsaar Saltan, wat 'n prins uitbeeld wat in 'n hommelby verander is. Die dwarrelende chromatiese toonlere het dit een van die beroemdste virtuose vitrinestukke gemaak.",
     "instrumentation": "Orkes"
   },
   "elgar-dream-gerontius": {
-    "title": "The Dream of Gerontius, Op. 38",
-    "description": "A large-scale oratorio setting Cardinal Newman's poem about the soul's journey after death. After a disastrous première, it was championed in Germany by Richard Strauss, who toasted Elgar as 'the first English progressive.'",
-    "instrumentation": "Mezzosoppraan, tenoor, bas soliste, koor, orkes"
+    "title": "Die Droom van Gerontius, Op. 38",
+    "description": "'n Grootskaalse oratorium wat Kardinaal Newman se gedig toonsit oor die siel se reis ná die dood. Ná 'n rampspoedige première is dit in Duitsland deur Richard Strauss voorgestaan, wat Elgar as 'die eerste Engelse progressiewer' geprys het.",
+    "instrumentation": "Mezzosopraansoolis, tenoorsoolis, bassoolis, koor, orkes"
   },
   "puccini-tosca": {
     "title": "Tosca",
-    "description": "A gripping thriller set in Rome during Napoleon's campaign, famous for Vissi d'arte and the dramatic final act. Its pace, violence, and emotional intensity anticipated cinematic storytelling.",
+    "description": "'n Meesleurende spanningsverhaal wat in Rome afspeel tydens Napoleon se veldtog, beroemd vir Vissi d'arte en die dramatiese slotbedryf. Die tempo, geweld en emosionele intensiteit het filmvertelkuns vooruitgeloop.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "rachmaninoff-piano-concerto-2": {
-    "title": "Piano Concerto No. 2",
-    "description": "Composed after Rachmaninoff overcame a creative crisis through hypnotherapy, this concerto opens with slowly building bell-like chords and unfolds in waves of lush, passionate melody. One of the most popular concertos ever written.",
-    "instrumentation": "Solo klavier, orkes",
-    "significance": "A defining work of late Romanticism and one of the most commercially successful classical works."
+    "title": "Klavierkonsert Nr. 2",
+    "description": "Gekomponeer nadat Rachmaninoff 'n skeppende krisis deur hipnoterapie oorkom het; hierdie konsert open met stadig opbouende klokagtige akkoorde en ontvou in golwe van weelderige, hartstogtelike melodie. Een van die gewildste konserte ooit geskryf.",
+    "instrumentation": "Solo-klavier, orkes",
+    "significance": "'n Bepalende werk van die laat Romantiek en een van die mees kommersieel suksesvolle klassieke werke."
   },
   "elgar-pomp-circumstance-1": {
-    "title": "Pomp and Circumstance March No. 1 in D major",
-    "description": "The first and most famous of five marches, whose trio melody (Land of Hope and Glory) became a second national anthem. King Edward VII suggested words be set to the great tune.",
+    "title": "Pomp and Circumstance-mars Nr. 1 in D majeur",
+    "description": "Die eerste en beroemdste van vyf marse, waarvan die trio-melodie (Land of Hope and Glory) 'n tweede volkslied geword het. Koning Edward VII het voorgestel dat woorde op die groot wysie gesit word.",
     "instrumentation": "Orkes"
   },
   "mahler-symphony-5": {
-    "title": "Symphony No. 5",
-    "description": "From funeral march to exuberant rondo — a symphony of transformation. The fourth movement, the Adagietto for strings and harp, became famous through Visconti's film Death in Venice and is now one of the most beloved slow movements in the repertoire.",
-    "instrumentation": "Large orkes"
+    "title": "Simfonie Nr. 5",
+    "description": "Van begrafnismars tot uitbundige rondo — 'n simfonie van transformasie. Die vierde beweging, die Adagietto vir strykers en harp, het beroemd geword deur Visconti se film Dood in Venesië en is nou een van die mees geliefde stadige bewegings in die repertorium.",
+    "instrumentation": "Groot orkes"
   },
   "sibelius-symphony-2": {
-    "title": "Symphony No. 2 in D major, Op. 43",
-    "description": "A heroic symphony interpreted in Finland as a declaration of national independence from Russia. Its triumphant finale, building from fragments to a blazing peroration, remains one of the most thrilling in the repertoire.",
+    "title": "Simfonie Nr. 2 in D majeur, Op. 43",
+    "description": "'n Heroïese simfonie wat in Finland as 'n verklaring van nasionale onafhanklikheid van Rusland geïnterpreteer is. Die triomfantlike finale, wat van fragmente bou tot 'n vlammende peroratie, bly een van die mees opwindende in die repertorium.",
     "instrumentation": "Orkes"
   },
   "sibelius-valse-triste": {
     "title": "Valse triste, Op. 44",
-    "description": "A haunting waltz from incidental music for a play, depicting a dying woman's hallucination of a ghostly ball. Its melancholic beauty made it Sibelius's most popular short work.",
+    "description": "'n Bekoorlike wals uit toneelmusiek vir 'n toneelstuk, wat 'n sterwende vrou se hallusinasie van 'n spookagtige bal uitbeeld. Die melankoliese skoonheid het dit Sibelius se gewildste kort werk gemaak.",
     "instrumentation": "Strykorkes"
   },
   "puccini-madama-butterfly": {
     "title": "Madama Butterfly",
-    "description": "The tragic story of a Japanese geisha abandoned by an American naval officer. After a disastrous première, Puccini revised it into one of the most emotionally devastating operas ever written.",
+    "description": "Die tragiese verhaal van 'n Japannese geisha wat deur 'n Amerikaanse vlootoffisier in die steek gelaat word. Ná 'n rampspoedige première het Puccini dit hersien tot een van die mees emosioneel verwoestende operas ooit geskryf.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "debussy-la-mer": {
     "title": "La Mer",
-    "description": "Three symphonic sketches depicting the sea — from dawn to noon, the play of waves, and the dialogue of wind and sea. Not a depiction but an evocation: Debussy captures not the look of the sea but how it feels.",
+    "description": "Drie simfoniese sketse wat die see uitbeeld — van dagbreek tot middag, die spel van golwe, en die gesprek van wind en see. Nie 'n uitbeelding nie, maar 'n oproep: Debussy vang nie die voorkoms van die see nie, maar hoe dit voel.",
     "instrumentation": "Orkes",
-    "significance": "The greatest orchestral work of Impressionism."
+    "significance": "Die grootste orkeswerk van die Impressionisme."
   },
   "elgar-introduction-allegro": {
-    "title": "Introduction and Allegro, Op. 47",
-    "description": "A magnificent work for string quartet and string orchestra, combining sonata form with fugal writing. Its soaring Welsh-inspired themes and rich textures make it one of the finest works for strings.",
-    "instrumentation": "Strykerkwartet, strykorkes"
+    "title": "Inleiding en Allegro, Op. 47",
+    "description": "'n Manjifieke werk vir strykkwartet en strykorkes wat sonatevorm met fugale skryfkuns kombineer. Die swewendehoe Wallies-geïnspireerde temas en ryk teksture maak dit een van die beste werke vir strykers.",
+    "instrumentation": "Strykkwartet, strykorkes"
   },
   "sibelius-violin-concerto": {
-    "title": "Violin Concerto in D minor, Op. 47",
-    "description": "The only concerto Sibelius completed, combining icy Nordic atmosphere with passionate lyricism and formidable technical demands. One of the most popular and challenging violin concertos.",
-    "instrumentation": "Solo viool, orkes"
+    "title": "Vioolkonsert in D mineur, Op. 47",
+    "description": "Die enigste konsert wat Sibelius voltooi het, wat ysige Nordiese atmosfeer met hartstogtelike lirisme en formidabele tegniese eise kombineer. Een van die gewildste en uitdagendste vioolkonserte.",
+    "instrumentation": "Solo-viool, orkes"
   },
   "mahler-das-lied-von-der-erde": {
-    "title": "Das Lied von der Erde (The Song of the Earth)",
-    "description": "A symphony in all but name (Mahler feared the 'curse' of the ninth symphony). Setting ancient Chinese poems in German translation, it is a farewell to life of heartbreaking beauty. The final word — 'ewig' (forever) — dissolves into silence over a chord that never fully resolves.",
-    "instrumentation": "Mezzosoppraan, tenoor, orkes",
-    "significance": "Perhaps Mahler's greatest work, and one of music's supreme expressions of mortality and transcendence."
+    "title": "Das Lied von der Erde (Die Lied van die Aarde)",
+    "description": "'n Simfonie in alles behalwe naam (Mahler het die 'vloek' van die negende simfonie gevrees). Dit toonsit antieke Chinese gedigte in Duitse vertaling en is 'n afskeid van die lewe van hartverskeurende skoonheid. Die laaste woord — 'ewig' (vir ewig) — vervaag in stilte oor 'n akkoord wat nooit ten volle oplos nie.",
+    "instrumentation": "Mezzosopraansoolis, tenoorsoolis, orkes",
+    "significance": "Miskien Mahler se grootste werk, en een van musiek se opperste uitdrukkings van sterflikheid en transendensie."
   },
   "rachmaninoff-piano-concerto-3": {
-    "title": "Piano Concerto No. 3",
-    "description": "The 'Mount Everest' of the piano concerto repertoire. Written for Rachmaninoff's first American tour, it demands staggering technical prowess while maintaining an unbroken flow of inspired melody. Horowitz and others made it a test of supreme pianistic ability.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 3",
+    "description": "Die 'Mount Everest' van die klavierkonsert-repertorium. Geskryf vir Rachmaninoff se eerste Amerikaanse toer, vereis dit verbysterende tegniese vaardigheid terwyl dit 'n ononderbroke vloei van geïnspireerde melodie handhaaf. Horowitz en ander het dit 'n toets van opperste pianistiese vermoë gemaak.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "stravinsky-firebird": {
-    "title": "Die Vuurvoel",
-    "description": "Stravinsky's breakthrough — a ballet based on Russian fairy tales, commissioned by Diaghilev. The finale's coronation scene, with its slowly building horn theme, is one of the most thrilling climaxes in orchestral music.",
-    "instrumentation": "Large orkes"
+    "title": "Die Vuurvoël",
+    "description": "Stravinsky se deurbraak — 'n ballet gebaseer op Russiese sprokies, in opdrag van Diaghilev. Die finale se kroningstoneel, met sy stadig opbouende horingtema, is een van die mees opwindende klimakse in orkesmusiek.",
+    "instrumentation": "Groot orkes"
   },
   "strauss-der-rosenkavalier": {
     "title": "Der Rosenkavalier",
-    "description": "A bittersweet comedy of love and aging set in 18th-century Vienna. The final trio, where three women's voices intertwine in farewell, is one of the most sublime moments in all opera. Strauss's rich, waltzing score is both a tribute to and a farewell from the Romantic era.",
-    "instrumentation": "Soliste, koor, large orkes"
+    "description": "'n Bittersoet komedie van liefde en veroudering in 18de-eeuse Wene. Die slottrio, waar drie vrouenstemme in afskeid ineenvleg, is een van die mees sublieme oomblikke in alle opera. Strauss se ryk, walswysie partituur is beide 'n huldeblyk aan en 'n afskeid van die Romantiese era.",
+    "instrumentation": "Soliste, koor, groot orkes"
   },
   "stravinsky-petrushka": {
     "title": "Petrushka",
-    "description": "A ballet about a puppet who comes to life at a Russian carnival. The famous 'Petrushka chord' — C major and F-sharp major played simultaneously — became a symbol of polytonality and the modern disintegration of traditional harmony.",
-    "instrumentation": "Large orkes with klavier"
+    "description": "'n Ballet oor 'n marionet wat by 'n Russiese karnaval lewendig word. Die beroemde 'Petrushka-akkoord' — C majeur en Fis majeur gelyktydig gespeel — het 'n simbool van politonaliteit en die moderne ontbinding van tradisionele harmonie geword.",
+    "instrumentation": "Groot orkes met klavier"
   },
   "schoenberg-pierrot-lunaire": {
     "title": "Pierrot lunaire, Op. 21",
-    "description": "Twenty-one settings of Albert Giraud's poems using Sprechstimme (speech-song), a revolutionary vocal technique between speaking and singing. Its expressionist intensity and novel timbres made it one of the most influential works of the 20th century.",
-    "instrumentation": "Sprechstimme stem, fluit/piccolo, klarinet/bas klarinet, viool/altviool, tjello, klavier",
-    "significance": "Pioneered Sprechstimme and transformed 20th-century vocal music."
+    "description": "Een-en-twintig toonsettings van Albert Giraud se gedigte met behulp van Sprechstimme (spraaksang), 'n revolusionêre vokale tegniek tussen praat en sing. Die ekspressionistiese intensiteit en nuwe klankkombinasies het dit een van die invloedrykste werke van die 20ste eeu gemaak.",
+    "instrumentation": "Sprechstimme-stem, fluit/piccolo, klarinet/basklarinet, viool/altviool, tjello, klavier",
+    "significance": "Het Sprechstimme gepionieer en 20ste-eeuse vokale musiek getransformeer."
   },
   "ravel-daphnis-et-chloe": {
     "title": "Daphnis et Chloé",
-    "description": "A ballet score commissioned by Diaghilev for the Ballets Russes. The dawn scene in Part III — often extracted as an orchestral suite — is one of the most breathtaking passages in all orchestral music, with the orchestra physically rising like the sun.",
-    "instrumentation": "Large orkes, wordless koor",
-    "significance": "Ravel considered it his best work. Often called 'the greatest French orchestral composition.'"
+    "description": "'n Balletpartituur in opdrag van Diaghilev vir die Ballets Russes. Die dagbreektoneel in Deel III — dikwels as 'n orkessuite onttrek — is een van die mees asemrowende passasies in alle orkesmusiek, waar die orkes fisies soos die son opkom.",
+    "instrumentation": "Groot orkes, woordelose koor",
+    "significance": "Ravel het dit as sy beste werk beskou. Dikwels genoem 'die grootste Franse orkeskomposisie.'"
   },
   "stravinsky-rite-of-spring": {
     "title": "Die Lentewyding",
-    "description": "A ballet depicting a pagan ritual of sacrifice in prehistoric Russia. Its Paris premiere on May 29, 1913, provoked one of history's most famous riots — the audience screamed, fought, and drowned out the music. Its savage, irregular rhythms, polytonal harmonies, and orchestral violence changed music forever.",
-    "instrumentation": "Very large orkes",
-    "significance": "The single most important orchestral work of the 20th century. Dividing line between Romantic and Modern music."
+    "description": "'n Ballet wat 'n heidense ritueel van opoffering in prehistoriese Rusland uitbeeld. Die Paryse première op 29 Mei 1913 het een van die geskiedenis se beroemdste oproerige vertonings uitgelok — die gehoor het geskree, baklei en die musiek oorsteek. Die wrede, onreëlmatige ritmes, politonale harmonieë en orkestrale geweld het musiek vir altyd verander.",
+    "instrumentation": "Baie groot orkes",
+    "significance": "Die enkele belangrikste orkeswerk van die 20ste eeu. Skeidingslyn tussen Romantiese en Moderne musiek."
   },
   "satie-parade": {
     "title": "Parade",
-    "description": "A Cubist ballet created with Cocteau, Picasso, and Diaghilev. Its score incorporates typewriters, pistols, and a siren, scandalising audiences and earning the first use of the word 'surrealist' (by Apollinaire).",
-    "instrumentation": "Orkes (with tikmasjien, pistol, siren)",
-    "significance": "A landmark of avant-garde collaboration."
+    "description": "'n Kubistiese ballet geskep saam met Cocteau, Picasso en Diaghilev. Die partituur inkorporeer tikmasjiene, pistole en 'n sirene, wat gehore geskok het en die eerste gebruik van die woord 'surrealisties' (deur Apollinaire) verdien het.",
+    "instrumentation": "Orkes (met tikmasjien, pistool, sirene)",
+    "significance": "'n Mylpaal van avant-garde-samewerking."
   },
   "puccini-gianni-schicchi": {
     "title": "Gianni Schicchi",
-    "description": "A sparkling one-act comedy — rare in Puccini's output — set in medieval Florence. O mio babbino caro is one of the most popular soprano arias ever written.",
+    "description": "'n Sprankelende eenaktige komedie — skaars in Puccini se oeuvre — afspelend in Middeleeuse Florence. O mio babbino caro is een van die gewildste sopraanarias ooit geskryf.",
     "instrumentation": "Soliste, orkes"
   },
   "elgar-cello-concerto": {
-    "title": "Cello Concerto in E minor, Op. 85",
-    "description": "A valedictory masterpiece composed in the aftermath of World War I, suffused with autumnal melancholy. Jacqueline du Pré's legendary recording made it one of the most beloved cello concertos.",
-    "instrumentation": "Solo tjello, orkes"
+    "title": "Tjellokonsert in E mineur, Op. 85",
+    "description": "'n Afskeid-meesterwerk gekomponeer in die nadraai van die Eerste Wêreldoorlog, deurdrenk met herfstige melankolie. Jacqueline du Pré se legendariese opname het dit een van die mees geliefde tjellokonserte gemaak.",
+    "instrumentation": "Solo-tjello, orkes"
   },
   "sibelius-symphony-5": {
-    "title": "Symphony No. 5 in E-flat major, Op. 82",
-    "description": "A work of cosmic grandeur inspired by the sight of sixteen swans in flight. Its finale's great horn theme, arriving in massive swinging phrases, is one of the most sublime moments in all symphonic music.",
+    "title": "Simfonie Nr. 5 in E-mol majeur, Op. 82",
+    "description": "'n Werk van kosmiese grootsheid geïnspireer deur die sig van sestien swane in vlug. Die finale se groot horingtema, wat in massiewe swaaiende frases aankom, is een van die mees sublieme oomblikke in alle simfoniese musiek.",
     "instrumentation": "Orkes"
   },
   "prokofiev-piano-concerto-3": {
-    "title": "Piano Concerto No. 3",
-    "description": "A dazzling display of pianistic brilliance and energy, combining lyrical Russian melody with modernist motor rhythms. The clarinet opening theme is one of Prokofiev's most memorable, and the finale's driving energy is irresistible.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert Nr. 3",
+    "description": "'n Skitterende vertoonslag van pianistiese briljansie en energie wat liriese Russiese melodie met modernistiese motoriese ritmes kombineer. Die klarinet-openingstema is een van Prokofjev se mees onvergeetlike, en die finale se drywende energie is onweerstaanbaar.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "puccini-turandot": {
     "title": "Turandot",
-    "description": "Puccini's final, unfinished opera, set in legendary China. Nessun dorma has become the most famous tenor aria in the world. The work was completed after Puccini's death by Franco Alfano.",
+    "description": "Puccini se laaste, onvoltooide opera, wat in legendariese China afspeel. Nessun dorma het die beroemdste tenooraria ter wêreld geword. Die werk is ná Puccini se dood deur Franco Alfano voltooi.",
     "instrumentation": "Soliste, koor, orkes"
   },
   "ravel-bolero": {
     "title": "Boléro",
-    "description": "A single melody repeated over and over for 15 minutes, with only the orchestration changing — building from a whispered snare drum solo to a full-orchestra explosion. Ravel himself called it 'a piece for orchestra without music.' Audiences disagreed; it became the most performed French composition.",
-    "instrumentation": "Large orkes",
-    "significance": "The most popular work in the French orchestral repertoire and a masterclass in orchestration."
+    "description": "'n Enkele melodie wat oor en oor vir 15 minute herhaal word, met slegs die orkestrasie wat verander — bou van 'n gefluisterde snaartromsolo tot 'n volorkes-ontploffing. Ravel self het dit ''n stuk vir orkes sonder musiek' genoem. Gehore het nie saamgestem nie; dit het die mees uitgevoerde Franse komposisie geword.",
+    "instrumentation": "Groot orkes",
+    "significance": "Die gewildste werk in die Franse orkesrepertorium en 'n meestersklas in orkestrasie."
   },
   "bartok-string-quartet-4": {
-    "title": "String Quartet No. 4",
-    "description": "A five-movement arch-form work of ferocious intensity and structural perfection. Its night-music and percussive pizzicato movements expanded the quartet's expressive range beyond anything previously imagined.",
-    "instrumentation": "Strykerkwartet"
+    "title": "Strykkwartet Nr. 4",
+    "description": "'n Vyfbeweging-boogvormwerk van woeste intensiteit en strukturele perfeksie. Die nagmusiek en perkussiewe pizzicato-bewegings het die kwartet se ekspressiewe reikwydte verder uitgebrei as enigiets wat voorheen verbeel is.",
+    "instrumentation": "Strykkwartet"
   },
   "stravinsky-symphony-of-psalms": {
-    "title": "Symphony of Psalms",
-    "description": "A neoclassical setting of three Latin psalms, composed 'to the glory of God.' The austere, ritualistic sound — no violins, no violas — creates a unique, archaic atmosphere. The final 'Laudate Dominum' achieves a serenity rare in Stravinsky.",
-    "instrumentation": "Koor, orkes (without viools or altviools)"
+    "title": "Simfonie van Psalms",
+    "description": "'n Neo-klassieke toonsetting van drie Latynse psalms, gekomponeer 'tot die eer van God.' Die streng, ritualistiese klank — geen viole, geen altviole — skep 'n unieke, argaïese atmosfeer. Die finale 'Laudate Dominum' bereik 'n sereniteit wat skaars in Stravinsky is.",
+    "instrumentation": "Koor, orkes (sonder viole of altviole)"
   },
   "ravel-piano-concerto-g": {
-    "title": "Piano Concerto in G major",
-    "description": "Jazzy, sparkling, and witty in the outer movements; the slow movement is one of the most beautiful things Ravel ever wrote — a long, lonely piano melody unfolding over gently rocking accompaniment, inspired by Mozart.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Klavierkonsert in G majeur",
+    "description": "Jazz-agtig, sprankelend en geestig in die buitenste bewegings; die stadige beweging is een van die mooiste dinge wat Ravel ooit geskryf het — 'n lang, eensame klaviermelodie wat oor saggies wiegende begeleiding ontvou, geïnspireer deur Mozart.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "rachmaninoff-rhapsody-paganini": {
-    "title": "Rhapsody on a Theme of Paganini",
-    "description": "24 variations on Paganini's famous A minor caprice. The 18th variation — where Rachmaninoff inverts the theme into one of the most soaringly romantic melodies in all music — is one of classical music's most beloved moments.",
-    "instrumentation": "Solo klavier, orkes"
+    "title": "Rapsodie op 'n Tema van Paganini",
+    "description": "24 variasies op Paganini se beroemde A-mineur-caprice. Die 18de variasie — waar Rachmaninoff die tema omkeer in een van die mees swewendehoë romantiese melodieë in alle musiek — is een van klassieke musiek se mees geliefde oomblikke.",
+    "instrumentation": "Solo-klavier, orkes"
   },
   "hindemith-mathis-der-maler": {
-    "title": "Mathis der Maler (Symphony)",
-    "description": "A three-movement symphony drawn from Hindemith's opera about Matthias Grünewald. The Nazis banned the opera's première, sparking Furtwängler's public protest and resignation.",
+    "title": "Mathis der Maler (Simfonie)",
+    "description": "'n Driebeweging-simfonie ontleen aan Hindemith se opera oor Matthias Grünewald. Die Nazi's het die opera se première verbied, wat Furtwängler se openbare protes en bedanking ontlok het.",
     "instrumentation": "Orkes",
-    "significance": "Its suppression by the Nazis became a cause célèbre for artistic freedom."
+    "significance": "Die onderdrukking daarvan deur die Nazi's het 'n cause célèbre vir artistieke vryheid geword."
   },
   "bartok-music-for-strings": {
-    "title": "Music for Strings, Percussion and Celesta",
-    "description": "One of the supreme masterpieces of 20th-century music. The first movement's fugue — creeping chromatically outward from A — is a feat of pure musical architecture. Kubrick used the third movement in The Shining.",
-    "instrumentation": "Strykorkes (divided), perkussie, celesta, harp, klavier",
-    "significance": "A pinnacle of 20th-century composition, combining folk elements with modernist structure."
+    "title": "Musiek vir Strykers, Perkussie en Celesta",
+    "description": "Een van die opperste meesterwerke van 20ste-eeuse musiek. Die eerste beweging se fuga — wat chromaties uitwaarts kruip vanaf A — is 'n heldedaad van suiwer musikale argitektuur. Kubrick het die derde beweging in The Shining gebruik.",
+    "instrumentation": "Strykorkes (verdeel), perkussie, celesta, harp, klavier",
+    "significance": "'n Hoogtepunt van 20ste-eeuse komposisie wat volkselemente met modernistiese struktuur kombineer."
   },
   "prokofiev-romeo-and-juliet": {
-    "title": "Romeo and Juliet",
-    "description": "Prokofiev's greatest ballet score — vivid, dramatic, and bursting with unforgettable melodies. The 'Dance of the Knights' (Montagues and Capulets) is one of the most powerful and instantly recognizable pieces of 20th-century music.",
-    "instrumentation": "Large orkes"
+    "title": "Romeo en Juliet",
+    "description": "Prokofjev se grootste balletpartituur — lewendig, dramaties en vol onvergeetlike melodieë. Die 'Dans van die Ridders' (Montagues en Capulets) is een van die kragtigste en onmiddellik herkenbare stukke 20ste-eeuse musiek.",
+    "instrumentation": "Groot orkes"
   },
   "prokofiev-peter-and-wolf": {
-    "title": "Peter and the Wolf",
-    "description": "A symphonic fairy tale written to introduce children to the instruments of the orchestra. Each character is represented by a different instrument: Peter by the strings, the bird by the flute, the duck by the oboe, the cat by the clarinet, the wolf by the french horns.",
-    "instrumentation": "Narrator and orkes",
-    "significance": "The most successful piece of musical pedagogy ever composed."
+    "title": "Pieter en die Wolf",
+    "description": "'n Simfoniese sprokie geskryf om kinders aan die instrumente van die orkes voor te stel. Elke karakter word deur 'n ander instrument voorgestel: Pieter deur die strykers, die voël deur die fluit, die eend deur die hobo, die kat deur die klarinet, die wolf deur die Franse horings.",
+    "instrumentation": "Verteller en orkes",
+    "significance": "Die suksesvolste stuk musikale pedagogie ooit gekomponeer."
   },
   "hindemith-trauermusik": {
     "title": "Trauermusik",
-    "description": "Composed in just six hours on the day of King George V's death, this brief elegy is one of the most deeply felt occasional works ever written. Its final chorale is profoundly moving.",
-    "instrumentation": "Solo altviool, strykorkes"
+    "description": "In net ses uur gekomponeer op die dag van Koning George V se dood; hierdie kort elegie is een van die mees diepgevoelde geleentheidswerke ooit geskryf. Die slotkoraal is diep aangrypend.",
+    "instrumentation": "Solo-altviool, strykorkes"
   },
   "shostakovich-symphony-5": {
-    "title": "Symphony No. 5",
-    "description": "Written after Shostakovich was publicly denounced by Stalin's regime, this symphony was officially described as 'a Soviet artist's creative reply to just criticism.' The jubilant finale — is it genuine triumph or forced celebration under duress? — remains one of music's most endlessly debated questions.",
+    "title": "Simfonie Nr. 5",
+    "description": "Geskryf nadat Shostakovich openlik deur Stalin se regime aangekla is; hierdie simfonie is amptelik beskryf as ''n Sowjet-kunstenaar se kreatiewe antwoord op regverdige kritiek.' Die jubilante finale — is dit opregte triomf of gedwonge viering onder dwang? — bly een van musiek se eindeloos gedebatteerde vrae.",
     "instrumentation": "Orkes",
-    "significance": "The defining work of music under totalitarianism. Its ambiguity is its power."
+    "significance": "Die bepalende werk van musiek onder totalitarisme. Die dubbelsinnigheid is die krag daarvan."
   },
   "copland-billy-the-kid": {
     "title": "Billy the Kid",
-    "description": "A ballet suite depicting the legendary outlaw's life on the open prairie, using cowboy tunes and spare, wide-open orchestral textures that evoke the vast American landscape.",
+    "description": "'n Balletsuite wat die legendariese voortvlugteling se lewe op die oop prêrie uitbeeld, met behulp van cowboy-deuntjies en yl, wydoop orkestrale teksture wat die uitgestrekte Amerikaanse landskap oproep.",
     "instrumentation": "Orkes"
   },
   "shostakovich-symphony-7": {
-    "title": "Symphony No. 7 'Leningrad'",
-    "description": "Begun during the Nazi siege of Leningrad, smuggled out on microfilm, and performed worldwide as a symbol of Soviet resistance. The first movement's famous 'invasion theme' — a banal march repeated and amplified into overwhelming brutality — is either a depiction of Nazi invasion or (some argue) Stalinist terror, or both.",
-    "instrumentation": "Large orkes",
-    "significance": "A cultural weapon in World War II and a monument to artistic resistance under siege."
+    "title": "Simfonie Nr. 7 'Leningrad'",
+    "description": "Begin tydens die Nazi-beleg van Leningrad, op mikrofilm uitgesmokkel, en wêreldwyd opgevoer as 'n simbool van Sowjet-weerstand. Die eerste beweging se beroemde 'indringingstema' — 'n banale mars wat herhaal en tot oorweldigende brutaliteit versterk word — is óf 'n uitbeelding van die Nazi-inval óf (sommige argumenteer) Stalinistiese terreur, of albei.",
+    "instrumentation": "Groot orkes",
+    "significance": "'n Kulturele wapen in die Tweede Wêreldoorlog en 'n monument vir artistieke weerstand onder beleg."
   },
   "hindemith-ludus-tonalis": {
     "title": "Ludus Tonalis",
-    "description": "A modern counterpart to Bach's Well-Tempered Clavier: twelve fugues linked by interludes, framed by a prelude and a postlude that is the prelude played backwards and upside down.",
+    "description": "'n Moderne eweknie van Bach se Welgetempereerde Klavier: twaalf fugas verbind deur tussenspelings, omraam deur 'n voorspel en 'n naspel wat die voorspel agteruit en onderstebo is.",
     "instrumentation": "Klavier"
   },
   "copland-fanfare-common-man": {
     "title": "Fanfare vir die Gewone Mens",
-    "description": "A majestic three-minute fanfare for brass and percussion, commissioned during World War II. Its simple, powerful gestures have made it one of the most iconic pieces of American music.",
+    "description": "'n Majestuese drie-minuut-fanfare vir koper en perkussie, in opdrag tydens die Tweede Wêreldoorlog. Die eenvoudige, kragtige gebare het dit een van die mees ikoniese stukke Amerikaanse musiek gemaak.",
     "instrumentation": "Koper, perkussie"
   },
   "copland-rodeo": {
-    "title": "Rodeo: Four Dance Episodes",
-    "description": "A ballet about a cowgirl at a ranch, whose Hoe-Down finale has become synonymous with the American West. Its infectious rhythms and folk-tune quotations embody Copland's populist style.",
+    "title": "Rodeo: Vier Danspisodes",
+    "description": "'n Ballet oor 'n cowgirl op 'n plaas, waarvan die Hoe-Down-finale sinoniem met die Amerikaanse Weste geword het. Die aansteeklike ritmes en volkslied-aanhalings beliggaam Copland se populistiese styl.",
     "instrumentation": "Orkes"
   },
   "bartok-concerto-for-orchestra": {
-    "title": "Concerto for Orchestra",
-    "description": "Written during Bartók's final illness in New York, commissioned by Koussevitzky. Each orchestral section is treated as a virtuoso soloist. Its final movement's exuberant energy belies the tragic circumstances of its creation.",
+    "title": "Konsert vir Orkes",
+    "description": "Geskryf tydens Bartók se finale siekte in New York, in opdrag van Koussevitzky. Elke orkesafdeling word as 'n virtuose solis behandel. Die slotbeweging se uitbundige energie weerspreek die tragiese omstandighede van die skepping daarvan.",
     "instrumentation": "Orkes",
-    "significance": "One of the most popular orchestral works of the 20th century."
+    "significance": "Een van die gewildste orkeswerke van die 20ste eeu."
   },
   "hindemith-symphonic-metamorphosis": {
-    "title": "Symphonic Metamorphosis of Themes by Carl Maria von Weber",
-    "description": "A brilliant orchestral showpiece transforming four of Weber's lesser-known themes into dazzling orchestral tableaux. The exuberant March finale has become one of the most popular orchestral encores.",
+    "title": "Simfoniese Metamorfose van Temas deur Carl Maria von Weber",
+    "description": "'n Briljante orkesvitrinestuk wat vier van Weber se minder bekende temas in skitterende orkestrale taferele omskep. Die uitbundige Mars-finale het een van die gewildste orkestoegifte geword.",
     "instrumentation": "Orkes"
   },
   "britten-serenade-tenor-horn": {
-    "title": "Serenade for Tenor, Horn and Strings, Op. 31",
-    "description": "A song cycle setting six English poems about evening and night, framed by an offstage horn solo. Written for Peter Pears and Dennis Brain, it is one of the supreme English vocal works.",
+    "title": "Serenade vir Tenoor, Horing en Strykers, Op. 31",
+    "description": "'n Liedsiklus wat ses Engelse gedigte oor aand en nag toonsit, omraam deur 'n buiteverhoog-horingsolo. Geskryf vir Peter Pears en Dennis Brain; dit is een van die opperste Engelse vokale werke.",
     "instrumentation": "Tenoor, horing, strykorkes"
   },
   "copland-appalachian-spring": {
-    "title": "Appalachiese Lente",
-    "description": "A ballet depicting a pioneer celebration in the Pennsylvania hills, culminating in luminous variations on the Shaker hymn Simple Gifts. It won the Pulitzer Prize and defines the 'American sound' in classical music.",
-    "instrumentation": "Orkes (originally 13 instrumente)",
-    "significance": "Defined the sound of American classical music."
+    "title": "Appalachian Spring",
+    "description": "'n Ballet wat 'n pioniersviering in die Pennsylvania-heuwels uitbeeld, wat kulmineer in liggewende variasies op die Shaker-himne Simple Gifts. Dit het die Pulitzer-prys gewen en definieer die 'Amerikaanse klank' in klassieke musiek.",
+    "instrumentation": "Orkes (oorspronklik 13 instrumente)",
+    "significance": "Het die klank van Amerikaanse klassieke musiek gedefinieer."
   },
   "britten-peter-grimes": {
     "title": "Peter Grimes",
-    "description": "A powerful opera about a fisherman persecuted by his Suffolk community. Its four Sea Interludes are frequently performed as an orchestral suite. The work revitalised English opera after two centuries of dormancy.",
+    "description": "'n Kragtige opera oor 'n visser wat deur sy Suffolk-gemeenskap vervolg word. Die vier See-tussenspele word gereeld as 'n orkessuite uitgevoer. Die werk het Engelse opera ná twee eeue van stilte laat herleef.",
     "instrumentation": "Soliste, koor, orkes",
-    "significance": "Revitalised English opera and established Britten's international reputation."
+    "significance": "Het Engelse opera laat herleef en Britten se internasionale reputasie gevestig."
   },
   "britten-young-persons-guide": {
-    "title": "The Young Person's Guide to the Orchestra, Op. 34",
-    "description": "Variations and a fugue on a theme of Purcell, designed to introduce each orchestral family. Its brilliant orchestration and joyous concluding fugue have made it the most popular educational orchestral work.",
-    "instrumentation": "Orkes (with optional verteller)"
+    "title": "Die Jongmens se Gids tot die Orkes, Op. 34",
+    "description": "Variasies en 'n fuga op 'n tema van Purcell, ontwerp om elke orkesfamilie voor te stel. Die briljante orkestrasie en vreugdevolle slotfuga het dit die gewildste opvoedkundige orkeswerk gemaak.",
+    "instrumentation": "Orkes (met opsionele verteller)"
   },
   "strauss-four-last-songs": {
-    "title": "Four Last Songs",
-    "description": "Written in the final year of Strauss's life at age 84, these four songs are a serene farewell to life and to the Romantic era itself. The last song, 'Im Abendrot' (At Sunset), ends with a quotation from his own Death and Transfiguration, composed 60 years earlier: 'Is this perhaps death?'",
-    "instrumentation": "Sopraan and orkes",
-    "significance": "The last great work of German Romanticism."
+    "title": "Vier Laaste Liedere",
+    "description": "Geskryf in die laaste jaar van Strauss se lewe op 84-jarige ouderdom; hierdie vier liedere is 'n serene afskeid van die lewe en van die Romantiese era self. Die laaste lied, 'Im Abendrot' (By Sonsondergang), eindig met 'n aanhaling uit sy eie Tod und Verklärung, 60 jaar vroeër gekomponeer: 'Is dit miskien die dood?'",
+    "instrumentation": "Sopraan en orkes",
+    "significance": "Die laaste groot werk van die Duitse Romantiek."
   },
   "copland-clarinet-concerto": {
-    "title": "Clarinet Concerto",
-    "description": "Written for Benny Goodman, this concerto bridges classical and jazz styles with a lyrical first half connected by a cadenza to a jazzy, riff-based second half.",
-    "instrumentation": "Solo klarinet, strykers, harp, klavier"
+    "title": "Klarinetconcert",
+    "description": "Geskryf vir Benny Goodman; hierdie konsert oorbrug klassieke en jazz-style met 'n liriese eerste helfte wat deur 'n kadens verbind word aan 'n jazz-agtige, riff-gebaseerde tweede helfte.",
+    "instrumentation": "Solo-klarinet, strykers, harp, klavier"
   },
   "britten-turn-of-the-screw": {
     "title": "The Turn of the Screw",
-    "description": "A chamber opera based on Henry James's ghost story, structured as a theme and fifteen variations. Its atmosphere of ambiguity and dread is achieved with extraordinary economy of means.",
-    "instrumentation": "Six soliste, kamerorkes (13 instrumente)"
+    "description": "'n Kameropera gebaseer op Henry James se spookverhaal, gestruktureer as 'n tema en vyftien variasies. Die atmosfeer van dubbelsinnigheid en angs word met buitengewone middele-ekonomie bereik.",
+    "instrumentation": "Ses soliste, kamerorkes (13 instrumente)"
   },
   "shostakovich-string-quartet-8": {
-    "title": "String Quartet No. 8",
-    "description": "Officially dedicated 'to the memory of victims of fascism and war,' but many believe it was a covert suicide note. Shostakovich weaves his personal musical signature (D-S-C-H) throughout, along with quotations from many of his other works, creating an intensely autobiographical cry of anguish.",
-    "instrumentation": "Strykerkwartet"
+    "title": "Strykkwartet Nr. 8",
+    "description": "Amptelik opgedra 'aan die nagedagtenis van slagoffers van fascisme en oorlog,' maar baie glo dit was 'n bedekte selfmoordbrief. Shostakovich verweef sy persoonlike musikale handtekening (D-S-C-H) deurgaans, saam met aanhalings uit baie van sy ander werke, wat 'n intens outobiografiese skreeu van angs skep.",
+    "instrumentation": "Strykkwartet"
   },
   "britten-war-requiem": {
-    "title": "War Requiem, Op. 66",
-    "description": "A monumental anti-war statement interleaving the Latin Requiem Mass with Wilfred Owen's war poetry. Composed for the consecration of the rebuilt Coventry Cathedral, destroyed in the Blitz.",
-    "instrumentation": "Sopraan, tenoor, bariton soliste, koor, seunskoor, orkes, kamerorkes",
-    "significance": "One of the most powerful musical statements against war."
+    "title": "Oorlogsrequiem, Op. 66",
+    "description": "'n Monumentale anti-oorlogsverklaring wat die Latynse Requiem-mis met Wilfred Owen se oorlogspoësie deurvleg. Gekomponeer vir die inwyding van die herbouде Coventry-katedraal, wat in die Blitz vernietig is.",
+    "instrumentation": "Sopraan-, tenoor-, baritonsoliste, koor, seunekoor, orkes, kamerorkes",
+    "significance": "Een van die kragtigste musikale verklarings teen oorlog."
   }
 }
