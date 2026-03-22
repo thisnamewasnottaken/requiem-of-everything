@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - **Wikipedia link localisation** — all "Read on Wikipedia" links (ComposerCard, CompositionDetail, EventMarker) and the WikipediaService API calls now use the Wikipedia subdomain matching the current i18n language (e.g. `fr.wikipedia.org` when the UI is set to French). Centralised in `src/utils/wikipedia.ts`.
 
+### Changed
+
+- **Dependency upgrades** — major version bumps across the stack: Vite 5→8 (Rolldown bundler), Vitest 2→4, React 18→19, Zustand 4→5, TypeScript 5.6→5.9, @vitejs/plugin-react 4→6. Updated `vite.config.ts` and `vitest.config.ts` (`__dirname` → `import.meta.dirname`, removed Vitest triple-slash directive). Updated `tsconfig.json` target/lib to ES2022.
+
 - **Content localisation** — added 4 i18next namespaces(`composers`, `compositions`, `events`, `eras`) for content data alongside the existing `translation` namespace for UI strings. Data hooks in `src/hooks/useData.ts` now merge base JSON with namespace translations via `useTranslation()` + `useMemo`. Full French (fr-FR) and Afrikaans (af-ZA) content translations for all 51 composers, 196 compositions, 47 events, and 6 eras.
 - **Event selection in store** — `selectedEventId` and `selectEvent()` in `useSelectionStore` with mutual exclusion against composition/composer selection.
 - **Data integrity tests** — added 4 test cases to `useData.test.ts` verifying no duplicate composition/composer IDs and that all cross-references between composers and compositions are valid.
@@ -29,6 +33,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **`useComposition(id)` hook** — synchronous hook in `src/hooks/useData.ts` for looking up a single composition by ID; follows the same interface as `useComposer`.
 
 ### Fixed
+
+- **React 19 / Zustand 5 compatibility** — installed missing `@testing-library/dom` peer dependency required by `@testing-library/react` 16.x with `@types/react` 19.x. Audited all stores, components, hooks, and tests for breaking changes (default imports, `React.FC` implicit children, `useRef` mutability, deprecated APIs). No code changes required — codebase was already compatible.
 
 - **EventMarker interaction** — clicking a diamond marker now toggles the event card open (pinned). Pinned cards have `pointer-events: auto` so Wikipedia links are clickable. Cards no longer close immediately on mouse leave.
 - **EventMarker viewport clipping** — tooltip repositions near left/right edges to avoid being clipped by `overflow: hidden` on the timeline container.
