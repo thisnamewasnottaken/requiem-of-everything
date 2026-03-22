@@ -127,13 +127,18 @@
   border-radius: 8px;
   padding: var(--space-md);
   cursor: pointer;
-  transition: all 0.15s ease;
-  align-self: start;
+  transition: all 0.2s ease;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .card:hover {
   border-color: var(--text-accent);
   background: var(--bg-elevated);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .termName {
@@ -149,14 +154,11 @@
   font-size: var(--text-sm);
   line-height: 1.5;
   margin: 0;
-}
-
-.longDefinition {
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  margin-top: var(--space-sm);
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 /* ── Era badges ────────────────────────────────────────────────────── */
@@ -165,7 +167,8 @@
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
-  margin: var(--space-sm) 0;
+  margin-top: auto;
+  padding-top: var(--space-sm);
 }
 
 .eraBadge {
@@ -177,13 +180,101 @@
   border: 1px solid;
 }
 
-/* ── Example compositions ──────────────────────────────────────────── */
+/* ── Modal overlay ─────────────────────────────────────────────────── */
 
-.examples {
-  margin-top: 12px;
-  border-top: 1px solid var(--border-default);
-  padding-top: var(--space-sm);
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--bg-surface);
+  border: 1px solid var(--text-accent);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  max-width: 600px;
+  width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 168, 87, 0.1);
+  animation: modalIn 0.25s ease;
+  position: relative;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  transition: all 0.15s ease;
+  z-index: 1;
+}
+
+.modalClose:hover {
+  color: var(--text-primary);
+  border-color: var(--text-accent);
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  color: var(--text-accent);
+  font-size: 1.4rem;
+  margin: 0 0 var(--space-md);
+  padding-right: 40px;
+}
+
+.modalShortDef {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  margin: 0 0 var(--space-sm);
+}
+
+.modalLongDef {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  margin: 0 0 var(--space-md);
+}
+
+.modalDivider {
+  border: none;
+  border-top: 1px solid var(--border-default);
+  margin: var(--space-md) 0;
+}
+
+/* ── Example compositions ──────────────────────────────────────────── */
 
 .examplesTitle {
   font-family: var(--font-body);
@@ -213,7 +304,7 @@
   font-size: var(--text-xs);
   color: var(--text-accent);
   text-decoration: none;
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
   display: inline-block;
   transition: opacity var(--transition-fast);
 }

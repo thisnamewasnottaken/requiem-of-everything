@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTerms, useCompositions, useComposers } from "@/hooks/useData";
 import { getWikipediaUrl } from "@/utils/wikipedia";
@@ -36,7 +36,9 @@ export default function TermExplorer({ onNavigateToTimeline }: TermExplorerProps
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<TermCategory | null>(null);
-  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const [selectedTermId, setSelectedTermId] = useState<string | null>(null);
+
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   // Build lookup maps for compositions and composers
   const compositionMap = useMemo(
@@ -66,17 +68,26 @@ export default function TermExplorer({ onNavigateToTimeline }: TermExplorerProps
     });
   }, [allTerms, selectedCategory, searchQuery]);
 
-  const toggleExpanded = (id: string) => {
-    setExpandedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  };
+  const selectedTerm = selectedTermId
+    ? allTerms.find((term) => term.id === selectedTermId) ?? null
+    : null;
+
+  // Close modal on Escape
+  useEffect(() => {
+    if (!selectedTermId) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedTermId(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [selectedTermId]);
+
+  // Auto-focus close button when modal opens
+  useEffect(() => {
+    if (selectedTermId && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [selectedTermId]);
 
   return (
     <div className={styles.container}>
@@ -119,90 +130,126 @@ export default function TermExplorer({ onNavigateToTimeline }: TermExplorerProps
           <p className={styles.noResults}>{t("termExplorer.noResults")}</p>
         )}
 
-        {filteredTerms.map((term: MusicalTerm) => {
-          const isExpanded = expandedIds.has(term.id);
+        {filteredTerms.map((term: MusicalTerm) => (
+          <div
+            key={term.id}
+            className={styles.card}
+            onClick={() => setSelectedTermId(term.id)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setSelectedTermId(term.id);
+              }
+            }}
+          >
+            <h2 className={styles.termName}>{term.term}</h2>
+            <p className={styles.definition}>{term.shortDefinition}</p>
+            <div className={styles.eraBadges}>
+              {term.eraOrigin.map((era) => {
+                const color = ERA_COLORS[era] || "#666";
+                return (
+                  <span
+                    key={era}
+                    className={styles.eraBadge}
+                    style={{
+                      backgroundColor: color + "22",
+                      color,
+                      borderColor: color + "44",
+                    }}
+                  >
+                    {era.replace(/-/g, " ")}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
 
-          return (
-            <div
-              key={term.id}
-              className={styles.card}
-              onClick={() => toggleExpanded(term.id)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  toggleExpanded(term.id);
-                }
-              }}
-              aria-expanded={isExpanded}
+      {/* Modal overlay */}
+      {selectedTerm && (
+        <div
+          className={styles.modalBackdrop}
+          onClick={() => setSelectedTermId(null)}
+        >
+          <div
+            className={styles.modal}
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedTerm.term}
+          >
+            <button
+              ref={closeButtonRef}
+              className={styles.modalClose}
+              onClick={() => setSelectedTermId(null)}
+              aria-label="Close"
             >
-              <h2 className={styles.termName}>{term.term}</h2>
-              <p className={styles.definition}>{term.shortDefinition}</p>
+              ✕
+            </button>
 
-              {isExpanded && (
-                <p className={styles.longDefinition}>{term.longDefinition}</p>
-              )}
+            <h2 className={styles.modalTitle}>{selectedTerm.term}</h2>
+            <p className={styles.modalShortDef}>{selectedTerm.shortDefinition}</p>
+            <p className={styles.modalLongDef}>{selectedTerm.longDefinition}</p>
 
-              {/* Era badges */}
-              <div className={styles.eraBadges}>
-                {term.eraOrigin.map((era) => {
-                  const color = ERA_COLORS[era] || "#666";
+            <div className={styles.eraBadges}>
+              {selectedTerm.eraOrigin.map((era) => {
+                const color = ERA_COLORS[era] || "#666";
+                return (
+                  <span
+                    key={era}
+                    className={styles.eraBadge}
+                    style={{
+                      backgroundColor: color + "22",
+                      color,
+                      borderColor: color + "44",
+                    }}
+                  >
+                    {era.replace(/-/g, " ")}
+                  </span>
+                );
+              })}
+            </div>
+
+            {selectedTerm.exampleCompositionIds.length > 0 && (
+              <>
+                <div className={styles.modalDivider} />
+                <p className={styles.examplesTitle}>
+                  {t("termExplorer.exampleWorks")}
+                </p>
+                {selectedTerm.exampleCompositionIds.map((compId) => {
+                  const composition = compositionMap.get(compId);
+                  if (!composition) return null;
+                  const composer = composerMap.get(composition.composerId);
                   return (
-                    <span
-                      key={era}
-                      className={styles.eraBadge}
-                      style={{
-                        backgroundColor: color + "22",
-                        color,
-                        borderColor: color + "44",
-                      }}
-                    >
-                      {era.replace(/-/g, " ")}
-                    </span>
+                    <div key={compId} className={styles.exampleItem}>
+                      {composition.title}
+                      {composer && ` — ${composer.shortName}`}
+                      {composition.spotifyUrl && (
+                        <span className={styles.spotifyIcon}>♫</span>
+                      )}
+                    </div>
                   );
                 })}
-              </div>
+              </>
+            )}
 
-              {/* Example compositions */}
-              {term.exampleCompositionIds.length > 0 && (
-                <div className={styles.examples}>
-                  <p className={styles.examplesTitle}>
-                    {t("termExplorer.exampleWorks")}
-                  </p>
-                  {term.exampleCompositionIds.map((compId) => {
-                    const composition = compositionMap.get(compId);
-                    if (!composition) return null;
-                    const composer = composerMap.get(composition.composerId);
-                    return (
-                      <div key={compId} className={styles.exampleItem}>
-                        {composition.title}
-                        {composer && ` — ${composer.shortName}`}
-                        {composition.spotifyUrl && (
-                          <span className={styles.spotifyIcon}>♫</span>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-
-              {/* Wikipedia link */}
-              {term.wikipediaSlug && (
-                <a
-                  href={getWikipediaUrl(term.wikipediaSlug)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.wikiLink}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {t("termExplorer.readMore")}
-                </a>
-              )}
-            </div>
-          );
-        })}
-      </div>
+            {selectedTerm.wikipediaSlug && (
+              <a
+                href={getWikipediaUrl(selectedTerm.wikipediaSlug)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.wikiLink}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {t("termExplorer.readMore")}
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -18,9 +18,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Inline search bar in header** — replaced the standalone "⚙ Filters" button with a `SearchFilterBar` component containing an inline search input and a filter toggle button. Typing in the search box filters the timeline immediately via `useFilterStore.searchQuery`. The filter button shows an active-filter count badge when sidebar filters are engaged. Spec at `docs/specs/components/SearchFilterBar.md`.
 - **Wikipedia link localisation** — all "Read on Wikipedia" links (ComposerCard, CompositionDetail, EventMarker) and the WikipediaService API calls now use the Wikipedia subdomain matching the current i18n language (e.g. `fr.wikipedia.org` when the UI is set to French). Centralised in `src/utils/wikipedia.ts`.
 
+### Changed
+
+- **TermExplorer card modal redesign** — cards now have uniform 180px height with 3-line truncated definitions and era badges pinned to the bottom. Clicking a card opens a centred modal overlay with full definitions, example compositions, and Wikipedia link. Replaces the old inline expand/collapse model. Escape key and backdrop click close the modal. Close button auto-focused for accessibility.
+- **OrchestraExplorer SVG seating chart** — complete rewrite from rectangular flexbox tiers to true SVG arc/wedge geometry. Sections are now concentric semicircular arcs computed via `arcPath()` with proper radii and angular positions. Layout: percussion (outermost), brass, woodwinds, strings (innermost), with keyboards and voice as narrow side wedges. Includes SVG glow filters per family, conductor podium with golden gradient, decorative tier rings, and spotlight wash. Detail panel now appears inline on the right (not as a fixed overlay), with family overview → instrument drill-down navigation and "Up next" family cycling.
+
 ### Fixed
 
-- **EventMarker tooltip viewport clipping** — tooltip now opens above the marker by default (`bottom: calc(100% + 8px)`) instead of below, preventing clipping when markers are near the bottom of the viewport. Flips below when marker is near the top.
+- **EventMarker tooltip viewport clipping**— tooltip now opens above the marker by default (`bottom: calc(100% + 8px)`) instead of below, preventing clipping when markers are near the bottom of the viewport. Flips below when marker is near the top.
 - **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved to native `addEventListener` with `{ passive: false }`. Added `touch-action: none` to timeline container.
 
 ### Changed
