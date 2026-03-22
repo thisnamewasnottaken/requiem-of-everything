@@ -9,6 +9,7 @@ import {
   useComposerContemporaries,
 } from "@/hooks/useData";
 import { formatYear } from "@/utils/scales";
+import { getWikipediaUrl } from "@/utils/wikipedia";
 import styles from "./ComposerCard.module.css";
 
 const ERA_COLORS: Record<string, string> = {
@@ -118,7 +119,7 @@ export default function ComposerCard({ composerId }: ComposerCardProps) {
         <h3 className={styles.sectionTitle}>{t("composer.biography")}</h3>
         <p className={styles.biography}>{composer.biography}</p>
         <a
-          href={`https://en.wikipedia.org/wiki/${composer.wikipediaSlug}`}
+          href={getWikipediaUrl(composer.wikipediaSlug)}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.wikiLink}
