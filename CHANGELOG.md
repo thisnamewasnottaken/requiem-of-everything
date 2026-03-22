@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 - **OrchestraExplorer redesign** — completely rebuilt Orchestra Explorer as an immersive, full-viewport interactive orchestral topography. Features an elliptical top-down SVG stage with perspective tilt (0.55 factor), ambient background with animated orbs and mouse-tracking spotlight, spring-physics animations via `motion` library (AnimatePresence, staggered instrument node reveals), glassmorphism info panels with backdrop-blur, kinetic typography on instrument detail titles, a two-column detail modal with rotating conic gradient visual, and comprehensive i18n for family descriptions in all three languages. Spec updated at `docs/specs/components/OrchestraExplorer.md`.
+- **OrchestraExplorer header** — moved view title and subtitle from the component body into the App header for consistency with other views.
 
 ### Added
 

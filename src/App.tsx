@@ -65,6 +65,27 @@ export default function App() {
             <h1>{t('app.title')}</h1>
             <p>{t('app.subtitle')}</p>
           </div>
+          {activeView === "orchestra" && (
+            <div style={{ borderLeft: "1px solid var(--border-subtle)", paddingLeft: "16px" }}>
+              <h2 style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "var(--text-lg)",
+                fontWeight: 700,
+                color: "var(--text-primary)",
+                letterSpacing: "-0.02em",
+                textTransform: "uppercase" as const,
+                margin: 0,
+              }}>{t('orchestraExplorer.title')}</h2>
+              <p style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "var(--text-xs)",
+                color: "var(--text-secondary)",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase" as const,
+                marginTop: "2px",
+              }}>{t('orchestraExplorer.subtitle', { defaultValue: 'Interactive Orchestral Topography' })}</p>
+            </div>
+          )}
           <div
             style={{
               marginLeft: "auto",

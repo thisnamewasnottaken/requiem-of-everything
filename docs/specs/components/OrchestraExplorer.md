@@ -16,6 +16,8 @@ interface OrchestraExplorerProps {
 | ---------------------- | ------------ | -------- | ------------------------------------- |
 | `onNavigateToTimeline` | `() => void` | No       | Callback to navigate back to timeline |
 
+> **Note**: The view title and subtitle are rendered in the **App header** (not in the component body) for consistency with other views. `App.tsx` conditionally shows the orchestra title/subtitle when `activeView === "orchestra"`.
+
 ## Data Sources
 
 - `useInstruments()` — all instruments (28 total, 6 families)
@@ -159,7 +161,6 @@ Glassmorphism overlay panel (top-right of viewport, `position: absolute`):
 
 | Element            | Entry                                              | Exit                   |
 | ------------------ | -------------------------------------------------- | ---------------------- |
-| Header             | `y: -20→0, opacity: 0→1` (0.8s ease-out)           | —                      |
 | Family wedge hover | Animated fill/stroke/opacity (0.5s ease-out)       | Reverse                |
 | Instrument node    | `scale: 0→1, opacity: 0→1` (spring, stagger 60ms)  | `scale→0.8, opacity→0` |
 | Family info panel  | `x: 20→0, opacity: 0→1`                            | `x→20, opacity→0`      |

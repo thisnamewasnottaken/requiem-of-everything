@@ -587,41 +587,6 @@ export default function OrchestraExplorer({
         <div className={styles.ambientGrid} />
       </div>
 
-      {/* ── Header ──────────────────────────────────────────────── */}
-      <motion.header
-        className={styles.header}
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div>
-          <h1 className={styles.title}>
-            {t("orchestraExplorer.title")
-              .split(" ")
-              .map((word, i, arr) => (
-                <span key={i}>
-                  {i === arr.length - 1 ? (
-                    <span className={styles.titleLight}>{word}</span>
-                  ) : (
-                    word
-                  )}
-                  {i < arr.length - 1 ? " " : ""}
-                </span>
-              ))}
-          </h1>
-          <p className={styles.subtitle}>
-            {t("orchestraExplorer.subtitle", {
-              defaultValue: "Interactive Orchestral Topography",
-            })}
-          </p>
-        </div>
-        {onNavigateToTimeline && (
-          <button className={styles.backBtn} onClick={onNavigateToTimeline}>
-            {t("orchestraExplorer.backToTimeline")}
-          </button>
-        )}
-      </motion.header>
-
       {/* ── SVG Orchestra Stage ─────────────────────────────────── */}
       <main className={styles.stageContainer}>
         <motion.div
