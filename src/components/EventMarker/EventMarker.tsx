@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import type { HistoricalEvent } from "@/types";
 import { createTimeScale, formatYear } from "@/utils/scales";
@@ -44,6 +44,7 @@ export default function EventMarker({
     () => createTimeScale(startYear, endYear, width),
     [startYear, endYear, width],
   );
+  const markerRef = useRef<HTMLDivElement>(null);
 
   const x = scale(event.year);
   if (x < -10 || x > width + 10) return null;
@@ -92,10 +93,11 @@ export default function EventMarker({
         />
       )}
 
-      {/* Diamond marker */}
+      {/* Diamond marker — positioned in event band at top */}
       <div
         className={markerClass}
-        style={{ left: x, bottom: 8 }}
+        style={{ left: x, top: 48 }}
+        ref={markerRef}
         onClick={(e) => {
           e.stopPropagation();
           onClick?.(event.id);
@@ -103,13 +105,16 @@ export default function EventMarker({
         onKeyDown={handleKeyDown}
         role="button"
         tabIndex={0}
-        aria-label={t('eventMarker.ariaLabel', { title: event.title, year: event.year })}
+        aria-label={t("eventMarker.ariaLabel", {
+          title: event.title,
+          year: event.year,
+        })}
       >
+        <div className={styles.diamond} style={{ backgroundColor: color }} />
         <div
           className={styles.eventLine}
-          style={{ height: timelineHeight - 60, borderColor: color }}
+          style={{ height: timelineHeight - 72, borderColor: color }}
         />
-        <div className={styles.diamond} style={{ backgroundColor: color }} />
         <div className={styles.tooltip} style={tooltipStyle}>
           <div className={styles.tooltipTitle}>{event.title}</div>
           <div className={styles.tooltipYear}>
@@ -136,7 +141,7 @@ export default function EventMarker({
               className={styles.wikiLink}
               onClick={(e) => e.stopPropagation()}
             >
-              {t('common.readOnWikipedia')}
+              {t("common.readOnWikipedia")}
             </a>
           )}
         </div>

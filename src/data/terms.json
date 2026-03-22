@@ -1,0 +1,282 @@
+[
+  {
+    "id": "symphony",
+    "term": "Symphony",
+    "shortDefinition": "A large-scale orchestral work, typically in four movements with contrasting tempos and characters.",
+    "longDefinition": "A symphony is an extended orchestral composition, usually in four movements: a fast sonata-form opening, a slow lyrical movement, a dance-like scherzo or minuet, and a vigorous finale. Developed by Haydn and Mozart in the Classical era, the form was expanded dramatically by Beethoven and later by Romantic composers like Brahms, Tchaikovsky, and Mahler. The symphony represents the pinnacle of orchestral ambition, serving as the primary vehicle for composers to express their most profound musical ideas.",
+    "categories": ["forms-and-structures"],
+    "eraOrigin": ["classical"],
+    "exampleCompositionIds": ["beethoven-symphony-5", "mozart-symphony-41", "mahler-symphony-2"],
+    "wikipediaSlug": "Symphony"
+  },
+  {
+    "id": "concerto",
+    "term": "Concerto",
+    "shortDefinition": "A composition for solo instrument and orchestra, showcasing the soloist's virtuosity in dialogue with the ensemble.",
+    "longDefinition": "The concerto pits a solo instrument against a full orchestra in a musical dialogue that balances virtuosic display with collaborative interplay. Originating in the Baroque era with composers like Vivaldi and Bach, the form evolved through Mozart and Beethoven into the grand Romantic concerto. Typically in three movements (fast–slow–fast), the concerto features a cadenza—an unaccompanied solo passage where the performer demonstrates technical mastery and personal interpretation.",
+    "categories": ["forms-and-structures"],
+    "eraOrigin": ["baroque", "classical"],
+    "exampleCompositionIds": ["vivaldi-four-seasons", "beethoven-piano-concerto-5", "rachmaninoff-piano-concerto-2"],
+    "wikipediaSlug": "Concerto"
+  },
+  {
+    "id": "sonata",
+    "term": "Sonata",
+    "shortDefinition": "A multi-movement work for one or two instruments, structured around contrasting themes and key relationships.",
+    "longDefinition": "The sonata is a multi-movement composition for one or two instruments, built on the principle of contrasting themes developed through key relationships. The sonata-allegro form—exposition, development, and recapitulation—became the structural foundation of Classical music. From Beethoven's dramatic piano sonatas to Liszt's single-movement innovations, the sonata has served as a proving ground for compositional craft and instrumental expression.",
+    "categories": ["forms-and-structures"],
+    "eraOrigin": ["classical"],
+    "exampleCompositionIds": ["beethoven-moonlight-sonata", "liszt-piano-sonata-b-minor"],
+    "wikipediaSlug": "Sonata"
+  },
+  {
+    "id": "opera",
+    "term": "Opera",
+    "shortDefinition": "A dramatic work combining vocal and orchestral music with staged theatrical performance and a libretto.",
+    "longDefinition": "Opera is a dramatic art form that combines singing, orchestral music, acting, and staging to tell stories through music. Originating in late Renaissance Italy with Monteverdi's pioneering works, opera evolved through distinct national traditions—Italian bel canto, German music drama, French grand opera. From Mozart's witty comedies to Wagner's epic mythologies and Puccini's emotional verismo, opera remains the most complete fusion of music and theater.",
+    "categories": ["genres"],
+    "eraOrigin": ["baroque", "classical"],
+    "exampleCompositionIds": ["mozart-marriage-of-figaro", "verdi-la-traviata", "puccini-la-boheme"],
+    "wikipediaSlug": "Opera"
+  },
+  {
+    "id": "oratorio",
+    "term": "Oratorio",
+    "shortDefinition": "A large-scale sacred vocal work for soloists, choir, and orchestra, performed without staging or costumes.",
+    "longDefinition": "An oratorio is a large-scale musical narrative for soloists, chorus, and orchestra, typically based on sacred subjects but performed in concert rather than staged with costumes and scenery. Developed in the Baroque era, the form reached its zenith with Handel's Messiah and Bach's Passions. Unlike opera, the oratorio relies on the power of music and text alone to convey drama, making the chorus a central dramatic force.",
+    "categories": ["genres"],
+    "eraOrigin": ["baroque"],
+    "exampleCompositionIds": ["handel-messiah", "bach-st-matthew-passion", "haydn-creation"],
+    "wikipediaSlug": "Oratorio"
+  },
+  {
+    "id": "mass",
+    "term": "Mass",
+    "shortDefinition": "A choral composition setting the liturgical texts of the Catholic Mass to music.",
+    "longDefinition": "The Mass is a musical setting of the texts from the Roman Catholic liturgy, particularly the Ordinary: Kyrie, Gloria, Credo, Sanctus, and Agnus Dei. From Palestrina's Renaissance polyphony to Bach's monumental Mass in B minor, composers have used this sacred framework to create works of extraordinary beauty and spiritual depth. Concert masses by later composers often transcend their liturgical origins to become independent artistic statements.",
+    "categories": ["vocal-and-choral"],
+    "eraOrigin": ["renaissance"],
+    "exampleCompositionIds": ["palestrina-missa-papae-marcelli", "bach-mass-in-b-minor"],
+    "wikipediaSlug": "Mass_(music)"
+  },
+  {
+    "id": "requiem",
+    "term": "Requiem",
+    "shortDefinition": "A musical setting of the Catholic funeral Mass, often composed as a concert work.",
+    "longDefinition": "A requiem is a musical setting of the Catholic Mass for the Dead (Missa pro defunctis), traditionally including movements such as Dies irae, Lacrimosa, and Lux aeterna. While originally functional liturgical music, the requiem evolved into a powerful concert genre. Mozart's unfinished Requiem, Verdi's operatic setting, and Brahms's Protestant reimagining demonstrate how composers transformed this solemn ritual into deeply personal expressions of grief, hope, and transcendence.",
+    "categories": ["vocal-and-choral"],
+    "eraOrigin": ["renaissance"],
+    "exampleCompositionIds": ["mozart-requiem", "verdi-requiem", "brahms-german-requiem"],
+    "wikipediaSlug": "Requiem"
+  },
+  {
+    "id": "chamber-music",
+    "term": "Chamber Music",
+    "shortDefinition": "Music composed for a small ensemble, typically two to nine players with one performer per part.",
+    "longDefinition": "Chamber music is composed for a small group of instruments, with each performer playing an independent part. Originally intended for intimate domestic settings rather than large concert halls, the genre demands close musical dialogue between players. The string quartet, piano trio, and wind quintet are classic chamber ensembles. From Haydn's pioneering quartets to Schoenberg's boundary-pushing works, chamber music offers some of the most intellectually refined writing in classical music.",
+    "categories": ["solo-and-chamber"],
+    "eraOrigin": ["baroque", "classical"],
+    "exampleCompositionIds": ["schubert-string-quintet", "schoenberg-verklarte-nacht"],
+    "wikipediaSlug": "Chamber_music"
+  },
+  {
+    "id": "string-quartet",
+    "term": "String Quartet",
+    "shortDefinition": "A composition for two violins, viola, and cello, considered the purest form of chamber music.",
+    "longDefinition": "The string quartet—two violins, viola, and cello—is widely regarded as the most refined form of chamber music. Established by Haydn, who wrote over sixty examples, the form became a vehicle for composers' most intimate and experimental ideas. Beethoven's late quartets expanded the form's emotional and structural boundaries, while Bartók and Shostakovich brought it into the twentieth century with modernist intensity and political undertones.",
+    "categories": ["solo-and-chamber"],
+    "eraOrigin": ["classical"],
+    "exampleCompositionIds": ["haydn-string-quartets-op76", "shostakovich-string-quartet-8", "bartok-string-quartet-4"],
+    "wikipediaSlug": "String_quartet"
+  },
+  {
+    "id": "piano-solo",
+    "term": "Piano Solo",
+    "shortDefinition": "A composition written for unaccompanied piano, spanning genres from character pieces to large-scale sonatas.",
+    "longDefinition": "Piano solo music encompasses any composition written for a single pianist without accompaniment. The piano's vast range and dynamic capability make it uniquely suited for both intimate miniatures and grand virtuosic showpieces. From Chopin's poetic ballades and nocturnes to Debussy's impressionistic tone paintings, the solo piano repertoire represents one of the richest and most diverse bodies of music in the Western tradition.",
+    "categories": ["solo-and-chamber"],
+    "eraOrigin": ["classical", "early-romantic"],
+    "exampleCompositionIds": ["chopin-ballades", "debussy-clair-de-lune"],
+    "wikipediaSlug": "Piano"
+  },
+  {
+    "id": "choral",
+    "term": "Choral",
+    "shortDefinition": "Music written for a choir, often with orchestral accompaniment, ranging from sacred hymns to concert works.",
+    "longDefinition": "Choral music is written for an ensemble of singers, typically divided into soprano, alto, tenor, and bass sections. It encompasses sacred and secular works, from Renaissance motets and Baroque cantatas to large-scale symphonic choral works. The choir can perform a cappella or with instrumental accompaniment, and choral writing has been central to Western music from medieval plainchant through modern concert works like Stravinsky's Symphony of Psalms.",
+    "categories": ["vocal-and-choral"],
+    "eraOrigin": ["renaissance"],
+    "exampleCompositionIds": ["vivaldi-gloria", "stravinsky-symphony-of-psalms", "britten-war-requiem"],
+    "wikipediaSlug": "Choral_music"
+  },
+  {
+    "id": "art-song",
+    "term": "Art Song",
+    "shortDefinition": "A vocal composition for solo voice and piano, setting poetry to music with careful attention to text.",
+    "longDefinition": "The art song (German: Lied) is a composition for solo voice and piano that elevates poetry through musical setting. Emerging in the early Romantic era, the form demands equal partnership between singer and pianist, with the piano providing not mere accompaniment but atmospheric commentary. Schubert's prolific output, including song cycles like Winterreise, established the genre, which was further developed by Schumann, Brahms, Wolf, and Strauss.",
+    "categories": ["vocal-and-choral"],
+    "eraOrigin": ["early-romantic"],
+    "exampleCompositionIds": ["schubert-erlkoenig", "schubert-winterreise", "schumann-dichterliebe"],
+    "wikipediaSlug": "Art_song"
+  },
+  {
+    "id": "ballet",
+    "term": "Ballet",
+    "shortDefinition": "A theatrical work combining orchestral music with choreographed dance to tell a story or express ideas.",
+    "longDefinition": "Ballet music is composed to accompany choreographed dance performance, combining orchestral writing with dramatic storytelling through movement. While ballet has roots in Renaissance court entertainment, the form's musical sophistication flourished in the Romantic era with Tchaikovsky's Swan Lake and The Nutcracker. In the twentieth century, Stravinsky's revolutionary scores for the Ballets Russes transformed ballet music into a vehicle for avant-garde innovation.",
+    "categories": ["genres"],
+    "eraOrigin": ["early-romantic"],
+    "exampleCompositionIds": ["tchaikovsky-swan-lake", "stravinsky-rite-of-spring", "copland-appalachian-spring"],
+    "wikipediaSlug": "Ballet"
+  },
+  {
+    "id": "overture",
+    "term": "Overture",
+    "shortDefinition": "An orchestral introduction to an opera, oratorio, or suite, often previewing the work's main themes.",
+    "longDefinition": "An overture is an orchestral piece that serves as the introduction to an opera, oratorio, or theatrical work. It typically establishes the mood and previews key themes that will appear in the full work. Some overtures—like those by Weber and Beethoven—became so popular that they are frequently performed as standalone concert pieces, independent of the operas they introduce.",
+    "categories": ["forms-and-structures"],
+    "eraOrigin": ["baroque"],
+    "exampleCompositionIds": ["mozart-marriage-of-figaro", "beethoven-fidelio", "weber-der-freischutz"],
+    "wikipediaSlug": "Overture"
+  },
+  {
+    "id": "suite",
+    "term": "Suite",
+    "shortDefinition": "An ordered collection of instrumental pieces, often drawn from dance movements or excerpted from larger works.",
+    "longDefinition": "A suite is an ordered collection of instrumental movements, often based on stylized dance forms such as the allemande, courante, sarabande, and gigue. In the Baroque era, Bach and Handel composed suites for both solo instruments and orchestra. The form was revived in the Romantic and modern eras, when composers assembled suites from incidental music or ballet scores, as in Grieg's Peer Gynt Suite.",
+    "categories": ["forms-and-structures"],
+    "eraOrigin": ["baroque"],
+    "exampleCompositionIds": ["bach-cello-suites", "handel-water-music", "grieg-peer-gynt"],
+    "wikipediaSlug": "Suite_(music)"
+  },
+  {
+    "id": "prelude",
+    "term": "Prelude",
+    "shortDefinition": "A short introductory piece, originally preceding a larger work but later composed as a standalone form.",
+    "longDefinition": "A prelude is a short introductory piece that originally preceded a longer work such as a fugue or suite movement. Bach's Well-Tempered Clavier pairs preludes with fugues in every key. By the Romantic era, composers like Chopin and Debussy transformed the prelude into an independent miniature, using the form's freedom from strict structure to explore mood, color, and atmosphere in concentrated musical statements.",
+    "categories": ["forms-and-structures"],
+    "eraOrigin": ["baroque"],
+    "exampleCompositionIds": ["bach-well-tempered-clavier-1", "debussy-prelude-apres-midi"],
+    "wikipediaSlug": "Prelude_(music)"
+  },
+  {
+    "id": "fugue",
+    "term": "Fugue",
+    "shortDefinition": "A contrapuntal composition where a theme is introduced by one voice and successively taken up by others.",
+    "longDefinition": "A fugue is a compositional technique in which a short melody (the subject) is introduced by one voice and then imitated by other voices entering in succession. Each voice weaves around the others in strict counterpoint, creating an intricate musical conversation. Perfected by J.S. Bach in works like The Art of Fugue and The Well-Tempered Clavier, the fugue represents one of the highest achievements of Western polyphonic writing.",
+    "categories": ["forms-and-structures", "techniques"],
+    "eraOrigin": ["baroque"],
+    "exampleCompositionIds": ["bach-toccata-fugue-d-minor", "bach-well-tempered-clavier-1"],
+    "wikipediaSlug": "Fugue"
+  },
+  {
+    "id": "etude",
+    "term": "Étude",
+    "shortDefinition": "A study piece designed to develop specific technical skills while standing as a complete musical work.",
+    "longDefinition": "An étude (study) is a composition designed to develop a specific aspect of instrumental technique, such as scales, arpeggios, or octaves. While pedagogical in origin, the Romantic era transformed études into concert-worthy works of art. Chopin's Études, Op. 10 and Op. 25 revolutionized the genre by combining extreme technical demands with profound musical beauty, proving that virtuosity and artistic expression need not be separate pursuits.",
+    "categories": ["dance-and-character", "techniques"],
+    "eraOrigin": ["early-romantic"],
+    "exampleCompositionIds": ["chopin-etudes-op10"],
+    "wikipediaSlug": "Étude"
+  },
+  {
+    "id": "nocturne",
+    "term": "Nocturne",
+    "shortDefinition": "A dreamy, lyrical composition evoking the mood of night, typically written for solo piano.",
+    "longDefinition": "The nocturne is a contemplative, lyrical composition inspired by the atmosphere of night. Pioneered by Irish composer John Field and perfected by Chopin, the form typically features a singing melody over a gently rocking accompaniment, evoking moonlit serenity. Chopin's twenty-one nocturnes remain the genre's defining works, balancing intimate tenderness with moments of passionate intensity that belie the form's outwardly calm surface.",
+    "categories": ["dance-and-character"],
+    "eraOrigin": ["early-romantic"],
+    "exampleCompositionIds": ["chopin-nocturnes", "debussy-clair-de-lune"],
+    "wikipediaSlug": "Nocturne"
+  },
+  {
+    "id": "waltz",
+    "term": "Waltz",
+    "shortDefinition": "A dance composition in triple meter characterized by a strong first beat and graceful, flowing motion.",
+    "longDefinition": "The waltz is a dance in triple time (3/4 meter) that originated in Austrian and German folk traditions before sweeping through European ballrooms in the early nineteenth century. In the concert hall, the waltz was elevated by composers who used its lilting rhythm for orchestral and piano works. From Weber's Invitation to the Dance to Tchaikovsky's ballet waltzes, the form balances elegance with emotional warmth.",
+    "categories": ["dance-and-character"],
+    "eraOrigin": ["early-romantic"],
+    "exampleCompositionIds": ["weber-invitation-to-dance", "sibelius-valse-triste"],
+    "wikipediaSlug": "Waltz"
+  },
+  {
+    "id": "mazurka",
+    "term": "Mazurka",
+    "shortDefinition": "A Polish folk dance in triple meter with accents on the second or third beat.",
+    "longDefinition": "The mazurka is a Polish folk dance in triple meter, distinguished from the waltz by its characteristic accent on the second or third beat rather than the first. Chopin transformed this national dance into a sophisticated art form, composing over fifty mazurkas that blend folk rhythms with chromatic harmony and improvisatory freedom. His mazurkas capture the spirit of Polish identity while pushing harmonic boundaries far ahead of their time.",
+    "categories": ["dance-and-character"],
+    "eraOrigin": ["early-romantic"],
+    "exampleCompositionIds": [],
+    "wikipediaSlug": "Mazurka"
+  },
+  {
+    "id": "polonaise",
+    "term": "Polonaise",
+    "shortDefinition": "A stately Polish processional dance in triple meter, often conveying national pride and ceremonial grandeur.",
+    "longDefinition": "The polonaise is a stately Polish processional dance in triple meter, traditionally associated with ceremonial occasions and national pride. Chopin's polonaises—particularly the Heroic Polonaise in A-flat major—transformed the dance into a vehicle for patriotic expression, combining martial rhythms with virtuosic piano writing. The form embodies Polish identity and resilience, serving as both a cultural symbol and a showcase for dramatic, large-scale piano composition.",
+    "categories": ["dance-and-character"],
+    "eraOrigin": ["early-romantic"],
+    "exampleCompositionIds": [],
+    "wikipediaSlug": "Polonaise"
+  },
+  {
+    "id": "rhapsody",
+    "term": "Rhapsody",
+    "shortDefinition": "A free-form, episodic composition often based on folk melodies, characterized by dramatic contrasts and virtuosity.",
+    "longDefinition": "A rhapsody is a free-form, single-movement composition characterized by dramatic contrasts in mood, tempo, and dynamics. Often inspired by national folk melodies, rhapsodies blend virtuosic display with passionate expression. Liszt's Hungarian Rhapsodies established the genre as a vehicle for cultural identity and pianistic brilliance. Rachmaninoff's Rhapsody on a Theme of Paganini later demonstrated how the form could accommodate rigorous variation technique within its improvisatory framework.",
+    "categories": ["genres"],
+    "eraOrigin": ["early-romantic", "late-romantic"],
+    "exampleCompositionIds": ["liszt-hungarian-rhapsodies", "rachmaninoff-rhapsody-paganini"],
+    "wikipediaSlug": "Rhapsody_(music)"
+  },
+  {
+    "id": "tone-poem",
+    "term": "Tone Poem",
+    "shortDefinition": "An orchestral work that musically illustrates a narrative, scene, or literary idea in a single movement.",
+    "longDefinition": "A tone poem (or symphonic poem) is a single-movement orchestral work that musically depicts a narrative, scene, or philosophical idea. Invented by Liszt and perfected by Richard Strauss, the form frees orchestral music from abstract structure, allowing the music to follow the contours of its subject. Debussy's Prélude à l'après-midi d'un faune and Strauss's Also sprach Zarathustra exemplify how tone poems paint vivid imagery through purely musical means.",
+    "categories": ["genres"],
+    "eraOrigin": ["early-romantic", "late-romantic"],
+    "exampleCompositionIds": ["debussy-prelude-apres-midi", "strauss-also-sprach-zarathustra", "debussy-la-mer"],
+    "wikipediaSlug": "Symphonic_poem"
+  },
+  {
+    "id": "variation",
+    "term": "Variation",
+    "shortDefinition": "A compositional form in which a theme is stated and then repeated in altered versions.",
+    "longDefinition": "Theme and variations is a compositional form in which a musical theme is presented and then repeated in a series of modified versions. Each variation may alter the melody, harmony, rhythm, or orchestration while maintaining a recognizable connection to the original theme. From Bach's Goldberg Variations to Elgar's Enigma Variations, this form showcases a composer's ingenuity in revealing hidden possibilities within seemingly simple material.",
+    "categories": ["forms-and-structures"],
+    "eraOrigin": ["baroque", "classical"],
+    "exampleCompositionIds": ["bach-goldberg-variations", "rachmaninoff-rhapsody-paganini", "elgar-enigma-variations"],
+    "wikipediaSlug": "Variation_(music)"
+  },
+  {
+    "id": "cantata",
+    "term": "Cantata",
+    "shortDefinition": "A vocal work for soloists, choir, and instruments, often based on sacred texts or narratives.",
+    "longDefinition": "A cantata is a vocal composition for soloists, chorus, and instrumental ensemble, typically in multiple movements including arias, recitatives, and choruses. The form flourished in the Baroque era, particularly in German Lutheran churches where J.S. Bach composed over two hundred sacred cantatas for weekly services. Italian secular cantatas, meanwhile, explored dramatic and lyrical themes in a chamber setting, forming an important precursor to opera.",
+    "categories": ["vocal-and-choral"],
+    "eraOrigin": ["baroque"],
+    "exampleCompositionIds": [],
+    "wikipediaSlug": "Cantata"
+  },
+  {
+    "id": "motet",
+    "term": "Motet",
+    "shortDefinition": "A polyphonic choral composition on a sacred Latin text, sung without instrumental accompaniment.",
+    "longDefinition": "A motet is a polyphonic choral composition on a sacred text, typically in Latin and performed a cappella. Originating in medieval France, the form reached its artistic peak during the Renaissance with composers like Palestrina and Victoria, whose motets exemplify the ideal of balanced, flowing vocal polyphony. The motet's emphasis on textual clarity and spiritual expression made it a cornerstone of sacred music for centuries.",
+    "categories": ["vocal-and-choral"],
+    "eraOrigin": ["renaissance"],
+    "exampleCompositionIds": ["victoria-o-magnum-mysterium", "victoria-ave-maria", "palestrina-stabat-mater"],
+    "wikipediaSlug": "Motet"
+  },
+  {
+    "id": "other",
+    "term": "Other",
+    "shortDefinition": "Works that do not fit neatly into standard genre categories, often blending multiple forms and styles.",
+    "longDefinition": "This category encompasses works that defy conventional genre classification, blending elements from multiple traditions or creating entirely new forms. Many innovative compositions resist categorization: Bartók's Music for Strings, Percussion and Celesta merges folk elements with avant-garde techniques, while Prokofiev's Peter and the Wolf combines orchestral music with narration. Such works remind us that the most creative music often transcends the boundaries of established genres.",
+    "categories": ["genres"],
+    "eraOrigin": ["modern"],
+    "exampleCompositionIds": ["bartok-music-for-strings", "prokofiev-peter-and-wolf"],
+    "wikipediaSlug": "Musical_form"
+  }
+]

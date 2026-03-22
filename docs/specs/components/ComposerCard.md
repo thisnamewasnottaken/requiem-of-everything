@@ -6,15 +6,21 @@ A detail panel that shows comprehensive information about a selected composer. A
 
 ## Props / Inputs
 
-| Prop               | Type                   | Description                               |
-| ------------------ | ---------------------- | ----------------------------------------- |
-| `composer`         | `Composer`             | The selected composer                     |
-| `compositions`     | `Composition[]`        | Compositions by this composer             |
-| `contemporaries`   | `Composer[]`           | Composers active during overlapping years |
-| `events`           | `HistoricalEvent[]`    | Events during the composer's lifetime     |
-| `onClose`          | `() => void`           | Callback to close the panel               |
-| `onSelectComposer` | `(id: string) => void` | Navigate to another composer              |
-| `onCompare`        | `(id: string) => void` | Add to comparison                         |
+| Prop         | Type     | Description                                 |
+| ------------ | -------- | ------------------------------------------- |
+| `composerId` | `string` | ID of the composer to display               |
+
+All other data is derived internally via hooks:
+
+- `useComposer(composerId)` — composer entity
+- `useCompositionsByComposer(composerId)` — compositions list
+- `useComposerContemporaries(composerId)` — overlapping composers
+
+Actions (close, navigate, compare) use store actions directly:
+
+- `clearComposerSelection()` from `useSelectionStore`
+- `selectComposer(id)` from `useSelectionStore`
+- `toggleComposerInComparison(id)` from `useComparisonStore`
 
 ## Visual States
 
@@ -22,15 +28,16 @@ A detail panel that shows comprehensive information about a selected composer. A
 - **Expanded**: Shows full biography, all works listed, contemporaries grid.
 - **Loading Wikipedia**: Skeleton for Wikipedia-enriched content.
 - **Comparison Selected**: Visual indicator that this composer is in comparison mode.
+- **Hidden by view switch**: Not rendered when the active view is Terms or Orchestra. Selection state in `useSelectionStore` is preserved so the card reappears when the user returns to Timeline.
 
 ## Sections
 
 1. **Header**: Portrait (circular, 120px, from `portraitUrl`), name, birth–death years, nationality, era badge. If the portrait image fails to load (404 or any network error), the portrait container is hidden entirely — no broken image, no placeholder. The error state is **scoped to the current composer** — selecting a different composer must reset it so a valid portrait can appear again.
-2. **Biography**: One-paragraph core bio + expandable Wikipedia content.
-3. **Key Works**: List of compositions with year, shown as mini-timeline.
-4. **Contemporaries**: Grid/list of composers who overlapped in time.
-5. **Historical Context**: Events that happened during this composer's lifetime.
-6. **Actions**: "Focus Timeline" (zooms to lifespan accounting for panel width), "Compare with...", "Explore with AI" (future), "View on Wikipedia".
+2. **Biography**: One-paragraph core bio from `composer.biography`, followed by a "Read on Wikipedia" external link (localised via `getWikipediaUrl()`). Wikipedia content is not fetched or displayed inline.
+3. **Key Works**: List of compositions sorted by year, each showing year, title, and genre. Clicking an item calls `selectComposition(id)`.
+4. **Contemporaries**: Chip buttons of overlapping composers (capped at 15). Clicking a chip calls `selectComposer(id)`.
+5. **Historical Context**: _Planned / deferred_ — not currently rendered. The component does not display historical events during the composer's lifetime.
+6. **Actions**: "Focus Timeline" / "Unfocus" toggle (zooms to lifespan accounting for panel width), "Compare" / "Comparing" toggle (disabled when 5 composers already compared). "Explore with AI" is not yet implemented.
 
 ## Wikipedia Link Localisation
 
@@ -38,15 +45,17 @@ The "View on Wikipedia" link is localised to match the user's current i18n langu
 
 ## Focus Timeline Behavior
 
-The "Focus Timeline" button zooms the main timeline to the composer's lifespan with padding. Because the ComposerCard panel (420px wide) overlaps the right side of the viewport, the zoom accounts for this by adding proportional right-side padding (`rightInsetFraction = panelWidth / viewportWidth`). This ensures the composer's full lifespan is visible in the unobscured area to the left of the panel.
+The "Focus Timeline" button zooms the main timeline to the composer's lifespan with padding **and** activates **focus mode** — non-focused composers are dimmed and eventually collapsed (identical to comparison mode's visual treatment). Because the ComposerCard panel (420px wide) overlaps the right side of the viewport, the zoom accounts for this by adding proportional right-side padding (`rightInsetFraction = panelWidth / viewportWidth`). This ensures the composer's full lifespan is visible in the unobscured area to the left of the panel.
+
+The button is a **toggle**: clicking it again clears focus mode (label changes to "Unfocus"). Focus mode is also cleared when comparison mode is activated. The focused composer's ID is stored as `focusedComposerId` in `useSelectionStore`.
 
 ## Interactions
 
 - Click a composition → opens composition detail.
 - Click a contemporary → navigates to that composer.
 - Click "Compare" → adds to comparison view.
-- Click "Wikipedia" → opens external link.
-- Swipe/close button → dismisses panel.
+- Click "Read on Wikipedia" → opens external link in new tab.
+- Close button (`×`) → calls `clearComposerSelection()` to dismiss panel.
 
 ## Accessibility
 
@@ -57,16 +66,18 @@ The "Focus Timeline" button zooms the main timeline to the composer's lifespan w
 
 ## Dependencies
 
-- `useSelectionStore` — current selection
-- `WikipediaService` — enriched content
-- `CompositionMarker` — mini-timeline rendering
+- `useSelectionStore` — current selection, focus mode, composer/composition navigation
+- `useComparisonStore` — comparison mode toggling and state
+- `useTimelineStore` — `zoomToRange()` for Focus Timeline
+- `useComposer()`, `useCompositionsByComposer()`, `useComposerContemporaries()` — data hooks
+- `getWikipediaUrl()` — localised Wikipedia link construction
 
 ## Test Scenarios
 
 1. Renders composer name, dates, and biography.
 2. Lists all compositions sorted by year.
 3. Shows contemporaries who overlapped by at least 10 years of active life.
-4. Shows historical events within the composer's birth–death range.
-5. Close button dismisses the panel and clears selection.
-6. Clicking a contemporary dispatches navigation.
-7. Wikipedia content loads asynchronously and renders.
+4. ~~Shows historical events within the composer's birth–death range.~~ _(Not yet implemented.)_
+5. Close button dismisses the panel and clears selection via `clearComposerSelection()`.
+6. Clicking a contemporary calls `selectComposer(id)`.
+7. Wikipedia link opens in a new tab (content is not loaded inline).

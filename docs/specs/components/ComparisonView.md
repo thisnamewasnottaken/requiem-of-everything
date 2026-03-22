@@ -1,14 +1,17 @@
 # Component Spec: ComparisonView
 
+> **Implementation note:** There is no separate `ComparisonView` component. Comparison functionality is implemented as a **mode within the `Timeline` component** (`src/components/Timeline/Timeline.tsx`). This avoids duplicating the Timeline's rendering logic (scales, layout, panning, zoom, event/composition layers). The `Timeline` reads `comparisonComposerIds` and `isComparisonMode` from `useComparisonStore` and adjusts its rendering accordingly — dimming/collapsing non-compared composers, auto-zooming to the compared set, and saving/restoring the pre-comparison viewport. The behavioural spec below describes the intended (and actual) behaviour of this mode.
+
 ## Purpose
 
 A focused view that puts two or more composers side by side on a shared timeline, making it easy to compare their lives, works, and historical context at a glance.
 
-## Props / Inputs
+## Inputs
 
-| Prop          | Type       | Description                       |
-| ------------- | ---------- | --------------------------------- |
-| `composerIds` | `string[]` | IDs of composers to compare (2–5) |
+Comparison mode is driven entirely by store state — there are no dedicated component props:
+
+- `comparisonComposerIds` (`string[]`) from `useComparisonStore` — IDs of composers being compared (2–5)
+- `isComparisonMode` (`boolean`) from `useComparisonStore` — derived flag, `true` when 2+ composers are selected
 
 ## Visual States
 
@@ -63,9 +66,10 @@ This distinction is intentional and should be preserved in future development.
 
 ## Dependencies
 
-- `useComparisonStore` — compared composer IDs
-- `useComposers()`, `useCompositions()`, `useEvents()` — data
-- D3 `scaleLinear` — shared x-axis
+- `useComparisonStore` — `comparisonComposerIds`, `isComparisonMode`, `toggleComposerInComparison`, `addMultipleToComparison`
+- `useTimelineStore` — `zoomToRange`, `setViewRange` (for auto-zoom and viewport save/restore)
+- `useSelectionStore` — clears `focusedComposerId` when entering comparison mode
+- Data hooks (`useComposers`, `useCompositions`, `useEvents`) — for rendering
 
 ## Test Scenarios
 

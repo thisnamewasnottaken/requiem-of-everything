@@ -1,0 +1,80 @@
+.searchFilterBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.searchInput {
+  padding: 6px 12px 6px 32px;
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  width: 220px;
+  outline: none;
+  transition: border-color 0.15s ease, width 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: var(--text-accent);
+  width: 280px;
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.clearSearch {
+  position: absolute;
+  right: 6px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 6px;
+  line-height: 1;
+}
+
+.clearSearch:hover {
+  color: var(--text-primary);
+}
+
+.filterBtn {
+  padding: 6px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.filterBtnActive {
+  background: var(--bg-elevated);
+}
+
+.filterBtnHasFilters {
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+}

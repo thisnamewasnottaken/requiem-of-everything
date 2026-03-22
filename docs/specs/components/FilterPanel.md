@@ -15,6 +15,7 @@ Control panel for filtering the timeline by era, nationality, genre, and event c
 - **Collapsed**: Compact bar showing active filter count / search icon.
 - **Expanded**: Full panel with filter groups and search.
 - **Active Filters**: Visual chips/badges showing active filters with remove buttons.
+- **Hidden by view switch**: Not rendered when the active view is Orchestra. Visible on Timeline and Terms views. The `SearchFilterBar` toggle button is also hidden on Orchestra view.
 
 ## Filter Groups
 

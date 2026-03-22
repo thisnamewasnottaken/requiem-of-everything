@@ -6,9 +6,42 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **CSP blocks non-English Wikipedia** — Content Security Policy `connect-src` and `img-src` directives now use `https://*.wikipedia.org` wildcard instead of only `https://en.wikipedia.org`, allowing Wikipedia API calls and images to work for all localised subdomains (fr, af, etc.).
+- **`.env.example` API key footgun** — removed `VITE_AI_API_KEY` entry (the `VITE_` prefix causes Vite to expose the value in the client bundle). Added comment explaining that API authentication must be server-side only.
+
+### Changed
+
+- **OrchestraExplorer redesign** — completely rebuilt Orchestra Explorer as an immersive, full-viewport interactive orchestral topography. Features an elliptical top-down SVG stage with perspective tilt (0.55 factor), ambient background with animated orbs and mouse-tracking spotlight, spring-physics animations via `motion` library (AnimatePresence, staggered instrument node reveals), glassmorphism info panels with backdrop-blur, kinetic typography on instrument detail titles, a two-column detail modal with rotating conic gradient visual, and comprehensive i18n for family descriptions in all three languages. Spec updated at `docs/specs/components/OrchestraExplorer.md`.
+- **OrchestraExplorer header** — moved view title and subtitle from the component body into the App header for consistency with other views.
+- **OrchestraExplorer seating layout** — redesigned family positions to match standard modern orchestral seating (strings front, woodwinds centre-mid, keyboards left-wing, brass back-left, percussion back-centre, voice/choir at the very rear). Repositioned SVG centre from bottom-edge to mid-viewport to use available space. Improved instrument-node spacing algorithm with collision-aware minimum angular gaps to prevent overlapping bubbles.
+- **TermExplorer global filter integration** — TermExplorer now respects global filters from `useFilterStore`. Era filters restrict terms to those originating in selected eras; the header search query applies as an additional text filter alongside the local search input.
+- **View-scoped panel visibility** — ComposerCard and CompositionDetail panels now only render on the Timeline view (preserved when switching away, restored when returning). FilterPanel and SearchFilterBar are visible on Timeline and Terms views but hidden on Orchestra.
+
 ### Added
 
+- **View navigation tabs** — header now includes Timeline | Terms | Orchestra tab switcher to navigate between the main timeline, the musical terms glossary, and the orchestra explorer. Fully localised (en-GB, fr-FR, af-ZA).
+- **TermExplorer component** — full-page browsable/searchable glossary of 27 musical terms. Features category tab filtering (Forms & Structures, Genres, Techniques, etc.), text search across names and definitions, expandable cards with era-origin badges, example compositions with composer names and Spotify indicators, and locale-aware Wikipedia links. Spec at `docs/specs/components/TermExplorer.md`.
+- **OrchestraExplorer component** — interactive orchestra seating map with a bird's-eye-view semicircular stage layout. Instrument families are arranged in their real orchestral positions across concentric tiers (percussion at back, brass, woodwinds, then strings/keyboards/voice at front). Features clickable family sections with hover glow effects, conductor podium with golden glow, instrument cards panel below the stage, and a slide-in detail panel with full description, era timeline, featured compositions, and Wikipedia links. Spec at `docs/specs/components/OrchestraExplorer.md`.
+- **Musical terms glossary data** — `src/data/terms.json` with definitions for all 28 `CompositionGenre` values. Each term includes short/long definitions, category assignments, era origins, example composition IDs, and Wikipedia slugs. Types and hooks added.
+- **Orchestral instruments data** — `src/data/instruments.json` with 26 instruments across 6 families (strings, woodwinds, brass, percussion, keyboards, voice). Each entry includes range, role, description, era prominence, and Wikipedia slug. Types and hooks added.
+- **Focus mode dimming/collapse** — "Focus Timeline" button in ComposerCard now activates full focus mode: non-focused composers are dimmed and collapse after 1.5s, matching comparison mode's visual treatment. Toggleable; auto-clears on comparison mode entry.
+- **Auto-zoom on filter change** — applying filters now auto-zooms the timeline to fit filtered composers' combined lifespan. Viewport is saved and restored when filters are cleared. Skipped when comparison mode is active.
+- **Inline search bar in header** — replaced the standalone "⚙ Filters" button with a `SearchFilterBar` component containing an inline search input and a filter toggle button. Typing in the search box filters the timeline immediately via `useFilterStore.searchQuery`. The filter button shows an active-filter count badge when sidebar filters are engaged. Spec at `docs/specs/components/SearchFilterBar.md`.
 - **Wikipedia link localisation** — all "Read on Wikipedia" links (ComposerCard, CompositionDetail, EventMarker) and the WikipediaService API calls now use the Wikipedia subdomain matching the current i18n language (e.g. `fr.wikipedia.org` when the UI is set to French). Centralised in `src/utils/wikipedia.ts`.
+
+### Changed
+
+- **TermExplorer card modal redesign** — cards now have uniform 180px height with 3-line truncated definitions and era badges pinned to the bottom. Clicking a card opens a centred modal overlay with full definitions, example compositions, and Wikipedia link. Replaces the old inline expand/collapse model. Escape key and backdrop click close the modal. Close button auto-focused for accessibility.
+- **OrchestraExplorer SVG seating chart** — complete rewrite from rectangular flexbox tiers to true SVG arc/wedge geometry. Sections are now concentric semicircular arcs computed via `arcPath()` with proper radii and angular positions. Layout: percussion (outermost), brass, woodwinds, strings (innermost), with keyboards and voice as narrow side wedges. Includes SVG glow filters per family, conductor podium with golden gradient, decorative tier rings, and spotlight wash. Detail panel now appears inline on the right (not as a fixed overlay), with family overview → instrument drill-down navigation and "Up next" family cycling.
+
+### Fixed
+
+- **Z-index stacking for overlay panels** — app header now uses `var(--z-overlay)` instead of a hardcoded z-index of 50, so FilterPanel, ComposerCard, HelpPanel, and CompositionDetail panels correctly render above the header.
+- **Event marker relocation** — event markers moved from the bottom of the timeline to the top, in a compact 24px event band between the TimeRuler and the first composer row. Diamonds now render at the top with dashed lines extending downward through all composer rows, ensuring events are always visible regardless of how many composer rows are displayed. Tooltips open downward below the diamond. Era labels moved from EraBackdrop into the TimeRuler row (inline with year numbers). `TOP_OFFSET` increased from 56 to 80 to accommodate the event band. Grid lines and hover labels adjusted accordingly.
+- **Event tooltip positioning** — tooltip now renders just above the diamond marker (`bottom: 20px` from marker bottom) instead of above the entire marker div including the tall event line. Previously the tooltip opened above the invisible event line top or flipped below the diamond off-screen. Removed vertical flip logic since event markers are always at the timeline bottom.
+- **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved to native `addEventListener` with `{ passive: false }`. Added `touch-action: none` to timeline container.
 
 ### Changed
 
@@ -73,7 +106,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Feature specs** — Timeline navigation, Wikipedia integration
 - **AI API contract** (docs/api/ai-contract.md) — future AI integration endpoint definitions
 - **Project scaffolding** — Vite + React 18 + TypeScript
-- **Seed data** — 30 composers with biographies, 85+ compositions, 30+ historical events, 6 musical eras
+- **Seed data** — 31 composers with biographies, 85+ compositions, 30+ historical events, 6 musical eras
 - **State management** — Zustand stores for timeline, selection, filters, and comparison
 - **Data hooks** — useComposers, useCompositions, useEvents, useEras, useContemporaries, and more
 - **Services** — WikipediaService (with caching), AIService (stub for future integration)

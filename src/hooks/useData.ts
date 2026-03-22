@@ -4,13 +4,19 @@ import type {
   Composer,
   Composition,
   HistoricalEvent,
+  Instrument,
+  InstrumentFamily,
   MusicalEraDefinition,
+  MusicalTerm,
+  TermCategory,
 } from "@/types";
 
 import composersData from "@/data/composers.json";
 import compositionsData from "@/data/compositions.json";
 import eventsData from "@/data/events.json";
 import erasData from "@/data/eras.json";
+import termsData from "@/data/terms.json";
+import instrumentsData from "@/data/instruments.json";
 
 // ---------------------------------------------------------------------------
 // Internal helpers — compute full translated arrays, memoised per language
@@ -223,5 +229,75 @@ export function useEventsInRange(
         (e) => e.year <= endYear && (e.endYear ?? e.year) >= startYear,
       ),
     [events, startYear, endYear],
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Musical Terms / Glossary hooks
+// ---------------------------------------------------------------------------
+
+function useTranslatedTerms(): MusicalTerm[] {
+  const { t } = useTranslation("terms");
+  return useMemo(
+    () =>
+      (termsData as MusicalTerm[]).map((term) => ({
+        ...term,
+        term: t(`${term.id}.term`, { defaultValue: term.term }),
+        shortDefinition: t(`${term.id}.shortDefinition`, { defaultValue: term.shortDefinition }),
+        longDefinition: t(`${term.id}.longDefinition`, { defaultValue: term.longDefinition }),
+      })),
+    [t],
+  );
+}
+
+export function useTerms(): MusicalTerm[] {
+  return useTranslatedTerms();
+}
+
+export function useTerm(id: string): MusicalTerm | undefined {
+  const terms = useTranslatedTerms();
+  return useMemo(() => terms.find((t) => t.id === id), [terms, id]);
+}
+
+export function useTermsByCategory(category: TermCategory): MusicalTerm[] {
+  const terms = useTranslatedTerms();
+  return useMemo(
+    () => terms.filter((t) => t.categories.includes(category)),
+    [terms, category],
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Instrument hooks
+// ---------------------------------------------------------------------------
+
+function useTranslatedInstruments(): Instrument[] {
+  const { t } = useTranslation("instruments");
+  return useMemo(
+    () =>
+      (instrumentsData as Instrument[]).map((inst) => ({
+        ...inst,
+        name: t(`${inst.id}.name`, { defaultValue: inst.name }),
+        role: t(`${inst.id}.role`, { defaultValue: inst.role }),
+        description: t(`${inst.id}.description`, { defaultValue: inst.description }),
+      })),
+    [t],
+  );
+}
+
+export function useInstruments(): Instrument[] {
+  return useTranslatedInstruments();
+}
+
+export function useInstrument(id: string): Instrument | undefined {
+  const instruments = useTranslatedInstruments();
+  return useMemo(() => instruments.find((i) => i.id === id), [instruments, id]);
+}
+
+export function useInstrumentsByFamily(family: InstrumentFamily): Instrument[] {
+  const instruments = useTranslatedInstruments();
+  return useMemo(
+    () => instruments.filter((i) => i.family === family),
+    [instruments, family],
   );
 }

@@ -96,6 +96,30 @@ All imports use `@/` prefix resolved to `src/` (configured in both `tsconfig.jso
 
 When adding composers/compositions/events to `src/data/*.json`, match the existing TypeScript interfaces in `src/types/index.ts` exactly. Composition `composerId` must reference an existing composer's `id`, and the composer's `compositionIds` array must include the new composition's `id`.
 
+When adding new data sets, or entries to existing sets remember to add translation entries for any user-facing fields (names, bios, descriptions) in the appropriate i18n JSON files (e.g. `public/locales/{lng}/{namespace}.json`).
+
+## Localisation / i18n
+
+The app is fully localised in three languages: English (en-GB, default), French (fr-FR), and Afrikaans (af-ZA). i18next handles translations via the HTTP backend, loading JSON files from `public/locales/{lng}/{ns}.json`.
+
+### Rules
+
+- **Always translate new content.** When adding any user-facing string — UI labels, data definitions, descriptions — provide translations for all three supported languages in the same PR.
+- **UI strings** go in the `translation` namespace (`public/locales/{lng}/translation.json`). Use `t('section.key')` in components.
+- **Data content** (composer bios, composition descriptions, term definitions, instrument descriptions, etc.) goes in dedicated namespaces (`composers`, `compositions`, `events`, `eras`, `terms`, `instruments`). The data hooks in `src/hooks/useData.ts` merge base JSON from `src/data/` with translations using `useTranslation(namespace)`.
+- **Translation file structure**: Data namespace files use the entity `id` as the top-level key, with translatable field names nested inside:
+  ```json
+  {
+    "entity-id": {
+      "fieldName": "Translated value",
+      "anotherField": "Another translated value"
+    }
+  }
+  ```
+- **Fallback**: If a translation is missing, the English value from the base JSON file is used (via `defaultValue` in the `t()` call).
+- **Never hardcode user-visible strings** in components. Always use `t()` or data hooks that go through i18n.
+- **Register new namespaces** in `src/i18n/index.ts` in the `ns` array.
+
 ## Testing
 
 ### Artifact discipline

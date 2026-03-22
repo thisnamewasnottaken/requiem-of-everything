@@ -121,10 +121,23 @@ export default function Timeline() {
     selectedCompositionId,
     selectedEventId,
     selectEvent,
+    focusedComposerId,
   } = useSelectionStore();
-  const { comparisonComposerIds, isComparisonMode, toggleComposerInComparison, addMultipleToComparison } =
-    useComparisonStore();
-  const { eraFilters, nationalityFilters, genreFilters, showHistoricalEvents, searchQuery } = useFilterStore();
+  const {
+    comparisonComposerIds,
+    isComparisonMode,
+    toggleComposerInComparison,
+    addMultipleToComparison,
+  } = useComparisonStore();
+
+  const isFocusMode = focusedComposerId !== null;
+  const {
+    eraFilters,
+    nationalityFilters,
+    genreFilters,
+    showHistoricalEvents,
+    searchQuery,
+  } = useFilterStore();
 
   const allComposers = useComposers();
   const allCompositions = useCompositions();
@@ -164,9 +177,7 @@ export default function Timeline() {
       });
       list = list.filter((c) => {
         const genres = composerGenres.get(c.id);
-        return genres
-          ? genreFilters.some((g) => genres.has(g))
-          : false;
+        return genres ? genreFilters.some((g) => genres.has(g)) : false;
       });
     }
     if (searchQuery) {
@@ -179,7 +190,71 @@ export default function Timeline() {
       );
     }
     return list;
-  }, [allComposers, allCompositions, eraFilters, nationalityFilters, genreFilters, searchQuery]);
+  }, [
+    allComposers,
+    allCompositions,
+    eraFilters,
+    nationalityFilters,
+    genreFilters,
+    searchQuery,
+  ]);
+
+  // Auto-zoom to fit filtered composers when filters change
+  const hasActiveFilters =
+    eraFilters.length > 0 ||
+    nationalityFilters.length > 0 ||
+    genreFilters.length > 0 ||
+    searchQuery.length > 0;
+  const preFilterViewRef = useRef<{
+    startYear: number;
+    endYear: number;
+  } | null>(null);
+  const prevHadFiltersRef = useRef(false);
+
+  useEffect(() => {
+    // Skip if comparison mode is active (comparison zoom takes priority)
+    if (isComparisonMode) return;
+
+    // When filters are applied and we have results (but not showing all composers), zoom to fit
+    if (
+      hasActiveFilters &&
+      filteredComposers.length > 0 &&
+      filteredComposers.length < allComposers.length
+    ) {
+      // Save viewport on first filter application
+      if (!preFilterViewRef.current) {
+        const { viewStartYear: curStart, viewEndYear: curEnd } =
+          useTimelineStore.getState();
+        preFilterViewRef.current = { startYear: curStart, endYear: curEnd };
+      }
+
+      const minBirth = Math.min(...filteredComposers.map((c) => c.birthYear));
+      const maxDeath = Math.max(
+        ...filteredComposers.map((c) => c.deathYear ?? 2025),
+      );
+      zoomToRange(minBirth, maxDeath, 15);
+    }
+
+    // Restore viewport when all filters are cleared
+    if (!hasActiveFilters && prevHadFiltersRef.current) {
+      if (preFilterViewRef.current) {
+        setViewRange(
+          preFilterViewRef.current.startYear,
+          preFilterViewRef.current.endYear,
+        );
+        preFilterViewRef.current = null;
+      }
+    }
+
+    prevHadFiltersRef.current = hasActiveFilters;
+  }, [
+    filteredComposers,
+    hasActiveFilters,
+    zoomToRange,
+    setViewRange,
+    isComparisonMode,
+    allComposers.length,
+  ]);
 
   // Composer row layout
   const composerRows = useMemo(
@@ -224,7 +299,7 @@ export default function Timeline() {
 
   // Timeline height
   const ROW_HEIGHT = 34;
-  const TOP_OFFSET = 56;
+  const TOP_OFFSET = 84;
   const timelineHeight = Math.max(
     500,
     TOP_OFFSET + (maxRow + 1) * ROW_HEIGHT + 100,
@@ -311,14 +386,39 @@ export default function Timeline() {
     prevComparisonModeRef.current = isComparisonMode;
   }, [isComparisonMode, setViewRange]);
 
+  // Focus mode collapse: after 1.5s, collapse non-focused composers
+  useEffect(() => {
+    if (!isFocusMode) return;
+
+    setIsCollapsed(false);
+    const timer = setTimeout(() => {
+      setIsCollapsed(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [focusedComposerId, isFocusMode]);
+
+  // Clear focus when entering comparison mode
+  useEffect(() => {
+    if (isComparisonMode && focusedComposerId) {
+      useSelectionStore.getState().setFocusedComposer(null);
+    }
+  }, [isComparisonMode, focusedComposerId]);
+
   // --- Interaction handlers ---
 
-  const handleWheel = useCallback(
-    (e: React.WheelEvent) => {
-      e.preventDefault();
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
+  // Native wheel listener for non-passive preventDefault support
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
+    const onWheel = (e: WheelEvent) => {
+      // Only handle zoom gestures (Ctrl+wheel or trackpad pinch)
+      if (!e.ctrlKey && !e.metaKey) return;
+
+      e.preventDefault();
+
+      const rect = el.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const centerYear = scale.invert(mouseX);
 
@@ -327,9 +427,11 @@ export default function Timeline() {
       } else {
         zoomOut(centerYear);
       }
-    },
-    [scale, zoomIn, zoomOut],
-  );
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [scale, zoomIn, zoomOut]);
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent) => {
@@ -427,21 +529,31 @@ export default function Timeline() {
       e.preventDefault();
       if (!touchStart.current) return;
 
-      if (e.touches.length === 1 && touchStart.current.pinchDist === undefined) {
+      if (
+        e.touches.length === 1 &&
+        touchStart.current.pinchDist === undefined
+      ) {
         const dx = e.touches[0].clientX - touchStart.current.x;
-        const yearRange = touchStart.current.endYear - touchStart.current.startYear;
+        const yearRange =
+          touchStart.current.endYear - touchStart.current.startYear;
         const yearDelta = -(dx / containerWidth) * yearRange;
         setViewRange(
           touchStart.current.startYear + yearDelta,
           touchStart.current.endYear + yearDelta,
         );
-      } else if (e.touches.length === 2 && touchStart.current.pinchDist !== undefined) {
+      } else if (
+        e.touches.length === 2 &&
+        touchStart.current.pinchDist !== undefined
+      ) {
         const dx = e.touches[1].clientX - e.touches[0].clientX;
         const dy = e.touches[1].clientY - e.touches[0].clientY;
         const newDist = Math.hypot(dx, dy);
         const ratio = touchStart.current.pinchDist / newDist;
-        const centerYear = (touchStart.current.startYear + touchStart.current.endYear) / 2;
-        const halfRange = ((touchStart.current.endYear - touchStart.current.startYear) / 2) * ratio;
+        const centerYear =
+          (touchStart.current.startYear + touchStart.current.endYear) / 2;
+        const halfRange =
+          ((touchStart.current.endYear - touchStart.current.startYear) / 2) *
+          ratio;
         setViewRange(centerYear - halfRange, centerYear + halfRange);
       }
     },
@@ -485,7 +597,6 @@ export default function Timeline() {
     <div
       ref={containerRef}
       className={styles.timelineContainer}
-      onWheel={handleWheel}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
@@ -506,21 +617,21 @@ export default function Timeline() {
         <button
           className={styles.controlBtn}
           onClick={() => zoomIn()}
-          title={t('timeline.zoomIn')}
+          title={t("timeline.zoomIn")}
         >
           +
         </button>
         <button
           className={styles.controlBtn}
           onClick={() => zoomOut()}
-          title={t('timeline.zoomOut')}
+          title={t("timeline.zoomOut")}
         >
           −
         </button>
         <button
           className={styles.controlBtn}
           onClick={resetView}
-          title={t('timeline.resetView')}
+          title={t("timeline.resetView")}
           style={{ fontSize: "14px" }}
         >
           ↺
@@ -555,6 +666,7 @@ export default function Timeline() {
           startYear={viewStartYear}
           endYear={viewEndYear}
           width={containerWidth}
+          eras={eras as MusicalEraDefinition[]}
         />
 
         {/* Composer bars */}
@@ -573,8 +685,15 @@ export default function Timeline() {
               eraColor={eraColorForComposer(composer)}
               isSelected={selectedComposerIds.includes(composer.id)}
               isComparison={inComparison}
-              isDimmed={isComparisonMode && !inComparison}
-              isCollapsed={isCollapsed && isComparisonMode && !inComparison}
+              isDimmed={
+                (isComparisonMode && !inComparison) ||
+                (isFocusMode && composer.id !== focusedComposerId)
+              }
+              isCollapsed={
+                isCollapsed &&
+                ((isComparisonMode && !inComparison) ||
+                  (isFocusMode && composer.id !== focusedComposerId))
+              }
               onClick={handleComposerClick}
             />
           );
@@ -601,8 +720,10 @@ export default function Timeline() {
                 isDimmed={
                   isComparisonMode
                     ? !comparisonComposerIds.includes(comp.composerId)
-                    : selectedComposerIds.length > 0 &&
-                      !selectedComposerIds.includes(comp.composerId)
+                    : isFocusMode
+                      ? comp.composerId !== focusedComposerId
+                      : selectedComposerIds.length > 0 &&
+                        !selectedComposerIds.includes(comp.composerId)
                 }
                 onClick={selectComposition}
               />
@@ -618,7 +739,9 @@ export default function Timeline() {
             endYear={viewEndYear}
             width={containerWidth}
             timelineHeight={timelineHeight}
-            isDimmed={isComparisonMode || selectedComposerIds.length > 0}
+            isDimmed={
+              isComparisonMode || isFocusMode || selectedComposerIds.length > 0
+            }
             isSelected={selectedEventId === event.id}
             onClick={handleEventClick}
           />

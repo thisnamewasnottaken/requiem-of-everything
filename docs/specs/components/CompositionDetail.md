@@ -6,18 +6,19 @@ Display full details of a selected composition in a compact floating card anchor
 
 ## Props / Inputs
 
-| Prop              | Type     | Description                       |
-| ----------------- | -------- | --------------------------------- |
-| compositionId     | string   | ID of the composition to display  |
+| Prop          | Type   | Description                      |
+| ------------- | ------ | -------------------------------- |
+| compositionId | string | ID of the composition to display |
 
 ## Visual States
 
-- **Visible**: Compact card slides up from the bottom when a composition is selected.
-- **Hidden**: Not rendered when no composition is selected.
+- **Visible**: Compact card slides up from the bottom when a composition is selected and the active view is Timeline.
+- **Hidden**: Not rendered when no composition is selected, or when the active view is Terms or Orchestra. Selection state is preserved so the card reappears when returning to Timeline.
 
 ## Layout
 
 The panel is a fixed bottom-center card:
+
 - **Width**: 560px max, `calc(100vw - 32px)` on narrow screens.
 - **Position**: fixed, bottom: 24px, centered horizontally.
 - **z-index**: `var(--z-panel)`.
@@ -35,9 +36,10 @@ The panel is a fixed bottom-center card:
 3. **Description**: Multi-line paragraph.
 4. **Instrumentation** row (small label + value).
 5. **Key** row — only shown when `key` field is present.
-6. **Significance** block — only shown when `significance` field is present.
-7. **Wikipedia link** — only shown when `wikipediaSlug` is present; opens in new tab with `rel="noopener noreferrer"`.
-8. **Spotify link** — only shown when `spotifyUrl` is present; opens in new tab with `rel="noopener noreferrer"`. Displays as "Listen on Spotify" with a play icon. Styled distinctly from the Wikipedia link (Spotify green accent `#1DB954`).
+6. **Catalogue number** row — only shown when `catalogueNumber` field is present.
+7. **Significance** block — only shown when `significance` field is present.
+8. **Wikipedia link** — only shown when `wikipediaSlug` is present; opens in new tab with `rel="noopener noreferrer"`.
+9. **Spotify link**— only shown when `spotifyUrl` is present; opens in new tab with `rel="noopener noreferrer"`. Displays as "Listen on Spotify" with a play icon (`▶`). Styled with Spotify green accent `#1DB954` text, a rounded pill background (`rgba(29, 185, 84, 0.12)`), and hover state (`rgba(29, 185, 84, 0.24)`). This styling is implemented in `CompositionDetail.module.css` (`.spotifyLink` class).
 
 ## Interactions
 

@@ -175,3 +175,45 @@ export interface WikiSummary {
   thumbnailUrl?: string;
   articleUrl: string;
 }
+
+// --- Musical Terms / Glossary ---
+
+export type TermCategory =
+  | "forms-and-structures"
+  | "genres"
+  | "techniques"
+  | "vocal-and-choral"
+  | "dance-and-character"
+  | "solo-and-chamber";
+
+export interface MusicalTerm {
+  id: string;
+  term: string;
+  shortDefinition: string;
+  longDefinition: string;
+  categories: TermCategory[];
+  eraOrigin: MusicalEra[];
+  exampleCompositionIds: string[];
+  wikipediaSlug: string;
+}
+
+// --- Orchestral Instruments ---
+
+export type InstrumentFamily =
+  | "strings"
+  | "woodwinds"
+  | "brass"
+  | "percussion"
+  | "keyboards"
+  | "voice";
+
+export interface Instrument {
+  id: string;
+  name: string;
+  family: InstrumentFamily;
+  range: string;
+  role: string;
+  description: string;
+  eraProminence: { era: MusicalEra; prominence: "primary" | "secondary" | "rare" }[];
+  wikipediaSlug: string;
+}

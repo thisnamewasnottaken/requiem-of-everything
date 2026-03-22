@@ -75,12 +75,14 @@ The goal is _discovery_: a user should be able to land on any point in time and 
 
 | Layer                   | Choice                                          | Rationale                                               |
 | ----------------------- | ----------------------------------------------- | ------------------------------------------------------- |
-| Framework               | React 18+ with TypeScript                       | Component model, ecosystem, type safety                 |
+| Framework               | React 19 with TypeScript                        | Component model, ecosystem, type safety                 |
 | Build                   | Vite                                            | Fast HMR, modern defaults                               |
 | Timeline Rendering      | D3.js + Custom React Components                 | Fine-grained control over timeline visualization        |
 | State Management        | Zustand                                         | Lightweight, no boilerplate, good for zoom/filter state |
 | Styling                 | CSS Modules + CSS Custom Properties             | Scoped styles, theming via variables                    |
+| Animations              | Motion (Framer Motion)                          | Spring physics, staggered entry, AnimatePresence        |
 | Data Layer              | Static JSON + fetch API                         | Start static, evolve to API                             |
+| Internationalisation    | i18next + react-i18next                         | HTTP backend, 3 languages (en-GB, fr-FR, af-ZA)        |
 | Wikipedia Integration   | Wikipedia REST API                              | Historical event enrichment                             |
 | Testing                 | Vitest + Playwright                             | Unit + E2E, spec-driven                                 |
 | AI Integration (future) | REST API contract (OpenAI/Anthropic-compatible) | Pluggable, provider-agnostic                            |
@@ -226,6 +228,7 @@ requiem-of-everything/
 - [x] French (France) localization as first target language
 - [x] Afrikaans (South Africa) localization as second target language
 - [x] Content localisation (composer bios, composition descriptions, event descriptions, era names) via i18next namespaces — en-GB, fr-FR, af-ZA
+- [x] Terms and instruments content localisation (fr-FR, af-ZA)
 - [x] Expanded composition dataset in addition to notable works (All major works for each composer, with metadata)
 - [x] Spotify links for notable works where available
 - [x] Expanded composer dataset (next tier of notable composers, with portraits and bios)

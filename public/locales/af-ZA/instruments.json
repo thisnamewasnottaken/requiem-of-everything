@@ -1,0 +1,132 @@
+{
+  "violin": {
+    "name": "Viool",
+    "role": "Hoof melodie-instrument; lei die strykafdeling",
+    "description": "Die hoogste-toonhoogte standaard strykinstrument. Die viool dra die meeste orkesmelodieë en is die ruggraat van die strykafdeling. Sy ekspressiewe omvang strek van liriese sangbare lyne tot virtuose passasiewerk."
+  },
+  "viola": {
+    "name": "Altviool",
+    "role": "Binneste stem van die strykafdeling; verskaf harmoniese diepte",
+    "description": "Effens groter as die viool, vul die altviool die altregister van die strykfamilie. Dit verskaf noodsaaklike harmoniese ondersteuning en binneste stemme, wat warmte en rykheid aan die orkestekstuur verleen. Sy donkerder, meer gesluierde toon het baie solowerk van die Romantiese era af geïnspireer."
+  },
+  "cello": {
+    "name": "Tjello",
+    "role": "Bas- en tenoorstem van die strykafdeling; ewe sterk in melodie en harmonie",
+    "description": "Die tjello bestryk tenoor- en basregisters, wat dit een van die mees veelsydige orkesinstrumente maak. Dit anker die strykafdeling se baslyn terwyl dit ook ekspressiewe solomelodieë dra. Sy ryk, sangbare toon word dikwels met die menslike stem vergelyk."
+  },
+  "double-bass": {
+    "name": "Kontrabas",
+    "role": "Grondslag van die orkesbas; versterk die laagste register",
+    "description": "Die grootste en laagste-toonhoogte strykinstrument in die orkes. Die kontrabas verskaf die fundamentele baslyn wat die hele ensemble ondersteun. Dit word tipies met 'n stryker in orkesverband gespeel en gepluk in jazz en populêre musiek."
+  },
+  "harp": {
+    "name": "Harp",
+    "role": "Verskaf gearpeggieerde teksture, glissandi en koloristiese effekte",
+    "description": "Die orkespedaalharp bestryk byna die volle omvang van die klavier. Dit dra skitterende arpeggios, eteriese glissandi en harmoniese kleur tot die orkes by. Hoewel antiek van oorsprong, het die moderne dubbelaksie-pedaalharp 'n standaard orkesbestanddeel in die Romantiese tydperk geword."
+  },
+  "viola-da-gamba": {
+    "name": "Viola da gamba",
+    "role": "Hoof strykinstrument van die Renaissance en Barok; kontinuo- en solorolle",
+    "description": "'n Strykinstrument met frette wat tussen die bene gehou word. Die viola da gamba was sentraal in Renaissance- en Barok-kamermusiek en het as beide solo- en kontinuo-instrument gedien. Dit is geleidelik deur die tjellofamilie verdring gedurende die Klassieke tydperk."
+  },
+  "flute": {
+    "name": "Fluit",
+    "role": "Hoogste standaard houtblaser; dra helder melodieë en ornamentele passasies",
+    "description": "'n Dwarsinstrument waaroor geblaas word by 'n mondgat. Die moderne Boehm-stelselfluit produseer 'n helder, briljante toon wat deur die orkestekstuur sny. Dit presteer in vinnige passasiewerk en liriese melodieë in die hoë register."
+  },
+  "oboe": {
+    "name": "Hobo",
+    "role": "Deurdringende sopraanstem van die houtblasers; stem die orkes",
+    "description": "'n Dubbelriet-instrument met 'n kenmerkende, deurdringende toon. Die hobo verskaf die stemnoot (A4) vir die orkes en dra aangrypende solomelodieë. Sy ekspressiewe, effens nasale klankkleur word sedert die Barok-era hoog aangeslaan."
+  },
+  "clarinet": {
+    "name": "Klarinet",
+    "role": "Mees beweeglike houtblaser; wye dinamiese en klankkleuromvang",
+    "description": "'n Enkelriet-instrument met die wydste toonhoogte-omvang van die standaard houtblasers. Die klarinet se gladde, warm toon en buitengewone beweeglikheid maak dit ewe geskik vir liriese melodieë en vinnige tegniese passasies. Dit het die orkes in die middel van die 18de eeu betree en het vinnig onontbeerlik geword."
+  },
+  "bassoon": {
+    "name": "Fagot",
+    "role": "Basstem van die houtblaserafdeling; smelt met strykers en horings saam",
+    "description": "'n Groot dubbelriet-instrument wat die bas en tenoor van die houtblasersfamilie verskaf. Die fagot se warm, rieterige toon smelt natuurlik met strykers en horings saam. Dit word gewaardeer vir beide sy sonore lae register en sy vermoë tot droë, komiese staccato-effekte."
+  },
+  "recorder": {
+    "name": "Blokfluit",
+    "role": "Hoof blaasinstrument van die Renaissance en vroeë Barok; grotendeels deur die fluit vervang",
+    "description": "'n Familie van houtfluite met 'n sagte, suiwer toon wat aan die eindpunt geblaas word. Die blokfluit was een van die belangrikste blaasinstrumente van die Middeleeue tot die Barok en het prominent in werke van Bach, Händel en Vivaldi verskyn. Dit is grotendeels deur die dwarsfluit teen die Klassieke era vervang."
+  },
+  "french-horn": {
+    "name": "Franse horing",
+    "role": "Brug tussen houtblasers en koperblasers; verskaf warmte en heldhaftige kleur",
+    "description": "'n Opgerolde koperinstrument met 'n wye, koniese klankbeker. Die Franse horing se sagte, afgeronde toon smelt naatloos met beide houtblasers en strykers saam, wat dit die hoofskakeling tussen orkesafdelings maak. Dit is bekend vir sy edele, heldhaftige klank en sy berug uitdagende intonasie."
+  },
+  "trumpet": {
+    "name": "Trompet",
+    "role": "Briljante sopraanstem van die koper; fanfares, seine en heldhaftige temas",
+    "description": "Die hoogste-toonhoogte standaard koperinstrument. Die trompet se helder, snyende toon het vir eeue seremoniële en militêre funksies vervul. In die orkes lewer dit fanfares, gedurfde tematiese stellings en briljante hoogtepuntpassasies."
+  },
+  "trombone": {
+    "name": "Tromboon",
+    "role": "Kragtige tenoor-bas koperstem; korale, hoogtepunte en dramatiese klem",
+    "description": "'n Koperinstrument wat 'n teleskopiese skuif gebruik om toonhoogte te verander. Die tromboon se gedurfde, edele toon maak dit ideaal vir koraalagtige passasies en kragtige hoogtepunte. Sy skuifmeganisme maak onoortreflike legato- en glissando-effekte onder koperinstrumente moontlik."
+  },
+  "tuba": {
+    "name": "Tuba",
+    "role": "Laagste koperinstrument; anker die koperafdeling se basregister",
+    "description": "Die grootste en laagste-toonhoogte standaard koperinstrument. Die tuba verskaf die fundamentele bas vir die koperafdeling, net soos die kontrabas vir die strykers doen. Uitgevind in die 1830's, het dit die ophikleïde en serpent vervang om die standaard orkes-bas-koperstem te word."
+  },
+  "timpani": {
+    "name": "Timpani",
+    "role": "Toonhoogte-perkussie; verskaf ritmiese klem en harmoniese versterking",
+    "description": "Groot koperkesseltrommels wat op bepaalde toonhoogtes gestem word. Timpani is die oudste en belangrikste orkesperkussie-instrumente wat ritmiese aksente en harmoniese basnote versterk. 'n Standaardstel van vier trommels dek ongeveer twee oktawe en kan met pedale tydens uitvoering herstem word."
+  },
+  "snare-drum": {
+    "name": "Snartrom",
+    "role": "Skerp, ritmiese artikulasie; militêre en dramatiese effekte",
+    "description": "'n Vlak dubbelvel-trom met metaalsnaarvere oor die ondervlies gespan wat 'n helder, ratelende klank produseer. Die snartrom het orkesmusiek uit militêre kapelle betree en word gebruik vir ritmiese presisie, krygseffekte en dramatiese spanning in orkespartiture."
+  },
+  "cymbals-and-percussion": {
+    "name": "Simbale en hulpperkussie",
+    "role": "Kleur, aksent en spesiale effekte oor 'n wye familie van instrumente",
+    "description": "'n Kollektiewe groepering van orkesperkussie buite timpani en snartrom, wat botssimbale, hangsimbaal, bastrom, driehoek, tamboeryn, klokkenspel, xilofoon en buisklokkies insluit. Hierdie instrumente voeg ritmiese aksent, klankkleur en dramatiese punktuasie by die orkespalet."
+  },
+  "piano": {
+    "name": "Klavier",
+    "role": "Solo- en konsertinstrument; af en toe orkeskleur",
+    "description": "'n Klawerbordinstrument waarin hamers snare slaan. Die klavier se enorme dinamiese en toonhoogte-omvang het dit die dominante solo- en kamerinstrument gemaak van die laat 18de eeu af. In die orkes verskyn dit meestal as konsertsolis maar voeg ook perkussiewe kleur in moderne partiture by."
+  },
+  "organ": {
+    "name": "Orrel",
+    "role": "Verskaf massiewe volgehoue klankvolume; gewyde en konsertsaal-instrument",
+    "description": "'n Klawerbordinstrument waarin lugdruk deur reekse pype klink. Die pyporrel se uitgestrekte klankpalet en vermoë om onbepaald vol te hou, het dit sentraal in gewyde musiek van die Renaissance tot die Barok gemaak. Dit verskyn steeds in orkeswerke wat monumentale klankvolume vereis."
+  },
+  "harpsichord": {
+    "name": "Klavesimbel",
+    "role": "Kontinuo- en soloklawerbord van die Barok; geplukde-snaarmeganisme",
+    "description": "'n Klawerbordinstrument wat snare pluk eerder as slaan, wat 'n helder, snydende toon produseer. Die klavesimbel was die hoofklawerbordinstrument van die Renaissance deur die Barok, sentraal in basso continuo-begeleiding. Dit is geleidelik deur die klavier in die laat 18de eeu vervang."
+  },
+  "celesta": {
+    "name": "Celesta",
+    "role": "Eteriese klokagtige kleur; spaarsaam gebruik vir magiese of delikate effekte",
+    "description": "'n Klawerbordinstrument waarin hamers metaalplate bo houtresonators slaan wat 'n skitterende, klokagtige klank produseer. Uitgevind in 1886, het die celesta beroemd geword deur Tsjaikofski se 'Dans van die Suikerboonfee' en word vir eteriese of bowe-aardse orkeskleur gebruik."
+  },
+  "soprano": {
+    "name": "Sopraan",
+    "role": "Hoogste standaard vroulike stem; dra die leidende vokale melodieë in koor- en operawerke",
+    "description": "Die hoogste standaard sangstemtipe, wat tipies strek van middel-C tot hoë C. Die sopraanstem lei melodiese lyne in opera, oratorium en koormusiek. Deur alle eras het soprane die mees prominente vokale rolle vertolk, van Renaissance-misse tot moderne opera."
+  },
+  "alto-mezzo": {
+    "name": "Alt / Mezzo-sopraan",
+    "role": "Laer vroulike stem; harmoniese binneste stem en dramatiese ondersteunende rolle",
+    "description": "Die laer vroulike stemtipe wat beide mezzo-sopraan- en kontralregisters omvat. In koormusiek verskaf alte noodsaaklike harmoniese binneste stemme. In opera vertolk mezzo-soprane dikwels komplekse, dramatiese karakters — van broekrolle tot femmes fatales."
+  },
+  "tenor": {
+    "name": "Tenoor",
+    "role": "Hoër manlike stem; heldhaftige hoofrolle in opera en prominente koorlyne",
+    "description": "Die hoër standaard manlike sangstem. Tenore vertolk hoofrolle in opera — die romantiese held, die tragiese protagonis — en verskaf helder boonste lyne in koorskryfwerk. Die tenoorstem se dravermoë en ekspressiewe intensiteit maak dit sentraal in vokale musiek oor alle eras heen."
+  },
+  "bass-baritone": {
+    "name": "Basbariton / Bas",
+    "role": "Laagste manlike stem; gesagsfigure, skurke en grondliggende koorbas",
+    "description": "Die laagste standaard manlike sangstem, wat bas- en baritonregisters omspan. In opera vertolk basbaritonne konings, priesters, skurke en vaderfigure. In koormusiek verskaf die basafdeling die harmoniese grondslag wat die vokale ensemble anker net soos die tjello en kontrabas die strykers anker."
+  }
+}

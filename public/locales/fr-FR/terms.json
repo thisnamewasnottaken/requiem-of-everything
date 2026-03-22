@@ -1,0 +1,142 @@
+{
+  "symphony": {
+    "term": "Symphonie",
+    "shortDefinition": "Œuvre orchestrale de grande envergure, généralement en quatre mouvements aux tempos et caractères contrastés.",
+    "longDefinition": "La symphonie est une composition orchestrale développée, habituellement en quatre mouvements : une ouverture rapide en forme sonate, un mouvement lent et lyrique, un scherzo ou menuet dansant, et un finale vigoureux. Développée par Haydn et Mozart à l'époque classique, la forme fut considérablement élargie par Beethoven, puis par des compositeurs romantiques tels que Brahms, Tchaïkovski et Mahler. La symphonie représente le sommet de l'ambition orchestrale, servant de véhicule principal aux idées musicales les plus profondes des compositeurs."
+  },
+  "concerto": {
+    "term": "Concerto",
+    "shortDefinition": "Composition pour instrument soliste et orchestre, mettant en valeur la virtuosité du soliste en dialogue avec l'ensemble.",
+    "longDefinition": "Le concerto oppose un instrument soliste à un orchestre complet dans un dialogue musical qui équilibre démonstration virtuose et jeu collaboratif. Né à l'époque baroque avec des compositeurs comme Vivaldi et Bach, la forme a évolué à travers Mozart et Beethoven pour devenir le grand concerto romantique. Généralement en trois mouvements (vif–lent–vif), le concerto comporte une cadence — un passage solo non accompagné où l'interprète fait preuve de maîtrise technique et d'interprétation personnelle."
+  },
+  "sonata": {
+    "term": "Sonate",
+    "shortDefinition": "Œuvre en plusieurs mouvements pour un ou deux instruments, structurée autour de thèmes contrastés et de relations tonales.",
+    "longDefinition": "La sonate est une composition en plusieurs mouvements pour un ou deux instruments, construite sur le principe de thèmes contrastés développés à travers des relations tonales. La forme sonate-allegro — exposition, développement et réexposition — est devenue le fondement structurel de la musique classique. Des sonates dramatiques pour piano de Beethoven aux innovations en un seul mouvement de Liszt, la sonate a servi de terrain d'épreuve pour l'art de la composition et l'expression instrumentale."
+  },
+  "opera": {
+    "term": "Opéra",
+    "shortDefinition": "Œuvre dramatique combinant musique vocale et orchestrale avec une représentation théâtrale mise en scène et un livret.",
+    "longDefinition": "L'opéra est un art dramatique qui associe chant, musique orchestrale, jeu d'acteur et mise en scène pour raconter des histoires par la musique. Né dans l'Italie de la fin de la Renaissance avec les œuvres pionnières de Monteverdi, l'opéra a évolué à travers des traditions nationales distinctes — le bel canto italien, le drame musical allemand, le grand opéra français. Des comédies spirituelles de Mozart aux mythologies épiques de Wagner et au vérisme émouvant de Puccini, l'opéra demeure la fusion la plus complète de la musique et du théâtre."
+  },
+  "oratorio": {
+    "term": "Oratorio",
+    "shortDefinition": "Grande œuvre vocale sacrée pour solistes, chœur et orchestre, exécutée sans mise en scène ni costumes.",
+    "longDefinition": "Un oratorio est un récit musical de grande envergure pour solistes, chœur et orchestre, généralement fondé sur des sujets sacrés mais exécuté en concert plutôt que mis en scène avec costumes et décors. Développée à l'époque baroque, cette forme a atteint son apogée avec le Messie de Haendel et les Passions de Bach. Contrairement à l'opéra, l'oratorio repose sur la seule puissance de la musique et du texte pour transmettre le drame, faisant du chœur une force dramatique centrale."
+  },
+  "mass": {
+    "term": "Messe",
+    "shortDefinition": "Composition chorale mettant en musique les textes liturgiques de la messe catholique.",
+    "longDefinition": "La messe est une mise en musique des textes de la liturgie catholique romaine, en particulier l'Ordinaire : Kyrie, Gloria, Credo, Sanctus et Agnus Dei. De la polyphonie renaissante de Palestrina à la monumentale Messe en si mineur de Bach, les compositeurs ont utilisé ce cadre sacré pour créer des œuvres d'une beauté et d'une profondeur spirituelle extraordinaires. Les messes de concert de compositeurs ultérieurs transcendent souvent leurs origines liturgiques pour devenir des déclarations artistiques indépendantes."
+  },
+  "requiem": {
+    "term": "Requiem",
+    "shortDefinition": "Mise en musique de la messe catholique des défunts, souvent composée comme œuvre de concert.",
+    "longDefinition": "Un requiem est une mise en musique de la messe catholique des morts (Missa pro defunctis), comprenant traditionnellement des mouvements tels que le Dies irae, le Lacrimosa et le Lux aeterna. D'abord musique liturgique fonctionnelle, le requiem est devenu un genre de concert puissant. Le Requiem inachevé de Mozart, la mise en scène opératique de Verdi et la réinterprétation protestante de Brahms montrent comment les compositeurs ont transformé ce rituel solennel en expressions profondément personnelles de deuil, d'espoir et de transcendance."
+  },
+  "chamber-music": {
+    "term": "Musique de chambre",
+    "shortDefinition": "Musique composée pour un petit ensemble, généralement de deux à neuf musiciens avec un interprète par partie.",
+    "longDefinition": "La musique de chambre est composée pour un petit groupe d'instruments, chaque interprète jouant une partie indépendante. Destinée à l'origine à des cadres domestiques intimes plutôt qu'à de grandes salles de concert, ce genre exige un dialogue musical étroit entre les musiciens. Le quatuor à cordes, le trio avec piano et le quintette à vent sont des ensembles de chambre classiques. Des quatuors pionniers de Haydn aux œuvres avant-gardistes de Schoenberg, la musique de chambre offre parmi les écritures les plus intellectuellement raffinées de la musique classique."
+  },
+  "string-quartet": {
+    "term": "Quatuor à cordes",
+    "shortDefinition": "Composition pour deux violons, alto et violoncelle, considérée comme la forme la plus pure de la musique de chambre.",
+    "longDefinition": "Le quatuor à cordes — deux violons, alto et violoncelle — est largement considéré comme la forme la plus raffinée de la musique de chambre. Établie par Haydn, qui en a écrit plus de soixante, cette forme est devenue le véhicule des idées les plus intimes et expérimentales des compositeurs. Les derniers quatuors de Beethoven ont repoussé les limites émotionnelles et structurelles de la forme, tandis que Bartók et Chostakovitch l'ont portée au XXe siècle avec une intensité moderniste et des sous-entendus politiques."
+  },
+  "piano-solo": {
+    "term": "Piano solo",
+    "shortDefinition": "Composition écrite pour piano sans accompagnement, couvrant des genres allant des pièces de caractère aux sonates de grande envergure.",
+    "longDefinition": "La musique pour piano solo englobe toute composition écrite pour un seul pianiste sans accompagnement. L'étendue et les capacités dynamiques considérables du piano le rendent particulièrement adapté tant aux miniatures intimes qu'aux grandes pièces de virtuosité. Des ballades et nocturnes poétiques de Chopin aux tableaux impressionnistes de Debussy, le répertoire pour piano solo représente l'un des corpus musicaux les plus riches et les plus diversifiés de la tradition occidentale."
+  },
+  "choral": {
+    "term": "Choral",
+    "shortDefinition": "Musique écrite pour un chœur, souvent avec accompagnement orchestral, allant des hymnes sacrés aux œuvres de concert.",
+    "longDefinition": "La musique chorale est écrite pour un ensemble de chanteurs, généralement divisé en sections soprano, alto, ténor et basse. Elle englobe des œuvres sacrées et profanes, des motets de la Renaissance et des cantates baroques aux grandes œuvres chorales symphoniques. Le chœur peut se produire a cappella ou avec accompagnement instrumental, et l'écriture chorale a été au cœur de la musique occidentale depuis le plain-chant médiéval jusqu'aux œuvres modernes de concert comme la Symphonie de Psaumes de Stravinsky."
+  },
+  "art-song": {
+    "term": "Mélodie",
+    "shortDefinition": "Composition vocale pour voix seule et piano, mettant en musique la poésie avec une attention particulière au texte.",
+    "longDefinition": "La mélodie (en allemand : Lied) est une composition pour voix seule et piano qui élève la poésie par sa mise en musique. Apparue au début de l'ère romantique, cette forme exige un partenariat égal entre le chanteur et le pianiste, le piano fournissant non un simple accompagnement mais un commentaire atmosphérique. La production prolifique de Schubert, incluant des cycles de mélodies comme le Voyage d'hiver, a établi le genre, qui fut développé par Schumann, Brahms, Wolf et Strauss."
+  },
+  "ballet": {
+    "term": "Ballet",
+    "shortDefinition": "Œuvre théâtrale associant musique orchestrale et danse chorégraphiée pour raconter une histoire ou exprimer des idées.",
+    "longDefinition": "La musique de ballet est composée pour accompagner une représentation de danse chorégraphiée, combinant écriture orchestrale et narration dramatique par le mouvement. Bien que le ballet trouve ses racines dans les divertissements de cour de la Renaissance, la sophistication musicale de cette forme a prospéré à l'époque romantique avec Le Lac des cygnes et Casse-Noisette de Tchaïkovski. Au XXe siècle, les partitions révolutionnaires de Stravinsky pour les Ballets russes ont transformé la musique de ballet en véhicule d'innovation avant-gardiste."
+  },
+  "overture": {
+    "term": "Ouverture",
+    "shortDefinition": "Introduction orchestrale à un opéra, un oratorio ou une suite, présentant souvent les thèmes principaux de l'œuvre.",
+    "longDefinition": "Une ouverture est une pièce orchestrale servant d'introduction à un opéra, un oratorio ou une œuvre théâtrale. Elle établit généralement l'atmosphère et présente les thèmes clés qui apparaîtront dans l'œuvre complète. Certaines ouvertures — comme celles de Weber et de Beethoven — sont devenues si populaires qu'elles sont fréquemment interprétées comme pièces de concert autonomes, indépendamment des opéras qu'elles introduisent."
+  },
+  "suite": {
+    "term": "Suite",
+    "shortDefinition": "Recueil ordonné de pièces instrumentales, souvent tirées de mouvements de danse ou extraites d'œuvres plus vastes.",
+    "longDefinition": "Une suite est un recueil ordonné de mouvements instrumentaux, souvent fondés sur des formes de danse stylisées telles que l'allemande, la courante, la sarabande et la gigue. À l'époque baroque, Bach et Haendel ont composé des suites pour instruments solistes et orchestre. La forme a été ravivée aux époques romantique et moderne, lorsque les compositeurs ont assemblé des suites à partir de musiques de scène ou de partitions de ballet, comme dans la Suite Peer Gynt de Grieg."
+  },
+  "prelude": {
+    "term": "Prélude",
+    "shortDefinition": "Pièce introductive courte, précédant à l'origine une œuvre plus longue, mais composée plus tard comme forme autonome.",
+    "longDefinition": "Un prélude est une courte pièce introductive qui précédait à l'origine une œuvre plus longue comme une fugue ou un mouvement de suite. Le Clavier bien tempéré de Bach associe préludes et fugues dans toutes les tonalités. À l'époque romantique, des compositeurs comme Chopin et Debussy ont transformé le prélude en une miniature indépendante, utilisant la liberté de cette forme par rapport à une structure stricte pour explorer l'atmosphère, la couleur et l'émotion dans des énoncés musicaux concentrés."
+  },
+  "fugue": {
+    "term": "Fugue",
+    "shortDefinition": "Composition contrapuntique où un thème est introduit par une voix puis repris successivement par les autres.",
+    "longDefinition": "La fugue est une technique de composition dans laquelle une courte mélodie (le sujet) est introduite par une voix puis imitée par d'autres voix entrant successivement. Chaque voix s'entrelace avec les autres dans un contrepoint strict, créant une conversation musicale complexe. Perfectionnée par J.S. Bach dans des œuvres comme L'Art de la fugue et Le Clavier bien tempéré, la fugue représente l'une des plus grandes réalisations de l'écriture polyphonique occidentale."
+  },
+  "etude": {
+    "term": "Étude",
+    "shortDefinition": "Pièce d'étude conçue pour développer des compétences techniques spécifiques tout en constituant une œuvre musicale à part entière.",
+    "longDefinition": "Une étude est une composition conçue pour développer un aspect spécifique de la technique instrumentale, comme les gammes, les arpèges ou les octaves. Bien que pédagogique à l'origine, l'époque romantique a transformé les études en œuvres dignes du concert. Les Études, op. 10 et op. 25 de Chopin ont révolutionné le genre en combinant des exigences techniques extrêmes avec une beauté musicale profonde, prouvant que virtuosité et expression artistique ne sont pas incompatibles."
+  },
+  "nocturne": {
+    "term": "Nocturne",
+    "shortDefinition": "Composition rêveuse et lyrique évoquant l'atmosphère de la nuit, généralement écrite pour piano seul.",
+    "longDefinition": "Le nocturne est une composition contemplative et lyrique inspirée par l'atmosphère de la nuit. Créé par le compositeur irlandais John Field et perfectionné par Chopin, cette forme présente généralement une mélodie chantante sur un accompagnement doucement berceur, évoquant la sérénité du clair de lune. Les vingt et un nocturnes de Chopin restent les œuvres emblématiques du genre, équilibrant tendresse intime et moments d'intensité passionnée qui démentent la surface apparemment calme de la forme."
+  },
+  "waltz": {
+    "term": "Valse",
+    "shortDefinition": "Composition de danse à trois temps caractérisée par un premier temps fort et un mouvement gracieux et fluide.",
+    "longDefinition": "La valse est une danse à trois temps (mesure à 3/4) qui trouve son origine dans les traditions populaires autrichiennes et allemandes avant d'envahir les salles de bal européennes au début du XIXe siècle. Dans la salle de concert, la valse a été élevée par des compositeurs qui ont utilisé son rythme entraînant pour des œuvres orchestrales et pianistiques. De l'Invitation à la valse de Weber aux valses de ballet de Tchaïkovski, cette forme allie élégance et chaleur émotionnelle."
+  },
+  "mazurka": {
+    "term": "Mazurka",
+    "shortDefinition": "Danse folklorique polonaise à trois temps avec des accents sur le deuxième ou le troisième temps.",
+    "longDefinition": "La mazurka est une danse folklorique polonaise à trois temps, qui se distingue de la valse par son accent caractéristique sur le deuxième ou le troisième temps plutôt que sur le premier. Chopin a transformé cette danse nationale en une forme artistique sophistiquée, composant plus de cinquante mazurkas mêlant rythmes folkloriques, harmonie chromatique et liberté improvisatoire. Ses mazurkas capturent l'esprit de l'identité polonaise tout en repoussant les frontières harmoniques bien en avance sur leur époque."
+  },
+  "polonaise": {
+    "term": "Polonaise",
+    "shortDefinition": "Danse processionnelle polonaise majestueuse à trois temps, exprimant souvent la fierté nationale et la grandeur cérémonielle.",
+    "longDefinition": "La polonaise est une danse processionnelle polonaise majestueuse à trois temps, traditionnellement associée aux occasions cérémonielles et à la fierté nationale. Les polonaises de Chopin — en particulier la Polonaise héroïque en la bémol majeur — ont transformé la danse en véhicule d'expression patriotique, combinant rythmes martiaux et écriture pianistique virtuose. Cette forme incarne l'identité et la résilience polonaises, servant à la fois de symbole culturel et de vitrine pour une composition pianistique dramatique et de grande envergure."
+  },
+  "rhapsody": {
+    "term": "Rhapsodie",
+    "shortDefinition": "Composition épisodique de forme libre, souvent fondée sur des mélodies populaires, caractérisée par des contrastes dramatiques et la virtuosité.",
+    "longDefinition": "Une rhapsodie est une composition de forme libre en un seul mouvement, caractérisée par des contrastes dramatiques d'atmosphère, de tempo et de dynamique. Souvent inspirées de mélodies populaires nationales, les rhapsodies mêlent démonstration virtuose et expression passionnée. Les Rhapsodies hongroises de Liszt ont établi le genre comme véhicule d'identité culturelle et de brillance pianistique. La Rhapsodie sur un thème de Paganini de Rachmaninov a montré comment la forme pouvait accueillir une technique de variation rigoureuse dans son cadre improvisatoire."
+  },
+  "tone-poem": {
+    "term": "Poème symphonique",
+    "shortDefinition": "Œuvre orchestrale illustrant musicalement un récit, une scène ou une idée littéraire en un seul mouvement.",
+    "longDefinition": "Le poème symphonique est une œuvre orchestrale en un seul mouvement qui dépeint musicalement un récit, une scène ou une idée philosophique. Inventé par Liszt et perfectionné par Richard Strauss, cette forme libère la musique orchestrale de la structure abstraite, permettant à la musique de suivre les contours de son sujet. Le Prélude à l'après-midi d'un faune de Debussy et Ainsi parlait Zarathoustra de Strauss illustrent comment les poèmes symphoniques peignent des images vives par des moyens purement musicaux."
+  },
+  "variation": {
+    "term": "Variation",
+    "shortDefinition": "Forme compositionnelle dans laquelle un thème est exposé puis répété en versions modifiées.",
+    "longDefinition": "Le thème et variations est une forme compositionnelle dans laquelle un thème musical est présenté puis répété dans une série de versions modifiées. Chaque variation peut altérer la mélodie, l'harmonie, le rythme ou l'orchestration tout en maintenant un lien reconnaissable avec le thème original. Des Variations Goldberg de Bach aux Variations Enigma d'Elgar, cette forme met en valeur l'ingéniosité du compositeur à révéler les possibilités cachées d'un matériau apparemment simple."
+  },
+  "cantata": {
+    "term": "Cantate",
+    "shortDefinition": "Œuvre vocale pour solistes, chœur et instruments, souvent fondée sur des textes sacrés ou narratifs.",
+    "longDefinition": "La cantate est une composition vocale pour solistes, chœur et ensemble instrumental, généralement en plusieurs mouvements comprenant arias, récitatifs et chœurs. Cette forme a prospéré à l'époque baroque, particulièrement dans les églises luthériennes allemandes où J.S. Bach a composé plus de deux cents cantates sacrées pour les offices hebdomadaires. Les cantates profanes italiennes, quant à elles, exploraient des thèmes dramatiques et lyriques dans un cadre de chambre, constituant un précurseur important de l'opéra."
+  },
+  "motet": {
+    "term": "Motet",
+    "shortDefinition": "Composition chorale polyphonique sur un texte sacré en latin, chantée sans accompagnement instrumental.",
+    "longDefinition": "Le motet est une composition chorale polyphonique sur un texte sacré, généralement en latin et interprétée a cappella. Né dans la France médiévale, cette forme a atteint son apogée artistique à la Renaissance avec des compositeurs comme Palestrina et Victoria, dont les motets incarnent l'idéal d'une polyphonie vocale équilibrée et fluide. L'accent mis par le motet sur la clarté textuelle et l'expression spirituelle en a fait une pierre angulaire de la musique sacrée pendant des siècles."
+  },
+  "other": {
+    "term": "Autre",
+    "shortDefinition": "Œuvres ne rentrant pas aisément dans les catégories de genres standard, mêlant souvent plusieurs formes et styles.",
+    "longDefinition": "Cette catégorie englobe les œuvres qui défient la classification conventionnelle des genres, mêlant des éléments de traditions multiples ou créant des formes entièrement nouvelles. De nombreuses compositions novatrices résistent à la catégorisation : la Musique pour cordes, percussion et célesta de Bartók fusionne éléments folkloriques et techniques d'avant-garde, tandis que Pierre et le Loup de Prokofiev combine musique orchestrale et narration. De telles œuvres nous rappellent que la musique la plus créative transcende souvent les frontières des genres établis."
+  }
+}

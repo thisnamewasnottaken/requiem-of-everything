@@ -5,6 +5,7 @@
   background: var(--bg-primary);
   cursor: grab;
   user-select: none;
+  touch-action: none;
 }
 
 .timelineContainer:active {
@@ -96,7 +97,7 @@
 /* Grid lines */
 .gridLine {
   position: absolute;
-  top: 48px;
+  top: 84px;
   bottom: 0;
   width: 1px;
   background: var(--border-subtle);
@@ -118,7 +119,7 @@
 
 .yearHoverLabel {
   position: absolute;
-  top: 52px;
+  top: 88px;
   transform: translateX(-50%);
   font-family: var(--font-mono);
   font-size: 10px;

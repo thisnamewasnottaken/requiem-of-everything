@@ -5,7 +5,10 @@
     "filters": "Filters",
     "helpAriaLabel": "Hulp",
     "helpTitle": "Hulp (Shift+?)",
-    "languageSelect": "Kies taal"
+    "languageSelect": "Kies taal",
+    "viewTimeline": "Tydlyn",
+    "viewTerms": "Terme",
+    "viewOrchestra": "Orkes"
   },
   "common": {
     "close": "Sluit",
@@ -125,5 +128,48 @@
       "item10": "Bestuur of verwyder vergelykings met die vergelykingsbalk in die kopstuk."
     },
     "footer": "Requiem of Everything — Klassieke Musiek 1400–1970"
+  },
+  "termExplorer": {
+    "title": "Musiekterme en -vorme",
+    "subtitle": "Verken musiekterme en -vorme",
+    "searchPlaceholder": "Soek terme…",
+    "backToTimeline": "← Tydlyn",
+    "allCategories": "Alles",
+    "formsAndStructures": "Vorme en strukture",
+    "genres": "Genres",
+    "techniques": "Tegnieke",
+    "vocalAndChoral": "Vokaal en koraal",
+    "danceAndCharacter": "Dans en karakter",
+    "soloAndChamber": "Solo en kamermusiek",
+    "exampleWorks": "Voorbeeldwerke",
+    "readMore": "Lees meer →",
+    "noResults": "Geen terme pas by jou soektog nie."
+  },
+  "orchestraExplorer": {
+    "title": "Orkesverkenner",
+    "subtitle": "Interaktiewe orkestraletopografie",
+    "backToTimeline": "← Tydlyn",
+    "clickPrompt": "Klik op 'n afdeling om sy instrumente te verken",
+    "conductor": "Dirigent",
+    "strings": "Snare",
+    "woodwinds": "Houtblasers",
+    "brass": "Koperblasers",
+    "percussion": "Perkussie",
+    "keyboards": "Klawerborde",
+    "voice": "Stem",
+    "stringsDesc": "Die snarefamilie vorm die grondslag van die orkes en produseer klank deur vibrerende snare. Hulle sit die naaste aan die dirigent en verskaf die warm, ryk kern van die orkesklank.",
+    "woodwindsDesc": "Houtblasinstrumente produseer klank deur lug oor 'n rand te verdeel of deur vibrerende riete. Hulle voeg kleur, behendigheid en karakter by die orkespalet.",
+    "brassDesc": "Die koperblasfamilie skep klank deur brommende lippe in 'n metaalmondstuk. In staat tot geweldige krag en briljante toon, bied hulle die orkes se mees heldhaftige oomblikke.",
+    "percussionDesc": "Perkussie-instrumente produseer klank wanneer hulle geslaan, geskud of geskraap word. Agter in die orkes geplaas, verskaf hulle ritmiese dryfkrag, dramatiese aksente en kleurvolle effekte.",
+    "keyboardsDesc": "Klawerbordinstrumente voeg unieke teksture by — van die klavier se perkussiewe briljantheid tot die orrel se volgehoue grootsheid en die celesta se klokkieagtige glans.",
+    "voiceDesc": "Die menslike stem is die oudste en mees ekspressiewe instrument. Sangsoliste en kore sluit by die ensemble aan vir operas, oratoriums, misse en simfoniese werke.",
+    "range": "Omvang",
+    "role": "Rol",
+    "description": "Beskrywing",
+    "eraProminence": "Era-prominensie",
+    "featuredIn": "Uitgebeeld in",
+    "readMore": "Lees meer →",
+    "instruments": "{{count}} instrumente",
+    "closeDetail": "Sluit"
   }
 }

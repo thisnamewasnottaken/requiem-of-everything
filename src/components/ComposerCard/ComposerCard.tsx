@@ -34,7 +34,7 @@ export default function ComposerCard({ composerId }: ComposerCardProps) {
   const composer = useComposer(composerId);
   const compositions = useCompositionsByComposer(composerId);
   const contemporaries = useComposerContemporaries(composerId);
-  const { clearComposerSelection, selectComposer, selectComposition } =
+  const { clearComposerSelection, selectComposer, selectComposition, focusedComposerId, setFocusedComposer } =
     useSelectionStore();
   const { toggleComposerInComparison, comparisonComposerIds } =
     useComparisonStore();
@@ -94,12 +94,16 @@ export default function ComposerCard({ composerId }: ComposerCardProps) {
           <button
             className={`${styles.actionBtn} ${styles.focusBtn}`}
             onClick={() => {
-              // Panel is 420px; approximate fraction of viewport it covers
-              const panelFraction = 420 / Math.max(window.innerWidth, 800);
-              zoomToRange(composer.birthYear, deathYear, 15, panelFraction);
+              if (focusedComposerId === composerId) {
+                setFocusedComposer(null);
+              } else {
+                setFocusedComposer(composerId);
+                const panelFraction = 420 / Math.max(window.innerWidth, 800);
+                zoomToRange(composer.birthYear, deathYear, 15, panelFraction);
+              }
             }}
           >
-            {t("composer.focusTimeline")}
+            {focusedComposerId === composerId ? t("composer.unfocusTimeline", "Unfocus") : t("composer.focusTimeline")}
           </button>
           <button
             className={`${styles.actionBtn} ${styles.compareBtn}`}

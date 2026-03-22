@@ -42,11 +42,6 @@ export default function EraBackdrop({
                 className={styles.eraFill}
                 style={{ backgroundColor: era.color }}
               />
-              {eraWidth > 60 && (
-                <span className={styles.eraLabel} style={{ color: era.color }}>
-                  {era.name}
-                </span>
-              )}
               <div
                 className={styles.eraBorder}
                 style={{ backgroundColor: era.color }}
