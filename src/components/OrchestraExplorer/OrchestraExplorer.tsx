@@ -1,8 +1,7 @@
-import React, { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import {
   useInstruments,
-  useInstrumentsByFamily,
   useCompositions,
   useComposers,
 } from "@/hooks/useData";
@@ -18,35 +17,23 @@ interface OrchestraExplorerProps {
   onNavigateToTimeline?: () => void;
 }
 
+interface FamilyMeta {
+  id: InstrumentFamily;
+  icon: string;
+  color: string;
+}
+
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
 
-const FAMILY_ORDER: InstrumentFamily[] = [
-  "percussion",
-  "brass",
-  "woodwinds",
-  "strings",
-  "keyboards",
-  "voice",
-];
-
-const FAMILY_ICONS: Record<InstrumentFamily, string> = {
-  strings: "🎻",
-  woodwinds: "🎵",
-  brass: "🎺",
-  percussion: "🥁",
-  keyboards: "🎹",
-  voice: "🎤",
-};
-
-const FAMILY_COLORS: Record<InstrumentFamily, string> = {
-  strings: "#C4A035",
-  woodwinds: "#27AE60",
-  brass: "#E67E22",
-  percussion: "#E74C3C",
-  keyboards: "#3498DB",
-  voice: "#9B59B6",
+const FAMILY_META: Record<InstrumentFamily, FamilyMeta> = {
+  strings: { id: "strings", icon: "🎻", color: "#C4A035" },
+  woodwinds: { id: "woodwinds", icon: "🎵", color: "#27AE60" },
+  brass: { id: "brass", icon: "🎺", color: "#E67E22" },
+  percussion: { id: "percussion", icon: "🥁", color: "#E74C3C" },
+  keyboards: { id: "keyboards", icon: "🎹", color: "#3498DB" },
+  voice: { id: "voice", icon: "🎤", color: "#9B59B6" },
 };
 
 const ERA_COLORS: Record<MusicalEra, string> = {
@@ -79,9 +66,42 @@ const ALL_ERAS: MusicalEra[] = [
 const MAX_FEATURED = 5;
 
 // ---------------------------------------------------------------------------
+// Helper — inline CSS variable for family color
+// ---------------------------------------------------------------------------
+
+function familyStyle(
+  color: string,
+  selected: boolean,
+  dimmed: boolean,
+): React.CSSProperties {
+  if (dimmed) {
+    return {
+      "--fc": color,
+      background: `rgba(255,255,255,0.02)`,
+      borderColor: `rgba(255,255,255,0.04)`,
+      opacity: 0.3,
+    } as React.CSSProperties;
+  }
+  if (selected) {
+    return {
+      "--fc": color,
+      background: `${color}28`,
+      borderColor: `${color}99`,
+      boxShadow: `0 0 30px ${color}33`,
+    } as React.CSSProperties;
+  }
+  return {
+    "--fc": color,
+    background: `${color}14`,
+    borderColor: `${color}26`,
+  } as React.CSSProperties;
+}
+
+// ---------------------------------------------------------------------------
 // Sub-components
 // ---------------------------------------------------------------------------
 
+/** Era prominence dots shown on instrument cards */
 function EraDots({
   eraProminence,
 }: {
@@ -94,19 +114,17 @@ function EraDots({
       {ALL_ERAS.map((era) => {
         const prominence = prominenceMap.get(era);
         if (!prominence) return null;
-
-        const dotClass = [
+        const cls = [
           styles.eraDot,
           prominence === "secondary" ? styles.eraDotSecondary : "",
           prominence === "rare" ? styles.eraDotRare : "",
         ]
           .filter(Boolean)
           .join(" ");
-
         return (
           <span
             key={era}
-            className={dotClass}
+            className={cls}
             style={{
               borderColor: ERA_COLORS[era],
               backgroundColor:
@@ -120,6 +138,7 @@ function EraDots({
   );
 }
 
+/** Era prominence bar chart in the detail panel */
 function EraTimeline({
   eraProminence,
 }: {
@@ -132,23 +151,18 @@ function EraTimeline({
       {ALL_ERAS.map((era) => {
         const prominence = prominenceMap.get(era);
         if (!prominence) return null;
-
-        const barClass = [
+        const cls = [
           styles.eraBar,
           prominence === "secondary" ? styles.eraBarSecondary : "",
           prominence === "rare" ? styles.eraBarRare : "",
         ]
           .filter(Boolean)
           .join(" ");
-
         return (
           <span
             key={era}
-            className={barClass}
-            style={{
-              backgroundColor: ERA_COLORS[era],
-              flex: 1,
-            }}
+            className={cls}
+            style={{ backgroundColor: ERA_COLORS[era], flex: 1 }}
           >
             {ERA_LABELS[era]}
           </span>
@@ -159,77 +173,92 @@ function EraTimeline({
 }
 
 // ---------------------------------------------------------------------------
-// Family Section
+// Stage Section — a clickable region on the seating map
 // ---------------------------------------------------------------------------
 
-interface FamilySectionProps {
+interface StageSectionProps {
   family: InstrumentFamily;
-  isExpanded: boolean;
-  onToggle: () => void;
-  onSelectInstrument: (id: string) => void;
+  count: number;
+  isSelected: boolean;
+  isDimmed: boolean;
+  className: string;
+  onClick: () => void;
 }
 
-function FamilySection({
+function StageSection({
   family,
-  isExpanded,
-  onToggle,
-  onSelectInstrument,
-}: FamilySectionProps) {
+  count,
+  isSelected,
+  isDimmed,
+  className,
+  onClick,
+}: StageSectionProps) {
   const { t } = useTranslation();
-  const instruments = useInstrumentsByFamily(family);
+  const meta = FAMILY_META[family];
 
   return (
-    <div className={styles.familySection}>
-      <button
-        className={styles.familyHeader}
-        style={{ borderLeftColor: FAMILY_COLORS[family] }}
-        onClick={onToggle}
-        aria-expanded={isExpanded}
-      >
-        <span className={styles.familyIcon}>{FAMILY_ICONS[family]}</span>
-        <span className={styles.familyName}>
-          {t(`orchestraExplorer.${family}`)}
-        </span>
-        <span className={styles.familyCount}>
-          {t("orchestraExplorer.instruments", { count: instruments.length })}
-        </span>
-        <span
-          className={`${styles.expandIndicator} ${isExpanded ? styles.expandIndicatorOpen : ""}`}
-        >
-          ▸
-        </span>
-      </button>
+    <button
+      className={`${styles.familySection} ${className} ${isSelected ? styles.familySectionSelected : ""}`}
+      style={familyStyle(meta.color, isSelected, isDimmed)}
+      onClick={onClick}
+      aria-pressed={isSelected}
+      aria-label={t(`orchestraExplorer.${family}`)}
+    >
+      <span className={styles.sectionIcon}>{meta.icon}</span>
+      <span className={styles.sectionName}>
+        {t(`orchestraExplorer.${family}`)}
+      </span>
+      <span className={styles.sectionCount}>
+        {t("orchestraExplorer.instruments", { count })}
+      </span>
+    </button>
+  );
+}
 
-      {isExpanded && (
-        <div className={styles.instrumentList}>
-          {instruments.map((inst) => (
-            <div
-              key={inst.id}
-              className={styles.instrumentCard}
-              onClick={() => onSelectInstrument(inst.id)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  onSelectInstrument(inst.id);
-                }
-              }}
-            >
-              <div className={styles.instrumentName}>{inst.name}</div>
-              <div className={styles.instrumentRange}>{inst.range}</div>
-              <div className={styles.instrumentRole}>{inst.role}</div>
-              <EraDots eraProminence={inst.eraProminence} />
-            </div>
-          ))}
-        </div>
-      )}
+// ---------------------------------------------------------------------------
+// Instrument Panel — cards shown below the stage
+// ---------------------------------------------------------------------------
+
+interface InstrumentPanelProps {
+  instruments: Instrument[];
+  family: InstrumentFamily;
+  onSelect: (inst: Instrument) => void;
+}
+
+function InstrumentPanel({ instruments, family, onSelect }: InstrumentPanelProps) {
+  const meta = FAMILY_META[family];
+
+  return (
+    <div className={styles.instrumentPanel}>
+      <div className={styles.instrumentGrid}>
+        {instruments.map((inst) => (
+          <div
+            key={inst.id}
+            className={styles.instrumentCard}
+            style={{ borderTopColor: meta.color }}
+            onClick={() => onSelect(inst)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onSelect(inst);
+              }
+            }}
+          >
+            <div className={styles.instrumentName}>{inst.name}</div>
+            <div className={styles.instrumentRange}>{inst.range}</div>
+            <div className={styles.instrumentRole}>{inst.role}</div>
+            <EraDots eraProminence={inst.eraProminence} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Detail Panel
+// Detail Panel — slide-in from right
 // ---------------------------------------------------------------------------
 
 interface DetailPanelProps {
@@ -254,6 +283,8 @@ function DetailPanel({ instrument, onClose }: DetailPanelProps) {
     () => new Map(composers.map((c) => [c.id, c])),
     [composers],
   );
+
+  const meta = FAMILY_META[instrument.family];
 
   return (
     <>
@@ -280,32 +311,31 @@ function DetailPanel({ instrument, onClose }: DetailPanelProps) {
 
         <span
           className={styles.detailFamily}
-          style={{ backgroundColor: FAMILY_COLORS[instrument.family] }}
+          style={{ backgroundColor: meta.color }}
         >
-          {FAMILY_ICONS[instrument.family]}{" "}
-          {t(`orchestraExplorer.${instrument.family}`)}
+          {meta.icon} {t(`orchestraExplorer.${instrument.family}`)}
         </span>
 
-        <div className={styles.detailRangeLabel}>
+        <div className={styles.detailLabel}>
           {t("orchestraExplorer.range")}
         </div>
         <div className={styles.detailRange}>{instrument.range}</div>
 
-        <div className={styles.detailRoleLabel}>
+        <div className={styles.detailLabel}>
           {t("orchestraExplorer.role")}
         </div>
         <div className={styles.detailRole}>{instrument.role}</div>
 
         <div className={styles.detailDescription}>{instrument.description}</div>
 
-        <div className={styles.detailEraLabel}>
+        <div className={styles.detailLabel}>
           {t("orchestraExplorer.eraProminence")}
         </div>
         <EraTimeline eraProminence={instrument.eraProminence} />
 
         {featured.length > 0 && (
           <>
-            <div className={styles.detailFeaturedLabel}>
+            <div className={styles.detailLabel}>
               {t("orchestraExplorer.featuredIn")}
             </div>
             <div className={styles.compositionList}>
@@ -358,39 +388,54 @@ export default function OrchestraExplorer({
   onNavigateToTimeline,
 }: OrchestraExplorerProps) {
   const { t } = useTranslation();
-  const instruments = useInstruments();
-  const [expandedFamilies, setExpandedFamilies] = useState<
-    Set<InstrumentFamily>
-  >(new Set());
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const allInstruments = useInstruments();
+  const [selectedFamily, setSelectedFamily] = useState<InstrumentFamily | null>(
+    null,
+  );
+  const [selectedInstrument, setSelectedInstrument] =
+    useState<Instrument | null>(null);
 
-  const selectedInstrument = useMemo(
-    () => instruments.find((i) => i.id === selectedId) ?? null,
-    [instruments, selectedId],
+  // Pre-compute instrument counts per family
+  const familyCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const inst of allInstruments) {
+      counts[inst.family] = (counts[inst.family] ?? 0) + 1;
+    }
+    return counts;
+  }, [allInstruments]);
+
+  // Instruments for the selected family
+  const familyInstruments = useMemo(
+    () =>
+      selectedFamily
+        ? allInstruments.filter((i) => i.family === selectedFamily)
+        : [],
+    [allInstruments, selectedFamily],
   );
 
-  const toggleFamily = useCallback((family: InstrumentFamily) => {
-    setExpandedFamilies((prev) => {
-      const next = new Set(prev);
-      if (next.has(family)) {
-        next.delete(family);
-      } else {
-        next.add(family);
-      }
-      return next;
-    });
-  }, []);
+  const handleFamilyClick = useCallback(
+    (family: InstrumentFamily) => {
+      setSelectedFamily((prev) => (prev === family ? null : family));
+      setSelectedInstrument(null);
+    },
+    [],
+  );
 
-  const handleSelectInstrument = useCallback((id: string) => {
-    setSelectedId(id);
+  const handleInstrumentSelect = useCallback((inst: Instrument) => {
+    setSelectedInstrument(inst);
   }, []);
 
   const handleCloseDetail = useCallback(() => {
-    setSelectedId(null);
+    setSelectedInstrument(null);
   }, []);
+
+  // Helper: is a section dimmed?
+  const isDimmed = (family: InstrumentFamily) =>
+    selectedFamily !== null && selectedFamily !== family;
 
   return (
     <div className={styles.container}>
+      {/* Header */}
       <header className={styles.header}>
         <h1 className={styles.title}>{t("orchestraExplorer.title")}</h1>
         {onNavigateToTimeline && (
@@ -400,18 +445,97 @@ export default function OrchestraExplorer({
         )}
       </header>
 
-      <div className={styles.orchestraGrid}>
-        {FAMILY_ORDER.map((family) => (
-          <FamilySection
-            key={family}
-            family={family}
-            isExpanded={expandedFamilies.has(family)}
-            onToggle={() => toggleFamily(family)}
-            onSelectInstrument={handleSelectInstrument}
+      {/* Orchestra Stage — bird's-eye seating chart */}
+      <div className={styles.stage}>
+        {/* Subtle stage floor rings for realism */}
+        <div className={styles.stageRing} aria-hidden="true" />
+        <div className={styles.stageRingInner} aria-hidden="true" />
+
+        {/* Tier 1 — back: Percussion */}
+        <div className={`${styles.tier} ${styles.tier1}`}>
+          <StageSection
+            family="percussion"
+            count={familyCounts["percussion"] ?? 0}
+            isSelected={selectedFamily === "percussion"}
+            isDimmed={isDimmed("percussion")}
+            className={styles.sectionPercussion}
+            onClick={() => handleFamilyClick("percussion")}
           />
-        ))}
+        </div>
+
+        {/* Tier 2 — Brass */}
+        <div className={`${styles.tier} ${styles.tier2}`}>
+          <StageSection
+            family="brass"
+            count={familyCounts["brass"] ?? 0}
+            isSelected={selectedFamily === "brass"}
+            isDimmed={isDimmed("brass")}
+            className={styles.sectionBrass}
+            onClick={() => handleFamilyClick("brass")}
+          />
+        </div>
+
+        {/* Tier 3 — Woodwinds */}
+        <div className={`${styles.tier} ${styles.tier3}`}>
+          <StageSection
+            family="woodwinds"
+            count={familyCounts["woodwinds"] ?? 0}
+            isSelected={selectedFamily === "woodwinds"}
+            isDimmed={isDimmed("woodwinds")}
+            className={styles.sectionWoodwinds}
+            onClick={() => handleFamilyClick("woodwinds")}
+          />
+        </div>
+
+        {/* Tier 4 — front: Keyboards | Strings | Voice */}
+        <div className={`${styles.tier} ${styles.tier4}`}>
+          <StageSection
+            family="keyboards"
+            count={familyCounts["keyboards"] ?? 0}
+            isSelected={selectedFamily === "keyboards"}
+            isDimmed={isDimmed("keyboards")}
+            className={styles.sectionSide}
+            onClick={() => handleFamilyClick("keyboards")}
+          />
+          <StageSection
+            family="strings"
+            count={familyCounts["strings"] ?? 0}
+            isSelected={selectedFamily === "strings"}
+            isDimmed={isDimmed("strings")}
+            className={styles.sectionStrings}
+            onClick={() => handleFamilyClick("strings")}
+          />
+          <StageSection
+            family="voice"
+            count={familyCounts["voice"] ?? 0}
+            isSelected={selectedFamily === "voice"}
+            isDimmed={isDimmed("voice")}
+            className={styles.sectionSide}
+            onClick={() => handleFamilyClick("voice")}
+          />
+        </div>
+
+        {/* Conductor podium */}
+        <div className={styles.conductor} aria-hidden="true">
+          <div className={styles.conductorDot} />
+          <span className={styles.conductorLabel}>Conductor</span>
+        </div>
       </div>
 
+      {/* Prompt or instrument cards below the stage */}
+      {selectedFamily === null && (
+        <p className={styles.prompt}>{t("orchestraExplorer.clickPrompt", { defaultValue: "Click a section to explore instruments" })}</p>
+      )}
+
+      {selectedFamily !== null && (
+        <InstrumentPanel
+          instruments={familyInstruments}
+          family={selectedFamily}
+          onSelect={handleInstrumentSelect}
+        />
+      )}
+
+      {/* Detail Panel */}
       {selectedInstrument && (
         <DetailPanel
           instrument={selectedInstrument}

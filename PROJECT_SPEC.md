@@ -226,6 +226,7 @@ requiem-of-everything/
 - [x] French (France) localization as first target language
 - [x] Afrikaans (South Africa) localization as second target language
 - [x] Content localisation (composer bios, composition descriptions, event descriptions, era names) via i18next namespaces — en-GB, fr-FR, af-ZA
+- [x] Terms and instruments content localisation (fr-FR, af-ZA)
 - [x] Expanded composition dataset in addition to notable works (All major works for each composer, with metadata)
 - [x] Spotify links for notable works where available
 - [x] Expanded composer dataset (next tier of notable composers, with portraits and bios)

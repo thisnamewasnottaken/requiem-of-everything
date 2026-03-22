@@ -10,7 +10,7 @@ i18n
   .init({
     fallbackLng: 'en-GB',
     supportedLngs: ['en-GB', 'fr-FR', 'af-ZA'],
-    ns: ['translation', 'composers', 'compositions', 'events', 'eras'],
+    ns: ['translation', 'composers', 'compositions', 'events', 'eras', 'terms', 'instruments'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false, // React already escapes

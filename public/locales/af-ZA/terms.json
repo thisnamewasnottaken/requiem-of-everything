@@ -1,0 +1,142 @@
+{
+  "symphony": {
+    "term": "Simfonie",
+    "shortDefinition": "'n Grootskaalse orkeswerk, tipies in vier bewegings met kontrasterende tempo's en karakters.",
+    "longDefinition": "'n Simfonie is 'n uitgebreide orkeskomposisie, gewoonlik in vier bewegings: 'n vinnige opening in sonatevorm, 'n stadige liriese beweging, 'n dansagtige scherzo of menuet, en 'n kragtige finale. Ontwikkel deur Haydn en Mozart in die Klassieke era, is die vorm dramaties uitgebrei deur Beethoven en later deur Romantiese komponiste soos Brahms, Tsjaikofski en Mahler. Die simfonie verteenwoordig die toppunt van orkesambisie en dien as die primêre medium vir komponiste om hul diepste musikale idees uit te druk."
+  },
+  "concerto": {
+    "term": "Konsert",
+    "shortDefinition": "'n Komposisie vir solo-instrument en orkes wat die solis se virtuositeit in dialoog met die ensemble ten toon stel.",
+    "longDefinition": "Die konsert stel 'n solo-instrument teenoor 'n volle orkes in 'n musikale dialoog wat virtuose vertoon met samewerkende wisselwerking balanseer. Dit het ontstaan in die Barok-era met komponiste soos Vivaldi en Bach, en die vorm het deur Mozart en Beethoven ontwikkel tot die groot Romantiese konsert. Tipies in drie bewegings (vinnig–stadig–vinnig), bevat die konsert 'n kadens — 'n onbegeleide solopassasie waar die uitvoerder tegniese meesterskap en persoonlike interpretasie demonstreer."
+  },
+  "sonata": {
+    "term": "Sonate",
+    "shortDefinition": "'n Meerbeweging-werk vir een of twee instrumente, gestruktureer rondom kontrasterende temas en toonaartverwantskappe.",
+    "longDefinition": "Die sonate is 'n meerbeweging-komposisie vir een of twee instrumente, gebou op die beginsel van kontrasterende temas wat deur toonaartverwantskappe ontwikkel word. Die sonate-allegrovorm — eksposisie, ontwikkeling en rekapitulasie — het die strukturele grondslag van Klassieke musiek geword. Van Beethoven se dramatiese klaviersonates tot Liszt se enkelbeweging-innovasies, het die sonate gedien as 'n toetsgrond vir komposisiekuns en instrumentale uitdrukking."
+  },
+  "opera": {
+    "term": "Opera",
+    "shortDefinition": "'n Dramatiese werk wat vokale en orkesmusiek kombineer met verhoogteateruitvoering en 'n libretto.",
+    "longDefinition": "Opera is 'n dramatiese kunsvorm wat sang, orkesmusiek, toneelspel en verhoogkuns kombineer om stories deur musiek te vertel. Dit het ontstaan in die laat-Renaissance Italië met Monteverdi se baanbrekende werke en het ontwikkel deur onderskeie nasionale tradisies — Italiaanse bel canto, Duitse musiekdrama, Franse grand opéra. Van Mozart se geestige komedies tot Wagner se epiese mitologieë en Puccini se emosionele verismo, bly opera die mees volledige samesmelting van musiek en teater."
+  },
+  "oratorio": {
+    "term": "Oratorium",
+    "shortDefinition": "'n Grootskaalse gewyde vokale werk vir soliste, koor en orkes, uitgevoer sonder verhoogaankleding of kostuums.",
+    "longDefinition": "'n Oratorium is 'n grootskaalse musikale verhaal vir soliste, koor en orkes, tipies gebaseer op gewyde onderwerpe maar in konsert uitgevoer eerder as met kostuums en dekor op die verhoog. Ontwikkel in die Barok-era, het die vorm sy hoogtepunt bereik met Händel se Messias en Bach se Passies. Anders as opera, steun die oratorium slegs op die krag van musiek en teks om drama oor te dra, wat die koor 'n sentrale dramatiese krag maak."
+  },
+  "mass": {
+    "term": "Mis",
+    "shortDefinition": "'n Koorkomposisie wat die liturgiese tekste van die Katolieke Mis op musiek sit.",
+    "longDefinition": "Die Mis is 'n musikale toonsetting van die tekste uit die Rooms-Katolieke liturgie, veral die Ordinarium: Kyrie, Gloria, Credo, Sanctus en Agnus Dei. Van Palestrina se Renaissance-polifonie tot Bach se monumentale Mis in B-mineur, het komponiste hierdie gewyde raamwerk gebruik om werke van buitengewone skoonheid en geestelike diepte te skep. Konsertmisse deur latere komponiste oorskry dikwels hul liturgiese oorsprong om onafhanklike artistieke verklarings te word."
+  },
+  "requiem": {
+    "term": "Requiem",
+    "shortDefinition": "'n Musikale toonsetting van die Katolieke begrafnismis, dikwels as konsertwerk gekomponeer.",
+    "longDefinition": "'n Requiem is 'n musikale toonsetting van die Katolieke Mis vir die Dode (Missa pro defunctis), wat tradisioneel bewegings soos Dies irae, Lacrimosa en Lux aeterna insluit. Oorspronklik funksionele liturgiese musiek, het die requiem ontwikkel tot 'n kragtige konsertgenre. Mozart se onvoltooide Requiem, Verdi se operatiese toonsetting en Brahms se Protestantse herverbeelding toon hoe komponiste hierdie plegtige ritueel omskep het in diep persoonlike uitdrukkings van rou, hoop en transendensie."
+  },
+  "chamber-music": {
+    "term": "Kamermusiek",
+    "shortDefinition": "Musiek gekomponeer vir 'n klein ensemble, tipies twee tot nege spelers met een uitvoerder per party.",
+    "longDefinition": "Kamermusiek word gekomponeer vir 'n klein groep instrumente, met elke uitvoerder wat 'n onafhanklike party speel. Oorspronklik bedoel vir intieme huislike omgewings eerder as groot konsertsale, vereis die genre noue musikale dialoog tussen spelers. Die strykkwartet, klaviertrio en houtblaserskwintet is klassieke kamerensembles. Van Haydn se baanbrekende kwartette tot Schoenberg se grensverleggende werke, bied kamermusiek van die mees intellektueel verfynde skryfwerk in klassieke musiek."
+  },
+  "string-quartet": {
+    "term": "Strykkwartet",
+    "shortDefinition": "'n Komposisie vir twee viole, altviool en tjello, beskou as die suiwerste vorm van kamermusiek.",
+    "longDefinition": "Die strykkwartet — twee viole, altviool en tjello — word algemeen beskou as die mees verfynde vorm van kamermusiek. Gevestig deur Haydn, wat meer as sestig voorbeelde geskryf het, het die vorm 'n medium geword vir komponiste se mees intieme en eksperimentele idees. Beethoven se laat kwartette het die emosionele en strukturele grense van die vorm uitgebrei, terwyl Bartók en Sjostakowitsj dit in die twintigste eeu gebring het met modernistiese intensiteit en politieke ondertone."
+  },
+  "piano-solo": {
+    "term": "Klaviersolo",
+    "shortDefinition": "'n Komposisie geskryf vir onbegeleide klavier, wat genres van karakterstukke tot grootskaalse sonates beslaan.",
+    "longDefinition": "Klaviersolomusiek omvat enige komposisie wat vir 'n enkele pianis sonder begeleiding geskryf is. Die klavier se uitgebreide omvang en dinamiese vermoë maak dit uniek geskik vir beide intieme miniatuurwerke en groot virtuose pronkstukke. Van Chopin se poëtiese ballades en nocturnes tot Debussy se impressionistiese toonskilderye, verteenwoordig die soloklavier-repertoire een van die rykste en mees diverse musiekversamelings in die Westerse tradisie."
+  },
+  "choral": {
+    "term": "Koormusiek",
+    "shortDefinition": "Musiek geskryf vir 'n koor, dikwels met orkesbegeleiding, wat strek van gewyde liedere tot konsertwerke.",
+    "longDefinition": "Koormusiek word geskryf vir 'n ensemble van sangers, tipies verdeel in sopraan-, alt-, tenoor- en basseksies. Dit omvat gewyde en sekulêre werke, van Renaissance-motette en Barok-kantates tot grootskaalse simfoniese koorwerke. Die koor kan a cappella of met instrumentale begeleiding optree, en koorskryfwerk was sentraal in Westerse musiek van Middeleeuse eenstemmige gesang tot moderne konsertwerke soos Stravinsky se Psalmensimfonie."
+  },
+  "art-song": {
+    "term": "Kunslied",
+    "shortDefinition": "'n Vokale komposisie vir solostem en klavier wat poësie op musiek sit met noukeurige aandag aan die teks.",
+    "longDefinition": "Die kunslied (Duits: Lied) is 'n komposisie vir solostem en klavier wat poësie deur musikale toonsetting verhef. Dit het in die vroeë Romantiese era ontstaan en vereis 'n gelyke vennootskap tussen sanger en pianis, met die klavier wat nie blote begeleiding nie maar atmosferiese kommentaar lewer. Schubert se produktiewe uitset, insluitend liedersiklusse soos Winterreise, het die genre gevestig, wat verder ontwikkel is deur Schumann, Brahms, Wolf en Strauss."
+  },
+  "ballet": {
+    "term": "Ballet",
+    "shortDefinition": "'n Teaterwerk wat orkesmusiek kombineer met gechoreografeerde dans om 'n verhaal te vertel of idees uit te druk.",
+    "longDefinition": "Balletmusiek word gekomponeer om gechoreografeerde dansuitvoerings te begelei, wat orkesskryfwerk met dramatiese storievertelling deur beweging kombineer. Hoewel ballet sy wortels in Renaissance-hofvermaak het, het die vorm se musikale sofistikasie gefloreer in die Romantiese era met Tsjaikofski se Swanemeer en Die Neutekraker. In die twintigste eeu het Stravinsky se revolusionêre partiture vir die Ballets Russes balletmusiek omskep in 'n medium vir avant-garde-innovasie."
+  },
+  "overture": {
+    "term": "Ouverture",
+    "shortDefinition": "'n Orkesinleiding tot 'n opera, oratorium of suite wat dikwels die werk se hooftemas voorskou.",
+    "longDefinition": "'n Ouverture is 'n orkesstuk wat as inleiding dien tot 'n opera, oratorium of teaterwerk. Dit stel tipies die stemming vas en voorskou sleuteltemas wat in die volledige werk sal verskyn. Sommige ouvertures — soos dié van Weber en Beethoven — het so gewild geword dat hulle gereeld as selfstandige konsertstukke uitgevoer word, onafhanklik van die operas wat hulle inlei."
+  },
+  "suite": {
+    "term": "Suite",
+    "shortDefinition": "'n Geordende versameling instrumentale stukke, dikwels ontleen aan dansbeweging of uit groter werke geneem.",
+    "longDefinition": "'n Suite is 'n geordende versameling instrumentale bewegings, dikwels gebaseer op gestileerde dansvorme soos die allemande, courante, sarabande en gigue. In die Barok-era het Bach en Händel suites vir beide solo-instrumente en orkes gekomponeer. Die vorm is herleef in die Romantiese en moderne eras, toe komponiste suites saamgestel het uit toneelmusiek of balletpartiture, soos in Grieg se Peer Gynt-suite."
+  },
+  "prelude": {
+    "term": "Prelude",
+    "shortDefinition": "'n Kort inleidende stuk wat oorspronklik 'n groter werk voorafgegaan het, maar later as selfstandige vorm gekomponeer is.",
+    "longDefinition": "'n Prelude is 'n kort inleidende stuk wat oorspronklik 'n langer werk soos 'n fuga of suitebeweging voorafgegaan het. Bach se Welgetempereerde Klavier koppel preludes aan fugas in elke toonaard. Teen die Romantiese era het komponiste soos Chopin en Debussy die prelude omskep in 'n onafhanklike miniatuur, wat die vorm se vryheid van streng struktuur gebruik om stemming, kleur en atmosfeer in gekonsentreerde musikale uitsprake te verken."
+  },
+  "fugue": {
+    "term": "Fuga",
+    "shortDefinition": "'n Kontrapuntale komposisie waar 'n tema deur een stem ingelei en agtereenvolgens deur ander oorgeneem word.",
+    "longDefinition": "'n Fuga is 'n komposisietegniek waarin 'n kort melodie (die onderwerp) deur een stem ingelei en dan deur ander stemme wat agtereenvolgens intree, nageboots word. Elke stem weef rondom die ander in streng kontrapunt en skep 'n ingewikkelde musikale gesprek. Vervolmaak deur J.S. Bach in werke soos Die Kuns van die Fuga en Die Welgetempereerde Klavier, verteenwoordig die fuga een van die hoogste prestasies van Westerse polifoniese skryfwerk."
+  },
+  "etude": {
+    "term": "Étude",
+    "shortDefinition": "'n Oefenstuk ontwerp om spesifieke tegniese vaardighede te ontwikkel terwyl dit as 'n volledige musikale werk staan.",
+    "longDefinition": "'n Étude (studie) is 'n komposisie ontwerp om 'n spesifieke aspek van instrumentale tegniek te ontwikkel, soos toonlere, arpeggios of oktawe. Hoewel pedagogies van oorsprong, het die Romantiese era études omskep in konsertwaardige kunswerke. Chopin se Études, op. 10 en op. 25 het die genre revolusioneer deur uiterste tegniese eise met diepgaande musikale skoonheid te kombineer, wat bewys dat virtuositeit en artistieke uitdrukking nie afsonderlike strewes hoef te wees nie."
+  },
+  "nocturne": {
+    "term": "Nocturne",
+    "shortDefinition": "'n Dromerige, liriese komposisie wat die stemming van die nag oproep, tipies vir soloklavier geskryf.",
+    "longDefinition": "Die nocturne is 'n kontemplatiewe, liriese komposisie geïnspireer deur die atmosfeer van die nag. Deur die Ierse komponis John Field ontgin en deur Chopin vervolmaak, bevat die vorm tipies 'n singende melodie oor 'n sagte wiegende begeleiding wat maanligsereniteit oproep. Chopin se een-en-twintig nocturnes bly die genre se bepalende werke, wat intieme teerheid balanseer met oomblikke van passievolle intensiteit wat die vorm se oënskynlik kalm oppervlak weerspreek."
+  },
+  "waltz": {
+    "term": "Wals",
+    "shortDefinition": "'n Danskomposisie in drieslagmaat gekenmerk deur 'n sterk eerste tel en grasieuse, vloeiende beweging.",
+    "longDefinition": "Die wals is 'n dans in drieslagmaat (3/4-maat) wat sy oorsprong in Oostenrykse en Duitse volkstradisies het voordat dit vroeë negentiende-eeuse Europese balsale oorstroom het. In die konsertsaal is die wals verhef deur komponiste wat sy wiegende ritme vir orkes- en klavierwerke gebruik het. Van Weber se Uitnodiging tot die Dans tot Tsjaikofski se balletwals, balanseer die vorm elegansie met emosionele warmte."
+  },
+  "mazurka": {
+    "term": "Mazurka",
+    "shortDefinition": "'n Poolse volksdans in drieslagmaat met aksente op die tweede of derde tel.",
+    "longDefinition": "Die mazurka is 'n Poolse volksdans in drieslagmaat wat van die wals onderskei word deur sy kenmerkende aksent op die tweede of derde tel eerder as die eerste. Chopin het hierdie nasionale dans in 'n gesofistikeerde kunsvorm omskep en meer as vyftig mazurkas gekomponeer wat volksritmes met chromatiese harmonie en improvisatoriese vryheid vermeng. Sy mazurkas vang die gees van Poolse identiteit vas terwyl dit die harmoniese grense ver voor hul tyd verskuif."
+  },
+  "polonaise": {
+    "term": "Polonaise",
+    "shortDefinition": "'n Statige Poolse prosessiedans in drieslagmaat wat dikwels nasionale trots en seremoniële grootsheid uitstraal.",
+    "longDefinition": "Die polonaise is 'n statige Poolse prosessiedans in drieslagmaat, tradisioneel geassosieer met seremoniële geleenthede en nasionale trots. Chopin se polonaises — veral die Heldhaftige Polonaise in A-mol majeur — het die dans omskep in 'n medium vir patriotiese uitdrukking, wat krygsritmes met virtuose klavierskryfwerk kombineer. Die vorm beliggaam Poolse identiteit en veerkragtigheid en dien as beide 'n kulturele simbool en 'n uitstalraam vir dramatiese, grootskaalse klavierkomposisie."
+  },
+  "rhapsody": {
+    "term": "Rapsodie",
+    "shortDefinition": "'n Vryvorm-, episodiese komposisie dikwels gebaseer op volksmelodieë, gekenmerk deur dramatiese kontraste en virtuositeit.",
+    "longDefinition": "'n Rapsodie is 'n vryvorm-komposisie in 'n enkele beweging, gekenmerk deur dramatiese kontraste in stemming, tempo en dinamiek. Dikwels geïnspireer deur nasionale volksmelodieë, vermeng rapsodieë virtuose vertoon met passievolle uitdrukking. Liszt se Hongaarse Rapsodieë het die genre gevestig as 'n medium vir kulturele identiteit en pianistiese briljansie. Rachmaninoff se Rapsodie op 'n Tema van Paganini het later getoon hoe die vorm streng variasietegniek binne sy improvisatoriese raamwerk kan akkommodeer."
+  },
+  "tone-poem": {
+    "term": "Simfoniese gedig",
+    "shortDefinition": "'n Orkeswerk wat 'n verhaal, toneel of literêre idee musikaal in 'n enkele beweging uitbeeld.",
+    "longDefinition": "'n Simfoniese gedig (of toongedig) is 'n enkelbeweging-orkeswerk wat 'n verhaal, toneel of filosofiese idee musikaal uitbeeld. Uitgevind deur Liszt en vervolmaak deur Richard Strauss, bevry die vorm orkesmusiek van abstrakte struktuur en laat die musiek toe om die kontoere van sy onderwerp te volg. Debussy se Prélude à l'après-midi d'un faune en Strauss se Also sprach Zarathustra illustreer hoe simfoniese gedigte lewende beelde deur suiwer musikale middele skilder."
+  },
+  "variation": {
+    "term": "Variasie",
+    "shortDefinition": "'n Komposisievorm waarin 'n tema gestel en dan in gewysigde weergawes herhaal word.",
+    "longDefinition": "Tema en variasies is 'n komposisievorm waarin 'n musikale tema aangebied en dan in 'n reeks gewysigde weergawes herhaal word. Elke variasie kan die melodie, harmonie, ritme of orkestrasie verander terwyl 'n herkenbare verband met die oorspronklike tema behou word. Van Bach se Goldberg-variasies tot Elgar se Enigma-variasies, toon hierdie vorm 'n komponis se vernuf om verborge moontlikhede in oënskynlik eenvoudige materiaal te openbaar."
+  },
+  "cantata": {
+    "term": "Kantate",
+    "shortDefinition": "'n Vokale werk vir soliste, koor en instrumente, dikwels gebaseer op gewyde tekste of verhale.",
+    "longDefinition": "'n Kantate is 'n vokale komposisie vir soliste, koor en instrumentale ensemble, tipies in meervoudige bewegings wat arias, resitatiewe en kore insluit. Die vorm het gefloreer in die Barok-era, veral in Duitse Lutherse kerke waar J.S. Bach meer as tweehonderd gewyde kantates vir weeklikse dienste gekomponeer het. Italiaanse sekulêre kantates het ondertussen dramatiese en liriese temas in 'n kameromgewing verken en 'n belangrike voorloper van opera gevorm."
+  },
+  "motet": {
+    "term": "Motet",
+    "shortDefinition": "'n Polifoniese koorkomposisie op 'n gewyde Latynse teks, gesing sonder instrumentale begeleiding.",
+    "longDefinition": "'n Motet is 'n polifoniese koorkomposisie op 'n gewyde teks, tipies in Latyn en a cappella uitgevoer. Dit het in Middeleeuse Frankryk ontstaan en het sy artistieke hoogtepunt bereik tydens die Renaissance met komponiste soos Palestrina en Victoria, wie se motette die ideaal van gebalanseerde, vloeiende vokale polifonie beliggaam. Die motet se klem op tekstuele helderheid en geestelike uitdrukking het dit vir eeue lank 'n hoeksteen van gewyde musiek gemaak."
+  },
+  "other": {
+    "term": "Ander",
+    "shortDefinition": "Werke wat nie netjies in standaard genrekategorieë pas nie en dikwels veelvuldige vorme en style vermeng.",
+    "longDefinition": "Hierdie kategorie omvat werke wat konvensionele genreklassifikasie uitdaag deur elemente uit veelvuldige tradisies te vermeng of geheel nuwe vorme te skep. Baie innoverende komposisies weerstaan kategorisering: Bartók se Musiek vir Snare, Slagwerk en Celesta smelt volkselemente met avant-garde-tegnieke saam, terwyl Prokofjev se Pieter en die Wolf orkesmusiek met vertelling kombineer. Sulke werke herinner ons dat die mees skeppende musiek dikwels die grense van gevestigde genres oorskry."
+  }
+}

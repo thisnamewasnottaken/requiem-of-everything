@@ -236,26 +236,34 @@ export function useEventsInRange(
 // Musical Terms / Glossary hooks
 // ---------------------------------------------------------------------------
 
-/**
- * Returns all musical term definitions.
- */
+function useTranslatedTerms(): MusicalTerm[] {
+  const { t } = useTranslation("terms");
+  return useMemo(
+    () =>
+      (termsData as MusicalTerm[]).map((term) => ({
+        ...term,
+        term: t(`${term.id}.term`, { defaultValue: term.term }),
+        shortDefinition: t(`${term.id}.shortDefinition`, { defaultValue: term.shortDefinition }),
+        longDefinition: t(`${term.id}.longDefinition`, { defaultValue: term.longDefinition }),
+      })),
+    [t],
+  );
+}
+
 export function useTerms(): MusicalTerm[] {
-  return termsData as MusicalTerm[];
+  return useTranslatedTerms();
 }
 
-/**
- * Returns a single musical term by ID.
- */
 export function useTerm(id: string): MusicalTerm | undefined {
-  return (termsData as MusicalTerm[]).find((t) => t.id === id);
+  const terms = useTranslatedTerms();
+  return useMemo(() => terms.find((t) => t.id === id), [terms, id]);
 }
 
-/**
- * Returns musical terms filtered by category.
- */
 export function useTermsByCategory(category: TermCategory): MusicalTerm[] {
-  return (termsData as MusicalTerm[]).filter((t) =>
-    t.categories.includes(category),
+  const terms = useTranslatedTerms();
+  return useMemo(
+    () => terms.filter((t) => t.categories.includes(category)),
+    [terms, category],
   );
 }
 
@@ -263,23 +271,33 @@ export function useTermsByCategory(category: TermCategory): MusicalTerm[] {
 // Instrument hooks
 // ---------------------------------------------------------------------------
 
-/**
- * Returns all orchestral instruments.
- */
+function useTranslatedInstruments(): Instrument[] {
+  const { t } = useTranslation("instruments");
+  return useMemo(
+    () =>
+      (instrumentsData as Instrument[]).map((inst) => ({
+        ...inst,
+        name: t(`${inst.id}.name`, { defaultValue: inst.name }),
+        role: t(`${inst.id}.role`, { defaultValue: inst.role }),
+        description: t(`${inst.id}.description`, { defaultValue: inst.description }),
+      })),
+    [t],
+  );
+}
+
 export function useInstruments(): Instrument[] {
-  return instrumentsData as Instrument[];
+  return useTranslatedInstruments();
 }
 
-/**
- * Returns a single instrument by ID.
- */
 export function useInstrument(id: string): Instrument | undefined {
-  return (instrumentsData as Instrument[]).find((i) => i.id === id);
+  const instruments = useTranslatedInstruments();
+  return useMemo(() => instruments.find((i) => i.id === id), [instruments, id]);
 }
 
-/**
- * Returns instruments belonging to a specific family.
- */
 export function useInstrumentsByFamily(family: InstrumentFamily): Instrument[] {
-  return (instrumentsData as Instrument[]).filter((i) => i.family === family);
+  const instruments = useTranslatedInstruments();
+  return useMemo(
+    () => instruments.filter((i) => i.family === family),
+    [instruments, family],
+  );
 }
