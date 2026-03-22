@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import type { HistoricalEvent } from "@/types";
 import { createTimeScale, formatYear } from "@/utils/scales";
+import { getWikipediaUrl } from "@/utils/wikipedia";
 import styles from "./EventMarker.module.css";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -129,7 +130,7 @@ export default function EventMarker({
           </span>
           {event.wikipediaSlug && (
             <a
-              href={`https://en.wikipedia.org/wiki/${event.wikipediaSlug}`}
+              href={getWikipediaUrl(event.wikipediaSlug)}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.wikiLink}

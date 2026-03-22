@@ -1,8 +1,8 @@
 import type { WikiSummary } from "@/types";
+import { getWikipediaApiBase, getWikipediaUrl } from "@/utils/wikipedia";
 
 const CACHE_PREFIX = "wiki:";
 const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
-const API_BASE = "https://en.wikipedia.org/api/rest_v1";
 
 // In-flight request deduplication
 const inflightRequests = new Map<string, Promise<unknown>>();
@@ -72,6 +72,7 @@ export const WikipediaService = {
    * Get a short summary for a Wikipedia article.
    */
   async getSummary(slug: string): Promise<WikiSummary> {
+    const apiBase = getWikipediaApiBase();
     // Check cache first
     const cached = getCached<WikiSummary>(`summary:${slug}`);
     if (cached) return cached;
@@ -79,7 +80,7 @@ export const WikipediaService = {
     return deduplicatedFetch(`summary:${slug}`, async () => {
       try {
         const response = await fetch(
-          `${API_BASE}/page/summary/${encodeURIComponent(slug)}`,
+          `${apiBase}/page/summary/${encodeURIComponent(slug)}`,
         );
         if (!response.ok)
           throw new Error(`Wikipedia API error: ${response.status}`);
@@ -92,7 +93,7 @@ export const WikipediaService = {
           thumbnailUrl: data.thumbnail?.source,
           articleUrl:
             data.content_urls?.desktop?.page ??
-            `https://en.wikipedia.org/wiki/${slug}`,
+            getWikipediaUrl(slug),
         };
 
         setCache(`summary:${slug}`, summary);
@@ -110,13 +111,14 @@ export const WikipediaService = {
    * Get the full article HTML for a Wikipedia article.
    */
   async getArticleHtml(slug: string): Promise<string> {
+    const apiBase = getWikipediaApiBase();
     const cached = getCached<string>(`html:${slug}`);
     if (cached) return cached;
 
     return deduplicatedFetch(`html:${slug}`, async () => {
       try {
         const response = await fetch(
-          `${API_BASE}/page/mobile-html/${encodeURIComponent(slug)}`,
+          `${apiBase}/page/mobile-html/${encodeURIComponent(slug)}`,
         );
         if (!response.ok)
           throw new Error(`Wikipedia API error: ${response.status}`);

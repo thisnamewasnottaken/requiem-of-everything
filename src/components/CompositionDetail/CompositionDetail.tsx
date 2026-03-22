@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useComposition, useComposer } from "@/hooks/useData";
 import { useSelectionStore } from "@/stores/useSelectionStore";
 import { formatYear } from "@/utils/scales";
+import { getWikipediaUrl } from "@/utils/wikipedia";
 import styles from "./CompositionDetail.module.css";
 
 interface CompositionDetailProps {
@@ -90,7 +91,7 @@ export default function CompositionDetail({ compositionId }: CompositionDetailPr
       {/* Wikipedia link */}
       {composition.wikipediaSlug && (
         <a
-          href={`https://en.wikipedia.org/wiki/${composition.wikipediaSlug}`}
+          href={getWikipediaUrl(composition.wikipediaSlug)}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.wikiLink}

@@ -32,6 +32,10 @@ A detail panel that shows comprehensive information about a selected composer. A
 5. **Historical Context**: Events that happened during this composer's lifetime.
 6. **Actions**: "Focus Timeline" (zooms to lifespan accounting for panel width), "Compare with...", "Explore with AI" (future), "View on Wikipedia".
 
+## Wikipedia Link Localisation
+
+The "View on Wikipedia" link is localised to match the user's current i18n language. The link domain uses the Wikipedia subdomain corresponding to the active language (e.g. `en.wikipedia.org` for English, `fr.wikipedia.org` for French, `af.wikipedia.org` for Afrikaans). The `getWikipediaUrl(slug)` utility in `src/utils/wikipedia.ts` derives the subdomain from `i18next.resolvedLanguage`.
+
 ## Focus Timeline Behavior
 
 The "Focus Timeline" button zooms the main timeline to the composer's lifespan with padding. Because the ComposerCard panel (420px wide) overlaps the right side of the viewport, the zoom accounts for this by adding proportional right-side padding (`rightInsetFraction = panelWidth / viewportWidth`). This ensures the composer's full lifespan is visible in the unobscured area to the left of the panel.

@@ -95,7 +95,7 @@ describe("CompositionDetail", () => {
     expect(wikiLink.getAttribute("rel")).toBe("noopener noreferrer");
     expect(wikiLink.getAttribute("target")).toBe("_blank");
     expect(wikiLink.getAttribute("href")).toContain(
-      `https://en.wikipedia.org/wiki/${compWithWiki.wikipediaSlug}`,
+      `.wikipedia.org/wiki/${compWithWiki.wikipediaSlug}`,
     );
   });
 

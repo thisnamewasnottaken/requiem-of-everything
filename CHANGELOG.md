@@ -8,7 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- **Content localisation** — added 4 i18next namespaces (`composers`, `compositions`, `events`, `eras`) for content data alongside the existing `translation` namespace for UI strings. Data hooks in `src/hooks/useData.ts` now merge base JSON with namespace translations via `useTranslation()` + `useMemo`. Full French (fr-FR) and Afrikaans (af-ZA) content translations for all 51 composers, 196 compositions, 47 events, and 6 eras.
+- **Wikipedia link localisation** — all "Read on Wikipedia" links (ComposerCard, CompositionDetail, EventMarker) and the WikipediaService API calls now use the Wikipedia subdomain matching the current i18n language (e.g. `fr.wikipedia.org` when the UI is set to French). Centralised in `src/utils/wikipedia.ts`.
+
+- **Content localisation** — added 4 i18next namespaces(`composers`, `compositions`, `events`, `eras`) for content data alongside the existing `translation` namespace for UI strings. Data hooks in `src/hooks/useData.ts` now merge base JSON with namespace translations via `useTranslation()` + `useMemo`. Full French (fr-FR) and Afrikaans (af-ZA) content translations for all 51 composers, 196 compositions, 47 events, and 6 eras.
 - **Event selection in store** — `selectedEventId` and `selectEvent()` in `useSelectionStore` with mutual exclusion against composition/composer selection.
 - **Data integrity tests** — added 4 test cases to `useData.test.ts` verifying no duplicate composition/composer IDs and that all cross-references between composers and compositions are valid.
 - **i18n infrastructure** — added `react-i18next` with HTTP backend and browser language detection. Translations load from `public/locales/{lng}/translation.json` with `en-GB` fallback. Supported locales: `en-GB`, `fr-FR`, `af-ZA`. Spec at `docs/specs/features/i18n.md`.
