@@ -19,7 +19,7 @@ interface ComposerBarProps {
 }
 
 const ROW_HEIGHT = 34;
-const TOP_OFFSET = 56; // After time ruler
+const TOP_OFFSET = 84; // After time ruler + event band
 
 export default function ComposerBar({
   composer,
@@ -70,7 +70,11 @@ export default function ComposerBar({
       onClick={(e) => onClick(composer.id, e)}
       role="button"
       tabIndex={0}
-      aria-label={t('composerBar.ariaLabel', { name: composer.name, birth: composer.birthYear, death: composer.deathYear ?? t('common.present') })}
+      aria-label={t("composerBar.ariaLabel", {
+        name: composer.name,
+        birth: composer.birthYear,
+        death: composer.deathYear ?? t("common.present"),
+      })}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -99,7 +103,9 @@ export default function ComposerBar({
         <div className={styles.tooltipName}>{composer.name}</div>
         <div className={styles.tooltipDetails}>
           {formatYear(composer.birthYear)} –{" "}
-          {composer.deathYear ? formatYear(composer.deathYear) : t('common.present')}
+          {composer.deathYear
+            ? formatYear(composer.deathYear)
+            : t("common.present")}
         </div>
         <div className={styles.tooltipDetails}>{composer.birthPlace}</div>
         <span

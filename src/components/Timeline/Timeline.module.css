@@ -97,7 +97,7 @@
 /* Grid lines */
 .gridLine {
   position: absolute;
-  top: 80px;
+  top: 84px;
   bottom: 0;
   width: 1px;
   background: var(--border-subtle);
@@ -119,7 +119,7 @@
 
 .yearHoverLabel {
   position: absolute;
-  top: 84px;
+  top: 88px;
   transform: translateX(-50%);
   font-family: var(--font-mono);
   font-size: 10px;

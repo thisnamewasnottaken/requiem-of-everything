@@ -44,6 +44,7 @@ export default function EventMarker({
     () => createTimeScale(startYear, endYear, width),
     [startYear, endYear, width],
   );
+  const markerRef = useRef<HTMLDivElement>(null);
 
   const x = scale(event.year);
   if (x < -10 || x > width + 10) return null;
@@ -51,8 +52,6 @@ export default function EventMarker({
   const color = CATEGORY_COLORS[event.category] || "#7F8C8D";
   const hasRange = event.endYear && event.endYear !== event.year;
   const rangeWidth = hasRange ? scale(event.endYear!) - x : 0;
-
-  const markerRef = useRef<HTMLDivElement>(null);
 
   // Viewport-aware tooltip positioning
   const tooltipStyle: React.CSSProperties = {};

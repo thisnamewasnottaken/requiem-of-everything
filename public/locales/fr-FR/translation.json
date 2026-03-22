@@ -131,6 +131,7 @@
   },
   "termExplorer": {
     "title": "Termes et formes musicaux",
+    "subtitle": "Explorez les termes et formes musicaux",
     "searchPlaceholder": "Rechercher des termes…",
     "backToTimeline": "← Frise chronologique",
     "allCategories": "Tous",

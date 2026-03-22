@@ -85,6 +85,40 @@ export default function App() {
             <h1>{t("app.title")}</h1>
             <p>{t("app.subtitle")}</p>
           </div>
+          {activeView === "terms" && (
+            <div
+              style={{
+                borderLeft: "1px solid var(--border-subtle)",
+                paddingLeft: "16px",
+              }}
+            >
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "var(--text-lg)",
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  letterSpacing: "-0.02em",
+                  textTransform: "uppercase" as const,
+                  margin: 0,
+                }}
+              >
+                {t("termExplorer.title")}
+              </h2>
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "var(--text-xs)",
+                  color: "var(--text-secondary)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase" as const,
+                  marginTop: "2px",
+                }}
+              >
+                {t("termExplorer.subtitle")}
+              </p>
+            </div>
+          )}
           {activeView === "orchestra" && (
             <div
               style={{
@@ -129,7 +163,13 @@ export default function App() {
               alignItems: "center",
             }}
           >
-            <ComparisonBar />
+            {activeView === "timeline" && <ComparisonBar />}
+            {activeView !== "orchestra" && (
+              <SearchFilterBar
+                filterOpen={filterOpen}
+                onToggleFilters={() => setFilterOpen((p) => !p)}
+              />
+            )}
             <nav
               style={{
                 display: "flex",
@@ -190,12 +230,6 @@ export default function App() {
               <option value="fr-FR">Français</option>
               <option value="af-ZA">Afrikaans</option>
             </select>
-            {activeView !== "orchestra" && (
-              <SearchFilterBar
-                filterOpen={filterOpen}
-                onToggleFilters={() => setFilterOpen((p) => !p)}
-              />
-            )}
             <button
               onClick={() => setHelpOpen((p) => !p)}
               style={{

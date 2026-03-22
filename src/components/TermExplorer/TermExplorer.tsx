@@ -118,7 +118,6 @@ export default function TermExplorer({
     <div className={styles.container}>
       {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.title}>{t("termExplorer.title")}</h1>
         <input
           type="text"
           className={styles.searchInput}
@@ -127,11 +126,6 @@ export default function TermExplorer({
           onChange={(e) => setSearchQuery(e.target.value)}
           aria-label={t("termExplorer.searchPlaceholder")}
         />
-        {onNavigateToTimeline && (
-          <button className={styles.backBtn} onClick={onNavigateToTimeline}>
-            {t("termExplorer.backToTimeline")}
-          </button>
-        )}
       </div>
 
       {/* Category tabs */}

@@ -299,7 +299,7 @@ export default function Timeline() {
 
   // Timeline height
   const ROW_HEIGHT = 34;
-  const TOP_OFFSET = 80;
+  const TOP_OFFSET = 84;
   const timelineHeight = Math.max(
     500,
     TOP_OFFSET + (maxRow + 1) * ROW_HEIGHT + 100,

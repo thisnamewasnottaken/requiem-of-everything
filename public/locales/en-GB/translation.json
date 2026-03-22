@@ -131,6 +131,7 @@
   },
   "termExplorer": {
     "title": "Musical Terms & Forms",
+    "subtitle": "Explore musical terms and forms",
     "searchPlaceholder": "Search terms…",
     "backToTimeline": "← Timeline",
     "allCategories": "All",
