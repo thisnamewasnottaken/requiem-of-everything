@@ -112,7 +112,7 @@ body {
 
 .app-header {
   position: relative;
-  z-index: 50;
+  z-index: var(--z-overlay);
   padding: var(--space-lg) var(--space-xl);
   border-bottom: 1px solid var(--border-subtle);
   background: var(--bg-secondary);

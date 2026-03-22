@@ -59,11 +59,14 @@ Wedge paths are generated with `describeWedge()` using inner/outer radii and sta
 
 ### Layout Tiers (from conductor outward)
 
+Based on standard modern orchestral seating (American layout, viewed from above):
+
 ```
-Tier 0:  Conductor (r=0–80, a=0°–180°)
-Tier 1:  Strings (r=90–330, a=5°–175°) — large front arc
-Tier 2:  Keyboards (r=340–490, a=0°–38°), Woodwinds (r=340–490, a=42°–138°), Voice (r=340–490, a=142°–180°)
-Tier 3:  Brass (r=500–670, a=0°–112°), Percussion (r=500–670, a=116°–180°)
+Tier 0:  Conductor (centre, at CY)
+Tier 1:  Strings (r=80–270, a=5°–175°) — full-width front arc (6 instruments: Violin, Viola, Cello, Double Bass, Harp, Viola da Gamba)
+Tier 2:  Keyboards (r=280–390, a=0°–42°) left wing near conductor | Woodwinds (r=280–390, a=46°–134°) centred behind strings
+Tier 3:  Brass (r=400–500, a=15°–105°) back-left/centre | Percussion (r=400–500, a=109°–165°) centre-right rear
+Tier 4:  Voice / Choir (r=510–610, a=10°–170°) — full-width rear arc behind everything
 ```
 
 Decorative elliptical tier rings at key radii (subtle `rgba(255,255,255,0.05)` strokes).

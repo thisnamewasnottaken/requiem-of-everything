@@ -30,10 +30,10 @@ interface FamilyLayout {
 // ---------------------------------------------------------------------------
 
 const CX = 750;
-const CY = 780;
+const CY = 620;
 const TILT = 0.55;
-const VIEWBOX = "0 0 1500 800";
-const TIER_RINGS = [90, 340, 490, 670];
+const VIEWBOX = "0 0 1500 700";
+const TIER_RINGS = [80, 280, 400, 510, 610];
 
 function polarToCartesian(
   cx: number,
@@ -94,29 +94,36 @@ function describeWedge(
 // Layout Data
 // ---------------------------------------------------------------------------
 
+// Layout mirrors real orchestral seating (audience-perspective, looking
+// toward the stage).  Angles 0°–180° map left-to-right across a semicircle
+// whose flat edge faces the audience at the bottom.
+//
+//  Tier 1 (front): Strings — full-width arc, closest to conductor
+//  Tier 2 (mid-left): Keyboards — left wing near conductor
+//  Tier 2 (mid-center): Woodwinds — centred behind strings
+//  Tier 3 (back-left): Brass — behind woodwinds, left-centre
+//  Tier 3 (back-centre): Percussion — centre-rear, behind brass
+//  Tier 4 (very back): Voice / Choir — across the full rear
+
 const FAMILY_LAYOUT: Record<InstrumentFamily, FamilyLayout> = {
-  strings: { wedges: [{ r: [90, 330], a: [5, 175] }], labelR: 210, labelA: 90 },
+  strings: { wedges: [{ r: [80, 270], a: [5, 175] }], labelR: 175, labelA: 90 },
   keyboards: {
-    wedges: [{ r: [340, 490], a: [0, 38] }],
-    labelR: 415,
-    labelA: 19,
+    wedges: [{ r: [280, 390], a: [0, 42] }],
+    labelR: 335,
+    labelA: 21,
   },
   woodwinds: {
-    wedges: [{ r: [340, 490], a: [42, 138] }],
-    labelR: 415,
+    wedges: [{ r: [280, 390], a: [46, 134] }],
+    labelR: 335,
     labelA: 90,
   },
-  voice: {
-    wedges: [{ r: [340, 490], a: [142, 180] }],
-    labelR: 415,
-    labelA: 161,
-  },
-  brass: { wedges: [{ r: [500, 670], a: [0, 112] }], labelR: 585, labelA: 56 },
+  brass: { wedges: [{ r: [400, 500], a: [15, 105] }], labelR: 450, labelA: 60 },
   percussion: {
-    wedges: [{ r: [500, 670], a: [116, 180] }],
-    labelR: 585,
-    labelA: 148,
+    wedges: [{ r: [400, 500], a: [109, 165] }],
+    labelR: 450,
+    labelA: 137,
   },
+  voice: { wedges: [{ r: [510, 610], a: [10, 170] }], labelR: 560, labelA: 90 },
 };
 
 const FAMILY_META: Record<InstrumentFamily, { color: string; glow: string }> = {
@@ -165,7 +172,7 @@ const ALL_ERAS: MusicalEra[] = [
 ];
 
 const MAX_FEATURED = 5;
-const NODE_RADIUS = 38;
+const NODE_RADIUS = 30;
 
 // ---------------------------------------------------------------------------
 // Instrument Positioning Algorithm
@@ -181,40 +188,59 @@ function computeInstrumentPositions(
   const wedge = layout.wedges[0];
   const [innerR, outerR] = wedge.r;
   const [startA, endA] = wedge.a;
-  const padDeg = Math.min(12, (endA - startA) * 0.08);
-  const aRange = endA - startA - 2 * padDeg;
   const results: { id: string; x: number; y: number }[] = [];
 
-  if (n <= 4) {
+  // Minimum angular spacing (degrees) to prevent overlap given NODE_RADIUS.
+  // We estimate the arc-length per degree at the placement radius and derive
+  // the minimum angle that keeps two nodes 2.4 * NODE_RADIUS apart.
+  const safeSpacingDeg = (radius: number) => {
+    const circumference = 2 * Math.PI * radius * TILT; // elliptical approx
+    const degPerPx = 360 / circumference;
+    return degPerPx * NODE_RADIUS * 2.4;
+  };
+
+  if (n <= 5) {
+    // Single row at the radial midpoint of the wedge
     const midR = (innerR + outerR) / 2;
+    const minGap = safeSpacingDeg(midR);
+    const totalNeeded = (n - 1) * minGap;
+    const availableArc = endA - startA;
+    // Use whichever is wider: even distribution or minimum-gap distribution
+    const actualGap =
+      n === 1 ? 0 : Math.max(minGap, (availableArc - minGap) / (n - 1));
+    const totalSpan = (n - 1) * actualGap;
+    const offsetA = startA + (availableArc - totalSpan) / 2;
+
     for (let i = 0; i < n; i++) {
-      const angle =
-        startA + padDeg + (n === 1 ? aRange / 2 : (aRange * i) / (n - 1));
+      const angle = offsetA + i * actualGap;
       const pos = polarToCartesian(CX, CY, midR, angle);
       results.push({ id: instruments[i].id, ...pos });
     }
   } else {
+    // Two rows — inner row gets ceil(n/2), outer row gets the rest
     const row1Count = Math.ceil(n / 2);
     const row2Count = n - row1Count;
-    const r1 = innerR + (outerR - innerR) * 0.33;
-    const r2 = innerR + (outerR - innerR) * 0.72;
+    const r1 = innerR + (outerR - innerR) * 0.3;
+    const r2 = innerR + (outerR - innerR) * 0.75;
+    const availableArc = endA - startA;
 
-    for (let i = 0; i < row1Count; i++) {
-      const angle =
-        startA +
-        padDeg +
-        (row1Count === 1 ? aRange / 2 : (aRange * i) / (row1Count - 1));
-      const pos = polarToCartesian(CX, CY, r1, angle);
-      results.push({ id: instruments[i].id, ...pos });
-    }
-    for (let i = 0; i < row2Count; i++) {
-      const angle =
-        startA +
-        padDeg +
-        (row2Count === 1 ? aRange / 2 : (aRange * i) / (row2Count - 1));
-      const pos = polarToCartesian(CX, CY, r2, angle);
-      results.push({ id: instruments[row1Count + i].id, ...pos });
-    }
+    const placeRow = (count: number, radius: number, startIdx: number) => {
+      const minGap = safeSpacingDeg(radius);
+      const actualGap =
+        count === 1
+          ? 0
+          : Math.max(minGap, (availableArc - minGap) / (count - 1));
+      const totalSpan = (count - 1) * actualGap;
+      const offsetA = startA + (availableArc - totalSpan) / 2;
+      for (let i = 0; i < count; i++) {
+        const angle = offsetA + i * actualGap;
+        const pos = polarToCartesian(CX, CY, radius, angle);
+        results.push({ id: instruments[startIdx + i].id, ...pos });
+      }
+    };
+
+    placeRow(row1Count, r1, 0);
+    placeRow(row2Count, r2, row1Count);
   }
   return results;
 }

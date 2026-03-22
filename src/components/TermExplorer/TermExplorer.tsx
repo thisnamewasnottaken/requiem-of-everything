@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTerms, useCompositions, useComposers } from "@/hooks/useData";
+import { useFilterStore } from "@/stores/useFilterStore";
 import { getWikipediaUrl } from "@/utils/wikipedia";
 import type { TermCategory, MusicalTerm } from "@/types";
 import styles from "./TermExplorer.module.css";
@@ -28,15 +29,21 @@ interface TermExplorerProps {
   onNavigateToTimeline?: () => void;
 }
 
-export default function TermExplorer({ onNavigateToTimeline }: TermExplorerProps) {
+export default function TermExplorer({
+  onNavigateToTimeline,
+}: TermExplorerProps) {
   const { t } = useTranslation();
   const allTerms = useTerms();
   const compositions = useCompositions();
   const composers = useComposers();
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<TermCategory | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<TermCategory | null>(
+    null,
+  );
   const [selectedTermId, setSelectedTermId] = useState<string | null>(null);
+
+  const { eraFilters, searchQuery: globalSearchQuery } = useFilterStore();
 
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -50,26 +57,44 @@ export default function TermExplorer({ onNavigateToTimeline }: TermExplorerProps
     [composers],
   );
 
-  // Filter terms by category and search query
+  // Filter terms by category, local search, and global filters (era + search)
   const filteredTerms = useMemo(() => {
-    const query = searchQuery.toLowerCase().trim();
+    const localQuery = searchQuery.toLowerCase().trim();
+    const globalQuery = globalSearchQuery.toLowerCase().trim();
     return allTerms.filter((term: MusicalTerm) => {
+      // Category tab filter
       if (selectedCategory && !term.categories.includes(selectedCategory)) {
         return false;
       }
-      if (query) {
+      // Global era filters — term must originate in at least one selected era
+      if (
+        eraFilters.length > 0 &&
+        !term.eraOrigin.some((era) => eraFilters.includes(era))
+      ) {
+        return false;
+      }
+      // Global search query from FilterPanel
+      if (globalQuery) {
+        const matchesGlobal =
+          term.term.toLowerCase().includes(globalQuery) ||
+          term.shortDefinition.toLowerCase().includes(globalQuery) ||
+          term.longDefinition.toLowerCase().includes(globalQuery);
+        if (!matchesGlobal) return false;
+      }
+      // Local search input
+      if (localQuery) {
         return (
-          term.term.toLowerCase().includes(query) ||
-          term.shortDefinition.toLowerCase().includes(query) ||
-          term.longDefinition.toLowerCase().includes(query)
+          term.term.toLowerCase().includes(localQuery) ||
+          term.shortDefinition.toLowerCase().includes(localQuery) ||
+          term.longDefinition.toLowerCase().includes(localQuery)
         );
       }
       return true;
     });
-  }, [allTerms, selectedCategory, searchQuery]);
+  }, [allTerms, selectedCategory, searchQuery, eraFilters, globalSearchQuery]);
 
   const selectedTerm = selectedTermId
-    ? allTerms.find((term) => term.id === selectedTermId) ?? null
+    ? (allTerms.find((term) => term.id === selectedTermId) ?? null)
     : null;
 
   // Close modal on Escape
@@ -191,7 +216,9 @@ export default function TermExplorer({ onNavigateToTimeline }: TermExplorerProps
             </button>
 
             <h2 className={styles.modalTitle}>{selectedTerm.term}</h2>
-            <p className={styles.modalShortDef}>{selectedTerm.shortDefinition}</p>
+            <p className={styles.modalShortDef}>
+              {selectedTerm.shortDefinition}
+            </p>
             <p className={styles.modalLongDef}>{selectedTerm.longDefinition}</p>
 
             <div className={styles.eraBadges}>

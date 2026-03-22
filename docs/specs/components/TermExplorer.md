@@ -30,15 +30,15 @@ Three-part vertical layout within a scrollable container (max-width 1200px, cent
 
 Horizontal tab bar with 7 options:
 
-| Label              | Category key             |
-| ------------------ | ------------------------ |
-| All                | `null` (show all)        |
-| Forms & Structures | `forms-and-structures`   |
-| Genres             | `genres`                 |
-| Techniques         | `techniques`             |
-| Vocal & Choral     | `vocal-and-choral`       |
-| Dance & Character  | `dance-and-character`    |
-| Solo & Chamber     | `solo-and-chamber`       |
+| Label              | Category key           |
+| ------------------ | ---------------------- |
+| All                | `null` (show all)      |
+| Forms & Structures | `forms-and-structures` |
+| Genres             | `genres`               |
+| Techniques         | `techniques`           |
+| Vocal & Choral     | `vocal-and-choral`     |
+| Dance & Character  | `dance-and-character`  |
+| Solo & Chamber     | `solo-and-chamber`     |
 
 - Active tab has accent-colour background (`--text-accent`) with dark text (`--bg-primary`).
 - Tabs wrap on narrow viewports.
@@ -59,6 +59,7 @@ Each card displays:
 ### Card Hover Effect
 
 On hover, the card lifts and glows:
+
 - `border-color: var(--text-accent)`
 - `background: var(--bg-elevated)`
 - `transform: translateY(-2px)`
@@ -111,6 +112,15 @@ Clicking a card opens a **centred modal overlay** for the selected term. Only on
 - Combined with the active category tab filter.
 - When no results match, display "No terms match your search." (`termExplorer.noResults`).
 
+## Global Filter Integration
+
+TermExplorer reads from `useFilterStore` and applies the following global filters **in addition** to the local category tabs and search input:
+
+- **Era filters** (`eraFilters`): When one or more eras are selected in the FilterPanel, only terms whose `eraOrigin` array includes at least one of the selected eras are shown.
+- **Global search query** (`searchQuery`): The search query entered in the header `SearchFilterBar` is applied as an additional text filter, matching against the same fields as the local search (term name, short definition, long definition).
+
+Both global and local filters are combined conjunctively — a term must pass all active filters to be displayed.
+
 ## Styling
 
 - **CSS Modules**: `TermExplorer.module.css`.
@@ -127,11 +137,11 @@ Clicking a card opens a **centred modal overlay** for the selected term. Only on
 
 ## State
 
-| State              | Type                    | Purpose                                     |
-| ------------------ | ----------------------- | ------------------------------------------- |
-| `searchQuery`      | `string`                | Current search input text                   |
-| `selectedCategory` | `TermCategory \| null`  | Active category tab (`null` = all)          |
-| `selectedTermId`   | `string \| null`        | ID of the term displayed in the modal       |
+| State              | Type                   | Purpose                               |
+| ------------------ | ---------------------- | ------------------------------------- |
+| `searchQuery`      | `string`               | Current search input text             |
+| `selectedCategory` | `TermCategory \| null` | Active category tab (`null` = all)    |
+| `selectedTermId`   | `string \| null`       | ID of the term displayed in the modal |
 
 ## i18n Keys
 

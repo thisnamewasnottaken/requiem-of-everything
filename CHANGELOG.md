@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - **OrchestraExplorer redesign** — completely rebuilt Orchestra Explorer as an immersive, full-viewport interactive orchestral topography. Features an elliptical top-down SVG stage with perspective tilt (0.55 factor), ambient background with animated orbs and mouse-tracking spotlight, spring-physics animations via `motion` library (AnimatePresence, staggered instrument node reveals), glassmorphism info panels with backdrop-blur, kinetic typography on instrument detail titles, a two-column detail modal with rotating conic gradient visual, and comprehensive i18n for family descriptions in all three languages. Spec updated at `docs/specs/components/OrchestraExplorer.md`.
 - **OrchestraExplorer header** — moved view title and subtitle from the component body into the App header for consistency with other views.
+- **OrchestraExplorer seating layout** — redesigned family positions to match standard modern orchestral seating (strings front, woodwinds centre-mid, keyboards left-wing, brass back-left, percussion back-centre, voice/choir at the very rear). Repositioned SVG centre from bottom-edge to mid-viewport to use available space. Improved instrument-node spacing algorithm with collision-aware minimum angular gaps to prevent overlapping bubbles.
+- **TermExplorer global filter integration** — TermExplorer now respects global filters from `useFilterStore`. Era filters restrict terms to those originating in selected eras; the header search query applies as an additional text filter alongside the local search input.
 
 ### Added
 
@@ -30,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- **Z-index stacking for overlay panels** — app header now uses `var(--z-overlay)` instead of a hardcoded z-index of 50, so FilterPanel, ComposerCard, HelpPanel, and CompositionDetail panels correctly render above the header.
 - **EventMarker tooltip viewport clipping**— tooltip now opens above the marker by default (`bottom: calc(100% + 8px)`) instead of below, preventing clipping when markers are near the bottom of the viewport. Flips below when marker is near the top.
 - **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved to native `addEventListener` with `{ passive: false }`. Added `touch-action: none` to timeline container.
 
