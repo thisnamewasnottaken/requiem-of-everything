@@ -94,10 +94,10 @@ export default function EventMarker({
         />
       )}
 
-      {/* Diamond marker */}
+      {/* Diamond marker — positioned in event band at top */}
       <div
         className={markerClass}
-        style={{ left: x, bottom: 8 }}
+        style={{ left: x, top: 48 }}
         ref={markerRef}
         onClick={(e) => {
           e.stopPropagation();
@@ -111,11 +111,11 @@ export default function EventMarker({
           year: event.year,
         })}
       >
+        <div className={styles.diamond} style={{ backgroundColor: color }} />
         <div
           className={styles.eventLine}
-          style={{ height: timelineHeight - 60, borderColor: color }}
+          style={{ height: timelineHeight - 72, borderColor: color }}
         />
-        <div className={styles.diamond} style={{ backgroundColor: color }} />
         <div className={styles.tooltip} style={tooltipStyle}>
           <div className={styles.tooltipTitle}>{event.title}</div>
           <div className={styles.tooltipYear}>

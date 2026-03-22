@@ -6,11 +6,12 @@ The horizontal axis at the top of the timeline that displays year tick marks and
 
 ## Props / Inputs
 
-| Prop        | Type     | Description           |
-| ----------- | -------- | --------------------- |
-| `startYear` | `number` | Viewport left bound   |
-| `endYear`   | `number` | Viewport right bound  |
-| `width`     | `number` | Container pixel width |
+| Prop        | Type                            | Description                                              |
+| ----------- | ------------------------------- | -------------------------------------------------------- |
+| `startYear` | `number`                        | Viewport left bound                                      |
+| `endYear`   | `number`                        | Viewport right bound                                     |
+| `width`     | `number`                        | Container pixel width                                    |
+| `eras`      | `MusicalEraDefinition[]` (opt.) | Era definitions — when provided, era labels are rendered |
 
 ## Visual States
 
@@ -37,6 +38,7 @@ Major ticks fire at every `2× interval` or when `interval ≥ 50`.
 - Full-width `div` positioned at the top of the timeline (below the controls bar, above the era backdrops at `top: 0`).
 - Each tick is absolutely positioned at `left: scale(year)`.
 - `rulerLine` is a bottom border spanning full width.
+- When `eras` are provided, era labels are rendered inline within the ruler, centered horizontally within each era's visible span. Labels use the era's color at reduced opacity, positioned near the bottom of the ruler row. Eras narrower than 60px are not labelled.
 
 ## Accessibility
 

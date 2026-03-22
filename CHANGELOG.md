@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - **Z-index stacking for overlay panels** — app header now uses `var(--z-overlay)` instead of a hardcoded z-index of 50, so FilterPanel, ComposerCard, HelpPanel, and CompositionDetail panels correctly render above the header.
+- **Event marker relocation** — event markers moved from the bottom of the timeline to the top, in a compact 24px event band between the TimeRuler and the first composer row. Diamonds now render at the top with dashed lines extending downward through all composer rows, ensuring events are always visible regardless of how many composer rows are displayed. Tooltips open downward below the diamond. Era labels moved from EraBackdrop into the TimeRuler row (inline with year numbers). `TOP_OFFSET` increased from 56 to 80 to accommodate the event band. Grid lines and hover labels adjusted accordingly.
 - **Event tooltip positioning** — tooltip now renders just above the diamond marker (`bottom: 20px` from marker bottom) instead of above the entire marker div including the tall event line. Previously the tooltip opened above the invisible event line top or flipped below the diamond off-screen. Removed vertical flip logic since event markers are always at the timeline bottom.
 - **Trackpad pinch zoom** — pinch-to-zoom on trackpads now zooms the timeline instead of the whole browser page. Wheel handler moved to native `addEventListener` with `{ passive: false }`. Added `touch-action: none` to timeline container.
 

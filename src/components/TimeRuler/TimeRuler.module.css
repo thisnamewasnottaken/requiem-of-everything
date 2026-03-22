@@ -52,3 +52,19 @@
   height: 1px;
   background: var(--border-subtle);
 }
+
+/* Era labels merged into ruler row */
+.eraLabel {
+  position: absolute;
+  bottom: 4px;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}

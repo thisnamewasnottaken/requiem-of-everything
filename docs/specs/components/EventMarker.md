@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A vertical marker representing a historical event on the timeline. Rendered at the event's year with a full-height dashed line and a diamond icon at the bottom. Range events (e.g. wars) also show a translucent band spanning the duration. Hoverable for event preview; clickable to pin the card open for interaction.
+A vertical marker representing a historical event on the timeline. Rendered at the event's year in a compact 24px event band between the TimeRuler and the first composer row. The diamond icon sits at the top of the timeline, with a full-height dashed line extending downward through all composer rows. Range events (e.g. wars) also show a translucent band spanning the duration. Hoverable for event preview; clickable to pin the card open for interaction.
 
 ## Props / Inputs
 
@@ -19,7 +19,7 @@ A vertical marker representing a historical event on the timeline. Rendered at t
 
 ## Visual States
 
-- **Default**: Full-height dashed vertical line in category color + diamond at bottom + tooltip on hover (preview only, `pointer-events: none`).
+- **Default**: Diamond icon in the 24px event band (below the ruler, above composers) + full-height dashed vertical line extending downward in category color + tooltip on hover (preview only, `pointer-events: none`).
 - **Selected (pinned)**: Diamond is enlarged, event line is more opaque, tooltip stays visible with `pointer-events: auto` so links are clickable. z-index elevated above other markers.
 - **Range event**: Translucent band (`backgroundColor: color + "1A"`) behind the line, spanning `year` to `endYear`.
 - **Dimmed**: Marker at 0.15 opacity, event line at 0.08 opacity. Recovers to 0.7 opacity on hover. Applied during focus mode (single composer selected) and comparison mode.
@@ -70,13 +70,15 @@ The tooltip repositions to avoid clipping by the timeline container's `overflow:
 
 #### Vertical
 
-- Tooltip always opens **above** the diamond (`bottom: 20px` from the marker's bottom edge), placing it just above the 8×8 diamond. Since the marker div includes the tall event line, using `bottom: calc(100% + 8px)` would incorrectly position the tooltip at the top of the event line, far from the diamond. No vertical flipping is needed because event markers are always anchored to the bottom of the timeline.
+- Tooltip always opens **below** the diamond (`top: 24px` from the marker's top edge), placing it just below the diamond icon. No vertical flipping is needed because the tooltip opens downward into the composer area where there is ample space.
 
 ## Layout
 
 - `x = scale(event.year)` — horizontal position
-- Line height: `timelineHeight - 60px`
-- Diamond and tooltip anchored at the bottom (`bottom: 8px`)
+- Marker anchored at the top of the event band (`top: 48px`), with `padding-top: 8px` to centre the diamond in the 24px band
+- Diamond rendered first (at top), followed by the dashed event line extending downward
+- Line height: `timelineHeight - 72px` (from bottom of event band to timeline bottom)
+- Tooltip opens downward (`top: 24px`) below the diamond
 - Range band: `left: x`, `width: scale(endYear) - x`
 
 ## Selection Store Integration

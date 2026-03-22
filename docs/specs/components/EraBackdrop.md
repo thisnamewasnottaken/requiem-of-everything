@@ -14,9 +14,9 @@ Renders the musical era bands as semi-transparent colored rectangles behind the 
 
 ## Visual States
 
-- **Default**: All eras visible as translucent bands with era labels at the top.
+- **Default**: All eras visible as translucent colour bands. Era labels are rendered by the TimeRuler component (not by EraBackdrop).
 - **Filtered**: Non-matching eras are further dimmed.
-- **Hover**: Hovering an era band shows a tooltip with era description.
+- **Hover**: Hovering an era band slightly increases fill opacity.
 
 ## Rendering
 
