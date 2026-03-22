@@ -96,6 +96,8 @@ All imports use `@/` prefix resolved to `src/` (configured in both `tsconfig.jso
 
 When adding composers/compositions/events to `src/data/*.json`, match the existing TypeScript interfaces in `src/types/index.ts` exactly. Composition `composerId` must reference an existing composer's `id`, and the composer's `compositionIds` array must include the new composition's `id`.
 
+When adding new data sets, or entries to existing sets remember to add translation entries for any user-facing fields (names, bios, descriptions) in the appropriate i18n JSON files (e.g. `public/locales/{lng}/{namespace}.json`).
+
 ## Localisation / i18n
 
 The app is fully localised in three languages: English (en-GB, default), French (fr-FR), and Afrikaans (af-ZA). i18next handles translations via the HTTP backend, loading JSON files from `public/locales/{lng}/{ns}.json`.

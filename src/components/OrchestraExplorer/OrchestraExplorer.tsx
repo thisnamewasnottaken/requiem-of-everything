@@ -1,10 +1,7 @@
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  useInstruments,
-  useCompositions,
-  useComposers,
-} from "@/hooks/useData";
+import { motion, AnimatePresence } from "motion/react";
+import { useInstruments, useCompositions, useComposers } from "@/hooks/useData";
 import { getWikipediaUrl } from "@/utils/wikipedia";
 import type { Instrument, InstrumentFamily, MusicalEra } from "@/types";
 import styles from "./OrchestraExplorer.module.css";
@@ -17,99 +14,128 @@ interface OrchestraExplorerProps {
   onNavigateToTimeline?: () => void;
 }
 
-interface SectionDef {
-  family: InstrumentFamily;
-  innerR: number;
-  outerR: number;
-  startDeg: number;
-  endDeg: number;
-  narrow?: boolean;
+interface WedgeDef {
+  r: [number, number];
+  a: [number, number];
+}
+
+interface FamilyLayout {
+  wedges: WedgeDef[];
+  labelR: number;
+  labelA: number;
 }
 
 // ---------------------------------------------------------------------------
-// SVG Geometry
+// SVG Geometry — Elliptical Top-Down Perspective
 // ---------------------------------------------------------------------------
 
-const CX = 480;
-const CY = 510;
-const VIEWBOX = "0 0 960 540";
-const RING_RADII = [240, 330, 410];
+const CX = 750;
+const CY = 780;
+const TILT = 0.55;
+const VIEWBOX = "0 0 1500 800";
+const TIER_RINGS = [90, 340, 490, 670];
 
-const SECTIONS: SectionDef[] = [
-  { family: "strings",    innerR: 95,  outerR: 235, startDeg: 24,  endDeg: 148 },
-  { family: "keyboards",  innerR: 95,  outerR: 320, startDeg: 5,   endDeg: 21,  narrow: true },
-  { family: "voice",      innerR: 95,  outerR: 320, startDeg: 151, endDeg: 175, narrow: true },
-  { family: "woodwinds",  innerR: 250, outerR: 325, startDeg: 25,  endDeg: 148 },
-  { family: "brass",      innerR: 340, outerR: 405, startDeg: 18,  endDeg: 162 },
-  { family: "percussion", innerR: 420, outerR: 480, startDeg: 12,  endDeg: 168 },
-];
+function polarToCartesian(
+  cx: number,
+  cy: number,
+  radius: number,
+  angleDeg: number,
+  tilt: number = TILT,
+): { x: number; y: number } {
+  const rad = ((angleDeg - 180) * Math.PI) / 180;
+  return {
+    x: cx + radius * Math.cos(rad),
+    y: cy + radius * Math.sin(rad) * tilt,
+  };
+}
 
-function arcPath(
-  cx: number, cy: number,
-  innerR: number, outerR: number,
-  startDeg: number, endDeg: number,
+function describeWedge(
+  cx: number,
+  cy: number,
+  innerR: number,
+  outerR: number,
+  startA: number,
+  endA: number,
+  tilt: number = TILT,
 ): string {
-  const toRad = (d: number) => (d * Math.PI) / 180;
-  const a1 = toRad(180 - startDeg);
-  const a2 = toRad(180 - endDeg);
-  const x1 = cx + innerR * Math.cos(a1);
-  const y1 = cy - innerR * Math.sin(a1);
-  const x2 = cx + outerR * Math.cos(a1);
-  const y2 = cy - outerR * Math.sin(a1);
-  const x3 = cx + outerR * Math.cos(a2);
-  const y3 = cy - outerR * Math.sin(a2);
-  const x4 = cx + innerR * Math.cos(a2);
-  const y4 = cy - innerR * Math.sin(a2);
-  const largeArc = Math.abs(endDeg - startDeg) > 180 ? 1 : 0;
+  const p1 = polarToCartesian(cx, cy, outerR, endA, tilt);
+  const p2 = polarToCartesian(cx, cy, outerR, startA, tilt);
+  const p3 = polarToCartesian(cx, cy, innerR, startA, tilt);
+  const p4 = polarToCartesian(cx, cy, innerR, endA, tilt);
+  const largeArc = endA - startA <= 180 ? "0" : "1";
   return [
-    `M ${x1} ${y1}`,
-    `L ${x2} ${y2}`,
-    `A ${outerR} ${outerR} 0 ${largeArc} 0 ${x3} ${y3}`,
-    `L ${x4} ${y4}`,
-    `A ${innerR} ${innerR} 0 ${largeArc} 1 ${x1} ${y1}`,
+    "M",
+    p1.x,
+    p1.y,
+    "A",
+    outerR,
+    outerR * tilt,
+    0,
+    largeArc,
+    0,
+    p2.x,
+    p2.y,
+    "L",
+    p3.x,
+    p3.y,
+    "A",
+    innerR,
+    innerR * tilt,
+    0,
+    largeArc,
+    1,
+    p4.x,
+    p4.y,
     "Z",
   ].join(" ");
 }
 
-function arcCenter(
-  cx: number, cy: number,
-  innerR: number, outerR: number,
-  startDeg: number, endDeg: number,
-): { x: number; y: number } {
-  const midDeg = (startDeg + endDeg) / 2;
-  const midR = (innerR + outerR) / 2;
-  const rad = ((180 - midDeg) * Math.PI) / 180;
-  return {
-    x: cx + midR * Math.cos(rad),
-    y: cy - midR * Math.sin(rad),
-  };
-}
-
 // ---------------------------------------------------------------------------
-// Constants
+// Layout Data
 // ---------------------------------------------------------------------------
 
-const FAMILY_META: Record<InstrumentFamily, { icon: string; color: string }> = {
-  strings:    { icon: "🎻", color: "#C4A035" },
-  woodwinds:  { icon: "🎵", color: "#27AE60" },
-  brass:      { icon: "🎺", color: "#E67E22" },
-  percussion: { icon: "🥁", color: "#E74C3C" },
-  keyboards:  { icon: "🎹", color: "#3498DB" },
-  voice:      { icon: "🎤", color: "#9B59B6" },
+const FAMILY_LAYOUT: Record<InstrumentFamily, FamilyLayout> = {
+  strings: { wedges: [{ r: [90, 330], a: [5, 175] }], labelR: 210, labelA: 90 },
+  keyboards: {
+    wedges: [{ r: [340, 490], a: [0, 38] }],
+    labelR: 415,
+    labelA: 19,
+  },
+  woodwinds: {
+    wedges: [{ r: [340, 490], a: [42, 138] }],
+    labelR: 415,
+    labelA: 90,
+  },
+  voice: {
+    wedges: [{ r: [340, 490], a: [142, 180] }],
+    labelR: 415,
+    labelA: 161,
+  },
+  brass: { wedges: [{ r: [500, 670], a: [0, 112] }], labelR: 585, labelA: 56 },
+  percussion: {
+    wedges: [{ r: [500, 670], a: [116, 180] }],
+    labelR: 585,
+    labelA: 148,
+  },
+};
+
+const FAMILY_META: Record<InstrumentFamily, { color: string; glow: string }> = {
+  strings: { color: "#C4A035", glow: "rgba(196, 160, 53, 0.4)" },
+  woodwinds: { color: "#27AE60", glow: "rgba(39, 174, 96, 0.4)" },
+  brass: { color: "#E67E22", glow: "rgba(230, 126, 34, 0.4)" },
+  percussion: { color: "#E74C3C", glow: "rgba(231, 76, 60, 0.4)" },
+  keyboards: { color: "#3498DB", glow: "rgba(52, 152, 219, 0.4)" },
+  voice: { color: "#9B59B6", glow: "rgba(155, 89, 182, 0.4)" },
 };
 
 const FAMILY_ORDER: InstrumentFamily[] = [
-  "strings", "woodwinds", "brass", "percussion", "keyboards", "voice",
+  "strings",
+  "woodwinds",
+  "brass",
+  "percussion",
+  "keyboards",
+  "voice",
 ];
-
-const FAMILY_DESCRIPTIONS: Record<InstrumentFamily, string> = {
-  strings: "The string family forms the foundation of the orchestra, producing sound through vibrating strings. Seated closest to the conductor, they provide the warm, rich core of the orchestral sound. The section typically includes first and second violins, violas, cellos, and double basses, with the harp adding ethereal colour.",
-  woodwinds: "Woodwind instruments produce sound by splitting air across an edge or through vibrating reeds. Seated behind the strings, they add colour, agility, and character to the orchestral palette. From the bright flute to the sonorous bassoon, each has a distinctive voice.",
-  brass: "The brass family creates sound through buzzing lips into a metal mouthpiece. Capable of tremendous power and brilliant tone, brass instruments provide the orchestra's most heroic and triumphant moments. They sit behind the woodwinds, projecting their sound over the entire ensemble.",
-  percussion: "Percussion instruments produce sound when struck, shaken, or scraped. Positioned at the back of the orchestra, they provide rhythmic drive, dramatic accents, and colourful effects. The timpani are the most prominent, but the modern orchestra employs a vast array of pitched and unpitched percussion.",
-  keyboards: "Keyboard instruments are played by pressing keys that activate hammers, plectra, or air flow. They add unique textures — from the piano's percussive brilliance to the organ's sustained grandeur and the celesta's bell-like shimmer.",
-  voice: "The human voice is the oldest and most expressive instrument. In orchestral music, vocal soloists and choirs join the ensemble for operas, oratorios, masses, and symphonic works with vocal parts. Each voice type — soprano, alto, tenor, and bass — has a distinct range and character.",
-};
 
 const ERA_COLORS: Record<MusicalEra, string> = {
   renaissance: "var(--era-renaissance)",
@@ -130,18 +156,81 @@ const ERA_LABELS: Record<MusicalEra, string> = {
 };
 
 const ALL_ERAS: MusicalEra[] = [
-  "renaissance", "baroque", "classical",
-  "early-romantic", "late-romantic", "modern",
+  "renaissance",
+  "baroque",
+  "classical",
+  "early-romantic",
+  "late-romantic",
+  "modern",
 ];
 
 const MAX_FEATURED = 5;
+const NODE_RADIUS = 38;
+
+// ---------------------------------------------------------------------------
+// Instrument Positioning Algorithm
+// ---------------------------------------------------------------------------
+
+function computeInstrumentPositions(
+  instruments: Instrument[],
+  layout: FamilyLayout,
+): { id: string; x: number; y: number }[] {
+  const n = instruments.length;
+  if (n === 0) return [];
+
+  const wedge = layout.wedges[0];
+  const [innerR, outerR] = wedge.r;
+  const [startA, endA] = wedge.a;
+  const padDeg = Math.min(12, (endA - startA) * 0.08);
+  const aRange = endA - startA - 2 * padDeg;
+  const results: { id: string; x: number; y: number }[] = [];
+
+  if (n <= 4) {
+    const midR = (innerR + outerR) / 2;
+    for (let i = 0; i < n; i++) {
+      const angle =
+        startA + padDeg + (n === 1 ? aRange / 2 : (aRange * i) / (n - 1));
+      const pos = polarToCartesian(CX, CY, midR, angle);
+      results.push({ id: instruments[i].id, ...pos });
+    }
+  } else {
+    const row1Count = Math.ceil(n / 2);
+    const row2Count = n - row1Count;
+    const r1 = innerR + (outerR - innerR) * 0.33;
+    const r2 = innerR + (outerR - innerR) * 0.72;
+
+    for (let i = 0; i < row1Count; i++) {
+      const angle =
+        startA +
+        padDeg +
+        (row1Count === 1 ? aRange / 2 : (aRange * i) / (row1Count - 1));
+      const pos = polarToCartesian(CX, CY, r1, angle);
+      results.push({ id: instruments[i].id, ...pos });
+    }
+    for (let i = 0; i < row2Count; i++) {
+      const angle =
+        startA +
+        padDeg +
+        (row2Count === 1 ? aRange / 2 : (aRange * i) / (row2Count - 1));
+      const pos = polarToCartesian(CX, CY, r2, angle);
+      results.push({ id: instruments[row1Count + i].id, ...pos });
+    }
+  }
+  return results;
+}
 
 // ---------------------------------------------------------------------------
 // Sub-components
 // ---------------------------------------------------------------------------
 
-function EraTimeline({ eraProminence }: { eraProminence: Instrument["eraProminence"] }) {
-  const prominenceMap = new Map(eraProminence.map((e) => [e.era, e.prominence]));
+function EraTimeline({
+  eraProminence,
+}: {
+  eraProminence: Instrument["eraProminence"];
+}) {
+  const prominenceMap = new Map(
+    eraProminence.map((e) => [e.era, e.prominence]),
+  );
   return (
     <div className={styles.eraTimeline}>
       {ALL_ERAS.map((era) => {
@@ -151,14 +240,244 @@ function EraTimeline({ eraProminence }: { eraProminence: Instrument["eraProminen
           styles.eraBar,
           prominence === "secondary" ? styles.eraBarSecondary : "",
           prominence === "rare" ? styles.eraBarRare : "",
-        ].filter(Boolean).join(" ");
+        ]
+          .filter(Boolean)
+          .join(" ");
         return (
-          <span key={era} className={cls} style={{ backgroundColor: ERA_COLORS[era], flex: 1 }}>
+          <span
+            key={era}
+            className={cls}
+            style={{ backgroundColor: ERA_COLORS[era], flex: 1 }}
+          >
             {ERA_LABELS[era]}
           </span>
         );
       })}
     </div>
+  );
+}
+
+function InstrumentDetailOverlay({
+  instrument,
+  familyColor,
+  familyGlow,
+  familyLabel,
+  featured,
+  composerMap,
+  onClose,
+  t,
+}: {
+  instrument: Instrument;
+  familyColor: string;
+  familyGlow: string;
+  familyLabel: string;
+  featured: {
+    id: string;
+    title: string;
+    composerId: string;
+    yearComposed: number;
+    spotifyUrl?: string;
+  }[];
+  composerMap: Map<string, { shortName: string }>;
+  onClose: () => void;
+  t: (key: string, opts?: Record<string, unknown>) => string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={styles.detailOverlay}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <motion.div
+        initial={{ y: 50, scale: 0.9, opacity: 0 }}
+        animate={{ y: 0, scale: 1, opacity: 1 }}
+        exit={{ y: 20, scale: 0.95, opacity: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+        className={styles.detailCard}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className={styles.detailClose}
+          aria-label={t("orchestraExplorer.closeDetail")}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        {/* Visual Side */}
+        <div className={styles.detailVisual}>
+          <div
+            className={styles.detailVisualGlow}
+            style={{
+              background: `conic-gradient(from 0deg, transparent, ${familyGlow}, transparent)`,
+            }}
+          />
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2, type: "spring" }}
+            className={styles.detailVisualName}
+            style={{ color: familyColor }}
+          >
+            {instrument.name}
+          </motion.div>
+        </div>
+
+        {/* Content Side */}
+        <div className={styles.detailContent}>
+          <motion.div
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            {/* Kinetic Title */}
+            <h2 className={styles.detailName}>
+              {instrument.name.split("").map((char, idx) => (
+                <motion.span
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + idx * 0.03, type: "spring" }}
+                  className={styles.detailNameChar}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </h2>
+
+            {/* Family badge */}
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className={styles.familyBadge}
+              style={{ backgroundColor: familyColor }}
+            >
+              {familyLabel}
+            </motion.span>
+
+            {/* Range */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.45 }}
+              className={styles.detailSection}
+            >
+              <div className={styles.detailLabel}>
+                {t("orchestraExplorer.range")}
+              </div>
+              <div className={styles.detailRange}>{instrument.range}</div>
+            </motion.div>
+
+            {/* Role */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className={styles.detailSection}
+            >
+              <div className={styles.detailLabel}>
+                {t("orchestraExplorer.role")}
+              </div>
+              <div className={styles.detailRole} style={{ color: familyColor }}>
+                {instrument.role}
+              </div>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className={styles.detailDescription}
+            >
+              {instrument.description}
+            </motion.p>
+
+            {/* Era Timeline */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className={styles.detailSection}
+            >
+              <div className={styles.detailLabel}>
+                {t("orchestraExplorer.eraProminence")}
+              </div>
+              <EraTimeline eraProminence={instrument.eraProminence} />
+            </motion.div>
+
+            {/* Featured Compositions */}
+            {featured.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.65 }}
+                className={styles.detailSection}
+              >
+                <div className={styles.detailLabel}>
+                  {t("orchestraExplorer.featuredIn")}
+                </div>
+                <div className={styles.compositionList}>
+                  {featured.map((comp) => {
+                    const composer = composerMap.get(comp.composerId);
+                    return (
+                      <div key={comp.id} className={styles.compositionItem}>
+                        <span className={styles.compositionTitle}>
+                          {comp.title}
+                        </span>{" "}
+                        <span className={styles.compositionComposer}>
+                          {composer ? composer.shortName : comp.composerId} (
+                          {comp.yearComposed})
+                        </span>
+                        {comp.spotifyUrl && (
+                          <a
+                            href={comp.spotifyUrl}
+                            className={styles.spotifyLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            🎧
+                          </a>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+
+            {/* Wikipedia Link */}
+            <motion.a
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              href={getWikipediaUrl(instrument.wikipediaSlug)}
+              className={styles.wikiLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📖 {t("orchestraExplorer.readMore")}
+            </motion.a>
+          </motion.div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -174,22 +493,51 @@ export default function OrchestraExplorer({
   const compositions = useCompositions();
   const composers = useComposers();
 
-  const [selectedFamily, setSelectedFamily] = useState<InstrumentFamily | null>(null);
-  const [selectedInstrument, setSelectedInstrument] = useState<Instrument | null>(null);
-  const [hoveredSection, setHoveredSection] = useState<InstrumentFamily | null>(null);
+  const [selectedFamily, setSelectedFamily] = useState<InstrumentFamily | null>(
+    null,
+  );
+  const [selectedInstrument, setSelectedInstrument] =
+    useState<Instrument | null>(null);
+  const [hoveredFamily, setHoveredFamily] = useState<InstrumentFamily | null>(
+    null,
+  );
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const familyCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
+  // Mouse-tracking spotlight
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    const handle = (e: MouseEvent) =>
+      setMousePos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", handle);
+    return () => window.removeEventListener("mousemove", handle);
+  }, []);
+
+  // Group instruments by family
+  const instrumentsByFamily = useMemo(() => {
+    const map = new Map<InstrumentFamily, Instrument[]>();
+    for (const fam of FAMILY_ORDER) map.set(fam, []);
     for (const inst of allInstruments) {
-      counts[inst.family] = (counts[inst.family] ?? 0) + 1;
+      const list = map.get(inst.family);
+      if (list) list.push(inst);
     }
-    return counts;
+    return map;
   }, [allInstruments]);
 
-  const familyInstruments = useMemo(
-    () => selectedFamily ? allInstruments.filter((i) => i.family === selectedFamily) : [],
-    [allInstruments, selectedFamily],
-  );
+  // Memoize instrument positions per family
+  const positionsByFamily = useMemo(() => {
+    const map = new Map<
+      InstrumentFamily,
+      Map<string, { x: number; y: number }>
+    >();
+    for (const fam of FAMILY_ORDER) {
+      const instruments = instrumentsByFamily.get(fam) ?? [];
+      const layout = FAMILY_LAYOUT[fam];
+      const positions = computeInstrumentPositions(instruments, layout);
+      const posMap = new Map(positions.map((p) => [p.id, { x: p.x, y: p.y }]));
+      map.set(fam, posMap);
+    }
+    return map;
+  }, [instrumentsByFamily]);
 
   const featured = useMemo(() => {
     if (!selectedInstrument) return [];
@@ -210,312 +558,386 @@ export default function OrchestraExplorer({
     setSelectedInstrument(null);
   }, []);
 
-  const handleClosePanel = useCallback(() => {
-    setSelectedFamily(null);
-    setSelectedInstrument(null);
-  }, []);
-
-  const handleBackToFamily = useCallback(() => {
-    setSelectedInstrument(null);
-  }, []);
-
-  const handleNextFamily = useCallback(() => {
-    if (!selectedFamily) return;
-    const idx = FAMILY_ORDER.indexOf(selectedFamily);
-    setSelectedFamily(FAMILY_ORDER[(idx + 1) % FAMILY_ORDER.length]);
-    setSelectedInstrument(null);
-  }, [selectedFamily]);
-
-  // Close on Escape
+  // Keyboard: Escape backs up one level
   useEffect(() => {
-    if (!selectedFamily) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (selectedInstrument) setSelectedInstrument(null);
-        else setSelectedFamily(null);
+        else if (selectedFamily) setSelectedFamily(null);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [selectedFamily, selectedInstrument]);
 
-  // Section fill/stroke helpers
-  const sectionFill = (family: InstrumentFamily): string => {
-    const c = FAMILY_META[family].color;
-    if (selectedFamily === family) return `${c}66`;
-    if (selectedFamily !== null) return `${c}0D`;
-    if (hoveredSection === family) return `${c}4D`;
-    return `${c}26`;
-  };
-
-  const sectionStroke = (family: InstrumentFamily): string => {
-    const c = FAMILY_META[family].color;
-    if (selectedFamily === family) return `${c}CC`;
-    if (selectedFamily !== null) return `${c}1A`;
-    if (hoveredSection === family) return `${c}99`;
-    return `${c}4D`;
-  };
-
-  const nextFamilyId = selectedFamily
-    ? FAMILY_ORDER[(FAMILY_ORDER.indexOf(selectedFamily) + 1) % FAMILY_ORDER.length]
-    : null;
-
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{t("orchestraExplorer.title")}</h1>
+    <div className={styles.container} ref={containerRef}>
+      {/* ── Ambient Background ──────────────────────────────────── */}
+      <div className={styles.ambientBg}>
+        <div className={styles.ambientBase} />
+        <div className={styles.ambientOrb1} />
+        <div className={styles.ambientOrb2} />
+        <div className={styles.ambientOrb3} />
+        <div
+          className={styles.mouseGlow}
+          style={{
+            transform: `translate(${mousePos.x - 240}px, ${mousePos.y - 240}px)`,
+          }}
+        />
+        <div className={styles.ambientGrid} />
+      </div>
+
+      {/* ── Header ──────────────────────────────────────────────── */}
+      <motion.header
+        className={styles.header}
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <div>
+          <h1 className={styles.title}>
+            {t("orchestraExplorer.title")
+              .split(" ")
+              .map((word, i, arr) => (
+                <span key={i}>
+                  {i === arr.length - 1 ? (
+                    <span className={styles.titleLight}>{word}</span>
+                  ) : (
+                    word
+                  )}
+                  {i < arr.length - 1 ? " " : ""}
+                </span>
+              ))}
+          </h1>
+          <p className={styles.subtitle}>
+            {t("orchestraExplorer.subtitle", {
+              defaultValue: "Interactive Orchestral Topography",
+            })}
+          </p>
+        </div>
         {onNavigateToTimeline && (
           <button className={styles.backBtn} onClick={onNavigateToTimeline}>
             {t("orchestraExplorer.backToTimeline")}
           </button>
         )}
-      </header>
+      </motion.header>
 
-      <div className={styles.mainLayout}>
-        {/* ── SVG Stage ─────────────────────────────────────────── */}
-        <div className={styles.stageWrapper}>
-          <svg viewBox={VIEWBOX} className={styles.stageSvg} role="img" aria-label={t("orchestraExplorer.title")}>
+      {/* ── SVG Orchestra Stage ─────────────────────────────────── */}
+      <main className={styles.stageContainer}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className={styles.stageWrap}
+        >
+          <svg
+            viewBox={VIEWBOX}
+            className={styles.stageSvg}
+            role="img"
+            aria-label={t("orchestraExplorer.title")}
+          >
             <defs>
-              <radialGradient id="oe-spotlight" cx="50%" cy="96%" r="55%">
-                <stop offset="0%" stopColor="#d4a857" stopOpacity="0.07" />
-                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-              </radialGradient>
+              {/* Glow filters per family */}
+              <filter id="oe-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="20" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+              <filter
+                id="oe-node-glow"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+              >
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+              {FAMILY_ORDER.map((fam) => (
+                <radialGradient
+                  key={`grad-${fam}`}
+                  id={`oe-grad-${fam}`}
+                  cx="50%"
+                  cy="100%"
+                  r="100%"
+                >
+                  <stop
+                    offset="0%"
+                    stopColor={FAMILY_META[fam].color}
+                    stopOpacity="0.4"
+                  />
+                  <stop
+                    offset="100%"
+                    stopColor={FAMILY_META[fam].color}
+                    stopOpacity="0.05"
+                  />
+                </radialGradient>
+              ))}
+              {/* Conductor gradient */}
               <radialGradient id="oe-conductor" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#d4a857" stopOpacity="0.9" />
                 <stop offset="70%" stopColor="#8b6914" stopOpacity="0.5" />
                 <stop offset="100%" stopColor="#8b6914" stopOpacity="0" />
               </radialGradient>
-              {Object.entries(FAMILY_META).map(([fam, meta]) => (
-                <filter key={fam} id={`oe-glow-${fam}`} x="-15%" y="-15%" width="130%" height="130%">
-                  <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
-                  <feFlood floodColor={meta.color} floodOpacity="0.3" result="color" />
-                  <feComposite in="color" in2="blur" operator="in" result="glow" />
-                  <feMerge>
-                    <feMergeNode in="glow" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              ))}
             </defs>
 
-            {/* Spotlight wash */}
-            <rect x="0" y="0" width="960" height="540" fill="url(#oe-spotlight)" />
-
             {/* Decorative tier rings */}
-            {RING_RADII.map((r) => (
-              <circle key={r} cx={CX} cy={CY} r={r} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+            {TIER_RINGS.map((r, i) => (
+              <path
+                key={`ring-${i}`}
+                d={`M ${CX - r} ${CY} A ${r} ${r * TILT} 0 0 1 ${CX + r} ${CY}`}
+                fill="none"
+                stroke="rgba(255,255,255,0.05)"
+                strokeWidth="1.5"
+              />
             ))}
 
-            {/* Section arcs */}
-            {SECTIONS.map((sec) => {
-              const center = arcCenter(CX, CY, sec.innerR, sec.outerR, sec.startDeg, sec.endDeg);
-              const isSelected = selectedFamily === sec.family;
-              const isDimmed = selectedFamily !== null && !isSelected;
-              const isHovered = hoveredSection === sec.family;
-              const meta = FAMILY_META[sec.family];
+            {/* Family Wedge Sections */}
+            {FAMILY_ORDER.map((fam) => {
+              const layout = FAMILY_LAYOUT[fam];
+              const meta = FAMILY_META[fam];
+              const isSelected = selectedFamily === fam;
+              const isHovered = hoveredFamily === fam;
+              const isOtherSelected = selectedFamily !== null && !isSelected;
+              const isActive = isSelected || isHovered;
+              const labelPos = polarToCartesian(
+                CX,
+                CY,
+                layout.labelR,
+                layout.labelA,
+              );
+              const familyInstruments = instrumentsByFamily.get(fam) ?? [];
+              const positions = positionsByFamily.get(fam) ?? new Map();
 
               return (
                 <g
-                  key={sec.family}
-                  className={styles.sectionGroup}
-                  onClick={() => handleFamilyClick(sec.family)}
-                  onMouseEnter={() => setHoveredSection(sec.family)}
-                  onMouseLeave={() => setHoveredSection(null)}
+                  key={fam}
+                  onClick={() => handleFamilyClick(fam)}
+                  onMouseEnter={() => setHoveredFamily(fam)}
+                  onMouseLeave={() => setHoveredFamily(null)}
                   style={{ cursor: "pointer" }}
                   role="button"
                   tabIndex={0}
-                  aria-label={t(`orchestraExplorer.${sec.family}`)}
+                  aria-label={t(`orchestraExplorer.${fam}`)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault();
-                      handleFamilyClick(sec.family);
+                      handleFamilyClick(fam);
                     }
                   }}
+                  className={styles.familyGroup}
                 >
-                  <title>{t(`orchestraExplorer.${sec.family}`)}</title>
-                  <path
-                    d={arcPath(CX, CY, sec.innerR, sec.outerR, sec.startDeg, sec.endDeg)}
-                    fill={sectionFill(sec.family)}
-                    stroke={sectionStroke(sec.family)}
-                    strokeWidth={isSelected ? 2 : 1.5}
-                    className={styles.sectionPath}
-                    filter={(isSelected || isHovered) && !isDimmed ? `url(#oe-glow-${sec.family})` : undefined}
-                    style={{ opacity: isDimmed ? 0.3 : 1 }}
-                  />
-                  {/* Emoji icon */}
-                  <text
-                    x={center.x}
-                    y={sec.narrow ? center.y : center.y - 8}
+                  {/* Wedge paths */}
+                  {layout.wedges.map((wedge, wi) => (
+                    <motion.path
+                      key={wi}
+                      d={describeWedge(
+                        CX,
+                        CY,
+                        wedge.r[0],
+                        wedge.r[1],
+                        wedge.a[0],
+                        wedge.a[1],
+                      )}
+                      animate={{
+                        fill: isActive
+                          ? `url(#oe-grad-${fam})`
+                          : "rgba(255,255,255,0.02)",
+                        stroke: isActive
+                          ? meta.color
+                          : "rgba(255,255,255,0.08)",
+                        opacity: isOtherSelected ? 0.15 : 1,
+                      }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      strokeWidth={isActive ? 2 : 1}
+                      style={{ filter: isActive ? "url(#oe-glow)" : "none" }}
+                    />
+                  ))}
+
+                  {/* Family Label */}
+                  <motion.text
+                    x={labelPos.x}
+                    y={labelPos.y}
                     textAnchor="middle"
-                    dominantBaseline="central"
-                    fontSize={sec.narrow ? 16 : 22}
-                    style={{ pointerEvents: "none", opacity: isDimmed ? 0.3 : 1, transition: "opacity 0.3s" }}
+                    alignmentBaseline="middle"
+                    className={styles.familyLabel}
+                    style={{ fill: meta.color, pointerEvents: "none" }}
+                    animate={{
+                      opacity: isSelected
+                        ? 0.05
+                        : isOtherSelected
+                          ? 0.15
+                          : isHovered
+                            ? 1
+                            : 0.7,
+                    }}
+                    transition={{ duration: 0.4 }}
                   >
-                    {meta.icon}
-                  </text>
-                  {/* Family label (wide sections only) */}
-                  {!sec.narrow && (
-                    <>
-                      <text
-                        x={center.x}
-                        y={center.y + 14}
-                        textAnchor="middle"
-                        dominantBaseline="central"
-                        className={styles.sectionLabel}
-                        style={{ opacity: isDimmed ? 0.3 : 1, transition: "opacity 0.3s" }}
-                      >
-                        {t(`orchestraExplorer.${sec.family}`)}
-                      </text>
-                      <text
-                        x={center.x}
-                        y={center.y + 28}
-                        textAnchor="middle"
-                        dominantBaseline="central"
-                        className={styles.sectionCount}
-                        style={{ opacity: isDimmed ? 0.2 : 0.5, transition: "opacity 0.3s" }}
-                      >
-                        {familyCounts[sec.family] ?? 0} instruments
-                      </text>
-                    </>
-                  )}
+                    {t(`orchestraExplorer.${fam}`).toUpperCase()}
+                  </motion.text>
+
+                  {/* Instrument Nodes (when family is selected) */}
+                  <AnimatePresence>
+                    {isSelected &&
+                      familyInstruments.map((inst, i) => {
+                        const pos = positions.get(inst.id);
+                        if (!pos) return null;
+                        const nameParts = inst.name.split(" ");
+                        return (
+                          <motion.g
+                            key={inst.id}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{
+                              delay: i * 0.06,
+                              type: "spring",
+                              damping: 15,
+                            }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedInstrument(inst);
+                            }}
+                            className={styles.instrumentNode}
+                            whileHover={{ scale: 1.15 }}
+                            style={{ cursor: "pointer" }}
+                          >
+                            {/* Node background circle */}
+                            <circle
+                              cx={pos.x}
+                              cy={pos.y}
+                              r={NODE_RADIUS}
+                              fill="rgba(10,10,10,0.9)"
+                              stroke={meta.color}
+                              strokeWidth="2"
+                              filter="url(#oe-node-glow)"
+                            />
+                            {/* Inner decorative ring */}
+                            <circle
+                              cx={pos.x}
+                              cy={pos.y}
+                              r={NODE_RADIUS - 6}
+                              fill="none"
+                              stroke={meta.color}
+                              strokeWidth="1"
+                              strokeDasharray="2 4"
+                              opacity="0.5"
+                              className={styles.nodeRing}
+                              style={{
+                                transformOrigin: `${pos.x}px ${pos.y}px`,
+                              }}
+                            />
+                            {/* Instrument Name */}
+                            <text
+                              x={pos.x}
+                              y={nameParts.length > 1 ? pos.y - 5 : pos.y}
+                              textAnchor="middle"
+                              alignmentBaseline="middle"
+                              fill="white"
+                              fontSize="11"
+                              className={styles.nodeName}
+                              style={{ pointerEvents: "none" }}
+                            >
+                              {nameParts[0]}
+                            </text>
+                            {nameParts.length > 1 && (
+                              <text
+                                x={pos.x}
+                                y={pos.y + 10}
+                                textAnchor="middle"
+                                alignmentBaseline="middle"
+                                fill="rgba(255,255,255,0.6)"
+                                fontSize="9"
+                                className={styles.nodeNameSub}
+                                style={{ pointerEvents: "none" }}
+                              >
+                                {nameParts.slice(1).join(" ")}
+                              </text>
+                            )}
+                          </motion.g>
+                        );
+                      })}
+                  </AnimatePresence>
                 </g>
               );
             })}
 
             {/* Conductor */}
-            <circle cx={CX} cy={CY + 5} r="12" fill="url(#oe-conductor)" />
-            <circle cx={CX} cy={CY + 5} r="4" fill="#d4a857" />
-            <text x={CX} y={CY + 28} textAnchor="middle" className={styles.conductorLabel}>
-              CONDUCTOR
+            <circle cx={CX} cy={CY + 5} r="16" fill="url(#oe-conductor)" />
+            <circle cx={CX} cy={CY + 5} r="5" fill="#d4a857" />
+            <text
+              x={CX}
+              y={CY + 35}
+              textAnchor="middle"
+              className={styles.conductorLabel}
+            >
+              {t("orchestraExplorer.conductor", {
+                defaultValue: "CONDUCTOR",
+              }).toUpperCase()}
             </text>
           </svg>
+        </motion.div>
 
+        {/* Prompt text */}
+        <AnimatePresence>
           {!selectedFamily && (
-            <p className={styles.prompt}>
-              {t("orchestraExplorer.clickPrompt", { defaultValue: "Click a section to explore its instruments" })}
-            </p>
+            <motion.p
+              className={styles.prompt}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              {t("orchestraExplorer.clickPrompt", {
+                defaultValue: "Click a section to explore its instruments",
+              })}
+            </motion.p>
           )}
-        </div>
+        </AnimatePresence>
+      </main>
 
-        {/* ── Detail Panel (inline, right side) ─────────────────── */}
-        {selectedFamily && (
-          <div className={styles.detailPanel}>
-            {selectedInstrument ? (
-              <>
-                {/* Instrument detail view */}
-                <div className={styles.panelNav}>
-                  <button className={styles.backLink} onClick={handleBackToFamily}>
-                    ← {t(`orchestraExplorer.${selectedFamily}`)}
-                  </button>
-                  <button className={styles.closeBtn} onClick={handleClosePanel} aria-label="Close">✕</button>
-                </div>
-
-                <h2 className={styles.detailName}>{selectedInstrument.name}</h2>
-                <span
-                  className={styles.familyBadge}
-                  style={{ backgroundColor: FAMILY_META[selectedInstrument.family].color }}
-                >
-                  {FAMILY_META[selectedInstrument.family].icon}{" "}
-                  {t(`orchestraExplorer.${selectedInstrument.family}`)}
-                </span>
-
-                <div className={styles.detailSection}>
-                  <div className={styles.detailLabel}>{t("orchestraExplorer.range")}</div>
-                  <div className={styles.detailRange}>{selectedInstrument.range}</div>
-                </div>
-
-                <div className={styles.detailSection}>
-                  <div className={styles.detailLabel}>{t("orchestraExplorer.role")}</div>
-                  <div className={styles.detailRole}>{selectedInstrument.role}</div>
-                </div>
-
-                <p className={styles.detailDescription}>{selectedInstrument.description}</p>
-
-                <div className={styles.detailSection}>
-                  <div className={styles.detailLabel}>{t("orchestraExplorer.eraProminence")}</div>
-                  <EraTimeline eraProminence={selectedInstrument.eraProminence} />
-                </div>
-
-                {featured.length > 0 && (
-                  <div className={styles.detailSection}>
-                    <div className={styles.detailLabel}>{t("orchestraExplorer.featuredIn")}</div>
-                    <div className={styles.compositionList}>
-                      {featured.map((comp) => {
-                        const composer = composerMap.get(comp.composerId);
-                        return (
-                          <div key={comp.id} className={styles.compositionItem}>
-                            <span className={styles.compositionTitle}>{comp.title}</span>{" "}
-                            <span className={styles.compositionComposer}>
-                              {composer ? composer.shortName : comp.composerId} ({comp.yearComposed})
-                            </span>
-                            {comp.spotifyUrl && (
-                              <a href={comp.spotifyUrl} className={styles.spotifyLink} target="_blank" rel="noopener noreferrer">
-                                🎧
-                              </a>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                <a
-                  href={getWikipediaUrl(selectedInstrument.wikipediaSlug)}
-                  className={styles.wikiLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  📖 {t("orchestraExplorer.readMore")}
-                </a>
-              </>
-            ) : (
-              <>
-                {/* Family overview */}
-                <div className={styles.panelNav}>
-                  <div />
-                  <button className={styles.closeBtn} onClick={handleClosePanel} aria-label="Close">✕</button>
-                </div>
-
-                <h2 className={styles.familyTitle} style={{ color: FAMILY_META[selectedFamily].color }}>
-                  {FAMILY_META[selectedFamily].icon} {t(`orchestraExplorer.${selectedFamily}`)}
-                </h2>
-
-                <p className={styles.familyDescription}>
-                  {FAMILY_DESCRIPTIONS[selectedFamily]}
-                </p>
-
-                <div className={styles.divider} />
-
-                <div className={styles.detailLabel} style={{ marginBottom: 12 }}>
-                  {t("orchestraExplorer.instruments", { count: familyInstruments.length })}
-                </div>
-
-                <div className={styles.instrumentGrid}>
-                  {familyInstruments.map((inst) => (
-                    <button
-                      key={inst.id}
-                      className={styles.instrumentCard}
-                      style={{ borderTopColor: FAMILY_META[selectedFamily].color }}
-                      onClick={() => setSelectedInstrument(inst)}
-                    >
-                      <div className={styles.instrumentName}>{inst.name}</div>
-                      <div className={styles.instrumentRange}>{inst.range}</div>
-                    </button>
-                  ))}
-                </div>
-
-                {nextFamilyId && (
-                  <button className={styles.nextFamily} onClick={handleNextFamily}>
-                    {t("orchestraExplorer.upNext", { defaultValue: "Up next" })}:{" "}
-                    {t(`orchestraExplorer.${nextFamilyId}`)} {FAMILY_META[nextFamilyId].icon} →
-                  </button>
-                )}
-              </>
-            )}
-          </div>
+      {/* ── Family Info Panel (overlay, top-right) ─────────────── */}
+      <AnimatePresence>
+        {selectedFamily && !selectedInstrument && (
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            className={styles.familyPanel}
+          >
+            <h2
+              className={styles.familyTitle}
+              style={{ color: FAMILY_META[selectedFamily].color }}
+            >
+              {t(`orchestraExplorer.${selectedFamily}`).toUpperCase()}
+            </h2>
+            <p className={styles.familyDesc}>
+              {t(`orchestraExplorer.${selectedFamily}Desc`)}
+            </p>
+            <div className={styles.familyCount}>
+              {t("orchestraExplorer.instruments", {
+                count: instrumentsByFamily.get(selectedFamily)?.length ?? 0,
+              })}
+            </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
+
+      {/* ── Instrument Detail Overlay ──────────────────────────── */}
+      <AnimatePresence>
+        {selectedInstrument && (
+          <InstrumentDetailOverlay
+            key="instrument-detail"
+            instrument={selectedInstrument}
+            familyColor={FAMILY_META[selectedInstrument.family].color}
+            familyGlow={FAMILY_META[selectedInstrument.family].glow}
+            familyLabel={t(`orchestraExplorer.${selectedInstrument.family}`)}
+            featured={featured}
+            composerMap={composerMap}
+            onClose={() => setSelectedInstrument(null)}
+            t={t}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
