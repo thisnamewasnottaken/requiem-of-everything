@@ -4,21 +4,38 @@
 
 The app fetches content from the Wikipedia REST API to enrich composer biographies and provide historical event context. Wikipedia data is supplementary — the app works fully without it, but it adds depth.
 
+## Image Sourcing Policy
+
+**Composer portrait thumbnails are always fetched from English Wikipedia (`en.wikipedia.org`)**, regardless of the user's language setting. This ensures maximum image availability because English Wikipedia has the most complete collection of composer images. Non-English Wikipedia editions may not have an article (or may lack a thumbnail) for a given composer.
+
+Article text, extract, description, and the "Read on Wikipedia" link still use the language-localised Wikipedia endpoint matching the user's i18n preference.
+
+The `getEnglishWikipediaApiBase()` utility in `src/utils/wikipedia.ts` always returns `https://en.wikipedia.org/api/rest_v1` and must be used for any thumbnail or image fetch. The localised `getWikipediaApiBase()` must only be used for text content.
+
 ## API Endpoints Used
 
-### Summary
+### Summary — text (localised)
+
+```
+GET https://{lang}.wikipedia.org/api/rest_v1/page/summary/{slug}
+```
+
+Returns: title, extract (plain text), description, article URL.
+Used for: biography text in tooltips, composer card headers, event descriptions.
+
+### Summary — thumbnail (always English)
 
 ```
 GET https://en.wikipedia.org/api/rest_v1/page/summary/{slug}
 ```
 
-Returns: title, extract (plain text), thumbnail image URL, description.
-Used for: quick tooltips, composer card headers, event descriptions.
+Returns: thumbnail image URL (`thumbnail.source`).
+Used for: composer portrait images. Always called against `en.wikipedia.org` regardless of UI language.
 
 ### Mobile HTML (lightweight)
 
 ```
-GET https://en.wikipedia.org/api/rest_v1/page/mobile-html/{slug}
+GET https://{lang}.wikipedia.org/api/rest_v1/page/mobile-html/{slug}
 ```
 
 Returns: lightweight HTML of the full article.
@@ -73,3 +90,6 @@ interface WikiSummary {
 4. Rate limiting prevents exceeding 200 req/min.
 5. Network failure falls back to cached data.
 6. Network failure with no cache shows fallback message.
+7. `getSummary` fetches thumbnail from `en.wikipedia.org` even when the UI language is non-English.
+8. `getSummary` fetches article text from the localised endpoint even when the thumbnail comes from English.
+9. `getEnglishWikipediaApiBase()` always returns `https://en.wikipedia.org/api/rest_v1` regardless of i18n state.

@@ -2,6 +2,8 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { WikipediaService } from "@/services/WikipediaService";
+import { getEnglishWikipediaApiBase } from "@/utils/wikipedia";
+import * as wikipediaUtils from "@/utils/wikipedia";
 
 // Mock localStorage
 const localStorageMock = (() => {
@@ -119,6 +121,87 @@ describe("WikipediaService.getSummary", () => {
     await expect(WikipediaService.getSummary("Unknown_Article")).rejects.toThrow(
       "Wikipedia API error: 404",
     );
+  });
+});
+
+// --- English thumbnail sourcing (issue #8) ---
+
+describe("getEnglishWikipediaApiBase", () => {
+  it("always returns the English Wikipedia REST API base URL", () => {
+    expect(getEnglishWikipediaApiBase()).toBe("https://en.wikipedia.org/api/rest_v1");
+  });
+});
+
+describe("WikipediaService.getSummary — English thumbnail sourcing", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+    localStorageMock.clear();
+  });
+
+  it("fetches thumbnail from en.wikipedia.org even when UI language is non-English", async () => {
+    // Simulate a non-English language by spying on the wikipedia utilities.
+    // Named imports in Vite/Vitest are live bindings, so spying on the module
+    // object intercepts calls made inside WikipediaService.
+    vi.spyOn(wikipediaUtils, "getWikipediaApiBase").mockReturnValue(
+      "https://fr.wikipedia.org/api/rest_v1",
+    );
+    vi.spyOn(wikipediaUtils, "getWikipediaUrl").mockReturnValue(
+      "https://fr.wikipedia.org/wiki/Ludwig_van_Beethoven",
+    );
+
+    const frenchData = {
+      ...mockSummary,
+      thumbnail: { source: "https://fr.example.com/french-thumb.jpg" },
+      content_urls: { desktop: { page: "https://fr.wikipedia.org/wiki/Ludwig_van_Beethoven" } },
+    };
+    const englishData = {
+      ...mockSummary,
+      thumbnail: { source: "https://en.example.com/english-thumb.jpg" },
+    };
+
+    const fetchMock = vi.fn().mockImplementation((url: string) => {
+      if (url.startsWith("https://fr.wikipedia.org/")) {
+        return Promise.resolve({ ok: true, json: async () => frenchData });
+      }
+      return Promise.resolve({ ok: true, json: async () => englishData });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await WikipediaService.getSummary("Ludwig_van_Beethoven");
+
+    // Thumbnail must come from English Wikipedia
+    expect(result.thumbnailUrl).toBe("https://en.example.com/english-thumb.jpg");
+    // Article URL comes from the localised (French) response
+    expect(result.articleUrl).toBe("https://fr.wikipedia.org/wiki/Ludwig_van_Beethoven");
+    // Both endpoints are called: once for localised text, once for English thumbnail
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledWith(expect.stringContaining("fr.wikipedia.org"));
+    expect(fetchMock).toHaveBeenCalledWith(expect.stringContaining("en.wikipedia.org"));
+  });
+
+  it("falls back to localised thumbnail when English fetch fails", async () => {
+    vi.spyOn(wikipediaUtils, "getWikipediaApiBase").mockReturnValue(
+      "https://af.wikipedia.org/api/rest_v1",
+    );
+
+    const afrikaansData = {
+      ...mockSummary,
+      thumbnail: { source: "https://af.example.com/af-thumb.jpg" },
+    };
+
+    const fetchMock = vi.fn().mockImplementation((url: string) => {
+      if (url.startsWith("https://af.wikipedia.org/")) {
+        return Promise.resolve({ ok: true, json: async () => afrikaansData });
+      }
+      // English fetch fails
+      return Promise.resolve({ ok: false, status: 404 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await WikipediaService.getSummary("Ludwig_van_Beethoven");
+
+    // Falls back to localised thumbnail when English unavailable
+    expect(result.thumbnailUrl).toBe("https://af.example.com/af-thumb.jpg");
   });
 });
 
