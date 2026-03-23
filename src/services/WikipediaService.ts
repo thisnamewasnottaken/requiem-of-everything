@@ -1,5 +1,5 @@
 import type { WikiSummary } from "@/types";
-import { getWikipediaApiBase, getWikipediaUrl } from "@/utils/wikipedia";
+import { getEnglishWikipediaApiBase, getWikipediaApiBase, getWikipediaUrl } from "@/utils/wikipedia";
 
 const CACHE_PREFIX = "wiki:";
 const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
@@ -11,6 +11,8 @@ interface CacheEntry<T> {
   data: T;
   timestamp: number;
 }
+
+type WikipediaThumbnailData = { thumbnail?: { source?: string } };
 
 function getCached<T>(key: string): T | null {
   try {
@@ -72,27 +74,45 @@ export const WikipediaService = {
    * Get a short summary for a Wikipedia article.
    */
   async getSummary(slug: string): Promise<WikiSummary> {
-    const apiBase = getWikipediaApiBase();
     // Check cache first
     const cached = getCached<WikiSummary>(`summary:${slug}`);
     if (cached) return cached;
 
     return deduplicatedFetch(`summary:${slug}`, async () => {
       try {
-        const response = await fetch(
-          `${apiBase}/page/summary/${encodeURIComponent(slug)}`,
-        );
-        if (!response.ok)
-          throw new Error(`Wikipedia API error: ${response.status}`);
+        const localizedApiBase = getWikipediaApiBase();
+        const englishApiBase = getEnglishWikipediaApiBase();
+        const isEnglish = localizedApiBase === englishApiBase;
 
-        const data = await response.json();
+        // Fetch localised text and English thumbnail in parallel.
+        // Thumbnail always comes from en.wikipedia.org for maximum image
+        // availability (issue #8 — English has the most complete image set).
+        const [localizedResponse, englishData] = await Promise.all([
+          fetch(`${localizedApiBase}/page/summary/${encodeURIComponent(slug)}`),
+          isEnglish
+            ? Promise.resolve(null)
+            : fetch(`${englishApiBase}/page/summary/${encodeURIComponent(slug)}`)
+                .then((r) => (r.ok ? (r.json() as Promise<WikipediaThumbnailData>) : null))
+                .catch(() => null),
+        ]);
+
+        if (!localizedResponse.ok)
+          throw new Error(`Wikipedia API error: ${localizedResponse.status}`);
+
+        const localizedData = await localizedResponse.json();
+
+        // Prefer English thumbnail; fall back to localised if unavailable.
+        const thumbnailUrl: string | undefined =
+          (englishData as WikipediaThumbnailData | null)?.thumbnail?.source ??
+          localizedData.thumbnail?.source;
+
         const summary: WikiSummary = {
-          title: data.title,
-          extract: data.extract,
-          description: data.description,
-          thumbnailUrl: data.thumbnail?.source,
+          title: localizedData.title,
+          extract: localizedData.extract,
+          description: localizedData.description,
+          thumbnailUrl,
           articleUrl:
-            data.content_urls?.desktop?.page ??
+            localizedData.content_urls?.desktop?.page ??
             getWikipediaUrl(slug),
         };
 

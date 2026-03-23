@@ -24,3 +24,13 @@ export function getWikipediaUrl(slug: string): string {
 export function getWikipediaApiBase(): string {
   return `https://${getWikipediaLang()}.wikipedia.org/api/rest_v1`;
 }
+
+/**
+ * Returns the English Wikipedia REST API base URL.
+ * Always returns the English endpoint regardless of the current i18n language.
+ * Use this for image/thumbnail fetches to ensure maximum image availability,
+ * since English Wikipedia has the most complete collection of composer images.
+ */
+export function getEnglishWikipediaApiBase(): string {
+  return "https://en.wikipedia.org/api/rest_v1";
+}

@@ -43,6 +43,12 @@ Actions (close, navigate, compare) use store actions directly:
 
 The "View on Wikipedia" link is localised to match the user's current i18n language. The link domain uses the Wikipedia subdomain corresponding to the active language (e.g. `en.wikipedia.org` for English, `fr.wikipedia.org` for French, `af.wikipedia.org` for Afrikaans). The `getWikipediaUrl(slug)` utility in `src/utils/wikipedia.ts` derives the subdomain from `i18next.resolvedLanguage`.
 
+## Portrait Image Sourcing
+
+Composer portrait thumbnails are **always fetched from English Wikipedia** (`en.wikipedia.org`), regardless of the current UI language. English Wikipedia has the most complete collection of composer images; non-English editions may lack thumbnails for a given composer.
+
+The static `portraitUrl` field in `src/data/composers.json` uses direct Wikimedia Commons URLs, which are language-agnostic. Dynamic thumbnails from `WikipediaService.getSummary()` are sourced from the English REST API endpoint via `getEnglishWikipediaApiBase()` even when the localized text is fetched from a different language subdomain.
+
 ## Focus Timeline Behavior
 
 The "Focus Timeline" button zooms the main timeline to the composer's lifespan with padding **and** activates **focus mode** — non-focused composers are dimmed and eventually collapsed (identical to comparison mode's visual treatment). Because the ComposerCard panel (420px wide) overlaps the right side of the viewport, the zoom accounts for this by adding proportional right-side padding (`rightInsetFraction = panelWidth / viewportWidth`). This ensures the composer's full lifespan is visible in the unobscured area to the left of the panel.
