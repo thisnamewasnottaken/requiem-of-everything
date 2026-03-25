@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- **Hide search input when comparison mode active** — Search input in the header is hidden (removed from the DOM) while comparison mode is active; it reappears when comparison is cleared. This prevents conflicting auto-zoom/filter behaviour. (issue #7)
+
 - **Composer portraits always load from English Wikipedia** — `WikipediaService.getSummary()` now fetches thumbnail images from `en.wikipedia.org` in parallel with the localised text fetch, regardless of the user's language setting. This fixes missing portraits when switching to French or Afrikaans (issue #8). Article text, extracts, and "Read on Wikipedia" links continue to use the localised Wikipedia subdomain.
 - **CSP blocks non-English Wikipedia** — Content Security Policy `connect-src` and `img-src` directives now use `https://*.wikipedia.org` wildcard instead of only `https://en.wikipedia.org`, allowing Wikipedia API calls and images to work for all localised subdomains (fr, af, etc.).
 - **`.env.example` API key footgun** — removed `VITE_AI_API_KEY` entry (the `VITE_` prefix causes Vite to expose the value in the client bundle). Added comment explaining that API authentication must be server-side only.

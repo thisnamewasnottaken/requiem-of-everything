@@ -21,12 +21,15 @@ interface SearchFilterBarProps {
 - When sidebar filters are active (any era, nationality, or genre selected, or historical events toggled off), the button displays a count badge: `"Filters (N)"`.
 - When no sidebar filters are active, the button just shows `"⚙ Filters"`.
 - `searchQuery` is **not** counted in the active filter badge — it is already visible in the input.
+- **Comparison mode visibility:** When `useComparisonStore().isComparisonMode` is true (two or more composers in comparison), the search input and its clear button MUST be removed from the DOM (not merely visually hidden). The filter toggle button remains accessible. When comparison mode is cleared, the search input should re-render with its previous `searchQuery` value intact.
 
 ## Active filter count
 
 ```ts
 const activeFilterCount =
-  eraFilters.length + nationalityFilters.length + genreFilters.length +
+  eraFilters.length +
+  nationalityFilters.length +
+  genreFilters.length +
   (!showHistoricalEvents ? 1 : 0);
 ```
 
@@ -50,6 +53,7 @@ const activeFilterCount =
 ## i18n
 
 Uses existing translation keys — no new keys required:
+
 - `filters.searchPlaceholder` — "Search composers…"
 - `filters.searchAriaLabel` — "Search composers and compositions"
 - `app.filters` — "Filters"

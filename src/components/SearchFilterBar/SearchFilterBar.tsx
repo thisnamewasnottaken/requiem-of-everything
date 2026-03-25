@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useFilterStore } from "@/stores/useFilterStore";
+import { useComparisonStore } from "@/stores/useComparisonStore";
 import styles from "./SearchFilterBar.module.css";
 
 interface SearchFilterBarProps {
@@ -7,7 +8,10 @@ interface SearchFilterBarProps {
   onToggleFilters: () => void;
 }
 
-export default function SearchFilterBar({ filterOpen, onToggleFilters }: SearchFilterBarProps) {
+export default function SearchFilterBar({
+  filterOpen,
+  onToggleFilters,
+}: SearchFilterBarProps) {
   const { t } = useTranslation();
   const {
     searchQuery,
@@ -24,28 +28,33 @@ export default function SearchFilterBar({ filterOpen, onToggleFilters }: SearchF
     genreFilters.length +
     (!showHistoricalEvents ? 1 : 0);
 
+  const { isComparisonMode } = useComparisonStore();
+
   return (
     <div className={styles.searchFilterBar}>
-      <div className={styles.searchWrapper}>
-        <span className={styles.searchIcon}>🔍</span>
-        <input
-          type="text"
-          className={styles.searchInput}
-          placeholder={t("filters.searchPlaceholder")}
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          aria-label={t("filters.searchAriaLabel")}
-        />
-        {searchQuery && (
-          <button
-            className={styles.clearSearch}
-            onClick={() => setSearchQuery("")}
-            aria-label="Clear search"
-          >
-            ×
-          </button>
-        )}
-      </div>
+      {!isComparisonMode && (
+        <div className={styles.searchWrapper}>
+          <span className={styles.searchIcon}>🔍</span>
+          <input
+            type="text"
+            className={styles.searchInput}
+            placeholder={t("filters.searchPlaceholder")}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label={t("filters.searchAriaLabel")}
+          />
+          {searchQuery && (
+            <button
+              className={styles.clearSearch}
+              onClick={() => setSearchQuery("")}
+              aria-label="Clear search"
+            >
+              ×
+            </button>
+          )}
+        </div>
+      )}
+
       <button
         className={`${styles.filterBtn} ${filterOpen ? styles.filterBtnActive : ""} ${activeFilterCount > 0 ? styles.filterBtnHasFilters : ""}`}
         onClick={onToggleFilters}
