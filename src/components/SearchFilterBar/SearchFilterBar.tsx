@@ -28,11 +28,11 @@ export default function SearchFilterBar({
     genreFilters.length +
     (!showHistoricalEvents ? 1 : 0);
 
-  const { isComparisonMode } = useComparisonStore();
+  const { comparisonComposerIds } = useComparisonStore();
 
   return (
     <div className={styles.searchFilterBar}>
-      {!isComparisonMode && (
+      {comparisonComposerIds.length === 0 && (
         <div className={styles.searchWrapper}>
           <span className={styles.searchIcon}>🔍</span>
           <input

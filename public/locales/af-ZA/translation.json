@@ -55,6 +55,7 @@
     "closeAriaLabel": "Sluit filters",
     "searchPlaceholder": "Soek komponiste…",
     "searchAriaLabel": "Soek komponiste en komposisies",
+    "clearSearchAriaLabel": "Verwyder soekteks",
     "musicalEra": "Musiekera",
     "filterByEra": "Filter volgens era",
     "nationality": "Nasionaliteit",
