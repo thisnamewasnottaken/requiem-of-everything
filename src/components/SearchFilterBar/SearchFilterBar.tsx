@@ -47,7 +47,7 @@ export default function SearchFilterBar({
             <button
               className={styles.clearSearch}
               onClick={() => setSearchQuery("")}
-              aria-label="Clear search"
+              aria-label={t("filters.clearSearchAriaLabel")}
             >
               ×
             </button>
