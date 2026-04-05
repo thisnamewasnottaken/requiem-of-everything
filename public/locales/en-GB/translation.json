@@ -55,6 +55,7 @@
     "closeAriaLabel": "Close filters",
     "searchPlaceholder": "Search composers…",
     "searchAriaLabel": "Search composers and compositions",
+    "clearSearchAriaLabel": "Clear search",
     "musicalEra": "Musical Era",
     "filterByEra": "Filter by era",
     "nationality": "Nationality",

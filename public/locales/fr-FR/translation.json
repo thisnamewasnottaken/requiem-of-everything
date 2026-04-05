@@ -55,6 +55,7 @@
     "closeAriaLabel": "Fermer les filtres",
     "searchPlaceholder": "Rechercher des compositeurs…",
     "searchAriaLabel": "Rechercher des compositeurs et des œuvres",
+    "clearSearchAriaLabel": "Effacer la recherche",
     "musicalEra": "Époque musicale",
     "filterByEra": "Filtrer par époque",
     "nationality": "Nationalité",
