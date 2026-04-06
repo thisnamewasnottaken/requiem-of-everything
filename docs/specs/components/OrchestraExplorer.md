@@ -27,6 +27,7 @@ interface OrchestraExplorerProps {
 ## Dependencies
 
 - `motion` — spring-physics animations, `AnimatePresence`, `motion.*` SVG/HTML elements
+- `openSpotify()` from `src/utils/spotify.ts` — handles app-first-then-web-fallback navigation for featured composition Spotify actions.
 
 ## Visual Architecture
 
@@ -137,6 +138,7 @@ Full-screen modal with two sections:
 - **Description**: Secondary text, relaxed line-height
 - **Era Prominence**: Horizontal bar segments for each era, colored with era CSS variables, opacity by prominence (primary=1.0, secondary=0.55, rare=0.25)
 - **Featured Compositions**: Up to 5 compositions where `instrumentation` contains the instrument name, sorted by year
+  - **Spotify action**: Each featured composition that has a `spotifyUrl` displays a clickable 🎧 button (not a plain `<a>` link). On click, calls `openSpotify(spotifyUrl)` from `src/utils/spotify.ts` to attempt app-first opening with web fallback after ~1500ms. The button has `aria-label="Listen to {title} on Spotify"`.
 - **Wikipedia link**: `getWikipediaUrl(instrument.wikipediaSlug)`, `rel="noopener noreferrer"`
 - **Close button**: Top-right, circular, with hover effect
 
@@ -214,6 +216,7 @@ All user-visible strings use `useTranslation()`. Keys under `orchestraExplorer.*
 - Detail overlay close button has `aria-label`
 - External links use `rel="noopener noreferrer"` and `target="_blank"`
 - Focus-visible outlines on interactive elements
+- Spotify buttons in featured compositions have `aria-label` describing the action.
 
 ## Responsive
 

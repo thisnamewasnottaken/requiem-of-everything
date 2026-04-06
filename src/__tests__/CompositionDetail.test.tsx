@@ -5,9 +5,12 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import CompositionDetail from "@/components/CompositionDetail/CompositionDetail";
 import { useSelectionStore } from "@/stores/useSelectionStore";
+import { openSpotify } from "@/utils/spotify";
 import type { Composer, Composition } from "@/types";
 import compositionsData from "@/data/compositions.json";
 import composersData from "@/data/composers.json";
+
+vi.mock("@/utils/spotify", () => ({ openSpotify: vi.fn() }));
 
 // Use raw data directly for test setup (hooks require React component context)
 const allCompositions = compositionsData as Composition[];
@@ -121,5 +124,36 @@ describe("CompositionDetail", () => {
     );
     expect(source).not.toMatch(/innerHTML/);
     expect(source).not.toMatch(/dangerouslySetInnerHTML/);
+  });
+
+  it("renders Spotify button when spotifyUrl is present", () => {
+    const compWithSpotify = allCompositions.find((c) => c.spotifyUrl);
+    if (!compWithSpotify) return;
+    render(<CompositionDetail compositionId={compWithSpotify.id} />);
+    const btn = screen.getByRole("button", {
+      name: new RegExp(`Listen to .+ on Spotify`, "i"),
+    });
+    expect(btn).toBeDefined();
+    expect(btn.getAttribute("aria-label")).toContain(compWithSpotify.title);
+  });
+
+  it("does not render Spotify button when spotifyUrl is absent", () => {
+    const compWithoutSpotify = allCompositions.find((c) => !c.spotifyUrl);
+    if (!compWithoutSpotify) return;
+    render(<CompositionDetail compositionId={compWithoutSpotify.id} />);
+    expect(
+      screen.queryByRole("button", { name: /listen.*spotify/i }),
+    ).toBeNull();
+  });
+
+  it("Spotify button calls openSpotify with correct URL when clicked", () => {
+    const compWithSpotify = allCompositions.find((c) => c.spotifyUrl);
+    if (!compWithSpotify) return;
+    render(<CompositionDetail compositionId={compWithSpotify.id} />);
+    const btn = screen.getByRole("button", {
+      name: new RegExp(`Listen to .+ on Spotify`, "i"),
+    });
+    fireEvent.click(btn);
+    expect(openSpotify).toHaveBeenCalledWith(compWithSpotify.spotifyUrl);
   });
 });

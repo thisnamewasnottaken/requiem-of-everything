@@ -4,6 +4,7 @@ import { useComposition, useComposer } from "@/hooks/useData";
 import { useSelectionStore } from "@/stores/useSelectionStore";
 import { formatYear } from "@/utils/scales";
 import { getWikipediaUrl } from "@/utils/wikipedia";
+import { openSpotify } from "@/utils/spotify";
 import styles from "./CompositionDetail.module.css";
 
 interface CompositionDetailProps {
@@ -100,16 +101,15 @@ export default function CompositionDetail({ compositionId }: CompositionDetailPr
         </a>
       )}
 
-      {/* Spotify link */}
-      {(composition as any).spotifyUrl && (
-        <a
-          href={(composition as any).spotifyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* Spotify action */}
+      {composition.spotifyUrl && (
+        <button
           className={styles.spotifyLink}
+          onClick={() => openSpotify(composition.spotifyUrl!)}
+          aria-label={t('composition.listenOnSpotifyAria', { title: composition.title })}
         >
           <span aria-hidden="true">▶</span> {t('composition.listenOnSpotify')}
-        </a>
+        </button>
       )}
     </div>
   );

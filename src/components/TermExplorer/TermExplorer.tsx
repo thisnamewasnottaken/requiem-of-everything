@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useTerms, useCompositions, useComposers } from "@/hooks/useData";
 import { useFilterStore } from "@/stores/useFilterStore";
 import { getWikipediaUrl } from "@/utils/wikipedia";
+import { openSpotify } from "@/utils/spotify";
 import type { TermCategory, MusicalTerm } from "@/types";
 import styles from "./TermExplorer.module.css";
 
@@ -249,7 +250,16 @@ export default function TermExplorer({
                       {composition.title}
                       {composer && ` — ${composer.shortName}`}
                       {composition.spotifyUrl && (
-                        <span className={styles.spotifyIcon}>♫</span>
+                        <button
+                          className={styles.spotifyBtn}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openSpotify(composition.spotifyUrl!);
+                          }}
+                          aria-label={t('composition.listenOnSpotifyAria', { title: composition.title })}
+                        >
+                          <span aria-hidden="true">▶</span> {t('composition.listenOnSpotify')}
+                        </button>
                       )}
                     </div>
                   );

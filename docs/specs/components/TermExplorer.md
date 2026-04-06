@@ -92,7 +92,7 @@ Clicking a card opens a **centred modal overlay** for the selected term. Only on
 4. **Long definition** — full text, `--text-primary`, `line-height: 1.7` for readability.
 5. **Era badges** — same styling as card.
 6. **Divider line** — `1px solid var(--border-default)`.
-7. **Example compositions section** — each shows composition title, composer short name, and a ♫ icon if `spotifyUrl` is present.
+7. **Example compositions section** — each shows composition title, composer short name, and a clickable "Listen on Spotify" pill button if `spotifyUrl` is present. On click, calls `openSpotify(spotifyUrl)` from `src/utils/spotify.ts` to attempt Spotify app opening with web fallback after ~1500ms. The button is styled as a small green pill (Spotify `#1DB954`, `--text-xs` font size) with `aria-label="Listen to {title} on Spotify"`.
 8. **Wikipedia link** — "Read more →" (`termExplorer.readMore`), opens in new tab with `rel="noopener noreferrer"`.
 
 ### Keyboard & Focus
@@ -134,6 +134,7 @@ Both global and local filters are combined conjunctively — a term must pass al
 - `useCompositions()` — all compositions (for example works lookup in modal).
 - `useComposers()` — all composers (for composer names in modal example works).
 - `getWikipediaUrl()` — locale-aware Wikipedia URLs (modal only).
+- `openSpotify()` from `src/utils/spotify.ts` — handles app-first-then-web-fallback navigation.
 
 ## State
 
@@ -171,7 +172,7 @@ All UI strings use the `termExplorer.*` namespace in the `translation` i18n name
 - Modal displays long definition, example compositions, and Wikipedia link.
 - Era badges display with correct colours in both card and modal.
 - Example compositions show title and composer name in the modal.
-- Spotify icon appears only for compositions with `spotifyUrl`.
+- Clickable Spotify button appears for compositions with `spotifyUrl` in the modal; calls `openSpotify()` on click.
 - Wikipedia link opens correct locale-aware URL.
 - "No results" message appears when filters exclude all terms.
 - Back button calls `onNavigateToTimeline` when clicked.
