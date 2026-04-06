@@ -9,10 +9,15 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest",
+    "test:run": "vitest --run",
+    "test:changed": "vitest --run --changed --passWithNoTests",
     "test:ui": "vitest --ui",
     "test:e2e": "playwright test",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "i18n:check": "node ./.github/skills/i18n-completeness/scripts/check-and-fill.mjs --check",
+    "i18n:strict": "node ./.github/skills/i18n-completeness/scripts/check-and-fill.mjs --check --strict",
+    "hooks:install": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "d3": "^7.9.0",
