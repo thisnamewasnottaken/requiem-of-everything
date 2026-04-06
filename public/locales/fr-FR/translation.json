@@ -173,5 +173,92 @@
     "readMore": "En savoir plus →",
     "instruments": "{{count}} instruments",
     "closeDetail": "Fermer"
+  },
+  "walkthrough": {
+    "progress": "{{current}} sur {{total}}",
+    "next": "Suivant",
+    "prev": "Précédent",
+    "done": "Terminer",
+    "subtlePrompt": "Faire la visite",
+    "welcome": {
+      "title": "Bienvenue dans Requiem of Everything",
+      "description": "Découvrez 500 ans de musique classique à travers une frise chronologique interactive. Souhaitez-vous une visite guidée rapide ?",
+      "startTour": "Commencer la visite",
+      "maybeLater": "Peut-être plus tard",
+      "dontAsk": "Ne plus demander"
+    },
+    "whatsNew": {
+      "title": "Nouveautés",
+      "description": "De nouvelles fonctionnalités ont été ajoutées depuis votre dernière visite. Souhaitez-vous voir ce qui a changé ?",
+      "seeWhatsNew": "Voir les nouveautés",
+      "fullTour": "Visite complète",
+      "maybeLater": "Peut-être plus tard",
+      "dontAsk": "Ne plus demander"
+    },
+    "helpPanel": {
+      "takeTour": "Faire la visite"
+    },
+    "steps": {
+      "welcome": {
+        "title": "Bienvenue",
+        "description": "Requiem of Everything est une frise chronologique interactive couvrant 1400–1970, avec 51 compositeurs, 196 compositions et 47 événements historiques répartis sur six ères musicales."
+      },
+      "timeline": {
+        "title": "La Frise chronologique",
+        "description": "Voici la frise principale. Faites défiler pour zoomer ou dézoomer, et faites glisser pour parcourir les siècles. Les durées de vie des compositeurs apparaissent sous forme de barres colorées."
+      },
+      "timeRuler": {
+        "title": "Règle temporelle",
+        "description": "Les repères d'années et les étiquettes d'ères s'affichent en haut. La plage du viewport actuel est toujours visible."
+      },
+      "eras": {
+        "title": "Ères musicales",
+        "description": "Les bandes de couleur représentent les six ères musicales — du doré de la Renaissance au vert du Moderne. Chaque ère possède sa propre palette."
+      },
+      "composerBar": {
+        "title": "Barres de compositeurs",
+        "description": "Chaque barre représente la durée de vie d'un compositeur. Cliquez pour voir sa biographie et ses œuvres. Ctrl+clic pour comparer plusieurs compositeurs."
+      },
+      "composerPanel": {
+        "title": "Panneau de profil du compositeur",
+        "description": "Cliquez sur n'importe quelle barre de compositeur pour ouvrir son panneau de profil. Vous y trouverez sa biographie, ses œuvres notables classées par année, ses contemporains vers lesquels vous pouvez naviguer, et des actions pour centrer la frise sur sa durée de vie ou l'ajouter à une comparaison."
+      },
+      "composerLinks": {
+        "title": "Liens Wikipédia et externes",
+        "description": "Chaque profil de compositeur inclut un lien vers son article Wikipédia. Les compositions — visibles en zoomant suffisamment pour voir les points sur les barres — possèdent chacune leur propre lien Wikipédia et, le cas échéant, un bouton Spotify pour écouter directement."
+      },
+      "compositionDetail": {
+        "title": "Fiche de détail d'une composition",
+        "description": "Cliquez sur un point de composition pour ouvrir sa fiche. Elle affiche l'année, le genre, l'instrumentation, la tonalité, le numéro de catalogue et une description. Si disponible, un lien Wikipédia et un bouton Spotify permettent d'écouter un enregistrement."
+      },
+      "termsView": {
+        "title": "Glossaire des termes musicaux",
+        "description": "La vue Termes est un glossaire consultable de formes, genres et techniques musicales. Filtrez par catégorie, recherchez par nom, et cliquez sur un terme pour voir sa définition complète, son ère d'origine et des œuvres d'exemple avec des liens Spotify."
+      },
+      "orchestraView": {
+        "title": "Explorateur d'orchestre",
+        "description": "L'Explorateur d'orchestre présente l'orchestre vu de dessus sous forme de carte interactive. Cliquez sur une section — Cordes, Bois, Cuivres, Percussions, Claviers ou Voix — pour explorer les instruments, leur rôle, leur époque et les compositions qui les mettent en valeur."
+      },
+      "search": {
+        "title": "Recherche et filtres",
+        "description": "Recherchez des compositeurs par nom et utilisez les filtres pour affiner par ère, nationalité ou genre. Appuyez sur F pour afficher le panneau de filtres."
+      },
+      "views": {
+        "title": "Vues multiples",
+        "description": "Basculez entre la Frise chronologique, le glossaire des Termes musicaux et l'Explorateur d'orchestre interactif."
+      },
+      "language": {
+        "title": "Langue",
+        "description": "L'application est entièrement disponible en anglais, en français et en afrikaans. Tout le contenu — y compris les biographies et les descriptions — est traduit."
+      },
+      "help": {
+        "title": "Aide et raccourcis",
+        "description": "Appuyez sur ? à tout moment pour ouvrir le panneau d'aide avec les raccourcis clavier, les conseils de navigation et les guides de fonctionnalités."
+      },
+      "done": {
+        "title": "Vous êtes prêt !",
+        "description": "Commencez à explorer ! Cliquez sur n'importe quelle barre de compositeur, ou passez aux vues Termes ou Orchestre pour explorer le vocabulaire musical et les instruments. N'oubliez pas : ? ouvre le panneau d'aide à tout moment."
+      }
+    }
   }
 }

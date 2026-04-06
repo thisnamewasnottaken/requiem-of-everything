@@ -4,9 +4,10 @@ import styles from "./HelpPanel.module.css";
 
 interface HelpPanelProps {
   onClose: () => void;
+  onStartTour?: () => void;
 }
 
-export default function HelpPanel({ onClose }: HelpPanelProps) {
+export default function HelpPanel({ onClose, onStartTour }: HelpPanelProps) {
   const { t } = useTranslation();
 
   return (
@@ -22,6 +23,15 @@ export default function HelpPanel({ onClose }: HelpPanelProps) {
           ×
         </button>
       </div>
+
+      {/* Take a Tour button */}
+      {onStartTour && (
+        <div className={styles.tourSection}>
+          <button className={styles.tourButton} onClick={onStartTour}>
+            {t("walkthrough.helpPanel.takeTour")}
+          </button>
+        </div>
+      )}
 
       {/* Keyboard Shortcuts */}
       <div className={styles.section}>

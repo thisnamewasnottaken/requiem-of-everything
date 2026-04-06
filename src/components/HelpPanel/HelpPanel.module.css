@@ -163,3 +163,32 @@
   color: var(--text-muted);
   opacity: 0.6;
 }
+
+/* Tour section */
+.tourSection {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tourButton {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--accent-gold-dim);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-accent);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.tourButton:hover {
+  background: rgba(212, 168, 87, 0.1);
+  border-color: var(--accent-gold);
+}

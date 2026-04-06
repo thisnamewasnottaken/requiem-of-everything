@@ -23,6 +23,7 @@ export default function CompositionDetail({ compositionId }: CompositionDetailPr
   return (
     <div
       className={styles.panel}
+      data-tour="composition-detail"
       role="complementary"
       aria-label={t('composition.ariaLabel')}
     >

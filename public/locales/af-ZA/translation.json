@@ -173,5 +173,92 @@
     "readMore": "Lees meer →",
     "instruments": "{{count}} instrumente",
     "closeDetail": "Sluit"
+  },
+  "walkthrough": {
+    "progress": "{{current}} van {{total}}",
+    "next": "Volgende",
+    "prev": "Terug",
+    "done": "Klaar",
+    "subtlePrompt": "Neem 'n toer",
+    "welcome": {
+      "title": "Welkom by Requiem of Everything",
+      "description": "Ontdek 500 jaar klassieke musiek deur 'n interaktiewe tydlyn. Wil jy 'n vinnige rondleiding hê?",
+      "startTour": "Begin toer",
+      "maybeLater": "Miskien later",
+      "dontAsk": "Moenie weer vra nie"
+    },
+    "whatsNew": {
+      "title": "Wat is nuut",
+      "description": "Nuwe funksies is bygevoeg sedert jou laaste besoek. Wil jy sien wat verander het?",
+      "seeWhatsNew": "Sien wat nuut is",
+      "fullTour": "Volledige toer",
+      "maybeLater": "Miskien later",
+      "dontAsk": "Moenie weer vra nie"
+    },
+    "helpPanel": {
+      "takeTour": "Neem 'n toer"
+    },
+    "steps": {
+      "welcome": {
+        "title": "Welkom",
+        "description": "Requiem of Everything is 'n interaktiewe tydlyn wat 1400–1970 dek, met 51 komponiste, 196 komposisies en 47 historiese gebeure oor ses musikale eras."
+      },
+      "timeline": {
+        "title": "Die tydlyn",
+        "description": "Dit is die hooftydlyn. Rol om in en uit te zoem, en sleep om deur eeue te beweeg. Komponiste se lewensduur verskyn as gekleurde stawe."
+      },
+      "timeRuler": {
+        "title": "Tydliniaal",
+        "description": "Jaarmerke en era-etikette loop langs bo. Die huidige viewport-reeks is altyd sigbaar."
+      },
+      "eras": {
+        "title": "Musikale eras",
+        "description": "Kleurpane verteenwoordig die ses musikale eras — van Renaissance-goud tot Moderne groen. Elke era het sy eie palet."
+      },
+      "composerBar": {
+        "title": "Komposistestaawe",
+        "description": "Elke staaf is 'n komponís se lewensduur. Klik om hul biografie en werke te sien. Ctrl+klik om veelvuldige komponiste te vergelyk."
+      },
+      "composerPanel": {
+        "title": "Komponis Profielpaneel",
+        "description": "Klik op enige komponisstaaf om hul profielpaneel oop te maak. Hier vind jy hul biografie, noemenswaardige werke per jaar, tydgenote waarheen jy kan navigeer, en aksies om die tydlyn op hul lewensduur te fokus of hulle by 'n vergelyking te voeg."
+      },
+      "composerLinks": {
+        "title": "Wikipedia- en Eksterne Skakels",
+        "description": "Elke komponis se profiel bevat 'n skakel na hul Wikipedia-artikel. Komposisies — sigbaar wanneer jy ver genoeg inzoom om die kolletjies op die stafies te sien — het elk hul eie Wikipedia-skakel en, waar beskikbaar, 'n Spotify-knoppie om direk te luister."
+      },
+      "compositionDetail": {
+        "title": "Komposisie-detailkaart",
+        "description": "Klik op 'n komposisiekol om sy detailkaart oop te maak. Dit wys die jaar, genre, instrumentasie, toonaard, katalogus­nommer en 'n beskrywing. Indien beskikbaar, is daar 'n Wikipedia-skakel en 'n Spotify-knoppie om 'n opname te beluister."
+      },
+      "termsView": {
+        "title": "Musiekterme Woordelys",
+        "description": "Die Terme-aansig is 'n deursoekbare woordelys van musikale vorms, genres en tegnieke. Filter per kategorie, soek op naam, en klik op enige term om die volledige definisie, die oorspronklike era en voorbeeldwerke met Spotify-skakels te sien."
+      },
+      "orchestraView": {
+        "title": "Orkes Verkenner",
+        "description": "Die Orkes Verkenner wys die orkes van bo af as 'n interaktiewe kaart. Klik op 'n afdeling — Strykers, Houtblasers, Koperblasers, Slagwerk, Klawerborde of Stem — om individuele instrumente, hul rol, historiese era en uitgevoerde komposisies te verken."
+      },
+      "search": {
+        "title": "Soek en filters",
+        "description": "Soek komponiste op naam en gebruik filters om te vernou volgens era, nasionaliteit of genre. Druk F om die filterpaneel te wissel."
+      },
+      "views": {
+        "title": "Verskeie aansigte",
+        "description": "Skakel tussen die Tydlyn, die Musikale Terme-woordelys en die interaktiewe Orkesverkenner."
+      },
+      "language": {
+        "title": "Taal",
+        "description": "Die program is volledig beskikbaar in Engels, Frans en Afrikaans. Alle inhoud — insluitend biografieë en beskrywings — is vertaal."
+      },
+      "help": {
+        "title": "Hulp en kortpaaie",
+        "description": "Druk ? enige tyd om die hulppaneel oop te maak met sleutelbordkortpaaie, navigasieleiding en funksiegidse."
+      },
+      "done": {
+        "title": "Jy is reg!",
+        "description": "Begin verken! Klik op enige komponisstaaf, of skakel oor na die Terme- of Orkes-aansigte om musikale woordeskat en instrumente te verken. Druk ? op enige tyd om die hulppaneel oop te maak."
+      }
+    }
   }
 }

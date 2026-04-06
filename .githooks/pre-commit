@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[pre-commit] Running strict i18n checks..."
+npm run i18n:strict
+
+run_full_tests() {
+	echo "[pre-commit] Running full unit test suite..."
+	npm run test:run
+}
+
+if [[ "${CI:-}" == "true" || "${PRECOMMIT_TEST_SCOPE:-fast}" == "full" ]]; then
+	run_full_tests
+	exit 0
+fi
+
+declare -a staged_files=()
+while IFS= read -r -d '' file; do
+	case "$file" in
+		src/*|package.json|vitest.config.ts|tsconfig.json|tsconfig.*.json)
+			staged_files+=("$file")
+			;;
+	esac
+done < <(git diff --cached --name-only --diff-filter=ACMR -z)
+
+if [[ ${#staged_files[@]} -eq 0 ]]; then
+	echo "[pre-commit] No staged source/config files affecting tests; skipping test run in fast mode."
+	exit 0
+fi
+
+echo "[pre-commit] Running related tests for staged files (${#staged_files[@]})..."
+npx vitest related --run --passWithNoTests "${staged_files[@]}"

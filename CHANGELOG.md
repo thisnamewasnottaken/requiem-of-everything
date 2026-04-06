@@ -6,15 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- **Language switcher in WalkthroughOverlay** — a `<select>` element is now shown above the action buttons in both welcome and whats-new modal modes, allowing French and Afrikaans users to change language before starting the guided tour. Uses the existing `app.languageSelect` i18n key.
+- **Guided walkthrough / onboarding tour**— first-time visitors see a welcome modal offering a guided tour of the app's features. The tour uses driver.js to highlight key UI elements (timeline, time ruler, eras, composer bars, search/filters, view tabs, language switcher, help panel) with themed dark popovers matching the app's design tokens. Returning users see a "What's New" prompt when new features are added (version-tracked via `reqe_tour_version_seen` in localStorage). Users can defer ("Maybe Later") or permanently dismiss ("Don't ask again") the prompts. A "Take a Tour" button in the HelpPanel allows restarting the tour at any time. A subtle "Take a tour" prompt appears in the UI when the tour was deferred. Fully localised in en-GB, fr-FR, and af-ZA. Spec at `docs/specs/features/walkthrough.md`.
+- **Expanded guided tour** — 5 new steps covering the composer profile panel, Wikipedia/Spotify links, composition detail card, Musical Terms glossary view, and Orchestra Explorer view. The tour now programmatically navigates to the Terms and Orchestra views and demos the composer panel with Bach's Goldberg Variations.
+
 ### Changed
 
-- **Spotify app-first deep linking** — all "Listen on Spotify" actions now attempt to open the Spotify desktop/mobile app via the `spotify://` custom URI scheme. If the app is not installed or doesn't respond within ~1.5 seconds, falls back to opening Spotify web in a new tab. Applied consistently across CompositionDetail, OrchestraExplorer featured compositions, and TermExplorer example works. Shared logic in `src/utils/spotify.ts`.
+- **Tour popover visual polish** — fixed white text shadow on navigation buttons, hardened dark-theme overrides for driver.js defaults, improved close button styling and popover padding.
+- **Spotify app-first deep linking**— all "Listen on Spotify" actions now attempt to open the Spotify desktop/mobile app via the `spotify://` custom URI scheme. If the app is not installed or doesn't respond within ~1.5 seconds, falls back to opening Spotify web in a new tab. Applied consistently across CompositionDetail, OrchestraExplorer featured compositions, and TermExplorer example works. Shared logic in `src/utils/spotify.ts`.
 - **TermExplorer Spotify links** — example compositions in the term detail modal now show a clickable "Listen on Spotify" pill button instead of a non-interactive ♫ icon indicator. Uses the same app-first deep-link behaviour as other Spotify touchpoints.
 - **CompositionDetail type cleanup** — removed unnecessary `(composition as any).spotifyUrl` cast; the `Composition` interface already types `spotifyUrl` correctly.
 
 ### Fixed
 
-- **Hide search input when comparison mode active** — Search input in the header is hidden (removed from the DOM) while comparison mode is active; it reappears when comparison is cleared. This prevents conflicting auto-zoom/filter behaviour. (issue #7)
+- **Tour close defers instead of completing** — pressing × or Escape during the guided tour now marks it as deferred (instead of completed), so users are re-prompted on their next visit via the subtle "Take a tour" prompt. The same applies to the What's New tour: early close no longer advances the seen-version, so the prompt reappears on next visit.
+- **Hide search input when comparison mode active**— Search input in the header is hidden (removed from the DOM) while comparison mode is active; it reappears when comparison is cleared. This prevents conflicting auto-zoom/filter behaviour. (issue #7)
 
 - **Composer portraits always load from English Wikipedia** — `WikipediaService.getSummary()` now fetches thumbnail images from `en.wikipedia.org` in parallel with the localised text fetch, regardless of the user's language setting. This fixes missing portraits when switching to French or Afrikaans (issue #8). Article text, extracts, and "Read on Wikipedia" links continue to use the localised Wikipedia subdomain.
 - **CSP blocks non-English Wikipedia** — Content Security Policy `connect-src` and `img-src` directives now use `https://*.wikipedia.org` wildcard instead of only `https://en.wikipedia.org`, allowing Wikipedia API calls and images to work for all localised subdomains (fr, af, etc.).
@@ -30,6 +38,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **Strict i18n + tests pre-commit guard** — `.githooks/pre-commit` now runs `npm run i18n:strict` and then uses a fast local test path (`vitest related --run --passWithNoTests` on staged source/config files) while keeping full-suite tests in CI/forced-full mode (`npm run test:run`). i18n strict mode blocks commits when `af-ZA` or `fr-FR` are missing keys or contain placeholder values prefixed with `__MISSING_TRANSLATION__:`. Added `test:changed`, `test:run`, and `i18n:strict` scripts for manual/CI use.
 - **View navigation tabs** — header now includes Timeline | Terms | Orchestra tab switcher to navigate between the main timeline, the musical terms glossary, and the orchestra explorer. Fully localised (en-GB, fr-FR, af-ZA).
 - **TermExplorer component** — full-page browsable/searchable glossary of 27 musical terms. Features category tab filtering (Forms & Structures, Genres, Techniques, etc.), text search across names and definitions, expandable cards with era-origin badges, example compositions with composer names and Spotify indicators, and locale-aware Wikipedia links. Spec at `docs/specs/components/TermExplorer.md`.
 - **OrchestraExplorer component** — interactive orchestra seating map with a bird's-eye-view semicircular stage layout. Instrument families are arranged in their real orchestral positions across concentric tiers (percussion at back, brass, woodwinds, then strings/keyboards/voice at front). Features clickable family sections with hover glow effects, conductor podium with golden glow, instrument cards panel below the stage, and a slide-in detail panel with full description, era timeline, featured compositions, and Wikipedia links. Spec at `docs/specs/components/OrchestraExplorer.md`.

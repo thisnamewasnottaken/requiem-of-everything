@@ -15,8 +15,19 @@ Slide-in panel providing in-app documentation for users. Discoverable via a `?` 
 ```ts
 interface HelpPanelProps {
   onClose: () => void;
+  onStartTour?: () => void;
 }
 ```
+
+When `onStartTour` is provided, a "Take a Tour" button is shown below the panel header (before the keyboard shortcuts section). Clicking it calls `onStartTour` (which closes the panel and starts the full guided tour).
+
+## "Take a Tour" Button
+
+- Rendered only when `onStartTour` prop is provided.
+- Located between the panel header and the keyboard shortcuts section.
+- Full-width button with gold accent border (`--accent-gold-dim`), transparent background, and `--text-accent` text.
+- Hover: background becomes a subtle gold tint, border brightens to `--accent-gold`.
+- Label: `walkthrough.helpPanel.takeTour` (i18n key, all 3 languages supported).
 
 ## Layout
 

@@ -1,0 +1,156 @@
+/* ============================================================================
+   Walkthrough Tour — driver.js Dark Theme Overrides
+   Matches Requiem of Everything design tokens
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   Popover container
+   ---------------------------------------------------------------------------- */
+
+.reqe-tour-popover.driver-popover {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  box-shadow:
+    var(--shadow-lg),
+    0 0 60px rgba(212, 168, 87, 0.08);
+  color: var(--text-primary);
+  max-width: 380px;
+  padding: 20px;
+}
+
+/* ----------------------------------------------------------------------------
+   Arrow
+   ---------------------------------------------------------------------------- */
+
+.reqe-tour-popover .driver-popover-arrow {
+  border-color: var(--bg-elevated);
+}
+
+.reqe-tour-popover .driver-popover-arrow-side-top {
+  border-top-color: var(--bg-elevated);
+}
+.reqe-tour-popover .driver-popover-arrow-side-bottom {
+  border-bottom-color: var(--bg-elevated);
+}
+.reqe-tour-popover .driver-popover-arrow-side-left {
+  border-left-color: var(--bg-elevated);
+}
+.reqe-tour-popover .driver-popover-arrow-side-right {
+  border-right-color: var(--bg-elevated);
+}
+
+/* ----------------------------------------------------------------------------
+   Header: title & description
+   ---------------------------------------------------------------------------- */
+
+.reqe-tour-popover .driver-popover-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-accent);
+  margin-bottom: var(--space-xs);
+  text-shadow: none;
+  padding-right: 32px; /* room for close button */
+}
+
+.reqe-tour-popover .driver-popover-description {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  text-shadow: none;
+}
+
+/* ----------------------------------------------------------------------------
+   Close button
+   ---------------------------------------------------------------------------- */
+
+.reqe-tour-popover .driver-popover-close-btn {
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  text-shadow: none;
+  transition: color var(--transition-fast);
+}
+
+.reqe-tour-popover .driver-popover-close-btn:hover,
+.reqe-tour-popover .driver-popover-close-btn:focus {
+  color: var(--text-primary);
+  background: transparent;
+  text-shadow: none;
+}
+
+/* ----------------------------------------------------------------------------
+   Footer
+   ---------------------------------------------------------------------------- */
+
+.reqe-tour-popover .driver-popover-footer {
+  border-top: 1px solid var(--border-subtle);
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+}
+
+/* Base hardening rule — resets all driver.js light-theme button defaults */
+.reqe-tour-popover .driver-popover-footer button {
+  text-shadow: none;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  border-radius: 6px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.reqe-tour-popover .driver-popover-footer button:hover,
+.reqe-tour-popover .driver-popover-footer button:focus {
+  /* Reset driver.js #f7f7f7 default; individual rules below override as needed */
+  background-color: transparent;
+}
+
+/* Progress text */
+.reqe-tour-popover .driver-popover-progress-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-shadow: none;
+}
+
+/* ----------------------------------------------------------------------------
+   Navigation buttons
+   ---------------------------------------------------------------------------- */
+
+.reqe-tour-popover .driver-popover-prev-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-shadow: none;
+}
+
+.reqe-tour-popover .driver-popover-prev-btn:hover,
+.reqe-tour-popover .driver-popover-prev-btn:focus {
+  background: var(--bg-elevated);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+.reqe-tour-popover .driver-popover-next-btn {
+  background: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  color: var(--bg-primary);
+  font-weight: 600;
+  text-shadow: none;
+}
+
+.reqe-tour-popover .driver-popover-next-btn:hover,
+.reqe-tour-popover .driver-popover-next-btn:focus {
+  background: var(--accent-warm);
+  border-color: var(--accent-warm);
+  color: var(--bg-primary);
+  text-shadow: none;
+}

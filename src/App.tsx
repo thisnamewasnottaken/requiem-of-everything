@@ -11,6 +11,8 @@ import CompositionDetail from "@/components/CompositionDetail/CompositionDetail"
 import SearchFilterBar from "@/components/SearchFilterBar/SearchFilterBar";
 import TermExplorer from "@/components/TermExplorer/TermExplorer";
 import OrchestraExplorer from "@/components/OrchestraExplorer/OrchestraExplorer";
+import WalkthroughOverlay from "@/components/WalkthroughOverlay/WalkthroughOverlay";
+import { useWalkthrough } from "@/hooks/useWalkthrough";
 
 type AppView = "timeline" | "terms" | "orchestra";
 
@@ -19,13 +21,36 @@ export default function App() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [activeView, setActiveView] = useState<AppView>("timeline");
+  const [overlayDismissed, setOverlayDismissed] = useState(false);
   const {
     selectedComposerIds,
     selectedCompositionId,
+    selectComposer,
     selectComposition,
     selectEvent,
+    clearComposerSelection,
   } = useSelectionStore();
   const { resetView } = useTimelineStore();
+
+  const {
+    startFullTour,
+    startWhatsNewTour,
+    shouldShowWelcome,
+    shouldShowWhatsNew,
+    shouldShowSubtlePrompt,
+    dismissTour,
+    deferTour,
+    dismissWhatsNew,
+  } = useWalkthrough({
+    setActiveView,
+    closeHelpPanel: () => setHelpOpen(false),
+    selectComposer: (id) =>
+      id === null ? clearComposerSelection() : selectComposer(id),
+    selectComposition: (id) => selectComposition(id),
+  });
+
+  const showOverlay =
+    !overlayDismissed && (shouldShowWelcome || shouldShowWhatsNew);
 
   const selectedComposerId = selectedComposerIds[0] || null;
 
@@ -79,7 +104,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="app-header">
+      <header className="app-header" data-tour="header">
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <div>
             <h1>{t("app.title")}</h1>
@@ -165,12 +190,15 @@ export default function App() {
           >
             {activeView === "timeline" && <ComparisonBar />}
             {activeView !== "orchestra" && (
-              <SearchFilterBar
-                filterOpen={filterOpen}
-                onToggleFilters={() => setFilterOpen((p) => !p)}
-              />
+              <div data-tour="search-filter">
+                <SearchFilterBar
+                  filterOpen={filterOpen}
+                  onToggleFilters={() => setFilterOpen((p) => !p)}
+                />
+              </div>
             )}
             <nav
+              data-tour="view-tabs"
               style={{
                 display: "flex",
                 gap: "2px",
@@ -212,6 +240,7 @@ export default function App() {
               ))}
             </nav>
             <select
+              data-tour="language-switcher"
               value={i18n.language}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
               aria-label={t("app.languageSelect")}
@@ -231,6 +260,7 @@ export default function App() {
               <option value="af-ZA">Afrikaans</option>
             </select>
             <button
+              data-tour="help-button"
               onClick={() => setHelpOpen((p) => !p)}
               style={{
                 width: "32px",
@@ -288,7 +318,67 @@ export default function App() {
       )}
 
       {/* Help panel (slide-in right) */}
-      {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} />}
+      {helpOpen && (
+        <HelpPanel
+          onClose={() => setHelpOpen(false)}
+          onStartTour={() => {
+            setHelpOpen(false);
+            startFullTour();
+          }}
+        />
+      )}
+
+      {/* Walkthrough welcome / what's-new overlay */}
+      {showOverlay && (
+        <WalkthroughOverlay
+          mode={shouldShowWelcome ? "welcome" : "whats-new"}
+          onStartFullTour={() => {
+            setOverlayDismissed(true);
+            startFullTour();
+          }}
+          onStartWhatsNew={() => {
+            setOverlayDismissed(true);
+            startWhatsNewTour();
+          }}
+          onDefer={() => {
+            setOverlayDismissed(true);
+            if (shouldShowWelcome) deferTour();
+            else dismissWhatsNew();
+          }}
+          onDismiss={() => {
+            setOverlayDismissed(true);
+            if (shouldShowWelcome) dismissTour();
+            else dismissWhatsNew();
+          }}
+        />
+      )}
+
+      {/* Subtle "Take a tour" prompt when tour was deferred */}
+      {shouldShowSubtlePrompt && !showOverlay && (
+        <button
+          data-tour="tour-prompt"
+          onClick={() => startFullTour()}
+          aria-label={t("walkthrough.subtlePrompt")}
+          style={{
+            position: "fixed",
+            bottom: "24px",
+            right: "24px",
+            padding: "8px 16px",
+            border: "1px solid var(--accent-gold-dim)",
+            borderRadius: "8px",
+            background: "var(--bg-elevated)",
+            color: "var(--text-accent)",
+            fontFamily: "var(--font-body)",
+            fontSize: "var(--text-sm)",
+            fontWeight: 600,
+            cursor: "pointer",
+            zIndex: "var(--z-panel)",
+            transition: "all var(--transition-fast)",
+          }}
+        >
+          {t("walkthrough.subtlePrompt")}
+        </button>
+      )}
     </div>
   );
 }
