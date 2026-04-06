@@ -557,6 +557,11 @@
   text-decoration: none;
   margin-left: 6px;
   font-size: var(--text-xs);
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  font-family: inherit;
 }
 
 .spotifyLink:hover {

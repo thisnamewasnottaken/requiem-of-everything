@@ -41,7 +41,8 @@
     "instrumentation": "Instrumentation",
     "key": "Key",
     "catalogue": "Catalogue",
-    "listenOnSpotify": "Listen on Spotify"
+    "listenOnSpotify": "Listen on Spotify",
+    "listenOnSpotifyAria": "Listen to {{title}} on Spotify"
   },
   "compositionMarker": {
     "ariaLabel": "{{title}} by {{composer}}, {{year}}"

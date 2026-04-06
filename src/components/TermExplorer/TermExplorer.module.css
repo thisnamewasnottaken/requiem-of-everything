@@ -292,9 +292,26 @@
   padding: 2px 0;
 }
 
-.spotifyIcon {
+.spotifyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(29, 185, 84, 0.12);
   color: #1db954;
-  margin-left: 4px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease;
+  vertical-align: middle;
+}
+
+.spotifyBtn:hover {
+  background: rgba(29, 185, 84, 0.24);
 }
 
 /* ── Wikipedia link ────────────────────────────────────────────────── */

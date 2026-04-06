@@ -230,7 +230,7 @@ requiem-of-everything/
 - [x] Content localisation (composer bios, composition descriptions, event descriptions, era names) via i18next namespaces — en-GB, fr-FR, af-ZA
 - [x] Terms and instruments content localisation (fr-FR, af-ZA)
 - [x] Expanded composition dataset in addition to notable works (All major works for each composer, with metadata)
-- [x] Spotify links for notable works where available
+- [x] Spotify links for notable works where available (app-first deep linking with web fallback)
 - [x] Expanded composer dataset (next tier of notable composers, with portraits and bios)
 - [x] Expanded historical events dataset
 - [ HOLD ] Localization of AI-generated content

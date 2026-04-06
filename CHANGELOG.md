@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **Spotify app-first deep linking** — all "Listen on Spotify" actions now attempt to open the Spotify desktop/mobile app via the `spotify://` custom URI scheme. If the app is not installed or doesn't respond within ~1.5 seconds, falls back to opening Spotify web in a new tab. Applied consistently across CompositionDetail, OrchestraExplorer featured compositions, and TermExplorer example works. Shared logic in `src/utils/spotify.ts`.
+- **TermExplorer Spotify links** — example compositions in the term detail modal now show a clickable "Listen on Spotify" pill button instead of a non-interactive ♫ icon indicator. Uses the same app-first deep-link behaviour as other Spotify touchpoints.
+- **CompositionDetail type cleanup** — removed unnecessary `(composition as any).spotifyUrl` cast; the `Composition` interface already types `spotifyUrl` correctly.
+
 ### Fixed
 
 - **Hide search input when comparison mode active** — Search input in the header is hidden (removed from the DOM) while comparison mode is active; it reappears when comparison is cleared. This prevents conflicting auto-zoom/filter behaviour. (issue #7)

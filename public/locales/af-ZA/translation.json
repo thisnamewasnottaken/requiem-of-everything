@@ -41,7 +41,8 @@
     "instrumentation": "Instrumentasie",
     "key": "Toonaard",
     "catalogue": "Katalogus",
-    "listenOnSpotify": "Luister op Spotify"
+    "listenOnSpotify": "Luister op Spotify",
+    "listenOnSpotifyAria": "Luister na {{title}} op Spotify"
   },
   "compositionMarker": {
     "ariaLabel": "{{title}} deur {{composer}}, {{year}}"

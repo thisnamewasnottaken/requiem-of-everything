@@ -39,14 +39,16 @@ The panel is a fixed bottom-center card:
 6. **Catalogue number** row — only shown when `catalogueNumber` field is present.
 7. **Significance** block — only shown when `significance` field is present.
 8. **Wikipedia link** — only shown when `wikipediaSlug` is present; opens in new tab with `rel="noopener noreferrer"`.
-9. **Spotify link**— only shown when `spotifyUrl` is present; opens in new tab with `rel="noopener noreferrer"`. Displays as "Listen on Spotify" with a play icon (`▶`). Styled with Spotify green accent `#1DB954` text, a rounded pill background (`rgba(29, 185, 84, 0.12)`), and hover state (`rgba(29, 185, 84, 0.24)`). This styling is implemented in `CompositionDetail.module.css` (`.spotifyLink` class).
+9. **Spotify action** — only shown when `spotifyUrl` is present. Rendered as a `<button>` (not an `<a>`) styled as a green pill (Spotify brand colour `#1DB954`, rounded pill background `rgba(29, 185, 84, 0.12)`, hover `rgba(29, 185, 84, 0.24)`). Displays "Listen on Spotify" with a play icon (`▶`).
+
+   **Behavior**: On click, calls `openSpotify(spotifyUrl)` from `src/utils/spotify.ts`. This first attempts to open the Spotify desktop/mobile app via the `spotify://` custom URI scheme. If the app does not respond within ~1500ms, it falls back to opening the Spotify web URL in a new tab. The button must have `aria-label="Listen to {title} on Spotify"`. This styling is implemented in `CompositionDetail.module.css` (`.spotifyLink` class).
 
 ## Interactions
 
 - Close button (`×`) calls `selectComposition(null)` and clears selection.
 - Composer name chip calls `selectComposer(composerId)` — this opens the ComposerCard.
 - Wikipedia link opens in a new tab.
-- Spotify link opens in a new tab.
+- Spotify button attempts to open the Spotify app; falls back to opening Spotify web in a new tab after ~1500ms.
 - `Esc` key(handled in `App.tsx`) closes the panel by clearing `selectedCompositionId`.
 
 ## Accessibility
@@ -54,7 +56,7 @@ The panel is a fixed bottom-center card:
 - Panel has `role="complementary"` and `aria-label="Composition details"`.
 - Close button has `aria-label="Close composition details"`.
 - External Wikipedia link has `rel="noopener noreferrer"` and `target="_blank"`.
-- Spotify link has `rel="noopener noreferrer"` and `target="_blank"`.
+- Spotify button has `aria-label="Listen to {title} on Spotify"`. The web fallback opens with `rel="noopener noreferrer"` and `target="_blank"`.
 - Genre badgeis a `<span>` with descriptive text (no icon-only content).
 
 ## Dependencies
@@ -62,6 +64,7 @@ The panel is a fixed bottom-center card:
 - `useSelectionStore` — reads `selectedCompositionId`, provides `selectComposition(null)` and `selectComposer`.
 - `useComposition(id)` from `useData` — retrieves the composition.
 - `useComposer(composerId)` from `useData` — retrieves the composer name.
+- `openSpotify()` from `src/utils/spotify.ts` — handles app-first-then-web-fallback navigation.
 
 ## Test Scenarios
 
@@ -72,5 +75,6 @@ The panel is a fixed bottom-center card:
 5. Clicking close calls `selectComposition(null)`.
 6. Clicking the composer chip calls `selectComposer` with the correct composer ID.
 7. Does NOT use `dangerouslySetInnerHTML` or `innerHTML` anywhere.
-8. Renders Spotify link with `rel="noopener noreferrer"` when `spotifyUrl` is present.
+8. Renders Spotify button with correct `aria-label` when `spotifyUrl` is present.
 9. Does not render Spotify section when `spotifyUrl` is absent.
+10. Spotify button calls `openSpotify()` when clicked.

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "motion/react";
 import { useInstruments, useCompositions, useComposers } from "@/hooks/useData";
 import { getWikipediaUrl } from "@/utils/wikipedia";
+import { openSpotify } from "@/utils/spotify";
 import type { Instrument, InstrumentFamily, MusicalEra } from "@/types";
 import styles from "./OrchestraExplorer.module.css";
 
@@ -472,14 +473,16 @@ function InstrumentDetailOverlay({
                           {comp.yearComposed})
                         </span>
                         {comp.spotifyUrl && (
-                          <a
-                            href={comp.spotifyUrl}
+                          <button
                             className={styles.spotifyLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              openSpotify(comp.spotifyUrl!);
+                            }}
+                            aria-label={t('composition.listenOnSpotifyAria', { title: comp.title })}
                           >
                             🎧
-                          </a>
+                          </button>
                         )}
                       </div>
                     );
