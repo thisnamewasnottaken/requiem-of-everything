@@ -173,5 +173,92 @@
     "readMore": "Read more →",
     "instruments": "{{count}} instruments",
     "closeDetail": "Close"
+  },
+  "walkthrough": {
+    "progress": "{{current}} of {{total}}",
+    "next": "Next",
+    "prev": "Back",
+    "done": "Done",
+    "subtlePrompt": "Take a tour",
+    "welcome": {
+      "title": "Welcome to Requiem of Everything",
+      "description": "Discover 500 years of classical music through an interactive timeline. Would you like a quick guided tour?",
+      "startTour": "Start Tour",
+      "maybeLater": "Maybe Later",
+      "dontAsk": "Don't ask again"
+    },
+    "whatsNew": {
+      "title": "What's New",
+      "description": "New features have been added since your last visit. Would you like to see what's changed?",
+      "seeWhatsNew": "See What's New",
+      "fullTour": "Full Tour",
+      "maybeLater": "Maybe Later",
+      "dontAsk": "Don't ask again"
+    },
+    "helpPanel": {
+      "takeTour": "Take a Tour"
+    },
+    "steps": {
+      "welcome": {
+        "title": "Welcome",
+        "description": "Requiem of Everything is an interactive timeline spanning 1400–1970, covering 51 composers, 196 compositions, and 47 historical events across six musical eras."
+      },
+      "timeline": {
+        "title": "The Timeline",
+        "description": "This is the main timeline. Scroll to zoom in and out, and drag to pan across centuries. Composer lifespans appear as coloured bars."
+      },
+      "timeRuler": {
+        "title": "Time Ruler",
+        "description": "Year markings and era labels run along the top. The current viewport range is always visible."
+      },
+      "eras": {
+        "title": "Musical Eras",
+        "description": "Colour bands represent the six musical eras — from Renaissance gold to Modern green. Each era has its own palette."
+      },
+      "composerBar": {
+        "title": "Composer Bars",
+        "description": "Each bar is a composer's lifespan. Click to see their biography and works. Ctrl+click to compare multiple composers."
+      },
+      "composerPanel": {
+        "title": "Composer Profile Panel",
+        "description": "Click any composer bar to open their profile panel. Here you'll find their biography, notable works listed by year, contemporaries you can jump to, and actions to focus the timeline on their lifespan or add them to a comparison."
+      },
+      "composerLinks": {
+        "title": "Wikipedia & External Links",
+        "description": "Each composer profile includes a link to their Wikipedia article. Compositions — visible when you zoom in enough to see the dots on composer bars — each have their own Wikipedia links and, where available, a Spotify button to listen directly."
+      },
+      "compositionDetail": {
+        "title": "Composition Detail Card",
+        "description": "Click a composition dot to open its detail card. It shows the year, genre, instrumentation, key, catalogue number, and a description. If available, there's a Wikipedia link and a Spotify button to listen to a recording."
+      },
+      "termsView": {
+        "title": "Musical Terms Glossary",
+        "description": "The Terms view is a searchable glossary of musical forms, genres, and techniques. Filter by category, search by name, and click any term to see its full definition, era of origin, and example works with Spotify links."
+      },
+      "orchestraView": {
+        "title": "Orchestra Explorer",
+        "description": "The Orchestra Explorer shows the orchestra from above as an interactive map. Click a section — Strings, Woodwinds, Brass, Percussion, Keyboards, or Voice — to explore individual instruments, their role, historical era, and featured compositions."
+      },
+      "search": {
+        "title": "Search & Filters",
+        "description": "Search composers by name, and use filters to narrow by era, nationality, or genre. Press F to toggle the filter panel."
+      },
+      "views": {
+        "title": "Multiple Views",
+        "description": "Switch between the Timeline, the Musical Terms glossary, and the interactive Orchestra Explorer."
+      },
+      "language": {
+        "title": "Language",
+        "description": "The app is fully available in English, French, and Afrikaans. All content — including biographies and descriptions — is translated."
+      },
+      "help": {
+        "title": "Help & Shortcuts",
+        "description": "Press ? at any time to open the help panel with keyboard shortcuts, navigation tips, and feature guides."
+      },
+      "done": {
+        "title": "You're All Set!",
+        "description": "Start exploring! Click any composer bar to begin, or switch to the Terms or Orchestra views to explore musical vocabulary and instruments. Press ? at any time to open the help panel."
+      }
+    }
   }
 }

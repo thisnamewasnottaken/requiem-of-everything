@@ -35,7 +35,7 @@ export default function TimeRuler({
   );
 
   return (
-    <div className={styles.timeRuler} style={{ width }}>
+    <div className={styles.timeRuler} style={{ width }} data-tour="time-ruler">
       {/* Era labels */}
       {eras
         ?.filter((era) => era.endYear >= startYear && era.startYear <= endYear)

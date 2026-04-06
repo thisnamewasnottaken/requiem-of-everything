@@ -116,7 +116,7 @@ export default function TermExplorer({
   }, [selectedTermId]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-tour="terms-view">
       {/* Header */}
       <div className={styles.header}>
         <input

@@ -22,7 +22,10 @@ export default function EraBackdrop({
   );
 
   return (
-    <>
+    <div
+      data-tour="era-backdrop"
+      style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
+    >
       {eras
         .filter((era) => era.endYear >= startYear && era.startYear <= endYear)
         .map((era) => {
@@ -36,7 +39,7 @@ export default function EraBackdrop({
             <div
               key={era.id}
               className={styles.eraBackdrop}
-              style={{ left, width: eraWidth }}
+              style={{ left, width: eraWidth, pointerEvents: "none" }}
             >
               <div
                 className={styles.eraFill}
@@ -49,6 +52,6 @@ export default function EraBackdrop({
             </div>
           );
         })}
-    </>
+    </div>
   );
 }

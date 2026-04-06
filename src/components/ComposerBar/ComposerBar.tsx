@@ -16,6 +16,7 @@ interface ComposerBarProps {
   isDimmed: boolean;
   isCollapsed: boolean;
   onClick: (composerId: string, event: React.MouseEvent) => void;
+  dataTourFirst?: boolean;
 }
 
 const ROW_HEIGHT = 34;
@@ -33,6 +34,7 @@ export default function ComposerBar({
   isDimmed,
   isCollapsed,
   onClick,
+  dataTourFirst,
 }: ComposerBarProps) {
   const { t } = useTranslation();
   const scale = useMemo(
@@ -75,6 +77,7 @@ export default function ComposerBar({
         birth: composer.birthYear,
         death: composer.deathYear ?? t("common.present"),
       })}
+      {...(dataTourFirst ? { "data-tour": "composer-bar-first" } : {})}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();

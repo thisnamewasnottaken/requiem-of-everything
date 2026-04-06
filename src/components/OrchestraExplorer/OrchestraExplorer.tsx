@@ -600,7 +600,7 @@ export default function OrchestraExplorer({
   }, [selectedFamily, selectedInstrument]);
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div className={styles.container} ref={containerRef} data-tour="orchestra-view">
       {/* ── Ambient Background ──────────────────────────────────── */}
       <div className={styles.ambientBg}>
         <div className={styles.ambientBase} />

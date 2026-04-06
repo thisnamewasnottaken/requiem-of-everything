@@ -597,6 +597,7 @@ export default function Timeline() {
     <div
       ref={containerRef}
       className={styles.timelineContainer}
+      data-tour="timeline-viewport"
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
@@ -670,7 +671,7 @@ export default function Timeline() {
         />
 
         {/* Composer bars */}
-        {filteredComposers.map((composer) => {
+        {filteredComposers.map((composer, index) => {
           const row = composerRows.get(composer.id);
           if (row === undefined) return null;
           const inComparison = comparisonComposerIds.includes(composer.id);
@@ -695,6 +696,7 @@ export default function Timeline() {
                   (isFocusMode && composer.id !== focusedComposerId))
               }
               onClick={handleComposerClick}
+              dataTourFirst={index === 0}
             />
           );
         })}

@@ -50,7 +50,7 @@ export default function ComposerCard({ composerId }: ComposerCardProps) {
   const isInComparison = comparisonComposerIds.includes(composerId);
 
   return (
-    <div className={styles.panel}>
+    <div className={styles.panel} data-tour="composer-panel">
       {/* Header */}
       <div className={styles.header}>
         <button
@@ -127,6 +127,7 @@ export default function ComposerCard({ composerId }: ComposerCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           className={styles.wikiLink}
+          data-tour="composer-wiki-link"
         >
           <span>↗</span> {t("common.readOnWikipedia")}
         </a>
