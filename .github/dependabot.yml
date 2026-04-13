@@ -1,0 +1,35 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly" # Reduces noise; most bugs are patched within a week
+      day: "monday"
+    
+    # CRITICAL: Only update packages listed in your package.json
+    # This prevents the bot from updating transitive sub-dependencies directly.
+    allow:
+      - dependency-type: "direct"
+
+    # Grouping keeps your PR list clean and ensures compatibility between related tools
+    groups:
+      testing-suite:
+        patterns:
+          - "@playwright/*"
+          - "@testing-library/*"
+          - "vitest*"
+          - "jsdom"
+      i18n-framework:
+        patterns:
+          - "i18next*"
+          - "react-i18next"
+      ui-logic:
+        patterns:
+          - "motion"
+          - "d3"
+          - "driver.js"
+
+    # Prevent major version "surprises" that require manual code migration
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
