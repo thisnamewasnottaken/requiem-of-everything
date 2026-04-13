@@ -54,6 +54,12 @@ export default function App() {
 
   const selectedComposerId = selectedComposerIds[0] || null;
 
+  // Update document.title and <html lang> when language changes
+  useEffect(() => {
+    document.title = `${t("app.title")} — ${t("app.subtitle")}`;
+    document.documentElement.lang = i18n.language;
+  }, [t, i18n.language]);
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -104,6 +110,13 @@ export default function App() {
 
   return (
     <div className="app">
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="visually-hidden"
+      >
+        {t("app.title")}
+      </div>
       <header className="app-header" data-tour="header">
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <div>
