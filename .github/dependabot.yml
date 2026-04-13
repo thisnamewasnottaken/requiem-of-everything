@@ -11,17 +11,22 @@ updates:
     allow:
       - dependency-type: "direct"
 
-    # Grouping keeps your PR list clean and ensures compatibility between related tools
+    # Grouping keeps your PR list clean and reduces cross-conflicts.
+    # Keep groups narrow and explicit to avoid overlapping lockfile edits.
     groups:
-      testing-suite:
+      testing-e2e:
         patterns:
           - "@playwright/*"
+      testing-unit:
+        patterns:
           - "@testing-library/*"
           - "vitest*"
           - "jsdom"
       i18n-framework:
+        # make i18n updates explicit to avoid accidental overlap
         patterns:
-          - "i18next*"
+          - "i18next"
+          - "i18next-http-backend"
           - "react-i18next"
       ui-logic:
         patterns:
