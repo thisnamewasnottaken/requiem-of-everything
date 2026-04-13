@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A vertical marker representing a historical event on the timeline. Rendered at the event's year in a compact 24px event band between the TimeRuler and the first composer row. The diamond icon sits at the top of the timeline, with a full-height dashed line extending downward through all composer rows. Range events (e.g. wars) also show a translucent band spanning the duration. Hoverable for event preview; clickable to pin the card open for interaction.
+A vertical marker representing a historical event on the timeline. Rendered at the event's year in a compact 24px event band between the TimeRuler and the first composer row. The diamond icon sits at the top of the timeline, with a full-height dashed line extending downward through all composer rows. Historical events are represented as markers/lines only and do not render full-height backdrop bands. Hoverable for event preview; clickable to pin the card open for interaction.
 
 ## Props / Inputs
 
@@ -21,7 +21,6 @@ A vertical marker representing a historical event on the timeline. Rendered at t
 
 - **Default**: Diamond icon in the 24px event band (below the ruler, above composers) + full-height dashed vertical line extending downward in category color + tooltip on hover (preview only, `pointer-events: none`).
 - **Selected (pinned)**: Diamond is enlarged, event line is more opaque, tooltip stays visible with `pointer-events: auto` so links are clickable. z-index elevated above other markers.
-- **Range event**: Translucent band (`backgroundColor: color + "1A"`) behind the line, spanning `year` to `endYear`.
 - **Dimmed**: Marker at 0.15 opacity, event line at 0.08 opacity. Recovers to 0.7 opacity on hover. Applied during focus mode (single composer selected) and comparison mode.
 - **Returns null**: When event x-position is outside `[-10, width + 10]`.
 
@@ -79,7 +78,7 @@ The tooltip repositions to avoid clipping by the timeline container's `overflow:
 - Diamond rendered first (at top), followed by the dashed event line extending downward
 - Line height: `timelineHeight - 72px` (from bottom of event band to timeline bottom)
 - Tooltip opens downward (`top: 24px`) below the diamond
-- Range band: `left: x`, `width: scale(endYear) - x`
+- If `endYear` exists, the tooltip year label displays a year range (`year – endYear`) but no background band is rendered.
 
 ## Selection Store Integration
 
@@ -102,7 +101,7 @@ The tooltip repositions to avoid clipping by the timeline container's `overflow:
 ## Test Scenarios
 
 1. Marker appears at correct horizontal position.
-2. Range events render a translucent band of correct width.
+2. Historical events do not render full-height translucent backdrop bands, including range events.
 3. Tooltip appears on hover with title, year, and description.
 4. `isDimmed` reduces opacity; hover temporarily restores it.
 5. Musical significance line shown only when present.

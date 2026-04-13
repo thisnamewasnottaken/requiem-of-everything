@@ -41,15 +41,6 @@
   opacity: 0.5;
 }
 
-/* Event range (e.g., for wars) */
-.eventRange {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  opacity: 0.04;
-  pointer-events: none;
-}
-
 /* Category colors */
 .war {
   --event-color: #c0392b;

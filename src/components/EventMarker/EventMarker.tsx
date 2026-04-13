@@ -51,7 +51,6 @@ export default function EventMarker({
 
   const color = CATEGORY_COLORS[event.category] || "#7F8C8D";
   const hasRange = event.endYear && event.endYear !== event.year;
-  const rangeWidth = hasRange ? scale(event.endYear!) - x : 0;
 
   // Viewport-aware tooltip positioning
   const tooltipStyle: React.CSSProperties = {};
@@ -81,18 +80,6 @@ export default function EventMarker({
 
   return (
     <>
-      {/* Range highlight (for wars, etc.) */}
-      {hasRange && rangeWidth > 0 && (
-        <div
-          className={styles.eventRange}
-          style={{
-            left: x,
-            width: rangeWidth,
-            backgroundColor: color,
-          }}
-        />
-      )}
-
       {/* Diamond marker — positioned in event band at top */}
       <div
         className={markerClass}

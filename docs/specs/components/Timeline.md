@@ -15,7 +15,7 @@ The root timeline component. Renders the full interactive, zoomable, pannable ti
 
 ## Visual States
 
-- **Default**: Full timeline visible (~1580–1970), showing era bands and composer bars.
+- **Default**: Full timeline visible (~1580–1970), showing era bands and composer bars. Vertical backdrop bands represent musical eras only; historical events are shown as markers/lines.
 - **Zoomed**: A narrower year range fills the viewport; more detail visible per composer.
 - **Filtered**: Only matching composers/compositions shown; others hidden or dimmed.
 - **Focus Mode (single composer)**: Timeline is zoomed to a single composer's lifespan. Non-focused composers and historical events are dimmed; non-focused composers collapse to 6px height after 1.5 seconds (same visual treatment as comparison mode). Composition markers for non-focused composers are also dimmed.
@@ -62,4 +62,5 @@ Both modes zoom the timeline to frame the relevant composers, but focus mode pre
 4. Panning shifts the viewport and re-positions elements.
 5. Clicking a composer bar dispatches selection.
 6. Only composers within the viewport (± margin) are rendered (virtualization).
-7. Keyboard navigation (arrows, +/-) modifies the viewport.
+7. Historical events render as markers/lines and do not render full-height backdrop bands.
+8. Keyboard navigation (arrows, +/-) modifies the viewport.

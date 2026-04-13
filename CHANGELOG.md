@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- **Timeline event backdrop noise** — historical events no longer render full-height translucent colour bands. Vertical backdrop bands are now reserved for musical eras only, while historical events remain visible as top-band markers with dashed lines and tooltips.
 - **App title and description now update when switching language** — `app.title` and `app.subtitle` translations in `fr-FR` ("Requiem de Tout" / "Une chronologie interactive de la musique classique") and `af-ZA` ("Requiem van Alles") were incorrect (still showing English). Fixed the translation values. `document.title` now updates on every language change via a `useEffect` in `App.tsx`. The `<html lang>` attribute also updates dynamically. A visually-hidden `aria-live` region announces the new app title to screen readers on language switch.
 
 - **Tour close defers instead of completing** — pressing × or Escape during the guided tour now marks it as deferred (instead of completed), so users are re-prompted on their next visit via the subtle "Take a tour" prompt. The same applies to the What's New tour: early close no longer advances the seen-version, so the prompt reappears on next visit.
