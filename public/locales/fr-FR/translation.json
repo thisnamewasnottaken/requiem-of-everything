@@ -1,7 +1,7 @@
 {
   "app": {
-    "title": "Requiem of Everything",
-    "subtitle": "Une frise chronologique interactive de la musique classique",
+    "title": "Requiem de Tout",
+    "subtitle": "Une chronologie interactive de la musique classique",
     "filters": "Filtres",
     "helpAriaLabel": "Aide",
     "helpTitle": "Aide (Shift+?)",
