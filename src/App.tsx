@@ -11,10 +11,11 @@ import CompositionDetail from "@/components/CompositionDetail/CompositionDetail"
 import SearchFilterBar from "@/components/SearchFilterBar/SearchFilterBar";
 import TermExplorer from "@/components/TermExplorer/TermExplorer";
 import OrchestraExplorer from "@/components/OrchestraExplorer/OrchestraExplorer";
+import CreditsPage from "@/components/CreditsPage/CreditsPage";
 import WalkthroughOverlay from "@/components/WalkthroughOverlay/WalkthroughOverlay";
 import { useWalkthrough } from "@/hooks/useWalkthrough";
 
-type AppView = "timeline" | "terms" | "orchestra";
+type AppView = "timeline" | "terms" | "orchestra" | "credits";
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -202,7 +203,7 @@ export default function App() {
             }}
           >
             {activeView === "timeline" && <ComparisonBar />}
-            {activeView !== "orchestra" && (
+            {activeView !== "orchestra" && activeView !== "credits" && (
               <div data-tour="search-filter">
                 <SearchFilterBar
                   filterOpen={filterOpen}
@@ -221,7 +222,7 @@ export default function App() {
                 border: "1px solid var(--border-default)",
               }}
             >
-              {(["timeline", "terms", "orchestra"] as const).map((view) => (
+              {(["timeline", "terms", "orchestra", "credits"] as const).map((view) => (
                 <button
                   key={view}
                   onClick={() => setActiveView(view)}
@@ -248,7 +249,9 @@ export default function App() {
                     ? t("app.viewTimeline", "Timeline")
                     : view === "terms"
                       ? t("app.viewTerms", "Terms")
-                      : t("app.viewOrchestra", "Orchestra")}
+                      : view === "orchestra"
+                        ? t("app.viewOrchestra", "Orchestra")
+                        : t("app.viewCredits", "Credits")}
                 </button>
               ))}
             </nav>
@@ -313,10 +316,11 @@ export default function App() {
             onNavigateToTimeline={() => setActiveView("timeline")}
           />
         )}
+        {activeView === "credits" && <CreditsPage />}
       </main>
 
       {/* Filter panel (slide-in left) — visible on timeline and terms only */}
-      {filterOpen && activeView !== "orchestra" && (
+      {filterOpen && activeView !== "orchestra" && activeView !== "credits" && (
         <FilterPanel onClose={() => setFilterOpen(false)} />
       )}
 
