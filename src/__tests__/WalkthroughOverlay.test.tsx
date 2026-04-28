@@ -130,7 +130,7 @@ describe("WalkthroughOverlay", () => {
   });
 
   describe("language switcher", () => {
-    it("renders a language selector with en-GB, fr-FR, and af-ZA options", () => {
+    it("renders a language selector with en-GB, fr-FR, af-ZA, and es-ES options", () => {
       render(<WalkthroughOverlay {...mockProps} mode="welcome" />);
       const select = screen.getByRole("combobox", { name: /select language/i });
       expect(select).toBeInTheDocument();
@@ -140,6 +140,7 @@ describe("WalkthroughOverlay", () => {
       expect(options).toContain("en-GB");
       expect(options).toContain("fr-FR");
       expect(options).toContain("af-ZA");
+      expect(options).toContain("es-ES");
     });
 
     it("renders language selector in whats-new mode too", () => {

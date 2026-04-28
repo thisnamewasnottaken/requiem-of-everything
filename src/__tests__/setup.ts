@@ -8,6 +8,7 @@ import eventsContent from "../../public/locales/en-GB/events.json";
 import erasContent from "../../public/locales/en-GB/eras.json";
 import frTranslations from "../../public/locales/fr-FR/translation.json";
 import afTranslations from "../../public/locales/af-ZA/translation.json";
+import esTranslations from "../../public/locales/es-ES/translation.json";
 
 i18n.use(initReactI18next).init({
   lng: "en-GB",
@@ -27,6 +28,9 @@ i18n.use(initReactI18next).init({
     },
     "af-ZA": {
       translation: afTranslations,
+    },
+    "es-ES": {
+      translation: esTranslations,
     },
   },
   interpolation: { escapeValue: false },
