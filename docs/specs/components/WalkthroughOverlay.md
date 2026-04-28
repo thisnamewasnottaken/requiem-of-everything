@@ -79,7 +79,7 @@ Shown to returning visitors when `TOUR_VERSION` has been bumped.
 A `<select>` element is rendered above the `.actions` buttons in both modal modes (welcome and whats-new). It allows users to change the app language before starting the guided tour.
 
 - Positioned flush-right via `justify-content: flex-end`.
-- Options: English (`en-GB`), Français (`fr-FR`), Afrikaans (`af-ZA`).
+- Options: English (`en-GB`), Français (`fr-FR`), Afrikaans (`af-ZA`), Español (`es-ES`).
 - `value` is bound to `i18n.language`; `onChange` calls `i18n.changeLanguage(value)`.
 - `aria-label` uses the existing `app.languageSelect` translation key.
 - Because tour steps in `useWalkthrough.ts` are built from `useMemo([t])`, changing language here means the subsequent tour renders in the chosen language.

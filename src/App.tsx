@@ -274,6 +274,7 @@ export default function App() {
               <option value="en-GB">English</option>
               <option value="fr-FR">Français</option>
               <option value="af-ZA">Afrikaans</option>
+              <option value="es-ES">Español</option>
             </select>
             <button
               data-tour="help-button"
