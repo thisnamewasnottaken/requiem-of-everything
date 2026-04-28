@@ -8,7 +8,8 @@
     "languageSelect": "Kies taal",
     "viewTimeline": "Tydlyn",
     "viewTerms": "Terme",
-    "viewOrchestra": "Orkes"
+    "viewOrchestra": "Orkes",
+    "viewCredits": "Krediete"
   },
   "common": {
     "close": "Sluit",
@@ -260,5 +261,12 @@
         "description": "Begin verken! Klik op enige komponisstaaf, of skakel oor na die Terme- of Orkes-aansigte om musikale woordeskat en instrumente te verken. Druk ? op enige tyd om die hulppaneel oop te maak."
       }
     }
+  },
+  "credits": {
+    "title": "Krediete",
+    "subtitle": "Die mense wat Requiem of Everything gebou het",
+    "roleCreator": "Skepper",
+    "roleAI": "KI-bydraer",
+    "footer": "Gebou met oopbron-gereedskap soos React, D3, Vite en i18next."
   }
 }

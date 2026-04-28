@@ -8,7 +8,8 @@
     "languageSelect": "Select language",
     "viewTimeline": "Timeline",
     "viewTerms": "Terms",
-    "viewOrchestra": "Orchestra"
+    "viewOrchestra": "Orchestra",
+    "viewCredits": "Credits"
   },
   "common": {
     "close": "Close",
@@ -260,5 +261,12 @@
         "description": "Start exploring! Click any composer bar to begin, or switch to the Terms or Orchestra views to explore musical vocabulary and instruments. Press ? at any time to open the help panel."
       }
     }
+  },
+  "credits": {
+    "title": "Credits",
+    "subtitle": "The people who built Requiem of Everything",
+    "roleCreator": "Creator",
+    "roleAI": "AI Contributor",
+    "footer": "Built with open-source tools including React, D3, Vite, and i18next."
   }
 }

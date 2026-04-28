@@ -8,7 +8,8 @@
     "languageSelect": "Choisir la langue",
     "viewTimeline": "Chronologie",
     "viewTerms": "Termes",
-    "viewOrchestra": "Orchestre"
+    "viewOrchestra": "Orchestre",
+    "viewCredits": "Crédits"
   },
   "common": {
     "close": "Fermer",
@@ -260,5 +261,12 @@
         "description": "Commencez à explorer ! Cliquez sur n'importe quelle barre de compositeur, ou passez aux vues Termes ou Orchestre pour explorer le vocabulaire musical et les instruments. N'oubliez pas : ? ouvre le panneau d'aide à tout moment."
       }
     }
+  },
+  "credits": {
+    "title": "Crédits",
+    "subtitle": "Les personnes qui ont créé Requiem of Everything",
+    "roleCreator": "Créateur",
+    "roleAI": "Contributeur IA",
+    "footer": "Réalisé avec des outils open source : React, D3, Vite et i18next."
   }
 }

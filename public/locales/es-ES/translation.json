@@ -8,7 +8,8 @@
     "languageSelect": "Seleccionar idioma",
     "viewTimeline": "Cronología",
     "viewTerms": "Términos",
-    "viewOrchestra": "Orquesta"
+    "viewOrchestra": "Orquesta",
+    "viewCredits": "Créditos"
   },
   "common": {
     "close": "Cerrar",
@@ -260,5 +261,12 @@
         "description": "¡Empieza a explorar! Haz clic en cualquier barra de compositor para comenzar, o cambia a las vistas Términos u Orquesta para explorar vocabulario musical e instrumentos. Pulsa ? en cualquier momento para abrir el panel de ayuda."
       }
     }
+  },
+  "credits": {
+    "title": "Créditos",
+    "subtitle": "Las personas que construyeron Réquiem de Todo",
+    "roleCreator": "Creador",
+    "roleAI": "Colaborador IA",
+    "footer": "Construido con herramientas de código abierto: React, D3, Vite e i18next."
   }
 }
