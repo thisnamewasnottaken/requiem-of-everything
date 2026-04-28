@@ -1,0 +1,264 @@
+{
+  "app": {
+    "title": "Réquiem de Todo",
+    "subtitle": "Una cronología interactiva de la música clásica",
+    "filters": "Filtros",
+    "helpAriaLabel": "Ayuda",
+    "helpTitle": "Ayuda (Shift+?)",
+    "languageSelect": "Seleccionar idioma",
+    "viewTimeline": "Cronología",
+    "viewTerms": "Términos",
+    "viewOrchestra": "Orquesta"
+  },
+  "common": {
+    "close": "Cerrar",
+    "present": "actualidad",
+    "readOnWikipedia": "Leer en Wikipedia"
+  },
+  "comparison": {
+    "comparing": "Comparando",
+    "selected": "Seleccionados",
+    "remove": "Eliminar {{name}}",
+    "ctrlClickHint": "Ctrl+clic para comparar más",
+    "clearAllTitle": "Borrar todas las comparaciones",
+    "clear": "Borrar"
+  },
+  "composerBar": {
+    "ariaLabel": "{{name}}, {{birth}}–{{death}}"
+  },
+  "composer": {
+    "focusTimeline": "Enfocar cronología",
+    "comparing": "✓ Comparando",
+    "compare": "+ Comparar",
+    "biography": "Biografía",
+    "notableWorks": "Obras destacadas",
+    "contemporaries": "Contemporáneos"
+  },
+  "composition": {
+    "ariaLabel": "Detalles de la composición",
+    "closeAriaLabel": "Cerrar detalles de la composición",
+    "openProfile": "Abrir el perfil de {{name}}",
+    "instrumentation": "Instrumentación",
+    "key": "Tonalidad",
+    "catalogue": "Catálogo",
+    "listenOnSpotify": "Escuchar en Spotify",
+    "listenOnSpotifyAria": "Escuchar {{title}} en Spotify"
+  },
+  "compositionMarker": {
+    "ariaLabel": "{{title}} de {{composer}}, {{year}}"
+  },
+  "eventMarker": {
+    "ariaLabel": "Evento histórico: {{title}}, {{year}}"
+  },
+  "filters": {
+    "ariaLabel": "Filtros de la cronología",
+    "title": "Filtros",
+    "closeAriaLabel": "Cerrar filtros",
+    "searchPlaceholder": "Buscar compositores…",
+    "searchAriaLabel": "Buscar compositores y composiciones",
+    "clearSearchAriaLabel": "Borrar búsqueda",
+    "musicalEra": "Era musical",
+    "filterByEra": "Filtrar por era",
+    "nationality": "Nacionalidad",
+    "filterByNationality": "Filtrar por nacionalidad",
+    "genre": "Género",
+    "filterByGenre": "Filtrar por género",
+    "historicalEvents": "Eventos históricos",
+    "toggleEvents": "Mostrar u ocultar eventos históricos",
+    "clearAll": "Borrar todos los filtros",
+    "removeFilter": "Eliminar filtro {{name}}",
+    "addFilter": "Añadir filtro {{name}}"
+  },
+  "timeline": {
+    "zoomIn": "Acercar",
+    "zoomOut": "Alejar",
+    "resetView": "Restablecer vista"
+  },
+  "help": {
+    "ariaLabel": "Ayuda",
+    "title": "Ayuda y atajos",
+    "closeAriaLabel": "Cerrar ayuda",
+    "keyboardShortcuts": "Atajos de teclado",
+    "shortcut": {
+      "toggleFilter": "Mostrar/ocultar el panel de filtros",
+      "resetView": "Restablecer la vista de la cronología",
+      "toggleHelp": "Mostrar/ocultar este panel de ayuda",
+      "closePanels": "Cerrar paneles abiertos",
+      "zoom": "Acercar / alejar en el cursor",
+      "pan": "Desplazar la cronología",
+      "comparison": "Añadir / eliminar de la comparación"
+    },
+    "navigation": "Navegación",
+    "nav": {
+      "item1": "Desplaza la rueda para acercar o alejar, centrado en la posición del cursor.",
+      "item2": "Haz clic y arrastra para navegar por los períodos de tiempo.",
+      "item3": "En pantallas táctiles, arrastra para desplazarte y pellizca para hacer zoom.",
+      "item4": "Haz clic en la barra de un compositor para abrir su panel de detalles.",
+      "item5": "Haz clic en un punto de composición en la cronología para abrir su ficha de detalles.",
+      "item6": "Usa los controles <strong>+</strong> / <strong>−</strong> / <strong>↺</strong> en la esquina superior derecha.",
+      "item7": "El indicador de rango de años en la parte superior muestra tu vista actual."
+    },
+    "filtersTitle": "Filtros",
+    "filter": {
+      "item1": "Abre con <kbd>F</kbd> o el botón <strong>⚙ Filtros</strong>.",
+      "item2": "Filtra por <strong>era musical</strong> — Renacimiento, Barroco, Clásico, Romántico y Moderno.",
+      "item3": "Filtra por <strong>nacionalidad</strong> — muestra solo compositores de los países seleccionados.",
+      "item4": "Filtra por <strong>género</strong> — muestra solo compositores que escribieron en al menos un género seleccionado.",
+      "item5": "Busca compositores por nombre o etiqueta.",
+      "item6": "Activa o desactiva los marcadores de eventos históricos.",
+      "item7": "El contador de filtros activos muestra cuántos filtros están activados."
+    },
+    "compositionDetail": "Detalles de la composición",
+    "comp": {
+      "item1": "Acerca suficiente para revelar los puntos de composición en cada barra de compositor, luego haz clic en cualquier punto para abrir su ficha de detalles.",
+      "item2": "También puedes hacer clic en el título de una obra en el panel de detalles del compositor para abrir la misma ficha.",
+      "item3": "La ficha muestra el título, compositor, año, género, instrumentación, descripción y un enlace de Wikipedia si está disponible.",
+      "item4": "Haz clic en el nombre del compositor dentro de la ficha para saltar a su perfil.",
+      "item5": "Pulsa <kbd>Esc</kbd> o haz clic en <strong>×</strong> para cerrar."
+    },
+    "comparisonMode": "Modo comparación",
+    "compare": {
+      "item1": "<strong>Ctrl+clic</strong> (Cmd+clic en Mac) en las barras de compositores para añadirlos a la comparación.",
+      "item2": "Si hay un panel de detalles del compositor abierto, Ctrl+clic en otro compositor añade <em>ambos</em> a la comparación automáticamente.",
+      "item3": "Ctrl+clic en un compositor ya comparado para eliminarlo.",
+      "item4": "Cuando se seleccionan 2 o más, los compositores no comparados se atenúan de inmediato y se contraen tras unos segundos.",
+      "item5": "Al contraerse, la cronología aplica zoom automáticamente para encuadrar los períodos de vida combinados de los compositores comparados.",
+      "item6": "Pasa el cursor sobre las barras contraídas para expandirlas e identificarlas.",
+      "item7": "Borrar la comparación restaura la vista original de la cronología.",
+      "item8": "Se pueden comparar hasta 5 compositores simultáneamente.",
+      "item9": "También puedes usar el botón <strong>+ Comparar</strong> en el panel de detalles del compositor.",
+      "item10": "Gestiona o borra las comparaciones usando la barra de comparación en el encabezado."
+    },
+    "footer": "Réquiem de Todo — Música clásica 1400–1970"
+  },
+  "termExplorer": {
+    "title": "Términos y formas musicales",
+    "subtitle": "Explora términos y formas musicales",
+    "searchPlaceholder": "Buscar términos…",
+    "backToTimeline": "← Cronología",
+    "allCategories": "Todos",
+    "formsAndStructures": "Formas y estructuras",
+    "genres": "Géneros",
+    "techniques": "Técnicas",
+    "vocalAndChoral": "Vocal y coral",
+    "danceAndCharacter": "Danza y carácter",
+    "soloAndChamber": "Solo y música de cámara",
+    "exampleWorks": "Obras de ejemplo",
+    "readMore": "Leer más →",
+    "noResults": "Ningún término coincide con tu búsqueda."
+  },
+  "orchestraExplorer": {
+    "title": "Explorador de orquesta",
+    "subtitle": "Topografía orquestal interactiva",
+    "backToTimeline": "← Cronología",
+    "clickPrompt": "Haz clic en una sección para explorar sus instrumentos",
+    "conductor": "Director",
+    "strings": "Cuerda",
+    "woodwinds": "Viento madera",
+    "brass": "Viento metal",
+    "percussion": "Percusión",
+    "keyboards": "Teclados",
+    "voice": "Voz",
+    "stringsDesc": "La familia de cuerda constituye la base de la orquesta, produciendo sonido a través de cuerdas vibrantes. Sentada más cerca del director, aporta el núcleo cálido y rico del sonido orquestal.",
+    "woodwindsDesc": "Los instrumentos de viento madera producen sonido dividiendo el aire sobre un borde o a través de cañas vibrantes. Añaden color, agilidad y carácter a la paleta orquestal.",
+    "brassDesc": "La familia de viento metal crea sonido mediante los labios que vibran en una boquilla metálica. Capaces de una potencia tremenda y un timbre brillante, protagonizan los momentos más heroicos y triunfantes de la orquesta.",
+    "percussionDesc": "Los instrumentos de percusión producen sonido cuando se golpean, agitan o rascan. Situados en la parte posterior de la orquesta, aportan impulso rítmico, acentos dramáticos y efectos de color.",
+    "keyboardsDesc": "Los instrumentos de teclado añaden texturas únicas — desde el brillante sonido percusivo del piano hasta la grandiosidad sostenida del órgano y el tintineante fulgor de la celesta.",
+    "voiceDesc": "La voz humana es el instrumento más antiguo y expresivo. Solistas vocales y coros se unen al conjunto para óperas, oratorios, misas y obras sinfónicas.",
+    "range": "Registro",
+    "role": "Función",
+    "description": "Descripción",
+    "eraProminence": "Prominencia por era",
+    "featuredIn": "Presente en",
+    "readMore": "Leer más →",
+    "instruments": "{{count}} instrumentos",
+    "closeDetail": "Cerrar"
+  },
+  "walkthrough": {
+    "progress": "{{current}} de {{total}}",
+    "next": "Siguiente",
+    "prev": "Anterior",
+    "done": "Hecho",
+    "subtlePrompt": "Hacer un recorrido",
+    "welcome": {
+      "title": "Bienvenido a Réquiem de Todo",
+      "description": "Descubre 500 años de música clásica a través de una cronología interactiva. ¿Te gustaría un breve recorrido guiado?",
+      "startTour": "Iniciar recorrido",
+      "maybeLater": "Quizás más tarde",
+      "dontAsk": "No preguntar de nuevo"
+    },
+    "whatsNew": {
+      "title": "Novedades",
+      "description": "Se han añadido nuevas funciones desde tu última visita. ¿Te gustaría ver qué ha cambiado?",
+      "seeWhatsNew": "Ver las novedades",
+      "fullTour": "Recorrido completo",
+      "maybeLater": "Quizás más tarde",
+      "dontAsk": "No preguntar de nuevo"
+    },
+    "helpPanel": {
+      "takeTour": "Hacer un recorrido"
+    },
+    "steps": {
+      "welcome": {
+        "title": "Bienvenido",
+        "description": "Réquiem de Todo es una cronología interactiva que abarca 1400–1970, con 51 compositores, 196 composiciones y 47 eventos históricos distribuidos en seis eras musicales."
+      },
+      "timeline": {
+        "title": "La cronología",
+        "description": "Esta es la cronología principal. Desplaza la rueda para acercar o alejar, y arrastra para navegar por los siglos. Los períodos de vida de los compositores aparecen como barras de colores."
+      },
+      "timeRuler": {
+        "title": "Regla de tiempo",
+        "description": "Las marcas de años y las etiquetas de eras discurren por la parte superior. El rango de la vista actual siempre es visible."
+      },
+      "eras": {
+        "title": "Eras musicales",
+        "description": "Las bandas de color representan las seis eras musicales — desde el dorado del Renacimiento hasta el verde del Moderno. Cada era tiene su propia paleta."
+      },
+      "composerBar": {
+        "title": "Barras de compositores",
+        "description": "Cada barra representa el período de vida de un compositor. Haz clic para ver su biografía y obras. Ctrl+clic para comparar varios compositores."
+      },
+      "composerPanel": {
+        "title": "Panel de perfil del compositor",
+        "description": "Haz clic en cualquier barra de compositor para abrir su panel de perfil. Aquí encontrarás su biografía, obras notables ordenadas por año, contemporáneos a los que puedes saltar, y acciones para enfocar la cronología en su período de vida o añadirlo a una comparación."
+      },
+      "composerLinks": {
+        "title": "Wikipedia y enlaces externos",
+        "description": "Cada perfil de compositor incluye un enlace a su artículo de Wikipedia. Las composiciones — visibles cuando acercas suficiente para ver los puntos en las barras de compositor — tienen sus propios enlaces de Wikipedia y, donde están disponibles, un botón de Spotify para escuchar directamente."
+      },
+      "compositionDetail": {
+        "title": "Ficha de detalles de composición",
+        "description": "Haz clic en un punto de composición para abrir su ficha de detalles. Muestra el año, género, instrumentación, tonalidad, número de catálogo y una descripción. Si está disponible, hay un enlace de Wikipedia y un botón de Spotify para escuchar una grabación."
+      },
+      "termsView": {
+        "title": "Glosario de términos musicales",
+        "description": "La vista Términos es un glosario con búsqueda de formas musicales, géneros y técnicas. Filtra por categoría, busca por nombre y haz clic en cualquier término para ver su definición completa, era de origen y obras de ejemplo con enlaces de Spotify."
+      },
+      "orchestraView": {
+        "title": "Explorador de orquesta",
+        "description": "El Explorador de orquesta muestra la orquesta desde arriba como un mapa interactivo. Haz clic en una sección — Cuerda, Viento madera, Viento metal, Percusión, Teclados o Voz — para explorar instrumentos individuales, su función, era histórica y composiciones destacadas."
+      },
+      "search": {
+        "title": "Búsqueda y filtros",
+        "description": "Busca compositores por nombre y usa los filtros para acotar por era, nacionalidad o género. Pulsa F para mostrar u ocultar el panel de filtros."
+      },
+      "views": {
+        "title": "Múltiples vistas",
+        "description": "Cambia entre la Cronología, el glosario de Términos musicales y el Explorador de orquesta interactivo."
+      },
+      "language": {
+        "title": "Idioma",
+        "description": "La aplicación está completamente disponible en inglés, francés, afrikaans y español. Todo el contenido — incluidas las biografías y descripciones — está traducido."
+      },
+      "help": {
+        "title": "Ayuda y atajos",
+        "description": "Pulsa ? en cualquier momento para abrir el panel de ayuda con atajos de teclado, consejos de navegación y guías de funciones."
+      },
+      "done": {
+        "title": "¡Todo listo!",
+        "description": "¡Empieza a explorar! Haz clic en cualquier barra de compositor para comenzar, o cambia a las vistas Términos u Orquesta para explorar vocabulario musical e instrumentos. Pulsa ? en cualquier momento para abrir el panel de ayuda."
+      }
+    }
+  }
+}

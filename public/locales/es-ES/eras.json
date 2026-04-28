@@ -1,0 +1,79 @@
+{
+  "renaissance": {
+    "name": "Renacimiento",
+    "description": "Un período de «renacimiento» de las artes y la cultura. La música se volvió cada vez más polifónica, con una creciente importancia de las formas profanas junto a la música sacra. La imprenta permitió una distribución más amplia de las partituras musicales.",
+    "characteristics": [
+      "Polifonía",
+      "Predominio de la música vocal",
+      "Formas sacras y profanas",
+      "Armonía modal",
+      "Tradiciones corales a cappella",
+      "Madrigales y motetes"
+    ]
+  },
+  "baroque": {
+    "name": "Barroco",
+    "description": "Una era de grandiosidad y ornamentación. El nacimiento de la ópera, el desarrollo de la tonalidad, la invención del concierto y la sonata. Los compositores comenzaron a escribir música instrumental más idiomática, y el bajo continuo se convirtió en el fundamento del conjunto.",
+    "characteristics": [
+      "Ornamentación y embellecimiento",
+      "Bajo continuo",
+      "Nacimiento de la ópera",
+      "Concerto grosso y concierto solista",
+      "Fuga y contrapunto",
+      "Dinámicas en terrazas",
+      "Establecimiento de la armonía tonal"
+    ]
+  },
+  "classical": {
+    "name": "Clásico",
+    "description": "La claridad, el equilibrio y la elegancia estructural definen esta era. La sinfonía, el cuarteto de cuerda y la sonata para piano se convirtieron en las formas dominantes. La música pasó de los palacios aristocráticos a las salas de concierto públicas.",
+    "characteristics": [
+      "Claridad y equilibrio",
+      "Forma sonata",
+      "La sinfonía como forma mayor",
+      "Desarrollo del cuarteto de cuerda",
+      "Textura homofónica",
+      "Contraste dinámico (crescendo/decrescendo)",
+      "Cultura del concierto público"
+    ]
+  },
+  "early-romantic": {
+    "name": "Romanticismo temprano",
+    "description": "La emoción, el individualismo y la expresión poética ocupan el primer plano. Los compositores ampliaron los límites armónicos y exploraron la música programática — contar historias a través del sonido. El piano se convirtió en el instrumento solista dominante.",
+    "characteristics": [
+      "Expresión emocional",
+      "Música programática",
+      "Lenguaje armónico ampliado",
+      "Intérpretes virtuosos",
+      "Canción de arte (Lied)",
+      "Formas breves (nocturno, estudio, balada)",
+      "El compositor como héroe romántico"
+    ]
+  },
+  "late-romantic": {
+    "name": "Romanticismo tardío",
+    "description": "Las fuerzas orquestales masivas, el cromatismo extremo y los movimientos nacionalistas caracterizan el Romanticismo tardío. Los compositores construyeron vastas estructuras sinfónicas y óperas dramáticas. El nacionalismo musical llevó las tradiciones folclóricas a la sala de conciertos.",
+    "characteristics": [
+      "Orquesta ampliada",
+      "Cromatismo extremo",
+      "Nacionalismo musical",
+      "Gesamtkunstwerk de Wagner",
+      "Poemas sinfónicos",
+      "Ópera verista",
+      "Expansión de los límites tonales"
+    ]
+  },
+  "modern": {
+    "name": "Moderno",
+    "description": "Una fragmentación de la tradición en múltiples movimientos: Impresionismo, Expresionismo, Neoclasicismo, Serialismo y más allá. Los compositores rechazaron o ampliaron radicalmente las convenciones románticas, experimentando con nuevas escalas, ritmos, timbres y formas.",
+    "characteristics": [
+      "Atonalidad y serialismo",
+      "Impresionismo",
+      "Neoclasicismo",
+      "Experimentación con el ritmo y el timbre",
+      "Técnica dodecafónica",
+      "Inicios de la música electrónica",
+      "Rechazo de las formas tradicionales"
+    ]
+  }
+}
