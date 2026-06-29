@@ -62,6 +62,10 @@ describe("useComposer", () => {
       expect(composerResult.current?.name).toBe("Fryderyk Chopin");
       expect(composerResult.current?.wikipediaSlug).toBe("Fryderyk_Chopin");
 
+      const { result: fallbackComposerResult } = renderHook(() => useComposer("henry-purcell"));
+      expect(fallbackComposerResult.current?.name).toBe("Henry Purcell");
+      expect(fallbackComposerResult.current?.wikipediaSlug).toBe("Henry_Purcell");
+
       const { result: compositionResult } = renderHook(() => useComposition("mozart-magic-flute"));
       expect(compositionResult.current?.title).toBe("Czarodziejski flet");
       expect(compositionResult.current?.wikipediaSlug).toBe("Czarodziejski_flet");

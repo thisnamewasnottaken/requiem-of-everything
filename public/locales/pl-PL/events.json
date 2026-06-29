@@ -1,20 +1,20 @@
 {
   "gutenberg-printing-press": {
-    "title": "Gutenberg's Printing Press",
-    "description": "Johannes Gutenberg invents movable type printing in Europe, revolutionizing the spread of knowledge and eventually making printed music widely accessible.",
-    "musicalSignificance": "Enabled the mass distribution of musical scores. Ottaviano Petrucci published the first collection of polyphonic music (Harmonice Musices Odhecaton) in 1501.",
-    "region": "Europe"
+    "title": "Prasa drukarska Gutenberga",
+    "description": "Johannes Gutenberg wynajduje w Europie druk z ruchomych czcionek, rewolucjonizując obieg wiedzy i ostatecznie czyniąc drukowaną muzykę szeroko dostępną.",
+    "musicalSignificance": "Umożliwiła masową dystrybucję zapisów nutowych. Ottaviano Petrucci opublikował w 1501 roku pierwszy zbiór muzyki polifonicznej (Harmonice Musices Odhecaton).",
+    "region": "Europa"
   },
   "fall-of-constantinople": {
-    "title": "Fall of Constantinople",
-    "description": "The Ottoman Empire conquers Constantinople, ending the Byzantine Empire. Greek scholars flee to Italy, catalyzing the Renaissance.",
-    "musicalSignificance": "The influx of Byzantine scholars and manuscripts into Italy contributed to the cultural ferment of the Renaissance, which profoundly shaped musical development.",
-    "region": "Mediterranean"
+    "title": "Upadek Konstantynopola",
+    "description": "Imperium Osmańskie zdobywa Konstantynopol, kończąc istnienie Cesarstwa Bizantyjskiego. Greccy uczeni uciekają do Italii, przyspieszając nadejście renesansu.",
+    "musicalSignificance": "Napływ bizantyjskich uczonych i rękopisów do Italii przyczynił się do renesansowego fermentu kulturowego, który głęboko ukształtował rozwój muzyki.",
+    "region": "Region śródziemnomorski"
   },
   "columbus-americas": {
-    "title": "Columbus reaches the Americas",
-    "description": "Christopher Columbus's voyage begins the European colonization of the Americas, transforming global trade, culture, and power structures.",
-    "region": "Americas"
+    "title": "Kolumb dociera do obu Ameryk",
+    "description": "Wyprawa Krzysztofa Kolumba zapoczątkowuje europejską kolonizację obu Ameryk, przekształcając światowy handel, kulturę i układ sił.",
+    "region": "Ameryki"
   },
   "protestant-reformation": {
     "title": "Protestant Reformation begins",

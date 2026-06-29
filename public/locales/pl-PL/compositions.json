@@ -1,9 +1,9 @@
 {
   "palestrina-missa-papae-marcelli": {
     "title": "Missa Papae Marcelli",
-    "description": "The most famous mass of the Renaissance. Legend holds that Palestrina composed it to demonstrate that polyphonic music could be both complex and intelligible, saving polyphony from being banned by the Council of Trent.",
-    "instrumentation": "SATB choir (6 voices)",
-    "significance": "Became the model for Counter-Reformation sacred music and the foundation of species counterpoint teaching."
+    "description": "Najsłynniejsza msza renesansu. Według legendy Palestrina skomponował ją, aby dowieść, że muzyka polifoniczna może być zarazem złożona i zrozumiała, ratując polifonię przed zakazem na Soborze Trydenckim.",
+    "instrumentation": "Chór SATB (6 głosów)",
+    "significance": "Stała się wzorem kontrreformacyjnej muzyki sakralnej i podstawą nauczania kontrapunktu gatunkowego."
   },
   "victoria-o-magnum-mysterium": {
     "title": "O Magnum Mysterium",
