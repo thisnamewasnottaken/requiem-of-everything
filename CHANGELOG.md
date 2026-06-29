@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- **Polish (pl-PL) locale** — added `pl-PL` to `supportedLngs`, the header and walkthrough language switchers, and the test i18n setup. Added a full Polish `translation.json`, Polish era translations, and seeded Polish locale namespace files for composers, compositions, events, terms, and instruments.
+- **Polish (pl-PL) locale** — added `pl-PL` to `supportedLngs`, the header and walkthrough language switchers, and the test i18n setup. Added a full Polish `translation.json`, Polish era translations, and targeted Polish namespace overrides for composer/composition/event copy and Wikipedia article titles.
 - **Spanish (es-ES) locale** — full translations for all 7 namespaces: `translation` (UI chrome), `composers` (51 composers), `compositions` (196 compositions), `events` (47 historical events), `eras` (6 eras), `terms` (empty, no terms data yet), and `instruments` (empty, no instruments data yet). App title translates as "Réquiem de Todo". `es-ES` added to `supportedLngs` in `src/i18n/index.ts`. Spec updated at `docs/specs/features/i18n.md`.
 - **Credits page** — a new "Credits" tab in the main navigation listing all contributors who have made commits to the repository, with name and role labels. Fully localised in en-GB, fr-FR, and af-ZA. Spec at `docs/specs/components/CreditsPage.md`.
 - **Language switcher in WalkthroughOverlay** — a `<select>` element is now shown above the action buttons in both welcome and whats-new modal modes, allowing French and Afrikaans users to change language before starting the guided tour. Uses the existing `app.languageSelect` i18n key.
