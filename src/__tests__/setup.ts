@@ -9,6 +9,11 @@ import erasContent from "../../public/locales/en-GB/eras.json";
 import frTranslations from "../../public/locales/fr-FR/translation.json";
 import afTranslations from "../../public/locales/af-ZA/translation.json";
 import esTranslations from "../../public/locales/es-ES/translation.json";
+import plTranslations from "../../public/locales/pl-PL/translation.json";
+import plComposersContent from "../../public/locales/pl-PL/composers.json";
+import plCompositionsContent from "../../public/locales/pl-PL/compositions.json";
+import plEventsContent from "../../public/locales/pl-PL/events.json";
+import plErasContent from "../../public/locales/pl-PL/eras.json";
 
 i18n.use(initReactI18next).init({
   lng: "en-GB",
@@ -31,6 +36,13 @@ i18n.use(initReactI18next).init({
     },
     "es-ES": {
       translation: esTranslations,
+    },
+    "pl-PL": {
+      translation: plTranslations,
+      composers: plComposersContent,
+      compositions: plCompositionsContent,
+      events: plEventsContent,
+      eras: plErasContent,
     },
   },
   interpolation: { escapeValue: false },

@@ -1,0 +1,272 @@
+{
+  "app": {
+    "title": "Requiem wszystkiego",
+    "subtitle": "Interaktywna oś czasu muzyki klasycznej",
+    "filters": "Filtry",
+    "helpAriaLabel": "Pomoc",
+    "helpTitle": "Pomoc (Shift+?)",
+    "languageSelect": "Wybierz język",
+    "viewTimeline": "Oś czasu",
+    "viewTerms": "Terminy",
+    "viewOrchestra": "Orkiestra",
+    "viewCredits": "Twórcy"
+  },
+  "common": {
+    "close": "Zamknij",
+    "present": "obecnie",
+    "readOnWikipedia": "Czytaj w Wikipedii"
+  },
+  "comparison": {
+    "comparing": "Porównanie",
+    "selected": "Wybrano",
+    "remove": "Usuń {{name}}",
+    "ctrlClickHint": "Ctrl+kliknij więcej, aby porównać",
+    "clearAllTitle": "Wyczyść wszystkie porównania",
+    "clear": "Wyczyść"
+  },
+  "composerBar": {
+    "ariaLabel": "{{name}}, {{birth}}–{{death}}"
+  },
+  "composer": {
+    "focusTimeline": "Skup oś czasu",
+    "comparing": "✓ W porównaniu",
+    "compare": "+ Porównaj",
+    "biography": "Biografia",
+    "notableWorks": "Najważniejsze utwory",
+    "contemporaries": "Współcześni"
+  },
+  "composition": {
+    "ariaLabel": "Szczegóły utworu",
+    "closeAriaLabel": "Zamknij szczegóły utworu",
+    "openProfile": "Otwórz profil {{name}}",
+    "instrumentation": "Obsada",
+    "key": "Tonacja",
+    "catalogue": "Katalog",
+    "listenOnSpotify": "Słuchaj w Spotify",
+    "listenOnSpotifyAria": "Słuchaj {{title}} w Spotify"
+  },
+  "compositionMarker": {
+    "ariaLabel": "Szczegóły utworu {{title}} autorstwa {{composer}}, {{year}}"
+  },
+  "eventMarker": {
+    "ariaLabel": "Wydarzenie historyczne: {{title}}, {{year}}"
+  },
+  "filters": {
+    "ariaLabel": "Filtry osi czasu",
+    "title": "Filtry",
+    "closeAriaLabel": "Zamknij filtry",
+    "searchPlaceholder": "Szukaj kompozytorów…",
+    "searchAriaLabel": "Szukaj kompozytorów i utworów",
+    "clearSearchAriaLabel": "Wyczyść wyszukiwanie",
+    "musicalEra": "Epoka muzyczna",
+    "filterByEra": "Filtruj według epoki",
+    "nationality": "Narodowość",
+    "filterByNationality": "Filtruj według narodowości",
+    "genre": "Gatunek",
+    "filterByGenre": "Filtruj według gatunku",
+    "historicalEvents": "Wydarzenia historyczne",
+    "toggleEvents": "Przełącz wydarzenia historyczne",
+    "clearAll": "Wyczyść wszystkie filtry",
+    "removeFilter": "Usuń filtr {{name}}",
+    "addFilter": "Dodaj filtr {{name}}"
+  },
+  "timeline": {
+    "zoomIn": "Powiększ",
+    "zoomOut": "Pomniejsz",
+    "resetView": "Resetuj widok"
+  },
+  "help": {
+    "ariaLabel": "Pomoc",
+    "title": "Pomoc i skróty",
+    "closeAriaLabel": "Zamknij pomoc",
+    "keyboardShortcuts": "Skróty klawiaturowe",
+    "shortcut": {
+      "toggleFilter": "Przełącz panel filtrów",
+      "resetView": "Resetuj widok osi czasu",
+      "toggleHelp": "Przełącz ten panel pomocy",
+      "closePanels": "Zamknij otwarte panele",
+      "zoom": "Powiększ / pomniejsz przy kursorze",
+      "pan": "Przesuwaj oś czasu",
+      "comparison": "Dodaj / usuń z porównania"
+    },
+    "navigation": "Nawigacja",
+    "nav": {
+      "item1": "Przewijaj, aby przybliżać i oddalać, względem położenia kursora.",
+      "item2": "Kliknij i przeciągnij, aby przesuwać się między epokami.",
+      "item3": "Na ekranach dotykowych przeciągaj, aby przesuwać, i szczypnij, aby przybliżać.",
+      "item4": "Kliknij pasek kompozytora, aby otworzyć panel szczegółów.",
+      "item5": "Kliknij punkt utworu na osi czasu, aby otworzyć jego kartę szczegółów.",
+      "item6": "Użyj przycisków <strong>+</strong> / <strong>−</strong> / <strong>↺</strong> w prawym górnym rogu.",
+      "item7": "Wskaźnik zakresu lat u góry pokazuje bieżący widok."
+    },
+    "filtersTitle": "Filtry",
+    "filter": {
+      "item1": "Otwórz klawiszem <kbd>F</kbd> lub przyciskiem <strong>⚙ Filtry</strong>.",
+      "item2": "Filtruj według <strong>epoki muzycznej</strong> — renesans, barok, klasycyzm, romantyzm i nowoczesność.",
+      "item3": "Filtruj według <strong>narodowości</strong> — pokazuje tylko kompozytorów z wybranych krajów.",
+      "item4": "Filtruj według <strong>gatunku</strong> — pokazuje tylko kompozytorów, którzy pisali w co najmniej jednym wybranym gatunku.",
+      "item5": "Szukaj kompozytorów według nazwiska lub tagu.",
+      "item6": "Włączaj i wyłączaj znaczniki wydarzeń historycznych.",
+      "item7": "Znacznik liczby aktywnych filtrów pokazuje, ile filtrów jest włączonych."
+    },
+    "compositionDetail": "Szczegóły utworu",
+    "comp": {
+      "item1": "Przybliż widok na tyle, aby odsłonić punkty utworów na paskach kompozytorów, a następnie kliknij dowolny punkt, aby otworzyć kartę szczegółów.",
+      "item2": "Możesz też kliknąć tytuł utworu w panelu szczegółów kompozytora, aby otworzyć tę samą kartę.",
+      "item3": "Karta pokazuje tytuł, kompozytora, rok, gatunek, obsadę, opis i — jeśli jest dostępny — link do Wikipedii.",
+      "item4": "Kliknij nazwisko kompozytora na karcie, aby przejść do jego profilu.",
+      "item5": "Naciśnij <kbd>Esc</kbd> lub kliknij <strong>×</strong>, aby zamknąć."
+    },
+    "comparisonMode": "Tryb porównania",
+    "compare": {
+      "item1": "<strong>Ctrl+kliknij</strong> (Cmd+klik na Macu) paski kompozytorów, aby dodać ich do porównania.",
+      "item2": "Jeśli panel szczegółów kompozytora jest otwarty, Ctrl+kliknięcie innego kompozytora automatycznie doda <em>obu</em> do porównania.",
+      "item3": "Ctrl+kliknij porównywanego kompozytora ponownie, aby go usunąć.",
+      "item4": "Gdy wybranych jest 2 lub więcej, nieporównywani kompozytorzy natychmiast się przyciemniają, a po chwili zwijają.",
+      "item5": "Po zwinięciu oś czasu automatycznie dopasowuje widok do łącznych długości życia porównywanych kompozytorów.",
+      "item6": "Najedź na zwinięte paski, aby je rozwinąć i zidentyfikować.",
+      "item7": "Wyczyszczenie porównania przywraca poprzedni widok osi czasu.",
+      "item8": "Można porównywać jednocześnie maksymalnie 5 kompozytorów.",
+      "item9": "Możesz też użyć przycisku <strong>+ Porównaj</strong> w panelu szczegółów kompozytora.",
+      "item10": "Zarządzaj porównaniami lub je wyczyść, używając paska porównań w nagłówku."
+    },
+    "footer": "Requiem wszystkiego — muzyka klasyczna 1400–1970"
+  },
+  "termExplorer": {
+    "title": "Terminy i formy muzyczne",
+    "subtitle": "Poznaj terminy i formy muzyczne",
+    "searchPlaceholder": "Szukaj terminów…",
+    "backToTimeline": "← Oś czasu",
+    "allCategories": "Wszystkie",
+    "formsAndStructures": "Formy i struktury",
+    "genres": "Gatunki",
+    "techniques": "Techniki",
+    "vocalAndChoral": "Wokalne i chóralne",
+    "danceAndCharacter": "Taneczne i charakterystyczne",
+    "soloAndChamber": "Solowe i kameralne",
+    "exampleWorks": "Przykładowe utwory",
+    "readMore": "Czytaj więcej →",
+    "noResults": "Żadne terminy nie pasują do wyszukiwania."
+  },
+  "orchestraExplorer": {
+    "title": "Przewodnik po orkiestrze",
+    "subtitle": "Interaktywna topografia orkiestry",
+    "backToTimeline": "← Oś czasu",
+    "clickPrompt": "Kliknij sekcję, aby poznać jej instrumenty",
+    "conductor": "Dyrygent",
+    "strings": "Smyczki",
+    "woodwinds": "Dęte drewniane",
+    "brass": "Dęte blaszane",
+    "percussion": "Perkusja",
+    "keyboards": "Instrumenty klawiszowe",
+    "voice": "Głos",
+    "stringsDesc": "Rodzina smyczkowa stanowi fundament orkiestry, wydobywając dźwięk z drgających strun. Siedząc najbliżej dyrygenta, tworzy ciepły i bogaty rdzeń brzmienia orkiestry.",
+    "woodwindsDesc": "Instrumenty dęte drewniane wydobywają dźwięk przez rozszczepianie strumienia powietrza na krawędzi lub przez drgające stroiki. Dodają orkiestrowej palecie barwy, zwinności i charakteru.",
+    "brassDesc": "Rodzina dęta blaszana tworzy dźwięk dzięki drganiu warg przy metalowym ustniku. Zdolna do ogromnej siły i olśniewającego brzmienia, daje orkiestrze jej najbardziej heroiczne i triumfalne momenty.",
+    "percussionDesc": "Instrumenty perkusyjne wydają dźwięk, gdy się w nie uderza, potrząsa nimi lub po nich skrobie. Ustawione z tyłu orkiestry zapewniają rytmiczny napęd, dramatyczne akcenty i barwne efekty.",
+    "keyboardsDesc": "Instrumenty klawiszowe dodają wyjątkowych faktur — od perkusyjnego blasku fortepianu po majestatyczną ciągłość organów i dzwonkowy blask czelesty.",
+    "voiceDesc": "Ludzki głos jest najstarszym i najbardziej ekspresyjnym instrumentem. Soliści wokalni i chóry dołączają do zespołu w operach, oratoriach, mszach i utworach symfonicznych.",
+    "range": "Zakres",
+    "role": "Rola",
+    "description": "Opis",
+    "eraProminence": "Znaczenie w epoce",
+    "featuredIn": "Występuje w",
+    "readMore": "Czytaj więcej →",
+    "instruments": "{{count}} instrumentów",
+    "closeDetail": "Zamknij"
+  },
+  "walkthrough": {
+    "progress": "{{current}} z {{total}}",
+    "next": "Dalej",
+    "prev": "Wstecz",
+    "done": "Gotowe",
+    "subtlePrompt": "Przejdź wycieczkę",
+    "welcome": {
+      "title": "Witamy w Requiem wszystkiego",
+      "description": "Odkryj 500 lat muzyki klasycznej dzięki interaktywnej osi czasu. Czy chcesz krótką oprowadzaną wycieczkę?",
+      "startTour": "Rozpocznij wycieczkę",
+      "maybeLater": "Może później",
+      "dontAsk": "Nie pytaj ponownie"
+    },
+    "whatsNew": {
+      "title": "Co nowego",
+      "description": "Od Twojej ostatniej wizyty dodano nowe funkcje. Chcesz zobaczyć, co się zmieniło?",
+      "seeWhatsNew": "Zobacz nowości",
+      "fullTour": "Pełna wycieczka",
+      "maybeLater": "Może później",
+      "dontAsk": "Nie pytaj ponownie"
+    },
+    "helpPanel": {
+      "takeTour": "Przejdź wycieczkę"
+    },
+    "steps": {
+      "welcome": {
+        "title": "Witamy",
+        "description": "Requiem wszystkiego to interaktywna oś czasu obejmująca lata 1400–1970, prezentująca 51 kompozytorów, 196 utworów i 47 wydarzeń historycznych w sześciu epokach muzycznych."
+      },
+      "timeline": {
+        "title": "Oś czasu",
+        "description": "To główna oś czasu. Przewijaj, aby przybliżać i oddalać, oraz przeciągaj, aby przemieszczać się przez stulecia. Życiorysy kompozytorów są pokazane jako kolorowe paski."
+      },
+      "timeRuler": {
+        "title": "Linijka czasu",
+        "description": "Oznaczenia lat i etykiety epok biegną wzdłuż górnej krawędzi. Aktualny zakres widoku jest zawsze widoczny."
+      },
+      "eras": {
+        "title": "Epoki muzyczne",
+        "description": "Kolorowe pasy przedstawiają sześć epok muzycznych — od renesansowego złota po nowoczesną zieleń. Każda epoka ma własną paletę."
+      },
+      "composerBar": {
+        "title": "Paski kompozytorów",
+        "description": "Każdy pasek przedstawia długość życia kompozytora. Kliknij, aby zobaczyć jego biografię i utwory. Ctrl+kliknij, aby porównać wielu kompozytorów."
+      },
+      "composerPanel": {
+        "title": "Panel profilu kompozytora",
+        "description": "Kliknij dowolny pasek kompozytora, aby otworzyć jego panel profilu. Znajdziesz tam biografię, najważniejsze utwory ułożone chronologicznie, współczesnych twórców, do których możesz przeskoczyć, oraz działania skupiające oś czasu na jego życiu lub dodające go do porównania."
+      },
+      "composerLinks": {
+        "title": "Wikipedia i linki zewnętrzne",
+        "description": "Każdy profil kompozytora zawiera link do odpowiedniego artykułu w Wikipedii. Utwory — widoczne po odpowiednim przybliżeniu punktów na paskach kompozytorów — mają własne linki do Wikipedii i, jeśli są dostępne, przycisk Spotify do bezpośredniego odsłuchu."
+      },
+      "compositionDetail": {
+        "title": "Karta szczegółów utworu",
+        "description": "Kliknij punkt utworu, aby otworzyć kartę szczegółów. Pokazuje rok, gatunek, obsadę, tonację, numer katalogowy i opis. Jeśli jest dostępny, znajdziesz tam link do Wikipedii i przycisk Spotify, by posłuchać nagrania."
+      },
+      "termsView": {
+        "title": "Słownik terminów muzycznych",
+        "description": "Widok Terminów to przeszukiwalny słownik form, gatunków i technik muzycznych. Filtruj według kategorii, szukaj po nazwie i kliknij dowolny termin, aby zobaczyć pełną definicję, epokę pochodzenia oraz przykładowe utwory z linkami do Spotify."
+      },
+      "orchestraView": {
+        "title": "Przewodnik po orkiestrze",
+        "description": "Przewodnik po orkiestrze pokazuje orkiestrę z góry jako interaktywną mapę. Kliknij sekcję — smyczki, dęte drewniane, dęte blaszane, perkusję, instrumenty klawiszowe lub głos — aby poznać poszczególne instrumenty, ich rolę, epokę i wyróżnione kompozycje."
+      },
+      "search": {
+        "title": "Wyszukiwanie i filtry",
+        "description": "Wyszukuj kompozytorów po nazwie i używaj filtrów, aby zawęzić widok według epoki, narodowości lub gatunku. Naciśnij F, aby przełączyć panel filtrów."
+      },
+      "views": {
+        "title": "Wiele widoków",
+        "description": "Przełączaj się między osią czasu, słownikiem terminów muzycznych i interaktywnym przewodnikiem po orkiestrze."
+      },
+      "language": {
+        "title": "Język",
+        "description": "Aplikacja jest dostępna po angielsku, francusku, afrikaans, hiszpańsku i po polsku. Etykiety interfejsu, przetłumaczone materiały referencyjne i linki do Wikipedii podążają za wybranym językiem, gdy są dostępne."
+      },
+      "help": {
+        "title": "Pomoc i skróty",
+        "description": "Naciśnij ? w dowolnym momencie, aby otworzyć panel pomocy ze skrótami klawiaturowymi, wskazówkami nawigacji i przewodnikami po funkcjach."
+      },
+      "done": {
+        "title": "Wszystko gotowe!",
+        "description": "Zacznij odkrywać! Kliknij dowolny pasek kompozytora, aby rozpocząć, albo przełącz się do widoku Terminów lub Orkiestry, aby poznawać słownictwo muzyczne i instrumenty. Naciśnij ? w dowolnym momencie, aby otworzyć panel pomocy."
+      }
+    }
+  },
+  "credits": {
+    "title": "Twórcy",
+    "subtitle": "Osoby, które stworzyły Requiem wszystkiego",
+    "roleCreator": "Twórca",
+    "roleAI": "Wkład AI",
+    "footer": "Zbudowano przy użyciu narzędzi open source, w tym React, D3, Vite i i18next."
+  }
+}

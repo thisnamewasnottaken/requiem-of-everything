@@ -31,6 +31,7 @@ export default function WalkthroughOverlay({
         <option value="fr-FR">Français</option>
         <option value="af-ZA">Afrikaans</option>
         <option value="es-ES">Español</option>
+        <option value="pl-PL">Polski</option>
       </select>
     </div>
   );
