@@ -35,6 +35,9 @@ function useTranslatedComposers(): Composer[] {
         nationality: t(`${c.id}.nationality`, {
           defaultValue: c.nationality,
         }),
+        wikipediaSlug: t(`${c.id}.wikipediaSlug`, {
+          defaultValue: c.wikipediaSlug,
+        }),
       })),
     [t],
   );
@@ -56,6 +59,9 @@ function useTranslatedCompositions(): Composition[] {
         instrumentation: t(`${c.id}.instrumentation`, {
           defaultValue: c.instrumentation,
         }),
+        wikipediaSlug: t(`${c.id}.wikipediaSlug`, {
+          defaultValue: c.wikipediaSlug ?? "",
+        }) || undefined,
       })),
     [t],
   );
@@ -77,6 +83,9 @@ function useTranslatedEvents(): HistoricalEvent[] {
         region: t(`${e.id}.region`, {
           defaultValue: e.region ?? "",
         }) || undefined,
+        wikipediaSlug: t(`${e.id}.wikipediaSlug`, {
+          defaultValue: e.wikipediaSlug,
+        }),
       })),
     [t],
   );
@@ -245,6 +254,9 @@ function useTranslatedTerms(): MusicalTerm[] {
         term: t(`${term.id}.term`, { defaultValue: term.term }),
         shortDefinition: t(`${term.id}.shortDefinition`, { defaultValue: term.shortDefinition }),
         longDefinition: t(`${term.id}.longDefinition`, { defaultValue: term.longDefinition }),
+        wikipediaSlug: t(`${term.id}.wikipediaSlug`, {
+          defaultValue: term.wikipediaSlug,
+        }),
       })),
     [t],
   );
@@ -280,6 +292,9 @@ function useTranslatedInstruments(): Instrument[] {
         name: t(`${inst.id}.name`, { defaultValue: inst.name }),
         role: t(`${inst.id}.role`, { defaultValue: inst.role }),
         description: t(`${inst.id}.description`, { defaultValue: inst.description }),
+        wikipediaSlug: t(`${inst.id}.wikipediaSlug`, {
+          defaultValue: inst.wikipediaSlug,
+        }),
       })),
     [t],
   );

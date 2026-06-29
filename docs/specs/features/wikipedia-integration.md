@@ -4,6 +4,8 @@
 
 The app fetches content from the Wikipedia REST API to enrich composer biographies and provide historical event context. Wikipedia data is supplementary — the app works fully without it, but it adds depth.
 
+Locale namespace files may override an entity's `wikipediaSlug` whenever the article title on the target Wikipedia differs from the canonical English slug. This keeps direct links and REST summary requests pointed at a working page for languages such as Polish, where titles like `Fryderyk_Chopin` do not match the English article slug.
+
 ## Image Sourcing Policy
 
 **Composer portrait thumbnails are always fetched from English Wikipedia (`en.wikipedia.org`)**, regardless of the user's language setting. This ensures maximum image availability because English Wikipedia has the most complete collection of composer images. Non-English Wikipedia editions may not have an article (or may lack a thumbnail) for a given composer.
@@ -22,6 +24,7 @@ GET https://{lang}.wikipedia.org/api/rest_v1/page/summary/{slug}
 
 Returns: title, extract (plain text), description, article URL.
 Used for: biography text in tooltips, composer card headers, event descriptions.
+Slug source: translated `wikipediaSlug` override for the active locale when present; otherwise the canonical English slug from the base data.
 
 ### Summary — thumbnail (always English)
 

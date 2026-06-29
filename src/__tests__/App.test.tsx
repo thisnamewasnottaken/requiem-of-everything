@@ -96,6 +96,16 @@ describe("App — document title and html lang i18n updates", () => {
     );
   });
 
+  it("updates document.title when language changes to pl-PL", async () => {
+    render(<App />);
+    await act(async () => {
+      await i18n.changeLanguage("pl-PL");
+    });
+    expect(document.title).toBe(
+      "Requiem wszystkiego — Interaktywna oś czasu muzyki klasycznej",
+    );
+  });
+
   it("updates document.documentElement.lang when language changes to fr-FR", async () => {
     render(<App />);
     await act(async () => {
@@ -110,6 +120,14 @@ describe("App — document title and html lang i18n updates", () => {
       await i18n.changeLanguage("af-ZA");
     });
     expect(document.documentElement.lang).toBe("af-ZA");
+  });
+
+  it("updates document.documentElement.lang when language changes to pl-PL", async () => {
+    render(<App />);
+    await act(async () => {
+      await i18n.changeLanguage("pl-PL");
+    });
+    expect(document.documentElement.lang).toBe("pl-PL");
   });
 
   it("renders an aria-live region for screen reader language announcements", () => {

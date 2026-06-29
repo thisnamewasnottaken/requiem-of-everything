@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en-GB',
-    supportedLngs: ['en-GB', 'fr-FR', 'af-ZA', 'es-ES'],
+    supportedLngs: ['en-GB', 'fr-FR', 'af-ZA', 'es-ES', 'pl-PL'],
     ns: ['translation', 'composers', 'compositions', 'events', 'eras', 'terms', 'instruments'],
     defaultNS: 'translation',
     interpolation: {

@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **Polish (pl-PL) locale** — added `pl-PL` to `supportedLngs`, the header and walkthrough language switchers, and the test i18n setup. Added a full Polish `translation.json`, Polish era translations, and targeted Polish namespace overrides for composer/composition/event copy and Wikipedia article titles.
 - **Spanish (es-ES) locale** — full translations for all 7 namespaces: `translation` (UI chrome), `composers` (51 composers), `compositions` (196 compositions), `events` (47 historical events), `eras` (6 eras), `terms` (empty, no terms data yet), and `instruments` (empty, no instruments data yet). App title translates as "Réquiem de Todo". `es-ES` added to `supportedLngs` in `src/i18n/index.ts`. Spec updated at `docs/specs/features/i18n.md`.
 - **Credits page** — a new "Credits" tab in the main navigation listing all contributors who have made commits to the repository, with name and role labels. Fully localised in en-GB, fr-FR, and af-ZA. Spec at `docs/specs/components/CreditsPage.md`.
 - **Language switcher in WalkthroughOverlay** — a `<select>` element is now shown above the action buttons in both welcome and whats-new modal modes, allowing French and Afrikaans users to change language before starting the guided tour. Uses the existing `app.languageSelect` i18n key.
@@ -23,6 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- **Locale-specific Wikipedia article slugs** — `useData` now localises `wikipediaSlug` fields for composers, compositions, events, terms, and instruments. This lets Polish locale files point links and REST lookups at working article titles such as `Fryderyk_Chopin` and `Rewolucja_francuska` instead of assuming direct subdomain swaps of English slugs will resolve.
 - **Timeline event backdrop noise** — historical events no longer render full-height translucent colour bands. Vertical backdrop bands are now reserved for musical eras only, while historical events remain visible as top-band markers with dashed lines and tooltips.
 - **App title and description now update when switching language** — `app.title` and `app.subtitle` translations in `fr-FR` ("Requiem de Tout" / "Une chronologie interactive de la musique classique") and `af-ZA` ("Requiem van Alles") were incorrect (still showing English). Fixed the translation values. `document.title` now updates on every language change via a `useEffect` in `App.tsx`. The `<html lang>` attribute also updates dynamically. A visually-hidden `aria-live` region announces the new app title to screen readers on language switch.
 

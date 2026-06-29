@@ -82,7 +82,7 @@ The goal is _discovery_: a user should be able to land on any point in time and 
 | Styling                 | CSS Modules + CSS Custom Properties             | Scoped styles, theming via variables                    |
 | Animations              | Motion (Framer Motion)                          | Spring physics, staggered entry, AnimatePresence        |
 | Data Layer              | Static JSON + fetch API                         | Start static, evolve to API                             |
-| Internationalisation    | i18next + react-i18next                         | HTTP backend, 3 languages (en-GB, fr-FR, af-ZA)        |
+| Internationalisation    | i18next + react-i18next                         | HTTP backend, 5 languages (en-GB, fr-FR, af-ZA, es-ES, pl-PL) |
 | Wikipedia Integration   | Wikipedia REST API                              | Historical event enrichment                             |
 | Testing                 | Vitest + Playwright                             | Unit + E2E, spec-driven                                 |
 | AI Integration (future) | REST API contract (OpenAI/Anthropic-compatible) | Pluggable, provider-agnostic                            |
@@ -228,7 +228,8 @@ requiem-of-everything/
 - [x] French (France) localization as first target language
 - [x] Afrikaans (South Africa) localization as second target language
 - [x] Spanish (Spain) localization as third target language
-- [x] Content localisation (composer bios, composition descriptions, event descriptions, era names) via i18next namespaces — en-GB, fr-FR, af-ZA, es-ES
+- [x] Polish (Poland) localization as fourth target language
+- [x] Content localisation and locale-specific Wikipedia slug overrides via i18next namespaces — en-GB, fr-FR, af-ZA, es-ES, pl-PL
 - [x] Terms and instruments content localisation (fr-FR, af-ZA)
 - [x] Expanded composition dataset in addition to notable works (All major works for each composer, with metadata)
 - [x] Spotify links for notable works where available (app-first deep linking with web fallback)

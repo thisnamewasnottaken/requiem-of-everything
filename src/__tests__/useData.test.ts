@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { renderHook } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react";
+import i18n from "i18next";
 import {
   useComposers,
   useComposer,
@@ -49,6 +50,38 @@ describe("useComposer", () => {
   it("returns undefined for an unknown id", () => {
     const { result } = renderHook(() => useComposer("non-existent-id"));
     expect(result.current).toBeUndefined();
+  });
+
+  it("uses locale overrides for translated names and wikipedia slugs", async () => {
+    await act(async () => {
+      await i18n.changeLanguage("pl-PL");
+    });
+
+    try {
+      const { result: composerResult } = renderHook(() => useComposer("frederic-chopin"));
+      expect(composerResult.current?.name).toBe("Fryderyk Chopin");
+      expect(composerResult.current?.wikipediaSlug).toBe("Fryderyk_Chopin");
+
+      const { result: fallbackComposerResult } = renderHook(() => useComposer("henry-purcell"));
+      expect(fallbackComposerResult.current?.name).toBe("Henry Purcell");
+      expect(fallbackComposerResult.current?.wikipediaSlug).toBe("Henry_Purcell");
+
+      const { result: compositionResult } = renderHook(() => useComposition("mozart-magic-flute"));
+      expect(compositionResult.current?.title).toBe("Czarodziejski flet");
+      expect(compositionResult.current?.wikipediaSlug).toBe("Czarodziejski_flet");
+
+      const { result: eventResult } = renderHook(() => useEvents());
+      const frenchRevolution = eventResult.current.find((event) => event.id === "french-revolution");
+      expect(frenchRevolution?.title).toBe("Rewolucja francuska");
+      expect(frenchRevolution?.wikipediaSlug).toBe("Rewolucja_francuska");
+
+      const { result: eraResult } = renderHook(() => useEras());
+      expect(eraResult.current.find((era) => era.id === "renaissance")?.name).toBe("Renesans");
+    } finally {
+      await act(async () => {
+        await i18n.changeLanguage("en-GB");
+      });
+    }
   });
 });
 
