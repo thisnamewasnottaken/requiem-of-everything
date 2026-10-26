@@ -55,7 +55,7 @@ describe("OrchestraExplorer", () => {
       screen.getByRole("button", { name: "Strings, 2 instruments" }),
     ).toHaveAttribute("aria-pressed", "false");
     expect(
-      screen.getByRole("button", { name: "Woodwinds, 1 instruments" }),
+      screen.getByRole("button", { name: "Woodwinds, 1 instrument" }),
     ).toBeInTheDocument();
   });
 

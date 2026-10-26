@@ -374,7 +374,7 @@ function InstrumentDetailOverlay({
             transition={{ delay: 0.1 }}
           >
             {/* Kinetic Title */}
-            <h2 className={styles.detailName}>
+            <h2 className={styles.detailName} aria-label={instrument.name}>
               {instrument.name.split("").map((char, idx) => (
                 <motion.span
                   key={idx}
