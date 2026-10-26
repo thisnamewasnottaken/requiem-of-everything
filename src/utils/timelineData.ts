@@ -1,4 +1,4 @@
-import type { Composer, Composition } from "@/types";
+import type { Composer, Composition, MusicalEraDefinition } from "@/types";
 
 class MinHeap<T> {
   private items: T[] = [];
@@ -79,6 +79,15 @@ export function indexComposerGenres(compositions: Composition[]) {
   }
 
   return genresByComposer;
+}
+
+export function getEraAtYear(
+  eras: MusicalEraDefinition[],
+  year: number,
+): MusicalEraDefinition | undefined {
+  return eras
+    .filter((era) => era.startYear <= year && era.endYear >= year)
+    .sort((left, right) => right.startYear - left.startYear)[0];
 }
 
 export function filterComposers(

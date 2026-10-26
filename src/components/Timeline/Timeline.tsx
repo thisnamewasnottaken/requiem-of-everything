@@ -24,6 +24,7 @@ import {
 } from "@/utils/scales";
 import {
   filterComposers,
+  getEraAtYear,
   indexComposerGenres,
   layoutComposers,
 } from "@/utils/timelineData";
@@ -264,6 +265,11 @@ export default function Timeline() {
   const timelineHeight = Math.max(
     500,
     TOP_OFFSET + (maxRow + 1) * ROW_HEIGHT + 100,
+  );
+
+  const eraAtCentre = useMemo(
+    () => getEraAtYear(eras, (viewStartYear + viewEndYear) / 2),
+    [eras, viewStartYear, viewEndYear],
   );
 
   // Hover year
@@ -554,7 +560,36 @@ export default function Timeline() {
   );
 
   return (
-    <div
+    <div className={styles.timelineStage}>
+      {eraAtCentre && (
+      <aside
+        className={styles.eraFieldNote}
+        style={{ "--era-note-color": eraAtCentre.color } as React.CSSProperties}
+        aria-label={`${eraAtCentre.name}, ${formatYear(eraAtCentre.startYear)}–${formatYear(eraAtCentre.endYear)}`}
+      >
+        <div className={styles.eraNoteMark} aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className={styles.eraNoteCopy}>
+          <p className={styles.eraNoteYears}>
+            {formatYear(eraAtCentre.startYear)} —{" "}
+            {formatYear(eraAtCentre.endYear)}
+          </p>
+          <h2>{eraAtCentre.name}</h2>
+          <p className={styles.eraNoteDescription}>
+            {eraAtCentre.description}
+          </p>
+        </div>
+        <span className={styles.eraNoteCharacteristic}>
+          {eraAtCentre.characteristics[0]}
+        </span>
+      </aside>
+      )}
+      <div
       ref={containerRef}
       className={styles.timelineContainer}
       data-tour="timeline-viewport"
@@ -566,7 +601,37 @@ export default function Timeline() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-    >
+      >
+      <svg
+        className={styles.scoreEtching}
+        viewBox="0 0 1440 800"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <defs>
+          <linearGradient id="score-light" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stopColor="#d7a552" stopOpacity="0" />
+            <stop offset=".48" stopColor="#e9c987" stopOpacity=".72" />
+            <stop offset="1" stopColor="#8dc0ae" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <g className={styles.scoreStaves}>
+          <path d="M-80 236 C180 180 260 296 520 230 S860 184 1080 236 1290 284 1520 204" />
+          <path d="M-80 250 C180 194 260 310 520 244 S860 198 1080 250 1290 298 1520 218" />
+          <path d="M-80 264 C180 208 260 324 520 258 S860 212 1080 264 1290 312 1520 232" />
+          <path d="M-80 278 C180 222 260 338 520 272 S860 226 1080 278 1290 326 1520 246" />
+          <path d="M-80 292 C180 236 260 352 520 286 S860 240 1080 292 1290 340 1520 260" />
+        </g>
+        <path
+          className={styles.scoreMelody}
+          d="M-80 264 C180 208 260 324 520 258 S860 212 1080 264 1290 312 1520 232"
+          stroke="url(#score-light)"
+        />
+        <circle className={styles.scoreNote} cx="760" cy="232" r="3" />
+        <circle className={styles.scoreNote} cx="1080" cy="264" r="2.5" />
+        <circle className={styles.scoreNote} cx="1275" cy="304" r="2" />
+      </svg>
       {/* Range indicator */}
       <div className={styles.rangeIndicator}>
         {formatYear(Math.round(viewStartYear))} —{" "}
@@ -718,6 +783,7 @@ export default function Timeline() {
             </div>
           </>
         )}
+      </div>
       </div>
     </div>
   );

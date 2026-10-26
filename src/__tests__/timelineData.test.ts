@@ -2,9 +2,11 @@ import { describe, expect, it } from "vitest";
 import type { Composer, Composition } from "@/types";
 import {
   filterComposers,
+  getEraAtYear,
   indexComposerGenres,
   layoutComposers,
 } from "@/utils/timelineData";
+import type { MusicalEraDefinition } from "@/types";
 
 function composer(
   id: string,
@@ -44,6 +46,35 @@ function composition(
     tags: [],
   };
 }
+
+function era(
+  id: string,
+  startYear: number,
+  endYear: number,
+): MusicalEraDefinition {
+  return {
+    id: id as MusicalEraDefinition["id"],
+    name: id,
+    startYear,
+    endYear,
+    description: "",
+    color: "",
+    characteristics: [],
+  };
+}
+
+describe("getEraAtYear", () => {
+  it("chooses the most recently begun era when periods overlap", () => {
+    const lateRomantic = era("late-romantic", 1850, 1910);
+    const modern = era("modern", 1890, 1970);
+
+    expect(getEraAtYear([lateRomantic, modern], 1900)).toBe(modern);
+  });
+
+  it("returns undefined when the year is outside all eras", () => {
+    expect(getEraAtYear([era("baroque", 1600, 1750)], 1500)).toBeUndefined();
+  });
+});
 
 describe("indexComposerGenres", () => {
   it("indexes each composer's distinct genres", () => {
