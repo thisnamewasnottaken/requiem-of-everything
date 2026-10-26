@@ -29,6 +29,12 @@ The root timeline component. Renders the full interactive, zoomable, pannable ti
 
 Both modes zoom the timeline to frame the relevant composers, but focus mode preserves context while comparison mode removes it.
 
+## Visual Direction
+
+- The timeline is presented as a nocturnal observatory for musical history: an ink-dark field, restrained gold highlights, fine cartographic gridwork, and slow ambient light.
+- Atmosphere remains behind the data and never obscures labels, markers, controls, or pointer interactions.
+- The visual treatment is CSS-only, respects reduced-motion preferences, and does not change timeline navigation or data rendering.
+
 ## Interactions
 
 - **Scroll zoom**: Ctrl+wheel (or trackpad pinch, which the browser reports as Ctrl+wheel) zooms in/out, centered on cursor position. The wheel listener is attached natively with `{ passive: false }` so `preventDefault()` stops the browser's built-in page zoom. Plain (non-Ctrl) wheel events are not intercepted.
