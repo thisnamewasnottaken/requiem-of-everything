@@ -1,4 +1,9 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { Instrument } from "@/types";
 
@@ -74,7 +79,7 @@ describe("OrchestraExplorer", () => {
     );
   });
 
-  it("opens instrument details from the keyboard and backs out with Escape", () => {
+  it("opens instrument details from the keyboard and backs out with Escape", async () => {
     fireEvent.click(
       screen.getByRole("button", { name: "Strings, 2 instruments" }),
     );
@@ -84,11 +89,13 @@ describe("OrchestraExplorer", () => {
 
     expect(screen.getByRole("heading", { name: "Violin" })).toBeInTheDocument();
 
+    const instrumentHeading = screen.getByRole("heading", { name: "Violin" });
     fireEvent.keyDown(window, { key: "Escape" });
-    expect(screen.queryByRole("heading", { name: "Violin" })).toBeNull();
+    await waitForElementToBeRemoved(instrumentHeading);
     expect(screen.getByText(/warm, rich core/)).toBeInTheDocument();
 
+    const familyDescription = screen.getByText(/warm, rich core/);
     fireEvent.keyDown(window, { key: "Escape" });
-    expect(screen.queryByText(/warm, rich core/)).toBeNull();
+    await waitForElementToBeRemoved(familyDescription);
   });
 });
