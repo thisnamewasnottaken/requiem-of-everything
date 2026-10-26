@@ -29,6 +29,12 @@ The root timeline component. Renders the full interactive, zoomable, pannable ti
 
 Both modes zoom the timeline to frame the relevant composers, but focus mode preserves context while comparison mode removes it.
 
+## Data Preparation
+
+- Composer genre membership and ID lookup indexes are derived once per data change and reused while filters or the viewport change.
+- Composer rows are assigned only to composers overlapping the visible year range. The greedy first-available-row layout preserves its existing ordering and two-year separation while using a min-heap so row assignment scales as O(n log n).
+- Selection and comparison membership checks use sets during rendering; visible composition markers resolve their composers through the ID index rather than repeatedly scanning the composer list.
+
 ## Visual Direction
 
 - The timeline is presented as a nocturnal observatory for musical history: an ink-dark field, restrained gold highlights, fine cartographic gridwork, and slow ambient light.

@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 - **Timeline visual refresh** — recast the main timeline as a nocturnal observatory, with a slow ambient light field, fine cartographic grid, refined gold navigation, and reduced-motion support. Timeline data and controls remain fully interactive.
+- **Timeline rendering performance** — composer genre and ID indexes are now reused across viewport and filter changes, selection lookups use sets, and the stable first-available-row layout now scales in O(n log n) instead of scanning every occupied row.
 - **Tour popover visual polish** — fixed white text shadow on navigation buttons, hardened dark-theme overrides for driver.js defaults, improved close button styling and popover padding.
 - **Spotify app-first deep linking**— all "Listen on Spotify" actions now attempt to open the Spotify desktop/mobile app via the `spotify://` custom URI scheme. If the app is not installed or doesn't respond within ~1.5 seconds, falls back to opening Spotify web in a new tab. Applied consistently across CompositionDetail, OrchestraExplorer featured compositions, and TermExplorer example works. Shared logic in `src/utils/spotify.ts`.
 - **TermExplorer Spotify links** — example compositions in the term detail modal now show a clickable "Listen on Spotify" pill button instead of a non-interactive ♫ icon indicator. Uses the same app-first deep-link behaviour as other Spotify touchpoints.
