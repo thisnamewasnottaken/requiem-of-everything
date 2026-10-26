@@ -31,6 +31,13 @@ interface OrchestraExplorerProps {
 
 ## Visual Architecture
 
+### 2026 Design Direction
+
+- Treat the orchestra as a spatial, editorial data story: family zones read like a seating-map engraving, while family counts and descriptions make the real-world layout immediately legible.
+- Keep discovery user-directed. A persistent family index mirrors the stage, reports each family’s instrument count, and opens the existing family/instrument exploration state.
+- Motion is purposeful feedback for focus and selection, not ambient spectacle. Support `prefers-reduced-motion`, use CSS variables for pointer light rather than React state updates on every pointer event, and keep every interactive family/instrument reachable by keyboard.
+- This direction reflects 2026 design coverage on immersive spatial interfaces and interactive data storytelling, balanced against recent motion/accessibility guidance: [Figma, Web Design Trends](https://www.figma.com/resource-library/web-design-trends/), [Infogram, Data Visualization Trends](https://infogram.com/blog/10-trends-in-data-visualization-to-watch-in-2026/), and [HIQ, Frontend Trends and Design Patterns to Watch in 2026](https://hiq.se/en/insight/frontend-trends-and-design-patterns-to-watch-in-2026/).
+
 ### Ambient Background
 
 Full-viewport dark background with organic, atmospheric effects:
@@ -92,6 +99,7 @@ Decorative elliptical tier rings at key radii (subtle `rgba(255,255,255,0.05)` s
 - Hover: wedge fills with radial gradient in family color, stroke thickens, glow SVG filter activates, label brightens
 - Prompt text below SVG: italic, muted, "Click a section to explore its instruments"
 - Conductor marker at center-bottom (small golden circle)
+- Persistent family index presents all six families as keyboard-operable controls with live instrument counts; selecting a family from either the index or stage uses the same state transition.
 
 ### State 2: Family Selected
 
@@ -213,6 +221,8 @@ All user-visible strings use `useTranslation()`. Keys under `orchestraExplorer.*
 - Family wedge `<g>` elements have `role="button"`, `tabIndex={0}`, `aria-label`
 - Keyboard: Enter/Space activates family, Escape backs up one level
 - Instrument nodes have `cursor: pointer` and click handlers with `stopPropagation`
+- Family areas and instrument nodes are individually keyboard-operable, with accessible labels and visible focus indicators.
+- Ambient animation stops or simplifies under `prefers-reduced-motion`; pointer tracking does not trigger a React render per movement.
 - Detail overlay close button has `aria-label`
 - External links use `rel="noopener noreferrer"` and `target="_blank"`
 - Focus-visible outlines on interactive elements
