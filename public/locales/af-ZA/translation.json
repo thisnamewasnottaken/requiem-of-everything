@@ -153,6 +153,7 @@
     "subtitle": "Interaktiewe orkestraletopografie",
     "backToTimeline": "← Tydlyn",
     "clickPrompt": "Klik op 'n afdeling om sy instrumente te verken",
+    "familyIndex": "Kies 'n familie",
     "conductor": "Dirigent",
     "strings": "Snare",
     "woodwinds": "Houtblasers",
@@ -173,6 +174,8 @@
     "featuredIn": "Uitgebeeld in",
     "readMore": "Lees meer →",
     "instruments": "{{count}} instrumente",
+    "instruments_one": "{{count}} instrument",
+    "instruments_other": "{{count}} instrumente",
     "closeDetail": "Sluit"
   },
   "walkthrough": {

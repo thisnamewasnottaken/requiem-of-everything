@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, MotionConfig } from "motion/react";
 import { useInstruments, useCompositions, useComposers } from "@/hooks/useData";
 import { getWikipediaUrl } from "@/utils/wikipedia";
 import { openSpotify } from "@/utils/spotify";
@@ -530,16 +531,21 @@ export default function OrchestraExplorer({
   const [hoveredFamily, setHoveredFamily] = useState<InstrumentFamily | null>(
     null,
   );
-  const containerRef = useRef<HTMLDivElement>(null);
+  const mouseGlowRef = useRef<HTMLDivElement>(null);
 
-  // Mouse-tracking spotlight
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  useEffect(() => {
-    const handle = (e: MouseEvent) =>
-      setMousePos({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", handle);
-    return () => window.removeEventListener("mousemove", handle);
-  }, []);
+  const handlePointerMove = useCallback(
+    (event: ReactPointerEvent<HTMLDivElement>) => {
+      mouseGlowRef.current?.style.setProperty(
+        "--glow-x",
+        `${event.clientX - 240}px`,
+      );
+      mouseGlowRef.current?.style.setProperty(
+        "--glow-y",
+        `${event.clientY - 240}px`,
+      );
+    },
+    [],
+  );
 
   // Group instruments by family
   const instrumentsByFamily = useMemo(() => {
@@ -600,19 +606,19 @@ export default function OrchestraExplorer({
   }, [selectedFamily, selectedInstrument]);
 
   return (
-    <div className={styles.container} ref={containerRef} data-tour="orchestra-view">
+    <MotionConfig reducedMotion="user">
+    <div
+      className={styles.container}
+      data-tour="orchestra-view"
+      onPointerMove={handlePointerMove}
+    >
       {/* ── Ambient Background ──────────────────────────────────── */}
       <div className={styles.ambientBg}>
         <div className={styles.ambientBase} />
         <div className={styles.ambientOrb1} />
         <div className={styles.ambientOrb2} />
         <div className={styles.ambientOrb3} />
-        <div
-          className={styles.mouseGlow}
-          style={{
-            transform: `translate(${mousePos.x - 240}px, ${mousePos.y - 240}px)`,
-          }}
-        />
+        <div ref={mouseGlowRef} className={styles.mouseGlow} />
         <div className={styles.ambientGrid} />
       </div>
 
@@ -705,20 +711,11 @@ export default function OrchestraExplorer({
               return (
                 <g
                   key={fam}
-                  onClick={() => handleFamilyClick(fam)}
                   onMouseEnter={() => setHoveredFamily(fam)}
                   onMouseLeave={() => setHoveredFamily(null)}
-                  style={{ cursor: "pointer" }}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={t(`orchestraExplorer.${fam}`)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      handleFamilyClick(fam);
-                    }
-                  }}
                   className={styles.familyGroup}
+                  role="group"
+                  aria-label={t(`orchestraExplorer.${fam}`)}
                 >
                   {/* Wedge paths */}
                   {layout.wedges.map((wedge, wi) => (
@@ -744,6 +741,16 @@ export default function OrchestraExplorer({
                       transition={{ duration: 0.5, ease: "easeOut" }}
                       strokeWidth={isActive ? 2 : 1}
                       style={{ filter: isActive ? "url(#oe-glow)" : "none" }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`${t(`orchestraExplorer.${fam}`)} — ${t("orchestraExplorer.instruments", { count: familyInstruments.length })}`}
+                      onClick={() => handleFamilyClick(fam)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          handleFamilyClick(fam);
+                        }
+                      }}
                     />
                   ))}
 
@@ -790,6 +797,16 @@ export default function OrchestraExplorer({
                             onClick={(e) => {
                               e.stopPropagation();
                               setSelectedInstrument(inst);
+                            }}
+                            role="button"
+                            tabIndex={0}
+                            aria-label={inst.name}
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault();
+                                event.stopPropagation();
+                                setSelectedInstrument(inst);
+                              }
                             }}
                             className={styles.instrumentNode}
                             whileHover={{ scale: 1.15 }}
@@ -889,6 +906,37 @@ export default function OrchestraExplorer({
         </AnimatePresence>
       </main>
 
+      <nav
+        className={styles.familyIndex}
+        aria-label={t("orchestraExplorer.familyIndex")}
+      >
+        {FAMILY_ORDER.map((family, index) => {
+          const count = instrumentsByFamily.get(family)?.length ?? 0;
+          const isSelected = selectedFamily === family;
+          return (
+            <button
+              key={family}
+              type="button"
+              className={`${styles.familyIndexButton}${isSelected ? ` ${styles.familyIndexSelected}` : ""}`}
+              style={{ "--family-color": FAMILY_META[family].color } as React.CSSProperties}
+              aria-pressed={isSelected}
+              aria-label={`${t(`orchestraExplorer.${family}`)}, ${t("orchestraExplorer.instruments", { count })}`}
+              onClick={() => handleFamilyClick(family)}
+            >
+              <span className={styles.familyIndexNumber}>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className={styles.familyIndexName}>
+                {t(`orchestraExplorer.${family}`)}
+              </span>
+              <span className={styles.familyIndexCount}>
+                {t("orchestraExplorer.instruments", { count })}
+              </span>
+            </button>
+          );
+        })}
+      </nav>
+
       {/* ── Family Info Panel (overlay, top-right) ─────────────── */}
       <AnimatePresence>
         {selectedFamily && !selectedInstrument && (
@@ -933,5 +981,6 @@ export default function OrchestraExplorer({
         )}
       </AnimatePresence>
     </div>
+    </MotionConfig>
   );
 }

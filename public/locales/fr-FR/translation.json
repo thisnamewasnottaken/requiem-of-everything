@@ -153,6 +153,7 @@
     "subtitle": "Topographie orchestrale interactive",
     "backToTimeline": "← Frise",
     "clickPrompt": "Cliquez sur une section pour explorer ses instruments",
+    "familyIndex": "Choisir une famille",
     "conductor": "Chef d'orchestre",
     "strings": "Cordes",
     "woodwinds": "Bois",
@@ -173,6 +174,8 @@
     "featuredIn": "Présent dans",
     "readMore": "En savoir plus →",
     "instruments": "{{count}} instruments",
+    "instruments_one": "{{count}} instrument",
+    "instruments_other": "{{count}} instruments",
     "closeDetail": "Fermer"
   },
   "walkthrough": {

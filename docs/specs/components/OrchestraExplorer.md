@@ -34,7 +34,7 @@ interface OrchestraExplorerProps {
 ### 2026 Design Direction
 
 - Treat the orchestra as a spatial, editorial data story: family zones read like a seating-map engraving, while family counts and descriptions make the real-world layout immediately legible.
-- Keep discovery user-directed. A persistent family index mirrors the stage, reports each family’s instrument count, and opens the existing family/instrument exploration state.
+- Keep discovery user-directed. A persistent family index mirrors the stage, reports each family’s locale-correct instrument count, and opens the existing family/instrument exploration state.
 - Motion is purposeful feedback for focus and selection, not ambient spectacle. Support `prefers-reduced-motion`, use CSS variables for pointer light rather than React state updates on every pointer event, and keep every interactive family/instrument reachable by keyboard.
 - This direction reflects 2026 design coverage on immersive spatial interfaces and interactive data storytelling, balanced against recent motion/accessibility guidance: [Figma, Web Design Trends](https://www.figma.com/resource-library/web-design-trends/), [Infogram, Data Visualization Trends](https://infogram.com/blog/10-trends-in-data-visualization-to-watch-in-2026/), and [HIQ, Frontend Trends and Design Patterns to Watch in 2026](https://hiq.se/en/insight/frontend-trends-and-design-patterns-to-watch-in-2026/).
 

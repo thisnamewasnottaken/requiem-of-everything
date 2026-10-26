@@ -153,6 +153,7 @@
     "subtitle": "Interaktywna topografia orkiestry",
     "backToTimeline": "← Oś czasu",
     "clickPrompt": "Kliknij sekcję, aby poznać jej instrumenty",
+    "familyIndex": "Wybierz rodzinę",
     "conductor": "Dyrygent",
     "strings": "Smyczki",
     "woodwinds": "Dęte drewniane",
@@ -173,6 +174,10 @@
     "featuredIn": "Występuje w",
     "readMore": "Czytaj więcej →",
     "instruments": "{{count}} instrumentów",
+    "instruments_one": "{{count}} instrument",
+    "instruments_few": "{{count}} instrumenty",
+    "instruments_many": "{{count}} instrumentów",
+    "instruments_other": "{{count}} instrumentu",
     "closeDetail": "Zamknij"
   },
   "walkthrough": {

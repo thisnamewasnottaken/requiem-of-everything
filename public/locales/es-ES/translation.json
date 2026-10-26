@@ -153,6 +153,7 @@
     "subtitle": "Topografía orquestal interactiva",
     "backToTimeline": "← Cronología",
     "clickPrompt": "Haz clic en una sección para explorar sus instrumentos",
+    "familyIndex": "Elige una familia",
     "conductor": "Director",
     "strings": "Cuerda",
     "woodwinds": "Viento madera",
@@ -173,6 +174,8 @@
     "featuredIn": "Presente en",
     "readMore": "Leer más →",
     "instruments": "{{count}} instrumentos",
+    "instruments_one": "{{count}} instrumento",
+    "instruments_other": "{{count}} instrumentos",
     "closeDetail": "Cerrar"
   },
   "walkthrough": {

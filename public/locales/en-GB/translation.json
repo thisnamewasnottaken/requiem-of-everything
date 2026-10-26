@@ -153,6 +153,7 @@
     "subtitle": "Interactive Orchestral Topography",
     "backToTimeline": "← Timeline",
     "clickPrompt": "Click a section to explore its instruments",
+    "familyIndex": "Choose a family",
     "conductor": "Conductor",
     "strings": "Strings",
     "woodwinds": "Woodwinds",
@@ -173,6 +174,8 @@
     "featuredIn": "Featured In",
     "readMore": "Read more →",
     "instruments": "{{count}} instruments",
+    "instruments_one": "{{count}} instrument",
+    "instruments_other": "{{count}} instruments",
     "closeDetail": "Close"
   },
   "walkthrough": {
