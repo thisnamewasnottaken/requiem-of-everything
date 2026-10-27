@@ -2,7 +2,9 @@
 
 ## Purpose
 
-An immersive, full-viewport interactive orchestral topography — a bird's-eye-view semicircular stage rendered as an elliptical SVG with perspective tilt, showing instrument families arranged in their real orchestral positions. Uses `motion` (framer-motion) for spring-physics animations, `AnimatePresence` for mount/unmount transitions, and ambient background effects to create a cinematic, organic experience. Users click family wedge sections to reveal instrument nodes with staggered spring animations, then click instruments for a full-screen detail overlay with kinetic typography.
+An interactive listening journey through the changing orchestra, from Renaissance polyphony to twentieth-century experimentation. Users travel through six musical eras, see the stage recompose around instruments prominent in each period, encounter a representative score, and follow a listening prompt into an existing Spotify search link. The seating map remains a navigable instrument atlas, but serves the larger story: how orchestral colour and musical possibility change over time.
+
+The experience is not an embedded audio player and does not claim that a composition's complete instrumentation is known. It uses the era-prominence data attached to instruments to show historical emphasis, and the composition's own instrumentation field to identify named instruments when possible.
 
 ## Props
 
@@ -33,9 +35,10 @@ interface OrchestraExplorerProps {
 
 ### 2026 Design Direction
 
-- Treat the orchestra as a spatial, editorial data story: family zones read like a seating-map engraving, while family counts and descriptions make the real-world layout immediately legible.
-- Keep discovery user-directed. A persistent family index mirrors the stage, reports each family’s locale-correct instrument count, and opens the existing family/instrument exploration state.
-- Motion is purposeful feedback for focus and selection, not ambient spectacle. Support `prefers-reduced-motion`, use CSS variables for pointer light rather than React state updates on every pointer event, and keep every interactive family/instrument reachable by keyboard.
+- Reimagine the view as a time-traveling listening room, not just a seating chart. The era rail is the primary navigation; selecting a chapter changes the historical context, the score selection, and the orchestra's instrument emphasis together.
+- Pair every map with a human-scale story: period description, concise characteristics, a dated composition, its instrumentation, and a direct listening action. Existing composition data is the source; no sample audio or unsupported arrangement detail is invented.
+- Preserve the stage as a spatial instrument atlas. Family controls remain available beside the story, and selecting a family reveals its instruments and historical role without hiding the active era.
+- Motion is purposeful feedback for focus and selection, not ambient spectacle. Support `prefers-reduced-motion`, use CSS variables for pointer light rather than React state updates on every pointer event, and keep every interactive era, family, and instrument reachable by keyboard.
 - This direction reflects 2026 design coverage on immersive spatial interfaces and interactive data storytelling, balanced against recent motion/accessibility guidance: [Figma, Web Design Trends](https://www.figma.com/resource-library/web-design-trends/), [Infogram, Data Visualization Trends](https://infogram.com/blog/10-trends-in-data-visualization-to-watch-in-2026/), and [HIQ, Frontend Trends and Design Patterns to Watch in 2026](https://hiq.se/en/insight/frontend-trends-and-design-patterns-to-watch-in-2026/).
 
 ### Ambient Background
@@ -47,9 +50,18 @@ Full-viewport dark background with organic, atmospheric effects:
 - Mouse-tracking highlight: a large, soft radial glow that follows the cursor (updated via CSS custom properties from `onMouseMove`)
 - Subtle grid overlay texture at very low opacity for spatial reference
 
+### Era Journey
+
+- A six-stop, chronological era rail is the primary control and works as a keyboard-operable tab list.
+- The selected era comes from the translated `useEras()` data and provides the name, date range, description, and characteristics for the learning panel.
+- The score list is derived from compositions whose composed year falls within that era's date range. Show a short list of dated works, the translated title, composer, existing instrumentation and description/significance, and an action that opens the work's existing Spotify URL through `openSpotify()`.
+- Era ranges can overlap (notably the transition to Modern music); a work may therefore appear in more than one historical chapter. Do not silently rewrite the project's period definitions to force exclusive dates.
+- When a chapter changes, clear the selected instrument family and resolve the score panel to a work in the new chapter. A manually selected score updates the panel and highlights matching named instruments when its instrumentation text permits a match.
+- Never imply audio is playing in the app. Spotify actions open the existing external app-first/web-fallback flow.
+
 ### Elliptical SVG Stage
 
-Full-width SVG with `viewBox="0 0 1500 800"`, center at `cx=750, cy=780`.
+Full-width SVG with `viewBox="0 0 1500 700"`, center at `cx=750, cy=620`.
 
 The orchestra is rendered from above with a **0.55 vertical tilt factor**, creating an elliptical perspective. All positioning uses polar coordinates converted to Cartesian via:
 
@@ -92,30 +104,31 @@ Decorative elliptical tier rings at key radii (subtle `rgba(255,255,255,0.05)` s
 
 ## Interaction States
 
-### State 1: Overview (default)
+### State 1: Choose a historical chapter
 
-- All family wedges visible with subtle fill (`rgba(255,255,255,0.02)`) and thin strokes
-- Family labels positioned at polar-center of each wedge, uppercase tracking-wide, in family color
-- Hover: wedge fills with radial gradient in family color, stroke thickens, glow SVG filter activates, label brightens
-- Prompt text below SVG: italic, muted, "Click a section to explore its instruments"
-- Conductor marker at center-bottom (small golden circle)
-- Persistent family index presents all six families as keyboard-operable controls with live instrument counts; selecting a family from either the index or stage uses the same state transition.
+- Six chronological era tabs present the full 1400–1970 span.
+- A selected chapter introduces its sound world and offers representative works.
+- The stage shows all family zones; instruments with a documented era prominence are visually emphasized and others recede, while remaining discoverable.
+- The score panel names its composition data source and makes external listening explicit.
 
-### State 2: Family Selected
+### State 2: Explore the orchestra of that era
 
-- Selected wedge: full gradient fill with glow filter
-- Other wedges: dim to opacity 0.15
-- Family label fades to near-invisible on selected wedge (replaced by instrument nodes)
-- **Instrument nodes** appear inside the selected wedge with staggered spring animations
-- Family info panel slides in (top-right, glassmorphism overlay)
+- Family controls show the number of instruments with an era prominence and the total family size.
+- Selecting a family from its control or stage zone reveals the instrument nodes and translated family description.
+- Instrument prominence for the selected era is conveyed without removing less prominent instruments from the atlas.
+- Selecting an instrument opens the existing detailed instrument card.
 
-### State 3: Instrument Selected
+### State 3: Enter a score
 
-- Full-screen modal overlay with `backdrop-blur(24px)` and dark tint
-- Centered card with spring animation (scale 0.9→1, y 50→0)
-- Two-column layout: visual side (abstract gradient + vertical name) + content side (details)
-- Kinetic typography: title characters animate in sequentially
-- Close button and Escape key dismiss
+- Selecting a work updates its instrumentation, historical note, and available listening action.
+- If an instrument name occurs in the selected work's instrumentation string, that node receives additional emphasis; generic instrumentation does not fabricate a match.
+- Spotify opens externally using the existing app-first fallback behavior; no audio is auto-started.
+
+### State 4: Instrument Selected
+
+- Full-screen modal overlay with `backdrop-blur(24px)` and dark tint.
+- Centered card with spring animation (scale 0.9→1, y 50→0), two-column visual/content layout, and kinetic title.
+- Close button and Escape key dismiss; Escape also backs out from family to era overview.
 
 ## Instrument Nodes
 
@@ -162,7 +175,7 @@ Display at most 5 matches, sorted by year.
 
 ## Family Info Panel
 
-Glassmorphism overlay panel (top-right of viewport, `position: absolute`):
+Contextual panel adjacent to the journey and family controls:
 
 - Background: `rgba(0,0,0,0.6)` with `backdrop-filter: blur(24px)`
 - Rounded corners (`1.5rem`), subtle border (`rgba(255,255,255,0.1)`)
@@ -215,39 +228,46 @@ All user-visible strings use `useTranslation()`. Keys under `orchestraExplorer.*
 | `readMore`                   | Read more →                                |
 | `instruments`                | {{count}} instruments                      |
 | `closeDetail`                | Close                                      |
+| `journeyTitle`               | An orchestra in motion                     |
+| `journeyPrompt`              | Choose a chapter, then follow a score      |
+| `journeyEraLabel`            | Explore an era                              |
+| `journeyScoreLabel`          | A score from this era                       |
+| `journeyListenFor`           | Listen for                                  |
+| `journeyListenAction`        | Listen on Spotify                           |
+| `journeyInstrumentCount`     | {{count}} prominent of {{total}} instruments |
+| `journeyNoScores`            | No compositions are recorded for this era   |
 
 ## Accessibility
 
-- Family wedge `<g>` elements have `role="button"`, `tabIndex={0}`, `aria-label`
-- Keyboard: Enter/Space activates family, Escape backs up one level
+- Era controls use tab semantics, `aria-selected`, visible focus, and arrow-key navigation.
+- Family wedge `<g>` elements have `role="button"`, `tabIndex={0}`, and an accessible label.
+- Keyboard: Enter/Space activates family or instrument; Escape backs up one level.
 - Instrument nodes have `cursor: pointer` and click handlers with `stopPropagation`
-- Family areas and instrument nodes are individually keyboard-operable, with accessible labels and visible focus indicators.
+- Era tabs, family controls, stage zones, and instrument nodes are keyboard-operable with visible focus indicators.
 - Ambient animation stops or simplifies under `prefers-reduced-motion`; pointer tracking does not trigger a React render per movement.
 - Detail overlay close button has `aria-label`
 - External links use `rel="noopener noreferrer"` and `target="_blank"`
 - Focus-visible outlines on interactive elements
 - Spotify buttons in featured compositions have `aria-label` describing the action.
+- Score changes are announced through a polite live region; era controls identify both period and dates.
 
 ## Responsive
 
-- Below 768px: SVG scales naturally (full width), panels become full-width
+- Desktop: era rail spans the page above a two-column stage and listening/story panel.
+- Below 768px: the layout becomes a scrollable single column; the era rail and family controls scroll horizontally, and the stage remains full-width.
 - Detail modal: columns stack vertically, visual side shrinks
-- Family info panel: full width at bottom instead of top-right
+- No fixed control obscures the stage or the work panel.
 
 ## Test Scenarios
 
-1. Renders SVG stage with all 6 instrument family wedges
-2. Each family wedge displays its label in the correct color
-3. Hovering a family wedge shows glow effect
-4. Clicking a family highlights it and dims other wedges
-5. Clicking the selected family again deselects (returns to overview)
-6. Instrument nodes appear with staggered animation when family selected
-7. Clicking an instrument node opens detail overlay
-8. Detail overlay shows name, range, role, description, era bars, compositions
-9. Detail overlay uses kinetic typography for title
-10. Wikipedia link uses correct URL via `getWikipediaUrl`
-11. Escape key navigates back (instrument→family→overview)
-12. Back-to-timeline button calls `onNavigateToTimeline`
-13. Conductor marker renders at center-bottom
-14. Family descriptions are translated via i18n
-15. Responsive layout works at mobile breakpoint
+1. Renders the six chronological era controls and all six stage families.
+2. Selecting an era updates the period story, date range, representative works, and era prominence counts.
+3. Selecting a score updates the instrumentation story and only emphasizes explicitly named instrument matches.
+4. Spotify action calls the existing app-first helper with the selected score's URL.
+5. Family selection reveals instruments, and clicking again clears the family.
+6. Instrument selection opens the detail overlay; Escape returns through instrument, family, and era states.
+7. Instrument detail retains name, range, role, description, era bars, matching compositions, and Wikipedia link.
+8. Era controls support arrow-key navigation; stage family and instrument controls support Enter/Space.
+9. External links use `rel="noopener noreferrer"`.
+10. Era stories and controls are translated, and the responsive single-column view does not clip the journey.
+11. Reduced-motion preferences remain respected.
