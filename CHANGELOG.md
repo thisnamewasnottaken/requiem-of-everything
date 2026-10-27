@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- **Orchestra Explorer concept reimagining** — transformed the seating-map-only browse into a six-era listening journey. Era chapters now drive a translated history lesson, dated representative scores, prominence-aware stage lighting, score-specific instrument emphasis, and clear external Spotify listening actions; the seating map remains an instrument atlas within the story.
 - **Orchestra Explorer reimagining** — recast the seating map as an editorial stage plan with a persistent, localized family index and instrument counts, accessible keyboard-operable seating zones, touch-friendly navigation, and reduced-motion support. Pointer lighting no longer triggers React renders.
 - **Timeline visual reimagining** — transformed the timeline into an illuminated score, with a viewport-aware era field note sourced from translated historical content, a slow-moving musical trace, deeper period color, and gentle emphasis for selected composers and works. Reduced-motion preferences are respected; navigation and data behavior are unchanged.
 - **Timeline visual refresh** — recast the main timeline as a nocturnal observatory, with a slow ambient light field, fine cartographic grid, refined gold navigation, and reduced-motion support. Timeline data and controls remain fully interactive.

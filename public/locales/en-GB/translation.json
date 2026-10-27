@@ -150,7 +150,7 @@
   },
   "orchestraExplorer": {
     "title": "Orchestra Explorer",
-    "subtitle": "Interactive Orchestral Topography",
+    "subtitle": "Six centuries, one living orchestra",
     "backToTimeline": "← Timeline",
     "clickPrompt": "Click a section to explore its instruments",
     "familyIndex": "Choose a family",
@@ -250,7 +250,7 @@
       },
       "orchestraView": {
         "title": "Orchestra Explorer",
-        "description": "The Orchestra Explorer shows the orchestra from above as an interactive map. Click a section — Strings, Woodwinds, Brass, Percussion, Keyboards, or Voice — to explore individual instruments, their role, historical era, and featured compositions."
+        "description": "Travel through six musical eras and watch the orchestra's sound world change. Explore each chapter's history and scores, then open a family on the stage map to meet its instruments."
       },
       "search": {
         "title": "Search & Filters",

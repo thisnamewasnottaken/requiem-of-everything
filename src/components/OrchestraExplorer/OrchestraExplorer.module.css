@@ -893,8 +893,6 @@
 }
 
 .eraRail {
-  --active-era-color: #c4a035;
-
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: stretch;
@@ -1315,7 +1313,7 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 820px) {
   .experience {
     padding: 1rem 0.75rem 1.5rem;
   }
@@ -1350,7 +1348,9 @@
   }
 
   .stageWrap {
+    flex: 0 0 100%;
     width: 100%;
+    aspect-ratio: 15 / 8;
   }
 
   .storyPanel {
@@ -1371,6 +1371,23 @@
 
   .familyStory .familyIndexButton {
     flex: 0 0 142px;
+  }
+}
+
+@media (max-width: 560px) {
+  .stageContainer {
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .stageWrap {
+    flex: 0 0 auto;
+    width: clamp(900px, 250vw, 1150px);
+    max-width: none;
+    aspect-ratio: 15 / 8;
   }
 }
 

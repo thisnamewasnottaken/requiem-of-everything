@@ -618,7 +618,10 @@ export default function OrchestraExplorer({
   const eraInstrumentCount = useCallback(
     (family: InstrumentFamily) =>
       (instrumentsByFamily.get(family) ?? []).filter((instrument) =>
-        instrument.eraProminence.some((entry) => entry.era === selectedEra),
+        instrument.eraProminence.some(
+          (entry) =>
+            entry.era === selectedEra && entry.prominence !== "rare",
+        ),
       ).length,
     [instrumentsByFamily, selectedEra],
   );
@@ -685,7 +688,7 @@ export default function OrchestraExplorer({
         <div className={styles.ambientGrid} />
       </div>
 
-      <main
+      <div
         className={styles.experience}
         style={
           {
@@ -834,6 +837,7 @@ export default function OrchestraExplorer({
                   {layout.wedges.map((wedge, wi) => (
                     <motion.path
                       key={wi}
+                      initial={{ opacity: 1 }}
                       d={describeWedge(
                         CX,
                         CY,
@@ -857,6 +861,10 @@ export default function OrchestraExplorer({
                       role="button"
                       tabIndex={0}
                       aria-label={`${t(`orchestraExplorer.${fam}`)} — ${t("orchestraExplorer.instruments", { count: familyInstruments.length })}`}
+                      aria-description={t("orchestraExplorer.journeyInstrumentCount", {
+                        count: eraInstrumentCount(fam),
+                        total: familyInstruments.length,
+                      })}
                       onClick={() => handleFamilyClick(fam)}
                       onKeyDown={(event) => {
                         if (event.key === "Enter" || event.key === " ") {
@@ -910,15 +918,15 @@ export default function OrchestraExplorer({
                           <motion.g
                             key={inst.id}
                             initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            animate={{
+                              opacity: scoreMatchesInstrument ? 1 : eraOpacity,
+                              scale: 1,
+                            }}
                             exit={{ opacity: 0, scale: 0.8 }}
                             transition={{
                               delay: i * 0.06,
                               type: "spring",
                               damping: 15,
-                            }}
-                            animate={{
-                              opacity: scoreMatchesInstrument ? 1 : eraOpacity,
                             }}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -1056,8 +1064,11 @@ export default function OrchestraExplorer({
           <section
             className={styles.scoreStory}
             aria-label={t("orchestraExplorer.journeyScoreLabel")}
-            aria-live="polite"
           >
+            <p className="visually-hidden" aria-live="polite" aria-atomic="true">
+              {selectedComposition &&
+                `${selectedComposition.title}, ${selectedComposition.yearComposed}`}
+            </p>
             <div className={styles.scoreHeader}>
               <p className={styles.storyEyebrow}>{t("orchestraExplorer.journeyScoreLabel")}</p>
               {selectedComposition && (
@@ -1090,7 +1101,11 @@ export default function OrchestraExplorer({
                     {t("orchestraExplorer.journeyListenAction")}
                   </button>
                 )}
-                <div className={styles.scoreChoices} aria-label={t("orchestraExplorer.journeyScoreLabel")}>
+                <div
+                  className={styles.scoreChoices}
+                  role="group"
+                  aria-label={t("orchestraExplorer.journeyScoreLabel")}
+                >
                   {eraWorks.map((composition) => (
                     <button
                       key={composition.id}
@@ -1130,6 +1145,10 @@ export default function OrchestraExplorer({
                     style={{ "--family-color": FAMILY_META[family].color } as React.CSSProperties}
                     aria-pressed={isSelected}
                     aria-label={`${t(`orchestraExplorer.${family}`)}, ${t("orchestraExplorer.instruments", { count })}`}
+                    aria-description={t("orchestraExplorer.journeyInstrumentCount", {
+                      count: eraInstrumentCount(family),
+                      total: count,
+                    })}
                     onClick={() => handleFamilyClick(family)}
                   >
                     <span className={styles.familyIndexNumber}>
@@ -1176,7 +1195,7 @@ export default function OrchestraExplorer({
           </section>
         </aside>
         </div>
-      </main>
+      </div>
 
       {/* ── Instrument Detail Overlay ──────────────────────────── */}
       <AnimatePresence>

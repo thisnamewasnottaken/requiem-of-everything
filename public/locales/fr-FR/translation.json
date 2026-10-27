@@ -150,7 +150,7 @@
   },
   "orchestraExplorer": {
     "title": "Explorateur d'orchestre",
-    "subtitle": "Topographie orchestrale interactive",
+    "subtitle": "Six siècles, un orchestre vivant",
     "backToTimeline": "← Frise",
     "clickPrompt": "Cliquez sur une section pour explorer ses instruments",
     "familyIndex": "Choisir une famille",
@@ -250,7 +250,7 @@
       },
       "orchestraView": {
         "title": "Explorateur d'orchestre",
-        "description": "L'Explorateur d'orchestre présente l'orchestre vu de dessus sous forme de carte interactive. Cliquez sur une section — Cordes, Bois, Cuivres, Percussions, Claviers ou Voix — pour explorer les instruments, leur rôle, leur époque et les compositions qui les mettent en valeur."
+        "description": "Traversez six ères musicales et observez l'évolution du paysage sonore de l'orchestre. Découvrez l'histoire et les partitions de chaque chapitre, puis ouvrez une famille sur la carte pour rencontrer ses instruments."
       },
       "search": {
         "title": "Recherche et filtres",

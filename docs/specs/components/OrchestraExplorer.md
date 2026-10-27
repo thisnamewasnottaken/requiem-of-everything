@@ -22,9 +22,10 @@ interface OrchestraExplorerProps {
 
 ## Data Sources
 
-- `useInstruments()` — all instruments (28 total, 6 families)
+- `useInstruments()` — all instruments (26 total, 6 families)
 - `useCompositions()` — all compositions (for matching featured works)
 - `useComposers()` — all composers (for resolving composer names)
+- `useEras()` — translated era date ranges, descriptions, colours, and characteristics
 
 ## Dependencies
 
@@ -54,8 +55,8 @@ Full-viewport dark background with organic, atmospheric effects:
 
 - A six-stop, chronological era rail is the primary control and works as a keyboard-operable tab list.
 - The selected era comes from the translated `useEras()` data and provides the name, date range, description, and characteristics for the learning panel.
-- The score list is derived from compositions whose composed year falls within that era's date range. Show a short list of dated works, the translated title, composer, existing instrumentation and description/significance, and an action that opens the work's existing Spotify URL through `openSpotify()`.
-- Era ranges can overlap (notably the transition to Modern music); a work may therefore appear in more than one historical chapter. Do not silently rewrite the project's period definitions to force exclusive dates.
+- The score list is derived from compositions whose composer is classified in the selected era and whose composed year falls within the era's displayed date range. Show up to four chronologically early works, the translated title, composer, existing instrumentation and description/significance, and an action that opens the work's existing Spotify URL through `openSpotify()`.
+- Era ranges can overlap (notably the transition to Modern music). The composer's primary era classifies the score into a single chapter while the displayed composition year remains unchanged. Do not silently rewrite the project's period definitions to force exclusive dates.
 - When a chapter changes, clear the selected instrument family and resolve the score panel to a work in the new chapter. A manually selected score updates the panel and highlights matching named instruments when its instrumentation text permits a match.
 - Never imply audio is playing in the app. Spotify actions open the existing external app-first/web-fallback flow.
 
@@ -107,13 +108,13 @@ Decorative elliptical tier rings at key radii (subtle `rgba(255,255,255,0.05)` s
 ### State 1: Choose a historical chapter
 
 - Six chronological era tabs present the full 1400–1970 span.
-- A selected chapter introduces its sound world and offers representative works.
-- The stage shows all family zones; instruments with a documented era prominence are visually emphasized and others recede, while remaining discoverable.
+- A selected chapter introduces its sound world and offers dated works by composers classified in that era.
+- The stage shows all family zones; instruments documented for the era remain vivid, while instruments without prominence data recede but remain discoverable.
 - The score panel names its composition data source and makes external listening explicit.
 
 ### State 2: Explore the orchestra of that era
 
-- Family controls show the number of instruments with an era prominence and the total family size.
+- Family controls show the number of instruments with primary/secondary prominence in the era and the total family size; rare instruments remain visible but are not counted as prominent.
 - Selecting a family from its control or stage zone reveals the instrument nodes and translated family description.
 - Instrument prominence for the selected era is conveyed without removing less prominent instruments from the atlas.
 - Selecting an instrument opens the existing detailed instrument card.
@@ -199,6 +200,7 @@ Contextual panel adjacent to the journey and family controls:
 - CSS Modules (`OrchestraExplorer.module.css`)
 - CSS custom properties from `global.css` for colors, fonts, spacing
 - Ambient background: CSS `@keyframes` for orb drift (no JS needed)
+- Desktop uses a chronological chapter rail above a responsive map-and-story composition; mobile stacks these into a scrollable listening journey.
 - SVG filters: `feGaussianBlur` + `feComposite` for glow effects per family
 - Radial gradients per family for wedge fills
 - Glassmorphism: `backdrop-filter: blur()` + semi-transparent backgrounds
@@ -254,7 +256,8 @@ All user-visible strings use `useTranslation()`. Keys under `orchestraExplorer.*
 ## Responsive
 
 - Desktop: era rail spans the page above a two-column stage and listening/story panel.
-- Below 768px: the layout becomes a scrollable single column; the era rail and family controls scroll horizontally, and the stage remains full-width.
+- Below 820px: the layout becomes a scrollable single column; the era rail and family controls scroll horizontally, and the stage remains full-width.
+- On narrow phones the stage is a horizontally pannable canvas at a readable scale rather than shrinking instrument labels to illegibility.
 - Detail modal: columns stack vertically, visual side shrinks
 - No fixed control obscures the stage or the work panel.
 

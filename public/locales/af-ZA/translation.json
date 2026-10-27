@@ -150,7 +150,7 @@
   },
   "orchestraExplorer": {
     "title": "Orkesverkenner",
-    "subtitle": "Interaktiewe orkestraletopografie",
+    "subtitle": "Ses eeue, een lewende orkes",
     "backToTimeline": "← Tydlyn",
     "clickPrompt": "Klik op 'n afdeling om sy instrumente te verken",
     "familyIndex": "Kies 'n familie",
@@ -250,7 +250,7 @@
       },
       "orchestraView": {
         "title": "Orkes Verkenner",
-        "description": "Die Orkes Verkenner wys die orkes van bo af as 'n interaktiewe kaart. Klik op 'n afdeling — Strykers, Houtblasers, Koperblasers, Slagwerk, Klawerborde of Stem — om individuele instrumente, hul rol, historiese era en uitgevoerde komposisies te verken."
+        "description": "Reis deur ses musikale eras en kyk hoe die orkes se klankwêreld verander. Verken elke hoofstuk se geskiedenis en partiture, en maak dan 'n familie op die verhoogkaart oop om sy instrumente te ontmoet."
       },
       "search": {
         "title": "Soek en filters",
