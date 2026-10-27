@@ -2,7 +2,12 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence, MotionConfig } from "motion/react";
-import { useInstruments, useCompositions, useComposers } from "@/hooks/useData";
+import {
+  useInstruments,
+  useCompositions,
+  useComposers,
+  useEras,
+} from "@/hooks/useData";
 import { getWikipediaUrl } from "@/utils/wikipedia";
 import { openSpotify } from "@/utils/spotify";
 import type { Instrument, InstrumentFamily, MusicalEra } from "@/types";
@@ -522,12 +527,17 @@ export default function OrchestraExplorer({
   const allInstruments = useInstruments();
   const compositions = useCompositions();
   const composers = useComposers();
+  const eras = useEras();
 
+  const [selectedEra, setSelectedEra] = useState<MusicalEra>("renaissance");
   const [selectedFamily, setSelectedFamily] = useState<InstrumentFamily | null>(
     null,
   );
   const [selectedInstrument, setSelectedInstrument] =
     useState<Instrument | null>(null);
+  const [selectedCompositionId, setSelectedCompositionId] = useState<string | null>(
+    null,
+  );
   const [hoveredFamily, setHoveredFamily] = useState<InstrumentFamily | null>(
     null,
   );
@@ -588,6 +598,59 @@ export default function OrchestraExplorer({
     [composers],
   );
 
+  const selectedEraDefinition = eras.find((era) => era.id === selectedEra);
+  const eraCompositions = useMemo(() => {
+    if (!selectedEraDefinition) return [];
+    return compositions
+      .filter(
+        (composition) =>
+          composerMap.get(composition.composerId)?.era === selectedEra &&
+          composition.yearComposed >= selectedEraDefinition.startYear &&
+          composition.yearComposed <= selectedEraDefinition.endYear,
+      )
+      .sort((a, b) => a.yearComposed - b.yearComposed);
+  }, [compositions, composerMap, selectedEra, selectedEraDefinition]);
+  const selectedComposition =
+    eraCompositions.find((composition) => composition.id === selectedCompositionId) ??
+    eraCompositions[0];
+  const eraWorks = eraCompositions.slice(0, 4);
+
+  const eraInstrumentCount = useCallback(
+    (family: InstrumentFamily) =>
+      (instrumentsByFamily.get(family) ?? []).filter((instrument) =>
+        instrument.eraProminence.some((entry) => entry.era === selectedEra),
+      ).length,
+    [instrumentsByFamily, selectedEra],
+  );
+
+  const selectEra = useCallback((era: MusicalEra) => {
+    setSelectedEra(era);
+    setSelectedFamily(null);
+    setSelectedInstrument(null);
+    setSelectedCompositionId(null);
+  }, []);
+
+  const handleEraKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLButtonElement>, era: MusicalEra) => {
+      const currentIndex = ALL_ERAS.indexOf(era);
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % ALL_ERAS.length;
+      else if (event.key === "ArrowLeft") {
+        nextIndex = (currentIndex - 1 + ALL_ERAS.length) % ALL_ERAS.length;
+      } else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = ALL_ERAS.length - 1;
+      else return;
+
+      event.preventDefault();
+      const nextEra = ALL_ERAS[nextIndex];
+      selectEra(nextEra);
+      event.currentTarget.parentElement
+        ?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
+        [nextIndex]?.focus();
+    },
+    [selectEra],
+  );
+
   const handleFamilyClick = useCallback((family: InstrumentFamily) => {
     setSelectedFamily((prev) => (prev === family ? null : family));
     setSelectedInstrument(null);
@@ -622,8 +685,58 @@ export default function OrchestraExplorer({
         <div className={styles.ambientGrid} />
       </div>
 
-      {/* ── SVG Orchestra Stage ─────────────────────────────────── */}
-      <main className={styles.stageContainer}>
+      <main
+        className={styles.experience}
+        style={
+          {
+            "--active-era-color": selectedEraDefinition?.color ?? "#c4a035",
+          } as React.CSSProperties
+        }
+      >
+        <section className={styles.eraJourney} aria-label={t("orchestraExplorer.journeyTitle")}>
+          <div className={styles.journeyHeading}>
+            <p className={styles.journeyEyebrow}>{t("orchestraExplorer.journeyPrompt")}</p>
+            <h1 className={styles.journeyTitle}>{t("orchestraExplorer.journeyTitle")}</h1>
+          </div>
+          <div
+            className={styles.eraRail}
+            role="tablist"
+            aria-label={t("orchestraExplorer.journeyEraLabel")}
+          >
+            {ALL_ERAS.map((eraId, index) => {
+              const era = eras.find((item) => item.id === eraId);
+              if (!era) return null;
+              const selected = selectedEra === eraId;
+              return (
+                <button
+                  key={eraId}
+                  id={`orchestra-era-tab-${eraId}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={selected}
+                  aria-controls="orchestra-era-story"
+                  aria-label={`${era.name}, ${era.startYear}–${era.endYear}`}
+                  tabIndex={selected ? 0 : -1}
+                  className={`${styles.eraTab}${selected ? ` ${styles.eraTabSelected}` : ""}`}
+                  onClick={() => selectEra(eraId)}
+                  onKeyDown={(event) => handleEraKeyDown(event, eraId)}
+                >
+                  <span className={styles.eraTabNumber}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className={styles.eraTabName}>{era.name}</span>
+                  <span className={styles.eraTabYears}>
+                    {era.startYear}–{era.endYear}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        <div className={styles.journeyGrid}>
+        {/* ── SVG Orchestra Stage ─────────────────────────────────── */}
+        <section className={styles.stageContainer} aria-label={t("orchestraExplorer.title")}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -633,7 +746,7 @@ export default function OrchestraExplorer({
           <svg
             viewBox={VIEWBOX}
             className={styles.stageSvg}
-            role="img"
+            role="group"
             aria-label={t("orchestraExplorer.title")}
           >
             <defs>
@@ -783,6 +896,16 @@ export default function OrchestraExplorer({
                         const pos = positions.get(inst.id);
                         if (!pos) return null;
                         const nameParts = inst.name.split(" ");
+                        const scoreMatchesInstrument =
+                          selectedComposition?.instrumentation
+                            .toLowerCase()
+                            .includes(inst.name.toLowerCase()) ?? false;
+                        const prominence = inst.eraProminence.find(
+                          (entry) => entry.era === selectedEra,
+                        )?.prominence;
+                        const eraOpacity = prominence
+                          ? { primary: 0.88, secondary: 0.62, rare: 0.4 }[prominence]
+                          : 0.16;
                         return (
                           <motion.g
                             key={inst.id}
@@ -793,6 +916,9 @@ export default function OrchestraExplorer({
                               delay: i * 0.06,
                               type: "spring",
                               damping: 15,
+                            }}
+                            animate={{
+                              opacity: scoreMatchesInstrument ? 1 : eraOpacity,
                             }}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -904,65 +1030,153 @@ export default function OrchestraExplorer({
             </motion.p>
           )}
         </AnimatePresence>
-      </main>
+        </section>
 
-      <nav
-        className={styles.familyIndex}
-        aria-label={t("orchestraExplorer.familyIndex")}
-      >
-        {FAMILY_ORDER.map((family, index) => {
-          const count = instrumentsByFamily.get(family)?.length ?? 0;
-          const isSelected = selectedFamily === family;
-          return (
-            <button
-              key={family}
-              type="button"
-              className={`${styles.familyIndexButton}${isSelected ? ` ${styles.familyIndexSelected}` : ""}`}
-              style={{ "--family-color": FAMILY_META[family].color } as React.CSSProperties}
-              aria-pressed={isSelected}
-              aria-label={`${t(`orchestraExplorer.${family}`)}, ${t("orchestraExplorer.instruments", { count })}`}
-              onClick={() => handleFamilyClick(family)}
-            >
-              <span className={styles.familyIndexNumber}>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className={styles.familyIndexName}>
-                {t(`orchestraExplorer.${family}`)}
-              </span>
-              <span className={styles.familyIndexCount}>
-                {t("orchestraExplorer.instruments", { count })}
-              </span>
-            </button>
-          );
-        })}
-      </nav>
-
-      {/* ── Family Info Panel (overlay, top-right) ─────────────── */}
-      <AnimatePresence>
-        {selectedFamily && !selectedInstrument && (
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            className={styles.familyPanel}
-          >
-            <h2
-              className={styles.familyTitle}
-              style={{ color: FAMILY_META[selectedFamily].color }}
-            >
-              {t(`orchestraExplorer.${selectedFamily}`).toUpperCase()}
-            </h2>
-            <p className={styles.familyDesc}>
-              {t(`orchestraExplorer.${selectedFamily}Desc`)}
+        <aside
+          className={styles.storyPanel}
+          id="orchestra-era-story"
+          role="tabpanel"
+          aria-labelledby={`orchestra-era-tab-${selectedEra}`}
+        >
+          <section className={styles.eraStory}>
+            <p className={styles.storyEyebrow}>
+              {selectedEraDefinition?.startYear} — {selectedEraDefinition?.endYear}
             </p>
-            <div className={styles.familyCount}>
-              {t("orchestraExplorer.instruments", {
-                count: instrumentsByFamily.get(selectedFamily)?.length ?? 0,
-              })}
+            <h2 className={styles.storyEraTitle}>{selectedEraDefinition?.name}</h2>
+            <p className={styles.storyDescription}>
+              {selectedEraDefinition?.description}
+            </p>
+            <ul className={styles.characteristicList} aria-label={t("orchestraExplorer.journeyListenFor")}>
+              {selectedEraDefinition?.characteristics.slice(0, 3).map((characteristic) => (
+                <li key={characteristic}>{characteristic}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section
+            className={styles.scoreStory}
+            aria-label={t("orchestraExplorer.journeyScoreLabel")}
+            aria-live="polite"
+          >
+            <div className={styles.scoreHeader}>
+              <p className={styles.storyEyebrow}>{t("orchestraExplorer.journeyScoreLabel")}</p>
+              {selectedComposition && (
+                <span className={styles.scoreYear}>{selectedComposition.yearComposed}</span>
+              )}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {selectedComposition ? (
+              <>
+                <h3 className={styles.scoreTitle}>{selectedComposition.title}</h3>
+                <p className={styles.scoreComposer}>
+                  {composerMap.get(selectedComposition.composerId)?.name ??
+                    selectedComposition.composerId}
+                </p>
+                <p className={styles.scoreInstrumentation}>
+                  {selectedComposition.instrumentation}
+                </p>
+                <p className={styles.scoreDescription}>
+                  {selectedComposition.significance || selectedComposition.description}
+                </p>
+                {selectedComposition.spotifyUrl && (
+                  <button
+                    type="button"
+                    className={styles.listenButton}
+                    aria-label={t("composition.listenOnSpotifyAria", {
+                      title: selectedComposition.title,
+                    })}
+                    onClick={() => openSpotify(selectedComposition.spotifyUrl!)}
+                  >
+                    <span aria-hidden="true">▶</span>
+                    {t("orchestraExplorer.journeyListenAction")}
+                  </button>
+                )}
+                <div className={styles.scoreChoices} aria-label={t("orchestraExplorer.journeyScoreLabel")}>
+                  {eraWorks.map((composition) => (
+                    <button
+                      key={composition.id}
+                      type="button"
+                      className={`${styles.scoreChoice}${composition.id === selectedComposition.id ? ` ${styles.scoreChoiceSelected}` : ""}`}
+                      aria-pressed={composition.id === selectedComposition.id}
+                      onClick={() => setSelectedCompositionId(composition.id)}
+                    >
+                      <span>{composition.title}</span>
+                      <span>{composition.yearComposed}</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <p className={styles.scoreDescription}>{t("orchestraExplorer.journeyNoScores")}</p>
+            )}
+          </section>
+
+          <section className={styles.familyStory}>
+            <div className={styles.familyStoryHeader}>
+              <p className={styles.storyEyebrow}>{t("orchestraExplorer.familyIndex")}</p>
+              <span className={styles.mapLegend}>
+                <i aria-hidden="true" />
+                {t("orchestraExplorer.journeyEraEmphasis")}
+              </span>
+            </div>
+            <nav className={styles.familyIndex} aria-label={t("orchestraExplorer.familyIndex")}>
+              {FAMILY_ORDER.map((family, index) => {
+                const count = instrumentsByFamily.get(family)?.length ?? 0;
+                const isSelected = selectedFamily === family;
+                return (
+                  <button
+                    key={family}
+                    type="button"
+                    className={`${styles.familyIndexButton}${isSelected ? ` ${styles.familyIndexSelected}` : ""}`}
+                    style={{ "--family-color": FAMILY_META[family].color } as React.CSSProperties}
+                    aria-pressed={isSelected}
+                    aria-label={`${t(`orchestraExplorer.${family}`)}, ${t("orchestraExplorer.instruments", { count })}`}
+                    onClick={() => handleFamilyClick(family)}
+                  >
+                    <span className={styles.familyIndexNumber}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className={styles.familyIndexName}>{t(`orchestraExplorer.${family}`)}</span>
+                    <span className={styles.familyIndexCount}>
+                      {t("orchestraExplorer.journeyInstrumentCount", {
+                        count: eraInstrumentCount(family),
+                        total: count,
+                      })}
+                    </span>
+                  </button>
+                );
+              })}
+            </nav>
+            <AnimatePresence mode="wait">
+              {selectedFamily && (
+                <motion.div
+                  key={selectedFamily}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  className={styles.familyPanel}
+                >
+                  <h3
+                    className={styles.familyTitle}
+                    style={{ color: FAMILY_META[selectedFamily].color }}
+                  >
+                    {t(`orchestraExplorer.${selectedFamily}`)}
+                  </h3>
+                  <p className={styles.familyDesc}>
+                    {t(`orchestraExplorer.${selectedFamily}Desc`)}
+                  </p>
+                  <p className={styles.familyCount}>
+                    {t("orchestraExplorer.journeyInstrumentCount", {
+                      count: eraInstrumentCount(selectedFamily),
+                      total: instrumentsByFamily.get(selectedFamily)?.length ?? 0,
+                    })}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </section>
+        </aside>
+        </div>
+      </main>
 
       {/* ── Instrument Detail Overlay ──────────────────────────── */}
       <AnimatePresence>

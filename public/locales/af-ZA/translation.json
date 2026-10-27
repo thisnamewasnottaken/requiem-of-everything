@@ -176,7 +176,16 @@
     "instruments": "{{count}} instrumente",
     "instruments_one": "{{count}} instrument",
     "instruments_other": "{{count}} instrumente",
-    "closeDetail": "Sluit"
+    "closeDetail": "Sluit",
+    "journeyTitle": "Die orkes in beweging",
+    "journeyPrompt": "'n Luisterreis deur ses eeue",
+    "journeyEraLabel": "Kies 'n musikale hoofstuk",
+    "journeyScoreLabel": "Betree die verhaal deur 'n partituur",
+    "journeyListenFor": "Luister na",
+    "journeyEraEmphasis": "Prominent in hierdie era",
+    "journeyListenAction": "Soek hierdie opname op Spotify",
+    "journeyInstrumentCount": "Era-beklemtoning: {{count}} / {{total}}",
+    "journeyNoScores": "Geen werke deur 'n komponis uit hierdie era is vir hierdie datums aangeteken nie."
   },
   "walkthrough": {
     "progress": "{{current}} van {{total}}",

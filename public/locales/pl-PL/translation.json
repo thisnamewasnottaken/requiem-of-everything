@@ -178,7 +178,16 @@
     "instruments_few": "{{count}} instrumenty",
     "instruments_many": "{{count}} instrumentów",
     "instruments_other": "{{count}} instrumentu",
-    "closeDetail": "Zamknij"
+    "closeDetail": "Zamknij",
+    "journeyTitle": "Orkiestra w ruchu",
+    "journeyPrompt": "Muzyczna podróż przez sześć stuleci",
+    "journeyEraLabel": "Wybierz rozdział muzyczny",
+    "journeyScoreLabel": "Wejdź w historię przez partyturę",
+    "journeyListenFor": "Zwróć uwagę na",
+    "journeyEraEmphasis": "Ważne w tej epoce",
+    "journeyListenAction": "Znajdź to nagranie w Spotify",
+    "journeyInstrumentCount": "Znaczenie w epoce: {{count}} / {{total}}",
+    "journeyNoScores": "Brak utworów kompozytorów z tej epoki w podanym przedziale dat."
   },
   "walkthrough": {
     "progress": "{{current}} z {{total}}",

@@ -176,7 +176,16 @@
     "instruments": "{{count}} instrumentos",
     "instruments_one": "{{count}} instrumento",
     "instruments_other": "{{count}} instrumentos",
-    "closeDetail": "Cerrar"
+    "closeDetail": "Cerrar",
+    "journeyTitle": "La orquesta en movimiento",
+    "journeyPrompt": "Un viaje de escucha a través de seis siglos",
+    "journeyEraLabel": "Elige un capítulo musical",
+    "journeyScoreLabel": "Entra a través de una partitura",
+    "journeyListenFor": "Escucha",
+    "journeyEraEmphasis": "Destacado en esta era",
+    "journeyListenAction": "Busca esta grabación en Spotify",
+    "journeyInstrumentCount": "Relevancia en la era: {{count}} / {{total}}",
+    "journeyNoScores": "No hay obras de compositores de esta era registradas en estas fechas."
   },
   "walkthrough": {
     "progress": "{{current}} de {{total}}",
