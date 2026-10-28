@@ -22,10 +22,13 @@ import {
   getDetailLevel,
   formatYear,
 } from "@/utils/scales";
+import {
+  filterComposers,
+  getEraAtYear,
+  indexComposerGenres,
+  layoutComposers,
+} from "@/utils/timelineData";
 import type {
-  Composer,
-  Composition,
-  HistoricalEvent,
   MusicalEraDefinition,
 } from "@/types";
 
@@ -45,44 +48,8 @@ const ERA_COLORS: Record<string, string> = {
   modern: "#3D6B5E",
 };
 
-function eraColorForComposer(c: Composer): string {
-  return ERA_COLORS[c.era] || "#666";
-}
-
-/**
- * Assigns vertical rows to composers, avoiding overlaps.
- * Returns Map<composerId, rowIndex>.
- */
-function layoutComposers(
-  composers: Composer[],
-  startYear: number,
-  endYear: number,
-): Map<string, number> {
-  const sorted = [...composers].sort((a, b) => a.birthYear - b.birthYear);
-  const rows: { endYear: number }[] = [];
-  const result = new Map<string, number>();
-
-  for (const c of sorted) {
-    const death = c.deathYear ?? 2025;
-    // skip if completely outside view
-    if (death < startYear || c.birthYear > endYear) continue;
-
-    let placed = false;
-    for (let i = 0; i < rows.length; i++) {
-      if (c.birthYear > rows[i].endYear + 2) {
-        rows[i].endYear = death;
-        result.set(c.id, i);
-        placed = true;
-        break;
-      }
-    }
-    if (!placed) {
-      result.set(c.id, rows.length);
-      rows.push({ endYear: death });
-    }
-  }
-
-  return result;
+function eraColorForComposer(era: string): string {
+  return ERA_COLORS[era] || "#666";
 }
 
 export default function Timeline() {
@@ -144,6 +111,23 @@ export default function Timeline() {
   const allEvents = useEvents();
   const eras = useEras();
 
+  const composerById = useMemo(
+    () => new Map(allComposers.map((composer) => [composer.id, composer])),
+    [allComposers],
+  );
+  const genresByComposer = useMemo(
+    () => indexComposerGenres(allCompositions),
+    [allCompositions],
+  );
+  const selectedComposerIdSet = useMemo(
+    () => new Set(selectedComposerIds),
+    [selectedComposerIds],
+  );
+  const comparisonComposerIdSet = useMemo(
+    () => new Set(comparisonComposerIds),
+    [comparisonComposerIds],
+  );
+
   // Responsive width
   useEffect(() => {
     const el = containerRef.current;
@@ -160,43 +144,21 @@ export default function Timeline() {
 
   // Filtered composers
   const filteredComposers = useMemo(() => {
-    let list = allComposers;
-    if (eraFilters.length > 0) {
-      list = list.filter((c) => eraFilters.includes(c.era));
-    }
-    if (nationalityFilters.length > 0) {
-      list = list.filter((c) => nationalityFilters.includes(c.nationality));
-    }
-    if (genreFilters.length > 0) {
-      const composerGenres = new Map<string, Set<string>>();
-      allCompositions.forEach((comp) => {
-        if (!composerGenres.has(comp.composerId)) {
-          composerGenres.set(comp.composerId, new Set());
-        }
-        composerGenres.get(comp.composerId)!.add(comp.genre);
-      });
-      list = list.filter((c) => {
-        const genres = composerGenres.get(c.id);
-        return genres ? genreFilters.some((g) => genres.has(g)) : false;
-      });
-    }
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      list = list.filter(
-        (c) =>
-          c.name.toLowerCase().includes(q) ||
-          c.shortName.toLowerCase().includes(q) ||
-          c.tags.some((t) => t.toLowerCase().includes(q)),
-      );
-    }
-    return list;
+    return filterComposers(
+      allComposers,
+      eraFilters,
+      nationalityFilters,
+      genreFilters,
+      searchQuery,
+      genresByComposer,
+    );
   }, [
     allComposers,
-    allCompositions,
     eraFilters,
     nationalityFilters,
     genreFilters,
     searchQuery,
+    genresByComposer,
   ]);
 
   // Auto-zoom to fit filtered composers when filters change
@@ -305,15 +267,13 @@ export default function Timeline() {
     TOP_OFFSET + (maxRow + 1) * ROW_HEIGHT + 100,
   );
 
+  const eraAtCentre = useMemo(
+    () => getEraAtYear(eras, (viewStartYear + viewEndYear) / 2),
+    [eras, viewStartYear, viewEndYear],
+  );
+
   // Hover year
   const hoverYear = hoverX !== null ? scale.invert(hoverX) : null;
-
-  // Composer name map
-  const composerNameMap = useMemo(() => {
-    const map = new Map<string, string>();
-    allComposers.forEach((c) => map.set(c.id, c.shortName));
-    return map;
-  }, [allComposers]);
 
   // Delayed collapse: after 3s of no comparison changes, collapse dimmed bars
   // and zoom to the compared composers' combined lifespan
@@ -351,7 +311,7 @@ export default function Timeline() {
 
         // Zoom to the union of compared composers' lifespans
         const comparedComposers = allComposers.filter((c) =>
-          comparisonComposerIds.includes(c.id),
+          comparisonComposerIdSet.has(c.id),
         );
         if (comparedComposers.length >= 2) {
           const minBirth = Math.min(
@@ -370,7 +330,13 @@ export default function Timeline() {
         clearTimeout(collapseTimerRef.current);
       }
     };
-  }, [comparisonComposerIds, isComparisonMode, allComposers, zoomToRange]);
+  }, [
+    comparisonComposerIds,
+    comparisonComposerIdSet,
+    isComparisonMode,
+    allComposers,
+    zoomToRange,
+  ]);
 
   // Restore the pre-comparison viewport when comparison mode exits
   useEffect(() => {
@@ -571,7 +537,7 @@ export default function Timeline() {
       if (event.ctrlKey || event.metaKey) {
         // Transfer any currently-selected composer into comparison first
         const currentlySelected = selectedComposerIds.filter(
-          (id) => !comparisonComposerIds.includes(id),
+          (id) => !comparisonComposerIdSet.has(id),
         );
         if (currentlySelected.length > 0) {
           addMultipleToComparison([...currentlySelected, composerId]);
@@ -594,7 +560,36 @@ export default function Timeline() {
   );
 
   return (
-    <div
+    <div className={styles.timelineStage}>
+      {eraAtCentre && (
+      <aside
+        className={styles.eraFieldNote}
+        style={{ "--era-note-color": eraAtCentre.color } as React.CSSProperties}
+        aria-label={`${eraAtCentre.name}, ${formatYear(eraAtCentre.startYear)}–${formatYear(eraAtCentre.endYear)}`}
+      >
+        <div className={styles.eraNoteMark} aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className={styles.eraNoteCopy}>
+          <p className={styles.eraNoteYears}>
+            {formatYear(eraAtCentre.startYear)} —{" "}
+            {formatYear(eraAtCentre.endYear)}
+          </p>
+          <h2>{eraAtCentre.name}</h2>
+          <p className={styles.eraNoteDescription}>
+            {eraAtCentre.description}
+          </p>
+        </div>
+        <span className={styles.eraNoteCharacteristic}>
+          {eraAtCentre.characteristics[0]}
+        </span>
+      </aside>
+      )}
+      <div
       ref={containerRef}
       className={styles.timelineContainer}
       data-tour="timeline-viewport"
@@ -606,7 +601,37 @@ export default function Timeline() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-    >
+      >
+      <svg
+        className={styles.scoreEtching}
+        viewBox="0 0 1440 800"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <defs>
+          <linearGradient id="score-light" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stopColor="#d7a552" stopOpacity="0" />
+            <stop offset=".48" stopColor="#e9c987" stopOpacity=".72" />
+            <stop offset="1" stopColor="#8dc0ae" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <g className={styles.scoreStaves}>
+          <path d="M-80 236 C180 180 260 296 520 230 S860 184 1080 236 1290 284 1520 204" />
+          <path d="M-80 250 C180 194 260 310 520 244 S860 198 1080 250 1290 298 1520 218" />
+          <path d="M-80 264 C180 208 260 324 520 258 S860 212 1080 264 1290 312 1520 232" />
+          <path d="M-80 278 C180 222 260 338 520 272 S860 226 1080 278 1290 326 1520 246" />
+          <path d="M-80 292 C180 236 260 352 520 286 S860 240 1080 292 1290 340 1520 260" />
+        </g>
+        <path
+          className={styles.scoreMelody}
+          d="M-80 264 C180 208 260 324 520 258 S860 212 1080 264 1290 312 1520 232"
+          stroke="url(#score-light)"
+        />
+        <circle className={styles.scoreNote} cx="760" cy="232" r="3" />
+        <circle className={styles.scoreNote} cx="1080" cy="264" r="2.5" />
+        <circle className={styles.scoreNote} cx="1275" cy="304" r="2" />
+      </svg>
       {/* Range indicator */}
       <div className={styles.rangeIndicator}>
         {formatYear(Math.round(viewStartYear))} —{" "}
@@ -674,7 +699,7 @@ export default function Timeline() {
         {filteredComposers.map((composer, index) => {
           const row = composerRows.get(composer.id);
           if (row === undefined) return null;
-          const inComparison = comparisonComposerIds.includes(composer.id);
+          const inComparison = comparisonComposerIdSet.has(composer.id);
           return (
             <ComposerBar
               key={composer.id}
@@ -683,8 +708,8 @@ export default function Timeline() {
               endYear={viewEndYear}
               width={containerWidth}
               row={row}
-              eraColor={eraColorForComposer(composer)}
-              isSelected={selectedComposerIds.includes(composer.id)}
+              eraColor={eraColorForComposer(composer.era)}
+              isSelected={selectedComposerIdSet.has(composer.id)}
               isComparison={inComparison}
               isDimmed={
                 (isComparisonMode && !inComparison) ||
@@ -707,25 +732,25 @@ export default function Timeline() {
             const composerRow = composerRows.get(comp.composerId);
             if (composerRow === undefined) return null;
             const yPos = TOP_OFFSET + composerRow * ROW_HEIGHT - 16;
-            const composer = allComposers.find((c) => c.id === comp.composerId);
+            const composer = composerById.get(comp.composerId);
             return (
               <CompositionMarker
                 key={comp.id}
                 composition={comp}
-                composerName={composerNameMap.get(comp.composerId) || ""}
+                composerName={composer?.shortName || ""}
                 startYear={viewStartYear}
                 endYear={viewEndYear}
                 width={containerWidth}
                 yPosition={yPos}
-                eraColor={composer ? eraColorForComposer(composer) : "#666"}
+                eraColor={composer ? eraColorForComposer(composer.era) : "#666"}
                 isSelected={selectedCompositionId === comp.id}
                 isDimmed={
                   isComparisonMode
-                    ? !comparisonComposerIds.includes(comp.composerId)
+                    ? !comparisonComposerIdSet.has(comp.composerId)
                     : isFocusMode
                       ? comp.composerId !== focusedComposerId
                       : selectedComposerIds.length > 0 &&
-                        !selectedComposerIds.includes(comp.composerId)
+                        !selectedComposerIdSet.has(comp.composerId)
                 }
                 onClick={selectComposition}
               />
@@ -758,6 +783,7 @@ export default function Timeline() {
             </div>
           </>
         )}
+      </div>
       </div>
     </div>
   );

@@ -150,9 +150,10 @@
   },
   "orchestraExplorer": {
     "title": "Explorador de orquesta",
-    "subtitle": "Topografía orquestal interactiva",
+    "subtitle": "Seis siglos, una orquesta viva",
     "backToTimeline": "← Cronología",
     "clickPrompt": "Haz clic en una sección para explorar sus instrumentos",
+    "familyIndex": "Elige una familia",
     "conductor": "Director",
     "strings": "Cuerda",
     "woodwinds": "Viento madera",
@@ -173,7 +174,18 @@
     "featuredIn": "Presente en",
     "readMore": "Leer más →",
     "instruments": "{{count}} instrumentos",
-    "closeDetail": "Cerrar"
+    "instruments_one": "{{count}} instrumento",
+    "instruments_other": "{{count}} instrumentos",
+    "closeDetail": "Cerrar",
+    "journeyTitle": "La orquesta en movimiento",
+    "journeyPrompt": "Un viaje de escucha a través de seis siglos",
+    "journeyEraLabel": "Elige un capítulo musical",
+    "journeyScoreLabel": "Entra a través de una partitura",
+    "journeyListenFor": "Escucha",
+    "journeyEraEmphasis": "Destacado en esta era",
+    "journeyListenAction": "Busca esta grabación en Spotify",
+    "journeyInstrumentCount": "Relevancia en la era: {{count}} / {{total}}",
+    "journeyNoScores": "No hay obras de compositores de esta era registradas en estas fechas."
   },
   "walkthrough": {
     "progress": "{{current}} de {{total}}",
@@ -238,7 +250,7 @@
       },
       "orchestraView": {
         "title": "Explorador de orquesta",
-        "description": "El Explorador de orquesta muestra la orquesta desde arriba como un mapa interactivo. Haz clic en una sección — Cuerda, Viento madera, Viento metal, Percusión, Teclados o Voz — para explorar instrumentos individuales, su función, era histórica y composiciones destacadas."
+        "description": "Viaja por seis eras musicales y observa cómo cambia el universo sonoro de la orquesta. Explora la historia y las partituras de cada capítulo y abre una familia en el mapa para conocer sus instrumentos."
       },
       "search": {
         "title": "Búsqueda y filtros",

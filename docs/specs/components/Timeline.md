@@ -29,11 +29,19 @@ The root timeline component. Renders the full interactive, zoomable, pannable ti
 
 Both modes zoom the timeline to frame the relevant composers, but focus mode preserves context while comparison mode removes it.
 
+## Data Preparation
+
+- Composer genre membership and ID lookup indexes are derived once per data change and reused while filters or the viewport change.
+- Composer rows are assigned only to composers overlapping the visible year range. The greedy first-available-row layout preserves its existing ordering and two-year separation while using a min-heap so row assignment scales as O(n log n).
+- Selection and comparison membership checks use sets during rendering; visible composition markers resolve their composers through the ID index rather than repeatedly scanning the composer list.
+
 ## Visual Direction
 
-- The timeline is presented as a nocturnal observatory for musical history: an ink-dark field, restrained gold highlights, fine cartographic gridwork, and slow ambient light.
-- Atmosphere remains behind the data and never obscures labels, markers, controls, or pointer interactions.
-- The visual treatment is CSS-only, respects reduced-motion preferences, and does not change timeline navigation or data rendering.
+- The timeline feels like an illuminated score suspended in a nocturnal concert hall: deep ink and blue-green shadows, engraved time marks, warm metallic era colors, and luminous musical traces behind the data.
+- Composer lifespans, compositions, and historical events read as strokes in one evolving visual score; hover and selection bring individual stories forward without hiding context.
+- Fine light and score-line animations move slowly enough to create a living atmosphere without distracting from reading or pointer interactions. Decorative layers never intercept input.
+- Motion is CSS-only, respects reduced-motion preferences, and does not change timeline navigation, data, or row layout.
+- A compact era field note follows the centre of the visible time range, using the existing translated era description and characteristics to connect the timeline's visual periods to musical history.
 
 ## Interactions
 

@@ -1,24 +1,29 @@
 .composerBar {
   position: absolute;
   height: 28px;
-  border-radius: 3px;
+  border-radius: 2px;
   cursor: pointer;
   transition: all var(--transition-default);
   display: flex;
   align-items: center;
   overflow: hidden;
-  border: 1px solid transparent;
+  border: 1px solid rgba(235, 220, 181, 0.1);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
   z-index: var(--z-markers);
 }
 
 .composerBar:hover {
-  transform: scaleY(1.15);
+  transform: scaleY(1.12) translateX(1px);
+  filter: drop-shadow(0 0 10px rgba(232, 199, 129, 0.18));
   z-index: calc(var(--z-markers) + 5);
 }
 
 .selected {
-  border-color: var(--accent-gold);
-  box-shadow: 0 0 12px rgba(212, 168, 87, 0.3);
+  border-color: rgba(242, 211, 145, 0.78);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.26),
+    0 0 16px rgba(212, 168, 87, 0.28);
+  animation: selected-afterglow 5s ease-in-out infinite;
   z-index: calc(var(--z-markers) + 10);
 }
 
@@ -83,11 +88,17 @@
   position: absolute;
   inset: 0;
   opacity: 0.55;
-  transition: opacity var(--transition-fast);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 58%),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transition: opacity var(--transition-fast), background-position 800ms ease;
+  background-size: 100% 100%, 220% 100%;
+  background-position: 0 0, 100% 0;
 }
 
 .composerBar:hover .barFill {
   opacity: 0.8;
+  background-position: 0 0, -100% 0;
 }
 
 .selected .barFill {
@@ -123,14 +134,15 @@
   position: absolute;
   left: 50%;
   bottom: calc(100% + 6px);
-  transform: translateX(-50%);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-default);
-  border-radius: 6px;
+  transform: translateX(-50%) translateY(4px);
+  background:
+    linear-gradient(145deg, rgba(33, 37, 34, 0.98), rgba(15, 18, 18, 0.98));
+  border: 1px solid rgba(220, 194, 139, 0.22);
+  border-radius: 2px;
   padding: 8px 12px;
   pointer-events: none;
   opacity: 0;
-  transition: opacity var(--transition-fast);
+  transition: opacity var(--transition-default), transform var(--transition-default);
   z-index: var(--z-tooltip);
   min-width: 160px;
   box-shadow: var(--shadow-md);
@@ -151,6 +163,7 @@
 
 .composerBar:hover .tooltip {
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .tooltipName {
@@ -182,4 +195,25 @@
 .tooltipBelow .tooltip {
   bottom: auto;
   top: calc(100% + 6px);
+}
+
+@keyframes selected-afterglow {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 1px rgba(255, 255, 255, 0.2),
+      0 0 12px rgba(212, 168, 87, 0.22);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 1px rgba(255, 255, 255, 0.28),
+      0 0 20px rgba(212, 168, 87, 0.36);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selected {
+    animation: none;
+  }
 }

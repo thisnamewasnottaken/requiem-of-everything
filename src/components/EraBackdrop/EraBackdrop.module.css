@@ -9,8 +9,15 @@
 .eraFill {
   position: absolute;
   inset: 0;
-  opacity: 0.06;
-  transition: opacity var(--transition-default);
+  opacity: 0.075;
+  background-image:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.035) 48%, transparent),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%, rgba(0, 0, 0, 0.15));
+  background-size: 220% 100%, 100% 100%;
+  background-position: 100% 0, 0 0;
+  transition:
+    opacity var(--transition-slow),
+    background-position 1.8s ease;
 }
 
 .eraLabel {
@@ -36,12 +43,13 @@
   bottom: 0;
   right: 0;
   width: 1px;
-  opacity: 0.15;
+  opacity: 0.22;
 }
 
 /* Hover effect when composing elements are inside an era zone */
 .eraBackdrop:hover .eraFill {
-  opacity: 0.1;
+  opacity: 0.12;
+  background-position: -100% 0, 0 0;
 }
 
 .eraBackdrop:hover .eraLabel {

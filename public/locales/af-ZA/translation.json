@@ -150,9 +150,10 @@
   },
   "orchestraExplorer": {
     "title": "Orkesverkenner",
-    "subtitle": "Interaktiewe orkestraletopografie",
+    "subtitle": "Ses eeue, een lewende orkes",
     "backToTimeline": "← Tydlyn",
     "clickPrompt": "Klik op 'n afdeling om sy instrumente te verken",
+    "familyIndex": "Kies 'n familie",
     "conductor": "Dirigent",
     "strings": "Snare",
     "woodwinds": "Houtblasers",
@@ -173,7 +174,18 @@
     "featuredIn": "Uitgebeeld in",
     "readMore": "Lees meer →",
     "instruments": "{{count}} instrumente",
-    "closeDetail": "Sluit"
+    "instruments_one": "{{count}} instrument",
+    "instruments_other": "{{count}} instrumente",
+    "closeDetail": "Sluit",
+    "journeyTitle": "Die orkes in beweging",
+    "journeyPrompt": "'n Luisterreis deur ses eeue",
+    "journeyEraLabel": "Kies 'n musikale hoofstuk",
+    "journeyScoreLabel": "Betree die verhaal deur 'n partituur",
+    "journeyListenFor": "Luister na",
+    "journeyEraEmphasis": "Prominent in hierdie era",
+    "journeyListenAction": "Soek hierdie opname op Spotify",
+    "journeyInstrumentCount": "Era-beklemtoning: {{count}} / {{total}}",
+    "journeyNoScores": "Geen werke deur 'n komponis uit hierdie era is vir hierdie datums aangeteken nie."
   },
   "walkthrough": {
     "progress": "{{current}} van {{total}}",
@@ -238,7 +250,7 @@
       },
       "orchestraView": {
         "title": "Orkes Verkenner",
-        "description": "Die Orkes Verkenner wys die orkes van bo af as 'n interaktiewe kaart. Klik op 'n afdeling — Strykers, Houtblasers, Koperblasers, Slagwerk, Klawerborde of Stem — om individuele instrumente, hul rol, historiese era en uitgevoerde komposisies te verken."
+        "description": "Reis deur ses musikale eras en kyk hoe die orkes se klankwêreld verander. Verken elke hoofstuk se geskiedenis en partiture, en maak dan 'n familie op die verhoogkaart oop om sy instrumente te ontmoet."
       },
       "search": {
         "title": "Soek en filters",
