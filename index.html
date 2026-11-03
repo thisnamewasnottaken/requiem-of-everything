@@ -165,7 +165,7 @@ void main(){
   vec3 rd=normalize(vec3(p.x,p.y+pitch,1.35)); float cy=cos(yaw),sy=sin(yaw); rd.xz=mat2(cy,-sy,sy,cy)*rd.xz;
   vec3 col=shadow; float tF=rd.y<0.?-eyeH/rd.y:1e9; vec3 P=vec3(0.,eyeH,0.)+rd*tF;
   // columns of light, laid out in an endless procession of rows
-  float S=9.; float row0=floor(camZ/S); float shaftsAcc=0.; vec3 floorLight=vec3(0.);
+  float S=7.; float row0=floor(camZ/S); float shaftsAcc=0.; vec3 floorLight=vec3(0.);
   for(int j=0;j<7;j++){ float rowId=row0+float(j)+1.; float cz=rowId*S-camZ;
     for(int l=0;l<3;l++){ float id=rowId*3.+float(l); if(hash1(id*1.7)<.28) continue;
       float cx=(float(l)-1.)*5.2+(hash1(id)-.5)*2.6; float br=.55+.65*hash1(id*3.1); float r=.55+.35*hash1(id*5.3);
@@ -177,17 +177,17 @@ void main(){
         vec3 pp=normalize(cross(A,rd)); float u=dot(off,pp)/rr;
         float stri=.45+.55*smoothstep(.35,1.,vn(vec2(u*3.+id*3.,y*.06-t*.05)))+.4*smoothstep(.5,1.,vn(vec2(u*9.+id,t*.08)));
         float swirl=fbm(vec2(u*1.2+id,y*.18-t*.1))*.8+.35;
-        float shaft=exp(-dd*dd/(rr*rr))*stri*swirl*smoothstep(40.,3.,y)*(.7+.3*smoothstep(0.,1.5,y))*br*exp(-tc*.085);
+        float shaft=exp(-dd*dd/(rr*rr))*stri*swirl*smoothstep(40.,3.,y)*(.7+.3*smoothstep(0.,1.5,y))*br*exp(-tc*.04)*smoothstep(-.5,1.5,cz)*(1.-smoothstep(S*5.,S*7.,cz));
         shaftsAcc+=shaft; }
       // where the light lands: a pool on the floor
-      if(tF<1e8){ vec2 fd=P.xz-vec2(cx,cz); float pool=exp(-dot(fd,fd)/(r*r*2.2))*br; floorLight+=key*pool*(1.1+.5*fbm(P.xz*1.3+t*.05)); }
+      if(tF<1e8){ vec2 fd=P.xz-vec2(cx,cz); float pool=exp(-dot(fd,fd)/(r*r*2.2))*br*smoothstep(-1.,3.,cz)*(1.-smoothstep(S*5.,S*7.,cz)); floorLight+=key*pool*(1.1+.5*fbm(P.xz*1.3+t*.05)); }
     }}
   shaftsAcc*=(.6+uLevel*2.);
-  col+=key*shaftsAcc*.7*dens; col+=key*.007*dens*(.6+.4*fbm(p*1.7+vec2(t*.018,-t*.012)));
+  col+=key*shaftsAcc*.6*dens; col+=key*.007*dens*(.6+.4*fbm(p*1.7+vec2(t*.018,-t*.012)));
   // the floor: dark polished stone, lit only where the light falls; fades to nothing
   if(tF<1e8){ vec2 w=P.xz+vec2(0.,camZ); float stone=.55+.45*fbm(w*.6)+.25*fbm(w*3.); 
     vec2 tile=abs(fract(w*.5)-.5); float seam=smoothstep(.49,.5,max(tile.x,tile.y));
-    float fade=exp(-tF*.12); vec3 fl=floorLight*stone*(1.-seam*.25)*.55*fade;
+    float fade=exp(-tF*.09); vec3 fl=floorLight*stone*(1.-seam*.25)*.55*fade;
     // soft reflection of the shafts in the polish
     fl+=key*shaftsAcc*.12*fade; col+=fl;
     // incense pooling low over the floor, drifting
