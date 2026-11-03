@@ -10,12 +10,15 @@ body{background:#060504}
 #haze{z-index:0}#hall{z-index:1}
 .k{font-family:var(--inscr);font-size:.56rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
 .k.dim{color:var(--mist);letter-spacing:.22em;margin-top:4px}
-#info{position:fixed;left:28px;top:70px;width:330px;z-index:20;padding:18px 20px}
-#info h2{font-weight:400;font-size:2rem;line-height:1.05;color:#f6e9cf;margin:6px 0 4px}
+#info{position:fixed;left:28px;top:66px;width:340px;z-index:20;padding:0;text-shadow:0 0 12px #000,0 0 4px #000}
+#info #iText{display:none;background:rgba(10,8,7,.82);border-left:1px solid var(--gold-dim);padding:10px 14px;margin-top:10px}
+#info.more #iText{display:block}
+#info .btn{font-size:.5rem;padding:7px 10px;background:rgba(10,8,7,.55)}
+#info h2{font-weight:400;font-size:1.7rem;line-height:1.05;color:#f6e9cf;margin:4px 0 3px}
 #info .lead{font-style:italic;color:var(--mist);margin-bottom:8px}
 #info p{font-size:1rem;line-height:1.5;color:rgba(230,216,189,.8)}
 #info .count{font-family:var(--inscr);font-size:.6rem;letter-spacing:.26em;color:#efd497;margin-top:10px}
-#iComp{margin-top:10px;font-size:1rem;color:var(--mist);line-height:1.6}
+#iComp{margin-top:6px;font-size:.95rem;color:var(--mist);line-height:1.5}
 a.who{color:#efd497;cursor:pointer;border-bottom:1px solid rgba(239,212,151,.3);text-decoration:none}
 a.who:hover{color:#fff2d6;border-color:#fff2d6}
 #dock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:20;display:flex;flex-direction:column;gap:8px;align-items:center;width:min(1240px,96vw)}
@@ -71,8 +74,8 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
 <nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a href="river.html">River</a><a class="here" href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
 <button class="btn" id="bSilence" aria-pressed="false">Sounding</button>
 <div class="hint" id="hint">click a section or the podium to meet them<br>change the era to watch the players walk off and on</div>
-<div id="info" class="reliquary"><div class="k" id="iYear"></div><h2 id="iName"></h2><div class="lead" id="iLead"></div><p id="iText"></p><div id="iComp"></div><div class="count" id="iCount"></div>
-  <div style="display:flex;gap:8px;margin-top:14px"><button class="btn" id="tutti">Raise the baton</button></div></div>
+<div id="info"><div class="k" id="iYear"></div><h2 id="iName"></h2><div class="lead" id="iLead"></div><p id="iText"></p><div id="iComp"></div><div class="count" id="iCount"></div>
+  <div style="display:flex;gap:8px;margin-top:12px"><button class="btn" id="tutti">Raise the baton</button><button class="btn" id="bMore" aria-expanded="false">About this era</button></div></div>
 <div id="card" class="reliquary" role="dialog" aria-live="polite"></div>
 <div id="dock">
   <div class="drow" id="row1"><span id="eras" class="drow"></span><span class="sep"></span>
@@ -173,7 +176,7 @@ function renderComposers(){ const c=curComposer(); const el=$('iComp');
   const eras=(L[st.era]||{}).eras||[]; const cs=D.composers.filter(x=>eras.includes(x.era)).sort((a,b)=>b.compositionIds.length-a.compositionIds.length).slice(0,5);
   el.innerHTML=cs.length?'Composers of this era · '+cs.map(x=>`<a class="who" data-c="${x.id}">${x.shortName}</a>`).join(', '):''; }
 function setHash(){ const p=new URLSearchParams(); if(st.piece)p.set('piece',st.piece); else if(st.composer)p.set('composer',st.composer); else p.set('era',st.era);
-  if(st.instrument)p.set('instrument',st.instrument); if(camName!=='stalls')p.set('cam',camName); history.replaceState(null,'','#'+p.toString()); }
+  if(st.instrument)p.set('instrument',st.instrument); if(camName!=='podium')p.set('cam',camName); history.replaceState(null,'','#'+p.toString()); }
 function mark(){ const era=st.piece?PIECES.find(p=>p.id===st.piece).era:st.era;
   eraBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===era&&!st.piece&&!st.composer));
   pBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===st.piece));
@@ -240,7 +243,7 @@ addEventListener('keydown',e=>{ if(e.key==='Escape') closeCard(); });
 const CAMS={stalls:{label:'Front stalls',x:0,h:5,z:-5,pitch:.30,yaw:0,f:.6,cy:.45,lampH:6.6},
  box:{label:'Side box',x:-7.5,h:7,z:-3,pitch:.52,yaw:.75,f:.9,cy:.40,lampH:4.8},
  podium:{label:'Conductor\u2019s view',x:0,h:2.4,z:-2.6,pitch:.20,yaw:0,f:.78,cy:.30,lampH:6.5}};
-let camName='stalls'; const cam={...CAMS.stalls}; let camT=CAMS.stalls;
+let camName='podium'; const cam={...CAMS.podium}; let camT=CAMS.podium;
 function proj(x,z,h=0){ const c=cam, rx=x-c.x, ry=h-c.h, rz=z-c.z, cy=Math.cos(c.yaw), sy=Math.sin(c.yaw);
   const X=rx*cy-rz*sy, Z=rx*sy+rz*cy, cp=Math.cos(c.pitch), sp=Math.sin(c.pitch);
   const Zc=Math.max(.3,Z*cp-ry*sp), Yc=ry*cp+Z*sp, s=Math.min(H,W*1.25)*c.f/Zc, p=Math.max(.22,Math.min(1.7,s/120));
@@ -365,8 +368,11 @@ function render(){ g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
     g.fillStyle='rgba(255,236,200,.95)'; g.beginPath(); g.arc(pc.x,pc.y-34*cs,5.5*cs,0,7); g.fill();
     bx=pc.x+14*cs+(mouse.x-pc.x)*.04; by=pc.y-40*cs-up*26*cs-(baton>0?Math.abs(Math.sin(T*3.2))*8:Math.abs(Math.sin(T*1.4))*3)*cs+(mouse.y-pc.y)*.02; ex=bx+16*cs; ey=by-12*cs-up*6*cs;
     g.strokeStyle='rgba(255,240,210,.9)'; g.lineWidth=1.4*cs; g.beginPath(); g.moveTo(pc.x+5*cs,pc.y-26*cs); g.lineTo(bx,by); g.lineTo(ex,ey); g.stroke(); }
-  else { bx=W*.56; by=H+20; ex=W/2+(mouse.x-W/2)*.18+40; ey=H*.72+(mouse.y-H*.7)*.06-up*60-(baton>0?Math.abs(Math.sin(T*3.2))*14:Math.abs(Math.sin(T*1.4))*4);
-    g.strokeStyle='rgba(255,240,210,.85)'; g.lineWidth=3; g.beginPath(); g.moveTo(bx,by); g.lineTo(ex,ey); g.stroke(); }
+  else { bx=W/2; by=pc.y-26; let ang=mouse.x<0?-1.25:Math.atan2(mouse.y-by,mouse.x-bx); if(ang>0) ang=ang>Math.PI/2?-2.6:-.55; ang=Math.max(-2.6,Math.min(-.55,ang));
+    ang+=(baton>0?Math.sin(T*3.2)*.12:Math.sin(T*1.1)*.03); const L=Math.min(H*.3,290)*(1+up*.12); ex=bx+Math.cos(ang)*L; ey=by+Math.sin(ang)*L;
+    const nx=-Math.sin(ang), ny=Math.cos(ang); g.fillStyle='rgba(255,240,210,.88)'; g.beginPath(); g.moveTo(bx+nx*2.6,by+ny*2.6); g.lineTo(ex+nx*.5,ey+ny*.5); g.lineTo(ex-nx*.5,ey-ny*.5); g.lineTo(bx-nx*2.6,by-ny*2.6); g.closePath(); g.fill();
+    g.globalCompositeOperation='lighter'; const hg=g.createRadialGradient(bx,by,0,bx,by,26); hg.addColorStop(0,'rgba(255,214,160,.45)'); hg.addColorStop(1,'rgba(255,214,160,0)'); g.fillStyle=hg; g.fillRect(bx-26,by-26,52,52); g.globalCompositeOperation='source-over';
+    g.fillStyle='rgba(40,30,22,.95)'; g.beginPath(); g.ellipse(bx,by+3,6,4,0,0,7); g.fill(); g.strokeStyle='rgba(239,212,151,.6)'; g.lineWidth=1; g.stroke(); }
   g.globalCompositeOperation='lighter'; const bg=g.createRadialGradient(ex,ey,0,ex,ey,30+up*30); bg.addColorStop(0,`rgba(255,240,210,${.45+up*.4})`); bg.addColorStop(1,'rgba(255,240,210,0)'); g.fillStyle=bg; g.fillRect(ex-70,ey-70,140,140); g.globalCompositeOperation='source-over';
   const cc=curComposer(); if(cc){ g.font='12px Cinzel'; g.letterSpacing='3px'; g.fillStyle=onPodium(mouse.x,mouse.y)?'#fff3da':'rgba(239,212,151,.85)'; g.shadowColor='#000'; g.shadowBlur=8; g.fillText(cc.name.toUpperCase(),pc.x,pod?pc.y:pc.y+14*cs); g.shadowBlur=0; g.letterSpacing='0px'; }
   // haze
@@ -376,7 +382,7 @@ function render(){ g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
     const sc=proj(0,3.2); gl.uniform3f(uh.st,sc.x*HS,(H-sc.y)*HS,W*.42*HS); gl.drawArrays(gl.TRIANGLES,0,3); } }
 // ---------- interaction & sound ----------
 const tip=$('tip'); let lastPlay=0;
-function podPt(){ if(camName==='podium') return {x:W/2,y:$('dock').getBoundingClientRect().top-22,s:1}; const q=proj(0,-.35); return {x:q.x,y:q.y,s:Math.max(.6,Math.min(1.8,q.p/.95))}; }
+function podPt(){ if(camName==='podium') return {x:W/2,y:$('dock').getBoundingClientRect().top-14,s:1}; const q=proj(0,-.35); return {x:q.x,y:q.y,s:Math.max(.6,Math.min(1.8,q.p/.95))}; }
 function onPodium(mx,my){ const pc=podPt(), s=pc.s; if(camName==='podium') return !!curComposer()&&Math.abs(mx-pc.x)<110&&Math.abs(my-pc.y)<18; return Math.abs(mx-pc.x)<(curComposer()?90:30*s)&&my>pc.y-48*s&&my<pc.y+24*s; }
 function pickSection(mx,my){ let best=null,bd=1e9; for(const s of seats.values()){ if(s.dead)continue; const q=proj(s.cx,s.cz); const d=Math.hypot(q.x-mx,q.y-10*q.p-my); if(d<bd&&d<24*q.p+8){bd=d;best=s.sid;} } return best; }
 cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=pickSection(e.clientX,e.clientY), pod=!s&&onPodium(e.clientX,e.clientY);
@@ -398,6 +404,7 @@ const CHORD={cb:[38],vc:[50,57],va:[62],v2:[66],v1:[74,78],viol:[50,57],hc:[62,6
 async function raiseBaton(){ await sound.unlock(); preload(); baton=3; const pr=new Set(present()); const order=ORDER.filter(s=>pr.has(s));
   order.forEach((sid,i)=>motif(sid,.45,i*.42,.3)); const t=order.length*.42+.3;
   order.forEach(sid=>CHORD[sid].forEach(m=>P(S[sid][3],m,{when:sound.now()+t,dur:3.4,vel:.5,voices:2,pan:sectionPan(sid),tag:sid}))); baton=Math.max(baton,(t+3)*.35); }
+$('bMore').onclick=()=>{ const i=$('info'); i.classList.toggle('more'); $('bMore').setAttribute('aria-expanded',i.classList.contains('more')); $('bMore').textContent=i.classList.contains('more')?'Less':'About this era'; };
 $('tutti').onclick=()=>{ clearTimeout(syncTimer); pendingSync=false; raiseBaton(); };
 // ---------- boot from URL: #era=baroque  #piece=m40  #composer=gustav-mahler  #instrument=cello ----------
 $('fCam').innerHTML=Object.entries(CAMS).map(([k,c])=>`<option value="${k}">Seat · ${c.label}</option>`).join(''); $('fCam').onchange=e=>setCam(e.target.value);
