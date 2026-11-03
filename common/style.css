@@ -35,3 +35,8 @@ canvas{display:block}
 .sigil a.mark.home{width:26px;height:26px;transform:none;border:0;box-shadow:none;padding:0;display:inline-flex;filter:drop-shadow(0 0 6px rgba(239,212,151,.35))}
 .sigil a.mark.home img{width:26px;height:26px;display:block}
 .sigil a.mark.home:hover{filter:drop-shadow(0 0 10px rgba(255,200,130,.7))}
+
+@media (orientation:portrait) and (max-width:820px){
+  body::after{content:"Please turn your phone sideways\A\A Requiem of Everything is made for landscape";white-space:pre-wrap;position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 12vw;
+    background:#070605 url("icon.svg") no-repeat center calc(50% - 90px)/72px;background-image:url("../icon.svg");color:#efd497;font-family:var(--inscr);font-size:.8rem;letter-spacing:.25em;line-height:1.6;text-transform:uppercase}
+}
