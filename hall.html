@@ -136,7 +136,7 @@ const ERA_OF={renaissance:'renaissance',baroque:'baroque',classical:'classical',
 PIECES.forEach(p=>p.composer=D.composers.find(c=>c.shortName===p.who)?.id);
 // ---------- seats ----------
 let WING=11;
-const seats=new Map(), CAR={}; let current={}, active={}, hoverS=null, focusS=new Set(), card=null, mouse={x:-99,y:-99}, st={era:'classical'};
+const seats=new Map(), CAR={}; let current={}, active={}, hoverS=null, focusS=new Set(), card=null, mouse={x:-99,y:-99}, st={era:'classical'}, sectionLabelRects=[], sectionLabelSkipped=[];
 let pendingSync=false, syncTimer=0, wasMoving=false, cacT=0, baton=0, T=0;
 function apply(defs,meta){ current=meta; const {out:tgt,carp}=layoutSeats(defs); fitTargets=tgt; fitCarpets=carp; WING=Math.max(11,tgt.reduce((max,t)=>Math.max(max,Math.hypot(t.x,t.z)),0)+2); const keep=new Set(); clearTimeout(syncTimer);
   for(const t of tgt){ keep.add(t.key); let s=seats.get(t.key);
@@ -424,12 +424,54 @@ function render(){ g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
     if(!s.walk){ g.fillStyle='rgba(255,200,130,.3)'; g.fillRect(q.x-r*.9,q.y-2*q.p,r*1.8,1.2*q.p); }
     g.globalAlpha=1; }
   // section names on the carpet edge
-  g.textAlign='center'; g.textBaseline='top';
-  for(const sid in CAR){ const c=CAR[sid]; if(c.al<.05)continue; const th=((c.a0+c.a1)/2)*Math.PI/180, q=proj(-Math.cos(th)*c.R0,Math.sin(th)*c.R0), lv=lvlOf(sid);
-    g.font=`${Math.round(8+3*q.p)}px Cinzel`; g.letterSpacing='1.5px'; const nm=(S[sid][7]||S[sid][0]).toUpperCase();
-    const e0=proj(-Math.cos(c.a0*Math.PI/180)*c.R0,Math.sin(c.a0*Math.PI/180)*c.R0), e1=proj(-Math.cos(c.a1*Math.PI/180)*c.R0,Math.sin(c.a1*Math.PI/180)*c.R0);
-    if(lv<.3&&g.measureText(nm).width>Math.abs(e1.x-e0.x)*1.05) continue; g.globalAlpha=c.al*(lv>.3?1:.5); g.shadowColor='#000'; g.shadowBlur=6; g.fillStyle=lv>.3?'#fff3da':S[sid][5]; g.fillText(nm,q.x,q.y+3); g.shadowBlur=0; g.globalAlpha=1; }
-  g.letterSpacing='0px';
+  const labelCandidates=[];
+  for(const sid in CAR){ const c=CAR[sid]; if(c.al<.05)continue;
+    const voice=S[sid][1]==='voices', lv=lvlOf(sid), count=cent[sid]?.n||0, isActive=lv>.3, nm=(S[sid][7]||S[sid][0]).toUpperCase();
+    const th=((c.a0+c.a1)/2)*Math.PI/180;
+    const make=(edge,baseline,offset=0,fontDelta=0)=>{
+      const R=edge==='outer'?c.R1:c.R0, q=proj(-Math.cos(th)*R,Math.sin(th)*R), fontPx=Math.max(6,Math.round(8+3*q.p)+fontDelta);
+      g.font=`${fontPx}px Cinzel`; g.letterSpacing='1.5px';
+      const metrics=g.measureText(nm), w=metrics.width+Math.max(0,nm.length-1)*1.5;
+      const h=Math.max(fontPx,(metrics.actualBoundingBoxAscent||fontPx*.8)+(metrics.actualBoundingBoxDescent||fontPx*.25));
+      const drawY=(baseline==='bottom'?q.y-3:q.y+3)+offset;
+      return {sid,text:nm,x:q.x-w/2,y:baseline==='bottom'?drawY-h:drawY,w,h,fontPx,priority:{active:isActive,voice,count},baseline,drawX:q.x,drawY,alpha:c.al*(isActive?1:.5),color:isActive?'#fff3da':S[sid][5]};
+    };
+    const anchorEdge=voice?'outer':'inner', anchorBaseline=voice?'bottom':'top';
+    const opposite=make(voice?'inner':'outer',voice?'top':'bottom');
+    const anchor=make(anchorEdge,anchorBaseline);
+    const shift=(label,dy)=>({...label,y:label.y+dy,drawY:label.drawY+dy});
+    const smaller=make(anchorEdge,anchorBaseline,0,-2);
+    labelCandidates.push({...anchor,options:[anchor,opposite,shift(anchor,-12),shift(anchor,12),smaller]});
+  }
+  const byPriority=(a,b)=>Number(b.priority.active)-Number(a.priority.active)||Number(b.priority.voice)-Number(a.priority.voice)||b.priority.count-a.priority.count;
+  labelCandidates.sort(byPriority);
+  const required=labelCandidates.filter(label=>label.priority.active||label.priority.voice), placed=[];
+  function placeRequired(index){
+    if(index===required.length)return true;
+    const label=required[index];
+    for(const option of label.options) if(!placed.some(other=>labelRectsOverlap(option,other,4))){
+      placed.push({...option,options:label.options,priority:label.priority});
+      if(placeRequired(index+1))return true;
+      placed.pop();
+    }
+    return false;
+  }
+  if(!placeRequired(0)){
+    placed.length=0;
+    for(const label of required){
+      const option=label.options.find(pos=>!placed.some(other=>labelRectsOverlap(pos,other,4)))||label.options[0];
+      placed.push({...option,options:label.options,priority:label.priority});
+    }
+  }
+  const skipped=[];
+  for(const label of labelCandidates){ if(label.priority.active||label.priority.voice)continue;
+    const option=label.options.find(pos=>!placed.some(other=>labelRectsOverlap(pos,other,4)));
+    if(option)placed.push({...option,options:label.options,priority:label.priority}); else skipped.push(label.sid);
+  }
+  sectionLabelRects=placed; sectionLabelSkipped=skipped;
+  g.textAlign='center'; g.letterSpacing='1.5px'; g.shadowColor='#000'; g.shadowBlur=6;
+  for(const label of placed){ g.textBaseline=label.baseline; g.font=`${label.fontPx}px Cinzel`; g.globalAlpha=label.alpha; g.fillStyle=label.color; g.fillText(label.text,label.drawX,label.drawY); }
+  g.shadowBlur=0; g.globalAlpha=1; g.letterSpacing='0px'; g.textBaseline='top';
   // podium, conductor & baton
   const pc=podPt(), cs=pc.s, up=baton>0?Math.min(1,baton*3):0, pod=camName==='podium';
   let bx,by,ex,ey;
@@ -454,13 +496,17 @@ function render(){ g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
 const tip=$('tip'); let lastPlay=0;
 function podPt(){ if(camName==='podium') return {x:W/2,y:$('dock').getBoundingClientRect().top-14,s:1}; const q=proj(0,-.35); return {x:q.x,y:q.y,s:Math.max(.6,Math.min(1.8,q.p/.95))}; }
 function onPodium(mx,my){ const pc=podPt(), s=pc.s; if(camName==='podium') return !!curComposer()&&Math.abs(mx-pc.x)<110&&Math.abs(my-pc.y)<18; return Math.abs(mx-pc.x)<(curComposer()?90:30*s)&&my>pc.y-48*s&&my<pc.y+24*s; }
+function labelRectsOverlap(a,b,padding=4){ return a.x-padding<b.x+b.w+padding&&a.x+a.w+padding>b.x-padding&&a.y-padding<b.y+b.h+padding&&a.y+a.h+padding>b.y-padding; }
+function pickLabel(mx,my){ for(let i=sectionLabelRects.length-1;i>=0;i--){ const r=sectionLabelRects[i]; if(mx>=r.x&&mx<=r.x+r.w&&my>=r.y&&my<=r.y+r.h)return r.sid; } return null; }
+window.__labelCheck=()=>{ const overlaps=[]; for(let i=0;i<sectionLabelRects.length;i++)for(let j=i+1;j<sectionLabelRects.length;j++)if(labelRectsOverlap(sectionLabelRects[i],sectionLabelRects[j],4))overlaps.push([sectionLabelRects[i].sid,sectionLabelRects[j].sid]); return {placed:sectionLabelRects.map(r=>r.sid),skipped:[...sectionLabelSkipped],overlaps}; };
+window.__labelCheck.rects=()=>sectionLabelRects.map(({sid,x,y,w,h})=>({sid,x,y,w,h}));
 function pickSection(mx,my){ let best=null,bd=1e9; for(const s of seats.values()){ if(s.dead)continue; const q=proj(s.cx,s.cz); const d=Math.hypot(q.x-mx,q.y-10*q.p-my); if(d<bd&&d<24*q.p+8){bd=d;best=s.sid;} } return best; }
-cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=pickSection(e.clientX,e.clientY), pod=!s&&onPodium(e.clientX,e.clientY);
+cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=pickLabel(e.clientX,e.clientY)||pickSection(e.clientX,e.clientY), pod=!s&&onPodium(e.clientX,e.clientY);
   if(s!==hoverS){ hoverS=s; if(s&&sound.started&&!wasMoving&&performance.now()-lastPlay>160){lastPlay=performance.now(); motif(s,.38);} }
   if(s){ const n=[...seats.values()].filter(o=>o.sid===s&&!o.dead).length; tip.innerHTML=`<b>${S[s][0]}</b><span>${n} player${n>1?'s':''} · ${FAMN[S[s][1]]} · click to meet</span>`; }
   else if(pod){ const c=curComposer(); tip.innerHTML=c?`<b>${c.name}</b><span>click to meet the composer</span>`:`<b>The podium</b><span>pick a composer or piece below</span>`; }
   if(s||pod){ tip.style.opacity=1; tip.style.left=Math.min(e.clientX+16,W-260)+'px'; tip.style.top=(e.clientY+16)+'px'; cv.style.cursor='pointer'; } else { tip.style.opacity=0; cv.style.cursor=''; } });
-cv.addEventListener('click',e=>{ sound.unlock(); const s=pickSection(e.clientX,e.clientY);
+cv.addEventListener('click',e=>{ sound.unlock(); const s=pickLabel(e.clientX,e.clientY)||pickSection(e.clientX,e.clientY);
   if(s){ st.instrument=S[s][2]||undefined; focusS=new Set(); openInstrument(s); mark(); setHash(); return; }
   if(onPodium(e.clientX,e.clientY)&&curComposer()){ openComposer(curComposer().id); return; }
   closeCard(); });
