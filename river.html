@@ -14,7 +14,7 @@
 #tip b{font-weight:500;font-size:1.15rem;color:#f6e9cf;display:block}
 #tip .k{font-family:var(--inscr);font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 #tip .d{font-size:.95rem;color:rgba(230,216,189,.78);margin-top:5px;font-style:italic}
-#life{position:fixed;left:50%;bottom:66px;width:min(1240px,calc(100vw - 40px));height:316px;transform:translateX(-50%) translateY(30px);z-index:28;
+#life{position:fixed;left:50%;bottom:66px;width:min(1240px,calc(100vw - 40px));height:390px;transform:translateX(-50%) translateY(30px);z-index:28;
   opacity:0;visibility:hidden;transition:opacity .7s,transform .8s cubic-bezier(.22,1,.36,1),visibility 0s linear .7s;padding:18px 24px;display:grid;grid-template-columns:300px 1fr;gap:28px}
 #life.open{opacity:1;visibility:visible;transform:translateX(-50%);transition-delay:0s}
 #life h2{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf}
@@ -23,6 +23,13 @@
 #life .bio{flex:1;min-height:0;font-size:.98rem;line-height:1.5;color:rgba(230,216,189,.78);overflow-y:auto;padding-right:8px;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.55) rgba(201,165,92,.08);
   -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
 #life .bio.end{-webkit-mask-image:none;mask-image:none}
+#life .events{flex:0 0 92px;min-height:0;overflow:hidden;margin:3px 0 7px;padding-top:5px;border-top:1px solid var(--gold-faint)}
+#life .events h3{font-family:var(--inscr);font-size:.5rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-bottom:4px}
+#life .event-list{height:66px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.45) rgba(201,165,92,.06)}
+#life .event-row{display:block;padding:2px 0;font-size:.76rem;line-height:1.15;color:rgba(230,216,189,.48)}
+#life .event-row .year-title{color:rgba(230,216,189,.58)}
+#life .event-row.linked .year-title{color:rgba(246,233,207,.94)}
+#life .event-row .link-text{display:block;margin:2px 0 2px 1.2em;color:var(--gold-hi);font-style:italic}
 #life .more{font-family:var(--inscr);font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:4px;height:12px;transition:opacity .3s}
 #life .closehint{margin-left:auto;opacity:.6}
 #life .legend{font-family:var(--inscr);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist);display:flex;gap:18px;margin-bottom:4px}
@@ -34,6 +41,21 @@
 #legendE{position:fixed;right:22px;bottom:18px;z-index:25;font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);line-height:2}
 #legendE i{display:inline-block;width:6px;height:6px;transform:rotate(45deg);margin-right:8px}
 #hint{bottom:4px;top:auto;opacity:.55;font-size:.48rem}
+@media(max-width:640px){
+  .sigil{left:12px;top:12px;gap:0}
+  .sigil a:not(.mark){display:none}
+  #head{top:13px!important;width:196px;max-width:calc(100vw - 184px)}
+  #head h1{font-size:.7rem;letter-spacing:.18em;text-indent:.18em;white-space:nowrap}
+  #head p{display:none}
+  #life{left:10px;right:10px;bottom:58px;width:auto;height:min(66vh,540px);padding:14px 15px;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(145px,.9fr);gap:10px;transform:translateY(30px)}
+  #life.open{transform:none}
+  #life h2{font-size:1.45rem}
+  #life .events{flex-basis:76px;margin-bottom:3px}
+  #life .event-list{height:52px}
+  #life .right{min-height:0}
+  #life .legend{font-size:.43rem;letter-spacing:.14em;gap:7px;flex-wrap:wrap}
+  #bSilence{top:12px;right:12px;padding:8px 10px;font-size:.5rem;letter-spacing:.12em}
+}
 #zoomlabel{position:fixed;left:24px;bottom:22px;z-index:25;font-family:var(--inscr);font-size:.55rem;letter-spacing:.26em;color:var(--mist);text-transform:uppercase}
 </style>
 </head>
@@ -45,6 +67,7 @@
 <div id="tip" class="reliquary"></div>
 <div id="life" class="reliquary">
   <div class="left"><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div><div class="more" id="lMore">↓ scroll for more</div>
+    <div class="events" id="lEvents"><h3>In their lifetime</h3><div class="event-list"></div></div>
     <button class="btn listen" id="lListen">Listen on Spotify</button></div>
   <div class="right"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
 </div>
@@ -108,7 +131,7 @@ const parts=[]; comps.forEach(c=>{const n=Math.round((c.deathYear-c.birthYear)/4
 const catCol={_:'#ffffff',war:'#ff6a4a',political:'#d9a6ff',revolution:'#ff4d6d',technological:'#7fd8ff',scientific:'#9fe6c8',religious:'#ffd98a',cultural:'#f3e6cb',literary:'#f3e6cb','natural-disaster':'#ff9b5a'};
 document.getElementById('legendE').innerHTML=[['war','War'],['revolution','Revolution'],['political','Politics'],['technological','Invention'],['scientific','Science'],['religious','Faith']].map(([k,l])=>`<div><i style="background:${catCol[k]}"></i>${l}</div>`).join('');
 let reveal=0;
-let hoverL=null, pin=null, silent=localStorage.getItem('roe-silent')==='1';
+let hoverL=null, pin=null, soundEnabled=localStorage.getItem('roe-sound')!=='off';
 const evEnd=e=>e.endYear||e.year;
 const touches=(c,lane)=>c.home===lane||c.moves.some(m=>m[1]===lane);
 const lanesOf=c=>new Set([c.home,...c.moves.map(m=>m[1])]);
@@ -236,34 +259,58 @@ function clickAt(e){
   if(hoverE&&!hoverC){ pin=pin&&pin.kind==='event'&&pin.v===hoverE?null:{kind:'event',v:hoverE}; showTip(e.clientX,e.clientY); return; }
   if(hoverC){ openLife(hoverC); return; }
   if(focus) closeLife(); }
-const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=silent?'Sound off':'Silence';bS.setAttribute('aria-pressed',silent);}; paintS();
-bS.onclick=()=>{silent=!silent;localStorage.setItem('roe-silent',silent?'1':'0');paintS();};
-const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d'); const bio=document.getElementById('lBio'), more=document.getElementById('lMore');
+const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=soundEnabled?'Sounding':'Silence';bS.classList.toggle('on',soundEnabled);bS.setAttribute('aria-pressed',soundEnabled);}; paintS();
+bS.onclick=()=>{soundEnabled=!soundEnabled;localStorage.setItem('roe-sound',soundEnabled?'on':'off');paintS();if(soundEnabled)sound.unlock();else if(sound.ctx)sound.ctx.suspend();};
+addEventListener('storage',e=>{if(e.key!=='roe-sound'&&e.key!==null)return;soundEnabled=e.newValue!=='off';paintS();if(!soundEnabled&&sound.ctx)sound.ctx.suspend();});
+const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d'); const bio=document.getElementById('lBio'), more=document.getElementById('lMore'), eventsList=document.querySelector('#lEvents .event-list');
 const paintMore=()=>{const can=bio.scrollHeight>bio.clientHeight+4, end=bio.scrollTop+bio.clientHeight>=bio.scrollHeight-4; more.style.opacity=can&&!end?1:0; bio.classList.toggle('end',!can||end);};
 bio.addEventListener('scroll',paintMore);
 function openLife(c){ focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.18); tv0=c.birthYear-pad; tv1=c.deathYear+pad*(c.life&&c.life.after?2.5:1);
   document.getElementById('lName').textContent=c.name; document.getElementById('lName').style.color=rgba(c.rgb,1); document.getElementById('lDates').textContent=`${c.birthYear} — ${c.deathYear} · ${c.birthPlace}`;
   bio.textContent=c.biography; bio.scrollTop=0; document.getElementById('lNote').textContent=c.life?(c.life.note||''):'Sketch estimated from works in our catalogue';
+  renderLifetimeEvents(c);
   document.getElementById('lListen').onclick=()=>{const w=c.works[0];window.open(w?w.spotifyUrl:`https://open.spotify.com/search/${encodeURIComponent(c.name)}`,'_blank','noopener');};
   life.classList.add('open'); requestAnimationFrame(()=>{drawSeis(c);paintMore();});
-  if(sound.started&&!silent){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
+  if(sound.started&&soundEnabled){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
 function closeLife(){ focus=null; life.classList.remove('open'); tv0=1480; tv1=2000; }
 addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
 let seisHits=[];
+function renderLifetimeEvents(c){
+  eventsList.replaceChildren();
+  const linked=new Map(((c.life&&c.life.links)||[]).filter(l=>l.kind==='event').map(l=>[l.ref,l]));
+  const events=EV.filter(e=>e.year<=c.deathYear&&evEnd(e)>=c.birthYear).sort((a,b)=>a.year-b.year);
+  for(const event of events){
+    const link=linked.get(event.id), row=document.createElement('div'), heading=document.createElement('span');
+    row.className='event-row'+(link?' linked':''); heading.className='year-title';
+    heading.textContent=`${event.year}${evEnd(event)>event.year?'–'+evEnd(event):''} · ${event.title}`;
+    row.append(heading);
+    if(link){const text=document.createElement('span');text.className='link-text';text.textContent=link.text;row.append(text);}
+    eventsList.append(row);
+  }
+}
 function drawSeis(c){ const r=seis.getBoundingClientRect(); seis.width=r.width*DPR; seis.height=r.height*DPR; sg.setTransform(DPR,0,0,DPR,0,0); const w=r.width,h=r.height;
-  const top=58, base=h-46, x=y=>(y-c.birthYear)/(c.deathYear-c.birthYear)*(w-64)+32, Yv=v=>base-v*(base-top); sg.clearRect(0,0,w,h); seisHits=[];
+  const top=48, base=h-84, x=y=>(y-c.birthYear)/(c.deathYear-c.birthYear)*(w-64)+32, Yv=v=>base-v*(base-top); sg.clearRect(0,0,w,h); seisHits=[];
   const col=rgba(c.rgb,1);
   // decades as years; birth and death as the bounds
   sg.font='400 10px Cinzel'; sg.textAlign='center';
   for(let y=Math.ceil(c.birthYear/10)*10;y<c.deathYear;y+=10){ if(y-c.birthYear<4||c.deathYear-y<4)continue; sg.fillStyle='rgba(201,165,92,.12)'; sg.fillRect(x(y),top-8,1,base-top+8); sg.fillStyle='rgba(216,203,180,.42)'; sg.fillText(y,x(y),base+14); }
   sg.font='600 11px Cinzel'; for(const y of [c.birthYear,c.deathYear]){ sg.fillStyle=rgba(c.rgb,.55); sg.fillRect(x(y)-.5,top-14,1.2,base-top+14); sg.fillStyle=col; sg.fillText(y,x(y),base+15); }
   // the world: events touching the life, as a strip of coloured spans and faint veils through the graph
-  const wy=base+24; sg.font='400 8px Cinzel'; sg.textAlign='left'; sg.fillStyle='rgba(216,203,180,.4)'; sg.fillText('WORLD',0,wy+7);
+  const wy=base+72; sg.font='400 8px Cinzel'; sg.textAlign='left'; sg.fillStyle='rgba(216,203,180,.4)'; sg.fillText('WORLD',0,wy+7);
   const linked=new Map(((c.life&&c.life.links)||[]).filter(l=>l.kind==='event').map(l=>[l.ref,l]));
+  const eventLabels=[], labelRows=[[],[],[],[]];
   for(const e of EV){ const a=Math.max(e.year,c.birthYear), b=Math.min(evEnd(e),c.deathYear); if(b<a)continue; const ec=catCol[e.category]||'#ffffff'; const L=linked.get(e.id);
-    const xa=x(a), xb=Math.max(x(b),xa+3); sg.fillStyle=ec+(L?'24':'0e'); sg.fillRect(xa,top-8,xb-xa,base-top+8);
-    sg.fillStyle=ec+(L?'ff':'aa'); sg.fillRect(xa,wy,xb-xa,L?8:5);
-    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${e.year}${evEnd(e)>e.year?' – '+evEnd(e):''} · ${e.category}</span><b>${e.title}</b><div class="d">${L?L.text:(e.musicalSignificance||e.description)}</div>`}); }
+    const xa=x(a), xb=x(b); sg.fillStyle=ec+(L?'20':'08'); sg.fillRect(xa,top-8,Math.max(1,xb-xa),base-top+8);
+    sg.fillStyle=ec+(L?'ff':'55');
+    if(b===a){sg.lineWidth=L?2:1;sg.beginPath();sg.moveTo(xa,wy-2);sg.lineTo(xa,wy+9);sg.strokeStyle=ec+(L?'ff':'55');sg.stroke();}
+    else sg.fillRect(xa,wy,Math.max(2,xb-xa),L?8:5);
+    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${e.year}${evEnd(e)>e.year?' – '+evEnd(e):''} · ${e.category}</span><b>${e.title}</b><div class="d">${L?L.text:(e.musicalSignificance||e.description)}</div>`});
+    if(L){
+      sg.font='500 8px Cinzel'; const width=Math.min(Math.max(42,sg.measureText(L.text).width),Math.max(42,w*.42));
+      const labelX=clamp((xa+xb)/2-width/2,0,w-width), interval=[labelX-4,labelX+width+4];
+      const row=labelRows.findIndex(items=>items.every(q=>interval[1]<=q[0]||interval[0]>=q[1]));
+      if(row>=0){labelRows[row].push(interval);eventLabels.push({x:labelX,y:base+32+row*10,width,text:L.text,color:ec});}
+    }}
   for(const l of ((c.life&&c.life.links)||[]).filter(l=>l.kind==='contemporary')){ const o=comps.find(k=>k.id===l.ref); if(!o)continue; const px=x(clamp(l.year,c.birthYear,c.deathYear));
     sg.strokeStyle=rgba(o.rgb,1); sg.lineWidth=1.4; sg.beginPath(); sg.arc(px,wy+4,4,0,7); sg.stroke();
     seisHits.push({x0:px-6,x1:px+6,y0:wy-4,y1:wy+12,html:`<span class="k">${l.year} · contemporary</span><b>${o.name}</b><div class="d">${l.text}</div>`}); }
@@ -279,13 +326,16 @@ function drawSeis(c){ const r=seis.getBoundingClientRect(); seis.width=r.width*D
     seisHits.push({x0:px-8,x1:px+8,y0:py-8,y1:py+8,html:`<span class="k">${p[0]} · aged ${p[0]-c.birthYear}</span><b>${p[3]}</b>`});
     const tw=sg.measureText(p[3]).width; const right=px>w-tw-10; const a=right?px-tw-6:px+6; let L=0; while(L<3&&(lvS[L]||[]).some(q=>a<q[1]&&a+tw>q[0]))L++; if(L>=3)return; (lvS[L]||(lvS[L]=[])).push([a-6,a+tw+6]);
     const ly=12+L*15; sg.strokeStyle='rgba(239,212,151,.25)'; sg.lineWidth=1; sg.beginPath(); sg.moveTo(px,ly+3); sg.lineTo(px,py-5); sg.stroke(); sg.fillStyle='rgba(246,233,207,.86)'; sg.fillText(p[3],a,ly); });
+  sg.font='500 8px Cinzel';sg.textAlign='left';
+  for(const label of eventLabels){sg.fillStyle='rgba(10,8,7,.82)';sg.fillRect(label.x-2,label.y-8,label.width+4,10);sg.fillStyle=label.color;sg.fillText(label.text,label.x,label.y,label.width);}
 }
 seis.addEventListener('pointermove',e=>{ const r=seis.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top; const h=seisHits.find(k=>mx>=k.x0&&mx<=k.x1&&my>=k.y0&&my<=k.y1);
   tip.style.opacity=h?1:0; if(h){tip.innerHTML=h.html; tip.style.left=Math.min(W-340,e.clientX+14)+'px'; tip.style.top=Math.max(10,e.clientY-120)+'px';} });
 seis.addEventListener('pointerleave',()=>tip.style.opacity=0);
 mini.addEventListener('pointerdown',e=>{const r=mini.getBoundingClientRect();const go=ev=>{const yr=MIN+(ev.clientX-r.left)/r.width*(MAX-MIN);const s=tv1-tv0;tv0=clamp(yr-s/2,MIN,MAX-s);tv1=tv0+s;};go(e);const mv=ev=>go(ev);addEventListener('pointermove',mv);addEventListener('pointerup',()=>removeEventListener('pointermove',mv),{once:true});});
 // first gesture wakes the sound
-addEventListener('pointerdown',()=>{sound.unlock();['harp','cello','horn','flute','clarinet','piano','violin','oohs','choir','organ','harpsichord'].forEach(i=>sound.load(i));},{once:true});
+let soundAssetsLoaded=false;
+addEventListener('pointerdown',()=>{if(soundEnabled)sound.unlock();if(soundAssetsLoaded)return;soundAssetsLoaded=true;['harp','cello','horn','flute','clarinet','piano','violin','oohs','choir','organ','harpsichord'].forEach(i=>sound.load(i));});
 // deep links for review: #focus=<id> or #zoom=1780-1830
 const hp=new URLSearchParams(location.hash.slice(1)); 
 let last=performance.now();

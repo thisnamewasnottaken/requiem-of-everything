@@ -245,28 +245,54 @@ requestAnimationFrame(frame);
 const PROG=[ // [bass, chord tones]
   [38,[50,57,62,65]],[46,[50,58,62,65]],[41,[53,57,60,65]],[48,[52,55,60,64]],
   [38,[50,57,62,65]],[43,[50,58,62,67]],[45,[52,57,61,64]],[38,[50,57,62,66]]];
-let step=0, soundOn=false, chord=PROG[0];
+const bSound=document.getElementById('bSound'), soundKey='roe-sound';
+let step=0, soundOn=false, soundEnabled=localStorage.getItem(soundKey)!=='off', chord=PROG[0], chordTimer=null, startingSound=null, autoStartHandler=null;
 const SCALE=[62,64,65,67,69,70,72,74,76,77,79,81,82,84,86];
+function paintSound(){bSound.textContent=soundEnabled?'Sounding':'Silence';bSound.classList.toggle('on',soundEnabled);bSound.setAttribute('aria-pressed',soundEnabled);}
+function disarmAutoStart(){if(autoStartHandler){removeEventListener('pointerdown',autoStartHandler);autoStartHandler=null;}}
+function armAutoStart(){
+  if(autoStartHandler||!soundEnabled)return;
+  autoStartHandler=e=>{
+    if(e.target.closest('#bSound,#silent,#withSound'))return;
+    disarmAutoStart(); startSound();
+  };
+  addEventListener('pointerdown',autoStartHandler);
+}
+function setSoundEnabled(enabled){
+  soundEnabled=enabled; localStorage.setItem(soundKey,enabled?'on':'off'); paintSound();
+  if(enabled){armAutoStart();}else{disarmAutoStart();stopSound();}
+}
+paintSound(); armAutoStart();
 function playChord(){
   if(!soundOn) return; chord=PROG[step++%PROG.length];
   const [b,tones]=chord, now=sound.now()+.05;
-  sound.play('bass',b-12,{when:now,dur:6,vel:.45,voices:2,pan:.25,attack:1.4,release:3});
-  sound.play('cello',b,{when:now+.1,dur:6,vel:.42,voices:2,pan:.15,attack:1.2,release:3});
-  tones.forEach((n,i)=>{sound.play('oohs',n,{when:now+.2+i*.18,dur:5.6,vel:.36,pan:-.4+i*.27,attack:1.6,release:3});
-    sound.play('strings',n+(i>1?12:0),{when:now+.4+i*.1,dur:5.6,vel:.3,pan:.3-i*.2,attack:2,release:3});});
+  sound.play('bass',b-12,{when:now,dur:8.2,vel:.45,voices:2,pan:.25,attack:1.4,release:4.5,loop:true});
+  sound.play('cello',b,{when:now+.1,dur:8.2,vel:.42,voices:2,pan:.15,attack:1.2,release:4.5,loop:true});
+  tones.forEach((n,i)=>{sound.play('oohs',n,{when:now+.2+i*.18,dur:8,vel:.36,pan:-.4+i*.27,attack:1.6,release:4,loop:true});
+    sound.play('strings',n+(i>1?12:0),{when:now+.4+i*.1,dur:8,vel:.3,pan:.3-i*.2,attack:2,release:4,loop:true});});
 }
-let chordTimer=null;
 async function startSound(){
-  await sound.unlock(); soundOn=true; bSound.textContent='Sounding'; bSound.classList.add('on'); bSound.setAttribute('aria-pressed','true');
-  ['oohs','strings','cello','bass','celesta','choir','harp','bells','horn'].forEach(i=>sound.load(i));
-  playChord(); clearInterval(chordTimer); chordTimer=setInterval(playChord,6400);
+  if(!soundEnabled)return;
+  disarmAutoStart();
+  if(startingSound)return startingSound;
+  startingSound=(async()=>{
+    await sound.unlock(); if(!soundEnabled)return;
+    soundOn=true; paintSound();
+    ['oohs','strings','cello','bass','celesta','choir','harp','bells','horn'].forEach(i=>sound.load(i));
+    if(!chordTimer){playChord();chordTimer=setInterval(playChord,6400);}
+  })();
+  try{await startingSound;}finally{startingSound=null;}
 }
-function stopSound(){soundOn=false; clearInterval(chordTimer); bSound.textContent='Silence'; bSound.classList.remove('on'); bSound.setAttribute('aria-pressed','false'); if(sound.ctx) sound.ctx.suspend();}
-const bSound=document.getElementById('bSound');
-bSound.onclick=()=>soundOn?stopSound():(sound.ctx&&sound.ctx.resume(),startSound());
+function stopSound(){soundOn=false;clearInterval(chordTimer);chordTimer=null;if(sound.ctx)sound.ctx.suspend();}
+bSound.onclick=()=>{const enabled=!soundEnabled;setSoundEnabled(enabled);if(enabled)startSound();};
+addEventListener('storage',e=>{
+  if(e.key!==soundKey&&e.key!==null)return;
+  soundEnabled=e.newValue!=='off';paintSound();
+  if(soundEnabled)armAutoStart();else{disarmAutoStart();stopSound();}
+});
 function enterHall(withSound){document.body.classList.add('entered'); enterT=1; if(withSound) startSound(); setTimeout(()=>{const w=document.getElementById('whisper');w.style.opacity=.8;setTimeout(()=>w.style.opacity=0,6000);},2600);}
-document.getElementById('withSound').onclick=e=>{e.stopPropagation();enterHall(true)};
-document.getElementById('silent').onclick=e=>{e.stopPropagation();enterHall(false)};
+document.getElementById('withSound').onclick=e=>{e.stopPropagation();setSoundEnabled(true);enterHall(true)};
+document.getElementById('silent').onclick=e=>{e.stopPropagation();setSoundEnabled(false);enterHall(false)};
 
 let lastShimmer=0;
 addEventListener('pointermove',e=>{
@@ -283,8 +309,16 @@ addEventListener('pointerdown',e=>{
   if(e.target.closest('.reliquary,.portal,button,#about')||!document.body.classList.contains('entered')) return;
   const x=(e.clientX-innerWidth/2)/innerHeight, y=(innerHeight/2-e.clientY)/innerHeight;
   candles.push({x,y,t:performance.now()/1000,h:+sL.value/100}); if(candles.length>16) candles.shift();
-  if(soundOn){const tones=chord[1]; const n=tones[Math.floor(Math.random()*tones.length)]+12;
-    sound.play('choir',n,{dur:2.4,vel:.5,pan:x,attack:.5,release:3,wet:1.5}); sound.play('bells',n+12,{dur:.3,vel:.22,pan:x,wet:1.6});}
+  if(soundOn){
+    const pcs=new Set(chord[1].map(n=>((n%12)+12)%12));
+    const candidates=Array.from({length:30},(_,i)=>55+i).filter(n=>pcs.has(n%12));
+    const height=Math.max(0,Math.min(1,e.clientY/innerHeight));
+    const n=candidates[Math.round((1-height)*(candidates.length-1))];
+    const distance=Math.abs(e.clientX-innerWidth/2)/(innerWidth/2);
+    const vel=.55*(1-.75*Math.min(1,distance)), pan=Math.max(-1,Math.min(1,e.clientX/innerWidth*2-1));
+    sound.play('choir',n,{dur:2.4,vel,pan,attack:.5,release:3,wet:1.5});
+    sound.play('bells',n,{dur:.3,vel,pan,wet:1.6});
+  }
 });
 // portals: each door has its own voice
 const VOICES={river:()=>{const [b,t]=chord;[0,1,2,3].forEach(i=>sound.play('harp',t[i]+12,{when:sound.now()+i*.09,dur:.6,vel:.42,pan:-.3+i*.2}));},

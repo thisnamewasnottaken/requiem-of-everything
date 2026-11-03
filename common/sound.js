@@ -38,7 +38,7 @@ export const PATCHES = {
 };
 
 class Engine {
-  constructor() { this.ctx = null; this.banks = {}; this.decoded = {}; this.listeners = new Set(); this.level = 0; }
+  constructor() { this.ctx = null; this.banks = {}; this.decoded = {}; this.loopBuffers = {}; this.listeners = new Set(); this.level = 0; }
   get started() { return !!this.ctx && this.ctx.state === 'running'; }
   async unlock() {
     if (!this.ctx) this._build();
@@ -99,6 +99,24 @@ class Engine {
     }
     return this.decoded[key];
   }
+  _loopBuffer(gm, name, buffer, startFraction = .35, endFraction = .85) {
+    const key = `${gm}:${name}:${startFraction}:${endFraction}`;
+    if (this.loopBuffers[key]) return this.loopBuffers[key];
+    const ctx = this.ctx, start = Math.floor(buffer.length * startFraction);
+    const end = Math.floor(buffer.length * endFraction);
+    const fadeFrames = Math.min(Math.floor(ctx.sampleRate * .05), Math.floor((end - start) / 4));
+    const bodyStart = start + fadeFrames, bodyEnd = end - fadeFrames;
+    const bodyFrames = bodyEnd - bodyStart, loopBuffer = ctx.createBuffer(buffer.numberOfChannels, bodyFrames + fadeFrames, buffer.sampleRate);
+    for (let ch = 0; ch < buffer.numberOfChannels; ch++) {
+      const source = buffer.getChannelData(ch), target = loopBuffer.getChannelData(ch);
+      target.set(source.subarray(bodyStart, bodyEnd));
+      for (let i = 0; i < fadeFrames; i++) {
+        const t = i / (fadeFrames - 1), angle = t * Math.PI / 2, j = bodyFrames + i;
+        target[j] = source[end - fadeFrames + i] * Math.cos(angle) + source[start + i] * Math.sin(angle);
+      }
+    }
+    return this.loopBuffers[key] = { buffer: loopBuffer, start: 0, end: loopBuffer.duration };
+  }
   async preload(id, notes) {
     await this.unlock(); await this.load(id);
     const gm = (PATCHES[id] || { gm: id }).gm;
@@ -109,12 +127,15 @@ class Engine {
     if (!this.ctx) return;
     const p = PATCHES[id] || { gm: id, attack: .05, release: 1 };
     this.load(id);
-    let buf; try { buf = await this._buffer(p.gm, noteName(Math.round(midi))); } catch { return; }
+    const name = noteName(Math.round(midi));
+    let buf; try { buf = await this._buffer(p.gm, name); } catch { return; }
+    const loop = o.loop ? this._loopBuffer(p.gm, name, buf, o.loopStart ?? .35, o.loopEnd ?? .85) : null;
     const ctx = this.ctx, voices = Math.max(1, Math.min(o.voices || 1, 4));
     const t0 = Math.max(ctx.currentTime + .01, o.when || 0), dur = o.dur ?? 1.2, vel = o.vel ?? .7;
     const attack = o.attack ?? p.attack, release = o.release ?? p.release;
     for (let v = 0; v < voices; v++) {
-      const src = ctx.createBufferSource(); src.buffer = buf;
+      const src = ctx.createBufferSource(); src.buffer = loop ? loop.buffer : buf;
+      if (loop) { src.loop = true; src.loopStart = loop.start; src.loopEnd = loop.end; }
       src.detune.value = (o.detune || 0) + (voices > 1 ? (v - (voices - 1) / 2) * 7 + (Math.random() - .5) * 5 : 0);
       const g = ctx.createGain(), pan = ctx.createStereoPanner();
       pan.pan.value = Math.max(-1, Math.min(1, (o.pan || 0) + (voices > 1 ? (v / (voices - 1) - .5) * .25 : 0)));
@@ -125,7 +146,8 @@ class Engine {
       g.gain.exponentialRampToValueAtTime(.0001, ts + Math.max(attack, dur) + release);
       src.connect(g).connect(pan); pan.connect(this.dry);
       const send = ctx.createGain(); send.gain.value = o.wet ?? 1; pan.connect(send).connect(this.verb);
-      src.start(ts); src.stop(ts + Math.max(attack, dur) + release + .05);
+      if (loop) src.start(ts, loop.start); else src.start(ts);
+      src.stop(ts + Math.max(attack, dur) + release + .05);
     }
     this.listeners.forEach(fn => fn({ id, midi, when: t0, dur, vel, tag: o.tag }));
   }
