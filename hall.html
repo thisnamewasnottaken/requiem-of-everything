@@ -94,7 +94,8 @@ const {S,L,PIECES,ringR,layoutSeats,pieceDefs}=window.ROE_HALL;
 const $=id=>document.getElementById(id);
 const cv=$('hall'), g=cv.getContext('2d'), hz=$('haze'); let W,H,DPR; const HS=.5;
 const gl=hz.getContext('webgl',{antialias:false,alpha:false,premultipliedAlpha:false});
-function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);hz.width=Math.round(W*HS);hz.height=Math.round(H*HS);gl&&gl.viewport(0,0,hz.width,hz.height);}
+let fitTargets=[],fitCarpets={},fitWarningShown=false,cameraReady=false;
+function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);hz.width=Math.round(W*HS);hz.height=Math.round(H*HS);gl&&gl.viewport(0,0,hz.width,hz.height);if(cameraReady)fitCamera();}
 resize(); addEventListener('resize',resize);
 let silent=localStorage.getItem('roe-sound')==='off';
 const P=(id,m,o)=>{ if(!silent) sound.play(id,m,o); };
@@ -107,7 +108,7 @@ PIECES.forEach(p=>p.composer=D.composers.find(c=>c.shortName===p.who)?.id);
 let WING=11;
 const seats=new Map(), CAR={}; let current={}, active={}, hoverS=null, focusS=new Set(), card=null, mouse={x:-99,y:-99}, st={era:'classical'};
 let pendingSync=false, syncTimer=0, wasMoving=false, cacT=0, baton=0, T=0;
-function apply(defs,meta){ current=meta; const {out:tgt,carp}=layoutSeats(defs); WING=Math.max(11,tgt.reduce((max,t)=>Math.max(max,Math.hypot(t.x,t.z)),0)+2); const keep=new Set(); clearTimeout(syncTimer);
+function apply(defs,meta){ current=meta; const {out:tgt,carp}=layoutSeats(defs); fitTargets=tgt; fitCarpets=carp; WING=Math.max(11,tgt.reduce((max,t)=>Math.max(max,Math.hypot(t.x,t.z)),0)+2); const keep=new Set(); clearTimeout(syncTimer);
   for(const t of tgt){ keep.add(t.key); let s=seats.get(t.key);
     if(!s){ const side=t.x<0?-1:1; s={key:t.key,sid:t.sid,cx:side*WING,cz:t.z,a:0,ph:Math.random()*6.28,delay:.4+Math.random()*2.2,speed:2.1+Math.random()*.9}; seats.set(t.key,s); }
     else { s.delay=Math.random()*1.1; }
@@ -117,7 +118,7 @@ function apply(defs,meta){ current=meta; const {out:tgt,carp}=layoutSeats(defs);
   for(const sid in CAR) CAR[sid].on=false;
   for(const sid in carp){ const c=CAR[sid]; if(c){c.t=carp[sid];c.on=true;} else CAR[sid]={...carp[sid],t:carp[sid],al:0,on:true}; }
   $('iYear').textContent=meta.year; $('iName').textContent=meta.name; $('iLead').textContent=meta.lead; $('iText').textContent=meta.text;
-  $('iCount').textContent=tgt.length+' performers on stage'; pendingSync=true; renderComposers(); }
+  $('iCount').textContent=tgt.length+' performers on stage'; pendingSync=true; renderComposers(); fitCamera(); }
 // ---------- filters & URL ----------
 function layoutFor(era){ return L[era].s; }
 function curComposer(){ return st.composer?COMP[st.composer]:st.piece?COMP[PIECES.find(p=>p.id===st.piece)?.composer]:null; }
@@ -193,11 +194,69 @@ addEventListener('keydown',e=>{ if(e.key==='Escape') closeCard(); });
 const CAMS={stalls:{label:'Front stalls',x:0,h:5,z:-5,pitch:.30,yaw:0,f:.6,cy:.45,lampH:6.6},
  box:{label:'Side box',x:-7.5,h:7,z:-3,pitch:.52,yaw:.75,f:.9,cy:.40,lampH:4.8},
  podium:{label:'Conductor\u2019s view',x:0,h:2.4,z:-2.6,pitch:.20,yaw:0,f:.78,cy:.30,lampH:6.5}};
-let camName='podium'; const cam={...CAMS.podium}; let camT=CAMS.podium;
-function proj(x,z,h=0){ const c=cam, rx=x-c.x, ry=h-c.h, rz=z-c.z, cy=Math.cos(c.yaw), sy=Math.sin(c.yaw);
+const PODIUM_Z=CAMS.podium.z;
+let camName='podium'; const cam={...CAMS.podium}; let camT=CAMS.podium; cameraReady=true;
+function proj(x,z,h=0,c=cam){ const rx=x-c.x, ry=h-c.h, rz=z-c.z, cy=Math.cos(c.yaw), sy=Math.sin(c.yaw);
   const X=rx*cy-rz*sy, Z=rx*sy+rz*cy, cp=Math.cos(c.pitch), sp=Math.sin(c.pitch);
   const Zc=Math.max(.3,Z*cp-ry*sp), Yc=ry*cp+Z*sp, s=Math.min(H,W*1.25)*c.f/Zc, p=Math.max(.22,Math.min(1.7,s/120));
   return {x:W/2+X*s, y:H*c.cy-Yc*s, p, k:p, d:Zc}; }
+function fitBoundsFor(x,infoRect,dockTop){
+  return {left:24,right:W-24,top:x<infoRect.right+16?infoRect.bottom+12:70,bottom:dockTop-70};
+}
+function fitPointOverflow(q,infoRect,dockTop,margin=0){
+  const b=fitBoundsFor(q.x,infoRect,dockTop);
+  return Math.max(0,b.left+margin-q.x,q.x-(b.right-margin),b.top+margin-q.y,q.y-(b.bottom-margin));
+}
+function fitCamera(){
+  if(!cameraReady)return;
+  const infoRect=$('info').getBoundingClientRect(), dockTop=$('dock').getBoundingClientRect().top;
+  const ground=[],lamps=[];
+  for(const t of fitTargets)ground.push({x:t.x,z:t.z,h:0});
+  for(const c of Object.values(fitCarpets)){
+    const mid=(c.a0+c.a1)/2;
+    for(const a of [c.a0,c.a1,mid]){
+      const th=a*Math.PI/180;
+      ground.push({x:-Math.cos(th)*c.R1,z:Math.sin(th)*c.R1,h:0});
+    }
+    const R=(c.R0+c.R1)/2, RT=R<4.2?2.9:R<6.4?5.4:7.6, th=mid*Math.PI/180;
+    lamps.push({x:-Math.cos(th)*RT,z:Math.sin(th)*RT,h:cam.lampH});
+  }
+  const check=(z,f,cy)=>{
+    const probe={...cam,z,f,cy}; let overflow=0;
+    for(const p of ground)overflow+=fitPointOverflow(proj(p.x,p.z,p.h,probe),infoRect,dockTop,4);
+    for(const p of lamps)overflow+=Math.max(0,12-proj(p.x,p.z,p.h,probe).y);
+    return {fits:overflow===0,overflow};
+  };
+  const searchAtZ=z=>{
+    let best=null,fallback={cy:.18,overflow:Infinity};
+    for(let i=0;i<=16;i++){
+      const cy=.18+i*.02, atMin=check(z,.12,cy);
+      if(atMin.overflow<fallback.overflow)fallback={cy,overflow:atMin.overflow};
+      if(!atMin.fits)continue;
+      let lo=.12,hi=1.4;
+      if(check(z,hi,cy).fits)lo=hi;
+      else for(let n=0;n<28;n++){const mid=(lo+hi)/2;if(check(z,mid,cy).fits)lo=mid;else hi=mid;}
+      if(!best||lo>best.f)best={z,f:lo,cy};
+    }
+    return {best,fallback};
+  };
+  const zCandidates=[];
+  for(let n=0;;n++){const z=Math.max(-6,PODIUM_Z-.4*n);zCandidates.push(z);if(z===-6)break;}
+  let best=null,fallback=null;
+  for(const z of zCandidates){const result=searchAtZ(z);if(result.best){best=result.best;break;}if(z===-6)fallback=result.fallback;}
+  if(best){camT.z=best.z;camT.f=best.f;camT.cy=best.cy;}
+  else{
+    camT.z=-6;camT.f=.12;camT.cy=fallback.cy;
+    if(!fitWarningShown){console.warn('Hall camera could not fit all content at z=-6.0 and f=0.12.');fitWarningShown=true;}
+  }
+}
+window.__fitCheck=()=>{
+  const infoRect=$('info').getBoundingClientRect(), dockTop=$('dock').getBoundingClientRect().top;
+  let outside=0;
+  for(const s of seats.values())if(!s.dead&&fitPointOverflow(proj(s.cx,s.cz,0),infoRect,dockTop)>0)outside++;
+  return outside;
+};
+window.__fitCheck.params=()=>({z:camT.z,f:camT.f,cy:camT.cy});
 
 const rgb=hex=>[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255);
 // ---------- haze (WebGL) ----------
@@ -361,6 +420,7 @@ const hp=new URLSearchParams(location.hash.slice(1));
 const pp=PIECES.find(p=>p.id===hp.get('piece'));
 if(pp) setPiece(pp); else if(hp.get('composer')&&COMP[hp.get('composer')]) setComposer(hp.get('composer')); else setEra(L[hp.get('era')]?hp.get('era'):'classical');
 if(hp.get('instrument')) setInstrument(hp.get('instrument'));
+document.fonts?.ready.then(()=>fitCamera());
 let last=performance.now(); if(hp.has('still')) for(let i=0;i<400;i++) step(1/30);
 function loop(now){ const dt=Math.min(.05,(now-last)/1000); last=now; step(dt); render(); requestAnimationFrame(loop);} requestAnimationFrame(loop);
 </script>
