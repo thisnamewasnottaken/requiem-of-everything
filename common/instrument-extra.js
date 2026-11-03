@@ -26,8 +26,8 @@ window.ROE_INSTR_EXTRA = {
     {name:'Pablo Casals',note:'Helped bring Bach’s cello suites to concert halls.'},
     {name:'Yo-Yo Ma',note:'A wide-ranging performer and musical ambassador.'},
     {name:'Jacqueline du Pré',note:'Her Elgar concerto recording became iconic.'}
-  ]),
-  'double-bass': instrumentExtra('Concerto No. 2 in B minor', 'Giovanni Bottesini', null, 1853, 'A showpiece that reveals the bass’s agility and singing voice.', 'Bottesini', [
+  ], {name:'Yo-Yo Ma',note:'A celebrated cellist known for broad-ranging performances.'}),
+  'double-bass': instrumentExtra('Concerto No. 2 in B minor', 'Giovanni Bottesini', null, 1845, 'A showpiece that reveals the bass’s agility and singing voice.', 'Bottesini', [
     {name:'Giovanni Bottesini',note:'Known as a leading bass virtuoso of his era.'},
     {name:'Serge Koussevitzky',note:'Bass soloist before becoming a famous conductor.'},
     {name:'Gary Karr',note:'Helped establish the bass as a solo instrument.'}
@@ -62,7 +62,7 @@ window.ROE_INSTR_EXTRA = {
     {name:'Milan Turkovic',note:'Known for solo and chamber performances.'},
     {name:'Sergio Azzolini',note:'A leading performer on modern and Baroque bassoons.'}
   ]),
-  recorder: instrumentExtra('Recorder Concerto in C major, TWV 51:C1', 'Georg Philipp Telemann', 'georg-philipp-telemann', 1730, 'Bright recorder lines show why it was prized in Baroque music.', 'Telemann', [
+  recorder: instrumentExtra('Recorder Concerto in C major, TWV 51:C1', 'Georg Philipp Telemann', 'georg-philipp-telemann', 1725, 'Bright recorder lines show why it was prized in Baroque music.', 'Telemann', [
     {name:'Frans Brüggen',note:'Helped revive the recorder in modern concert life.'},
     {name:'Michala Petri',note:'A widely recorded recorder soloist.'},
     {name:'Dorothee Oberlinger',note:'Performs and teaches early music.'}

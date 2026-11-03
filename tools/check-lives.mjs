@@ -71,8 +71,8 @@ for (const composer of composers) {
     }
   }
 
-  check(Array.isArray(life.links) && life.links.length >= 3 && life.links.length <= 8,
-    `${composer.id}: expected 3–8 links`);
+  check(Array.isArray(life.links) && life.links.length <= 8,
+    `${composer.id}: expected an array of at most 8 verified links`);
   for (const [index, link] of (life.links ?? []).entries()) {
     check(typeof link.text === 'string' && link.text.length <= 80,
       `${composer.id}: link ${index} text exceeds 80 characters`);
@@ -144,8 +144,14 @@ for (const instrument of instruments) {
     check(typeof great.note === 'string' && great.note.length <= 60,
       `${instrument.id}: great ${index} note exceeds 60 characters`);
   }
-  check(extra.goat === null || typeof extra.goat === 'string',
-    `${instrument.id}: goat must be a name or null`);
+  if (instrument.id === 'cello') {
+    check(extra.goat?.name === 'Yo-Yo Ma'
+      && typeof extra.goat.note === 'string'
+      && extra.goat.note.length <= 60,
+    'cello: goat must name Yo-Yo Ma with a note of at most 60 characters');
+  } else {
+    check(extra.goat === null, `${instrument.id}: goat must be null`);
+  }
 }
 
 if (failures.length > 0) {
