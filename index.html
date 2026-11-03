@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Requiem of Everything — Overture</title>
+<link rel="stylesheet" href="common/style.css">
+<style>
+#gl{position:fixed;inset:0;width:100%;height:100%}
+#title{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;z-index:20;
+  transition:transform 2.4s cubic-bezier(.19,1,.22,1),opacity 1.6s}
+#title h1{font-family:var(--inscr);font-weight:400;font-size:clamp(1.5rem,4.4vw,3.3rem);letter-spacing:.38em;text-indent:.38em;
+  color:#efe0c2;text-shadow:0 0 30px rgba(255,179,107,.28);opacity:0;animation:titleIn 4.2s cubic-bezier(.19,1,.22,1) .6s forwards;text-align:center}
+#title .rule{width:min(380px,62vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);transform:scaleX(0);
+  animation:ruleIn 3s cubic-bezier(.19,1,.22,1) 1.8s forwards}
+#title p{font-style:italic;font-weight:300;font-size:clamp(1.05rem,1.6vw,1.35rem);color:rgba(230,216,189,.74);letter-spacing:.04em;opacity:0;
+  animation:fadeIn 2.6s ease 2.6s forwards;text-align:center;line-height:1.6}
+#enter{display:flex;gap:16px;margin-top:1.6rem;opacity:0;animation:fadeIn 2s ease 3.6s forwards}
+body.entered #title{transform:translateY(-34vh) scale(.62);}
+body.entered #title p, body.entered #enter{opacity:0!important;pointer-events:none;animation:none;transition:opacity .8s}
+@keyframes titleIn{from{opacity:0;letter-spacing:.7em;text-indent:.7em;filter:blur(6px)}to{opacity:1;letter-spacing:.38em;text-indent:.38em;filter:blur(0)}}
+@keyframes ruleIn{to{transform:scaleX(1)}}
+@keyframes fadeIn{to{opacity:1}}
+
+#portals{position:fixed;left:50%;top:54%;transform:translate(-50%,-50%);display:flex;gap:clamp(18px,4vw,64px);z-index:15;pointer-events:none}
+.portal{width:clamp(170px,19vw,250px);aspect-ratio:.62;position:relative;cursor:pointer;opacity:0;transform:translateY(30px);
+  transition:opacity 1.8s ease,transform 2.2s cubic-bezier(.19,1,.22,1);text-decoration:none;color:inherit}
+body.entered #portals{pointer-events:auto}
+body.entered .portal{opacity:1;transform:none}
+body.entered .portal:nth-child(2){transition-delay:.35s}
+body.entered .portal:nth-child(3){transition-delay:.7s}
+.portal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.portal .arch{fill:url(#archFill);stroke:var(--gold-dim);stroke-width:1;transition:stroke .6s,filter .6s}
+.portal .glow{fill:url(#archGlow);opacity:0;transition:opacity 1.1s ease}
+.portal:hover .glow,.portal:focus-visible .glow{opacity:1}
+.portal:hover .arch,.portal:focus-visible .arch{stroke:var(--gold-hi);filter:drop-shadow(0 0 10px rgba(239,212,151,.55))}
+.portal:focus-visible{outline:none}
+.portal .txt{position:absolute;left:0;right:0;top:50%;text-align:center;padding:0 9%}
+.portal .num{font-family:var(--inscr);font-size:.7rem;letter-spacing:.4em;color:var(--gold);display:block;margin-bottom:.9rem}
+.portal .name{font-family:var(--display);font-size:clamp(1.25rem,1.8vw,1.7rem);font-weight:400;letter-spacing:.02em;display:block;color:#f3e6cb}
+.portal .line{font-style:italic;font-weight:300;font-size:.98rem;line-height:1.45;color:rgba(230,216,189,.62);display:block;margin-top:.7rem;
+  max-height:0;opacity:0;overflow:hidden;transition:max-height 1s ease,opacity 1s ease}
+.portal:hover .line,.portal:focus-visible .line{max-height:6em;opacity:1}
+.portal svg.icon{position:absolute;inset:auto;left:50%;top:22%;height:auto;transform:translateX(-50%);width:46%;opacity:.75;transition:opacity .8s}
+.portal:hover .icon{opacity:1}
+
+#ui{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:1.6rem;padding:14px 26px 12px;z-index:25;
+  opacity:0;transition:opacity 1.6s ease 1.2s}
+body.entered #ui{opacity:1}
+.ctl{display:flex;flex-direction:column;align-items:center;gap:8px}
+.ctl label{font-family:var(--inscr);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:120px;height:18px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:linear-gradient(90deg,var(--gold-faint),rgba(201,165,92,.55),var(--gold-faint))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;margin-top:-4.5px;border-radius:1px;transform:rotate(45deg);
+  background:linear-gradient(135deg,#efd497,#8f6e2e);box-shadow:0 0 8px rgba(239,212,151,.75)}
+input[type=range]::-moz-range-thumb{width:9px;height:9px;border:none;border-radius:1px;transform:rotate(45deg);background:#d9b56a}
+
+#about{position:fixed;left:50%;bottom:104px;width:min(620px,calc(100vw - 32px));padding:28px 32px 24px;z-index:26;
+  transform:translateX(-50%) translateY(14px);opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .55s,transform .55s cubic-bezier(.22,1,.36,1),visibility 0s linear .55s;line-height:1.7;font-size:1.05rem;color:#d8cbb4}
+#about.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%);transition-delay:0s}
+#about h2{font-family:var(--inscr);font-weight:400;font-size:.85rem;letter-spacing:.34em;color:#efe0c2;margin-bottom:12px}
+#about em{color:var(--gold-hi);font-style:italic}
+#about ul{list-style:none;margin-top:16px;padding-top:14px;border-top:1px solid var(--gold-faint)}
+#about li{display:flex;justify-content:space-between;gap:20px;padding:7px 0;align-items:baseline}
+#about li b{font-weight:500;color:#f1e3c6;font-size:1.05rem}
+#about li span{font-family:var(--inscr);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,165,92,.8);text-align:right}
+#about .fine{margin-top:14px;padding-top:12px;border-top:1px solid var(--gold-faint);font-size:.82rem;color:rgba(216,203,180,.58);line-height:1.6}
+#about .fine a{color:rgba(239,212,151,.8)}
+#whisper{bottom:96px;opacity:0}
+body.entered #whisper{opacity:.0}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div class="vignette"></div><div class="grain"></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="archFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a130d" stop-opacity=".25"/><stop offset="1" stop-color="#070504" stop-opacity=".75"/></linearGradient>
+  <radialGradient id="archGlow" cx=".5" cy=".95" r=".9"><stop offset="0" stop-color="#ffcf8a" stop-opacity=".55"/><stop offset=".45" stop-color="#c9a55c" stop-opacity=".18"/><stop offset="1" stop-color="#c9a55c" stop-opacity="0"/></radialGradient>
+</defs></svg>
+
+<div id="title">
+  <h1>Requiem of Everything</h1>
+  <div class="rule"></div>
+  <p>Six centuries of music, drawn in light.<br>Come in — the hall is already tuning.</p>
+  <div id="enter">
+    <button class="btn on" id="withSound">Enter with sound</button>
+    <button class="btn" id="silent">Enter in silence</button>
+  </div>
+</div>
+
+<nav id="portals" aria-label="Choose a path">
+  <a class="portal" href="river.html" data-voice="river">
+    <svg viewBox="0 0 200 320" preserveAspectRatio="none"><path class="glow" d="M10 318 V120 Q10 30 100 4 Q190 30 190 120 V318 Z"/><path class="arch" d="M10 318 V120 Q10 30 100 4 Q190 30 190 120 V318 Z"/></svg>
+    <svg class="icon" viewBox="0 0 100 60"><g fill="none" stroke="#e7c784" stroke-width=".9" opacity=".9">
+      <path d="M2 40 C25 10, 45 55, 70 22 S95 30, 98 18"/><path d="M2 30 C30 50, 50 8, 75 38 S92 44, 98 40" stroke="#a9c4ff" opacity=".7"/><path d="M2 48 C20 34, 55 40, 72 52 S90 30, 98 30" stroke="#f0a35a" opacity=".7"/></g></svg>
+    <span class="txt"><span class="num">I</span><span class="name">The River of Time</span>
+      <span class="line">Watch composers' lives braid together, and see history shake them.</span></span>
+  </a>
+  <a class="portal" href="hall.html" data-voice="hall">
+    <svg viewBox="0 0 200 320" preserveAspectRatio="none"><path class="glow" d="M10 318 V120 Q10 30 100 4 Q190 30 190 120 V318 Z"/><path class="arch" d="M10 318 V120 Q10 30 100 4 Q190 30 190 120 V318 Z"/></svg>
+    <svg class="icon" viewBox="0 0 100 60"><g fill="none" stroke="#e7c784" stroke-width=".9">
+      <path d="M12 52 A40 34 0 0 1 88 52" opacity=".95"/><path d="M22 52 A30 25 0 0 1 78 52" opacity=".7"/><path d="M32 52 A20 16 0 0 1 68 52" opacity=".5"/><circle cx="50" cy="55" r="1.6" fill="#ffcf8a"/></g></svg>
+    <span class="txt"><span class="num">II</span><span class="name">The Hall</span>
+      <span class="line">Take your seat and watch the orchestra take shape, from a candlelit consort to the modern stage.</span></span>
+  </a>
+  <a class="portal" href="hall.html#instrument=cello" data-voice="voice">
+    <svg viewBox="0 0 200 320" preserveAspectRatio="none"><path class="glow" d="M10 318 V120 Q10 30 100 4 Q190 30 190 120 V318 Z"/><path class="arch" d="M10 318 V120 Q10 30 100 4 Q190 30 190 120 V318 Z"/></svg>
+    <svg class="icon" viewBox="0 0 100 60"><g fill="none" stroke="#e7c784" stroke-width=".9">
+      <path d="M50 4 V56"/><path d="M40 14 C30 20, 34 28, 40 30 C30 34, 30 48, 50 56 C70 48, 70 34, 60 30 C66 28, 70 20, 60 14 C55 11, 45 11, 40 14Z" opacity=".85"/></g></svg>
+    <span class="txt"><span class="num">III</span><span class="name">The Voices</span>
+      <span class="line">Meet every instrument and every voice. Hear what each one does best.</span></span>
+  </a>
+</nav>
+
+<div id="ui" class="reliquary">
+  <div class="ctl"><label for="sLight">Hour</label><input id="sLight" type="range" min="0" max="100" value="18"></div>
+  <div class="ctl"><label for="sFog">Incense</label><input id="sFog" type="range" min="0" max="100" value="58"></div>
+  <button class="btn" id="bSound" aria-pressed="false">Silence</button>
+  <button class="btn" id="bAbout" aria-expanded="false">Credits</button>
+</div>
+
+<div id="about" class="reliquary" role="dialog" aria-label="Credits">
+  <h2>Credits</h2>
+  Nothing on this page is a picture. The light, the haze and the slow procession of embers come from one fragment shader.
+  The chords are played live from sampled instruments, in a concert hall that is only an equation.
+  Move through the dark and the <em>celesta</em> answers you. Click anywhere to light a <em>votive</em> and the choir will sing for it.
+  <ul>
+    <li><b>thisnamewasnottaken</b><span>Creator · vision · curation</span></li>
+    <li><b>GitHub Copilot coding agent</b><span>The first edition</span></li>
+    <li><b>Devin of Cognition · session 3b05c5bc</b><span>The rebuild · light, sound &amp; prototypes</span></li>
+  </ul>
+  <div class="fine">Samples: MusyngKite soundfont via <a href="https://github.com/gleitz/midi-js-soundfonts" target="_blank" rel="noopener">gleitz/midi-js-soundfonts</a>
+  (CC BY-SA 3.0). Lighting inspired by <a href="https://elder-plinius.github.io/FABLE-SHOWCASE/infinite-cathedral/index.html" target="_blank" rel="noopener">Infinite Cathedral</a>.
+  Biographies courtesy of Wikipedia contributors.</div>
+</div>
+<div class="hint" id="whisper">move through the dark · click to light a votive</div>
+
+<script type="x-shader/x-fragment" id="fs">#version 300 es
+precision highp float;
+uniform vec2 uRes; uniform float uTime; uniform vec2 uMouse; uniform float uLevel; uniform float uHour; uniform float uFog;
+uniform float uEnter; uniform vec4 uCandles[16]; uniform int uN; uniform float uHover; uniform float uHoverX;
+out vec4 O;
+float h12(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}
+float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h12(i),h12(i+vec2(1,0)),f.x),mix(h12(i+vec2(0,1)),h12(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float s=0.,a=.5;for(int i=0;i<5;i++){s+=a*vn(p);p=mat2(1.6,1.2,-1.2,1.6)*p;a*=.5;}return s;}
+float rays(vec2 p, vec2 src, float spread, float seed){
+  vec2 d=p-src; float ang=atan(d.x,-d.y); float r=length(d);
+  float shafts=0.;
+  shafts+=smoothstep(.55,1.,vn(vec2(ang*9.+seed, uTime*.07+seed)));
+  shafts+=.6*smoothstep(.6,1.,vn(vec2(ang*23.+seed*3., uTime*.11)));
+  float cone=smoothstep(spread,spread*.35,abs(ang-.0));
+  return shafts*cone*smoothstep(2.4,.2,r)*smoothstep(0.,.35,r);
+}
+void main(){
+  vec2 fc=gl_FragCoord.xy; vec2 p=(fc-.5*uRes)/uRes.y; float t=uTime;
+  vec2 m=(uMouse-.5*uRes)/uRes.y;
+  // palette: vespers (ember) -> dawn (pale blue-gold)
+  vec3 keyA=vec3(1.,.66,.36), keyB=vec3(.78,.86,1.);
+  vec3 key=mix(keyA,keyB,uHour); vec3 shadow=mix(vec3(.028,.018,.012),vec3(.02,.025,.04),uHour);
+  float fog=fbm(p*1.7+vec2(t*.018,-t*.012))*.7+fbm(p*4.+vec2(-t*.03,t*.02))*.3;
+  float dens=mix(.35,1.25,uFog);
+  // two clerestory windows high above, angled shafts into the dark
+  float L=rays(p,vec2(-.95,.85),.55,1.3)*.9+rays(p,vec2(.9,.9),.5,7.1)*.8+rays(p,vec2(0.,1.15),.32,4.2)*.55;
+  L*=(.55+uLevel*2.2);
+  vec3 col=shadow;
+  col+=key*L*(.35+fog)*dens*.95;
+  col+=key*.06*fog*dens*(1.-p.y*.4);
+  // orchestra risers: faint curved arcs at the floor
+  vec2 q=vec2(p.x,(p.y+.78)*2.2); float e=length(q);
+  float arcs=0.; for(int i=0;i<4;i++){float rr=.55+float(i)*.19; arcs+=exp(-pow((e-rr)*140.,2.))*(.5-float(i)*.08);}
+  arcs*=smoothstep(-.02,.12,q.y)*(.25+.75*uEnter)*(.6+uLevel*3.);
+  col+=vec3(.85,.64,.33)*arcs*.35;
+  // seats as tiny lights along the arcs, breathing
+  for(int i=0;i<4;i++){float rr=.55+float(i)*.19; float a=atan(q.y,q.x); float n=18.+float(i)*7.; float cell=floor(a/3.14159*n);
+    float ac=(cell+.5)/n*3.14159; vec2 sp=vec2(cos(ac),sin(ac))*rr; float d=length(q-sp);
+    float tw=.5+.5*sin(t*1.3+cell*1.7+float(i)); col+=vec3(1.,.72,.42)*exp(-d*d*9000.)*uEnter*(.35+tw*.65)*(.4+uLevel*4.)*smoothstep(-.02,.06,q.y);}
+  // dust motes drifting through the shafts
+  for(int k=0;k<3;k++){vec2 g=p*vec2(34.+float(k)*21.)+vec2(t*.05*(1.+float(k)),-t*(.09+.04*float(k)));
+    vec2 id=floor(g); vec2 f=fract(g)-.5; vec2 o=vec2(h12(id),h12(id+17.))-.5; float d=length(f-o*.7);
+    float tw=step(.86,h12(id+3.1)); col+=key*smoothstep(.07,0.,d)*tw*L*1.6;}
+  // the visitor's candle
+  float dm=length(p-m); float fl=.85+.15*sin(t*11.)*sin(t*23.7);
+  col+=vec3(1.,.55,.22)*exp(-dm*dm*28.)*.22*fl*uEnter + vec3(1.,.75,.4)*exp(-dm*dm*900.)*.35*uEnter;
+  // votives
+  for(int i=0;i<16;i++){ if(i>=uN) break; vec4 c=uCandles[i]; float age=t-c.z; vec2 cp=vec2(c.x,c.y+age*.012);
+    float d=length(p-cp); float life=smoothstep(0.,.6,age)*smoothstep(60.,40.,age); float f2=.8+.2*sin(t*12.+float(i)*7.)*sin(t*27.+float(i));
+    vec3 hue=mix(vec3(1.,.52,.18),vec3(.66,.78,1.),c.w);
+    col+=hue*(exp(-d*d*1600.)*1.2+exp(-d*d*40.)*.16)*life*f2; }
+  // portal halo
+  col+=key*exp(-pow((p.x-uHoverX)*3.,2.)-pow((p.y+.02)*2.2,2.))*.12*uHover;
+  col=col/(1.+col); col=pow(col,vec3(.92));
+  col+=(h12(fc+fract(t))-.5)/255.;
+  O=vec4(col,1.);
+}
+</script>
+<script src="common/data.js"></script>
+<script type="module">
+import { sound } from './common/sound.js';
+const cv=document.getElementById('gl'); const gl=cv.getContext('webgl2',{antialias:false});
+const vs=`#version 300 es
+void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0,1);}`;
+function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));return s;}
+const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,document.getElementById('fs').textContent.trim()));gl.linkProgram(pr);gl.useProgram(pr);
+const U=n=>gl.getUniformLocation(pr,n);
+const u={res:U('uRes'),time:U('uTime'),mouse:U('uMouse'),level:U('uLevel'),hour:U('uHour'),fog:U('uFog'),enter:U('uEnter'),c:U('uCandles'),n:U('uN'),hov:U('uHover'),hovx:U('uHoverX')};
+let scale=.7, W,H; function resize(){const d=Math.min(devicePixelRatio,2)*scale;W=cv.width=innerWidth*d|0;H=cv.height=innerHeight*d|0;gl.viewport(0,0,W,H);} resize(); addEventListener('resize',resize);
+const mouse={x:innerWidth/2,y:innerHeight*.6,vx:0,vy:0}; let enter=0, enterT=0, hover=0, hoverX=0, hoverTarget=0;
+const candles=[];
+const sL=document.getElementById('sLight'), sF=document.getElementById('sFog');
+let last=performance.now(), frames=0, acc=0;
+function frame(now){
+  const t=now/1000; const dt=Math.min(.05,(now-last)/1000); last=now;
+  enter+= (enterT-enter)*Math.min(1,dt*.8); hover+=(hoverTarget-hover)*Math.min(1,dt*4);
+  gl.uniform2f(u.res,W,H); gl.uniform1f(u.time,t); const d=W/innerWidth; gl.uniform2f(u.mouse,mouse.x*d,(innerHeight-mouse.y)*d);
+  gl.uniform1f(u.level,sound.rms()); gl.uniform1f(u.hour,sL.value/100); gl.uniform1f(u.fog,sF.value/100); gl.uniform1f(u.enter,enter);
+  gl.uniform1f(u.hov,hover); gl.uniform1f(u.hovx,hoverX);
+  const arr=new Float32Array(64); candles.forEach((c,i)=>arr.set([c.x,c.y,c.t,c.h],i*4)); gl.uniform4fv(u.c,arr); gl.uniform1i(u.n,candles.length);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+  // adaptive resolution
+  acc+=dt; frames++; if(acc>2){const fps=frames/acc; if(fps<45&&scale>.4){scale-=.1;resize();} else if(fps>58&&scale<.9){scale+=.05;resize();} acc=0;frames=0;}
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+// ---------- music: a slow, breathing progression; the visitor improvises over it ----------
+const PROG=[ // [bass, chord tones]
+  [38,[50,57,62,65]],[46,[50,58,62,65]],[41,[53,57,60,65]],[48,[52,55,60,64]],
+  [38,[50,57,62,65]],[43,[50,58,62,67]],[45,[52,57,61,64]],[38,[50,57,62,66]]];
+let step=0, soundOn=false, chord=PROG[0];
+const SCALE=[62,64,65,67,69,70,72,74,76,77,79,81,82,84,86];
+function playChord(){
+  if(!soundOn) return; chord=PROG[step++%PROG.length];
+  const [b,tones]=chord, now=sound.now()+.05;
+  sound.play('bass',b-12,{when:now,dur:6,vel:.45,voices:2,pan:.25,attack:1.4,release:3});
+  sound.play('cello',b,{when:now+.1,dur:6,vel:.42,voices:2,pan:.15,attack:1.2,release:3});
+  tones.forEach((n,i)=>{sound.play('oohs',n,{when:now+.2+i*.18,dur:5.6,vel:.36,pan:-.4+i*.27,attack:1.6,release:3});
+    sound.play('strings',n+(i>1?12:0),{when:now+.4+i*.1,dur:5.6,vel:.3,pan:.3-i*.2,attack:2,release:3});});
+}
+let chordTimer=null;
+async function startSound(){
+  await sound.unlock(); soundOn=true; bSound.textContent='Sounding'; bSound.classList.add('on'); bSound.setAttribute('aria-pressed','true');
+  ['oohs','strings','cello','bass','celesta','choir','harp','bells','horn'].forEach(i=>sound.load(i));
+  playChord(); clearInterval(chordTimer); chordTimer=setInterval(playChord,6400);
+}
+function stopSound(){soundOn=false; clearInterval(chordTimer); bSound.textContent='Silence'; bSound.classList.remove('on'); bSound.setAttribute('aria-pressed','false'); if(sound.ctx) sound.ctx.suspend();}
+const bSound=document.getElementById('bSound');
+bSound.onclick=()=>soundOn?stopSound():(sound.ctx&&sound.ctx.resume(),startSound());
+function enterHall(withSound){document.body.classList.add('entered'); enterT=1; if(withSound) startSound(); setTimeout(()=>{const w=document.getElementById('whisper');w.style.opacity=.8;setTimeout(()=>w.style.opacity=0,6000);},2600);}
+document.getElementById('withSound').onclick=e=>{e.stopPropagation();enterHall(true)};
+document.getElementById('silent').onclick=e=>{e.stopPropagation();enterHall(false)};
+
+let lastShimmer=0;
+addEventListener('pointermove',e=>{
+  mouse.vx=e.clientX-mouse.x; mouse.vy=e.clientY-mouse.y; mouse.x=e.clientX; mouse.y=e.clientY;
+  const sp=Math.hypot(mouse.vx,mouse.vy), now=performance.now();
+  if(soundOn&&sp>14&&now-lastShimmer>170&&document.body.classList.contains('entered')){
+    lastShimmer=now; const tones=chord[1].map(n=>n%12);
+    const pool=SCALE.filter(n=>tones.includes(n%12)); const idx=Math.floor((1-mouse.y/innerHeight)*pool.length*.999);
+    const n=pool[Math.max(0,Math.min(pool.length-1,idx))]+12;
+    sound.play(Math.random()<.7?'celesta':'harp',n,{dur:.4,vel:.32+Math.min(.25,sp/400),pan:(mouse.x/innerWidth)*1.6-.8,wet:1.4});
+  }
+});
+addEventListener('pointerdown',e=>{
+  if(e.target.closest('.reliquary,.portal,button,#about')||!document.body.classList.contains('entered')) return;
+  const x=(e.clientX-innerWidth/2)/innerHeight, y=(innerHeight/2-e.clientY)/innerHeight;
+  candles.push({x,y,t:performance.now()/1000,h:+sL.value/100}); if(candles.length>16) candles.shift();
+  if(soundOn){const tones=chord[1]; const n=tones[Math.floor(Math.random()*tones.length)]+12;
+    sound.play('choir',n,{dur:2.4,vel:.5,pan:x,attack:.5,release:3,wet:1.5}); sound.play('bells',n+12,{dur:.3,vel:.22,pan:x,wet:1.6});}
+});
+// portals: each door has its own voice
+const VOICES={river:()=>{const [b,t]=chord;[0,1,2,3].forEach(i=>sound.play('harp',t[i]+12,{when:sound.now()+i*.09,dur:.6,vel:.42,pan:-.3+i*.2}));},
+  hall:()=>{const [b,t]=chord;sound.play('horn',t[0],{dur:1.4,vel:.45,attack:.25});sound.play('horn',t[2],{dur:1.4,vel:.4,attack:.25,when:sound.now()+.06});},
+  voice:()=>{const [b,t]=chord;sound.play('cello',t[0]-12,{dur:1.8,vel:.55,attack:.18});}};
+document.querySelectorAll('.portal').forEach(p=>{
+  p.addEventListener('pointerenter',()=>{const r=p.getBoundingClientRect();hoverX=(r.left+r.width/2-innerWidth/2)/innerHeight;hoverTarget=1;if(soundOn)VOICES[p.dataset.voice]();});
+  p.addEventListener('pointerleave',()=>hoverTarget=0);
+  p.addEventListener('click',e=>{e.preventDefault();document.body.style.transition='opacity 1.2s';document.body.style.opacity=0;setTimeout(()=>location.href=p.getAttribute('href'),1100);});
+});
+const about=document.getElementById('about'), bAbout=document.getElementById('bAbout');
+bAbout.onclick=()=>{const o=about.classList.toggle('open');bAbout.setAttribute('aria-expanded',o);bAbout.classList.toggle('on',o);};
+addEventListener('keydown',e=>{if(e.key==='Escape'){about.classList.remove('open');bAbout.classList.remove('on');}});
+if(location.hash==='#credits'){enterHall(false);about.classList.add('open');}
+if(location.hash==='#entered'){enterHall(false);}
+</script>
+</body>
+</html>
