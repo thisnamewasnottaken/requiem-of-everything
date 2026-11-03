@@ -7,17 +7,17 @@
           76
         ],
         "notes": {
-          "43": "samples/violin/G2.mp3",
-          "45": "samples/violin/A2.mp3",
-          "47": "samples/violin/B2.mp3",
-          "50": "samples/violin/D3.mp3",
-          "54": "samples/violin/F%233.mp3",
-          "57": "samples/violin/A3.mp3",
-          "60": "samples/violin/C4.mp3",
-          "64": "samples/violin/E4.mp3",
-          "67": "samples/violin/G4.mp3",
-          "71": "samples/violin/B4.mp3",
-          "74": "samples/violin/D5.mp3"
+          "43": "samples/violin/G2-soft.mp3",
+          "45": "samples/violin/A2-soft.mp3",
+          "47": "samples/violin/B2-soft.mp3",
+          "50": "samples/violin/D3-soft.mp3",
+          "54": "samples/violin/F%233-soft.mp3",
+          "57": "samples/violin/A3-soft.mp3",
+          "60": "samples/violin/C4-soft.mp3",
+          "64": "samples/violin/E4-soft.mp3",
+          "67": "samples/violin/G4-soft.mp3",
+          "71": "samples/violin/B4-soft.mp3",
+          "74": "samples/violin/D5-soft.mp3"
         }
       },
       {
@@ -26,17 +26,17 @@
           127
         ],
         "notes": {
-          "43": "samples/violin/G2.mp3",
-          "45": "samples/violin/A2.mp3",
-          "47": "samples/violin/B2.mp3",
-          "50": "samples/violin/D3.mp3",
-          "54": "samples/violin/F%233.mp3",
-          "57": "samples/violin/A3.mp3",
-          "60": "samples/violin/C4.mp3",
-          "64": "samples/violin/E4.mp3",
-          "67": "samples/violin/G4.mp3",
-          "71": "samples/violin/B4.mp3",
-          "74": "samples/violin/D5.mp3"
+          "43": "samples/violin/G2-loud.mp3",
+          "45": "samples/violin/A2-loud.mp3",
+          "47": "samples/violin/B2-loud.mp3",
+          "50": "samples/violin/D3-loud.mp3",
+          "54": "samples/violin/F%233-loud.mp3",
+          "57": "samples/violin/A3-loud.mp3",
+          "60": "samples/violin/C4-loud.mp3",
+          "64": "samples/violin/E4-loud.mp3",
+          "67": "samples/violin/G4-loud.mp3",
+          "71": "samples/violin/B4-loud.mp3",
+          "74": "samples/violin/D5-loud.mp3"
         }
       }
     ],
@@ -51,19 +51,19 @@
           76
         ],
         "notes": {
-          "36": "samples/viola/C2.mp3",
-          "38": "samples/viola/D2.mp3",
-          "40": "samples/viola/E2.mp3",
-          "43": "samples/viola/G2.mp3",
-          "47": "samples/viola/B2.mp3",
-          "50": "samples/viola/D3.mp3",
-          "53": "samples/viola/F3.mp3",
-          "57": "samples/viola/A3.mp3",
-          "60": "samples/viola/C4.mp3",
-          "64": "samples/viola/E4.mp3",
-          "67": "samples/viola/G4.mp3",
-          "71": "samples/viola/B4.mp3",
-          "74": "samples/viola/D5.mp3"
+          "36": "samples/viola/C2-soft.mp3",
+          "38": "samples/viola/D2-soft.mp3",
+          "40": "samples/viola/E2-soft.mp3",
+          "43": "samples/viola/G2-soft.mp3",
+          "47": "samples/viola/B2-soft.mp3",
+          "50": "samples/viola/D3-soft.mp3",
+          "53": "samples/viola/F3-soft.mp3",
+          "57": "samples/viola/A3-soft.mp3",
+          "60": "samples/viola/C4-soft.mp3",
+          "64": "samples/viola/E4-soft.mp3",
+          "67": "samples/viola/G4-soft.mp3",
+          "71": "samples/viola/B4-soft.mp3",
+          "74": "samples/viola/D5-soft.mp3"
         }
       },
       {
@@ -72,19 +72,19 @@
           127
         ],
         "notes": {
-          "36": "samples/viola/C2.mp3",
-          "38": "samples/viola/D2.mp3",
-          "40": "samples/viola/E2.mp3",
-          "43": "samples/viola/G2.mp3",
-          "47": "samples/viola/B2.mp3",
-          "50": "samples/viola/D3.mp3",
-          "53": "samples/viola/F3.mp3",
-          "57": "samples/viola/A3.mp3",
-          "60": "samples/viola/C4.mp3",
-          "64": "samples/viola/E4.mp3",
-          "67": "samples/viola/G4.mp3",
-          "71": "samples/viola/B4.mp3",
-          "74": "samples/viola/D5.mp3"
+          "36": "samples/viola/C2-loud.mp3",
+          "38": "samples/viola/D2-loud.mp3",
+          "40": "samples/viola/E2-loud.mp3",
+          "43": "samples/viola/G2-loud.mp3",
+          "47": "samples/viola/B2-loud.mp3",
+          "50": "samples/viola/D3-loud.mp3",
+          "53": "samples/viola/F3-loud.mp3",
+          "57": "samples/viola/A3-loud.mp3",
+          "60": "samples/viola/C4-loud.mp3",
+          "64": "samples/viola/E4-loud.mp3",
+          "67": "samples/viola/G4-loud.mp3",
+          "71": "samples/viola/B4-loud.mp3",
+          "74": "samples/viola/D5-loud.mp3"
         }
       }
     ],
@@ -99,19 +99,19 @@
           76
         ],
         "notes": {
-          "24": "samples/cello/C1.mp3",
-          "28": "samples/cello/E1.mp3",
-          "31": "samples/cello/G1.mp3",
-          "35": "samples/cello/B1.mp3",
-          "38": "samples/cello/D2.mp3",
-          "41": "samples/cello/F2.mp3",
-          "45": "samples/cello/A2.mp3",
-          "48": "samples/cello/C3.mp3",
-          "52": "samples/cello/E3.mp3",
-          "55": "samples/cello/G3.mp3",
-          "59": "samples/cello/B3.mp3",
-          "62": "samples/cello/D4.mp3",
-          "65": "samples/cello/F4.mp3"
+          "24": "samples/cello/C1-soft.mp3",
+          "28": "samples/cello/E1-soft.mp3",
+          "31": "samples/cello/G1-soft.mp3",
+          "35": "samples/cello/B1-soft.mp3",
+          "38": "samples/cello/D2-soft.mp3",
+          "41": "samples/cello/F2-soft.mp3",
+          "45": "samples/cello/A2-soft.mp3",
+          "48": "samples/cello/C3-soft.mp3",
+          "52": "samples/cello/E3-soft.mp3",
+          "55": "samples/cello/G3-soft.mp3",
+          "59": "samples/cello/B3-soft.mp3",
+          "62": "samples/cello/D4-soft.mp3",
+          "65": "samples/cello/F4-soft.mp3"
         }
       },
       {
@@ -120,19 +120,19 @@
           127
         ],
         "notes": {
-          "24": "samples/cello/C1.mp3",
-          "28": "samples/cello/E1.mp3",
-          "31": "samples/cello/G1.mp3",
-          "35": "samples/cello/B1.mp3",
-          "38": "samples/cello/D2.mp3",
-          "41": "samples/cello/F2.mp3",
-          "45": "samples/cello/A2.mp3",
-          "48": "samples/cello/C3.mp3",
-          "52": "samples/cello/E3.mp3",
-          "55": "samples/cello/G3.mp3",
-          "59": "samples/cello/B3.mp3",
-          "62": "samples/cello/D4.mp3",
-          "65": "samples/cello/F4.mp3"
+          "24": "samples/cello/C1-loud.mp3",
+          "28": "samples/cello/E1-loud.mp3",
+          "31": "samples/cello/G1-loud.mp3",
+          "35": "samples/cello/B1-loud.mp3",
+          "38": "samples/cello/D2-loud.mp3",
+          "41": "samples/cello/F2-loud.mp3",
+          "45": "samples/cello/A2-loud.mp3",
+          "48": "samples/cello/C3-loud.mp3",
+          "52": "samples/cello/E3-loud.mp3",
+          "55": "samples/cello/G3-loud.mp3",
+          "59": "samples/cello/B3-loud.mp3",
+          "62": "samples/cello/D4-loud.mp3",
+          "65": "samples/cello/F4-loud.mp3"
         }
       }
     ],
@@ -147,19 +147,19 @@
           76
         ],
         "notes": {
-          "18": "samples/bass/F%230.mp3",
-          "19": "samples/bass/G0.mp3",
-          "22": "samples/bass/A%230.mp3",
-          "24": "samples/bass/C1.mp3",
-          "26": "samples/bass/D1.mp3",
-          "28": "samples/bass/E1.mp3",
-          "30": "samples/bass/F%231.mp3",
-          "32": "samples/bass/G%231.mp3",
-          "33": "samples/bass/A1.mp3",
-          "37": "samples/bass/C%232.mp3",
-          "40": "samples/bass/E2.mp3",
-          "44": "samples/bass/G%232.mp3",
-          "47": "samples/bass/B2.mp3"
+          "18": "samples/bass/F%230-soft.mp3",
+          "19": "samples/bass/G0-soft.mp3",
+          "22": "samples/bass/A%230-soft.mp3",
+          "24": "samples/bass/C1-soft.mp3",
+          "26": "samples/bass/D1-soft.mp3",
+          "28": "samples/bass/E1-soft.mp3",
+          "30": "samples/bass/F%231-soft.mp3",
+          "32": "samples/bass/G%231-soft.mp3",
+          "33": "samples/bass/A1-soft.mp3",
+          "37": "samples/bass/C%232-soft.mp3",
+          "40": "samples/bass/E2-soft.mp3",
+          "44": "samples/bass/G%232-soft.mp3",
+          "47": "samples/bass/B2-soft.mp3"
         }
       },
       {
@@ -168,19 +168,19 @@
           127
         ],
         "notes": {
-          "18": "samples/bass/F%230.mp3",
-          "19": "samples/bass/G0.mp3",
-          "22": "samples/bass/A%230.mp3",
-          "24": "samples/bass/C1.mp3",
-          "26": "samples/bass/D1.mp3",
-          "28": "samples/bass/E1.mp3",
-          "30": "samples/bass/F%231.mp3",
-          "32": "samples/bass/G%231.mp3",
-          "33": "samples/bass/A1.mp3",
-          "37": "samples/bass/C%232.mp3",
-          "40": "samples/bass/E2.mp3",
-          "44": "samples/bass/G%232.mp3",
-          "47": "samples/bass/B2.mp3"
+          "18": "samples/bass/F%230-loud.mp3",
+          "19": "samples/bass/G0-loud.mp3",
+          "22": "samples/bass/A%230-loud.mp3",
+          "24": "samples/bass/C1-loud.mp3",
+          "26": "samples/bass/D1-loud.mp3",
+          "28": "samples/bass/E1-loud.mp3",
+          "30": "samples/bass/F%231-loud.mp3",
+          "32": "samples/bass/G%231-loud.mp3",
+          "33": "samples/bass/A1-loud.mp3",
+          "37": "samples/bass/C%232-loud.mp3",
+          "40": "samples/bass/E2-loud.mp3",
+          "44": "samples/bass/G%232-loud.mp3",
+          "47": "samples/bass/B2-loud.mp3"
         }
       }
     ],
@@ -313,17 +313,17 @@
           76
         ],
         "notes": {
-          "21": "samples/horn/A0.mp3",
-          "24": "samples/horn/C1.mp3",
-          "27": "samples/horn/D%231.mp3",
-          "31": "samples/horn/G1.mp3",
-          "34": "samples/horn/A%231.mp3",
-          "38": "samples/horn/D2.mp3",
-          "41": "samples/horn/F2.mp3",
-          "45": "samples/horn/A2.mp3",
-          "48": "samples/horn/C3.mp3",
-          "62": "samples/horn/D4.mp3",
-          "65": "samples/horn/F4.mp3"
+          "21": "samples/horn/A0-soft.mp3",
+          "24": "samples/horn/C1-soft.mp3",
+          "27": "samples/horn/D%231-soft.mp3",
+          "31": "samples/horn/G1-soft.mp3",
+          "34": "samples/horn/A%231-soft.mp3",
+          "38": "samples/horn/D2-soft.mp3",
+          "41": "samples/horn/F2-soft.mp3",
+          "45": "samples/horn/A2-soft.mp3",
+          "48": "samples/horn/C3-soft.mp3",
+          "62": "samples/horn/D4-soft.mp3",
+          "65": "samples/horn/F4-soft.mp3"
         }
       },
       {
@@ -332,14 +332,14 @@
           127
         ],
         "notes": {
-          "24": "samples/horn/C1.mp3",
-          "27": "samples/horn/D%231.mp3",
-          "31": "samples/horn/G1.mp3",
-          "34": "samples/horn/A%231.mp3",
-          "38": "samples/horn/D2.mp3",
-          "41": "samples/horn/F2.mp3",
-          "45": "samples/horn/A2.mp3",
-          "48": "samples/horn/C3.mp3"
+          "24": "samples/horn/C1-loud.mp3",
+          "27": "samples/horn/D%231-loud.mp3",
+          "31": "samples/horn/G1-loud.mp3",
+          "34": "samples/horn/A%231-loud.mp3",
+          "38": "samples/horn/D2-loud.mp3",
+          "41": "samples/horn/F2-loud.mp3",
+          "45": "samples/horn/A2-loud.mp3",
+          "48": "samples/horn/C3-loud.mp3"
         }
       }
     ],

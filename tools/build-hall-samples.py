@@ -125,9 +125,11 @@ def raw_bytes(source, path):
 
 
 def convert(asset):
-    patch, note, source, source_path = asset
-    dest = SAMPLES / patch / f"{NOTE_NAMES[note % 12]}{note // 12 - 1}.mp3"
+    patch, note, source, source_path, output_path = asset
+    dest = ROOT / urllib.parse.unquote(output_path)
     dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.is_file():
+        return patch, note, source_path, dest
     audio = raw_bytes(source, source_path)
     subprocess.run(
         [
@@ -224,9 +226,10 @@ def main():
             for note_text, (source, source_path) in layer.items():
                 note = int(note_text)
                 web_note = NOTE_NAMES[note % 12].replace("#", "%23")
-                output_path = f"samples/{patch}/{web_note}{note // 12 - 1}.mp3"
+                layer_suffix = ("-soft" if index == 0 else "-loud") if len(layers) == 2 else ""
+                output_path = f"samples/{patch}/{web_note}{note // 12 - 1}{layer_suffix}.mp3"
                 output_notes[note_text] = output_path
-                assets.append((patch, note, VSCO if source == "vsco" else SSO, source_path))
+                assets.append((patch, note, VSCO if source == "vsco" else SSO, source_path, output_path))
             output_layers.append({"vel": velocity, "notes": output_notes})
         attack, release = PATCH_SETTINGS[patch]
         manifest[patch] = {"layers": output_layers, "attack": attack, "release": release}
@@ -246,6 +249,10 @@ def main():
     if failures:
         raise SystemExit(f"{len(failures)} sample conversions failed")
 
+    expected = {ROOT / urllib.parse.unquote(asset[-1]) for asset in assets}
+    for path in SAMPLES.rglob("*.mp3"):
+        if path not in expected:
+            path.unlink()
     (SAMPLES / "manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
     )
