@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Requiem of Everything — Overture</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title>Requiem of Everything — Overture</title>
 <link rel="stylesheet" href="common/style.css">
 <style>
 #gl{position:fixed;inset:0;width:100%;height:100%}
@@ -68,6 +68,11 @@ input[type=range]::-moz-range-thumb{width:9px;height:9px;border:none;border-radi
 #about .fine a{color:rgba(239,212,151,.8)}
 #whisper{bottom:96px;opacity:0}
 body.entered #whisper{opacity:.0}
+@media (max-width:640px){#portals{flex-direction:column;top:57%;gap:12px}
+ .portal{width:84vw;aspect-ratio:3}
+ .portal svg.icon{width:24%;left:6%;top:50%;transform:translateY(-50%)}
+ .portal .txt{left:32%;right:4%;top:50%;transform:translateY(-50%);text-align:left;padding:0}
+ .portal .line{display:none}}
 </style>
 </head>
 <body>
@@ -113,8 +118,6 @@ body.entered #whisper{opacity:.0}
 </nav>
 
 <div id="ui" class="reliquary">
-  <div class="ctl"><label for="sLight">Hour</label><input id="sLight" type="range" min="0" max="100" value="18"></div>
-  <div class="ctl"><label for="sFog">Incense</label><input id="sFog" type="range" min="0" max="100" value="58"></div>
   <button class="btn" id="bSound" aria-pressed="false">Silence</button>
   <button class="btn" id="bAbout" aria-expanded="false">Credits</button>
 </div>
@@ -123,7 +126,7 @@ body.entered #whisper{opacity:.0}
   <h2>Credits</h2>
   Nothing on this page is a picture. The light, the haze and the slow procession of embers come from one fragment shader.
   The chords are played live from sampled instruments, in a concert hall that is only an equation.
-  Move through the dark and the <em>celesta</em> answers you. Click anywhere to light a <em>votive</em> and the choir will sing for it.
+  Drift through the dark and the <em>celesta</em> answers you. Click anywhere to light a <em>votive</em> and the choir will sing for it.
   <ul>
     <li><b>thisnamewasnottaken</b><span>Creator · vision · curation</span></li>
     <li><b>GitHub Copilot coding agent</b><span>The first edition</span></li>
@@ -133,7 +136,7 @@ body.entered #whisper{opacity:.0}
   (CC BY-SA 3.0). Lighting inspired by <a href="https://elder-plinius.github.io/FABLE-SHOWCASE/infinite-cathedral/index.html" target="_blank" rel="noopener">Infinite Cathedral</a>.
   Biographies courtesy of Wikipedia contributors.</div>
 </div>
-<div class="hint" id="whisper">move through the dark · click to light a votive</div>
+<div class="hint" id="whisper">drift through the dark · click to light a candle</div>
 
 <script type="x-shader/x-fragment" id="fs">#version 300 es
 precision highp float;
@@ -151,43 +154,59 @@ float rays(vec2 p, vec2 src, float spread, float seed){
   float cone=smoothstep(spread,spread*.35,abs(ang-.0));
   return shafts*cone*smoothstep(2.4,.2,r)*smoothstep(0.,.35,r);
 }
+float hash1(float n){return fract(sin(n)*43758.5453);}
 void main(){
   vec2 fc=gl_FragCoord.xy; vec2 p=(fc-.5*uRes)/uRes.y; float t=uTime;
   vec2 m=(uMouse-.5*uRes)/uRes.y;
-  // palette: vespers (ember) -> dawn (pale blue-gold)
-  vec3 keyA=vec3(1.,.66,.36), keyB=vec3(.78,.86,1.);
-  vec3 key=mix(keyA,keyB,uHour); vec3 shadow=mix(vec3(.028,.018,.012),vec3(.02,.025,.04),uHour);
-  float fog=fbm(p*1.7+vec2(t*.018,-t*.012))*.7+fbm(p*4.+vec2(-t*.03,t*.02))*.3;
+  vec3 key=mix(vec3(1.,.66,.36),vec3(.78,.86,1.),uHour); vec3 shadow=vec3(.006,.004,.003);
   float dens=mix(.35,1.25,uFog);
-  // two clerestory windows high above, angled shafts into the dark
-  float L=rays(p,vec2(-.95,.85),.55,1.3)*.9+rays(p,vec2(.9,.9),.5,7.1)*.8+rays(p,vec2(0.,1.15),.32,4.2)*.55;
-  L*=(.55+uLevel*2.2);
-  vec3 col=shadow;
-  col+=key*L*(.35+fog)*dens*.95;
-  col+=key*.06*fog*dens*(1.-p.y*.4);
-  // orchestra risers: faint curved arcs at the floor
-  vec2 q=vec2(p.x,(p.y+.78)*2.2); float e=length(q);
-  float arcs=0.; for(int i=0;i<4;i++){float rr=.55+float(i)*.19; arcs+=exp(-pow((e-rr)*140.,2.))*(.5-float(i)*.08);}
-  arcs*=smoothstep(-.02,.12,q.y)*(.25+.75*uEnter)*(.6+uLevel*3.);
-  col+=vec3(.85,.64,.33)*arcs*.35;
-  // seats as tiny lights along the arcs, breathing
-  for(int i=0;i<4;i++){float rr=.55+float(i)*.19; float a=atan(q.y,q.x); float n=18.+float(i)*7.; float cell=floor(a/3.14159*n);
-    float ac=(cell+.5)/n*3.14159; vec2 sp=vec2(cos(ac),sin(ac))*rr; float d=length(q-sp);
-    float tw=.5+.5*sin(t*1.3+cell*1.7+float(i)); col+=vec3(1.,.72,.42)*exp(-d*d*9000.)*uEnter*(.35+tw*.65)*(.4+uLevel*4.)*smoothstep(-.02,.06,q.y);}
+  // eye at human height, walking slowly forward into the dark
+  float camZ=t*.55, eyeH=1.65; float yaw=m.x*.12, pitch=-.07+m.y*.03;
+  vec3 rd=normalize(vec3(p.x,p.y+pitch,1.35)); float cy=cos(yaw),sy=sin(yaw); rd.xz=mat2(cy,-sy,sy,cy)*rd.xz;
+  vec3 col=shadow; float tF=rd.y<0.?-eyeH/rd.y:1e9; vec3 P=vec3(0.,eyeH,0.)+rd*tF;
+  // columns of light, laid out in an endless procession of rows
+  float S=9.; float row0=floor(camZ/S); float shaftsAcc=0.; vec3 floorLight=vec3(0.);
+  for(int j=0;j<7;j++){ float rowId=row0+float(j)+1.; float cz=rowId*S-camZ;
+    for(int l=0;l<3;l++){ float id=rowId*3.+float(l); if(hash1(id*1.7)<.28) continue;
+      float cx=(float(l)-1.)*5.2+(hash1(id)-.5)*2.6; float br=.55+.65*hash1(id*3.1); float r=.55+.35*hash1(id*5.3);
+      // slanted shaft from a high window, landing at (cx,0,cz); tops lean outward
+      vec3 A=normalize(vec3(clamp(cx*.09,-.5,.5)+(hash1(id*7.7)-.5)*.2,1.,.18)); vec3 w0=vec3(0.,eyeH,0.)-vec3(cx,0.,cz);
+      float bb=dot(rd,A), dd0=dot(rd,w0), ee=dot(A,w0), den=max(1.-bb*bb,1e-4);
+      float tc=(bb*ee-dd0)/den, sc=(ee-bb*dd0)/den; vec3 off=w0+rd*tc-A*sc; float y=sc*A.y;
+      if(tc>0.&&tc<tF&&y>0.){ float rr=r*1.7*(1.+y*.02); float dd=length(off);
+        vec3 pp=normalize(cross(A,rd)); float u=dot(off,pp)/rr;
+        float stri=.45+.55*smoothstep(.35,1.,vn(vec2(u*3.+id*3.,y*.06-t*.05)))+.4*smoothstep(.5,1.,vn(vec2(u*9.+id,t*.08)));
+        float swirl=fbm(vec2(u*1.2+id,y*.18-t*.1))*.8+.35;
+        float shaft=exp(-dd*dd/(rr*rr))*stri*swirl*smoothstep(40.,3.,y)*(.7+.3*smoothstep(0.,1.5,y))*br*exp(-tc*.085);
+        shaftsAcc+=shaft; }
+      // where the light lands: a pool on the floor
+      if(tF<1e8){ vec2 fd=P.xz-vec2(cx,cz); float pool=exp(-dot(fd,fd)/(r*r*2.2))*br; floorLight+=key*pool*(1.1+.5*fbm(P.xz*1.3+t*.05)); }
+    }}
+  shaftsAcc*=(.6+uLevel*2.);
+  col+=key*shaftsAcc*.7*dens; col+=key*.007*dens*(.6+.4*fbm(p*1.7+vec2(t*.018,-t*.012)));
+  // the floor: dark polished stone, lit only where the light falls; fades to nothing
+  if(tF<1e8){ vec2 w=P.xz+vec2(0.,camZ); float stone=.55+.45*fbm(w*.6)+.25*fbm(w*3.); 
+    vec2 tile=abs(fract(w*.5)-.5); float seam=smoothstep(.49,.5,max(tile.x,tile.y));
+    float fade=exp(-tF*.12); vec3 fl=floorLight*stone*(1.-seam*.25)*.55*fade;
+    // soft reflection of the shafts in the polish
+    fl+=key*shaftsAcc*.12*fade; col+=fl;
+    // incense pooling low over the floor, drifting
+    float haze=fbm(vec2(w.x*.35+t*.03,w.y*.35-t*.05)); col+=key*haze*haze*.05*dens*fade*(.4+length(floorLight)*1.5); }
+  // distant haze at the horizon line
+  col+=key*.006*exp(-abs(rd.y)*22.)*dens*(.7+.3*fbm(vec2(rd.x*4.+t*.02,t*.03)));
   // dust motes drifting through the shafts
   for(int k=0;k<3;k++){vec2 g=p*vec2(34.+float(k)*21.)+vec2(t*.05*(1.+float(k)),-t*(.09+.04*float(k)));
     vec2 id=floor(g); vec2 f=fract(g)-.5; vec2 o=vec2(h12(id),h12(id+17.))-.5; float d=length(f-o*.7);
-    float tw=step(.86,h12(id+3.1)); col+=key*smoothstep(.07,0.,d)*tw*L*1.6;}
+    float tw=step(.86,h12(id+3.1)); col+=key*smoothstep(.07,0.,d)*tw*min(1.,shaftsAcc)*1.6;}
   // the visitor's candle
-  float dm=length(p-m); float fl=.85+.15*sin(t*11.)*sin(t*23.7);
-  col+=vec3(1.,.55,.22)*exp(-dm*dm*28.)*.22*fl*uEnter + vec3(1.,.75,.4)*exp(-dm*dm*900.)*.35*uEnter;
+  float dm=length(p-m); float fl2=.85+.15*sin(t*11.)*sin(t*23.7);
+  col+=vec3(1.,.55,.22)*exp(-dm*dm*28.)*.16*fl2*uEnter + vec3(1.,.75,.4)*exp(-dm*dm*900.)*.3*uEnter;
   // votives
   for(int i=0;i<16;i++){ if(i>=uN) break; vec4 c=uCandles[i]; float age=t-c.z; vec2 cp=vec2(c.x,c.y+age*.012);
     float d=length(p-cp); float life=smoothstep(0.,.6,age)*smoothstep(60.,40.,age); float f2=.8+.2*sin(t*12.+float(i)*7.)*sin(t*27.+float(i));
     vec3 hue=mix(vec3(1.,.52,.18),vec3(.66,.78,1.),c.w);
     col+=hue*(exp(-d*d*1600.)*1.2+exp(-d*d*40.)*.16)*life*f2; }
-  // portal halo
-  col+=key*exp(-pow((p.x-uHoverX)*3.,2.)-pow((p.y+.02)*2.2,2.))*.12*uHover;
+  col+=key*exp(-pow((p.x-uHoverX)*3.,2.)-pow((p.y+.02)*2.2,2.))*.1*uHover;
   col=col/(1.+col); col=pow(col,vec3(.92));
   col+=(h12(fc+fract(t))-.5)/255.;
   O=vec4(col,1.);
@@ -206,13 +225,13 @@ const u={res:U('uRes'),time:U('uTime'),mouse:U('uMouse'),level:U('uLevel'),hour:
 let scale=.7, W,H; function resize(){const d=Math.min(devicePixelRatio,2)*scale;W=cv.width=innerWidth*d|0;H=cv.height=innerHeight*d|0;gl.viewport(0,0,W,H);} resize(); addEventListener('resize',resize);
 const mouse={x:innerWidth/2,y:innerHeight*.6,vx:0,vy:0}; let enter=0, enterT=0, hover=0, hoverX=0, hoverTarget=0;
 const candles=[];
-const sL=document.getElementById('sLight'), sF=document.getElementById('sFog');
+const sL={value:18}, sF={value:58};
 let last=performance.now(), frames=0, acc=0;
 function frame(now){
   const t=now/1000; const dt=Math.min(.05,(now-last)/1000); last=now;
   enter+= (enterT-enter)*Math.min(1,dt*.8); hover+=(hoverTarget-hover)*Math.min(1,dt*4);
   gl.uniform2f(u.res,W,H); gl.uniform1f(u.time,t); const d=W/innerWidth; gl.uniform2f(u.mouse,mouse.x*d,(innerHeight-mouse.y)*d);
-  gl.uniform1f(u.level,sound.rms()); gl.uniform1f(u.hour,sL.value/100); gl.uniform1f(u.fog,sF.value/100); gl.uniform1f(u.enter,enter);
+  gl.uniform1f(u.level,sound.rms()); gl.uniform1f(u.hour,.18); gl.uniform1f(u.fog,.58); gl.uniform1f(u.enter,enter);
   gl.uniform1f(u.hov,hover); gl.uniform1f(u.hovx,hoverX);
   const arr=new Float32Array(64); candles.forEach((c,i)=>arr.set([c.x,c.y,c.t,c.h],i*4)); gl.uniform4fv(u.c,arr); gl.uniform1i(u.n,candles.length);
   gl.drawArrays(gl.TRIANGLES,0,3);

@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The River of Time — Requiem of Everything</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title>The River of Time — Requiem of Everything</title>
 <link rel="stylesheet" href="common/style.css">
 <style>
 #river{position:fixed;inset:0;width:100%;height:100%;cursor:grab}
@@ -14,41 +14,46 @@
 #tip b{font-weight:500;font-size:1.15rem;color:#f6e9cf;display:block}
 #tip .k{font-family:var(--inscr);font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 #tip .d{font-size:.95rem;color:rgba(230,216,189,.78);margin-top:5px;font-style:italic}
-#life{position:fixed;left:50%;bottom:74px;width:min(1100px,calc(100vw - 40px));height:260px;transform:translateX(-50%) translateY(30px);z-index:28;
-  opacity:0;visibility:hidden;transition:opacity .7s,transform .8s cubic-bezier(.22,1,.36,1),visibility 0s linear .7s;padding:18px 24px;display:grid;grid-template-columns:260px 1fr;gap:24px}
+#life{position:fixed;left:50%;bottom:66px;width:min(1240px,calc(100vw - 40px));height:316px;transform:translateX(-50%) translateY(30px);z-index:28;
+  opacity:0;visibility:hidden;transition:opacity .7s,transform .8s cubic-bezier(.22,1,.36,1),visibility 0s linear .7s;padding:18px 24px;display:grid;grid-template-columns:300px 1fr;gap:28px}
 #life.open{opacity:1;visibility:visible;transform:translateX(-50%);transition-delay:0s}
 #life h2{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf}
 #life .dates{font-family:var(--inscr);font-size:.6rem;letter-spacing:.3em;color:var(--gold);margin:8px 0 10px}
-#life .bio{font-size:.98rem;line-height:1.5;color:rgba(230,216,189,.75);max-height:120px;overflow:auto}
+#life .left,#life .right{display:flex;flex-direction:column;min-height:0}
+#life .bio{flex:1;min-height:0;font-size:.98rem;line-height:1.5;color:rgba(230,216,189,.78);overflow-y:auto;padding-right:8px;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.55) rgba(201,165,92,.08);
+  -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+#life .bio.end{-webkit-mask-image:none;mask-image:none}
+#life .more{font-family:var(--inscr);font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:4px;height:12px;transition:opacity .3s}
+#life .closehint{margin-left:auto;opacity:.6}
 #life .legend{font-family:var(--inscr);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist);display:flex;gap:18px;margin-bottom:4px}
 #life .legend i{display:inline-block;width:14px;height:2px;vertical-align:middle;margin-right:6px}
-#seis{width:100%;height:205px}
-#life .x{position:absolute;right:14px;top:10px}
-#life .listen{margin-top:12px}
+#seis{width:100%;flex:1;min-height:0}
+#life .listen{margin-top:10px;align-self:flex-start}
+#bSilence{position:fixed;top:16px;right:20px;z-index:40}
 #mini{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:min(900px,calc(100vw - 260px));height:34px;z-index:25;cursor:pointer}
 #legendE{position:fixed;right:22px;bottom:18px;z-index:25;font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);line-height:2}
 #legendE i{display:inline-block;width:6px;height:6px;transform:rotate(45deg);margin-right:8px}
-#hint{bottom:auto;top:84px;opacity:.7}
+#hint{bottom:4px;top:auto;opacity:.55;font-size:.48rem}
 #zoomlabel{position:fixed;left:24px;bottom:22px;z-index:25;font-family:var(--inscr);font-size:.55rem;letter-spacing:.26em;color:var(--mist);text-transform:uppercase}
 </style>
 </head>
 <body>
 <canvas id="river"></canvas>
 <div class="vignette"></div><div class="grain"></div>
-<nav class="sigil"><span class="mark"></span><a href="index.html#entered">Overture</a><a class="here" href="river.html">River</a><a href="hall.html">Hall</a></nav>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a class="here" href="river.html">River</a><a href="hall.html">Hall</a></nav>
 <div id="head" style="top:14px"><h1>The River of Time</h1><p>Every thread is a life. Thick where the music poured out, bright when the world was listening.</p></div>
 <div id="tip" class="reliquary"></div>
 <div id="life" class="reliquary">
-  <div><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div>
+  <div class="left"><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div><div class="more" id="lMore">↓ scroll for more</div>
     <button class="btn listen" id="lListen">Listen on Spotify</button></div>
-  <div><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span id="lNote"></span></div><canvas id="seis"></canvas></div>
-  <button class="btn x" id="lClose">Close</button>
+  <div class="right"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
 </div>
 <canvas id="mini"></canvas>
 <div id="zoomlabel"></div>
 <div id="legendE"></div>
-<div class="hint" id="hint">scroll to zoom · drag to travel · hover a thread to hear it · click to open a life</div>
-<script src="common/data.js"></script>
+<button class="btn" id="bSilence" aria-pressed="false">Silence</button>
+<div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
+<script src="common/data.js"></script><script src="common/lives.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d');
@@ -77,7 +82,7 @@ const eraCol=Object.fromEntries(D.eras.map(e=>[e.id,e.color]));
 const brighten=(hex,k=1.5)=>{const n=parseInt(hex.slice(1),16);let r=n>>16,gg=(n>>8)&255,b=n&255;const m=Math.max(r,gg,b,1),s=Math.min(255,m*k)/m;return [r*s|0,gg*s|0,b*s|0];};
 const byComposer={}; D.compositions.forEach(c=>(byComposer[c.composerId]||(byComposer[c.composerId]=[])).push(c));
 const voiceFor=c=>{const t=c.tags.join(' ');if(c.id==='johann-sebastian-bach')return 'organ';if(/violin/.test(t))return 'violin';if(/piano/.test(t))return 'piano';if(/opera/.test(t))return 'oohs';if(/choral|sacred|polyphony/.test(t))return 'choir';if(/harpsichord|keyboard/.test(t))return 'harpsichord';return ['harp','cello','horn','flute','clarinet'][c.birthYear%5];};
-const comps=D.composers.map((c,i)=>{const L=LIVES[c.id];const works=(byComposer[c.id]||[]).sort((a,b)=>a.yearComposed-b.yearComposed);
+const comps=D.composers.map((c,i)=>{const L=(window.ROE_LIVES||{})[c.id]||LIVES[c.id];const works=(byComposer[c.id]||[]).sort((a,b)=>a.yearComposed-b.yearComposed);
   return {...c,i,rgb:brighten(eraCol[c.era]||'#c9a55c',1.7),home:NAT[c.nationality]||'German lands',moves:MOVES[c.id]||[],life:L,works,voice:voiceFor(c),slot:0,phase:Math.random()*6.28};});
 // lane slots: pack contemporaries in each home lane
 const laneSlots={}; comps.slice().sort((a,b)=>a.birthYear-b.birthYear).forEach(c=>{const arr=laneSlots[c.home]||(laneSlots[c.home]=[]);let s=0;while(arr.some(o=>o.slot===s&&o.deathYear+3>c.birthYear))s++;c.slot=s;arr.push(c);});
@@ -100,37 +105,63 @@ function yAt(c,y){const lh=laneH(); const li=laneOf(c,y); const n=Math.max(1,(la
 // ---------- particles flowing along threads ----------
 const parts=[]; comps.forEach(c=>{const n=Math.round((c.deathYear-c.birthYear)/4);for(let k=0;k<n;k++)parts.push({c,u:c.birthYear+Math.random()*(c.deathYear-c.birthYear),s:.6+Math.random()*1.4});});
 // ---------- draw ----------
-const catCol={war:'#ff6a4a',political:'#d9a6ff',revolution:'#ff4d6d',technological:'#7fd8ff',scientific:'#9fe6c8',religious:'#ffd98a',cultural:'#f3e6cb',literary:'#f3e6cb','natural-disaster':'#ff9b5a'};
+const catCol={_:'#ffffff',war:'#ff6a4a',political:'#d9a6ff',revolution:'#ff4d6d',technological:'#7fd8ff',scientific:'#9fe6c8',religious:'#ffd98a',cultural:'#f3e6cb',literary:'#f3e6cb','natural-disaster':'#ff9b5a'};
 document.getElementById('legendE').innerHTML=[['war','War'],['revolution','Revolution'],['political','Politics'],['technological','Invention'],['scientific','Science'],['religious','Faith']].map(([k,l])=>`<div><i style="background:${catCol[k]}"></i>${l}</div>`).join('');
 let reveal=0;
+let hoverL=null, pin=null, silent=localStorage.getItem('roe-silent')==='1';
+const evEnd=e=>e.endYear||e.year;
+const touches=(c,lane)=>c.home===lane||c.moves.some(m=>m[1]===lane);
+const lanesOf=c=>new Set([c.home,...c.moves.map(m=>m[1])]);
+const aliveIn=(c,a,b)=>c.birthYear<=b&&c.deathYear>=a;
+const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a})`;
+function activeFilter(){
+  if(hoverL) return {kind:'lane',v:hoverL,test:c=>touches(c,hoverL)};
+  if(hoverE) return {kind:'event',v:hoverE,test:c=>aliveIn(c,hoverE.year,evEnd(hoverE))};
+  if(pin) return pin.kind==='lane'?{...pin,test:c=>touches(c,pin.v)}:{...pin,test:c=>aliveIn(c,pin.v.year,evEnd(pin.v))};
+  return null;}
+// text is queued and drawn last, with a dark halo, so the bright threads never wash it out
+const labels=[]; const label=(text,x,y,font,fill,align='left',rot=0)=>labels.push({text,x,y,font,fill,align,rot});
+function flushLabels(){ g.globalCompositeOperation='source-over'; g.lineJoin='round';
+  for(const l of labels){ g.save(); g.translate(l.x,l.y); if(l.rot)g.rotate(l.rot); g.font=l.font; g.textAlign=l.align;
+    g.lineWidth=3.5; g.strokeStyle='rgba(10,8,7,.8)'; g.shadowColor='rgba(0,0,0,.95)'; g.shadowBlur=7; g.strokeText(l.text,0,0); g.shadowBlur=0; g.fillStyle=l.fill; g.fillText(l.text,0,0); g.restore(); }
+  labels.length=0; }
+let laneBoxes=[];
 function draw(){
   g.globalCompositeOperation='source-over'; g.fillStyle='#0a0807'; g.fillRect(0,0,W,H);
-  const span=v1-v0;
-  // era mists
-  for(const e of D.eras){const x0=X(e.startYear),x1=X(e.endYear); if(x1<0||x0>W)continue; const [r,gg,b]=brighten(e.color,1.2);
-    const gr=g.createLinearGradient(x0,0,x1,0); gr.addColorStop(0,`rgba(${r},${gg},${b},0)`);gr.addColorStop(.5,`rgba(${r},${gg},${b},.07)`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
+  const span=v1-v0, mid=(v0+v1)/2, F=activeFilter(), FE=F&&F.kind==='event'?F.v:null, FL=F&&F.kind==='lane'?F.v:null;
+  // era mists; the era at the centre of the view is named larger and brighter
+  for(const e of D.eras){const x0=X(e.startYear),x1=X(e.endYear); if(x1<0||x0>W)continue; const [r,gg,b]=brighten(e.color,1.2); const cur=mid>=e.startYear&&mid<e.endYear;
+    const gr=g.createLinearGradient(x0,0,x1,0); gr.addColorStop(0,`rgba(${r},${gg},${b},0)`);gr.addColorStop(.5,`rgba(${r},${gg},${b},${cur?.1:.06})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
     g.fillStyle=gr; g.fillRect(x0,TOP-30,x1-x0,BOT()-TOP+60);
-    g.font=`400 ${clamp((x1-x0)/14,11,40)}px Cinzel`; g.textAlign='center'; g.fillStyle=`rgba(${r},${gg},${b},${.16})`;
-    g.fillText(e.name.toUpperCase().split('').join('\u200a'),clamp((x0+x1)/2,90,W-90),BOT()+40);}
-  // lane labels
-  g.textAlign='left'; g.font='400 10px Cinzel'; LANES.forEach((l,i)=>{g.fillStyle='rgba(216,203,180,.22)';g.fillText(l.toUpperCase().split('').join(' '),18,TOP+laneH()*(i+.5)+3);});
-  // time ruler
-  const stepY=span>300?50:span>120?25:span>50?10:span>20?5:1; g.font='400 11px Cormorant Garamond';g.textAlign='center';
-  for(let y=Math.ceil(v0/stepY)*stepY;y<=v1;y+=stepY){const x=X(y);g.fillStyle='rgba(201,165,92,.07)';g.fillRect(x,TOP-20,1,BOT()-TOP+30);g.fillStyle='rgba(216,203,180,.45)';g.fillText(y,x,TOP-28);}
-  // events: veils of light
+    const fs=cur?clamp((x1-x0)/10,26,54):clamp((x1-x0)/14,11,30); const txt=e.name.toUpperCase().split('').join('\u200a');
+    g.font=`400 ${fs}px Cinzel`; const tw=g.measureText(txt).width; const lo=Math.max(x0,0)+tw/2+20, hi=Math.min(x1,W)-tw/2-20;
+    const cx=lo<hi?clamp((x0+x1)/2,lo,hi):(Math.max(x0,0)+Math.min(x1,W))/2;
+    label(txt,cx,BOT()+(cur?50:40),`400 ${fs}px Cinzel`,`rgba(${r},${gg},${b},${cur?.78:.2})`,'center');}
+  // time ruler; the years of a selected life take its colour
+  const stepY=span>300?50:span>120?25:span>50?10:span>20?5:1;
+  if(focus){g.fillStyle=rgba(focus.rgb,.6);g.fillRect(X(focus.birthYear),TOP-22,X(focus.deathYear)-X(focus.birthYear),2);}
+  if(FE&&evEnd(FE)>FE.year){const c=catCol[FE.category]||'#ffffff';g.fillStyle=c+'aa';g.fillRect(X(FE.year),TOP-22,X(evEnd(FE))-X(FE.year),2);}
+  for(let y=Math.ceil(v0/stepY)*stepY;y<=v1;y+=stepY){const x=X(y);g.fillStyle='rgba(201,165,92,.07)';g.fillRect(x,TOP-20,1,BOT()-TOP+30);
+    const inLife=focus&&y>=focus.birthYear&&y<=focus.deathYear; const inEv=FE&&y>=FE.year&&y<=evEnd(FE);
+    label(String(y),x,TOP-28,`${inLife||inEv?'600 13px':'400 11px'} Cormorant Garamond`,inLife?rgba(focus.rgb,1):inEv?(catCol[FE.category]||'#fff'):'rgba(216,203,180,.45)','center');}
+  // events: veils of light, spans for events that lasted years
   g.globalCompositeOperation='lighter';
-  for(const e of EV){const x=X(e.year); if(x<-40||x>W+40)continue; const c=catCol[e.category]||'#fff'; const hov=e===hoverE;
-    if(hov){ const w=26*(1+e.strength); const gr=g.createLinearGradient(x-w,0,x+w,0); gr.addColorStop(0,c+'00'); gr.addColorStop(.5,c+'40'); gr.addColorStop(1,c+'00'); g.fillStyle=gr; g.fillRect(x-w,TOP-10,w*2,BOT()-TOP+20);}
+  for(const e of EV){const x=X(e.year), xe=X(evEnd(e)); if(xe<-40||x>W+40)continue; const c=catCol[e.category]||'#ffffff'; const hov=e===FE; const multi=evEnd(e)>e.year;
+    if(hov&&multi){ const gr=g.createLinearGradient(0,TOP,0,BOT()); gr.addColorStop(0,c+'0a'); gr.addColorStop(.6,c+'1c'); gr.addColorStop(1,c+'34'); g.fillStyle=gr; g.fillRect(x,TOP-20,xe-x,BOT()-TOP+30);
+      g.fillStyle=c+'cc'; g.fillRect(x-.75,TOP-20,1.5,BOT()-TOP+30); g.fillRect(xe-.75,TOP-20,1.5,BOT()-TOP+30); g.fillRect(x,BOT()+11,xe-x,2.5); }
+    else if(hov){ const w=26*(1+e.strength); const gr=g.createLinearGradient(x-w,0,x+w,0); gr.addColorStop(0,c+'00'); gr.addColorStop(.5,c+'30'); gr.addColorStop(1,c+'00'); g.fillStyle=gr; g.fillRect(x-w,TOP-20,w*2,BOT()-TOP+30); }
+    else if(multi){ g.fillStyle=c+'50'; g.fillRect(x,BOT()+11.5,xe-x,1.5); }
     const vg=g.createLinearGradient(0,TOP,0,BOT()); vg.addColorStop(0,c+'00'); vg.addColorStop(1,c+(hov?'aa':'2a')); g.fillStyle=vg; g.fillRect(x-.5,TOP,1,BOT()-TOP+8);
     g.fillStyle=c+(hov?'ff':'99'); g.save(); g.translate(x,BOT()+12); g.rotate(Math.PI/4); g.fillRect(-3,-3,6,6); g.restore();
-    if(hov||span<70){g.save();g.globalCompositeOperation='source-over';g.font=`${hov?'italic 400 15px':'italic 300 12px'} Cormorant Garamond`;g.fillStyle=hov?'#f6e9cf':'rgba(216,203,180,.55)';g.translate(x+4,BOT()-6);g.rotate(-Math.PI/2);g.textAlign='left';g.fillText(e.title,0,0);g.restore();}
+    if(hov||span<70) label(e.title+(multi?`  ${e.year}–${evEnd(e)}`:''),x+4,BOT()-6,hov?'italic 400 15px Cormorant Garamond':'italic 300 12px Cormorant Garamond',hov?'#f6e9cf':'rgba(216,203,180,.6)','left',-Math.PI/2);
+    if(hov&&pin&&pin.v===e) label('◆ pinned',x+4,BOT()+30,'400 9px Cinzel',c,'left');
     }
   // threads
   const revealYear=lerp(MIN,MAX,reveal);
   const contemporaries=focus?new Set(comps.filter(o=>o.birthYear<focus.deathYear&&o.deathYear>focus.birthYear).map(o=>o.i)):null;
   const stepYr=Math.max(.25,span/W*5);
   for(const c of comps){ const a0=c.birthYear, a1=Math.min(c.deathYear,revealYear); if(a1<=a0) continue; if(X(c.deathYear)<-20||X(a0)>W+20)continue;
-    let dim=1; if(focus) dim=focus===c?1.6:contemporaries.has(c.i)?.55:.12; else if(hoverC) dim=hoverC===c?1.8:.35; else if(hoverE) dim=(c.birthYear<=hoverE.year&&c.deathYear>=hoverE.year)?1.4:.25;
+    let dim=1; if(focus) dim=focus===c?1.6:contemporaries.has(c.i)?.55:.12; else if(hoverC) dim=hoverC===c?1.8:.35; else if(F) dim=F.test(c)?1.5:.16;
     const [r,gg,b]=c.rgb; const zoomW=clamp(500/span,1,4);
     const xs=[],ys=[],ws=[],ss=[]; for(let y=a0;;y+=stepYr){ const yy=Math.min(y,a1); xs.push(X(yy)); ys.push(yAt(c,yy)); ws.push((1+output(c,yy)*5.5)*zoomW*.5); ss.push(standing(c,yy)); if(yy>=a1)break; }
     const ribbon=k=>{ const top=[],bot=[]; for(let i=0;i<xs.length;i++){ const j0=Math.max(0,i-1),j1=Math.min(xs.length-1,i+1); let tx=xs[j1]-xs[j0],ty=ys[j1]-ys[j0]; const l=Math.hypot(tx,ty)||1; const nx=-ty/l,ny=tx/l, w=ws[i]*k;
@@ -139,32 +170,30 @@ function draw(){
     const grad=(base,mul)=>{ const gx=g.createLinearGradient(xs[0],0,xs[xs.length-1]+.01,0); const n=xs.length, every=Math.max(1,Math.floor(n/28));
       for(let i=0;i<n;i+=every){ const t=clamp((xs[i]-xs[0])/(xs[n-1]-xs[0]+.01),0,1); gx.addColorStop(t,`rgba(${r},${gg},${b},${Math.min(1,(base+ss[i]*mul)*dim)})`);} return gx; };
     if(xs.length>1){ ribbon(4); g.fillStyle=grad(.03,.07); g.fill(); ribbon(1.9); g.fillStyle=grad(.06,.16); g.fill(); ribbon(1); g.fillStyle=grad(.22,.78); g.fill(); }
-    // the ink head while unfurling
     if(a1<c.deathYear){const x=X(a1),y=yAt(c,a1);const gr=g.createRadialGradient(x,y,0,x,y,22);gr.addColorStop(0,`rgba(${r},${gg},${b},.9)`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);g.fillStyle=gr;g.fillRect(x-22,y-22,44,44);}
-    // afterglow: reputation after death
     if(c.life&&c.life.after&&a1>=c.deathYear){ g.setLineDash([2,6]); g.lineCap='round';
       let px=X(c.deathYear),py=yAt(c,c.deathYear); const pts=[[c.deathYear,.2],...c.life.after];
-      for(let y=c.deathYear+1;y<=Math.min(MAX,revealYear);y+=stepYr*2){const s=curve(pts,y,1);const x=X(y),yy=yAt(c,c.deathYear)+ (y-c.deathYear)*0;g.lineWidth=1+s*3;g.strokeStyle=`rgba(${r},${gg},${b},${(s*.32)*dim})`;g.beginPath();g.moveTo(px,py);g.lineTo(x,yy);g.stroke();px=x;py=yy;}
+      for(let y=c.deathYear+1;y<=Math.min(MAX,revealYear);y+=stepYr*2){const s=curve(pts,y,1);const x=X(y),yy=yAt(c,c.deathYear);g.lineWidth=1+s*3;g.strokeStyle=`rgba(${r},${gg},${b},${(s*.32)*dim})`;g.beginPath();g.moveTo(px,py);g.lineTo(x,yy);g.stroke();px=x;py=yy;}
       g.setLineDash([]); g.lineCap='butt';}
-    // name at the source of the thread
-    const nx=X(c.birthYear); if(nx>-200&&nx<W){ g.save(); g.globalCompositeOperation='source-over'; g.font=`${focus===c||hoverC===c?'500 15px':'400 12.5px'} Cormorant Garamond`; g.textAlign='right';
-      g.fillStyle=`rgba(${r},${gg},${b},${clamp(.35*dim+.15,0,1)})`; g.fillText(c.shortName,nx-6,yAt(c,c.birthYear)+4); g.restore(); }
-    // compositions as pearls
+    const nx=X(c.birthYear); if(nx>-200&&nx<W) label(c.shortName,nx-6,yAt(c,c.birthYear)+4,`${focus===c||hoverC===c?'500 15px':'400 12.5px'} Cormorant Garamond`,`rgba(${Math.min(255,r+30)},${Math.min(255,gg+30)},${Math.min(255,b+30)},${clamp(.45*dim+.2,0,1)})`,'right');
     for(const w of c.works){ if(w.yearComposed>a1||w.yearComposed<a0)continue; const x=X(w.yearComposed),y=yAt(c,w.yearComposed); const hw=w===hoverW; const rr=(hw?6:2.2+zoomW*.6);
       const gr=g.createRadialGradient(x,y,0,x,y,rr*4);gr.addColorStop(0,`rgba(255,244,220,${.95*Math.min(1,dim)})`);gr.addColorStop(.25,`rgba(${r},${gg},${b},${.5*Math.min(1,dim)})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
       g.fillStyle=gr; g.fillRect(x-rr*4,y-rr*4,rr*8,rr*8);
-      if(span<60&&(focus?focus===c:dim>.5)){g.save();g.globalCompositeOperation='source-over';g.font='italic 300 12px Cormorant Garamond';g.fillStyle='rgba(240,228,205,.7)';g.textAlign='left';g.fillText(w.title,x+7,y-8);g.restore();} }
-    // life moments, staggered so they never collide
-    if(c.life&&(focus===c||(!focus&&span<70&&dim>.5))){ const lv=[]; g.save(); g.globalCompositeOperation='source-over'; g.font='italic 400 12.5px Cormorant Garamond'; g.textAlign='center';
+      if(span<60&&(focus?focus===c:dim>.5)) label(w.title,x+7,y-8,'italic 400 12px Cormorant Garamond','rgba(240,228,205,.8)'); }
+    if(c.life&&(focus===c||(!focus&&span<70&&dim>.5))){ const lv=[]; g.font='italic 400 12.5px Cormorant Garamond';
       for(const p of c.life.pts){ if(!p[3]||p[0]>a1)continue; const x=X(p[0]),y=yAt(c,p[0]); const tw=g.measureText(p[3]).width+14; let L=0; while((lv[L]||[]).some(q=>Math.abs(q-x)<tw))L++; (lv[L]||(lv[L]=[])).push(x);
-        const up=L%2===0, ly=up? y-34-(L>>1)*17 : y+40+(L>>1)*17; g.strokeStyle='rgba(239,212,151,.3)'; g.beginPath(); g.moveTo(x,y+(up?-8:8)); g.lineTo(x,ly+(up?6:-12)); g.stroke();
-        g.fillStyle='rgba(246,233,207,.88)'; g.fillText(p[3],x,ly); } g.restore(); }
+        const up=L%2===0, ly=up? y-34-(L>>1)*17 : y+40+(L>>1)*17; g.strokeStyle='rgba(239,212,151,.3)'; g.lineWidth=1; g.beginPath(); g.moveTo(x,y+(up?-8:8)); g.lineTo(x,ly+(up?6:-12)); g.stroke();
+        label(p[3],x,ly,'italic 400 12.5px Cormorant Garamond','rgba(246,233,207,.92)','center'); } }
   }
-  // flowing light
   for(const p of parts){ const c=p.c; p.u+= p.s*(.15+output(c,p.u)*1.2)*(span/600)*.5; if(p.u>c.deathYear)p.u=c.birthYear; if(p.u>revealYear)continue;
-    const x=X(p.u); if(x<0||x>W)continue; const y=yAt(c,p.u); let dim=focus?(focus===c?1:.15):hoverC?(hoverC===c?1:.3):1; const [r,gg,b]=c.rgb;
+    const x=X(p.u); if(x<0||x>W)continue; const y=yAt(c,p.u); let dim=focus?(focus===c?1:.15):hoverC?(hoverC===c?1:.3):F?(F.test(c)?1:.15):1; const [r,gg,b]=c.rgb;
     g.fillStyle=`rgba(${Math.min(255,r+60)},${Math.min(255,gg+60)},${Math.min(255,b+60)},${.55*dim})`; g.fillRect(x-1,y-1,2.2,2.2); }
-  g.globalCompositeOperation='source-over';
+  // country labels: hover/click targets; a selected life lights the countries it lived in
+  g.font='400 10px Cinzel'; const fl=focus?lanesOf(focus):null; laneBoxes=[];
+  LANES.forEach((l,i)=>{ const t=l.toUpperCase().split('').join(' '); const y=TOP+laneH()*(i+.5)+3; const tw=g.measureText(t).width; laneBoxes.push({l,x0:10,x1:26+tw,y0:y-13,y1:y+7});
+    const on=FL===l, pinned=pin&&pin.kind==='lane'&&pin.v===l; const col=fl&&fl.has(l)?rgba(focus.rgb,1):on?'#f6e1b0':'rgba(216,203,180,.4)';
+    label((pinned?'◆ ':'')+t,18,y,`${(fl&&fl.has(l))||on?'600':'400'} 10px Cinzel`,col,'left'); });
+  flushLabels();
   drawMini();
 }
 // ---------- minimap ----------
@@ -182,42 +211,78 @@ cv.addEventListener('wheel',e=>{e.preventDefault();const yr=Y2yr(e.clientX);cons
   const f=(yr-tv0)/(tv1-tv0); tv0=yr-f*s; tv1=tv0+s; if(tv0<MIN){tv1+=MIN-tv0;tv0=MIN;} if(tv1>MAX){tv0-=tv1-MAX;tv1=MAX;}},{passive:false});
 cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,a:tv0,b:tv1,moved:false};cv.classList.add('drag');cv.setPointerCapture(e.pointerId);});
 cv.addEventListener('pointerup',e=>{cv.classList.remove('drag');if(drag&&!drag.moved)clickAt(e);drag=null;});
-let lastVoice=0, lastHover=null;
+cv.addEventListener('pointerleave',()=>{hoverC=hoverE=hoverW=hoverL=null;tip.style.opacity=0;});
 cv.addEventListener('pointermove',e=>{ if(drag){const dx=e.clientX-drag.x; if(Math.abs(dx)>3)drag.moved=true; const dy=dx/W*(drag.b-drag.a); let a=drag.a-dy,b=drag.b-dy; if(a<MIN){b+=MIN-a;a=MIN;} if(b>MAX){a-=b-MAX;b=MAX;} tv0=a;tv1=b; return;}
-  pick(e.clientX,e.clientY);
-  if(hoverC&&hoverC!==lastHover&&sound.started&&performance.now()-lastVoice>120){lastVoice=performance.now();const li=LANES.indexOf(hoverC.home);const pent=[0,2,4,7,9];const n=55+pent[(li+hoverC.slot)%5]+12*((li%3));
-    sound.play(hoverC.voice,n,{dur:.9,vel:.45,pan:(e.clientX/W)*1.4-.7});}
-  lastHover=hoverC; showTip(e.clientX,e.clientY);});
-function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null; const yr=Y2yr(mx); let best=14;
+  pick(e.clientX,e.clientY); showTip(e.clientX,e.clientY);});
+function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=Y2yr(mx); const span=v1-v0, zoomW=clamp(500/span,1,4), revealYear=lerp(MIN,MAX,reveal);
+  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<=b.y1){hoverL=b.l;return;} }
   for(const c of comps){ for(const w of c.works){const d=Math.hypot(X(w.yearComposed)-mx,yAt(c,w.yearComposed)-my); if(d<9){hoverW=w;hoverC=c;return;}}}
-  for(const c of comps){ if(yr<c.birthYear||yr>c.deathYear)continue; const d=Math.abs(yAt(c,yr)-my); if(d<best){best=d;hoverC=c;} }
-  if(!hoverC){ for(const e of EV){ if(Math.abs(X(e.year)-mx)<9&&(my>BOT()-10||my<TOP+400)){hoverE=e;break;} } } }
+  if(my>BOT()-2&&my<BOT()+26){ let bw=1e9; for(const e of EV){ const x=X(e.year), xe=X(evEnd(e)); const inside=mx>=x-7&&mx<=Math.max(xe,x)+7; if(inside&&xe-x<bw){bw=xe-x;hoverE=e;} } if(hoverE)return; }
+  let best=1e9;
+  for(const c of comps){ if(c.birthYear>revealYear) continue;
+    const nx=X(c.birthYear), ny=yAt(c,c.birthYear); if(mx<nx&&mx>nx-c.shortName.length*7-10&&Math.abs(my-ny)<10){hoverC=c;return;}
+    if(yr<c.birthYear-.5||yr>c.deathYear+.5)continue; const yy=clamp(yr,c.birthYear,c.deathYear); const d=Math.abs(yAt(c,yy)-my);
+    const tol=10+(1+output(c,yy)*5.5)*zoomW; if(d<tol&&d<best){best=d;hoverC=c;} }
+  if(!hoverC){ for(const e of EV){ if(Math.abs(X(e.year)-mx)<5&&my>TOP&&my<BOT()){hoverE=e;break;} } } }
 function showTip(mx,my){ let html='';
-  if(hoverW) html=`<span class="k">${hoverW.yearComposed} · ${hoverW.genre}</span><b>${hoverW.title}</b><div class="d">${hoverW.description.slice(0,150)}…</div>`;
-  else if(hoverC){const yr=Math.round(Y2yr(mx)); const age=yr-hoverC.birthYear; html=`<span class="k">${hoverC.birthYear} – ${hoverC.deathYear} · ${hoverC.nationality}</span><b>${hoverC.name}</b><div class="d">In ${yr}, aged ${age}${hoverC.life?'':' · curve estimated from works'}</div>`;}
-  else if(hoverE) html=`<span class="k">${hoverE.year} · ${hoverE.category}</span><b>${hoverE.title}</b><div class="d">${hoverE.musicalSignificance||hoverE.description}</div>`;
+  if(hoverL){ const n=comps.filter(c=>touches(c,hoverL)&&X(c.deathYear)>0&&X(c.birthYear)<W).length; const p=pin&&pin.kind==='lane'&&pin.v===hoverL;
+    html=`<span class="k">Country · ${p?'click to unpin':'click to pin'}</span><b>${hoverL}</b><div class="d">${n} composer${n===1?'':'s'} in view lived or worked here</div>`;}
+  else if(hoverW) html=`<span class="k">${hoverW.yearComposed} · ${hoverW.genre}</span><b>${hoverW.title}</b><div class="d">${hoverW.description.slice(0,150)}…</div>`;
+  else if(hoverC){const yr=Math.round(clamp(Y2yr(mx),hoverC.birthYear,hoverC.deathYear)); const age=yr-hoverC.birthYear; html=`<span class="k">${hoverC.birthYear} – ${hoverC.deathYear} · ${hoverC.nationality}</span><b>${hoverC.name}</b><div class="d">In ${yr}, aged ${age}${hoverC.life?'':' · curve estimated from works'}</div>`;}
+  else if(hoverE){const p=pin&&pin.kind==='event'&&pin.v===hoverE; html=`<span class="k">${hoverE.year}${evEnd(hoverE)>hoverE.year?' – '+evEnd(hoverE):''} · ${hoverE.category} · ${p?'click to unpin':'click to pin'}</span><b>${hoverE.title}</b><div class="d">${hoverE.musicalSignificance||hoverE.description}</div>`;}
   tip.style.opacity=html?1:0; if(html){tip.innerHTML=html; tip.style.left=Math.min(W-340,mx+18)+'px'; tip.style.top=Math.min(H-180,my+18)+'px';} cv.style.cursor=html?'pointer':''; }
-function clickAt(e){ if(hoverC) openLife(hoverC); else if(focus) closeLife(); }
-const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d');
+function clickAt(e){
+  if(hoverL){ pin=pin&&pin.kind==='lane'&&pin.v===hoverL?null:{kind:'lane',v:hoverL}; showTip(e.clientX,e.clientY); return; }
+  if(hoverE&&!hoverC){ pin=pin&&pin.kind==='event'&&pin.v===hoverE?null:{kind:'event',v:hoverE}; showTip(e.clientX,e.clientY); return; }
+  if(hoverC){ openLife(hoverC); return; }
+  if(focus) closeLife(); }
+const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=silent?'Sound off':'Silence';bS.setAttribute('aria-pressed',silent);}; paintS();
+bS.onclick=()=>{silent=!silent;localStorage.setItem('roe-silent',silent?'1':'0');paintS();};
+const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d'); const bio=document.getElementById('lBio'), more=document.getElementById('lMore');
+const paintMore=()=>{const can=bio.scrollHeight>bio.clientHeight+4, end=bio.scrollTop+bio.clientHeight>=bio.scrollHeight-4; more.style.opacity=can&&!end?1:0; bio.classList.toggle('end',!can||end);};
+bio.addEventListener('scroll',paintMore);
 function openLife(c){ focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.18); tv0=c.birthYear-pad; tv1=c.deathYear+pad*(c.life&&c.life.after?2.5:1);
-  document.getElementById('lName').textContent=c.name; document.getElementById('lDates').textContent=`${c.birthYear} — ${c.deathYear} · ${c.birthPlace}`;
-  document.getElementById('lBio').textContent=c.biography; document.getElementById('lNote').textContent=c.life?(c.life.note||''):'Sketch estimated from works in our catalogue';
+  document.getElementById('lName').textContent=c.name; document.getElementById('lName').style.color=rgba(c.rgb,1); document.getElementById('lDates').textContent=`${c.birthYear} — ${c.deathYear} · ${c.birthPlace}`;
+  bio.textContent=c.biography; bio.scrollTop=0; document.getElementById('lNote').textContent=c.life?(c.life.note||''):'Sketch estimated from works in our catalogue';
   document.getElementById('lListen').onclick=()=>{const w=c.works[0];window.open(w?w.spotifyUrl:`https://open.spotify.com/search/${encodeURIComponent(c.name)}`,'_blank','noopener');};
-  life.classList.add('open'); drawSeis(c);
-  if(sound.started){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
+  life.classList.add('open'); requestAnimationFrame(()=>{drawSeis(c);paintMore();});
+  if(sound.started&&!silent){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
 function closeLife(){ focus=null; life.classList.remove('open'); tv0=1480; tv1=2000; }
-document.getElementById('lClose').onclick=closeLife; addEventListener('keydown',e=>{if(e.key==='Escape')closeLife();});
+addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
+let seisHits=[];
 function drawSeis(c){ const r=seis.getBoundingClientRect(); seis.width=r.width*DPR; seis.height=r.height*DPR; sg.setTransform(DPR,0,0,DPR,0,0); const w=r.width,h=r.height;
-  const x=y=>(y-c.birthYear)/(c.deathYear-c.birthYear)*(w-20)+10; sg.clearRect(0,0,w,h);
-  sg.fillStyle='rgba(201,165,92,.12)'; for(let a=0;a<=c.deathYear-c.birthYear;a+=10){sg.fillRect(x(c.birthYear+a),10,1,h-30); sg.font='400 10px Cinzel';sg.fillStyle='rgba(216,203,180,.4)';sg.fillText('age '+a,x(c.birthYear+a)+3,h-6);sg.fillStyle='rgba(201,165,92,.12)';}
-  const gr=sg.createLinearGradient(0,10,0,h-24); gr.addColorStop(0,'rgba(239,199,132,.55)'); gr.addColorStop(1,'rgba(239,199,132,0)');
-  sg.beginPath(); sg.moveTo(x(c.birthYear),h-24); for(let y=c.birthYear;y<=c.deathYear;y+=.25) sg.lineTo(x(y),h-24-output(c,y)*(h-50)); sg.lineTo(x(c.deathYear),h-24); sg.fillStyle=gr; sg.fill();
-  sg.beginPath(); for(let y=c.birthYear;y<=c.deathYear;y+=.25){const yy=h-24-standing(c,y)*(h-50); y===c.birthYear?sg.moveTo(x(y),yy):sg.lineTo(x(y),yy);} sg.strokeStyle='rgba(207,224,255,.85)'; sg.lineWidth=1.4; sg.shadowColor='rgba(170,200,255,.8)'; sg.shadowBlur=8; sg.stroke(); sg.shadowBlur=0;
-  for(const wk of c.works){sg.fillStyle='#fff4dc';sg.beginPath();sg.arc(x(wk.yearComposed),h-24-output(c,wk.yearComposed)*(h-50),2.6,0,7);sg.fill();}
-  const lvS=[]; if(c.life) c.life.pts.forEach((p,i)=>{ if(!p[3])return; const px=x(p[0]); sg.fillStyle='rgba(239,212,151,.9)'; sg.save();sg.translate(px,h-24-p[1]*(h-50));sg.rotate(Math.PI/4);sg.fillRect(-3,-3,6,6);sg.restore();
-    sg.font='italic 400 12px Cormorant Garamond'; const tw=sg.measureText(p[3]).width; const right=px>w-tw-10; const a=right?px-tw-6:px+6; let L=0; while((lvS[L]||[]).some(q=>a<q[1]&&a+tw>q[0]))L++; (lvS[L]||(lvS[L]=[])).push([a-4,a+tw+4]);
-    const ly=12+L*14, py=h-24-p[1]*(h-50); sg.strokeStyle='rgba(239,212,151,.25)'; sg.beginPath(); sg.moveTo(px,ly+3); sg.lineTo(px,py-4); sg.stroke(); sg.fillStyle='rgba(246,233,207,.82)'; sg.fillText(p[3],a,ly); });
+  const top=58, base=h-46, x=y=>(y-c.birthYear)/(c.deathYear-c.birthYear)*(w-64)+32, Yv=v=>base-v*(base-top); sg.clearRect(0,0,w,h); seisHits=[];
+  const col=rgba(c.rgb,1);
+  // decades as years; birth and death as the bounds
+  sg.font='400 10px Cinzel'; sg.textAlign='center';
+  for(let y=Math.ceil(c.birthYear/10)*10;y<c.deathYear;y+=10){ if(y-c.birthYear<4||c.deathYear-y<4)continue; sg.fillStyle='rgba(201,165,92,.12)'; sg.fillRect(x(y),top-8,1,base-top+8); sg.fillStyle='rgba(216,203,180,.42)'; sg.fillText(y,x(y),base+14); }
+  sg.font='600 11px Cinzel'; for(const y of [c.birthYear,c.deathYear]){ sg.fillStyle=rgba(c.rgb,.55); sg.fillRect(x(y)-.5,top-14,1.2,base-top+14); sg.fillStyle=col; sg.fillText(y,x(y),base+15); }
+  // the world: events touching the life, as a strip of coloured spans and faint veils through the graph
+  const wy=base+24; sg.font='400 8px Cinzel'; sg.textAlign='left'; sg.fillStyle='rgba(216,203,180,.4)'; sg.fillText('WORLD',0,wy+7);
+  const linked=new Map(((c.life&&c.life.links)||[]).filter(l=>l.kind==='event').map(l=>[l.ref,l]));
+  for(const e of EV){ const a=Math.max(e.year,c.birthYear), b=Math.min(evEnd(e),c.deathYear); if(b<a)continue; const ec=catCol[e.category]||'#ffffff'; const L=linked.get(e.id);
+    const xa=x(a), xb=Math.max(x(b),xa+3); sg.fillStyle=ec+(L?'24':'0e'); sg.fillRect(xa,top-8,xb-xa,base-top+8);
+    sg.fillStyle=ec+(L?'ff':'aa'); sg.fillRect(xa,wy,xb-xa,L?8:5);
+    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${e.year}${evEnd(e)>e.year?' – '+evEnd(e):''} · ${e.category}</span><b>${e.title}</b><div class="d">${L?L.text:(e.musicalSignificance||e.description)}</div>`}); }
+  for(const l of ((c.life&&c.life.links)||[]).filter(l=>l.kind==='contemporary')){ const o=comps.find(k=>k.id===l.ref); if(!o)continue; const px=x(clamp(l.year,c.birthYear,c.deathYear));
+    sg.strokeStyle=rgba(o.rgb,1); sg.lineWidth=1.4; sg.beginPath(); sg.arc(px,wy+4,4,0,7); sg.stroke();
+    seisHits.push({x0:px-6,x1:px+6,y0:wy-4,y1:wy+12,html:`<span class="k">${l.year} · contemporary</span><b>${o.name}</b><div class="d">${l.text}</div>`}); }
+  // music written and public standing
+  const gr=sg.createLinearGradient(0,top,0,base); gr.addColorStop(0,'rgba(239,199,132,.55)'); gr.addColorStop(1,'rgba(239,199,132,0)');
+  sg.beginPath(); sg.moveTo(x(c.birthYear),base); for(let y=c.birthYear;y<=c.deathYear;y+=.25) sg.lineTo(x(y),Yv(output(c,y))); sg.lineTo(x(c.deathYear),base); sg.fillStyle=gr; sg.fill();
+  sg.beginPath(); for(let y=c.birthYear;y<=c.deathYear;y+=.25){const yy=Yv(standing(c,y)); y===c.birthYear?sg.moveTo(x(y),yy):sg.lineTo(x(y),yy);} sg.strokeStyle='rgba(207,224,255,.85)'; sg.lineWidth=1.4; sg.shadowColor='rgba(170,200,255,.8)'; sg.shadowBlur=8; sg.stroke(); sg.shadowBlur=0;
+  for(const wk of c.works){ const px=x(wk.yearComposed), py=Yv(output(c,wk.yearComposed)); sg.fillStyle='#fff4dc';sg.beginPath();sg.arc(px,py,2.6,0,7);sg.fill();
+    seisHits.push({x0:px-6,x1:px+6,y0:py-6,y1:py+6,html:`<span class="k">${wk.yearComposed} · ${wk.genre}</span><b>${wk.title}</b>`}); }
+  // life moments: at most three rows of labels; the rest live in hover
+  const lvS=[]; sg.font='italic 400 12.5px Cormorant Garamond'; sg.textAlign='left';
+  if(c.life) c.life.pts.forEach(p=>{ if(!p[3])return; const px=x(p[0]), py=Yv(p[1]); sg.fillStyle='rgba(239,212,151,.95)'; sg.save();sg.translate(px,py);sg.rotate(Math.PI/4);sg.fillRect(-3.5,-3.5,7,7);sg.restore();
+    seisHits.push({x0:px-8,x1:px+8,y0:py-8,y1:py+8,html:`<span class="k">${p[0]} · aged ${p[0]-c.birthYear}</span><b>${p[3]}</b>`});
+    const tw=sg.measureText(p[3]).width; const right=px>w-tw-10; const a=right?px-tw-6:px+6; let L=0; while(L<3&&(lvS[L]||[]).some(q=>a<q[1]&&a+tw>q[0]))L++; if(L>=3)return; (lvS[L]||(lvS[L]=[])).push([a-6,a+tw+6]);
+    const ly=12+L*15; sg.strokeStyle='rgba(239,212,151,.25)'; sg.lineWidth=1; sg.beginPath(); sg.moveTo(px,ly+3); sg.lineTo(px,py-5); sg.stroke(); sg.fillStyle='rgba(246,233,207,.86)'; sg.fillText(p[3],a,ly); });
 }
+seis.addEventListener('pointermove',e=>{ const r=seis.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top; const h=seisHits.find(k=>mx>=k.x0&&mx<=k.x1&&my>=k.y0&&my<=k.y1);
+  tip.style.opacity=h?1:0; if(h){tip.innerHTML=h.html; tip.style.left=Math.min(W-340,e.clientX+14)+'px'; tip.style.top=Math.max(10,e.clientY-120)+'px';} });
+seis.addEventListener('pointerleave',()=>tip.style.opacity=0);
 mini.addEventListener('pointerdown',e=>{const r=mini.getBoundingClientRect();const go=ev=>{const yr=MIN+(ev.clientX-r.left)/r.width*(MAX-MIN);const s=tv1-tv0;tv0=clamp(yr-s/2,MIN,MAX-s);tv1=tv0+s;};go(e);const mv=ev=>go(ev);addEventListener('pointermove',mv);addEventListener('pointerup',()=>removeEventListener('pointermove',mv),{once:true});});
 // first gesture wakes the sound
 addEventListener('pointerdown',()=>{sound.unlock();['harp','cello','horn','flute','clarinet','piano','violin','oohs','choir','organ','harpsichord'].forEach(i=>sound.load(i));},{once:true});
@@ -229,7 +294,8 @@ function loop(now){ const dt=Math.min(.05,(now-last)/1000); last=now; T+=dt; rev
 resize(); addEventListener('resize',resize);
 if(hp.get('zoom')){const [a,b]=hp.get('zoom').split('-').map(Number);tv0=v0=a;tv1=v1=b;}
 if(hp.get('focus')){reveal=1;const c=comps.find(o=>o.id===hp.get('focus'));if(c)setTimeout(()=>openLife(c),300);}
-if(hp.get('event')){reveal=1;hoverE=EV.find(e=>e.id===hp.get('event'));}
+if(hp.get('event')){reveal=1;const e=EV.find(e=>e.id===hp.get('event'));if(e)pin={kind:'event',v:e};}
+if(hp.get('country')){reveal=1;pin={kind:'lane',v:hp.get('country')};}
 if(hp.has('still'))reveal=1;
 requestAnimationFrame(loop);
 </script>

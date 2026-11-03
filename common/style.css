@@ -32,3 +32,6 @@ canvas{display:block}
 .hint{position:fixed;left:50%;transform:translateX(-50%);font-family:var(--inscr);font-size:.58rem;letter-spacing:.3em;
   text-transform:uppercase;color:var(--mist);pointer-events:none;transition:opacity 1.2s}
 @media (prefers-reduced-motion: reduce){.grain{animation:none}}
+.sigil a.mark.home{width:26px;height:26px;transform:none;border:0;box-shadow:none;padding:0;display:inline-flex;filter:drop-shadow(0 0 6px rgba(239,212,151,.35))}
+.sigil a.mark.home img{width:26px;height:26px;display:block}
+.sigil a.mark.home:hover{filter:drop-shadow(0 0 10px rgba(255,200,130,.7))}
