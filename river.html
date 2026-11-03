@@ -14,7 +14,7 @@
 #tip b{font-weight:500;font-size:1.15rem;color:#f6e9cf;display:block}
 #tip .k{font-family:var(--inscr);font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 #tip .d{font-size:.95rem;color:rgba(230,216,189,.78);margin-top:5px;font-style:italic}
-#life{position:fixed;left:50%;bottom:66px;width:min(1240px,calc(100vw - 40px));height:390px;transform:translateX(-50%) translateY(30px);z-index:28;
+#life{position:fixed;left:50%;bottom:66px;width:min(1240px,calc(100vw - 40px));height:410px;transform:translateX(-50%) translateY(30px);z-index:28;
   opacity:0;visibility:hidden;transition:opacity .7s,transform .8s cubic-bezier(.22,1,.36,1),visibility 0s linear .7s;padding:18px 24px;display:grid;grid-template-columns:300px 1fr;gap:28px}
 #life.open{opacity:1;visibility:visible;transform:translateX(-50%);transition-delay:0s}
 #life h2{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf}
@@ -36,6 +36,8 @@
 #life .legend i{display:inline-block;width:14px;height:2px;vertical-align:middle;margin-right:6px}
 #seis{width:100%;flex:1;min-height:0}
 #life .listen{margin-top:10px;align-self:flex-start}
+#life .spotify-player{width:100%;margin-top:8px}
+#life .spotify-player iframe{display:block;width:100%;height:152px;border:0}
 #bSilence{position:fixed;top:16px;right:20px;z-index:40}
 #mini{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:min(900px,calc(100vw - 260px));height:34px;z-index:25;cursor:pointer}
 #legendE{position:fixed;right:22px;bottom:18px;z-index:25;font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);line-height:2}
@@ -47,12 +49,14 @@
   #head{top:13px!important;width:196px;max-width:calc(100vw - 184px)}
   #head h1{font-size:.7rem;letter-spacing:.18em;text-indent:.18em;white-space:nowrap}
   #head p{display:none}
-  #life{left:10px;right:10px;bottom:58px;width:auto;height:min(66vh,540px);padding:14px 15px;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(145px,.9fr);gap:10px;transform:translateY(30px)}
+  #life{left:10px;right:10px;bottom:58px;width:auto;height:min(78vh,660px);padding:14px 15px;display:block;overflow-y:auto;transform:translateY(30px)}
   #life.open{transform:none}
   #life h2{font-size:1.45rem}
+  #life .left{height:auto}
+  #life .bio{flex:none;max-height:5.5em}
   #life .events{flex-basis:76px;margin-bottom:3px}
   #life .event-list{height:52px}
-  #life .right{min-height:0}
+  #life .right{height:190px;min-height:190px;margin-top:10px}
   #life .legend{font-size:.43rem;letter-spacing:.14em;gap:7px;flex-wrap:wrap}
   #bSilence{top:12px;right:12px;padding:8px 10px;font-size:.5rem;letter-spacing:.12em}
 }
@@ -68,7 +72,7 @@
 <div id="life" class="reliquary">
   <div class="left"><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div><div class="more" id="lMore">↓ scroll for more</div>
     <div class="events" id="lEvents"><h3>In their lifetime</h3><div class="event-list"></div></div>
-    <button class="btn listen" id="lListen">Listen on Spotify</button></div>
+    <button class="btn listen" id="lListen">Listen on Spotify</button><div class="spotify-player" id="lPlayer"></div></div>
   <div class="right"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
 </div>
 <canvas id="mini"></canvas>
@@ -76,7 +80,7 @@
 <div id="legendE"></div>
 <button class="btn" id="bSilence" aria-pressed="false">Silence</button>
 <div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
-<script src="common/data.js"></script><script src="common/lives.js"></script>
+<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d');
@@ -269,10 +273,10 @@ function openLife(c){ focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.1
   document.getElementById('lName').textContent=c.name; document.getElementById('lName').style.color=rgba(c.rgb,1); document.getElementById('lDates').textContent=`${c.birthYear} — ${c.deathYear} · ${c.birthPlace}`;
   bio.textContent=c.biography; bio.scrollTop=0; document.getElementById('lNote').textContent=c.life?(c.life.note||''):'Sketch estimated from works in our catalogue';
   renderLifetimeEvents(c);
-  document.getElementById('lListen').onclick=()=>{const w=c.works[0];window.open(w?w.spotifyUrl:`https://open.spotify.com/search/${encodeURIComponent(c.name)}`,'_blank','noopener');};
+  document.getElementById('lListen').onclick=()=>{const w=c.works[0];window.ROE_PLAYER.mount(document.getElementById('lPlayer'),w?.id, w?.spotifyUrl||`https://open.spotify.com/search/${encodeURIComponent(c.name)}`);};
   life.classList.add('open'); requestAnimationFrame(()=>{drawSeis(c);paintMore();});
   if(sound.started&&soundEnabled){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
-function closeLife(){ focus=null; life.classList.remove('open'); tv0=1480; tv1=2000; }
+function closeLife(){ focus=null; life.classList.remove('open'); document.getElementById('lPlayer').replaceChildren(); tv0=1480; tv1=2000; }
 addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
 let seisHits=[];
 function renderLifetimeEvents(c){

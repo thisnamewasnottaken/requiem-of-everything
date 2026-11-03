@@ -30,6 +30,8 @@ body{background:#060504;overflow:hidden;touch-action:none}
 #card ul{list-style:none;padding:0;margin:6px 0 10px}
 #card li{margin:6px 0;font-size:.96rem;color:rgba(230,216,189,.8)}#card li b{color:#f6e9cf;font-weight:500}
 #card li a{color:var(--gold);font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-decoration:none;margin-left:6px;white-space:nowrap}
+#card .spotify-player{margin-top:8px}
+#card .spotify-player iframe{display:block;width:100%;height:152px;border:0}
 #card .row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}#card a.btn{text-decoration:none}
 #tip{position:fixed;z-index:30;pointer-events:none;padding:8px 12px;opacity:0;transition:opacity .2s;max-width:280px}
 #tip b{font-weight:500;color:#f6e9cf;font-size:1.05rem;display:block}#tip span{font-size:.95rem;color:rgba(230,216,189,.8);line-height:1.35}
@@ -44,7 +46,7 @@ body{background:#060504;overflow:hidden;touch-action:none}
 <div id="card" class="reliquary" role="dialog" aria-live="polite"></div>
 <div id="chips"></div>
 <div id="tip" class="reliquary"></div>
-<script src="common/data.js"></script><script src="common/terms-base.js"></script><script src="common/terms.js"></script>
+<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/terms-base.js"></script><script src="common/terms.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 const D=window.ROE_DATA, CMP=Object.fromEntries(D.compositions.map(c=>[c.id,c])), COMP=Object.fromEntries(D.composers.map(c=>[c.id,c])), ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
@@ -190,7 +192,7 @@ function openTerm(t,{silentHash}={}){ card=t; roll=[]; secs=[]; const col=CL[t.c
    ${t.demo?`<div class="demo"><canvas id="roll"></canvas><div class="drow"><span id="dinfo"></span><button class="btn" id="dPlay">Hear it</button></div></div>`:''}
    ${t.long?`<div class="bio">${t.long}</div>`:''}
    ${t.eras&&t.eras.length?`<div class="k" style="margin-top:8px">Took shape in the ${t.eras.map(e=>ERAN[e]).join(' & ')} era</div>`:''}
-   ${ex.length?`<div class="k" style="margin-top:12px">Hear it in</div><ul>${ex.map(w=>`<li><b>${w.title}</b> · ${COMP[w.composerId]?.shortName||''}<a href="${w.spotifyUrl}" target="_blank" rel="noopener">Listen on Spotify</a></li>`).join('')}</ul>`:''}
+   ${ex.length?`<div class="k" style="margin-top:12px">Hear it in</div><ul>${ex.map(w=>`<li><b>${w.title}</b> · ${COMP[w.composerId]?.shortName||''}<a href="${w.spotifyUrl}" data-roe-key="${w.id}">Listen on Spotify</a><div class="spotify-player"></div></li>`).join('')}</ul>`:''}
    <div class="row">${t.hall?`<a class="btn" href="hall.html#${t.hall}">See it in the Hall</a>`:''}</div>`;
   if(t.demo) $('dPlay').onclick=()=>play(t);
   $('card').classList.add('open'); $('card').scrollTop=0; aim(); if(!silentHash) history.replaceState(null,'','#term='+t.id); }

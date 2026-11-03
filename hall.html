@@ -35,6 +35,8 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
 #card .show{margin:14px 0;padding:12px 14px;border:1px solid var(--gold-faint);background:rgba(255,200,130,.035)}
 #card .show b{display:block;font-weight:500;color:#f6e9cf;font-size:1.2rem;margin-top:4px}
 #card .show i{color:var(--mist)}
+#card .spotify-player{margin-top:8px}
+#card .spotify-player iframe{display:block;width:100%;height:152px;border:0}
 #card .goat{margin:12px 0;padding:10px 14px;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(239,212,151,.08),transparent)}
 #card .goat b{display:block;font-size:1.25rem;font-weight:500;color:#fff2d6}
 #card .goat span.n{color:var(--mist);font-style:italic}
@@ -81,7 +83,7 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
   <div class="drow" id="pieces"></div>
 </div>
 <div id="tip" class="reliquary"></div>
-<script src="common/data.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script>
+<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 const D=window.ROE_DATA, INST=Object.fromEntries(D.instruments.map(i=>[i.id,i])), COMP=Object.fromEntries(D.composers.map(c=>[c.id,c]));
@@ -209,7 +211,7 @@ function openInstrument(sid){ const [label,fam,iid]=S[sid]; const I=INST[iid]||L
   const pr=Object.fromEntries((I.eraProminence||[]).map(p=>[p.era,p.prominence])); const HH={primary:1,secondary:.6,occasional:.3,rare:.15};
   $('card').innerHTML=`<div class="k">${FAMN[fam]} · ${label}</div><h3>${I.name||label}</h3>${I.range?`<div class="k dim">Range ${I.range}</div>`:''}
    <p class="role">${I.role||''}</p><p>${I.description||''}</p>
-   ${sc?`<div class="show"><div class="k">Hear it shine</div><b>${sc.title}</b><i>${sc.composerId?`<a class="who" data-c="${sc.composerId}">${sc.composerName}</a>`:sc.composerName} · ${sc.year}</i><p>${sc.why}</p><a class="btn" href="${sc.spotifyUrl}" target="_blank" rel="noopener">Listen on Spotify</a></div>`:''}
+   ${sc?`<div class="show"><div class="k">Hear it shine</div><b>${sc.title}</b><i>${sc.composerId?`<a class="who" data-c="${sc.composerId}">${sc.composerName}</a>`:sc.composerName} · ${sc.year}</i><p>${sc.why}</p><a class="btn" href="${sc.spotifyUrl}" data-roe-key="instr:${iid}">Listen on Spotify</a><div class="spotify-player"></div></div>`:''}
    ${goat?`<div class="goat"><span class="k">Widely called the greatest</span><b>${goat.name}</b>${goat.note?`<span class="n">${goat.note}</span>`:''}</div>`:''}
    ${X&&X.greats&&X.greats.length?`<div class="k">Great players</div><ul>${X.greats.map(p=>`<li><b>${p.name}</b> · ${p.note}</li>`).join('')}</ul>`:''}
    ${I.eraProminence?`<div class="k">Through the eras</div><div class="eras">${ERAS.map(e=>`<span><i style="height:${(HH[pr[e]]||0)*100}%"></i>${e.replace('-romantic','-rom')}</span>`).join('')}</div>`:''}
@@ -222,7 +224,7 @@ function openComposer(id){ const c=COMP[id]; if(!c)return; card={kind:'comp',id}
   $('card').innerHTML=`<div class="k">${ERAN[c.era]||c.era} · ${c.nationality}</div><h3>${c.name}</h3><div class="k dim">${c.birthYear} – ${c.deathYear} · ${c.birthPlace}</div>
    ${Lf?`<canvas id="mini"></canvas><div class="mlg"><span><i style="background:#e7c784"></i>music written</span><span><i style="background:#cfe0ff"></i>public standing</span></div>`:''}
    <div class="bio">${c.biography}</div>
-   <div class="k">Works to hear</div><ul>${works.map(w=>`<li><b>${w.title}</b> · ${w.yearComposed}<a href="${w.spotifyUrl}" target="_blank" rel="noopener">Listen on Spotify</a></li>`).join('')}</ul>
+   <div class="k">Works to hear</div><ul>${works.map(w=>`<li><b>${w.title}</b> · ${w.yearComposed}<a href="${w.spotifyUrl}" data-roe-key="${w.id}">Listen on Spotify</a><div class="spotify-player"></div></li>`).join('')}</ul>
    <div class="row"><a class="btn" href="river.html#focus=${id}">Follow the life in the River</a>${seated?'':'<button class="btn" id="cSeat">Seat their orchestra</button>'}</div>`;
   if(!seated) $('cSeat').onclick=()=>setComposer(id);
   $('card').classList.add('open'); $('card').scrollTop=0; $('hint').style.opacity=0; if(Lf) requestAnimationFrame(()=>drawMini(c,Lf)); }
