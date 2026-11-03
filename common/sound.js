@@ -1,6 +1,5 @@
-// Requiem prototype sound engine — sampled instruments + synthetic concert-hall reverb.
-// Samples: MusyngKite soundfont (CC BY-SA 3.0) via gleitz/midi-js-soundfonts. Prototype only;
-// production plan swaps in self-hosted multi-velocity VSCO 2 CE (CC0) recordings.
+// Hall HQ samples: VSCO 2 Community Edition (CC0) and Sonatina Symphonic Orchestra (CC Sampling Plus 1.0).
+// Other pages and uncovered Hall patches use MusyngKite soundfonts (CC BY-SA 3.0) via gleitz/midi-js-soundfonts.
 const SF_BASE = 'https://gleitz.github.io/midi-js-soundfonts/MusyngKite/';
 const NOTE_NAMES = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
 export const noteName = m => NOTE_NAMES[m % 12] + (Math.floor(m / 12) - 1);
@@ -38,7 +37,7 @@ export const PATCHES = {
 };
 
 class Engine {
-  constructor() { this.ctx = null; this.banks = {}; this.decoded = {}; this.loopBuffers = {}; this.listeners = new Set(); this.level = 0; }
+  constructor() { this.ctx = null; this.banks = {}; this.decoded = {}; this.loopBuffers = {}; this.listeners = new Set(); this.level = 0; this.hqManifest = null; this.hqLoading = null; this.hqBanks = {}; this.hqUsed = {}; }
   get started() { return !!this.ctx && this.ctx.state === 'running'; }
   async unlock() {
     if (!this.ctx) this._build();
@@ -76,7 +75,15 @@ class Engine {
     }
     return ir;
   }
-  load(id) {
+  useHQ(url) {
+    if (!this.hqLoading) this.hqLoading = fetch(url).then(r => {
+      if (!r.ok) throw new Error(`HQ manifest request failed: ${r.status}`);
+      return r.json();
+    }).then(manifest => this.hqManifest = manifest);
+    return this.hqLoading;
+  }
+  hasHQ(id) { return !!this.hqManifest?.[id]; }
+  _loadMusyng(id) {
     const gm = (PATCHES[id] || { gm: id }).gm;
     if (!this.banks[gm]) {
       this.banks[gm] = fetch(SF_BASE + gm + '-mp3.js').then(r => r.text()).then(txt => {
@@ -86,6 +93,30 @@ class Engine {
       });
     }
     return this.banks[gm];
+  }
+  _loadHQPatch(id) {
+    if (!this.hqBanks[id]) this.hqBanks[id] = (async () => {
+      if (!this.ctx) this._build();
+      const patch = this.hqManifest[id];
+      return Promise.all(patch.layers.map(async layer => ({
+        vel: layer.vel,
+        samples: await Promise.all(Object.entries(layer.notes).map(async ([note, url]) => {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`HQ sample request failed: ${url} (${response.status})`);
+          const buffer = await this.ctx.decodeAudioData(await response.arrayBuffer());
+          return { note: Number(note), url, buffer };
+        }))
+      })));
+    })().catch(error => {
+      delete this.hqBanks[id];
+      throw error;
+    });
+    return this.hqBanks[id];
+  }
+  load(id) {
+    if (this.hqLoading) return this.hqLoading.then(manifest =>
+      manifest?.[id] ? this._loadHQPatch(id) : this._loadMusyng(id));
+    return this._loadMusyng(id);
   }
   async _buffer(gm, name) {
     const key = gm + ':' + name;
@@ -119,6 +150,7 @@ class Engine {
   }
   async preload(id, notes) {
     await this.unlock(); await this.load(id);
+    if (this.hasHQ(id)) return;
     const gm = (PATCHES[id] || { gm: id }).gm;
     await Promise.all(notes.map(n => this._buffer(gm, noteName(n)).catch(() => null)));
   }
@@ -126,16 +158,30 @@ class Engine {
   async play(id, midi, o = {}) {
     if (!this.ctx) return;
     const p = PATCHES[id] || { gm: id, attack: .05, release: 1 };
-    this.load(id);
-    const name = noteName(Math.round(midi));
-    let buf; try { buf = await this._buffer(p.gm, name); } catch { return; }
-    const loop = o.loop ? this._loopBuffer(p.gm, name, buf, o.loopStart ?? .35, o.loopEnd ?? .85) : null;
+    const hqPatch = this.hqManifest?.[id];
+    let buf, sampleNote, sampleUrl, name = noteName(Math.round(midi));
+    if (hqPatch) {
+      let layers;
+      try { layers = await this.load(id); } catch { return; }
+      const velocity = (o.vel ?? .7) * 127;
+      const layer = layers.find(item => velocity >= item.vel[0] && velocity <= item.vel[1]) || layers[layers.length - 1];
+      const sample = layer.samples.reduce((best, item) =>
+        !best || Math.abs(item.note - midi) < Math.abs(best.note - midi) ? item : best, null);
+      if (!sample) return;
+      ({ buffer: buf, note: sampleNote, url: sampleUrl } = sample);
+      this.hqUsed[id] = sampleUrl;
+    } else {
+      this.load(id);
+      try { buf = await this._buffer(p.gm, name); } catch { return; }
+    }
+    const loop = o.loop ? this._loopBuffer(hqPatch ? `hq:${id}` : p.gm, hqPatch ? String(sampleNote) : name, buf, o.loopStart ?? .35, o.loopEnd ?? .85) : null;
     const ctx = this.ctx, voices = Math.max(1, Math.min(o.voices || 1, 4));
     const t0 = Math.max(ctx.currentTime + .01, o.when || 0), dur = o.dur ?? 1.2, vel = o.vel ?? .7;
-    const attack = o.attack ?? p.attack, release = o.release ?? p.release;
+    const attack = o.attack ?? hqPatch?.attack ?? p.attack, release = o.release ?? hqPatch?.release ?? p.release;
     for (let v = 0; v < voices; v++) {
       const src = ctx.createBufferSource(); src.buffer = loop ? loop.buffer : buf;
       if (loop) { src.loop = true; src.loopStart = loop.start; src.loopEnd = loop.end; }
+      if (sampleNote != null) src.playbackRate.value = Math.pow(2, (midi - sampleNote) / 12);
       src.detune.value = (o.detune || 0) + (voices > 1 ? (v - (voices - 1) / 2) * 7 + (Math.random() - .5) * 5 : 0);
       const g = ctx.createGain(), pan = ctx.createStereoPanner();
       pan.pan.value = Math.max(-1, Math.min(1, (o.pan || 0) + (voices > 1 ? (v / (voices - 1) - .5) * .25 : 0)));

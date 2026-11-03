@@ -66,6 +66,16 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
   #card{left:8px;right:8px;width:auto;top:auto;bottom:118px;max-height:52vh}
   #hint{display:none}#dock{bottom:8px}.sep{display:none}select.btn{max-width:44vw}
 }
+@media (max-height:500px) and (min-width:761px){
+  #info{top:14px;left:16px;width:280px}
+  #info .lead,#info p,#iComp,#info .count,#fComposer,#fInstr,#bShare{display:none}
+  #info h2{font-size:1.35rem;margin:2px 0}
+  #info>div[style]{margin-top:6px!important}
+  #dock{bottom:6px;gap:4px}
+  #row1{flex-wrap:nowrap}
+  #eras{flex-wrap:nowrap}
+  #eras .btn,#pieces .btn{font-size:.45rem;padding:5px 7px}
+}
 </style>
 </head>
 <body>
@@ -88,6 +98,7 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
 <script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script><script src="common/hall-layout.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
+await sound.useHQ('samples/manifest.json');
 const D=window.ROE_DATA, INST=Object.fromEntries(D.instruments.map(i=>[i.id,i])), COMP=Object.fromEntries(D.composers.map(c=>[c.id,c]));
 const LIVES=window.ROE_LIVES||{}, XTRA=window.ROE_INSTR_EXTRA||{}, ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
 const {S,L,PIECES,ringR,layoutSeats,pieceDefs}=window.ROE_HALL;
@@ -98,7 +109,20 @@ let fitTargets=[],fitCarpets={},fitWarningShown=false,cameraReady=false;
 function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);hz.width=Math.round(W*HS);hz.height=Math.round(H*HS);gl&&gl.viewport(0,0,hz.width,hz.height);if(cameraReady)fitCamera();}
 resize(); addEventListener('resize',resize);
 let silent=localStorage.getItem('roe-sound')==='off';
-const P=(id,m,o)=>{ if(!silent) sound.play(id,m,o); };
+const P=(id,m,o={})=>{
+  if(silent)return;
+  const n=o.tag?[...seats.values()].filter(s=>s.sid===o.tag&&!s.dead).length:0;
+  const count=n>2?(n>7?3:2):1, when=o.when??sound.now();
+  for(let i=0;i<count;i++){
+    const options=o.tag?{...o,voices:1}:o;
+    if(count>1){
+      options.when=when+Math.random()*.03;
+      options.vel=(o.vel??.7)*(.9+Math.random()*.2);
+      options.detune=(o.detune??0)+(Math.random()<.5?-1:1)*(4+Math.random()*4);
+    }
+    sound.play(id,m,options);
+  }
+};
 const FAMN={strings:'Strings',winds:'Woodwinds',brass:'Brass',perc:'Percussion',keys:'Keyboards',voices:'Voices'};
 const LOCAL={lute:{name:'Lute & Theorbo',role:'Plucked harmony for songs, dances and early opera',description:'Plucked strings with a rounded back. The long-necked theorbo, its bass cousin, filled in the harmony of early operas and songs alongside the harpsichord.'},
  cor:{name:'Cornett',role:'The virtuoso\u2019s wind instrument of 1600',description:'A curved wooden horn with finger holes and a trumpet-style mouthpiece. Players were prized because it could imitate the human voice so closely.'}};
@@ -210,21 +234,9 @@ function fitPointOverflow(q,infoRect,dockTop,margin=0){
 function fitCamera(){
   if(!cameraReady)return;
   const infoRect=$('info').getBoundingClientRect(), dockTop=$('dock').getBoundingClientRect().top;
-  const ground=[],lamps=[];
-  for(const t of fitTargets)ground.push({x:t.x,z:t.z,h:0});
-  for(const c of Object.values(fitCarpets)){
-    const mid=(c.a0+c.a1)/2;
-    for(const a of [c.a0,c.a1,mid]){
-      const th=a*Math.PI/180;
-      ground.push({x:-Math.cos(th)*c.R1,z:Math.sin(th)*c.R1,h:0});
-    }
-    const R=(c.R0+c.R1)/2, RT=R<4.2?2.9:R<6.4?5.4:7.6, th=mid*Math.PI/180;
-    lamps.push({x:-Math.cos(th)*RT,z:Math.sin(th)*RT,h:cam.lampH});
-  }
   const check=(z,f,cy)=>{
     const probe={...cam,z,f,cy}; let overflow=0;
-    for(const p of ground)overflow+=fitPointOverflow(proj(p.x,p.z,p.h,probe),infoRect,dockTop,4);
-    for(const p of lamps)overflow+=Math.max(0,12-proj(p.x,p.z,p.h,probe).y);
+    for(const p of fitTargets)overflow+=fitPointOverflow(proj(p.x,p.z,0,probe),infoRect,dockTop,4);
     return {fits:overflow===0,overflow};
   };
   const searchAtZ=z=>{
@@ -253,7 +265,7 @@ function fitCamera(){
 window.__fitCheck=()=>{
   const infoRect=$('info').getBoundingClientRect(), dockTop=$('dock').getBoundingClientRect().top;
   let outside=0;
-  for(const s of seats.values())if(!s.dead&&fitPointOverflow(proj(s.cx,s.cz,0),infoRect,dockTop)>0)outside++;
+  for(const p of fitTargets)if(fitPointOverflow(proj(p.x,p.z,0),infoRect,dockTop)>0)outside++;
   return outside;
 };
 window.__fitCheck.params=()=>({z:camT.z,f:camT.f,cy:camT.cy});
@@ -399,7 +411,7 @@ cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=
   if(s){ const n=[...seats.values()].filter(o=>o.sid===s&&!o.dead).length; tip.innerHTML=`<b>${S[s][0]}</b><span>${n} player${n>1?'s':''} · ${FAMN[S[s][1]]} · click to meet</span>`; }
   else if(pod){ const c=curComposer(); tip.innerHTML=c?`<b>${c.name}</b><span>click to meet the composer</span>`:`<b>The podium</b><span>pick a composer or piece below</span>`; }
   if(s||pod){ tip.style.opacity=1; tip.style.left=Math.min(e.clientX+16,W-260)+'px'; tip.style.top=(e.clientY+16)+'px'; cv.style.cursor='pointer'; } else { tip.style.opacity=0; cv.style.cursor=''; } });
-cv.addEventListener('click',e=>{ sound.unlock().then(preload); const s=pickSection(e.clientX,e.clientY);
+cv.addEventListener('click',e=>{ sound.unlock(); const s=pickSection(e.clientX,e.clientY);
   if(s){ st.instrument=S[s][2]||undefined; focusS=new Set(); openInstrument(s); mark(); setHash(); return; }
   if(onPodium(e.clientX,e.clientY)&&curComposer()){ openComposer(curComposer().id); return; }
   closeCard(); });
@@ -407,10 +419,10 @@ function sectionPan(sid){ const s=[...seats.values()].filter(o=>o.sid===sid&&!o.
 function motif(sid,vel=.55,t0=0,step=.28){ const [,,,patch,notes]=S[sid]; const n=[...seats.values()].filter(o=>o.sid===sid&&!o.dead).length; const voices=Math.min(4,Math.max(1,Math.round(Math.sqrt(n))));
   notes.forEach((m,i)=>P(patch,m,{when:sound.now()+t0+i*step,dur:step*1.6,vel,voices,pan:sectionPan(sid),tag:sid})); }
 sound.onNote(n=>{ if(!n.tag)return; const delay=Math.max(0,(n.when-sound.now())*1000); setTimeout(()=>{active[n.tag]=Math.min(1,(active[n.tag]||0)*.5+.9*n.vel+.3);},delay); });
-function preload(){ new Set([...Object.values(S).map(s=>s[3]),'oohs']).forEach(p=>sound.load(p)); }
+async function preload(){ const ids=new Set([...present().map(sid=>S[sid][3]),'oohs']); await Promise.all([...ids].map(id=>sound.load(id))); }
 const ORDER=['cb','vc','viol','va','v2','v1','hc','fp','lute','org','bas','ten','alt','sop','rec','bn','cl','ob','fl','pic','cor','sack','hn','tb','tu','tp','hp','cel','ti','pc'];
 const CHORD={cb:[38],vc:[50,57],va:[62],v2:[66],v1:[74,78],viol:[50,57],hc:[62,66,69],fp:[62,66,69],org:[38,50,57],sop:[74,78],alt:[66,69],ten:[57,62],bas:[43,50],lute:[62,69],rec:[74],bn:[50],cl:[69],ob:[74],fl:[81],pic:[86],cor:[74],sack:[50,57],hn:[62,66],tb:[50,57],tu:[38],tp:[74,78],hp:[50,57,62,66,69,74],cel:[86,90],ti:[38],pc:[86]};
-async function raiseBaton(){ await sound.unlock(); preload(); baton=3; const pr=new Set(present()); const order=ORDER.filter(s=>pr.has(s));
+async function raiseBaton(){ await sound.unlock(); await preload(); baton=3; const pr=new Set(present()); const order=ORDER.filter(s=>pr.has(s));
   order.forEach((sid,i)=>motif(sid,.45,i*.42,.3)); const t=order.length*.42+.3;
   order.forEach(sid=>CHORD[sid].forEach(m=>P(S[sid][3],m,{when:sound.now()+t,dur:3.4,vel:.5,voices:2,pan:sectionPan(sid),tag:sid}))); baton=Math.max(baton,(t+3)*.35); }
 $('bMore').onclick=()=>{ const i=$('info'); i.classList.toggle('more'); $('bMore').setAttribute('aria-expanded',i.classList.contains('more')); $('bMore').textContent=i.classList.contains('more')?'Less':'About this era'; };
