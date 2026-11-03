@@ -40,6 +40,24 @@
 #life .spotify-player{width:100%;margin-top:8px}
 #life .spotify-player iframe{display:block;width:100%;height:152px;border:0}
 #bSilence{position:fixed;top:16px;right:20px;z-index:40}
+#findGroup{position:fixed;top:16px;right:145px;width:220px;z-index:41}
+.find-field{position:relative}
+#find{display:block;width:100%;height:36px;padding:0 32px 1px 12px;color:var(--parchment);background:rgba(16,12,9,.78);
+  border:1px solid var(--gold-dim);box-shadow:inset 0 0 24px rgba(201,165,92,.035);font:400 1rem var(--display);outline:none}
+#find::placeholder{color:rgba(216,203,180,.62);font:400 .52rem var(--inscr);letter-spacing:.14em;text-transform:uppercase;opacity:1}
+#find:focus{border-color:var(--gold);box-shadow:0 0 16px rgba(239,212,151,.14),inset 0 0 24px rgba(201,165,92,.035)}
+#findClear{position:absolute;right:7px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--mist);font:400 1.15rem var(--display);line-height:1;padding:3px;cursor:pointer}
+#findClear:hover,#findClear:focus-visible{color:var(--gold-hi);outline:none}
+#findClear[hidden]{display:none}
+#findResults{position:absolute;top:calc(100% + 7px);right:0;width:min(280px,calc(100vw - 24px));max-height:min(70vh,360px);overflow:auto;
+  padding:4px;background:rgba(16,12,9,.96);z-index:42}
+#findResults[hidden]{display:none}
+.find-result{display:flex;width:100%;align-items:center;gap:9px;padding:7px 9px;border:0;background:transparent;color:var(--parchment);text-align:left;cursor:pointer}
+.find-result:hover,.find-result[aria-selected="true"],.find-result:focus-visible{background:rgba(201,165,92,.1);outline:none}
+.find-dot{flex:0 0 7px;width:7px;height:7px;border-radius:50%;box-shadow:0 0 8px currentColor}
+.find-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 1rem var(--display);color:#f1e4cc}
+.find-years{flex:0 0 auto;font:400 .48rem var(--inscr);letter-spacing:.08em;color:var(--mist)}
+.find-empty{padding:10px 11px;color:rgba(216,203,180,.48);font:italic 400 .95rem var(--display)}
 #mini{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:min(900px,calc(100vw - 260px));height:34px;z-index:25;cursor:pointer}
 #legendE{position:fixed;right:22px;bottom:18px;z-index:25;font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);line-height:2}
 #legendE i{display:inline-block;width:6px;height:6px;transform:rotate(45deg);margin-right:8px}
@@ -59,7 +77,13 @@
   #life .event-list{height:52px}
   #life .right{height:190px;min-height:190px;margin-top:10px}
   #life .legend{font-size:.43rem;letter-spacing:.14em;gap:7px;flex-wrap:wrap}
-  #bSilence{top:12px;right:12px;padding:8px 10px;font-size:.5rem;letter-spacing:.12em}
+  #bSilence{top:54px;right:12px;padding:8px 10px;font-size:.5rem;letter-spacing:.12em}
+  #findGroup{top:54px;right:calc(12px + 90px + 8px);width:150px}
+}
+@media(max-height:500px){
+  #bSilence{top:84px;right:12px}
+  #findGroup{top:84px;right:calc(12px + 90px + 8px);width:150px}
+  #findResults{max-height:calc(100vh - 138px)}
 }
 #zoomlabel{position:fixed;left:24px;bottom:22px;z-index:25;font-family:var(--inscr);font-size:.55rem;letter-spacing:.26em;color:var(--mist);text-transform:uppercase}
 </style>
@@ -79,12 +103,20 @@
 <canvas id="mini"></canvas>
 <div id="zoomlabel"></div>
 <div id="legendE"></div>
+<div id="findGroup">
+  <div class="find-field">
+    <input id="find" type="text" placeholder="Find a composer…" aria-label="Find a composer" aria-autocomplete="list" aria-controls="findResults" aria-expanded="false" autocomplete="off" spellcheck="false">
+    <button id="findClear" type="button" aria-label="Clear composer search" title="Clear search" hidden>×</button>
+  </div>
+  <div id="findResults" class="reliquary" role="listbox" aria-label="Composer matches" hidden></div>
+</div>
 <button class="btn" id="bSilence" aria-pressed="false">Silence</button>
 <div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
 <script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d');
+const findGroup=document.getElementById('findGroup'), findInput=document.getElementById('find'), findClear=document.getElementById('findClear'), findResults=document.getElementById('findResults');
 let W,H,DPR; function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);sizeMini();} 
 // ---------- regions (lanes) and migrations ----------
 const LANES=['Americas','British Isles','Nordic','Russia','Central Europe','German lands','France','Iberia','Italy'];
@@ -112,6 +144,40 @@ const byComposer={}; D.compositions.forEach(c=>(byComposer[c.composerId]||(byCom
 const voiceFor=c=>{const t=c.tags.join(' ');if(c.id==='johann-sebastian-bach')return 'organ';if(/violin/.test(t))return 'violin';if(/piano/.test(t))return 'piano';if(/opera/.test(t))return 'oohs';if(/choral|sacred|polyphony/.test(t))return 'choir';if(/harpsichord|keyboard/.test(t))return 'harpsichord';return ['harp','cello','horn','flute','clarinet'][c.birthYear%5];};
 const comps=D.composers.map((c,i)=>{const L=(window.ROE_LIVES||{})[c.id]||LIVES[c.id];const works=(byComposer[c.id]||[]).sort((a,b)=>a.yearComposed-b.yearComposed);
   return {...c,i,rgb:brighten(eraCol[c.era]||'#c9a55c',1.7),home:NAT[c.nationality]||'German lands',moves:MOVES[c.id]||[],life:L,works,voice:voiceFor(c),slot:0,phase:Math.random()*6.28};});
+const normalizeSearch=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+const searchWords=s=>normalizeSearch(s).split(/[^a-z0-9]+/).filter(Boolean);
+const surnameWords=c=>searchWords(c.shortName||c.name).filter(word=>word.length>1);
+let searchQuery='', searchMatches=new Set(), searchResults=[], searchActive=-1, searchOpen=false;
+function composerMatches(c,q){return normalizeSearch(c.name).includes(q)||normalizeSearch(c.shortName||'').includes(q)||surnameWords(c).some(word=>word.startsWith(q));}
+function composerPrefix(c,q){return normalizeSearch(c.name).startsWith(q)||normalizeSearch(c.shortName||'').startsWith(q)||surnameWords(c).some(word=>word.startsWith(q));}
+function renderFindResults(){
+  findResults.replaceChildren();
+  const open=!!searchQuery&&searchOpen;
+  findResults.hidden=!open;
+  findInput.setAttribute('aria-expanded',String(open));
+  findClear.hidden=!findInput.value;
+  findInput.removeAttribute('aria-activedescendant');
+  if(!open)return;
+  if(!searchResults.length){const empty=document.createElement('div');empty.className='find-empty';empty.textContent='No composer by that name';findResults.append(empty);return;}
+  searchResults.slice(0,8).forEach((c,i)=>{
+    const option=document.createElement('button'), dot=document.createElement('span'), name=document.createElement('span'), dates=document.createElement('span');
+    option.type='button';option.className='find-result';option.id=`find-option-${i}`;option.dataset.composerId=c.id;option.setAttribute('role','option');option.setAttribute('aria-selected',String(i===searchActive));
+    dot.className='find-dot';dot.style.backgroundColor=`rgb(${c.rgb.join(',')})`;dot.style.color=`rgb(${c.rgb.join(',')})`;
+    name.className='find-name';name.textContent=c.name;dates.className='find-years';dates.textContent=`${c.birthYear}–${c.deathYear}`;
+    option.append(dot,name,dates);findResults.append(option);
+  });
+  if(searchActive>=0&&searchActive<Math.min(8,searchResults.length)){
+    findInput.setAttribute('aria-activedescendant',`find-option-${searchActive}`);
+    document.getElementById(`find-option-${searchActive}`)?.scrollIntoView({block:'nearest'});
+  }
+}
+function updateFindSearch(){
+  searchQuery=normalizeSearch(findInput.value);
+  const found=searchQuery?comps.filter(c=>composerMatches(c,searchQuery)):[];
+  searchMatches=new Set(found);
+  searchResults=found.sort((a,b)=>Number(!composerPrefix(a,searchQuery))-Number(!composerPrefix(b,searchQuery))||a.birthYear-b.birthYear);
+  renderFindResults();
+}
 // lane slots: pack contemporaries in each home lane
 const laneSlots={}; comps.slice().sort((a,b)=>a.birthYear-b.birthYear).forEach(c=>{const arr=laneSlots[c.home]||(laneSlots[c.home]=[]);let s=0;while(arr.some(o=>o.slot===s&&o.deathYear+3>c.birthYear))s++;c.slot=s;arr.push(c);});
 const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a,b)=>Math.max(a,Math.min(b,v)), smooth=t=>t*t*(3-2*t);
@@ -145,6 +211,7 @@ const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a})`;
 function activeFilter(){
   if(hoverL) return {kind:'lane',v:hoverL,test:c=>touches(c,hoverL)};
   if(hoverE) return {kind:'event',v:hoverE,test:c=>aliveIn(c,hoverE.year,evEnd(hoverE))};
+  if(searchQuery&&!focus) return {kind:'search',test:c=>searchMatches.has(c)};
   if(pin) return pin.kind==='lane'?{...pin,test:c=>touches(c,pin.v)}:{...pin,test:c=>aliveIn(c,pin.v.year,evEnd(pin.v))};
   return null;}
 // text is queued and drawn last, with a dark halo, so the bright threads never wash it out
@@ -237,10 +304,10 @@ function drawMini(){ mg.clearRect(0,0,MW,MH); const mx=y=>(y-MIN)/(MAX-MIN)*MW;
 let drag=null; const tip=document.getElementById('tip');
 cv.addEventListener('wheel',e=>{e.preventDefault();const yr=Y2yr(e.clientX);const k=Math.exp(e.deltaY*.0015);let s=clamp((tv1-tv0)*k,12,MAX-MIN);
   const f=(yr-tv0)/(tv1-tv0); tv0=yr-f*s; tv1=tv0+s; if(tv0<MIN){tv1+=MIN-tv0;tv0=MIN;} if(tv1>MAX){tv0-=tv1-MAX;tv1=MAX;}},{passive:false});
-cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,a:tv0,b:tv1,moved:false};cv.classList.add('drag');cv.setPointerCapture(e.pointerId);});
-cv.addEventListener('pointerup',e=>{cv.classList.remove('drag');if(drag&&!drag.moved)clickAt(e);drag=null;});
+cv.addEventListener('pointerdown',e=>{if(findGroup.contains(e.target))return;drag={x:e.clientX,a:tv0,b:tv1,moved:false};cv.classList.add('drag');cv.setPointerCapture(e.pointerId);});
+cv.addEventListener('pointerup',e=>{if(findGroup.contains(e.target))return;cv.classList.remove('drag');if(drag&&!drag.moved)clickAt(e);drag=null;});
 cv.addEventListener('pointerleave',()=>{hoverC=hoverE=hoverW=hoverL=null;tip.style.opacity=0;});
-cv.addEventListener('pointermove',e=>{ if(drag){const dx=e.clientX-drag.x; if(Math.abs(dx)>3)drag.moved=true; const dy=dx/W*(drag.b-drag.a); let a=drag.a-dy,b=drag.b-dy; if(a<MIN){b+=MIN-a;a=MIN;} if(b>MAX){a-=b-MAX;b=MAX;} tv0=a;tv1=b; return;}
+cv.addEventListener('pointermove',e=>{ if(findGroup.contains(e.target))return;if(drag){const dx=e.clientX-drag.x; if(Math.abs(dx)>3)drag.moved=true; const dy=dx/W*(drag.b-drag.a); let a=drag.a-dy,b=drag.b-dy; if(a<MIN){b+=MIN-a;a=MIN;} if(b>MAX){a-=b-MAX;b=MAX;} tv0=a;tv1=b; return;}
   pick(e.clientX,e.clientY); showTip(e.clientX,e.clientY);});
 function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=Y2yr(mx); const span=v1-v0, zoomW=clamp(500/span,1,4), revealYear=lerp(MIN,MAX,reveal);
   for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<=b.y1){hoverL=b.l;return;} }
@@ -260,6 +327,7 @@ function showTip(mx,my){ let html='';
   else if(hoverE){const p=pin&&pin.kind==='event'&&pin.v===hoverE; html=`<span class="k">${hoverE.year}${evEnd(hoverE)>hoverE.year?' – '+evEnd(hoverE):''} · ${hoverE.category} · ${p?'click to unpin':'click to pin'}</span><b>${hoverE.title}</b><div class="d">${hoverE.musicalSignificance||hoverE.description}</div>`;}
   tip.style.opacity=html?1:0; if(html){tip.innerHTML=html; tip.style.left=Math.min(W-340,mx+18)+'px'; tip.style.top=Math.min(H-180,my+18)+'px';} cv.style.cursor=html?'pointer':''; }
 function clickAt(e){
+  if(findGroup.contains(e.target))return;
   if(hoverL){ pin=pin&&pin.kind==='lane'&&pin.v===hoverL?null:{kind:'lane',v:hoverL}; showTip(e.clientX,e.clientY); return; }
   if(hoverE&&!hoverC){ pin=pin&&pin.kind==='event'&&pin.v===hoverE?null:{kind:'event',v:hoverE}; showTip(e.clientX,e.clientY); return; }
   if(hoverC){ openLife(hoverC); return; }
@@ -279,6 +347,43 @@ function openLife(c){ focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.1
   if(sound.started&&soundEnabled){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
 function closeLife(){ focus=null; life.classList.remove('open'); document.getElementById('lPlayer').replaceChildren(); tv0=1480; tv1=2000; }
 addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
+function chooseComposer(c){
+  findInput.value=c.name;searchOpen=false;searchActive=-1;updateFindSearch();
+  history.replaceState(null,'',`#focus=${encodeURIComponent(c.id)}`);
+  openLife(c);
+}
+function clearComposerSearch(){
+  findInput.value='';searchOpen=false;searchActive=-1;updateFindSearch();
+  if(focus)closeLife();
+  findInput.focus({preventScroll:true});
+}
+findInput.addEventListener('input',()=>{
+  if(!findInput.value.trim()&&focus)closeLife();
+  searchOpen=!!findInput.value.trim();searchActive=-1;updateFindSearch();
+});
+findInput.addEventListener('focus',()=>{if(searchQuery){searchOpen=true;renderFindResults();}});
+findInput.addEventListener('keydown',e=>{
+  e.stopPropagation();
+  const count=Math.min(8,searchResults.length);
+  if(e.key==='ArrowDown'){e.preventDefault();if(count){searchOpen=true;searchActive=(searchActive+1)%count;renderFindResults();}}
+  else if(e.key==='ArrowUp'){e.preventDefault();if(count){searchOpen=true;searchActive=searchActive<0?count-1:(searchActive+count-1)%count;renderFindResults();}}
+  else if(e.key==='Enter'){e.preventDefault();const c=searchResults[searchActive>=0?searchActive:0];if(c)chooseComposer(c);}
+  else if(e.key==='Escape'){e.preventDefault();clearComposerSearch();}
+});
+findClear.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();clearComposerSearch();});
+findGroup.addEventListener('click',e=>e.stopPropagation());
+findResults.addEventListener('click',e=>{
+  const option=e.target.closest('.find-result[data-composer-id]');if(!option)return;
+  e.preventDefault();e.stopPropagation();
+  const c=comps.find(item=>item.id===option.dataset.composerId);if(c)chooseComposer(c);
+});
+document.addEventListener('pointerdown',e=>{
+  if(searchOpen&&!findGroup.contains(e.target)){searchOpen=false;renderFindResults();}
+});
+addEventListener('keydown',e=>{
+  const active=document.activeElement, inInput=active&&(['INPUT','TEXTAREA','SELECT'].includes(active.tagName)||active.isContentEditable);
+  if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!inInput){e.preventDefault();findInput.focus();}
+});
 let seisHits=[];
 function renderLifetimeEvents(c){
   eventsList.replaceChildren();
