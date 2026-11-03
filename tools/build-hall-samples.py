@@ -209,7 +209,6 @@ def main():
     choir_files = note_files(sso_tree, sso_prefix + "Chorus/")
     choir_notes = make_layer(grouped(choir_files), "sso")
     patch_layers["choir"] = (choir_notes,)
-    patch_layers["oohs"] = (choir_notes,)
 
     manifest = {}
     assets = []
@@ -235,6 +234,13 @@ def main():
         manifest[patch] = {"layers": output_layers, "attack": attack, "release": release}
         inventory[patch] = sum(len(layer["notes"]) for layer in output_layers)
 
+    manifest["oohs"] = {
+        "layers": [{"vel": [0, 127], "notes": dict(manifest["choir"]["layers"][0]["notes"])}],
+        "attack": PATCH_SETTINGS["oohs"][0],
+        "release": PATCH_SETTINGS["oohs"][1],
+    }
+    inventory["oohs"] = inventory["choir"]
+
     SAMPLES.mkdir(exist_ok=True)
     failures = []
     with ThreadPoolExecutor(max_workers=8) as pool:
@@ -258,8 +264,11 @@ def main():
     )
     total = sum(path.stat().st_size for path in SAMPLES.rglob("*.mp3"))
     for patch, count in inventory.items():
-        size = sum(path.stat().st_size for path in (SAMPLES / patch).glob("*.mp3"))
-        source = "SSO" if patch in ("harpsichord", "celesta", "choir", "oohs") else "VSCO 2 CE"
+        size_patch = "choir" if patch == "oohs" else patch
+        size = sum(path.stat().st_size for path in (SAMPLES / size_patch).glob("*.mp3"))
+        source = "SSO (shared with choir)" if patch == "oohs" else (
+            "SSO" if patch in ("harpsichord", "celesta", "choir") else "VSCO 2 CE"
+        )
         print(f"INVENTORY {patch}: {source}, {count} notes, {size / 1024:.1f} KiB")
     print(f"TOTAL: {total / (1024 * 1024):.2f} MiB in {len(assets)} samples")
     if total > 60 * 1024 * 1024:

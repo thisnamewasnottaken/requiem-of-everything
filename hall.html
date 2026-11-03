@@ -67,13 +67,19 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
   #hint{display:none}#dock{bottom:8px}.sep{display:none}select.btn{max-width:44vw}
 }
 @media (max-height:500px) and (min-width:761px){
-  #info{top:14px;left:16px;width:280px}
-  #info .lead,#info p,#iComp,#info .count,#fComposer,#fInstr,#bShare{display:none}
-  #info h2{font-size:1.35rem;margin:2px 0}
-  #info>div[style]{margin-top:6px!important}
-  #dock{bottom:6px;gap:4px}
-  #row1{flex-wrap:nowrap}
-  #eras{flex-wrap:nowrap}
+  #hint{display:none}
+  #info{top:56px;left:16px;width:280px;padding:0}
+  #info .lead,#info p,#iComp,#info .count{display:none}
+  #info .k{font-size:.42rem;letter-spacing:.2em}
+  #info h2{font-size:1.15rem;margin:1px 0}
+  #info>div[style]{margin-top:5px!important}
+  #info .btn{font-size:.42rem;padding:5px 7px}
+  #dock{left:12px;transform:none;width:calc(100vw - 24px);bottom:6px;gap:4px;align-items:stretch}
+  #row1,#pieces{width:100%;max-width:100%;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;white-space:nowrap}
+  #row1::-webkit-scrollbar,#pieces::-webkit-scrollbar{display:none}
+  #eras{flex:none;flex-wrap:nowrap;max-width:none}
+  #row1 .btn,#pieces .btn,.sep{flex:none}
+  #row1 select.btn{width:190px;max-width:190px;flex:0 0 190px}
   #eras .btn,#pieces .btn{font-size:.45rem;padding:5px 7px}
 }
 </style>
@@ -218,8 +224,8 @@ addEventListener('keydown',e=>{ if(e.key==='Escape') closeCard(); });
 const CAMS={stalls:{label:'Front stalls',x:0,h:5,z:-5,pitch:.30,yaw:0,f:.6,cy:.45,lampH:6.6},
  box:{label:'Side box',x:-7.5,h:7,z:-3,pitch:.52,yaw:.75,f:.9,cy:.40,lampH:4.8},
  podium:{label:'Conductor\u2019s view',x:0,h:2.4,z:-2.6,pitch:.20,yaw:0,f:.78,cy:.30,lampH:6.5}};
-const PODIUM_Z=CAMS.podium.z;
-let camName='podium'; const cam={...CAMS.podium}; let camT=CAMS.podium; cameraReady=true;
+const PODIUM={...CAMS.podium}, PODIUM_Z=PODIUM.z;
+let camName='podium'; const cam={...PODIUM}; let camT={...PODIUM}; cameraReady=true;
 function proj(x,z,h=0,c=cam){ const rx=x-c.x, ry=h-c.h, rz=z-c.z, cy=Math.cos(c.yaw), sy=Math.sin(c.yaw);
   const X=rx*cy-rz*sy, Z=rx*sy+rz*cy, cp=Math.cos(c.pitch), sp=Math.sin(c.pitch);
   const Zc=Math.max(.3,Z*cp-ry*sp), Yc=ry*cp+Z*sp, s=Math.min(H,W*1.25)*c.f/Zc, p=Math.max(.22,Math.min(1.7,s/120));
@@ -231,36 +237,79 @@ function fitPointOverflow(q,infoRect,dockTop,margin=0){
   const b=fitBoundsFor(q.x,infoRect,dockTop);
   return Math.max(0,b.left+margin-q.x,q.x-(b.right-margin),b.top+margin-q.y,q.y-(b.bottom-margin));
 }
+let fitTimingLogged=false;
 function fitCamera(){
-  if(!cameraReady)return;
+  if(!cameraReady||!fitTargets.length)return;
+  const started=performance.now();
   const infoRect=$('info').getBoundingClientRect(), dockTop=$('dock').getBoundingClientRect().top;
-  const check=(z,f,cy)=>{
-    const probe={...cam,z,f,cy}; let overflow=0;
-    for(const p of fitTargets)overflow+=fitPointOverflow(proj(p.x,p.z,0,probe),infoRect,dockTop,4);
-    return {fits:overflow===0,overflow};
+  const scaleBase=Math.min(H,W*1.25), bottom=dockTop-74, minCy=.18, maxCy=.5;
+  const cyaw=Math.cos(cam.yaw), syaw=Math.sin(cam.yaw);
+  const values=(lo,hi,step)=>{
+    const out=[];
+    for(let v=lo;v<=hi+1e-8;v+=step)out.push(+v.toFixed(4));
+    if(Math.abs(out[out.length-1]-hi)>1e-4)out.push(+hi.toFixed(4));
+    return out;
   };
+  const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+  const evaluate=(base,z,h,pitch,f)=>{
+    const scale=scaleBase*f;
+    let maxY0=-Infinity;
+    for(const p of base)maxY0=Math.max(maxY0,p.y*scale);
+    const rawCy=(bottom-maxY0)/H, cy=clamp(rawCy,minCy,maxCy);
+    let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity,overflow=0;
+    for(const p of base){
+      const x=W/2+p.x*scale,y=H*cy+p.y*scale;
+      overflow+=fitPointOverflow({x,y},infoRect,dockTop,4);
+      minX=Math.min(minX,x);maxX=Math.max(maxX,x);
+      minY=Math.min(minY,y);maxY=Math.max(maxY,y);
+    }
+    const anchorGap=Math.abs(maxY-bottom),width=maxX-minX,height=maxY-minY;
+    return {z,h,pitch,f,cy,width,height,area:width*height,overflow,anchorGap,
+      fits:rawCy>=minCy&&rawCy<=maxCy&&overflow===0&&anchorGap<1,
+      score:overflow+anchorGap};
+  };
+  const coarseH=[2.4,2.8,3.2,3.6,4,4.4,4.8,5];
+  const coarsePitch=[.2,.25,.3,.35,.4,.45,.5,.55], coarseF=values(.12,1.4,.1);
   const searchAtZ=z=>{
-    let best=null,fallback={cy:.18,overflow:Infinity};
-    for(let i=0;i<=16;i++){
-      const cy=.18+i*.02, atMin=check(z,.12,cy);
-      if(atMin.overflow<fallback.overflow)fallback={cy,overflow:atMin.overflow};
-      if(!atMin.fits)continue;
-      let lo=.12,hi=1.4;
-      if(check(z,hi,cy).fits)lo=hi;
-      else for(let n=0;n<28;n++){const mid=(lo+hi)/2;if(check(z,mid,cy).fits)lo=mid;else hi=mid;}
-      if(!best||lo>best.f)best={z,f:lo,cy};
+    let best=null,fallback=null;
+    const test=(h,pitch,fs)=>{
+      const cp=Math.cos(pitch),sp=Math.sin(pitch);
+      const base=fitTargets.map(p=>{
+        const rx=p.x-cam.x,rz=p.z-z,X=rx*cyaw-rz*syaw,Z=rx*syaw+rz*cyaw;
+        const Zc=Math.max(.3,Z*cp+h*sp),Yc=-h*cp+Z*sp;
+        return {x:X/Zc,y:-Yc/Zc};
+      });
+      for(const f of fs){
+        const result=evaluate(base,z,h,pitch,f);
+        if(result.fits&&(!best||result.area>best.area))best=result;
+        if(!fallback||result.score<fallback.score)fallback=result;
+      }
+    };
+    for(const h of coarseH)for(const pitch of coarsePitch)test(h,pitch,coarseF);
+    if(best){
+      const fineH=values(clamp(best.h-.4,2.4,5),clamp(best.h+.4,2.4,5),.1);
+      const finePitch=values(clamp(best.pitch-.05,.2,.55),clamp(best.pitch+.05,.2,.55),.0125);
+      const fineF=values(Math.max(.12,best.f-.12),Math.min(1.4,best.f+.12),.01);
+      for(const h of fineH)for(const pitch of finePitch)test(h,pitch,fineF);
     }
     return {best,fallback};
   };
-  const zCandidates=[];
-  for(let n=0;;n++){const z=Math.max(-6,PODIUM_Z-.4*n);zCandidates.push(z);if(z===-6)break;}
   let best=null,fallback=null;
-  for(const z of zCandidates){const result=searchAtZ(z);if(result.best){best=result.best;break;}if(z===-6)fallback=result.fallback;}
-  if(best){camT.z=best.z;camT.f=best.f;camT.cy=best.cy;}
-  else{
-    camT.z=-6;camT.f=.12;camT.cy=fallback.cy;
+  for(let n=0;;n++){
+    const z=Math.max(-6,PODIUM_Z-.4*n),result=searchAtZ(z);
+    if(result.best){best=result.best;break;}
+    if(z===-6){fallback=result.fallback;break;}
+  }
+  const chosen=best||fallback;
+  if(chosen){
+    camT.z=chosen.z;camT.h=chosen.h;camT.pitch=chosen.pitch;camT.f=chosen.f;camT.cy=chosen.cy;
+  }
+  if(!best){
     if(!fitWarningShown){console.warn('Hall camera could not fit all content at z=-6.0 and f=0.12.');fitWarningShown=true;}
   }
+  const elapsed=performance.now()-started;
+  window.__fitCameraMs=elapsed;
+  if(!fitTimingLogged){console.info(`Hall camera fit: ${elapsed.toFixed(1)} ms`);fitTimingLogged=true;}
 }
 window.__fitCheck=()=>{
   const infoRect=$('info').getBoundingClientRect(), dockTop=$('dock').getBoundingClientRect().top;
@@ -268,7 +317,7 @@ window.__fitCheck=()=>{
   for(const p of fitTargets)if(fitPointOverflow(proj(p.x,p.z,0),infoRect,dockTop)>0)outside++;
   return outside;
 };
-window.__fitCheck.params=()=>({z:camT.z,f:camT.f,cy:camT.cy});
+window.__fitCheck.params=()=>({z:camT.z,h:camT.h,pitch:camT.pitch,f:camT.f,cy:camT.cy,fitMs:window.__fitCameraMs});
 
 const rgb=hex=>[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255);
 // ---------- haze (WebGL) ----------
