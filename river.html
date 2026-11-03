@@ -173,7 +173,7 @@ function draw(){
     const inLife=focus&&y>=focus.birthYear&&y<=focus.deathYear; const inEv=FE&&y>=FE.year&&y<=evEnd(FE);
     label(String(y),x,TOP-28,`${inLife||inEv?'600 13px':'400 11px'} Cormorant Garamond`,inLife?rgba(focus.rgb,1):inEv?(catCol[FE.category]||'#fff'):'rgba(216,203,180,.45)','center');}
   // events: veils of light, spans for events that lasted years
-  g.globalCompositeOperation='lighter';
+  g.globalCompositeOperation='source-over';
   for(const e of EV){const x=X(e.year), xe=X(evEnd(e)); if(xe<-40||x>W+40)continue; const c=catCol[e.category]||'#ffffff'; const hov=e===FE; const multi=evEnd(e)>e.year;
     if(hov&&multi){ const gr=g.createLinearGradient(0,TOP,0,BOT()); gr.addColorStop(0,c+'0a'); gr.addColorStop(.6,c+'1c'); gr.addColorStop(1,c+'34'); g.fillStyle=gr; g.fillRect(x,TOP-20,xe-x,BOT()-TOP+30);
       g.fillStyle=c+'cc'; g.fillRect(x-.75,TOP-20,1.5,BOT()-TOP+30); g.fillRect(xe-.75,TOP-20,1.5,BOT()-TOP+30); g.fillRect(x,BOT()+11,xe-x,2.5); }
@@ -197,16 +197,16 @@ function draw(){
       g.beginPath(); g.moveTo(top[0][0],top[0][1]); for(const q of top)g.lineTo(q[0],q[1]); for(let i=bot.length-1;i>=0;i--)g.lineTo(bot[i][0],bot[i][1]); g.closePath(); };
     const grad=(base,mul)=>{ const gx=g.createLinearGradient(xs[0],0,xs[xs.length-1]+.01,0); const n=xs.length, every=Math.max(1,Math.floor(n/28));
       for(let i=0;i<n;i+=every){ const t=clamp((xs[i]-xs[0])/(xs[n-1]-xs[0]+.01),0,1); gx.addColorStop(t,`rgba(${r},${gg},${b},${Math.min(1,(base+ss[i]*mul)*dim)})`);} return gx; };
-    if(xs.length>1){ ribbon(4); g.fillStyle=grad(.03,.07); g.fill(); ribbon(1.9); g.fillStyle=grad(.06,.16); g.fill(); ribbon(1); g.fillStyle=grad(.22,.78); g.fill(); }
-    if(a1<c.deathYear){const x=X(a1),y=yAt(c,a1);const gr=g.createRadialGradient(x,y,0,x,y,22);gr.addColorStop(0,`rgba(${r},${gg},${b},.9)`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);g.fillStyle=gr;g.fillRect(x-22,y-22,44,44);}
+    if(xs.length>1){ ribbon(2.4); g.fillStyle=grad(.012,.028); g.fill(); ribbon(1.45); g.fillStyle=grad(.035,.07); g.fill(); ribbon(1); g.fillStyle=grad(.22,.78); g.fill(); }
+    if(a1<c.deathYear){const x=X(a1),y=yAt(c,a1);const gr=g.createRadialGradient(x,y,0,x,y,12);gr.addColorStop(0,`rgba(${r},${gg},${b},.7)`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);g.fillStyle=gr;g.fillRect(x-22,y-22,44,44);}
     if(c.life&&c.life.after&&a1>=c.deathYear){ g.setLineDash([2,6]); g.lineCap='round';
       let px=X(c.deathYear),py=yAt(c,c.deathYear); const pts=[[c.deathYear,.2],...c.life.after];
       for(let y=c.deathYear+1;y<=Math.min(MAX,revealYear);y+=stepYr*2){const s=curve(pts,y,1);const x=X(y),yy=yAt(c,c.deathYear);g.lineWidth=1+s*3;g.strokeStyle=`rgba(${r},${gg},${b},${(s*.32)*dim})`;g.beginPath();g.moveTo(px,py);g.lineTo(x,yy);g.stroke();px=x;py=yy;}
       g.setLineDash([]); g.lineCap='butt';}
     const nx=X(c.birthYear); if(nx>-200&&nx<W) label(c.shortName,nx-6,yAt(c,c.birthYear)+4,`${focus===c||hoverC===c?'500 15px':'400 12.5px'} Cormorant Garamond`,`rgba(${Math.min(255,r+30)},${Math.min(255,gg+30)},${Math.min(255,b+30)},${clamp(.45*dim+.2,0,1)})`,'right');
     for(const w of c.works){ if(w.yearComposed>a1||w.yearComposed<a0)continue; const x=X(w.yearComposed),y=yAt(c,w.yearComposed); const hw=w===hoverW; const rr=(hw?6:2.2+zoomW*.6);
-      const gr=g.createRadialGradient(x,y,0,x,y,rr*4);gr.addColorStop(0,`rgba(255,244,220,${.95*Math.min(1,dim)})`);gr.addColorStop(.25,`rgba(${r},${gg},${b},${.5*Math.min(1,dim)})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
-      g.fillStyle=gr; g.fillRect(x-rr*4,y-rr*4,rr*8,rr*8);
+      const gr=g.createRadialGradient(x,y,0,x,y,rr*2.2);gr.addColorStop(0,`rgba(255,244,220,${.9*Math.min(1,dim)})`);gr.addColorStop(.4,`rgba(${r},${gg},${b},${.4*Math.min(1,dim)})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
+      g.fillStyle=gr; g.fillRect(x-rr*2.2,y-rr*2.2,rr*4.4,rr*4.4);
       if(span<60&&(focus?focus===c:dim>.5)) label(w.title,x+7,y-8,'italic 400 12px Cormorant Garamond','rgba(240,228,205,.8)'); }
     if(c.life&&(focus===c||(!focus&&span<70&&dim>.5))){ const lv=[]; g.font='italic 400 12.5px Cormorant Garamond';
       for(const p of c.life.pts){ if(!p[3]||p[0]>a1)continue; const x=X(p[0]),y=yAt(c,p[0]); const tw=g.measureText(p[3]).width+14; let L=0; while((lv[L]||[]).some(q=>Math.abs(q-x)<tw))L++; (lv[L]||(lv[L]=[])).push(x);
