@@ -81,7 +81,6 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
   <div class="drow" id="row1"><span id="eras" class="drow"></span><span class="sep"></span>
     <select class="btn" id="fComposer" aria-label="Choose a composer"></select>
     <select class="btn" id="fInstr" aria-label="Choose an instrument or voice"></select>
-    <select class="btn" id="fCam" aria-label="Choose your seat"></select>
     <span class="sep"></span><button class="btn" id="bShare">Share this view</button></div>
   <div class="drow" id="pieces"></div>
 </div>
@@ -176,7 +175,7 @@ function renderComposers(){ const c=curComposer(); const el=$('iComp');
   const eras=(L[st.era]||{}).eras||[]; const cs=D.composers.filter(x=>eras.includes(x.era)).sort((a,b)=>b.compositionIds.length-a.compositionIds.length).slice(0,5);
   el.innerHTML=cs.length?'Composers of this era · '+cs.map(x=>`<a class="who" data-c="${x.id}">${x.shortName}</a>`).join(', '):''; }
 function setHash(){ const p=new URLSearchParams(); if(st.piece)p.set('piece',st.piece); else if(st.composer)p.set('composer',st.composer); else p.set('era',st.era);
-  if(st.instrument)p.set('instrument',st.instrument); if(camName!=='podium')p.set('cam',camName); history.replaceState(null,'','#'+p.toString()); }
+  if(st.instrument)p.set('instrument',st.instrument); history.replaceState(null,'','#'+p.toString()); }
 function mark(){ const era=st.piece?PIECES.find(p=>p.id===st.piece).era:st.era;
   eraBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===era&&!st.piece&&!st.composer));
   pBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===st.piece));
@@ -248,7 +247,7 @@ function proj(x,z,h=0){ const c=cam, rx=x-c.x, ry=h-c.h, rz=z-c.z, cy=Math.cos(c
   const X=rx*cy-rz*sy, Z=rx*sy+rz*cy, cp=Math.cos(c.pitch), sp=Math.sin(c.pitch);
   const Zc=Math.max(.3,Z*cp-ry*sp), Yc=ry*cp+Z*sp, s=Math.min(H,W*1.25)*c.f/Zc, p=Math.max(.22,Math.min(1.7,s/120));
   return {x:W/2+X*s, y:H*c.cy-Yc*s, p, k:p, d:Zc}; }
-function setCam(k){ if(!CAMS[k])return; camName=k; camT=CAMS[k]; $('fCam').value=k; setHash(); }
+
 const rgb=hex=>[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255);
 // ---------- haze (WebGL) ----------
 const FS=`precision highp float;uniform vec2 uRes;uniform float uT;uniform vec4 uA[24];uniform vec4 uB[24];uniform vec3 uC[24];uniform int uN;uniform vec3 uStage;
@@ -407,10 +406,7 @@ async function raiseBaton(){ await sound.unlock(); preload(); baton=3; const pr=
 $('bMore').onclick=()=>{ const i=$('info'); i.classList.toggle('more'); $('bMore').setAttribute('aria-expanded',i.classList.contains('more')); $('bMore').textContent=i.classList.contains('more')?'Less':'About this era'; };
 $('tutti').onclick=()=>{ clearTimeout(syncTimer); pendingSync=false; raiseBaton(); };
 // ---------- boot from URL: #era=baroque  #piece=m40  #composer=gustav-mahler  #instrument=cello ----------
-$('fCam').innerHTML=Object.entries(CAMS).map(([k,c])=>`<option value="${k}">Seat · ${c.label}</option>`).join(''); $('fCam').onchange=e=>setCam(e.target.value);
 const hp=new URLSearchParams(location.hash.slice(1));
-if(CAMS[hp.get('cam')]){ camName=hp.get('cam'); camT=CAMS[camName]; Object.assign(cam,camT); }
-$('fCam').value=camName;
 const pp=PIECES.find(p=>p.id===hp.get('piece'));
 if(pp) setPiece(pp); else if(hp.get('composer')&&COMP[hp.get('composer')]) setComposer(hp.get('composer')); else setEra(L[hp.get('era')]?hp.get('era'):'classical');
 if(hp.get('instrument')) setInstrument(hp.get('instrument'));
