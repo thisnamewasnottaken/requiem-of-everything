@@ -2,179 +2,393 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="icon.svg" type="image/svg+xml"><title>The Hall — Requiem of Everything</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title>The Hall &amp; Voices — Requiem of Everything</title>
 <link rel="stylesheet" href="common/style.css">
 <style>
-#hall{position:fixed;inset:0;width:100%;height:100%}
-#info{position:fixed;left:28px;top:70px;width:340px;z-index:20;padding:18px 20px}
-#info .k{font-family:var(--inscr);font-size:.56rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+body{background:#060504}
+#haze,#hall{position:fixed;inset:0;width:100%;height:100%}
+#haze{z-index:0}#hall{z-index:1}
+.k{font-family:var(--inscr);font-size:.56rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.k.dim{color:var(--mist);letter-spacing:.22em;margin-top:4px}
+#info{position:fixed;left:28px;top:70px;width:330px;z-index:20;padding:18px 20px}
 #info h2{font-weight:400;font-size:2rem;line-height:1.05;color:#f6e9cf;margin:6px 0 4px}
 #info .lead{font-style:italic;color:var(--mist);margin-bottom:8px}
 #info p{font-size:1rem;line-height:1.5;color:rgba(230,216,189,.8)}
 #info .count{font-family:var(--inscr);font-size:.6rem;letter-spacing:.26em;color:#efd497;margin-top:10px}
-#eras{position:fixed;left:50%;bottom:104px;transform:translateX(-50%);display:flex;gap:6px;z-index:20}
-#pieces{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:6px;z-index:20;flex-wrap:wrap;justify-content:center;width:min(1000px,96vw)}
-#pieces .btn{font-size:.5rem;padding:7px 10px}
-.btn.on{color:#14100d;background:linear-gradient(#efd497,#c9a55c);box-shadow:0 0 24px rgba(239,212,151,.45)}
-#card{position:fixed;right:28px;top:70px;width:340px;z-index:20;padding:18px 20px;opacity:0;transform:translateX(30px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none}
+#iComp{margin-top:10px;font-size:1rem;color:var(--mist);line-height:1.6}
+a.who{color:#efd497;cursor:pointer;border-bottom:1px solid rgba(239,212,151,.3);text-decoration:none}
+a.who:hover{color:#fff2d6;border-color:#fff2d6}
+#dock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:20;display:flex;flex-direction:column;gap:8px;align-items:center;width:min(1240px,96vw)}
+.drow{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;max-width:100%}
+#pieces{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:2px;justify-content:flex-start}
+#pieces::-webkit-scrollbar{display:none}
+#pieces .btn{font-size:.5rem;padding:7px 10px;white-space:nowrap;flex:none}
+.sep{width:1px;height:22px;background:var(--gold-faint);margin:0 6px}
+select.btn{appearance:none;-webkit-appearance:none;padding-right:26px;cursor:pointer;max-width:230px;
+  background:rgba(14,11,9,.75) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23c9a55c'/%3E%3C/svg%3E") no-repeat right 10px center}
+select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-family:Georgia,serif;letter-spacing:0;text-transform:none}
+#card{position:fixed;right:28px;top:70px;width:370px;max-height:calc(100vh - 190px);overflow-y:auto;z-index:20;padding:18px 20px;opacity:0;transform:translateX(30px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.4) transparent}
 #card.open{opacity:1;transform:none;pointer-events:auto}
-#card h3{font-weight:400;font-size:1.8rem;color:#f6e9cf}
-#card .k{font-family:var(--inscr);font-size:.55rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
-#card p{font-size:1rem;line-height:1.5;color:rgba(230,216,189,.8);margin:8px 0}
+#card h3{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf;margin:6px 0 2px}
+#card p{font-size:1rem;line-height:1.5;color:rgba(230,216,189,.82);margin:8px 0}
+#card p.role{font-style:italic;color:var(--mist)}
+#card .show{margin:14px 0;padding:12px 14px;border:1px solid var(--gold-faint);background:rgba(255,200,130,.035)}
+#card .show b{display:block;font-weight:500;color:#f6e9cf;font-size:1.2rem;margin-top:4px}
+#card .show i{color:var(--mist)}
+#card .goat{margin:12px 0;padding:10px 14px;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(239,212,151,.08),transparent)}
+#card .goat b{display:block;font-size:1.25rem;font-weight:500;color:#fff2d6}
+#card .goat span.n{color:var(--mist);font-style:italic}
+#card ul{list-style:none;padding:0;margin:6px 0 12px}
+#card li{margin:6px 0;font-size:.96rem;line-height:1.35;color:rgba(230,216,189,.78)}
+#card li b{color:#f6e9cf;font-weight:500}
+#card li a{color:var(--gold);font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-decoration:none;margin-left:6px;white-space:nowrap}
+#card li a:hover{color:#fff2d6}
 #card .eras{display:flex;gap:4px;margin:10px 0}
 #card .eras span{flex:1;height:30px;border:1px solid var(--gold-faint);font-family:var(--inscr);font-size:.42rem;letter-spacing:.1em;color:var(--mist);display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;text-transform:uppercase;position:relative;overflow:hidden}
 #card .eras span i{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(239,212,151,.45))}
-#card .row{display:flex;gap:8px;margin-top:10px}
+#card .row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+#card a.btn{text-decoration:none;display:inline-flex;align-items:center}
+#card .bio{font-size:1rem;line-height:1.5;color:rgba(230,216,189,.82);margin:10px 0;max-height:9.2em;overflow-y:auto;-webkit-mask-image:linear-gradient(#000 75%,transparent);mask-image:linear-gradient(#000 75%,transparent);padding-bottom:1.2em}
+#mini{width:100%;height:70px;display:block;margin-top:12px}
+.mlg{display:flex;gap:14px;font-family:var(--inscr);font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.mlg i{display:inline-block;width:14px;height:2px;vertical-align:middle;margin-right:5px}
 #tip{position:fixed;z-index:30;pointer-events:none;padding:8px 12px;opacity:0;transition:opacity .2s}
 #tip b{font-weight:500;color:#f6e9cf;font-size:1.05rem}#tip span{display:block;font-family:var(--inscr);font-size:.5rem;letter-spacing:.22em;color:var(--gold)}
-#hint{bottom:auto;top:24px;left:auto;right:28px;transform:none}
+#bSilence{position:fixed;top:16px;right:20px;z-index:25}
+#hint{top:64px;right:24px;left:auto;bottom:auto;transform:none;text-align:right;max-width:560px;line-height:1.8;transition:opacity .6s}
+@media (max-width:760px){
+  #info{left:10px;right:10px;width:auto;top:58px;padding:12px 14px}#info p,#iComp{display:none}#info h2{font-size:1.5rem}
+  #card{left:8px;right:8px;width:auto;top:auto;bottom:118px;max-height:52vh}
+  #hint{display:none}#dock{bottom:8px}.sep{display:none}select.btn{max-width:44vw}
+}
 </style>
 </head>
 <body>
-<canvas id="hall"></canvas>
+<canvas id="haze"></canvas><canvas id="hall"></canvas>
 <div class="vignette"></div><div class="grain"></div>
-<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a href="river.html">River</a><a class="here" href="hall.html">Hall</a></nav>
-<div class="hint" id="hint">hover a section to hear it · click to meet the instrument</div>
-<div id="info" class="reliquary"><div class="k" id="iYear"></div><h2 id="iName"></h2><div class="lead" id="iLead"></div><p id="iText"></p><div class="count" id="iCount"></div>
-  <div class="row" style="display:flex;gap:8px;margin-top:14px"><button class="btn" id="tutti">Raise the baton</button></div></div>
-<div id="card" class="reliquary"><div class="k" id="cFam"></div><h3 id="cName"></h3><div class="k" id="cRange" style="color:var(--mist)"></div><p id="cRole" style="font-style:italic"></p><p id="cDesc"></p>
-  <div class="k">Through the eras</div><div class="eras" id="cEras"></div><div class="row"><button class="btn" id="cHear">Hear it alone</button><button class="btn" id="cClose">Close</button></div></div>
-<div id="eras"></div><div id="pieces"></div>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a href="river.html">River</a><a class="here" href="hall.html">Hall &amp; Voices</a></nav>
+<button class="btn" id="bSilence" aria-pressed="false">Silence</button>
+<div class="hint" id="hint">click a section or the podium to meet them<br>change the era to watch the players walk off and on</div>
+<div id="info" class="reliquary"><div class="k" id="iYear"></div><h2 id="iName"></h2><div class="lead" id="iLead"></div><p id="iText"></p><div id="iComp"></div><div class="count" id="iCount"></div>
+  <div style="display:flex;gap:8px;margin-top:14px"><button class="btn" id="tutti">Raise the baton</button></div></div>
+<div id="card" class="reliquary" role="dialog" aria-live="polite"></div>
+<div id="dock">
+  <div class="drow" id="row1"><span id="eras" class="drow"></span><span class="sep"></span>
+    <select class="btn" id="fComposer" aria-label="Choose a composer"></select>
+    <select class="btn" id="fInstr" aria-label="Choose an instrument or voice"></select>
+    <span class="sep"></span><button class="btn" id="bShare">Share this view</button></div>
+  <div class="drow" id="pieces"></div>
+</div>
 <div id="tip" class="reliquary"></div>
-<script src="common/data.js"></script>
+<script src="common/data.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
-const D=window.ROE_DATA, INST=Object.fromEntries(D.instruments.map(i=>[i.id,i]));
-const cv=document.getElementById('hall'), g=cv.getContext('2d'); let W,H,DPR;
-function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);} resize(); addEventListener('resize',resize);
-const FAM={strings:'#f0a35a',winds:'#9fd6b4',brass:'#ffd36a',perc:'#ff7a55',keys:'#f3ead8',voices:'#a9c4ff'};
-// section: label, family, instrument data id, sample patch, motif (midi, beats)
+const D=window.ROE_DATA, INST=Object.fromEntries(D.instruments.map(i=>[i.id,i])), COMP=Object.fromEntries(D.composers.map(c=>[c.id,c]));
+const LIVES=window.ROE_LIVES||{}, XTRA=window.ROE_INSTR_EXTRA||{}, ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
+const $=id=>document.getElementById(id);
+const cv=$('hall'), g=cv.getContext('2d'), hz=$('haze'); let W,H,DPR; const HS=.5;
+const gl=hz.getContext('webgl',{antialias:false,alpha:false,premultipliedAlpha:false});
+function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);hz.width=Math.round(W*HS);hz.height=Math.round(H*HS);gl&&gl.viewport(0,0,hz.width,hz.height);}
+resize(); addEventListener('resize',resize);
+let silent=localStorage.getItem('roe-silent')==='1';
+const P=(id,m,o)=>{ if(!silent) sound.play(id,m,o); };
+const FAMN={strings:'Strings',winds:'Woodwinds',brass:'Brass',perc:'Percussion',keys:'Keyboards',voices:'Voices'};
+// section: label, family, instrument id, patch, motif, colour, glyph
 const S={
- v1:['First violins','strings','violin','violin',[76,79,83,81]], v2:['Second violins','strings','violin','violin',[72,76,79,76]],
- va:['Violas','strings','viola','viola',[67,69,72,71]], vc:['Cellos','strings','cello','cello',[48,55,60,59]], cb:['Double basses','strings','double-bass','bass',[36,43,36,31]],
- viol:['Viols','strings','viola-da-gamba','cello',[50,57,62,60]], lute:['Lute & theorbo','strings','harp','lute',[62,66,69,74]], hp:['Harps','strings','harp','harp',[60,64,67,72,76]],
- fl:['Flutes','winds','flute','flute',[84,86,88,91]], pic:['Piccolo','winds','flute','piccolo',[93,95,96]], rec:['Recorders','winds','recorder','recorder',[74,76,79,78]],
- ob:['Oboes','winds','oboe','oboe',[76,74,72,74]], cl:['Clarinets','winds','clarinet','clarinet',[67,72,76,79]], bn:['Bassoons','winds','bassoon','bassoon',[48,50,52,55]],
- hn:['Horns','brass','french-horn','horn',[60,65,69,72]], tp:['Trumpets','brass','trumpet','trumpet',[72,72,79,76]], tb:['Trombones','brass','trombone','trombone',[53,58,62,65]],
- sack:['Sackbuts','brass','trombone','trombone',[53,57,60,57]], cor:['Cornetts','brass','trumpet','oboe',[74,76,79,81]], tu:['Tuba','brass','tuba','tuba',[34,41,29]],
- ti:['Timpani','perc','timpani','timpani',[43,36,43,36]], pc:['Percussion','perc','cymbals-and-percussion','glock',[84,88,91]],
- hc:['Harpsichord (continuo)','keys','harpsichord','harpsichord',[62,66,69,74,78]], fp:['Fortepiano','keys','piano','piano',[67,71,74,79]], org:['Organ','keys','organ','organ',[48,55,60,64]],
- cel:['Celesta & piano','keys','celesta','celesta',[84,88,91,96]], ch:['Choir','voices','soprano','choir',[60,64,67,72]],
+ v1:['First violins','strings','violin','violin',[76,79,83,81],'#ffc27a','fiddle'], v2:['Second violins','strings','violin','violin',[72,76,79,76],'#ff8f57','fiddle'],
+ va:['Violas','strings','viola','viola',[67,69,72,71],'#f2a3b4','fiddle'], vc:['Cellos','strings','cello','cello',[48,55,60,59],'#e0703f','cello'], cb:['Double basses','strings','double-bass','bass',[36,43,36,31],'#b8573a','bass'],
+ viol:['Viols','strings','viola-da-gamba','cello',[50,57,62,60],'#e9b48a','cello'], lute:['Lute & theorbo','strings',null,'lute',[62,66,69,74],'#f7d39a','lute','Lutes'], hp:['Harps','strings','harp','harp',[60,64,67,72,76],'#ffd9b0','harp'],
+ fl:['Flutes','winds','flute','flute',[84,86,88,91],'#c4f5d8','flute'], pic:['Piccolo','winds','flute','piccolo',[93,95,96],'#e6fff3','flute'], rec:['Recorders','winds','recorder','recorder',[74,76,79,78],'#a8e8c0','reed'],
+ ob:['Oboes','winds','oboe','oboe',[76,74,72,74],'#79d6a6','reed'], cl:['Clarinets','winds','clarinet','clarinet',[67,72,76,79],'#62c7cf','reed'], bn:['Bassoons','winds','bassoon','bassoon',[48,50,52,55],'#3fae8a','bassoon'],
+ hn:['Horns','brass','french-horn','horn',[60,65,69,72],'#ffe07f','horn'], tp:['Trumpets','brass','trumpet','trumpet',[72,72,79,76],'#fff3b8','trumpet'], tb:['Trombones','brass','trombone','trombone',[53,58,62,65],'#efbd52','trombone'],
+ sack:['Sackbuts','brass','trombone','trombone',[53,57,60,57],'#f0c870','trombone'], cor:['Cornetts','brass',null,'oboe',[74,76,79,81],'#ffe6a0','reed'], tu:['Tuba','brass','tuba','tuba',[34,41,29],'#d29b36','tuba'],
+ ti:['Timpani','perc','timpani','timpani',[43,36,43,36],'#ff7a55','timp'], pc:['Percussion','perc','cymbals-and-percussion','glock',[84,88,91],'#ffa486','drum'],
+ hc:['Harpsichord (continuo)','keys','harpsichord','harpsichord',[62,66,69,74,78],'#f3ead8','keys','Harpsichord'], fp:['Fortepiano','keys','piano','piano',[67,71,74,79],'#faf2e6','keys'], org:['Organ','keys','organ','organ',[48,55,60,64],'#e8dcc4','keys'],
+ cel:['Celesta & piano','keys','celesta','celesta',[84,88,91,96],'#fff8ee','keys','Celesta'],
+ sop:['Sopranos','voices','soprano','choir',[72,74,76,79],'#d4e3ff','voice'], alt:['Altos','voices','alto-mezzo','choir',[64,65,67,69],'#a9c4ff','voice'],
+ ten:['Tenors','voices','tenor','choir',[57,60,62,64],'#8ea6ff','voice'], bas:['Basses','voices','bass-baritone','choir',[45,48,50,43],'#7887f0','voice'],
 };
-// layouts: [section, players, ring, fromDeg, toDeg]   0° = audience left
+const LOCAL={lute:{name:'Lute & Theorbo',role:'Plucked harmony for songs, dances and early opera',description:'Plucked strings with a rounded back. The long-necked theorbo, its bass cousin, filled in the harmony of early operas and songs alongside the harpsichord.'},
+ cor:{name:'Cornett',role:'The virtuoso\u2019s wind instrument of 1600',description:'A curved wooden horn with finger holes and a trumpet-style mouthpiece. Players were prized because it could imitate the human voice so closely.'}};
 const L={
- renaissance:{year:'c. 1600',name:'The Venetian Chapel',lead:'Led by the maestro di cappella, beating the tactus',
+ renaissance:{year:'c. 1600',name:'The Venetian Chapel',lead:'Led by the maestro di cappella, beating the tactus',eras:['renaissance'],
   text:'No orchestra yet: voices are the heart. Choirs face each other across a basilica, joined by viols, sackbuts and cornetts that double the singers, and a lute or organ binding the harmony.',
-  s:[['ch',12,0,25,155],['viol',4,1,55,95],['lute',2,1,95,125],['sack',3,2,130,170],['cor',2,2,10,50],['rec',2,1,20,50],['org',1,2,85,95]]},
- baroque:{year:'c. 1720',name:'The Court Band',lead:'Directed from the harpsichord or the first violin',
+  s:[['sop',3,0,25,57],['alt',3,0,58,90],['ten',3,0,90,122],['bas',3,0,123,155],['viol',4,1,55,95],['lute',2,1,95,125],['sack',3,2,130,170],['cor',2,2,10,50],['rec',2,1,20,50],['org',1,2,85,95]]},
+ baroque:{year:'c. 1720',name:'The Court Band',lead:'Directed from the harpsichord or the first violin',eras:['baroque'],
   text:'Everything grows from the continuo: harpsichord, cello and bass at the centre. Violins split left and right, oboes double them, and trumpets with timpani are kept for festive days.',
   s:[['hc',1,0,88,92],['vc',2,0,100,125],['cb',1,0,128,142],['bn',1,1,100,115],['v1',4,0,0,55],['v2',4,0,145,180],['va',2,1,55,85],['ob',2,1,120,150],['tp',3,2,60,100],['ti',1,2,110,120]]},
- classical:{year:'1795 · Haydn in London',name:'The Classical Orchestra',lead:'The leader and the composer at the keyboard share the helm',
+ classical:{year:'1795 · Haydn in London',name:'The Classical Orchestra',lead:'The leader and the composer at the keyboard share the helm',eras:['classical'],
   text:'Winds arrive in pairs, each with its own voice. Violins sit antiphonally, firsts left and seconds right, so the melodies answer one another across the stage.',
   s:[['v1',10,0,0,55],['v2',8,0,125,180],['va',6,0,55,90],['vc',5,0,90,125],['cb',4,1,150,180],['fp',1,0,88,92],['fl',2,2,70,90],['ob',2,2,90,110],['cl',2,3,70,90],['bn',2,3,90,110],['hn',2,3,30,62],['tp',2,4,110,130],['ti',1,4,140,150]]},
- romantic:{year:'c. 1890 · Vienna',name:'The Romantic Orchestra',lead:'The conductor becomes a star: Mahler on the podium',
+ romantic:{year:'c. 1890 · Vienna',name:'The Romantic Orchestra',lead:'The conductor becomes a star: Mahler on the podium',eras:['early-romantic','late-romantic'],
   text:'Ninety players. Winds in threes, horns in fours to eights, trombones and tuba, harps and a whole battery of percussion. German seating keeps the violins apart and the basses behind the firsts.',
   s:[['v1',16,0,0,60],['v2',14,0,120,180],['vc',10,0,60,90],['va',12,0,90,120],['cb',8,2,0,25],['fl',3,2,70,90],['ob',3,2,90,110],['cl',3,3,70,90],['bn',3,3,90,110],['hn',6,3,25,65],['tp',4,4,85,108],['tb',3,4,108,132],['tu',1,4,132,140],['ti',2,4,55,80],['hp',2,2,155,178],['pc',3,5,120,160]]},
- modern:{year:'since the 1920s',name:'The Modern Symphony',lead:'Stokowski\u2019s American seating, now standard worldwide',
+ modern:{year:'since the 1920s',name:'The Modern Symphony',lead:'Stokowski\u2019s American seating, now standard worldwide',eras:['modern'],
   text:'Firsts and seconds sit together on the left so the violins sound as one; cellos move outward, basses on the right. Piano, celesta and a vast percussion section join the back rows.',
   s:[['v1',16,0,0,50],['v2',14,1,0,55],['va',12,0,50,95],['vc',10,0,95,150],['cb',8,1,150,180],['hp',2,2,0,18],['fl',3,2,62,88],['ob',3,2,92,118],['cl',3,3,62,88],['bn',3,3,92,118],['hn',6,3,22,60],['tp',4,4,82,110],['tb',3,4,110,135],['tu',1,4,135,143],['ti',4,5,80,100],['pc',4,5,105,150],['cel',2,3,160,178]]},
 };
+const ERA_OF={renaissance:'renaissance',baroque:'baroque',classical:'classical','early-romantic':'romantic','late-romantic':'romantic',modern:'modern'};
 const PIECES=[
- {id:'orfeo',label:'Monteverdi · L\u2019Orfeo',era:'renaissance',year:'1607 · Mantua',lead:'Monteverdi names his instruments: the first written orchestration',
+ {id:'orfeo',who:'Monteverdi',label:'Monteverdi · L\u2019Orfeo',era:'renaissance',year:'1607 · Mantua',lead:'Monteverdi names his instruments: the first written orchestration',
   text:'Some forty players: harpsichords, a regal, chitarroni, viols, recorders, cornetts and five trombones that announce the underworld.',mod:{sack:5,rec:2,lute:3,viol:6,hc:2},add:[['hc',2,0,93,100]]},
- {id:'seasons',label:'Vivaldi · The Four Seasons',era:'baroque',year:'1725 · Venice',lead:'A solo violin against strings and continuo',text:'No winds at all. Birdsong, storms and shivering frost are painted by strings alone over the harpsichord\u2019s pulse.',mod:{ob:0,tp:0,ti:0,bn:0,v1:5,v2:5,va:3}},
- {id:'m40',label:'Mozart · Symphony No. 40',era:'classical',year:'1788 · Vienna',lead:'No trumpets, no timpani: darkness by subtraction',text:'One flute, pairs of oboes, clarinets (added in revision), bassoons and horns. The missing brass makes G minor feel intimate and restless.',mod:{tp:0,ti:0,fl:1,fp:0}},
- {id:'b5',label:'Beethoven · Symphony No. 5',era:'classical',year:'1808 · Vienna',lead:'The finale bursts open with new instruments',text:'For the triumphant C major finale Beethoven adds piccolo, contrabassoon and three trombones: their first appearance in a symphony.',mod:{fp:0},add:[['pic',1,2,60,68],['tb',3,4,130,148]]},
- {id:'m8',label:'Mahler · Symphony No. 8',era:'romantic',year:'1910 · Munich',lead:'\u201cSymphony of a Thousand\u201d',text:'A vast orchestra, two mixed choirs, a children\u2019s choir, eight soloists and an organ: over a thousand performers at the premiere.',mod:{hn:8,tp:4,hp:4},add:[['ch',60,6,15,165],['org',1,6,88,92]]},
- {id:'rite',label:'Stravinsky · The Rite of Spring',era:'modern',year:'1913 · Paris',lead:'An orchestra built for earthquakes',text:'Winds in fives, eight horns, two tubas and pounding timpani. The orchestra becomes one enormous percussion instrument.',mod:{fl:5,ob:5,cl:5,bn:5,hn:8,tu:2,ti:5,cel:0}},
+ {id:'seasons',who:'Vivaldi',label:'Vivaldi · The Four Seasons',era:'baroque',year:'1725 · Venice',lead:'A solo violin against strings and continuo',text:'No winds at all. Birdsong, storms and shivering frost are painted by strings alone over the harpsichord\u2019s pulse.',mod:{ob:0,tp:0,ti:0,bn:0,v1:5,v2:5,va:3}},
+ {id:'m40',who:'Mozart',label:'Mozart · Symphony No. 40',era:'classical',year:'1788 · Vienna',lead:'No trumpets, no timpani: darkness by subtraction',text:'One flute, pairs of oboes, clarinets (added in revision), bassoons and horns. The missing brass makes G minor feel intimate and restless.',mod:{tp:0,ti:0,fl:1,fp:0}},
+ {id:'b5',who:'Beethoven',label:'Beethoven · Symphony No. 5',era:'classical',year:'1808 · Vienna',lead:'The finale bursts open with new instruments',text:'For the triumphant C major finale Beethoven adds piccolo, contrabassoon and three trombones: their first appearance in a symphony.',mod:{fp:0},add:[['pic',1,2,60,68],['tb',3,4,130,148]]},
+ {id:'m8',who:'Mahler',label:'Mahler · Symphony No. 8',era:'romantic',year:'1910 · Munich',lead:'\u201cSymphony of a Thousand\u201d',text:'A vast orchestra, two mixed choirs, a children\u2019s choir, eight soloists and an organ: over a thousand performers at the premiere.',mod:{hn:8,tp:4,hp:4},
+  add:[['sop',15,6,15,52],['alt',15,6,53,90],['ten',15,6,90,127],['bas',15,6,128,165],['org',1,7,86,94]]},
+ {id:'rite',who:'Stravinsky',label:'Stravinsky · The Rite of Spring',era:'modern',year:'1913 · Paris',lead:'An orchestra built for earthquakes',text:'Winds in fives, eight horns, two tubas and pounding timpani. The orchestra becomes one enormous percussion instrument.',mod:{fl:5,ob:5,cl:5,bn:5,hn:8,tu:2,ti:5,cel:0}},
 ];
+PIECES.forEach(p=>p.composer=D.composers.find(c=>c.shortName===p.who)?.id);
 // ---------- seats ----------
-const ringR=r=>1.55+r*1.05;
-function layoutSeats(defs){ const out=[]; for(const [sid,n,ring,a0,a1] of defs){ if(!n)continue; let placed=0,row=0; while(placed<n){ const R=ringR(ring)+row*.5, arc=(a1-a0)*Math.PI/180*R, per=Math.max(1,Math.min(n-placed,Math.floor(arc/.46)));
-    for(let k=0;k<per;k++){ const th=(a0+(a1-a0)*(per===1?.5:(k+.5)/per))*Math.PI/180; out.push({key:sid+':'+(placed+k),sid,x:-Math.cos(th)*R,z:Math.sin(th)*R}); } placed+=per; row++; } } return out; }
-let seats=new Map(), current={}, active={}, hoverS=null, cardS=null, mouse={x:0,y:0};
-function apply(defs,meta){ current=meta; const tgt=layoutSeats(defs); const keep=new Set();
-  for(const t of tgt){ keep.add(t.key); let s=seats.get(t.key); if(!s){ s={...t,cx:t.x*.2,cz:t.z+3,a:0,ph:Math.random()*6.28}; seats.set(t.key,s);} s.x=t.x; s.z=t.z; s.dead=false; }
-  for(const [k,s] of seats) if(!keep.has(k)) s.dead=true;
-  document.getElementById('iYear').textContent=meta.year; document.getElementById('iName').textContent=meta.name; document.getElementById('iLead').textContent=meta.lead;
-  document.getElementById('iText').textContent=meta.text; document.getElementById('iCount').textContent=tgt.length+' performers on stage'; }
-function setEra(id){ apply(L[id].s,L[id]); mark(id,null); }
-function setPiece(p){ const base=L[p.era].s.map(d=>{const c=[...d]; if(p.mod&&p.mod[c[0]]!==undefined)c[1]=p.mod[c[0]]; return c;}); apply([...base,...(p.add||[])],{...p,name:p.label.split(' · ')[1]}); mark(p.era,p.id); }
-const eraBox=document.getElementById('eras'), pBox=document.getElementById('pieces');
-Object.entries(L).forEach(([id,l])=>{const b=document.createElement('button');b.className='btn';b.textContent=id;b.dataset.id=id;b.onclick=()=>setEra(id);eraBox.appendChild(b);});
+const ringR=r=>1.55+r*1.05, WING=11;
+function layoutSeats(defs){ const out=[],carp={},cnt={};
+  for(const [sid,n,ring,a0,a1] of defs){ if(!n)continue; let placed=0,row=0;
+    while(placed<n){ const R=ringR(ring)+row*.5, arc=(a1-a0)*Math.PI/180*R, per=Math.max(1,Math.min(n-placed,Math.floor(arc/.46)));
+      for(let k=0;k<per;k++){ const th=(a0+(a1-a0)*(per===1?.5:(k+.5)/per))*Math.PI/180; const i=cnt[sid]=(cnt[sid]||0)+1; out.push({key:sid+':'+(i-1),sid,x:-Math.cos(th)*R,z:Math.sin(th)*R}); }
+      placed+=per; row++; }
+    const c=carp[sid], R0=ringR(ring)-.26, R1=ringR(ring)+(row-1)*.5+.26;
+    carp[sid]=c?{a0:Math.min(c.a0,a0),a1:Math.max(c.a1,a1),R0:Math.min(c.R0,R0),R1:Math.max(c.R1,R1)}:{a0,a1,R0,R1}; }
+  return {out,carp}; }
+const seats=new Map(), CAR={}; let current={}, active={}, hoverS=null, focusS=new Set(), card=null, mouse={x:-99,y:-99}, st={era:'classical'};
+let pendingSync=false, syncTimer=0, wasMoving=false, cacT=0, baton=0, T=0;
+function apply(defs,meta){ current=meta; const {out:tgt,carp}=layoutSeats(defs); const keep=new Set(); clearTimeout(syncTimer);
+  for(const t of tgt){ keep.add(t.key); let s=seats.get(t.key);
+    if(!s){ const side=t.x<0?-1:1; s={key:t.key,sid:t.sid,cx:side*WING,cz:t.z,a:0,ph:Math.random()*6.28,delay:.4+Math.random()*2.2,speed:2.1+Math.random()*.9}; seats.set(t.key,s); }
+    else { s.delay=Math.random()*1.1; }
+    s.x=t.x; s.z=t.z; s.dead=false; }
+  for(const [k,s] of seats) if(!keep.has(k)&&!s.dead){ s.dead=true; s.x=(s.cx<0?-1:1)*WING; s.z=s.cz; s.delay=Math.random()*.9; }
+  for(const sid in CAR) CAR[sid].on=false;
+  for(const sid in carp){ const c=CAR[sid]; if(c){c.t=carp[sid];c.on=true;} else CAR[sid]={...carp[sid],t:carp[sid],al:0,on:true}; }
+  $('iYear').textContent=meta.year; $('iName').textContent=meta.name; $('iLead').textContent=meta.lead; $('iText').textContent=meta.text;
+  $('iCount').textContent=tgt.length+' performers on stage'; pendingSync=true; renderComposers(); }
+// ---------- filters & URL ----------
+function layoutFor(era){ return L[era].s; }
+function pieceDefs(p){ const base=L[p.era].s.map(d=>{const c=[...d]; if(p.mod&&p.mod[c[0]]!==undefined)c[1]=p.mod[c[0]]; return c;}); return [...base,...(p.add||[])]; }
+function curComposer(){ return st.composer?COMP[st.composer]:st.piece?COMP[PIECES.find(p=>p.id===st.piece)?.composer]:null; }
+function renderComposers(){ const c=curComposer(); const el=$('iComp');
+  if(c){ el.innerHTML=`Composer · <a class="who" data-c="${c.id}">${c.name}</a>`; return; }
+  const eras=(L[st.era]||{}).eras||[]; const cs=D.composers.filter(x=>eras.includes(x.era)).sort((a,b)=>b.compositionIds.length-a.compositionIds.length).slice(0,5);
+  el.innerHTML=cs.length?'Composers of this era · '+cs.map(x=>`<a class="who" data-c="${x.id}">${x.shortName}</a>`).join(', '):''; }
+function setHash(){ const p=new URLSearchParams(); if(st.piece)p.set('piece',st.piece); else if(st.composer)p.set('composer',st.composer); else p.set('era',st.era);
+  if(st.instrument)p.set('instrument',st.instrument); history.replaceState(null,'','#'+p.toString()); }
+function mark(){ const era=st.piece?PIECES.find(p=>p.id===st.piece).era:st.era;
+  eraBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===era&&!st.piece&&!st.composer));
+  pBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===st.piece));
+  $('fComposer').value=st.composer||''; $('fInstr').value=st.instrument||''; }
+function setEra(id,keepI){ st={era:id,instrument:keepI?st.instrument:undefined}; apply(layoutFor(id),L[id]); mark(); setHash(); }
+function setPiece(p,asComposer){ st={era:p.era,piece:asComposer?undefined:p.id,composer:asComposer}; apply(pieceDefs(p),{...p,name:p.label.split(' · ')[1]}); mark(); setHash(); }
+function setComposer(id){ const c=COMP[id]; if(!c)return; const p=PIECES.find(p=>p.composer===id);
+  if(p) setPiece(p,id); else { const e=ERA_OF[c.era]; st={era:e,composer:id}; apply(layoutFor(e),{...L[e],year:`${c.birthYear} – ${c.deathYear}`,name:`${c.shortName}\u2019s orchestra`,lead:`${L[e].name}, as ${c.shortName} knew it`}); mark(); setHash(); }
+  openComposer(id); }
+const sidsFor=iid=>Object.keys(S).filter(k=>S[k][2]===iid||(iid==='snare-drum'&&k==='pc'));
+const present=()=>[...new Set([...seats.values()].filter(s=>!s.dead).map(s=>s.sid))];
+function setInstrument(iid){ if(!iid){ st.instrument=undefined; focusS=new Set(); closeCard(); mark(); setHash(); return; }
+  const sids=sidsFor(iid); if(!sids.length)return; const inLayout=(defs)=>defs.some(d=>sids.includes(d[0])&&d[1]>0);
+  const curDefs=st.piece?pieceDefs(PIECES.find(p=>p.id===st.piece)):layoutFor(st.era);
+  if(!inLayout(curDefs)){ const e=['classical','romantic','modern','baroque','renaissance'].find(e=>inLayout(L[e].s)); if(e) setEra(e); }
+  st.instrument=iid; focusS=new Set(sids); const curPresent=(st.piece?pieceDefs(PIECES.find(p=>p.id===st.piece)):layoutFor(st.era)).map(d=>d[0]);
+  openInstrument(sids.find(s=>curPresent.includes(s))||sids[0]); mark(); setHash(); }
+const eraBox=$('eras'), pBox=$('pieces');
+Object.entries(L).forEach(([id])=>{const b=document.createElement('button');b.className='btn';b.textContent=id;b.dataset.id=id;b.onclick=()=>setEra(id);eraBox.appendChild(b);});
 PIECES.forEach(p=>{const b=document.createElement('button');b.className='btn';b.textContent=p.label;b.dataset.id=p.id;b.onclick=()=>setPiece(p);pBox.appendChild(b);});
-function mark(era,piece){ eraBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===era&&!piece)); pBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===piece)); }
+$('fComposer').innerHTML='<option value="">Composer…</option>'+[...D.composers].sort((a,b)=>a.birthYear-b.birthYear).map(c=>`<option value="${c.id}">${c.name} (${c.birthYear}–${c.deathYear})</option>`).join('');
+const FAMS={strings:'Strings',woodwinds:'Woodwinds',brass:'Brass',percussion:'Percussion',keyboards:'Keyboards',voice:'Voices'};
+$('fInstr').innerHTML='<option value="">Instrument or voice…</option>'+Object.entries(FAMS).map(([f,n])=>`<optgroup label="${n}">${D.instruments.filter(i=>i.family===f).map(i=>`<option value="${i.id}">${i.name}</option>`).join('')}</optgroup>`).join('');
+$('fComposer').onchange=e=>{ sound.unlock(); e.target.value?setComposer(e.target.value):setEra(st.era); };
+$('fInstr').onchange=e=>{ sound.unlock(); setInstrument(e.target.value); };
+$('bShare').onclick=()=>{ const b=$('bShare'); navigator.clipboard?.writeText(location.href).then(()=>{b.textContent='Link copied';setTimeout(()=>b.textContent='Share this view',1800);}).catch(()=>{}); };
+const bS=$('bSilence'); const paintS=()=>{bS.textContent=silent?'Sound off':'Silence';bS.setAttribute('aria-pressed',silent);}; paintS();
+bS.onclick=()=>{silent=!silent;localStorage.setItem('roe-silent',silent?'1':'0');paintS();};
+document.addEventListener('click',e=>{ const a=e.target.closest('a.who'); if(a){ e.preventDefault(); sound.unlock(); openComposer(a.dataset.c); } });
+// ---------- cards ----------
+const ERAS=['renaissance','baroque','classical','early-romantic','late-romantic','modern'];
+function openInstrument(sid){ const [label,fam,iid]=S[sid]; const I=INST[iid]||LOCAL[sid]||{}; const X=XTRA[iid]; card={kind:'inst',sid};
+  const goat=X&&X.goat?(typeof X.goat==='string'?{name:X.goat}:X.goat):null; const sc=X&&X.showcase;
+  const pr=Object.fromEntries((I.eraProminence||[]).map(p=>[p.era,p.prominence])); const HH={primary:1,secondary:.6,occasional:.3,rare:.15};
+  $('card').innerHTML=`<div class="k">${FAMN[fam]} · ${label}</div><h3>${I.name||label}</h3>${I.range?`<div class="k dim">Range ${I.range}</div>`:''}
+   <p class="role">${I.role||''}</p><p>${I.description||''}</p>
+   ${sc?`<div class="show"><div class="k">Hear it shine</div><b>${sc.title}</b><i>${sc.composerId?`<a class="who" data-c="${sc.composerId}">${sc.composerName}</a>`:sc.composerName} · ${sc.year}</i><p>${sc.why}</p><a class="btn" href="${sc.spotifyUrl}" target="_blank" rel="noopener">Listen on Spotify</a></div>`:''}
+   ${goat?`<div class="goat"><span class="k">Widely called the greatest</span><b>${goat.name}</b>${goat.note?`<span class="n">${goat.note}</span>`:''}</div>`:''}
+   ${X&&X.greats&&X.greats.length?`<div class="k">Great players</div><ul>${X.greats.map(p=>`<li><b>${p.name}</b> · ${p.note}</li>`).join('')}</ul>`:''}
+   ${I.eraProminence?`<div class="k">Through the eras</div><div class="eras">${ERAS.map(e=>`<span><i style="height:${(HH[pr[e]]||0)*100}%"></i>${e.replace('-romantic','-rom')}</span>`).join('')}</div>`:''}
+   <div class="row"><button class="btn" id="cHear">Hear it alone</button></div>`;
+  $('cHear').onclick=()=>{sound.unlock().then(()=>motif(sid,.7,0,.4));};
+  $('card').classList.add('open'); $('card').scrollTop=0; $('hint').style.opacity=0; if(sound.started) motif(sid,.6,0,.34); }
+function openComposer(id){ const c=COMP[id]; if(!c)return; card={kind:'comp',id}; const Lf=LIVES[id];
+  const works=D.compositions.filter(w=>w.composerId===id).sort((a,b)=>a.yearComposed-b.yearComposed).slice(0,5);
+  const seated=st.composer===id||(st.piece&&PIECES.find(p=>p.id===st.piece)?.composer===id);
+  $('card').innerHTML=`<div class="k">${ERAN[c.era]||c.era} · ${c.nationality}</div><h3>${c.name}</h3><div class="k dim">${c.birthYear} – ${c.deathYear} · ${c.birthPlace}</div>
+   ${Lf?`<canvas id="mini"></canvas><div class="mlg"><span><i style="background:#e7c784"></i>music written</span><span><i style="background:#cfe0ff"></i>public standing</span></div>`:''}
+   <div class="bio">${c.biography}</div>
+   <div class="k">Works to hear</div><ul>${works.map(w=>`<li><b>${w.title}</b> · ${w.yearComposed}<a href="${w.spotifyUrl}" target="_blank" rel="noopener">Listen on Spotify</a></li>`).join('')}</ul>
+   <div class="row"><a class="btn" href="river.html#focus=${id}">Follow the life in the River</a>${seated?'':'<button class="btn" id="cSeat">Seat their orchestra</button>'}</div>`;
+  if(!seated) $('cSeat').onclick=()=>setComposer(id);
+  $('card').classList.add('open'); $('card').scrollTop=0; $('hint').style.opacity=0; if(Lf) requestAnimationFrame(()=>drawMini(c,Lf)); }
+function drawMini(c,Lf){ const m=$('mini'); if(!m)return; const w=m.clientWidth,h=m.clientHeight,d=Math.min(devicePixelRatio,2); m.width=w*d;m.height=h*d; const x=m.getContext('2d'); x.scale(d,d);
+  const pts=Lf.pts, y0=c.birthYear, y1=c.deathYear, X=y=>8+(y-y0)/(y1-y0)*(w-16), Y=v=>h-14-v*(h-22);
+  x.beginPath(); x.moveTo(X(y0),Y(0)); pts.forEach(p=>x.lineTo(X(p[0]),Y(p[1]))); x.lineTo(X(y1),Y(0)); x.closePath();
+  const gr=x.createLinearGradient(0,0,0,h); gr.addColorStop(0,'rgba(231,199,132,.55)'); gr.addColorStop(1,'rgba(231,199,132,.05)'); x.fillStyle=gr; x.fill();
+  x.beginPath(); pts.forEach((p,i)=>i?x.lineTo(X(p[0]),Y(p[2])):x.moveTo(X(p[0]),Y(p[2]))); x.strokeStyle='rgba(207,224,255,.85)'; x.lineWidth=1.2; x.stroke();
+  x.font='600 10px Cormorant Garamond'; x.fillStyle='#efd497'; x.textAlign='left'; x.fillText(y0,2,h-2); x.textAlign='right'; x.fillText(y1,w-2,h-2); }
+function closeCard(){ card=null; $('card').classList.remove('open'); $('hint').style.opacity=''; if(st.instrument){ st.instrument=undefined; focusS=new Set(); mark(); setHash(); } }
+addEventListener('keydown',e=>{ if(e.key==='Escape') closeCard(); });
 // ---------- projection ----------
-function proj(x,z){ const d=9, k=d/(z+d), sx=Math.min(W*.062,H*.11); return {x:W*.5+x*sx*k, y:H*.80-(1-k)*H*.98, p:k*Math.min(1.25,H/800)}; }
-// ---------- draw ----------
-let T=0;
-function draw(dt){ T+=dt;
-  g.globalCompositeOperation='source-over'; g.fillStyle='#090706'; g.fillRect(0,0,W,H);
-  g.globalCompositeOperation='lighter';
-  // shafts from high windows
-  for(let i=0;i<5;i++){ const sx=W*(.2+i*.15)+Math.sin(T*.1+i)*20, w=W*.06; const gr=g.createLinearGradient(0,0,0,H*.9); gr.addColorStop(0,'rgba(255,190,120,.05)'); gr.addColorStop(1,'rgba(255,190,120,0)');
-    g.fillStyle=gr; g.beginPath(); g.moveTo(sx-w*.3,0); g.lineTo(sx+w*.3,0); g.lineTo(sx+w*1.8+(i-2)*60,H*.9); g.lineTo(sx-w*1.2+(i-2)*60,H*.9); g.fill(); }
-  // stage floor glow
-  const c0=proj(0,2.5); const fg=g.createRadialGradient(c0.x,c0.y,0,c0.x,c0.y,W*.5); fg.addColorStop(0,'rgba(255,170,90,.10)'); fg.addColorStop(1,'rgba(255,170,90,0)'); g.fillStyle=fg; g.fillRect(0,0,W,H);
+function proj(x,z,h=0){ const d=9, k=d/(z+d), nar=W<760, sx=Math.min(W*(nar?.105:.062),H*.11), dep=Math.min(H*.98,sx*10); return {x:W*.5+x*sx*k, y:H*(nar?.70:.80)-(1-k)*dep-h*sx*k*.9, p:k*Math.min(1.25,H/800,sx/80+.2), k}; }
+const rgb=hex=>[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255);
+// ---------- haze (WebGL) ----------
+const FS=`precision highp float;uniform vec2 uRes;uniform float uT;uniform vec4 uA[24];uniform vec4 uB[24];uniform vec3 uC[24];uniform int uN;uniform vec3 uStage;
+float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+1.),f.x),f.y);}
+float fbm(vec2 p){float a=.5,s=0.;for(int i=0;i<5;i++){s+=a*vn(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return s;}
+void main(){vec2 p=gl_FragCoord.xy;vec2 q=p/uRes.y;
+ float sm=fbm(q*vec2(2.,3.2)+vec2(uT*.015,-uT*.03));float sm2=fbm(q*5.+vec2(-uT*.02,uT*.012)+sm);
+ float smoke=smoothstep(.3,.95,sm*.65+sm2*.45);
+ vec3 col=vec3(.016,.012,.009);
+ vec2 sd=(p-uStage.xy)/vec2(uStage.z,uStage.z*.36);float sg=exp(-dot(sd,sd)*1.1);
+ col+=vec3(1.,.66,.38)*sg*(.02+.04*smoke);
+ for(int i=0;i<24;i++){if(i>=uN)break;vec2 a=uA[i].xy,b=uA[i].zw;vec2 ab=b-a;float t=clamp(dot(p-a,ab)/dot(ab,ab),0.,1.);
+  float r=mix(uB[i].x,uB[i].y,t);float d=length(p-a-ab*t);float I=uB[i].z;
+  float cone=exp(-d*d/(r*r))*(.12+.88*t*t);
+  col+=uC[i]*cone*I*(.05+.75*smoke*smoke+.25*smoke);
+  vec2 e=(p-b)/vec2(uB[i].y*1.3,uB[i].y*.42);col+=uC[i]*exp(-dot(e,e)*1.3)*I*(.09+.09*smoke);
+  float lg=length(p-a);col+=uC[i]*I*exp(-lg*lg/(uB[i].x*uB[i].x*5.))*.7;}
+ col+=vec3(.9,.7,.5)*smoke*smoke*.02*(.3+sg);
+ gl_FragColor=vec4(col,1.);}`;
+let uh=null;
+if(gl){ const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(o));return o;};
+  const pr=gl.createProgram(); gl.attachShader(pr,sh(gl.VERTEX_SHADER,'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}')); gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,FS)); gl.linkProgram(pr); gl.useProgram(pr);
+  const buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  const al=gl.getAttribLocation(pr,'a'); gl.enableVertexAttribArray(al); gl.vertexAttribPointer(al,2,gl.FLOAT,false,0,0);
+  const U=n=>gl.getUniformLocation(pr,n); uh={res:U('uRes'),t:U('uT'),a:U('uA[0]'),b:U('uB[0]'),c:U('uC[0]'),n:U('uN'),st:U('uStage')}; gl.viewport(0,0,hz.width,hz.height); }
+// ---------- simulation ----------
+const lvlOf=sid=>Math.max(active[sid]||0, sid===hoverS?.5:0, card&&card.kind==='inst'&&card.sid===sid?.7:0, focusS.has(sid)?.6:0);
+function step(dt){ T+=dt; let moving=false;
+  for(const [k,s] of seats){ if(s.delay>0){ s.delay-=dt; moving=true; s.walk=false; }
+    else { const dx=s.x-s.cx, dz=s.z-s.cz, d=Math.hypot(dx,dz); if(d>.01){ const m=Math.min(d,s.speed*dt); s.cx+=dx/d*m; s.cz+=dz/d*m; s.walk=true; moving=true; } else { s.cx=s.x; s.cz=s.z; s.walk=false; } }
+    const off=Math.abs(s.cx)>WING-.8; s.a+=(((s.dead&&off)||(!s.dead&&off&&s.delay>0))?0:1)-s.a>0?Math.min(1-s.a,dt*2.5):-Math.min(s.a,dt*2.5);
+    if(s.dead&&!s.walk&&s.delay<=0) seats.delete(k); }
+  for(const sid in CAR){ const c=CAR[sid], kk=Math.min(1,dt*2); ['a0','a1','R0','R1'].forEach(f=>c[f]+=(c.t[f]-c[f])*kk); c.al+=((c.on?1:0)-c.al)*Math.min(1,dt*1.4); if(!c.on&&c.al<.01) delete CAR[sid]; }
+  // cacophony while players move; tune together and raise the baton once everyone is seated
+  if(moving&&sound.started&&!silent){ const seated=[...seats.values()].filter(s=>!s.dead&&!s.walk&&s.delay<=0); cacT-=dt;
+    if(cacT<=0&&seated.length){ cacT=Math.max(.06,.9/Math.sqrt(seated.length+1)); tune(seated[Math.random()*seated.length|0].sid); } }
+  if(wasMoving&&!moving&&pendingSync){ pendingSync=false; if(sound.started&&!silent) syncUp(); }
+  wasMoving=moving; baton=Math.max(0,baton-dt*.35);
+  for(const sid in active) active[sid]*=Math.pow(.25,dt); }
+function tune(sid){ const [,fam,,patch,notes]=S[sid]; const pan=sectionPan(sid);
+  if(fam==='perc'){ if(Math.random()<.4) P(patch,notes[0],{vel:.1+Math.random()*.1,dur:.3,pan,tag:sid}); return; }
+  const pat=fam==='voices'?'oohs':patch, A=69+12*Math.round((notes[0]-69)/12);
+  if(Math.random()<.55) P(pat,A,{dur:.8+Math.random()*1.6,vel:.13+Math.random()*.12,detune:(Math.random()-.5)*55,pan,tag:sid});
+  else { const n=3+(Math.random()*4|0), stp=.08+Math.random()*.08, t0=sound.now(); for(let i=0;i<n;i++){ let m=notes[Math.random()*notes.length|0]; if(m<72&&Math.random()<.3)m+=12; P(pat,m,{when:t0+i*stp,dur:stp*1.4,vel:.1+Math.random()*.1,pan,tag:sid}); } } }
+function syncUp(){ const pr=present(); if(!pr.length)return; const t0=sound.now()+.5;
+  const giver=['ob','org','hc','fp'].find(s=>pr.includes(s))||pr[0];
+  P(S[giver][1]==='voices'?'oohs':S[giver][3],69,{when:t0,dur:2.2,vel:.5,tag:giver,pan:sectionPan(giver)});
+  pr.forEach(sid=>{ if(S[sid][1]==='perc')return; const A=69+12*Math.round((S[sid][4][0]-69)/12); P(S[sid][1]==='voices'?'oohs':S[sid][3],A,{when:t0+1.3+Math.random()*.3,dur:2.3,vel:.3,voices:2,pan:sectionPan(sid),tag:sid}); });
+  syncTimer=setTimeout(raiseBaton,4600); }
+// ---------- render ----------
+const KH={fiddle:0,cello:0,bass:0,lute:0,harp:0,flute:0,reed:0,bassoon:0,horn:0,trumpet:0,trombone:0,tuba:0,timp:0,drum:0,keys:0,voice:0};
+function glyph(kind,x,y,u){ g.beginPath();
+  switch(kind){
+   case 'fiddle': g.moveTo(x+u*.3,y+u*.25); g.lineTo(x-u*1.3,y+u*.95); g.moveTo(x+u*.55,y+u*.5); g.ellipse(x+u*.1,y+u*.5,u*.45,u*.22,.45,0,7); break;
+   case 'cello': g.ellipse(x,y+u*2.05,u*.55,u*.95,0,0,7); g.moveTo(x,y+u*1.1); g.lineTo(x+u*.15,y-u*.1); break;
+   case 'bass': g.ellipse(x+u*1.05,y+u*1.7,u*.7,u*1.3,0,0,7); g.moveTo(x+u*1.05,y+u*.4); g.lineTo(x+u*1.1,y-u*1.1); break;
+   case 'lute': g.ellipse(x-u*.2,y+u*1.25,u*.6,u*.45,0,0,7); g.moveTo(x+u*.3,y+u*1.05); g.lineTo(x+u*1.4,y+u*.35); break;
+   case 'harp': g.moveTo(x+u*.7,y-u*1.6); g.lineTo(x+u*.7,y+u*2.3); g.lineTo(x+u*2.,y+u*2.1); g.closePath(); break;
+   case 'flute': g.moveTo(x+u*.1,y+u*.15); g.lineTo(x+u*1.9,y+u*.45); break;
+   case 'reed': g.moveTo(x,y+u*.4); g.lineTo(x+u*.12,y+u*1.7); break;
+   case 'bassoon': g.moveTo(x+u*.2,y+u*.2); g.lineTo(x+u*.45,y+u*2.3); break;
+   case 'horn': g.arc(x+u*.95,y+u*1.05,u*.55,0,7); break;
+   case 'trumpet': g.moveTo(x+u*.4,y+u*.1); g.lineTo(x+u*1.7,y+u*.2); g.moveTo(x+u*1.95,y+u*.2); g.arc(x+u*1.7,y+u*.2,u*.25,0,7); break;
+   case 'trombone': g.moveTo(x+u*.4,y+u*.05); g.lineTo(x+u*2.4,y+u*.35); g.moveTo(x+u*.4,y+u*.3); g.lineTo(x+u*2.3,y+u*.6); break;
+   case 'tuba': g.arc(x,y+u*1.25,u*.8,0,7); g.moveTo(x+u*.8,y-u*.4); g.ellipse(x+u*.35,y-u*.4,u*.45,u*.18,0,0,7); break;
+   case 'timp': g.ellipse(x,y+u*2.1,u*1.35,u*.45,0,0,7); break;
+   case 'drum': g.ellipse(x+u*.7,y+u*1.8,u*.6,u*.25,0,0,7); break;
+   case 'keys': g.rect(x-u*1.5,y+u*1.5,u*3,u*.6); break;
+   case 'voice': g.rect(x-u*.38,y+u*.95,u*.76,u*.45); break; }
+  g.stroke(); }
+function render(){ g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
   // risers
-  g.lineWidth=1; for(let r=0;r<=6;r++){ const R=ringR(r)-.25; g.beginPath(); for(let a=0;a<=180;a+=3){ const th=a*Math.PI/180, q=proj(-Math.cos(th)*R,Math.sin(th)*R); a?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y);} g.strokeStyle=`rgba(201,165,92,${.16-r*.015})`; g.stroke(); }
-  // section spotlights
-  const cent={}; for(const s of seats.values()){ if(s.dead)continue; const c=cent[s.sid]||(cent[s.sid]={x:0,z:0,n:0}); c.x+=s.x;c.z+=s.z;c.n++; }
-  for(const sid in cent){ const lvl=Math.max(active[sid]||0, sid===hoverS?.55:0, sid===cardS?.7:0); if(lvl<.02)continue; const c=cent[sid], q=proj(c.x/c.n,c.z/c.n); const col=FAM[S[sid][1]];
-    const rad=40+Math.sqrt(c.n)*22*q.p; const gr=g.createLinearGradient(q.x,0,q.x,q.y); gr.addColorStop(0,col+'00'); gr.addColorStop(1,col+Math.round(lvl*60).toString(16).padStart(2,'0'));
-    g.fillStyle=gr; g.beginPath(); g.moveTo(q.x-rad*.15,0); g.lineTo(q.x+rad*.15,0); g.lineTo(q.x+rad,q.y); g.lineTo(q.x-rad,q.y); g.fill();
-    const pg=g.createRadialGradient(q.x,q.y,0,q.x,q.y,rad*1.2); pg.addColorStop(0,col+Math.round(lvl*90).toString(16).padStart(2,'0')); pg.addColorStop(1,col+'00'); g.fillStyle=pg; g.beginPath(); g.ellipse(q.x,q.y,rad*1.2,rad*.45,0,0,7); g.fill(); }
-  // musicians (back to front)
-  const arr=[...seats.values()].sort((a,b)=>b.cz-a.cz); const k=Math.min(1,dt*3.2);
-  for(const s of arr){ s.cx+=(s.x-s.cx)*k; s.cz+=(s.z-s.cz)*k; s.a+=((s.dead?0:1)-s.a)*Math.min(1,dt*2.5); if(s.dead&&s.a<.01){seats.delete(s.key);continue;}
-    const q=proj(s.cx,s.cz), col=FAM[S[s.sid][1]], lvl=Math.max(active[s.sid]||0, s.sid===hoverS?.5:0, s.sid===cardS?.6:0);
-    const sway=Math.sin(T*(1.2+lvl*5)+s.ph)*(1+lvl*3)*q.p; const r=(6+lvl*3.5)*q.p; const y=q.y-10*q.p+sway*.4;
-    const halo=g.createRadialGradient(q.x,y,0,q.x,y,r*(5+lvl*2.2)); halo.addColorStop(0,col+(lvl>.1?'cc':'aa')); halo.addColorStop(.3,col+(lvl>.1?'55':'2a')); halo.addColorStop(1,col+'00');
-    g.globalAlpha=s.a; g.fillStyle=halo; g.fillRect(q.x-r*10,y-r*10,r*20,r*20);
-    g.fillStyle='rgba(20,14,10,.9)'; g.beginPath(); g.ellipse(q.x,y+r*1.3,r*.9,r*1.1,0,Math.PI,0); g.fill(); g.strokeStyle=col+'aa'; g.lineWidth=.8; g.stroke(); g.fillStyle='rgba(255,236,200,.95)'; g.beginPath(); g.arc(q.x,y-r*.1,r*.5,0,7); g.fill();
-    g.fillStyle='rgba(255,200,130,.35)'; g.fillRect(q.x-r*.9,q.y-2*q.p,r*1.8,1.2*q.p); g.globalAlpha=1; } // stand light
-  // conductor & baton
-  const pc=proj(0,-.2); g.fillStyle='rgba(239,212,151,.9)'; g.beginPath(); g.arc(pc.x,pc.y-16,5,0,7); g.fill();
-  const bx=pc.x+(mouse.x-pc.x)*.06, by=pc.y-22+(mouse.y-pc.y)*.04-Math.abs(Math.sin(T*2.2))*6;
-  g.strokeStyle='rgba(255,240,210,.85)'; g.lineWidth=1.3; g.beginPath(); g.moveTo(pc.x+3,pc.y-19); g.lineTo(bx+18,by-14); g.stroke();
-  const bg=g.createRadialGradient(bx+18,by-14,0,bx+18,by-14,30); bg.addColorStop(0,'rgba(255,240,210,.5)'); bg.addColorStop(1,'rgba(255,240,210,0)'); g.fillStyle=bg; g.fillRect(bx-12,by-44,60,60);
-  const pg=g.createRadialGradient(pc.x,pc.y,0,pc.x,pc.y,60); pg.addColorStop(0,'rgba(239,212,151,.25)'); pg.addColorStop(1,'rgba(239,212,151,0)'); g.fillStyle=pg; g.beginPath(); g.ellipse(pc.x,pc.y,60,16,0,0,7); g.fill();
-  g.globalCompositeOperation='source-over';
-  for(const sid in active) active[sid]*=Math.pow(.25,dt);
-}
+  g.lineWidth=1; for(let r=0;r<=7;r++){ const R=ringR(r)-.26; g.beginPath(); for(let a=-6;a<=186;a+=3){ const th=a*Math.PI/180, q=proj(-Math.cos(th)*R,Math.sin(th)*R); a>-6?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y);} g.strokeStyle=`rgba(201,165,92,${.11-r*.011})`; g.stroke(); }
+  // section carpets
+  const cent={};
+  for(const s of seats.values()){ if(s.dead)continue; const q=proj(s.cx,s.cz); const c=cent[s.sid]||(cent[s.sid]={x:0,z:0,n:0,mn:1e9,mx:-1e9}); c.x+=s.cx;c.z+=s.cz;c.n++; c.mn=Math.min(c.mn,q.x); c.mx=Math.max(c.mx,q.x); }
+  for(const sid in CAR){ const c=CAR[sid], col=S[sid][5], lv=lvlOf(sid); g.beginPath(); const a0=c.a0+.8, a1=c.a1-.8;
+    for(let a=a0;a<=a1+.01;a+=Math.max(1,(a1-a0)/24)){ const th=a*Math.PI/180, q=proj(-Math.cos(th)*c.R1,Math.sin(th)*c.R1); g.lineTo(q.x,q.y); }
+    for(let a=a1;a>=a0-.01;a-=Math.max(1,(a1-a0)/24)){ const th=a*Math.PI/180, q=proj(-Math.cos(th)*c.R0,Math.sin(th)*c.R0); g.lineTo(q.x,q.y); }
+    g.closePath(); g.globalAlpha=c.al; g.fillStyle=col+(lv>.3?'2a':'12'); g.fill(); g.strokeStyle=col+(lv>.3?'b0':'55'); g.lineWidth=lv>.3?1.4:.9; g.stroke(); g.globalAlpha=1; }
+  // truss lamps (one fixture per section, hung over it)
+  const cones=[];
+  for(const sid in CAR){ const c=CAR[sid]; if(c.al<.02)continue; const th=((c.a0+c.a1)/2)*Math.PI/180, R=(c.R0+c.R1)/2, RT=R<4.2?2.9:R<6.4?5.4:7.6;
+    const L0=proj(-Math.cos(th)*RT,Math.sin(th)*RT,6.4), F=proj(-Math.cos(th)*R,Math.sin(th)*R), e0=proj(-Math.cos(c.a0*Math.PI/180)*R,Math.sin(c.a0*Math.PI/180)*R), e1=proj(-Math.cos(c.a1*Math.PI/180)*R,Math.sin(c.a1*Math.PI/180)*R), lv=lvlOf(sid);
+    cones.push({sid,L0,F,r0:5*L0.k,r1:Math.max(24*F.k,Math.hypot(e1.x-e0.x,e1.y-e0.y)/2+10*F.p),I:c.al*(.5+1.1*lv),col:rgb(S[sid][5])}); }
+  g.globalCompositeOperation='lighter';
+  for(const t of [2.9,5.4,7.6]){ g.beginPath(); for(let a=8;a<=172;a+=4){ const th=a*Math.PI/180, q=proj(-Math.cos(th)*t,Math.sin(th)*t,6.4); a>8?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y);} g.strokeStyle='rgba(201,165,92,.09)'; g.lineWidth=1; g.stroke(); }
+  for(const c of cones){ g.fillStyle=S[c.sid][5]; g.globalAlpha=Math.min(1,.35+c.I*.6); g.beginPath(); g.ellipse(c.L0.x,c.L0.y,3.2*c.L0.k+1,1.6*c.L0.k+.6,0,0,7); g.fill(); g.globalAlpha=1; }
+  // musicians, back to front
+  const arr=[...seats.values()].sort((a,b)=>b.cz-a.cz);
+  for(const s of arr){ const q=proj(s.cx,s.cz), col=S[s.sid][5], kind=S[s.sid][6], lv=lvlOf(s.sid);
+    const walkB=s.walk?Math.abs(Math.sin(T*9+s.ph))*2.4*q.p:0, stand=s.walk||kind==='voice'||kind==='bass'||kind==='harp';
+    const sway=s.walk?0:Math.sin(T*(1.2+lv*5)+s.ph)*(1+lv*3)*q.p; const r=(5.6+lv*3)*q.p; const y=q.y-(stand?15:10)*q.p+sway*.4-walkB;
+    g.globalAlpha=s.a; g.globalCompositeOperation='lighter';
+    const hr=r*(s.walk?3:4.6+lv*2.2); const halo=g.createRadialGradient(q.x,y,0,q.x,y,hr); halo.addColorStop(0,col+(lv>.1?'c0':'80')); halo.addColorStop(.3,col+(lv>.1?'48':'1e')); halo.addColorStop(1,col+'00');
+    g.fillStyle=halo; g.fillRect(q.x-hr,y-hr,hr*2,hr*2);
+    g.globalCompositeOperation='source-over';
+    g.fillStyle='rgba(18,13,9,.92)'; g.beginPath(); if(stand) g.ellipse(q.x,y+r*1.7,r*.8,r*1.6,0,Math.PI,0); else g.ellipse(q.x,y+r*1.3,r*.9,r*1.1,0,Math.PI,0); g.fill();
+    g.strokeStyle=col+'b0'; g.lineWidth=Math.max(.7,.9*q.p); g.stroke();
+    g.fillStyle='rgba(255,236,200,.95)'; g.beginPath(); g.arc(q.x,y-r*.1,r*.5,0,7); g.fill();
+    g.strokeStyle=col+(lv>.1?'ff':'d0'); g.lineWidth=Math.max(.8,1.1*q.p); glyph(kind,q.x,y,r);
+    if(!s.walk){ g.fillStyle='rgba(255,200,130,.3)'; g.fillRect(q.x-r*.9,q.y-2*q.p,r*1.8,1.2*q.p); }
+    g.globalAlpha=1; }
+  // section names on the carpet edge
+  g.textAlign='center'; g.textBaseline='top';
+  for(const sid in CAR){ const c=CAR[sid]; if(c.al<.05)continue; const th=((c.a0+c.a1)/2)*Math.PI/180, q=proj(-Math.cos(th)*c.R0,Math.sin(th)*c.R0), lv=lvlOf(sid);
+    g.font=`${Math.round(8+3*q.p)}px Cinzel`; g.letterSpacing='1.5px'; const nm=(S[sid][7]||S[sid][0]).toUpperCase();
+    const e0=proj(-Math.cos(c.a0*Math.PI/180)*c.R0,Math.sin(c.a0*Math.PI/180)*c.R0), e1=proj(-Math.cos(c.a1*Math.PI/180)*c.R0,Math.sin(c.a1*Math.PI/180)*c.R0);
+    if(lv<.3&&g.measureText(nm).width>Math.abs(e1.x-e0.x)*1.05) continue; g.globalAlpha=c.al*(lv>.3?1:.5); g.shadowColor='#000'; g.shadowBlur=6; g.fillStyle=lv>.3?'#fff3da':S[sid][5]; g.fillText(nm,q.x,q.y+3); g.shadowBlur=0; g.globalAlpha=1; }
+  g.letterSpacing='0px';
+  // podium, conductor & baton
+  const pc=proj(0,-.35); g.fillStyle='rgba(30,22,15,.95)'; g.beginPath(); g.ellipse(pc.x,pc.y,26,8,0,0,7); g.fill(); g.strokeStyle='rgba(239,212,151,.45)'; g.stroke();
+  g.fillStyle='rgba(18,13,9,.95)'; g.beginPath(); g.ellipse(pc.x,pc.y-14,8,15,0,Math.PI,0); g.fill(); g.strokeStyle='rgba(239,212,151,.6)'; g.stroke();
+  g.fillStyle='rgba(255,236,200,.95)'; g.beginPath(); g.arc(pc.x,pc.y-34,5.5,0,7); g.fill();
+  const up=baton>0?Math.min(1,baton*3):0, bx=pc.x+14+(mouse.x-pc.x)*.04, by=pc.y-40-up*26-(baton>0?Math.abs(Math.sin(T*3.2))*8:Math.abs(Math.sin(T*1.4))*3)+(mouse.y-pc.y)*.02;
+  g.strokeStyle='rgba(255,240,210,.9)'; g.lineWidth=1.4; g.beginPath(); g.moveTo(pc.x+5,pc.y-26); g.lineTo(bx,by); g.lineTo(bx+16,by-12-up*6); g.stroke();
+  g.globalCompositeOperation='lighter'; const bg=g.createRadialGradient(bx+16,by-12,0,bx+16,by-12,30+up*30); bg.addColorStop(0,`rgba(255,240,210,${.45+up*.4})`); bg.addColorStop(1,'rgba(255,240,210,0)'); g.fillStyle=bg; g.fillRect(bx-50,by-80,130,130); g.globalCompositeOperation='source-over';
+  const cc=curComposer(); if(cc){ g.font='12px Cinzel'; g.letterSpacing='3px'; g.fillStyle=onPodium(mouse.x,mouse.y)?'#fff3da':'rgba(239,212,151,.85)'; g.shadowColor='#000'; g.shadowBlur=8; g.fillText(cc.name.toUpperCase(),pc.x,pc.y+14); g.shadowBlur=0; g.letterSpacing='0px'; }
+  // haze
+  if(uh){ const n=Math.min(24,cones.length), A=new Float32Array(96), B=new Float32Array(96), C=new Float32Array(72);
+    cones.slice(0,n).forEach((c,i)=>{ A.set([c.L0.x*HS,(H-c.L0.y)*HS,c.F.x*HS,(H-c.F.y)*HS],i*4); B.set([c.r0*HS,c.r1*HS,c.I,0],i*4); C.set(c.col,i*3); });
+    gl.uniform2f(uh.res,hz.width,hz.height); gl.uniform1f(uh.t,T); gl.uniform4fv(uh.a,A); gl.uniform4fv(uh.b,B); gl.uniform3fv(uh.c,C); gl.uniform1i(uh.n,n);
+    const sc=proj(0,3.2); gl.uniform3f(uh.st,sc.x*HS,(H-sc.y)*HS,W*.42*HS); gl.drawArrays(gl.TRIANGLES,0,3); } }
 // ---------- interaction & sound ----------
-const tip=document.getElementById('tip'); let lastPlay=0;
-function pickSection(mx,my){ let best=null,bd=1e9; for(const s of seats.values()){ if(s.dead)continue; const q=proj(s.cx,s.cz); const d=Math.hypot(q.x-mx,q.y-10*q.p-my); if(d<bd&&d<26*q.p+6){bd=d;best=s.sid;} } return best; }
-cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=pickSection(e.clientX,e.clientY);
-  if(s!==hoverS){ hoverS=s; if(s&&sound.started&&performance.now()-lastPlay>160){lastPlay=performance.now(); motif(s,.4);} }
-  if(s){ const n=[...seats.values()].filter(o=>o.sid===s&&!o.dead).length; tip.innerHTML=`<b>${S[s][0]}</b><span>${n} player${n>1?'s':''} · ${S[s][1]}</span>`; tip.style.opacity=1; tip.style.left=(e.clientX+16)+'px'; tip.style.top=(e.clientY+16)+'px'; cv.style.cursor='pointer'; }
-  else { tip.style.opacity=0; cv.style.cursor=''; } });
-cv.addEventListener('click',e=>{ sound.unlock(); preload(); const s=pickSection(e.clientX,e.clientY); if(s) openCard(s); else closeCard(); });
+const tip=$('tip'); let lastPlay=0;
+function onPodium(mx,my){ const pc=proj(0,-.35); return Math.abs(mx-pc.x)<(curComposer()?90:30)&&my>pc.y-48&&my<pc.y+24; }
+function pickSection(mx,my){ let best=null,bd=1e9; for(const s of seats.values()){ if(s.dead)continue; const q=proj(s.cx,s.cz); const d=Math.hypot(q.x-mx,q.y-10*q.p-my); if(d<bd&&d<24*q.p+8){bd=d;best=s.sid;} } return best; }
+cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=pickSection(e.clientX,e.clientY), pod=!s&&onPodium(e.clientX,e.clientY);
+  if(s!==hoverS){ hoverS=s; if(s&&sound.started&&!wasMoving&&performance.now()-lastPlay>160){lastPlay=performance.now(); motif(s,.38);} }
+  if(s){ const n=[...seats.values()].filter(o=>o.sid===s&&!o.dead).length; tip.innerHTML=`<b>${S[s][0]}</b><span>${n} player${n>1?'s':''} · ${FAMN[S[s][1]]} · click to meet</span>`; }
+  else if(pod){ const c=curComposer(); tip.innerHTML=c?`<b>${c.name}</b><span>click to meet the composer</span>`:`<b>The podium</b><span>pick a composer or piece below</span>`; }
+  if(s||pod){ tip.style.opacity=1; tip.style.left=Math.min(e.clientX+16,W-260)+'px'; tip.style.top=(e.clientY+16)+'px'; cv.style.cursor='pointer'; } else { tip.style.opacity=0; cv.style.cursor=''; } });
+cv.addEventListener('click',e=>{ sound.unlock().then(preload); const s=pickSection(e.clientX,e.clientY);
+  if(s){ st.instrument=S[s][2]||undefined; focusS=new Set(); openInstrument(s); mark(); setHash(); return; }
+  if(onPodium(e.clientX,e.clientY)&&curComposer()){ openComposer(curComposer().id); return; }
+  closeCard(); });
 function sectionPan(sid){ const s=[...seats.values()].filter(o=>o.sid===sid&&!o.dead); if(!s.length)return 0; return Math.max(-.9,Math.min(.9,s.reduce((a,o)=>a+o.x,0)/s.length/6)); }
 function motif(sid,vel=.55,t0=0,step=.28){ const [,,,patch,notes]=S[sid]; const n=[...seats.values()].filter(o=>o.sid===sid&&!o.dead).length; const voices=Math.min(4,Math.max(1,Math.round(Math.sqrt(n))));
-  notes.forEach((m,i)=>sound.play(patch,m,{when:sound.now()+t0+i*step,dur:step*1.6,vel,voices,pan:sectionPan(sid),tag:sid})); }
+  notes.forEach((m,i)=>P(patch,m,{when:sound.now()+t0+i*step,dur:step*1.6,vel,voices,pan:sectionPan(sid),tag:sid})); }
 sound.onNote(n=>{ if(!n.tag)return; const delay=Math.max(0,(n.when-sound.now())*1000); setTimeout(()=>{active[n.tag]=Math.min(1,(active[n.tag]||0)*.5+.9*n.vel+.3);},delay); });
-function preload(){ new Set(Object.values(S).map(s=>s[3])).forEach(p=>sound.load(p)); }
-const ERAS=['renaissance','baroque','classical','early-romantic','late-romantic','modern'];
-function openCard(sid){ cardS=sid; const [label,fam,iid]=S[sid]; const I=INST[iid]||{}; document.getElementById('cFam').textContent=fam+' · '+label;
-  document.getElementById('cName').textContent=I.name||label; document.getElementById('cRange').textContent=I.range?'Range '+I.range:''; document.getElementById('cRole').textContent=I.role||''; document.getElementById('cDesc').textContent=I.description||'';
-  const pr=Object.fromEntries((I.eraProminence||[]).map(p=>[p.era,p.prominence])); const H={primary:1,secondary:.6,occasional:.3,rare:.15};
-  document.getElementById('cEras').innerHTML=ERAS.map(e=>`<span><i style="height:${(H[pr[e]]||0)*100}%"></i>${e.replace('-romantic','-rom')}</span>`).join('');
-  document.getElementById('card').classList.add('open'); if(sound.started) motif(sid,.6,0,.34); }
-function closeCard(){ cardS=null; document.getElementById('card').classList.remove('open'); }
-document.getElementById('cClose').onclick=closeCard; document.getElementById('cHear').onclick=()=>{sound.unlock();cardS&&motif(cardS,.7,0,.4);};
-document.getElementById('tutti').onclick=async()=>{ await sound.unlock(); preload();
-  // a slow swell: low strings, then winds, brass, everything on a final chord
-  const present=new Set([...seats.values()].filter(o=>!o.dead).map(o=>o.sid)); const order=['cb','vc','viol','va','v2','v1','hc','fp','lute','org','ch','rec','bn','cl','ob','fl','pic','cor','sack','hn','tb','tu','tp','hp','cel','ti','pc'].filter(s=>present.has(s));
-  order.forEach((sid,i)=>motif(sid,.45,i*.42,.3));
-  const chord={cb:[38],vc:[50,57],va:[62],v2:[66],v1:[74,78],viol:[50,57],hc:[62,66,69],fp:[62,66,69],org:[38,50,57],ch:[62,66,69,74],lute:[62,69],rec:[74],bn:[50],cl:[69],ob:[74],fl:[81],pic:[86],cor:[74],sack:[50,57],hn:[62,66],tb:[50,57],tu:[38],tp:[74,78],hp:[50,57,62,66,69,74],cel:[86,90],ti:[38],pc:[86]};
-  const t=order.length*.42+.3; order.forEach(sid=>chord[sid].forEach(m=>sound.play(S[sid][3],m,{when:sound.now()+t,dur:3.4,vel:.5,voices:2,pan:sectionPan(sid),tag:sid}))); };
-// deep links: #era=baroque  #piece=m40  #instrument=cello  #lit=v1,hn
+function preload(){ new Set([...Object.values(S).map(s=>s[3]),'oohs']).forEach(p=>sound.load(p)); }
+const ORDER=['cb','vc','viol','va','v2','v1','hc','fp','lute','org','bas','ten','alt','sop','rec','bn','cl','ob','fl','pic','cor','sack','hn','tb','tu','tp','hp','cel','ti','pc'];
+const CHORD={cb:[38],vc:[50,57],va:[62],v2:[66],v1:[74,78],viol:[50,57],hc:[62,66,69],fp:[62,66,69],org:[38,50,57],sop:[74,78],alt:[66,69],ten:[57,62],bas:[43,50],lute:[62,69],rec:[74],bn:[50],cl:[69],ob:[74],fl:[81],pic:[86],cor:[74],sack:[50,57],hn:[62,66],tb:[50,57],tu:[38],tp:[74,78],hp:[50,57,62,66,69,74],cel:[86,90],ti:[38],pc:[86]};
+async function raiseBaton(){ await sound.unlock(); preload(); baton=3; const pr=new Set(present()); const order=ORDER.filter(s=>pr.has(s));
+  order.forEach((sid,i)=>motif(sid,.45,i*.42,.3)); const t=order.length*.42+.3;
+  order.forEach(sid=>CHORD[sid].forEach(m=>P(S[sid][3],m,{when:sound.now()+t,dur:3.4,vel:.5,voices:2,pan:sectionPan(sid),tag:sid}))); baton=Math.max(baton,(t+3)*.35); }
+$('tutti').onclick=()=>{ clearTimeout(syncTimer); pendingSync=false; raiseBaton(); };
+// ---------- boot from URL: #era=baroque  #piece=m40  #composer=gustav-mahler  #instrument=cello ----------
 const hp=new URLSearchParams(location.hash.slice(1));
-const pp=PIECES.find(p=>p.id===hp.get('piece')); pp?setPiece(pp):setEra(hp.get('era')||'classical');
-if(hp.get('instrument')){ const sid=Object.keys(S).find(k=>S[k][2]===hp.get('instrument')); if(sid) setTimeout(()=>openCard(sid),50); }
-let last=performance.now(); if(hp.has('still')) for(let i=0;i<200;i++) draw(1/30);
-function loop(now){ const dt=Math.min(.05,(now-last)/1000); last=now; if(hp.get('lit')) hp.get('lit').split(',').forEach(s=>active[s]=1); draw(dt); requestAnimationFrame(loop);} requestAnimationFrame(loop);
+const pp=PIECES.find(p=>p.id===hp.get('piece'));
+if(pp) setPiece(pp); else if(hp.get('composer')&&COMP[hp.get('composer')]) setComposer(hp.get('composer')); else setEra(L[hp.get('era')]?hp.get('era'):'classical');
+if(hp.get('instrument')) setInstrument(hp.get('instrument'));
+let last=performance.now(); if(hp.has('still')) for(let i=0;i<400;i++) step(1/30);
+function loop(now){ const dt=Math.min(.05,(now-last)/1000); last=now; step(dt); render(); requestAnimationFrame(loop);} requestAnimationFrame(loop);
 </script>
 </body>
 </html>
