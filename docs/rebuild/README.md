@@ -67,7 +67,29 @@ Each word gives its literal meaning and a plain definition. Most also have **Hea
 
 ![New site: Lexicon, crescendo](screenshots/new-lexicon-crescendo.png)
 
-<!-- LANGUAGES -->
+## 4. Every language, from day one
+
+The old site already spoke English, Afrikaans, French and Spanish, and part of Polish: only 4 of its 51 composers had Polish text. The new site is fully translated into all five languages. That covers:
+
+- the interface;
+- 51 composers and 196 works;
+- 47 world events;
+- 51 life arcs;
+- 92 Lexicon terms;
+- 26 instruments, with their showcases, great players and 156 era notes.
+
+An automated check confirms that every locale covers 100% of every namespace and that no English is left on screen. A language switcher sits on every page. It remembers your choice, which it shares with the old site's setting, and links can carry `?lang=pl-PL`.
+
+![Language switcher](screenshots/lang-switcher.png)
+
+| Afrikaans: Home | Français: a life in the River |
+|---|---|
+| ![Home in Afrikaans](screenshots/lang-home-af-ZA.png) | ![River in French](screenshots/lang-river-fr-FR.png) |
+| **Polski: Hall & Voices** | **Español: the Lexicon** |
+| ![Hall in Polish](screenshots/lang-hall-pl-PL.png) | ![Lexicon in Spanish](screenshots/lang-lexicon-es-ES.png) |
+
+The translations still need a review by native speakers before launch.
+
 
 ---
 
