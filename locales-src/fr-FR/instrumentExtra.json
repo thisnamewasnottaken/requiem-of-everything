@@ -1,1 +1,211 @@
-{}
+{
+  "violin": {
+    "showcase": {"why": "Quatre concertos pleins de vie placent le violon au cœur de chaque saison."},
+    "greats": [
+      {"note": "A renouvelé la technique du violon par une virtuosité éblouissante."},
+      {"note": "Un virtuose du XXe siècle très admiré."},
+      {"note": "Aimé pour son timbre chaleureux et sa longue carrière."}
+    ]
+  },
+  "viola": {
+    "showcase": {"why": "Un alto soliste traverse une histoire orchestrale pleine de couleurs."},
+    "greats": [
+      {"note": "A fait mieux connaître l’alto comme instrument soliste."},
+      {"note": "Connue pour son jeu expressif et son enseignement."},
+      {"note": "Soliste d’alto de premier plan et fondateur d’ensembles."}
+    ]
+  },
+  "cello": {
+    "showcase": {"why": "Un concerto profondément lyrique où le violoncelle chante et s’élance."},
+    "greats": [
+      {"note": "A contribué à faire entendre les Suites pour violoncelle de Bach en concert."},
+      {"note": "Interprète aux multiples facettes et ambassadeur de la musique."},
+      {"note": "Son enregistrement du concerto d’Elgar est devenu emblématique."}
+    ],
+    "goat": {"note": "Violoncelliste très admiré, connu pour l’étendue de son répertoire."}
+  },
+  "double-bass": {
+    "showcase": {"why": "Cette pièce de virtuosité révèle l’agilité et le chant de la contrebasse."},
+    "greats": [
+      {"note": "Un des grands virtuoses de la contrebasse de son époque."},
+      {"note": "Soliste à la contrebasse avant de devenir un chef célèbre."},
+      {"note": "A contribué à établir la contrebasse comme instrument soliste."}
+    ]
+  },
+  "harp": {
+    "showcase": {"why": "La harpe glisse entre rythmes de danse scintillants et accords solennels."},
+    "greats": [
+      {"note": "Harpiste française et pédagogue de renom."},
+      {"note": "Connue pour son travail en solo et en musique de chambre."},
+      {"note": "L’un des grands harpistes solistes d’aujourd’hui."}
+    ]
+  },
+  "viola-da-gamba": {
+    "showcase": {"why": "Des variations célèbres transforment un thème simple en pièce de virtuosité pour viole de gambe."},
+    "greats": [
+      {"note": "Compositeur français de premier plan et joueur de viole."},
+      {"note": "Maître français de la viole et pédagogue."},
+      {"note": "Interprète et musicologue contemporain de premier plan."}
+    ]
+  },
+  "flute": {
+    "showcase": {"why": "Une flûte seule peint un mythe paisible, sans accompagnement."},
+    "greats": [
+      {"note": "A popularisé la flûte comme instrument soliste."},
+      {"note": "Connu pour son timbre éclatant et son large public."},
+      {"note": "Flûtiste soliste et d’orchestre de premier plan."}
+    ]
+  },
+  "oboe": {
+    "showcase": {"why": "Ce concerto tardif et gracieux laisse le hautbois mener du début à la fin."},
+    "greats": [
+      {"note": "Hautboïste virtuose, compositeur et chef d’orchestre."},
+      {"note": "Connu pour son jeu lyrique avec l’Orchestre philharmonique de Berlin."},
+      {"note": "A contribué à façonner le hautbois moderne français."}
+    ]
+  },
+  "clarinet": {
+    "showcase": {"why": "Le registre chaleureux de la clarinette s’épanouit dans le dernier concerto de Mozart."},
+    "greats": [
+      {"note": "Clarinettiste de jazz qui a aussi défendu de nouvelles œuvres de concert."},
+      {"note": "Soliste et musicienne d’orchestre de premier plan."},
+      {"note": "Connu pour ses interprétations et ses programmes inventifs."}
+    ]
+  },
+  "bassoon": {
+    "showcase": {"why": "Un concerto plein d’esprit révèle l’agilité et le chant du basson."},
+    "greats": [
+      {"note": "Soliste et pédagogue très admiré."},
+      {"note": "Connu pour ses interprétations en solo et en musique de chambre."},
+      {"note": "Interprète de premier plan sur bassons modernes et baroques."}
+    ]
+  },
+  "recorder": {
+    "showcase": {"why": "Les lignes claires de la flûte à bec montrent pourquoi elle était prisée au Baroque."},
+    "greats": [
+      {"note": "A contribué au retour de la flûte à bec dans les concerts modernes."},
+      {"note": "Soliste à la flûte à bec très présente au disque."},
+      {"note": "Interprète et enseigne la musique ancienne."}
+    ]
+  },
+  "french-horn": {
+    "showcase": {"why": "Les longues mélodies et les appels vifs révèlent toute l’étendue du cor."},
+    "greats": [
+      {"note": "Une figure marquante du cor soliste au XXe siècle."},
+      {"note": "Connu pour ses solos et son interprétation historique."},
+      {"note": "A dirigé le pupitre de cors de l’Orchestre symphonique de Chicago durant des décennies."}
+    ]
+  },
+  "trumpet": {
+    "showcase": {"why": "La nouvelle trompette à clés apporte une voix soliste claire et brillante."},
+    "greats": [
+      {"note": "A contribué à populariser la trompette comme instrument soliste."},
+      {"note": "Grande figure de la trompette classique et du jazz."},
+      {"note": "Trompettiste soliste majeure de notre époque."}
+    ]
+  },
+  "trombone": {
+    "showcase": {"why": "Un glissando célèbre du trombone s’élève au-dessus de la danse répétitive."},
+    "greats": [
+      {"note": "Soliste au trombone et compositeur de premier plan."},
+      {"note": "Premier trombone de l’Orchestre philharmonique de New York."},
+      {"note": "Une figure majeure du trombone de jazz."}
+    ]
+  },
+  "tuba": {
+    "showcase": {"why": "Un concerto entier offre rarement un rôle vedette au tuba."},
+    "greats": [
+      {"note": "A contribué à faire une place au tuba dans les orchestres américains."},
+      {"note": "Pionnier des récitals de tuba soliste."},
+      {"note": "Connu pour ses interprétations virtuoses en solo."}
+    ]
+  },
+  "timpani": {
+    "showcase": {"why": "Les timbales apportent tonnerre et élan aux grands sommets de la symphonie."},
+    "greats": [
+      {"note": "Pédagogue influent qui a marqué le jeu des timbales aux États-Unis."},
+      {"note": "Percussionniste soliste et pédagogue très admirée."},
+      {"note": "Connu pour ses récitals de timbales en solo."}
+    ]
+  },
+  "snare-drum": {
+    "showcase": {"why": "La caisse claire répète son rythme tandis que l’orchestre prend de l’ampleur."},
+    "greats": [
+      {"note": "Pédagogue de la caisse claire et auteur de méthodes reconnu."},
+      {"note": "Batteur de rock très admiré pour son jeu puissant."},
+      {"note": "Percussionniste soliste de premier plan."}
+    ]
+  },
+  "cymbals-and-percussion": {
+    "showcase": {"why": "Un mélange vif de tambours, de cymbales et de percussions anime la partition."},
+    "greats": [
+      {"note": "Soliste de premier plan dans toute la famille des percussions."},
+      {"note": "A élargi le rôle des percussions dans la musique de concert."},
+      {"note": "Maître des timbales latines et chef d’orchestre de jazz latino."}
+    ]
+  },
+  "piano": {
+    "showcase": {"why": "Un début calme et un finale tempétueux révèlent toutes les possibilités du piano."},
+    "greats": [
+      {"note": "Compositeur majeur pour le piano solo."},
+      {"note": "A transformé le jeu et la technique pianistiques."},
+      {"note": "Connue pour ses interprétations énergiques et expressives."}
+    ]
+  },
+  "organ": {
+    "showcase": {"why": "Des traits audacieux ouvrent la voie à une fugue finement tissée."},
+    "greats": [
+      {"note": "Compositeur central et organiste virtuose."},
+      {"note": "A renouvelé la musique d’orgue française au XIXe siècle."},
+      {"note": "Grand compositeur pour orgue du XXe siècle."}
+    ]
+  },
+  "harpsichord": {
+    "showcase": {"why": "Trente variations transforment une simple ligne de basse en un monde musical."},
+    "greats": [
+      {"note": "A contribué au retour du clavecin sur les scènes de concert."},
+      {"note": "Interprète et musicologue majeur de la musique ancienne."},
+      {"note": "Claveciniste et chef d’orchestre de premier plan."}
+    ]
+  },
+  "celesta": {
+    "showcase": {"why": "Le célesta scintillant donne à la danse son charme magique."},
+    "greats": [
+      {"note": "A rendu le célesta célèbre dans Casse-Noisette."},
+      {"note": "A utilisé le célesta dans son Concerto pour harpe."},
+      {"note": "Emploie les couleurs du célesta au cinéma et au concert."}
+    ]
+  },
+  "soprano": {
+    "showcase": {"why": "Une aria de colorature pousse la soprano à bondir dans l’aigu et à chanter vite."},
+    "greats": [
+      {"note": "Cantatrice très admirée au grand registre dramatique."},
+      {"note": "Célèbre pour son chant de colorature brillant."},
+      {"note": "Soprano lyrique majeure à la scène et au disque."}
+    ]
+  },
+  "alto-mezzo": {
+    "showcase": {"why": "L’entrée inoubliable de Carmen offre à la mezzo-soprano un rôle audacieux."},
+    "greats": [
+      {"note": "Mezzo-soprano majeure et spécialiste du bel canto."},
+      {"note": "Connue pour son agilité vocale et ses œuvres redécouvertes."},
+      {"note": "Interprète très admirée de Carmen et de Mozart."}
+    ]
+  },
+  "tenor": {
+    "showcase": {"why": "Une aria de ténor s’élève jusqu’à une célèbre note aiguë finale."},
+    "greats": [
+      {"note": "A fait découvrir la voix de ténor à un immense public."},
+      {"note": "Première grande vedette du disque parmi les ténors d’opéra."},
+      {"note": "Ténor majeur à l’opéra et dans la mélodie."}
+    ]
+  },
+  "bass-baritone": {
+    "showcase": {"why": "La liste vive de Leporello offre au baryton-basse une scène comique."},
+    "greats": [
+      {"note": "Chanteur réputé d’opéra et de lied."},
+      {"note": "Connu pour ses rôles expressifs de baryton-basse."},
+      {"note": "Interprète très admiré de Mozart et du bel canto."}
+    ]
+  }
+}
