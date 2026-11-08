@@ -1,1 +1,210 @@
-{}
+{
+  "violin": {
+    "renaissance": "Zespoły prowadziły głosy i instrumenty wiolowe; skrzypce dopiero pojawiały się w dworskich kapelach tanecznych.",
+    "baroque": "Koncerty Vivaldiego i solowe partity Bacha uczyniły ze skrzypiec gwiazdę baroku.",
+    "classical": "Haydn i Mozart dali skrzypcom wyraziste melodie i centralne miejsce w symfonii.",
+    "early-romantic": "Beethoven i Paganini nadali skrzypcom większy dramatyzm i olśniewającą wirtuozerię.",
+    "late-romantic": "Koncert skrzypcowy Brahmsa łączy śpiewną partię solową z bogatym brzmieniem orkiestry.",
+    "modern": "Koncerty skrzypcowe Bartóka łączą rytmy ludowe z odważną, nowoczesną harmonią."
+  },
+  "viola": {
+    "renaissance": "Instrumenty wiolowe często prowadziły głos środkowy; współczesna altówka dopiero nabierała kształtu.",
+    "baroque": "Altówka wypełniała harmonie pod skrzypcami; Bach włączył ją do Koncertów brandenburskich.",
+    "classical": "Sinfonia concertante Mozarta pozwala altówce odpowiadać skrzypcom na równych prawach.",
+    "early-romantic": "Berlioz uczynił altówkę narratorką w Haroldzie w Italii.",
+    "late-romantic": "Brahms powierzył altówce ciepłe melodie kameralne w swoich sekstetach smyczkowych.",
+    "modern": "Koncert altówkowy Bartóka stał się popisowym utworem ukazującym jej śpiewne brzmienie."
+  },
+  "cello": {
+    "renaissance": "Niskie instrumenty wiolowe i inne smyczki podtrzymywały muzykę, zanim wiolonczela przyjęła dzisiejszą postać.",
+    "baroque": "Suity wiolonczelowe Bacha pokazują, że instrument może sam prowadzić melodię, a nie tylko bas.",
+    "classical": "Koncerty wiolonczelowe Haydna i kwartety Mozarta włączają wiolonczelę do muzycznej rozmowy.",
+    "early-romantic": "Koncert wiolonczelowy Schumanna pozwala jej śpiewać w nieprzerwanym, trzyczęściowym łuku.",
+    "late-romantic": "Koncert wiolonczelowy Dvořáka czyni z niej bohatera symfonicznego.",
+    "modern": "Koncerty wiolonczelowe Szostakowicza przechodzą od intymnej pieśni do gwałtownego dramatu."
+  },
+  "double-bass": {
+    "renaissance": "Duże viole basowe zapewniały niskie dźwięki, zanim kontrabas na stałe wszedł do orkiestry.",
+    "baroque": "Kontrabas wzmacniał basso continuo wraz z wiolonczelą w operze i muzyce sakralnej.",
+    "classical": "Symfonie Haydna wykorzystują kontrabasy, by oprzeć harmonię i nadać puls.",
+    "early-romantic": "Beethoven nadał kontrabasom energię rytmiczną i zaskakujące partie w swoich symfoniach.",
+    "late-romantic": "Potężne symfonie Mahlera opierają się na ciężarze kontrabasów.",
+    "modern": "Bottesini i Koussevitzky pokazali, że kontrabas potrafi śpiewać także jako solista."
+  },
+  "harp": {
+    "renaissance": "Harfa dworska akompaniowała pieśniom i tańcom, choć częstsze były lutnie i viole.",
+    "baroque": "Harfy barokowe pojawiały się na niektórych dworach, lecz basso continuo zwykle opierało się na klawesynie i basie.",
+    "classical": "Koncert na flet i harfę Mozarta daje harfie wdzięczną partię solową.",
+    "early-romantic": "Berlioz wykorzystywał migotliwe akordy harfy, by barwić brzmienie orkiestry.",
+    "late-romantic": "Wagner wplatał harfy w swoje opery, by rozświetlały mityczne sceny.",
+    "modern": "Danses sacrée et profane Debussy’ego zamienia barwę harfy w cały świat dźwięków."
+  },
+  "viola-da-gamba": {
+    "renaissance": "Zespoły viol splatały kilka partii w angielskiej muzyce Byrda i Gibbonsa.",
+    "baroque": "Marin Marais i Sainte-Colombe wydobywali śpiewne brzmienie violi da gamba we francuskich suitach dworskich.",
+    "classical": "Viola da gamba ustępowała wiolonczeli, choć niektórzy muzycy zachowali jej łagodne brzmienie.",
+    "early-romantic": "Viola da gamba niemal zniknęła z koncertów, ale przetrwała w zbiorach dawnej muzyki.",
+    "late-romantic": "Rzadko pojawiała się w nowej muzyce orkiestrowej, gdy jej miejsce zajęła wiolonczela.",
+    "modern": "Wykonawcy muzyki dawnej przywracają violę da gamba i grają suity Maraisa."
+  },
+  "flute": {
+    "renaissance": "Zespoły fletów prostych i poprzecznych grały tańce oraz muzykę dworską.",
+    "baroque": "Bach i Händel pisali ekspresyjne partie fletu drewnianego do koncertów i muzyki kameralnej.",
+    "classical": "Koncerty i kwartety fletowe Mozarta uczyniły z fletu wdzięczny instrument solowy.",
+    "early-romantic": "Flety śpiewają w symfoniach Beethovena i muzyce kameralnej Schuberta.",
+    "late-romantic": "System klap Böhma poszerzył skalę fletu, gdy orkiestry stawały się coraz większe.",
+    "modern": "Syrinx Debussy’ego i barwy orkiestrowe Ravela ukazują wiele odcieni fletu."
+  },
+  "oboe": {
+    "renaissance": "Obój jeszcze nie istniał; renesansowe szałamaje miały jasne brzmienie podwójnego stroika.",
+    "baroque": "Bach i Händel używali obojów, by dublować głosy i prowadzić ekspresyjne sola.",
+    "classical": "Koncert obojowy Mozarta daje instrumentowi jasną, wdzięczną partię solową.",
+    "early-romantic": "Melodie oboju barwią symfonie Beethovena i muzykę orkiestrową Schumanna.",
+    "late-romantic": "Wagner i Brahms powierzali obojom ciepłe głosy wewnętrzne i żałosne sola.",
+    "modern": "Koncert obojowy Richarda Straussa pozwala instrumentowi śpiewać w powojennym dziele."
+  },
+  "clarinet": {
+    "renaissance": "Jeszcze nie wynaleziono: Johann Christoph Denner skonstruował klarnet około 1700 roku.",
+    "baroque": "W połowie XVIII wieku klarnet zaczął trafiać do orkiestr, choć częstsze były oboje i flety proste.",
+    "classical": "Koncert i Kwintet klarnetowy Mozarta ukazują jego ciepłą, śpiewną skalę.",
+    "early-romantic": "Koncerty klarnetowe Webera uczyniły z instrumentu błyskotliwego solistę romantycznego.",
+    "late-romantic": "Sonaty i kwintet klarnetowy Brahmsa łączą go z ciepłymi, intymnymi melodiami.",
+    "modern": "Strawiński i Copland wykorzystywali skoki i barwy klarnetu w nowoczesnej orkiestrze."
+  },
+  "bassoon": {
+    "renaissance": "Fagot jeszcze nie istniał; zespoły renesansowe używały starszych basowych instrumentów z podwójnym stroikiem.",
+    "baroque": "Bach i Vivaldi powierzali fagotowi bas, a czasem także zwinne partie solowe.",
+    "classical": "Koncert fagotowy Mozarta pozwala temu niskiemu instrumentowi zaskakująco lekko zatańczyć.",
+    "early-romantic": "Andante i rondo węgierskie Webera ukazuje fagot jako zwinnego solistę.",
+    "late-romantic": "Czajkowski i Brahms wykorzystywali fagot dla mrocznej barwy i komicznych zwrotów.",
+    "modern": "Święto wiosny Strawińskiego rozpoczyna się zdumiewającym, wysokim solem fagotu."
+  },
+  "recorder": {
+    "renaissance": "Flety proste tworzyły zespoły consort, grając łagodne tańce i melodie bliskie śpiewowi.",
+    "baroque": "Telemann i Vivaldi pisali zwinne koncerty na jasno brzmiący flet prosty.",
+    "classical": "Flet prosty ustępował poprzecznemu, który donośniej brzmiał w orkiestrze klasycznej.",
+    "early-romantic": "Rzadko pojawiał się w nowych utworach, gdy pierwszeństwo zdobywał nowoczesny flet.",
+    "late-romantic": "Rzadko trafiał do nowych orkiestr, choć jego dawny repertuar przetrwał.",
+    "modern": "Wykonawcy wskrzeszają zespoły fletów prostych i odkrywają nowe utwory na ten dawny instrument."
+  },
+  "french-horn": {
+    "renaissance": "Rogi myśliwskie rozbrzmiewały w plenerze; waltornia orkiestrowa nie miała jeszcze dzisiejszej postaci.",
+    "baroque": "Rogi naturalne bez wentyli dodają sygnały łowieckie do I Koncertu brandenburskiego Bacha.",
+    "classical": "Cztery koncerty waltorniowe Mozarta pokazują róg naturalny, zanim pojawiły się wentyle.",
+    "early-romantic": "Wentyle pojawiły się około 1814–1818 roku; Schumann wyeksponował cztery waltornie w Konzertstück.",
+    "late-romantic": "Wagner i Mahler wypełniali partytury waltorniami, które śpiewają, wołają i brzmią potężnie.",
+    "modern": "Symfonia alpejska Straussa wykorzystuje waltornie do górskich sygnałów i orkiestrowych barw."
+  },
+  "trumpet": {
+    "renaissance": "Trąbki naturalne ogłaszały uroczystości i dworskie pochody jasnymi fanfarami.",
+    "baroque": "II Koncert brandenburski Bacha daje trąbce olśniewającą, wysoką partię solową.",
+    "classical": "Koncert trąbkowy Haydna z 1796 roku ukazuje nowe chromatyczne dźwięki trąbki klapowej.",
+    "early-romantic": "Wentyle, rozwijane około 1814–1818 roku, pozwoliły trąbce grać płynne melodie w każdej tonacji.",
+    "late-romantic": "Mahler używał trąbek, by przebić się przez wielką orkiestrę odważnymi sygnałami blachy.",
+    "modern": "Pietruszka i Święto wiosny Strawińskiego wykorzystują ostre barwy trąbki i zaskakujące rytmy."
+  },
+  "trombone": {
+    "renaissance": "Sakbuty, dawna postać puzonu, wspierały głosy w kościołach i miejskich kapelach.",
+    "baroque": "Bach używał puzonów, by wzmacniać głosy w dziełach sakralnych, między innymi kantatach.",
+    "classical": "Mozart włączał puzony do dzieł sakralnych, także do dramatycznego chóru w Requiem.",
+    "early-romantic": "Schubert i Berlioz wykorzystywali puzony, by wzbogacić barwę i ciężar orkiestry.",
+    "late-romantic": "Wagner i Mahler sięgali po puzony dla majestatu, grozy i potężnych chorałów.",
+    "modern": "Boléro Ravela daje puzonowi słynne solo, które stopniowo wznosi się coraz wyżej."
+  },
+  "tuba": {
+    "renaissance": "Jeszcze nie wynaleziono: tuba pojawiła się około 1835 roku, długo po renesansie.",
+    "baroque": "Jeszcze nie wynaleziono: powstała około 1835 roku; niską linię prowadziły smyczki i fagoty.",
+    "classical": "Jeszcze nie wynaleziono: tuba pojawiła się około 1835 roku, po symfoniach Haydna i Mozarta.",
+    "early-romantic": "Tuba pojawiła się około 1835 roku, pod koniec tej epoki, dodając głęboki głos blachy.",
+    "late-romantic": "Wagner i Mahler wykorzystywali tubę, by pogłębić brzmienie potężnych sekcji blaszanych.",
+    "modern": "Strawiński i Holst pokazali, że tuba może być czymś więcej niż cichym basem."
+  },
+  "timpani": {
+    "renaissance": "Kotły pojawiały się na dworach i uroczystościach, lecz nie były stałymi instrumentami zespołów.",
+    "baroque": "Bach i Händel łączyli kotły z trąbkami w muzyce świątecznej i sakralnych kulminacjach.",
+    "classical": "Haydn używał kotłów do zaskoczeń, jak w słynnym uderzeniu w Symfonii z niespodzianką.",
+    "early-romantic": "Beethoven uczynił z kotłów dramatycznych partnerów, od Piątej do Dziewiątej symfonii.",
+    "late-romantic": "Symfonie Mahlera dają kotłom grzmiące sola i ogromne skoki dynamiki.",
+    "modern": "Święto wiosny Strawińskiego zmienia kotły w potężną siłę rytmiczną."
+  },
+  "snare-drum": {
+    "renaissance": "Bębny polowe wyznaczały marsze i ceremonie, ale rzadko trafiały do renesansowej muzyki sakralnej.",
+    "baroque": "Werbel rzadko pojawiał się w plenerze; orkiestry barokowe wolały kotły.",
+    "classical": "Zwycięstwo Wellingtona Beethovena wykorzystuje werble, by przywołać pole bitwy.",
+    "early-romantic": "Werbel pozostał szczególnym kolorem, wnosząc ostre rytmy wojskowe do wczesnych partytur romantycznych.",
+    "late-romantic": "Wielkie orkiestry wysunęły werbel na pierwszy plan w scenach wojskowych i rytmicznych.",
+    "modern": "Boléro Ravela czyni powtarzany rytm werbla siłą napędową całego utworu."
+  },
+  "cymbals-and-percussion": {
+    "renaissance": "Talerze i małe bębny barwiły procesje, a muzyka sakralna skupiała się na głosach.",
+    "baroque": "Talerze rzadko pojawiały się w baroku, głównie w muzyce świątecznej lub wojskowej.",
+    "classical": "Perkusja w stylu tureckim rozjaśnia Uprowadzenie z seraju Mozarta i IX Symfonię Beethovena.",
+    "early-romantic": "Symfonia fantastyczna Berlioza wykorzystuje perkusję w barwnych i niepokojących scenach.",
+    "late-romantic": "Szeherezada Rimskiego-Korsakowa używa talerzy, by przywołać baśniowe morze.",
+    "modern": "Święto wiosny Strawińskiego czyni z perkusji potężne źródło rytmu i barwy."
+  },
+  "piano": {
+    "renaissance": "Jeszcze nie wynaleziono: Bartolomeo Cristofori zbudował pierwszy fortepian około 1700 roku.",
+    "baroque": "Fortepian Cristoforiego pojawił się około 1700 roku, lecz w baroku nadal dominował klawesyn.",
+    "classical": "Mozart i Haydn uczynili z fortepianu gwiazdę sonat i koncertów.",
+    "early-romantic": "Chopin i Liszt zamienili fortepian w orkiestrę dla jednej pary rąk.",
+    "late-romantic": "Rachmaninow i Brahms wykorzystywali fortepian do wirtuozerii i bogatej muzyki kameralnej.",
+    "modern": "Muzyka fortepianowa Ravela i Rhapsody in Blue Gershwina przynoszą nowe barwy i rytmy."
+  },
+  "organ": {
+    "renaissance": "Organy wypełniały kościoły długimi dźwiękami i wspierały muzykę sakralną w czasach Palestriny.",
+    "baroque": "Fugi organowe Bacha zamieniają piszczałki w całą orkiestrę.",
+    "classical": "Mozart rzadko pisał na organy, lecz muzyka kościelna i kameralna utrzymywała je przy życiu.",
+    "early-romantic": "Mendelssohn odnowił koncertową rolę organów sonatami i wykonaniami inspirowanymi Bachem.",
+    "late-romantic": "Franck i Widor uczynili z wielkich organów francuskich symfoniczny instrument solowy.",
+    "modern": "Muzyka organowa Messiaena wypełnia kościół żywymi barwami i ptasimi rytmami."
+  },
+  "harpsichord": {
+    "renaissance": "Klawesyn towarzyszył głosom i violom na dworach, w tańcach i pieśniach.",
+    "baroque": "Bach i Scarlatti uczynili z klawesynu wirtuozowski instrument dworu i kościoła.",
+    "classical": "Fortepian przejął główną rolę, choć Mozart i młody Haydn nadal pisali na klawesyn.",
+    "early-romantic": "Klawesyn rzadko pojawiał się w nowych utworach, gdy fortepiany stawały się głośniejsze i bardziej ekspresyjne.",
+    "late-romantic": "Klawesyn niemal zniknął z nowej muzyki orkiestrowej.",
+    "modern": "Wanda Landowska pomogła odrodzić klawesyn, a współcześni kompozytorzy odkrywali jego jasne brzmienie."
+  },
+  "celesta": {
+    "renaissance": "Jeszcze nie wynaleziono: Auguste Mustel wprowadził czelestę w 1886 roku, wiele wieków później.",
+    "baroque": "Jeszcze nie wynaleziono: Mustel stworzył czelestę w 1886 roku, długo po baroku.",
+    "classical": "Jeszcze nie wynaleziono: czelesta pojawiła się w 1886 roku, długo po epoce klasycznej.",
+    "early-romantic": "Jeszcze nie wynaleziono: czelesta pojawiła się w 1886 roku, po wczesnym romantyzmie.",
+    "late-romantic": "Auguste Mustel wprowadził czelestę w 1886 roku; Czajkowski użył jej w Dziadku do orzechów (1892).",
+    "modern": "Muzyka na instrumenty strunowe, perkusję i czelestę Bartóka ukazuje jej krystaliczne brzmienie."
+  },
+  "soprano": {
+    "renaissance": "Partie sopranowe unoszą się nad renesansowymi motetami Palestriny i Victorii.",
+    "baroque": "Kantaty Bacha i Mesjasz Händla dają sopranom jasne, ekspresyjne sola.",
+    "classical": "Opery i Requiem Mozarta prowadzą głosy sopranowe od wdzięku do dramatu.",
+    "early-romantic": "IX Symfonia Beethovena i oratoria Mendelssohna wynoszą soprany ponad chór.",
+    "late-romantic": "Requiem Verdiego i opery Wagnera dają sopranom potężne role dramatyczne.",
+    "modern": "Requiem wojenne Brittena zestawia solistki sopranowe z chórem w przejmujący sposób."
+  },
+  "alto-mezzo": {
+    "renaissance": "Głosy altowe tworzą ciepły środek renesansowej polifonii, od Palestriny po Victorię.",
+    "baroque": "Alty śpiewają kantaty Bacha i oratoria Händla jako solistki i chórzystki.",
+    "classical": "Cherubino Mozarta pokazuje młodzieńczą energię głosu mezzosopranowego.",
+    "early-romantic": "IX Symfonia Beethovena daje altom ważne miejsce w finałowej części chóralnej.",
+    "late-romantic": "Requiem Verdiego i Niemieckie requiem Brahmsa dają altom bogatą podstawę chóralną.",
+    "modern": "Carmina Burana Orffa wykorzystuje wielki chór, którego altowe głosy pogłębiają brzmienie."
+  },
+  "tenor": {
+    "renaissance": "Tenory prowadziły melodie i kontrapunkt w sakralnej polifonii Palestriny.",
+    "baroque": "Pasje Bacha i Mesjasz Händla dają tenorom dramatyczne sola i partie chóralne.",
+    "classical": "Opery Mozarta czynią z tenorów bohaterów, od Idomenea po Don Giovanniego.",
+    "early-romantic": "IX Symfonia Beethovena wysuwa tenory ku radosnemu finałowemu chórowi.",
+    "late-romantic": "Opery i Requiem Verdiego dają tenorom wysokie, pełne napięcia partie.",
+    "modern": "Requiem wojenne Brittena powierza tenorowi przejmującą rolę obok chóru."
+  },
+  "bass-baritone": {
+    "renaissance": "Głosy basowe ugruntowały renesansowe motety i nadały polifonii Palestriny solidną podstawę.",
+    "baroque": "Kantaty Bacha i Mesjasz Händla dają basom ważkie arie i partie chóralne.",
+    "classical": "Figaro i Sarastro Mozarta ukazują drogę od zwinnego barytonu do głębokiego basu.",
+    "early-romantic": "IX Symfonia Beethovena daje basom imponujące solo przed chórem Ody do radości.",
+    "late-romantic": "Brahms i Verdi wykorzystywali głosy basowe, by wspierać wielkie requiem i opery.",
+    "modern": "Carmina Burana Orffa daje basom głęboką, niezapomnianą partię w wielkim chórze."
+  }
+}
