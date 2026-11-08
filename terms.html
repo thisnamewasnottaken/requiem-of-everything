@@ -46,14 +46,22 @@ body{background:#060504;overflow:hidden;touch-action:none}
 <div id="card" class="reliquary" role="dialog" aria-live="polite"></div>
 <div id="chips"></div>
 <div id="tip" class="reliquary"></div>
-<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/terms-base.js"></script><script src="common/terms.js"></script>
+<script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/terms-base.js"></script><script src="common/terms.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
+await window.ROE_I18N.ready;
+const t=window.ROE_I18N.t;
+const esc=window.ROE_HTML.esc;
+document.title=`${t('lexicon.title')} — Requiem of Everything`;
+document.querySelector('#head h1').textContent=t('lexicon.title');
+document.querySelector('#head p').textContent=t('lexicon.subtitle');
+document.getElementById('q').placeholder=t('lexicon.search.placeholder');
+document.getElementById('q').setAttribute('aria-label',t('lexicon.search.aria'));
 const D=window.ROE_DATA, CMP=Object.fromEntries(D.compositions.map(c=>[c.id,c])), COMP=Object.fromEntries(D.composers.map(c=>[c.id,c])), ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
 const $=id=>document.getElementById(id);
-const CL={tempo:['Speed','#ffcf8a'],dyn:['Loud & soft','#ff9f7a'],play:['Ways of playing','#f0a35a'],tex:['Sound & texture','#a9c4ff'],form:['Shapes of music','#efd497'],genre:['Kinds of music','#e9a3c9'],voice:['Voices & words','#cfe0ff'],dance:['Dances & characters','#9fd6b4'],people:['People & the concert','#f3ead8']};
+const CL={tempo:[t('lexicon.group.tempo'),'#ffcf8a'],dyn:[t('lexicon.group.dyn'),'#ff9f7a'],play:[t('lexicon.group.play'),'#f0a35a'],tex:[t('lexicon.group.tex'),'#a9c4ff'],form:[t('lexicon.group.form'),'#efd497'],genre:[t('lexicon.group.genre'),'#e9a3c9'],voice:[t('lexicon.group.voice'),'#cfe0ff'],dance:[t('lexicon.group.dance'),'#9fd6b4'],people:[t('lexicon.group.people'),'#f3ead8']};
 const CK=Object.keys(CL);
-const TERMS=[...window.ROE_TERMS_BASE.map(b=>{const m=window.ROE_TERMS_MAP[b.id]||['genre',null]; return {id:b.id,term:b.term,c:m[0],lit:'',short:b.shortDefinition,long:b.longDefinition,demo:m[1],hall:m[2],examples:b.exampleCompositionIds||[],eras:b.eraOrigin||[]};}),...window.ROE_TERMS_NEW];
+const TERMS=[...window.ROE_TERMS_BASE.map(b=>{const m=Object.hasOwn(window.ROE_TERMS_MAP,b.id)?window.ROE_TERMS_MAP[b.id]:['genre',null]; return {id:b.id,term:b.term,c:m[0],lit:'',short:b.shortDefinition,long:b.longDefinition,demo:m[1],hall:m[2],examples:b.exampleCompositionIds||[],eras:b.eraOrigin||[]};}),...window.ROE_TERMS_NEW];
 const BY=Object.fromEntries(TERMS.map(t=>[t.id,t]));
 const cv=$('sky'), g=cv.getContext('2d'), hz=$('haze'); let W,H,DPR; const HS=.5;
 const gl=hz.getContext('webgl',{antialias:false,alpha:false});
@@ -66,7 +74,7 @@ const EDGES=[['tempo','movement'],['allegro','sonata-form'],['adagio','movement'
  ['cadenza','concerto'],['soloist','concerto'],['virtuoso','etude'],['virtuoso','cadenza'],['canon','fugue'],['fugue','counterpoint'],['prelude','fugue'],['motet','a-cappella'],['mass','requiem'],['satb','choral'],['continuo','cantata'],['oratorio','choral'],
  ['leitmotif','tone-poem'],['sonata-form','sonata'],['tutti','orchestra'],['conductor','orchestra'],['tuning','concertmaster'],['concertmaster','orchestra'],['crescendo','dynamics'],['pizzicato','arco'],['legato','staccato'],['nocturne','piano-solo'],
  ['berceuse','nocturne'],['etude','piano-solo'],['polonaise','mazurka'],['gigue','suite'],['string-quartet','chamber-music'],['harmony','chord'],['chord','cadence'],['major-minor','modulation'],['rubato','nocturne'],['serenade','chamber-music'],
- ['ternary','minuet'],['rondo','concerto'],['variation','sonata'],['tremolo','dynamics'],['accelerando','ritardando'],['crescendo','diminuendo'],['satb','a-cappella'],['opus','symphony'],['encore','soloist'],['drone','harmony'],['mass','motet']].filter(([a,b])=>BY[a]&&BY[b]).map(([a,b])=>[BY[a],BY[b]]);
+ ['ternary','minuet'],['rondo','concerto'],['variation','sonata'],['tremolo','dynamics'],['accelerando','ritardando'],['crescendo','diminuendo'],['satb','a-cappella'],['opus','symphony'],['encore','soloist'],['drone','harmony'],['mass','motet']].filter(([a,b])=>Object.hasOwn(BY,a)&&Object.hasOwn(BY,b)).map(([a,b])=>[BY[a],BY[b]]);
 const fib=(i,n)=>{ const y=1-2*(i+.5)/n, r=Math.sqrt(1-y*y), a=i*2.39996+.4; return [Math.cos(a)*r,y,Math.sin(a)*r]; };
 function layout(){ CK.forEach((k,i)=>{ const [x,y,z]=fib(i,CK.length); G[k]={x:x*740,y:y*430,z:z*740}; const items=TERMS.filter(t=>t.c===k), R=100+items.length*5;
     items.forEach((t,j)=>{ const [a,b,c]=fib(j,items.length), jr=R*(.8+.4*((j*37)%10)/10); t.x=G[k].x+a*jr*1.3; t.y=G[k].y+b*jr*.85; t.z=G[k].z+c*jr*1.3; t.fs=t.demo?19:17; t.ph??=Math.random()*6.28; }); }); aim(); }
@@ -170,13 +178,13 @@ function build(d){ roll=[]; secs=[]; info=''; let x=0;
    case 'tuneup': N('oboe',69,0,2.4,.5); sec(0,2.4,'the oboe gives an A'); [[28,2.3],[12,3.1],[0,3.9]].forEach(([dt,t])=>N('violin',69,t,1.2,.35,{detune:dt})); N('cello',57,2.6,1,.35,{detune:-25}); N('cello',57,3.6,1.6,.4); sec(2.3,5.3,'strings tune'); chord('flute',[81],5.3,1.6,.35); chord('clarinet',[69],5.3,1.6,.35); chord('horn',[57],5.4,1.6,.35); x=7; sec(5.3,7,'winds tune'); break;
   }
   roll.sort((a,b)=>a.t-b.t); span=Math.max(x,...roll.map(n=>n.t+n.d))+.4; }
-async function play(t){ if(!t.demo)return; const b=$('dPlay'); await sound.unlock(); build(t.demo); if(b){b.textContent='Tuning…';}
+async function play(t){ if(!t.demo)return; const b=$('dPlay'); await sound.unlock(); build(t.demo); if(b){b.textContent=window.ROE_I18N.t('lexicon.term.tuning');}
   const need={}; roll.forEach(n=>(need[n.p]??=new Set()).add(Math.round(n.m))); await Promise.all(Object.entries(need).map(([p,s])=>sound.preload(p,[...s]).catch(()=>{})));
-  rT0=sound.now()+.15; playing=true; roll.forEach(n=>sound.play(n.p,n.m,{when:rT0+n.t,dur:n.d,vel:n.v,tag:'demo',...n.o})); if(b){b.textContent='Hear it again';} $('dinfo').textContent=info; }
+  rT0=sound.now()+.15; playing=true; roll.forEach(n=>sound.play(n.p,n.m,{when:rT0+n.t,dur:n.d,vel:n.v,tag:'demo',...n.o})); if(b){b.textContent=window.ROE_I18N.t('lexicon.term.hearAgain');} $('dinfo').textContent=info; }
 sound.onNote(n=>{ if(n.tag==='demo'){ const dl=Math.max(0,(n.when-sound.now())*1000); setTimeout(()=>pulse=Math.min(1,pulse+.5*n.vel+.25),dl); } });
 function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.clientHeight,d=Math.min(devicePixelRatio,2); if(c.width!==w*d){c.width=w*d;c.height=h*d;} const x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); x.clearRect(0,0,w,h);
   x.strokeStyle='rgba(201,165,92,.1)'; for(let i=1;i<5;i++){ x.beginPath(); x.moveTo(0,i*h/5); x.lineTo(w,i*h/5); x.stroke(); }
-  if(!roll.length){ x.fillStyle='rgba(216,203,180,.4)'; x.font='italic 15px Cormorant Garamond'; x.textAlign='center'; x.fillText('press “Hear it” and watch the notes',w/2,h/2+5); return; }
+  if(!roll.length){ x.fillStyle='rgba(216,203,180,.4)'; x.font='italic 15px Cormorant Garamond'; x.textAlign='center'; x.fillText(t('lexicon.term.rollPrompt'),w/2,h/2+5); return; }
   const lo=Math.min(...roll.map(n=>n.m))-2, hi=Math.max(...roll.map(n=>n.m))+2, X=t=>4+t/span*(w-8), Y=m=>18+(1-(m-lo)/(hi-lo||1))*(h-26), now=playing?sound.now()-rT0:-1;
   secs.forEach((s,i)=>{ const on=now>=s.a&&now<=s.b; x.fillStyle=on?'rgba(239,212,151,.12)':'rgba(239,212,151,.04)'; x.fillRect(X(s.a),0,X(s.b)-X(s.a),h); x.fillStyle=on?'#fff3da':'rgba(239,212,151,.6)'; x.font='9px Cinzel'; x.textAlign='left'; x.fillText(s.label.toUpperCase(),X(s.a)+3,11); });
   x.globalCompositeOperation='lighter';
@@ -186,21 +194,22 @@ function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.
   x.globalAlpha=1; x.globalCompositeOperation='source-over';
   if(playing&&now<=span){ x.strokeStyle='rgba(255,243,218,.7)'; x.beginPath(); x.moveTo(X(now),0); x.lineTo(X(now),h); x.stroke(); } else if(playing&&now>span) playing=false; }
 // ---------- card ----------
-function openTerm(t,{silentHash}={}){ card=t; roll=[]; secs=[]; const col=CL[t.c][1];
-  const ex=(t.examples||[]).map(id=>CMP[id]).filter(Boolean);
-  $('card').innerHTML=`<div class="k" style="color:${col}">${CL[t.c][0]}</div><h3>${t.term}</h3>${t.lit?`<div class="lit">${t.lit}</div>`:''}<p>${t.short}</p>
-   ${t.demo?`<div class="demo"><canvas id="roll"></canvas><div class="drow"><span id="dinfo"></span><button class="btn" id="dPlay">Hear it</button></div></div>`:''}
-   ${t.long?`<div class="bio">${t.long}</div>`:''}
-   ${t.eras&&t.eras.length?`<div class="k" style="margin-top:8px">Took shape in the ${t.eras.map(e=>ERAN[e]).join(' & ')} era</div>`:''}
-   ${ex.length?`<div class="k" style="margin-top:12px">Hear it in</div><ul>${ex.map(w=>`<li><b>${w.title}</b> · ${COMP[w.composerId]?.shortName||''}<a href="${w.spotifyUrl}" data-roe-key="${w.id}">Listen on Spotify</a><div class="spotify-player"></div></li>`).join('')}</ul>`:''}
-   <div class="row">${t.hall?`<a class="btn" href="hall.html#${t.hall}">See it in the Hall</a>`:''}</div>`;
+function openTerm(t,{silentHash}={}){ if(!t||!Object.hasOwn(BY,t.id))return; card=t; roll=[]; secs=[]; const col=Object.hasOwn(CL,t.c)?CL[t.c][1]:'#efd497';
+  const ex=(t.examples||[]).filter(id=>Object.hasOwn(CMP,id)).map(id=>CMP[id]);
+  $('card').setAttribute('aria-label',`${t.term}. ${t.short}`);
+  $('card').innerHTML=`<div class="k" style="color:${esc(col)}">${esc(Object.hasOwn(CL,t.c)?CL[t.c][0]:'')}</div><h3>${esc(t.term)}</h3>${t.lit?`<div class="lit">${esc(t.lit)}</div>`:''}<p>${esc(t.short)}</p>
+   ${t.demo?`<div class="demo"><canvas id="roll"></canvas><div class="drow"><span id="dinfo"></span><button class="btn" id="dPlay">${esc(window.ROE_I18N.t('lexicon.term.hear'))}</button></div></div>`:''}
+   ${t.long?`<div class="bio">${esc(t.long)}</div>`:''}
+   ${t.eras&&t.eras.length?`<div class="k" style="margin-top:8px">${esc(window.ROE_I18N.t('lexicon.term.tookShape',{eras:t.eras.map(e=>Object.hasOwn(ERAN,e)?ERAN[e]:'').join(' & ')}))}</div>`:''}
+   ${ex.length?`<div class="k" style="margin-top:12px">${esc(window.ROE_I18N.t('lexicon.term.hearIn'))}</div><ul>${ex.map(w=>{const composer=Object.hasOwn(COMP,w.composerId)?COMP[w.composerId]:null;return `<li><b>${esc(w.title)}</b> · ${esc(composer?.shortName||'')}<a href="${esc(w.spotifyUrl)}" data-roe-key="${esc(w.id)}">${esc(window.ROE_I18N.t('lexicon.term.listen'))}</a><div class="spotify-player"></div></li>`;}).join('')}</ul>`:''}
+   <div class="row">${t.hall?`<a class="btn" href="hall.html#${esc(t.hall)}">${esc(window.ROE_I18N.t('lexicon.term.seeHall'))}</a>`:''}</div>`;
   if(t.demo) $('dPlay').onclick=()=>play(t);
   $('card').classList.add('open'); $('card').scrollTop=0; aim(); if(!silentHash) history.replaceState(null,'','#term='+t.id); }
 function closeCard(){ card=null; $('card').classList.remove('open'); aim(); history.replaceState(null,'',focusG?'#group='+focusG:'#'); }
 // ---------- chips, search ----------
-const chips=$('chips'); const mk=(k,label,col)=>{ const b=document.createElement('button'); b.className='btn'; b.dataset.k=k; b.innerHTML=(col?`<i style="color:${col};background:${col}"></i>`:'')+label; b.onclick=()=>setGroup(k||null); chips.appendChild(b); };
-mk('','All words'); CK.forEach(k=>mk(k,CL[k][0],CL[k][1]));
-function setGroup(k){ focusG=k; chips.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',(b.dataset.k||null)===k)); aim(); if(!card) history.replaceState(null,'',k?'#group='+k:'#'); }
+const chips=$('chips'); const mk=(k,label,col)=>{ const b=document.createElement('button'); b.className='btn'; b.dataset.k=k; b.innerHTML=(col?`<i style="color:${esc(col)};background:${esc(col)}"></i>`:'')+esc(label); b.onclick=()=>setGroup(k||null); chips.appendChild(b); };
+mk('',t('lexicon.group.all')); CK.forEach(k=>mk(k,CL[k][0],CL[k][1]));
+function setGroup(k){ if(k!==null&&!Object.hasOwn(CL,k))return; focusG=k; chips.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',(b.dataset.k||null)===k)); aim(); if(!card) history.replaceState(null,'',k?'#group='+k:'#'); }
 const matches=t=>!query||t.term.toLowerCase().includes(query)||t.short.toLowerCase().includes(query)||(t.lit||'').toLowerCase().includes(query);
 $('q').addEventListener('input',e=>{ query=e.target.value.trim().toLowerCase(); });
 $('q').addEventListener('keydown',e=>{ if(e.key==='Enter'){ const t=TERMS.filter(matches).sort((a,b)=>a.term.toLowerCase().startsWith(query)?-1:1)[0]; if(t){ if(focusG&&focusG!==t.c) setGroup(null); openTerm(t); e.target.blur(); } } });
@@ -239,7 +248,7 @@ cv.addEventListener('pointerdown',e=>{ drag={x:e.clientX,y:e.clientY,yaw:camT.ya
 cv.addEventListener('pointermove',e=>{ if(drag){ const dx=e.clientX-drag.x, dy=e.clientY-drag.y; if(Math.hypot(dx,dy)>5) drag.moved=true;
     if(drag.moved){ camT.yaw=drag.yaw-dx*.005; camT.pitch=Math.max(-1.2,Math.min(1.2,drag.pitch+dy*.004)); idle=0; tip.style.opacity=0; return; } }
   const t=pick(e.clientX,e.clientY); hover=t&&!t.cluster?t:null;
-  if(hover){ tip.innerHTML=`<b>${hover.term}</b><span>${hover.short}</span>`; tip.style.opacity=1; tip.style.left=Math.min(e.clientX+16,W-300)+'px'; tip.style.top=Math.min(e.clientY+16,H-120)+'px'; }
+  if(hover){ tip.innerHTML=`<b>${esc(hover.term)}</b><span>${esc(hover.short)}</span>`; tip.style.opacity=1; tip.style.left=Math.min(e.clientX+16,W-300)+'px'; tip.style.top=Math.min(e.clientY+16,H-120)+'px'; }
   else tip.style.opacity=0; cv.style.cursor=t?'pointer':(drag?'grabbing':'grab'); });
 cv.addEventListener('pointerup',e=>{ const moved=drag&&drag.moved; drag=null; if(moved)return; const t=pick(e.clientX,e.clientY); tip.style.opacity=0;
   if(t&&t.cluster){ if(card) closeCard(); setGroup(t.cluster); return; }
@@ -249,7 +258,7 @@ addEventListener('keydown',e=>{ if(e.key==='Escape'){ if(card) closeCard(); else
 // ---------- boot ----------
 resize(); addEventListener('resize',resize);
 document.fonts.ready.then(()=>{ layout();
-  const hp=new URLSearchParams(location.hash.slice(1)); if(hp.get('group')&&CL[hp.get('group')]) setGroup(hp.get('group')); if(hp.get('term')&&BY[hp.get('term')]) openTerm(BY[hp.get('term')],{silentHash:true});
+  const hp=new URLSearchParams(location.hash.slice(1)), groupId=hp.get('group'), termId=hp.get('term'); if(groupId&&Object.hasOwn(CL,groupId)) setGroup(groupId); if(termId&&Object.hasOwn(BY,termId)) openTerm(BY[termId],{silentHash:true});
   if(hp.has('demo')&&card&&card.demo){ build(card.demo); rT0=-1e3; }
   Object.assign(cam,camT); });
 let last=performance.now(); function loop(now){ const dt=Math.min(.05,(now-last)/1000); last=now; render(dt); requestAnimationFrame(loop);} requestAnimationFrame(loop);

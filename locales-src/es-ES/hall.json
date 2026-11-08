@@ -1,0 +1,69 @@
+{
+  "eras": {
+    "renaissance": {
+      "name": "La capilla veneciana",
+      "lead": "A las órdenes del maestro de capilla, que marca el tactus",
+      "text": "Aún no existe la orquesta: las voces son el corazón. Los coros cantan desde lados opuestos de la basílica, junto a violas, sacabuches y cornetas que doblan las voces; el laúd o el órgano enlaza la armonía."
+    },
+    "baroque": {
+      "name": "La orquesta de corte",
+      "lead": "Dirigida desde el clave o por el primer violín",
+      "text": "Todo nace del bajo continuo: clave, violonchelo y contrabajo en el centro. Los violines se reparten a ambos lados, los oboes doblan sus melodías y las trompetas con timbales se reservan para las fiestas. Detrás se sitúa un coro pequeño, a menudo de solo tres o cuatro cantantes por cuerda, para las cantatas de Bach y oratorios de Haendel como El Mesías."
+    },
+    "classical": {
+      "name": "La orquesta clásica",
+      "lead": "El concertino y el compositor al teclado comparten la dirección",
+      "text": "Los vientos llegan por parejas, cada uno con voz propia. Los primeros y segundos violines se sientan enfrentados y sus melodías se responden por el escenario. En La creación de Haydn y el Réquiem de Mozart hay un coro detrás de la orquesta."
+    },
+    "romantic": {
+      "name": "La orquesta romántica",
+      "lead": "El director se convierte en una estrella: Mahler en el podio",
+      "text": "Noventa músicos. Maderas por triplicado, entre cuatro y ocho trompas, trombones y tuba, arpas y una gran batería de percusión. En la disposición alemana, los violines se sientan separados y los contrabajos detrás de los primeros. Grandes coros se sitúan detrás para la Novena de Beethoven, el Réquiem alemán de Brahms y el Réquiem de Verdi."
+    },
+    "modern": {
+      "name": "La orquesta sinfónica moderna",
+      "lead": "La disposición estadounidense de Stokowski, hoy habitual en todo el mundo",
+      "text": "Los primeros y segundos violines se sientan juntos a la izquierda para sonar como uno; los violonchelos se desplazan hacia fuera y los contrabajos quedan a la derecha. Piano, celesta y una enorme sección de percusión ocupan las filas del fondo. Se suma un gran coro en obras como la Sinfonía de los Salmos de Stravinski, Carmina Burana de Orff y el War Requiem de Britten."
+    }
+  },
+  "pieces": {
+    "orfeo": { "label": "Monteverdi · L’Orfeo" },
+    "seasons": { "label": "Vivaldi · Las cuatro estaciones" },
+    "m40": { "label": "Mozart · Sinfonía n.º 40" },
+    "b5": { "label": "Beethoven · Sinfonía n.º 5" },
+    "m8": { "label": "Mahler · Sinfonía n.º 8" },
+    "rite": { "label": "Stravinski · La consagración de la primavera" }
+  },
+  "sections": {
+    "v1": "Primeros violines",
+    "v2": "Segundos violines",
+    "va": "Violas",
+    "vc": "Violonchelos",
+    "cb": "Contrabajos",
+    "viol": "Violas da gamba",
+    "lute": "Laúd y tiorba",
+    "hp": "Arpas",
+    "fl": "Flautas",
+    "pic": "Flautín",
+    "rec": "Flautas de pico",
+    "ob": "Oboes",
+    "cl": "Clarinetes",
+    "bn": "Fagotes",
+    "hn": "Trompas",
+    "tp": "Trompetas",
+    "tb": "Trombones",
+    "sack": "Sacabuches",
+    "cor": "Cornetas renacentistas",
+    "tu": "Tuba",
+    "ti": "Timbales",
+    "pc": "Percusión",
+    "hc": "Clave (bajo continuo)",
+    "fp": "Fortepiano",
+    "org": "Órgano",
+    "cel": "Celesta y piano",
+    "sop": "Sopranos",
+    "alt": "Contraltos",
+    "ten": "Tenores",
+    "bas": "Bajos"
+  }
+}

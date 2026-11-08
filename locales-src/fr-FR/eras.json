@@ -1,0 +1,79 @@
+{
+  "renaissance": {
+    "name": "Renaissance",
+    "description": "Une période de « renaissance » des arts et de la culture. La musique devint de plus en plus polyphonique, avec une importance croissante des formes profanes aux côtés de la musique sacrée. L'imprimerie permit une diffusion plus large des partitions musicales.",
+    "characteristics": [
+      "Polyphonie",
+      "Prédominance de la musique vocale",
+      "Formes sacrées et profanes",
+      "Harmonie modale",
+      "Traditions chorales a cappella",
+      "Madrigaux et motets"
+    ]
+  },
+  "baroque": {
+    "name": "Baroque",
+    "description": "Une ère de grandeur et d'ornementation. La naissance de l'opéra, le développement de la tonalité, l'invention du concerto et de la sonate. Les compositeurs commencèrent à écrire une musique instrumentale plus idiomatique, et la basse continue devint le fondement du jeu d'ensemble.",
+    "characteristics": [
+      "Ornementation et embellissement",
+      "Basse continue",
+      "Naissance de l'opéra",
+      "Concerto grosso et concerto pour soliste",
+      "Fugue et contrepoint",
+      "Dynamiques en terrasses",
+      "Établissement de l'harmonie tonale"
+    ]
+  },
+  "classical": {
+    "name": "Classique",
+    "description": "Clarté, équilibre et élégance structurelle définissent cette ère. La symphonie, le quatuor à cordes et la sonate pour piano devinrent les formes dominantes. La musique quitta les cours aristocratiques pour les salles de concert publiques.",
+    "characteristics": [
+      "Clarté et équilibre",
+      "Forme sonate",
+      "La symphonie comme forme majeure",
+      "Développement du quatuor à cordes",
+      "Texture homophonique",
+      "Contraste dynamique (crescendo/decrescendo)",
+      "Culture du concert public"
+    ]
+  },
+  "early-romantic": {
+    "name": "Premier romantisme",
+    "description": "L'émotion, l'individualisme et l'expression poétique occupent le devant de la scène. Les compositeurs repoussèrent les limites harmoniques et explorèrent la musique à programme — raconter des histoires par le son. Le piano devint l'instrument soliste dominant.",
+    "characteristics": [
+      "Expression émotionnelle",
+      "Musique à programme",
+      "Langage harmonique élargi",
+      "Interprètes virtuoses",
+      "Mélodie (Lied)",
+      "Formes miniatures (nocturne, étude, ballade)",
+      "Le compositeur en héros romantique"
+    ]
+  },
+  "late-romantic": {
+    "name": "Romantisme tardif",
+    "description": "Des forces orchestrales massives, un chromatisme extrême et des mouvements nationalistes caractérisent le Romantisme tardif. Les compositeurs édifièrent de vastes structures symphoniques et des opéras dramatiques. Le nationalisme musical intégra les traditions populaires dans la salle de concert.",
+    "characteristics": [
+      "Orchestre élargi",
+      "Chromatisme extrême",
+      "Nationalisme musical",
+      "Gesamtkunstwerk de Wagner",
+      "Poèmes symphoniques",
+      "Opéra vériste",
+      "Repoussement des limites tonales"
+    ]
+  },
+  "modern": {
+    "name": "Moderne",
+    "description": "Un éclatement de la tradition en de multiples mouvements : impressionnisme, expressionnisme, néoclassicisme, sérialisme et au-delà. Les compositeurs rejetèrent ou étendirent radicalement les conventions romantiques, expérimentant de nouvelles gammes, de nouveaux rythmes, timbres et formes.",
+    "characteristics": [
+      "Atonalité et sérialisme",
+      "Impressionnisme",
+      "Néoclassicisme",
+      "Expérimentation rythmique et timbrale",
+      "Technique dodécaphonique",
+      "Débuts de la musique électronique",
+      "Rejet des formes traditionnelles"
+    ]
+  }
+}

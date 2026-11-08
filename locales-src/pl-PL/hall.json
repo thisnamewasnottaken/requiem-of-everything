@@ -1,0 +1,69 @@
+{
+  "eras": {
+    "renaissance": {
+      "name": "Wenecka kapela",
+      "lead": "Prowadzi ją maestro di cappella, wyznaczając tactus",
+      "text": "Orkiestry jeszcze nie ma: najważniejsze są głosy. Chóry śpiewają naprzeciw siebie w bazylice; violy, puzony renesansowe i kornety wzmacniają śpiew, a lutnia lub organy łączą harmonie."
+    },
+    "baroque": {
+      "name": "Orkiestra dworska",
+      "lead": "Prowadzi ją klawesynista albo pierwszy skrzypek",
+      "text": "Wszystko wyrasta z basso continuo: klawesyn, wiolonczela i kontrabas grają pośrodku. Skrzypce siadają po obu stronach, oboje wzmacniają ich partie, a trąbki z kotłami brzmią w świąteczne dni. Z tyłu stoi mały chór, często zaledwie trzy lub cztery osoby w każdej grupie głosów, do kantat Bacha i oratoriów Händla, takich jak Mesjasz."
+    },
+    "classical": {
+      "name": "Orkiestra klasyczna",
+      "lead": "Koncertmistrz i kompozytor przy klawiaturze dzielą się prowadzeniem",
+      "text": "Instrumenty dęte pojawiają się parami, każdy z własnym głosem. Pierwsze i drugie skrzypce siedzą naprzeciw siebie, a melodie odpowiadają sobie przez całą scenę. W Stworzeniu Haydna i Requiem Mozarta za orkiestrą stoi chór."
+    },
+    "romantic": {
+      "name": "Orkiestra romantyczna",
+      "lead": "Dyrygent staje się gwiazdą: Mahler przy pulpicie",
+      "text": "Dziewięćdziesięciu muzyków. Dęte drewniane w trójkach, od czterech do ośmiu waltorni, puzony i tuba, harfy oraz cała bateria instrumentów perkusyjnych. W układzie niemieckim skrzypce są rozdzielone, a kontrabasy stoją za pierwszymi skrzypcami. Wielkie chóry stają z tyłu do IX Symfonii Beethovena, Niemieckiego Requiem Brahmsa i Requiem Verdiego."
+    },
+    "modern": {
+      "name": "Współczesna orkiestra symfoniczna",
+      "lead": "Amerykański układ Stokowskiego, dziś stosowany na całym świecie",
+      "text": "Pierwsze i drugie skrzypce siedzą razem po lewej, by zabrzmieć jak jeden głos; wiolonczele przesuwają się na zewnątrz, a kontrabasy zajmują prawą stronę. Fortepian, czelesta i ogromna sekcja perkusji trafiają do tylnych rzędów. Wielki chór dołącza w dziełach takich jak Symfonia psalmów Strawińskiego, Carmina Burana Orffa i War Requiem Brittena."
+    }
+  },
+  "pieces": {
+    "orfeo": { "label": "Monteverdi · L’Orfeo" },
+    "seasons": { "label": "Vivaldi · Cztery pory roku" },
+    "m40": { "label": "Mozart · Symfonia nr 40" },
+    "b5": { "label": "Beethoven · Symfonia nr 5" },
+    "m8": { "label": "Mahler · Symfonia nr 8" },
+    "rite": { "label": "Strawiński · Święto wiosny" }
+  },
+  "sections": {
+    "v1": "Pierwsze skrzypce",
+    "v2": "Drugie skrzypce",
+    "va": "Altówki",
+    "vc": "Wiolonczele",
+    "cb": "Kontrabasy",
+    "viol": "Viola da gamba",
+    "lute": "Lutnia i teorba",
+    "hp": "Harfa",
+    "fl": "Flety",
+    "pic": "Pikolo",
+    "rec": "Flety proste",
+    "ob": "Oboje",
+    "cl": "Klarnety",
+    "bn": "Fagoty",
+    "hn": "Waltornie",
+    "tp": "Trąbki",
+    "tb": "Puzony",
+    "sack": "Puzony renesansowe",
+    "cor": "Kornety renesansowe",
+    "tu": "Tuba",
+    "ti": "Kotły",
+    "pc": "Perkusja",
+    "hc": "Klawesyn (basso continuo)",
+    "fp": "Fortepian historyczny",
+    "org": "Organy",
+    "cel": "Czelesta i fortepian",
+    "sop": "Soprany",
+    "alt": "Alty",
+    "ten": "Tenory",
+    "bas": "Basy"
+  }
+}

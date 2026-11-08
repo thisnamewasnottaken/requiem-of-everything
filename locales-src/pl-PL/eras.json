@@ -1,0 +1,79 @@
+{
+  "renaissance": {
+    "name": "Renesans",
+    "description": "Okres \"odrodzenia\" sztuki i kultury. Muzyka stawała się coraz bardziej polifoniczna, a obok muzyki sakralnej rosło znaczenie form świeckich. Druk umożliwił szersze rozpowszechnianie zapisów nutowych.",
+    "characteristics": [
+      "Polifonia",
+      "Dominacja muzyki wokalnej",
+      "Formy sakralne i świeckie",
+      "Harmonia modalna",
+      "Tradycje chóralne a cappella",
+      "Madrygały i motety"
+    ]
+  },
+  "baroque": {
+    "name": "Barok",
+    "description": "Epoka przepychu i ornamentyki. Narodziny opery, rozwój tonalności oraz wynalezienie koncertu i sonaty. Kompozytorzy zaczęli pisać bardziej idiomatyczną muzykę instrumentalną, a basso continuo stało się fundamentem gry zespołowej.",
+    "characteristics": [
+      "Ornamentyka i zdobnictwo",
+      "Basso continuo",
+      "Narodziny opery",
+      "Concerto grosso i koncert solowy",
+      "Fuga i kontrapunkt",
+      "Dynamika schodkowa",
+      "Ugruntowana harmonia tonalna"
+    ]
+  },
+  "classical": {
+    "name": "Klasycyzm",
+    "description": "Tę epokę definiują przejrzystość, równowaga i elegancja formy. Symfonia, kwartet smyczkowy i sonata fortepianowa stały się dominującymi gatunkami. Muzyka przeniosła się z dworów arystokratycznych do publicznych sal koncertowych.",
+    "characteristics": [
+      "Przejrzystość i równowaga",
+      "Forma sonatowa",
+      "Symfonia jako główna forma",
+      "Rozwój kwartetu smyczkowego",
+      "Faktura homofoniczna",
+      "Kontrasty dynamiczne (crescendo/decrescendo)",
+      "Kultura koncertów publicznych"
+    ]
+  },
+  "early-romantic": {
+    "name": "Wczesny romantyzm",
+    "description": "W centrum znalazły się emocje, indywidualizm i poetycka ekspresja. Kompozytorzy poszerzali granice harmonii i eksplorowali muzykę programową — opowiadanie historii dźwiękiem. Fortepian stał się najważniejszym instrumentem solowym.",
+    "characteristics": [
+      "Ekspresja emocjonalna",
+      "Muzyka programowa",
+      "Rozszerzony język harmoniczny",
+      "Wirtuozi",
+      "Pieśń artystyczna (Lied)",
+      "Miniaturowe formy (nokturn, etiuda, ballada)",
+      "Kompozytor jako romantyczny bohater"
+    ]
+  },
+  "late-romantic": {
+    "name": "Późny romantyzm",
+    "description": "Późny romantyzm charakteryzują ogromne składy orkiestrowe, skrajna chromatyka i ruchy narodowe. Kompozytorzy budowali rozległe struktury symfoniczne i dramatyczne opery. Nacjonalizm muzyczny wniósł tradycje ludowe do sal koncertowych.",
+    "characteristics": [
+      "Rozbudowana orkiestra",
+      "Skrajna chromatyka",
+      "Nacjonalizm muzyczny",
+      "Gesamtkunstwerk Wagnera",
+      "Poematy symfoniczne",
+      "Opera werystyczna",
+      "Przesuwanie granic tonalności"
+    ]
+  },
+  "modern": {
+    "name": "Nowoczesność",
+    "description": "Rozpad tradycji na wiele nurtów: impresjonizm, ekspresjonizm, neoklasycyzm, serializm i inne. Kompozytorzy odrzucali lub radykalnie poszerzali romantyczne konwencje, eksperymentując z nowymi skalami, rytmami, barwami i formami.",
+    "characteristics": [
+      "Atonalność i serializm",
+      "Impresjonizm",
+      "Neoklasycyzm",
+      "Eksperymenty z rytmem i barwą",
+      "Technika dwunastotonowa",
+      "Początki muzyki elektronicznej",
+      "Odrzucenie tradycyjnych form"
+    ]
+  }
+}

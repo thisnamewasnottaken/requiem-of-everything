@@ -40,7 +40,7 @@
 #life .spotify-player{width:100%;margin-top:8px}
 #life .spotify-player iframe{display:block;width:100%;height:152px;border:0}
 #bSilence{position:fixed;top:16px;right:20px;z-index:40}
-#findGroup{position:fixed;top:16px;right:145px;width:220px;z-index:41}
+#findGroup{position:fixed;top:16px;right:calc(145px + 120px + 8px);width:220px;z-index:41}
 .find-field{position:relative}
 #find{display:block;width:100%;height:36px;padding:0 32px 1px 12px;color:var(--parchment);background:rgba(16,12,9,.78);
   border:1px solid var(--gold-dim);box-shadow:inset 0 0 24px rgba(201,165,92,.035);font:400 1rem var(--display);outline:none}
@@ -78,11 +78,11 @@
   #life .right{height:190px;min-height:190px;margin-top:10px}
   #life .legend{font-size:.43rem;letter-spacing:.14em;gap:7px;flex-wrap:wrap}
   #bSilence{top:54px;right:12px;padding:8px 10px;font-size:.5rem;letter-spacing:.12em}
-  #findGroup{top:54px;right:calc(12px + 90px + 8px);width:150px}
+  #findGroup{top:54px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
 }
 @media(max-height:500px){
   #bSilence{top:84px;right:12px}
-  #findGroup{top:84px;right:calc(12px + 90px + 8px);width:150px}
+  #findGroup{top:84px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
   #findResults{max-height:calc(100vh - 138px)}
 }
 #zoomlabel{position:fixed;left:24px;bottom:22px;z-index:25;font-family:var(--inscr);font-size:.55rem;letter-spacing:.26em;color:var(--mist);text-transform:uppercase}
@@ -112,9 +112,28 @@
 </div>
 <button class="btn" id="bSilence" aria-pressed="false">Silence</button>
 <div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
-<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
+<script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
+await window.ROE_I18N.ready;
+const t=window.ROE_I18N.t;
+const esc=window.ROE_HTML.esc;
+document.title=`${t('river.title')} — Requiem of Everything`;
+document.querySelector('#head h1').textContent=t('river.title');
+document.querySelector('#head p').textContent=t('river.subtitle');
+document.getElementById('find').placeholder=t('river.find.placeholder');
+document.getElementById('find').setAttribute('aria-label',t('river.find.aria'));
+document.getElementById('findClear').setAttribute('aria-label',t('river.find.clear'));
+document.getElementById('findClear').title=t('river.find.clear.title');
+document.getElementById('findResults').setAttribute('aria-label',t('river.find.matches'));
+document.getElementById('lMore').textContent=t('river.more');
+document.querySelector('#lEvents h3').textContent=t('river.events.lifetime');
+document.getElementById('lListen').textContent=t('river.listen');
+document.querySelector('.closehint').textContent=t('river.close');
+document.querySelector('.legend span:nth-child(1)').lastChild.textContent=t('river.legend.music');
+document.querySelector('.legend span:nth-child(2)').lastChild.textContent=t('river.legend.standing');
+document.querySelector('.legend span:nth-child(3)').lastChild.textContent=t('river.legend.world');
+document.getElementById('hint').textContent=t('river.hint');
 const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d');
 const findGroup=document.getElementById('findGroup'), findInput=document.getElementById('find'), findClear=document.getElementById('findClear'), findResults=document.getElementById('findResults');
 let W,H,DPR; function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);sizeMini();} 
@@ -140,10 +159,12 @@ const LIVES={
 // ---------- composer model ----------
 const eraCol=Object.fromEntries(D.eras.map(e=>[e.id,e.color]));
 const brighten=(hex,k=1.5)=>{const n=parseInt(hex.slice(1),16);let r=n>>16,gg=(n>>8)&255,b=n&255;const m=Math.max(r,gg,b,1),s=Math.min(255,m*k)/m;return [r*s|0,gg*s|0,b*s|0];};
-const byComposer={}; D.compositions.forEach(c=>(byComposer[c.composerId]||(byComposer[c.composerId]=[])).push(c));
+const byComposer=Object.create(null); D.compositions.forEach(c=>(Object.hasOwn(byComposer,c.composerId)?byComposer[c.composerId]:(byComposer[c.composerId]=[])).push(c));
 const voiceFor=c=>{const t=c.tags.join(' ');if(c.id==='johann-sebastian-bach')return 'organ';if(/violin/.test(t))return 'violin';if(/piano/.test(t))return 'piano';if(/opera/.test(t))return 'oohs';if(/choral|sacred|polyphony/.test(t))return 'choir';if(/harpsichord|keyboard/.test(t))return 'harpsichord';return ['harp','cello','horn','flute','clarinet'][c.birthYear%5];};
-const comps=D.composers.map((c,i)=>{const L=(window.ROE_LIVES||{})[c.id]||LIVES[c.id];const works=(byComposer[c.id]||[]).sort((a,b)=>a.yearComposed-b.yearComposed);
-  return {...c,i,rgb:brighten(eraCol[c.era]||'#c9a55c',1.7),home:NAT[c.nationality]||'German lands',moves:MOVES[c.id]||[],life:L,works,voice:voiceFor(c),slot:0,phase:Math.random()*6.28};});
+const localeLives=window.ROE_LIVES||{};
+const comps=D.composers.map((c,i)=>{const L=Object.hasOwn(localeLives,c.id)?localeLives[c.id]:Object.hasOwn(LIVES,c.id)?LIVES[c.id]:undefined;const works=Object.hasOwn(byComposer,c.id)?byComposer[c.id].sort((a,b)=>a.yearComposed-b.yearComposed):[];
+  return {...c,i,rgb:brighten(Object.hasOwn(eraCol,c.era)?eraCol[c.era]:'#c9a55c',1.7),home:Object.hasOwn(NAT,c.nationality)?NAT[c.nationality]:'German lands',moves:Object.hasOwn(MOVES,c.id)?MOVES[c.id]:[],life:L,works,voice:voiceFor(c),slot:0,phase:Math.random()*6.28};});
+const COMP=Object.create(null); comps.forEach(c=>{COMP[c.id]=c;});
 const normalizeSearch=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
 const searchWords=s=>normalizeSearch(s).split(/[^a-z0-9]+/).filter(Boolean);
 const surnameWords=c=>searchWords(c.shortName||c.name).filter(word=>word.length>1);
@@ -158,7 +179,7 @@ function renderFindResults(){
   findClear.hidden=!findInput.value;
   findInput.removeAttribute('aria-activedescendant');
   if(!open)return;
-  if(!searchResults.length){const empty=document.createElement('div');empty.className='find-empty';empty.textContent='No composer by that name';findResults.append(empty);return;}
+  if(!searchResults.length){const empty=document.createElement('div');empty.className='find-empty';empty.textContent=t('river.find.empty');findResults.append(empty);return;}
   searchResults.slice(0,8).forEach((c,i)=>{
     const option=document.createElement('button'), dot=document.createElement('span'), name=document.createElement('span'), dates=document.createElement('span');
     option.type='button';option.className='find-result';option.id=`find-option-${i}`;option.dataset.composerId=c.id;option.setAttribute('role','option');option.setAttribute('aria-selected',String(i===searchActive));
@@ -193,6 +214,7 @@ const X=y=>(y-v0)/(v1-v0)*W, Y2yr=x=>v0+x/W*(v1-v0);
 function laneOf(c,y){let lane=c.home, from=c.home, t0=-1e9; for(const [yr,to] of c.moves){ if(y>=yr){from=lane;lane=to;t0=yr;} }
   const a=LANES.indexOf(from), b=LANES.indexOf(lane), k=smooth(clamp((y-t0)/9,0,1)); return lerp(a,b,k);}
 let T=0; const EV=D.events.map(e=>({...e,strength:/war|revolution/.test(e.category)?1:.6}));
+const EVENTS_BY_ID=Object.create(null);EV.forEach(e=>{EVENTS_BY_ID[e.id]=e;});
 function ripple(y){let d=0;for(const e of EV){const dt=y-e.year;if(dt<-1||dt>14)continue;const amp=(e===hoverE?16:3.2)*e.strength;d+=amp*Math.sin(dt*1.7-T*2.4)*Math.exp(-Math.max(0,dt)/3.2)*smooth(clamp(dt+1,0,1));}return d;}
 function yAt(c,y){const lh=laneH(); const li=laneOf(c,y); const n=Math.max(1,(laneSlots[c.home]||[]).reduce((m,o)=>Math.max(m,o.slot+1),1));
   return TOP+lh*(li+.5)+(c.slot-(n-1)/2)*Math.min(14,lh*.8/n)+Math.sin(y*.09+c.phase+T*.35)*3+ripple(y)*(focus&&focus!==c?.4:1);}
@@ -200,7 +222,7 @@ function yAt(c,y){const lh=laneH(); const li=laneOf(c,y); const n=Math.max(1,(la
 const parts=[]; comps.forEach(c=>{const n=Math.round((c.deathYear-c.birthYear)/4);for(let k=0;k<n;k++)parts.push({c,u:c.birthYear+Math.random()*(c.deathYear-c.birthYear),s:.6+Math.random()*1.4});});
 // ---------- draw ----------
 const catCol={_:'#ffffff',war:'#ff6a4a',political:'#d9a6ff',revolution:'#ff4d6d',technological:'#7fd8ff',scientific:'#9fe6c8',religious:'#ffd98a',cultural:'#f3e6cb',literary:'#f3e6cb','natural-disaster':'#ff9b5a'};
-document.getElementById('legendE').innerHTML=[['war','War'],['revolution','Revolution'],['political','Politics'],['technological','Invention'],['scientific','Science'],['religious','Faith']].map(([k,l])=>`<div><i style="background:${catCol[k]}"></i>${l}</div>`).join('');
+document.getElementById('legendE').innerHTML=[['war',t('river.event.war')],['revolution',t('river.event.revolution')],['political',t('river.event.politics')],['technological',t('river.event.invention')],['scientific',t('river.event.science')],['religious',t('river.event.faith')]].map(([k,l])=>`<div><i style="background:${esc(catCol[k])}"></i>${esc(l)}</div>`).join('');
 let reveal=0;
 let hoverL=null, pin=null, soundEnabled=localStorage.getItem('roe-sound')!=='off';
 const evEnd=e=>e.endYear||e.year;
@@ -299,7 +321,7 @@ function drawMini(){ mg.clearRect(0,0,MW,MH); const mx=y=>(y-MIN)/(MAX-MIN)*MW;
   for(const c of comps){const [r,gg,b]=c.rgb;mg.fillStyle=`rgba(${r},${gg},${b},.5)`;mg.fillRect(mx(c.birthYear),4+ (LANES.indexOf(c.home)/LANES.length)*(MH-8),mx(c.deathYear)-mx(c.birthYear),1);}
   mg.strokeStyle='rgba(239,212,151,.8)';mg.lineWidth=1;mg.strokeRect(mx(v0)+.5,.5,mx(v1)-mx(v0)-1,MH-1);
   mg.font='400 9px Cinzel';mg.fillStyle='rgba(216,203,180,.5)';mg.textAlign='left';mg.fillText(MIN,2,MH-2);mg.textAlign='right';mg.fillText(MAX,MW-2,MH-2);
-  document.getElementById('zoomlabel').textContent=`${Math.round(v0)} — ${Math.round(v1)}`;}
+  document.getElementById('zoomlabel').textContent=t('river.zoom.range',{start:Math.round(v0),end:Math.round(v1)});}
 // ---------- interaction ----------
 let drag=null; const tip=document.getElementById('tip');
 cv.addEventListener('wheel',e=>{e.preventDefault();const yr=Y2yr(e.clientX);const k=Math.exp(e.deltaY*.0015);let s=clamp((tv1-tv0)*k,12,MAX-MIN);
@@ -321,10 +343,10 @@ function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=
   if(!hoverC){ for(const e of EV){ if(Math.abs(X(e.year)-mx)<5&&my>TOP&&my<BOT()){hoverE=e;break;} } } }
 function showTip(mx,my){ let html='';
   if(hoverL){ const n=comps.filter(c=>touches(c,hoverL)&&X(c.deathYear)>0&&X(c.birthYear)<W).length; const p=pin&&pin.kind==='lane'&&pin.v===hoverL;
-    html=`<span class="k">Country · ${p?'click to unpin':'click to pin'}</span><b>${hoverL}</b><div class="d">${n} composer${n===1?'':'s'} in view lived or worked here</div>`;}
-  else if(hoverW) html=`<span class="k">${hoverW.yearComposed} · ${hoverW.genre}</span><b>${hoverW.title}</b><div class="d">${hoverW.description.slice(0,150)}…</div>`;
-  else if(hoverC){const yr=Math.round(clamp(Y2yr(mx),hoverC.birthYear,hoverC.deathYear)); const age=yr-hoverC.birthYear; html=`<span class="k">${hoverC.birthYear} – ${hoverC.deathYear} · ${hoverC.nationality}</span><b>${hoverC.name}</b><div class="d">In ${yr}, aged ${age}${hoverC.life?'':' · curve estimated from works'}</div>`;}
-  else if(hoverE){const p=pin&&pin.kind==='event'&&pin.v===hoverE; html=`<span class="k">${hoverE.year}${evEnd(hoverE)>hoverE.year?' – '+evEnd(hoverE):''} · ${hoverE.category} · ${p?'click to unpin':'click to pin'}</span><b>${hoverE.title}</b><div class="d">${hoverE.musicalSignificance||hoverE.description}</div>`;}
+    html=`<span class="k">Country · ${p?'click to unpin':'click to pin'}</span><b>${esc(hoverL)}</b><div class="d">${esc(n)} composer${n===1?'':'s'} in view lived or worked here</div>`;}
+  else if(hoverW) html=`<span class="k">${esc(hoverW.yearComposed)} · ${esc(hoverW.genre)}</span><b>${esc(hoverW.title)}</b><div class="d">${esc((hoverW.description||'').slice(0,150))}…</div>`;
+  else if(hoverC){const yr=Math.round(clamp(Y2yr(mx),hoverC.birthYear,hoverC.deathYear)); const age=yr-hoverC.birthYear; html=`<span class="k">${esc(hoverC.birthYear)} – ${esc(hoverC.deathYear)} · ${esc(hoverC.nationality)}</span><b>${esc(hoverC.name)}</b><div class="d">In ${esc(yr)}, aged ${esc(age)}${hoverC.life?'':' · curve estimated from works'}</div>`;}
+  else if(hoverE){const p=pin&&pin.kind==='event'&&pin.v===hoverE; html=`<span class="k">${esc(hoverE.year)}${evEnd(hoverE)>hoverE.year?' – '+esc(evEnd(hoverE)):''} · ${esc(hoverE.category)} · ${p?'click to unpin':'click to pin'}</span><b>${esc(hoverE.title)}</b><div class="d">${esc(hoverE.musicalSignificance||hoverE.description)}</div>`;}
   tip.style.opacity=html?1:0; if(html){tip.innerHTML=html; tip.style.left=Math.min(W-340,mx+18)+'px'; tip.style.top=Math.min(H-180,my+18)+'px';} cv.style.cursor=html?'pointer':''; }
 function clickAt(e){
   if(findGroup.contains(e.target))return;
@@ -332,15 +354,15 @@ function clickAt(e){
   if(hoverE&&!hoverC){ pin=pin&&pin.kind==='event'&&pin.v===hoverE?null:{kind:'event',v:hoverE}; showTip(e.clientX,e.clientY); return; }
   if(hoverC){ openLife(hoverC); return; }
   if(focus) closeLife(); }
-const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=soundEnabled?'Sounding':'Silence';bS.classList.toggle('on',soundEnabled);bS.setAttribute('aria-pressed',soundEnabled);}; paintS();
+const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=soundEnabled?t('river.sounding'):t('river.silence');bS.classList.toggle('on',soundEnabled);bS.setAttribute('aria-pressed',soundEnabled);}; paintS();
 bS.onclick=()=>{soundEnabled=!soundEnabled;localStorage.setItem('roe-sound',soundEnabled?'on':'off');paintS();if(soundEnabled)sound.unlock();else if(sound.ctx)sound.ctx.suspend();};
 addEventListener('storage',e=>{if(e.key!=='roe-sound'&&e.key!==null)return;soundEnabled=e.newValue!=='off';paintS();if(!soundEnabled&&sound.ctx)sound.ctx.suspend();});
 const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d'); const bio=document.getElementById('lBio'), more=document.getElementById('lMore'), eventsList=document.querySelector('#lEvents .event-list');
 const paintMore=()=>{const can=bio.scrollHeight>bio.clientHeight+4, end=bio.scrollTop+bio.clientHeight>=bio.scrollHeight-4; more.style.opacity=can&&!end?1:0; bio.classList.toggle('end',!can||end);};
 bio.addEventListener('scroll',paintMore);
-function openLife(c){ focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.18); tv0=c.birthYear-pad; tv1=c.deathYear+pad*(c.life&&c.life.after?2.5:1);
+function openLife(c){ if(!c||!Object.hasOwn(COMP,c.id)||COMP[c.id]!==c)return; focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.18); tv0=c.birthYear-pad; tv1=c.deathYear+pad*(c.life&&c.life.after?2.5:1);
   document.getElementById('lName').textContent=c.name; document.getElementById('lName').style.color=rgba(c.rgb,1); document.getElementById('lDates').textContent=`${c.birthYear} — ${c.deathYear} · ${c.birthPlace}`;
-  bio.textContent=c.biography; bio.scrollTop=0; document.getElementById('lNote').textContent=c.life?(c.life.note||''):'Sketch estimated from works in our catalogue';
+  bio.textContent=c.biography; bio.scrollTop=0; document.getElementById('lNote').textContent=c.life?(c.life.note||''):t('river.life.estimated');
   renderLifetimeEvents(c);
   document.getElementById('lListen').onclick=()=>{const w=c.works[0];window.ROE_PLAYER.mount(document.getElementById('lPlayer'),w?.id, w?.spotifyUrl||`https://open.spotify.com/search/${encodeURIComponent(c.name)}`);};
   life.classList.add('open'); requestAnimationFrame(()=>{drawSeis(c);paintMore();});
@@ -348,6 +370,7 @@ function openLife(c){ focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.1
 function closeLife(){ focus=null; life.classList.remove('open'); document.getElementById('lPlayer').replaceChildren(); tv0=1480; tv1=2000; }
 addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
 function chooseComposer(c){
+  if(!c||!Object.hasOwn(COMP,c.id)||COMP[c.id]!==c)return;
   findInput.value=c.name;searchOpen=false;searchActive=-1;updateFindSearch();
   history.replaceState(null,'',`#focus=${encodeURIComponent(c.id)}`);
   openLife(c);
@@ -375,7 +398,7 @@ findGroup.addEventListener('click',e=>e.stopPropagation());
 findResults.addEventListener('click',e=>{
   const option=e.target.closest('.find-result[data-composer-id]');if(!option)return;
   e.preventDefault();e.stopPropagation();
-  const c=comps.find(item=>item.id===option.dataset.composerId);if(c)chooseComposer(c);
+  const id=option.dataset.composerId;if(Object.hasOwn(COMP,id))chooseComposer(COMP[id]);
 });
 document.addEventListener('pointerdown',e=>{
   if(searchOpen&&!findGroup.contains(e.target)){searchOpen=false;renderFindResults();}
@@ -406,34 +429,34 @@ function drawSeis(c){ const r=seis.getBoundingClientRect(); seis.width=r.width*D
   for(let y=Math.ceil(c.birthYear/10)*10;y<c.deathYear;y+=10){ if(y-c.birthYear<4||c.deathYear-y<4)continue; sg.fillStyle='rgba(201,165,92,.12)'; sg.fillRect(x(y),top-8,1,base-top+8); sg.fillStyle='rgba(216,203,180,.42)'; sg.fillText(y,x(y),base+14); }
   sg.font='600 11px Cinzel'; for(const y of [c.birthYear,c.deathYear]){ sg.fillStyle=rgba(c.rgb,.55); sg.fillRect(x(y)-.5,top-14,1.2,base-top+14); sg.fillStyle=col; sg.fillText(y,x(y),base+15); }
   // the world: events touching the life, as a strip of coloured spans and faint veils through the graph
-  const wy=base+72; sg.font='400 8px Cinzel'; sg.textAlign='left'; sg.fillStyle='rgba(216,203,180,.4)'; sg.fillText('WORLD',0,wy+7);
+  const wy=base+72; sg.font='400 8px Cinzel'; sg.textAlign='left'; sg.fillStyle='rgba(216,203,180,.4)'; sg.fillText(t('river.legend.world').toUpperCase(),0,wy+7);
   const linked=new Map(((c.life&&c.life.links)||[]).filter(l=>l.kind==='event').map(l=>[l.ref,l]));
   const eventLabels=[], labelRows=[[],[],[],[]];
-  for(const e of EV){ const a=Math.max(e.year,c.birthYear), b=Math.min(evEnd(e),c.deathYear); if(b<a)continue; const ec=catCol[e.category]||'#ffffff'; const L=linked.get(e.id);
+  for(const e of EV){ const a=Math.max(e.year,c.birthYear), b=Math.min(evEnd(e),c.deathYear); if(b<a)continue; const ec=Object.hasOwn(catCol,e.category)?catCol[e.category]:'#ffffff'; const L=linked.get(e.id);
     const xa=x(a), xb=x(b); sg.fillStyle=ec+(L?'20':'08'); sg.fillRect(xa,top-8,Math.max(1,xb-xa),base-top+8);
     sg.fillStyle=ec+(L?'ff':'55');
     if(b===a){sg.lineWidth=L?2:1;sg.beginPath();sg.moveTo(xa,wy-2);sg.lineTo(xa,wy+9);sg.strokeStyle=ec+(L?'ff':'55');sg.stroke();}
     else sg.fillRect(xa,wy,Math.max(2,xb-xa),L?8:5);
-    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${e.year}${evEnd(e)>e.year?' – '+evEnd(e):''} · ${e.category}</span><b>${e.title}</b><div class="d">${L?L.text:(e.musicalSignificance||e.description)}</div>`});
+    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${esc(e.year)}${evEnd(e)>e.year?' – '+esc(evEnd(e)):''} · ${esc(t(`river.event.${e.category}`))}</span><b>${esc(e.title)}</b><div class="d">${esc(L?L.text:(e.musicalSignificance||e.description))}</div>`});
     if(L){
       sg.font='500 8px Cinzel'; const width=Math.min(Math.max(42,sg.measureText(L.text).width),Math.max(42,w*.42));
       const labelX=clamp((xa+xb)/2-width/2,0,w-width), interval=[labelX-4,labelX+width+4];
       const row=labelRows.findIndex(items=>items.every(q=>interval[1]<=q[0]||interval[0]>=q[1]));
       if(row>=0){labelRows[row].push(interval);eventLabels.push({x:labelX,y:base+32+row*10,width,text:L.text,color:ec});}
     }}
-  for(const l of ((c.life&&c.life.links)||[]).filter(l=>l.kind==='contemporary')){ const o=comps.find(k=>k.id===l.ref); if(!o)continue; const px=x(clamp(l.year,c.birthYear,c.deathYear));
+  for(const l of ((c.life&&c.life.links)||[]).filter(l=>l.kind==='contemporary')){ const o=Object.hasOwn(COMP,l.ref)?COMP[l.ref]:null; if(!o)continue; const px=x(clamp(l.year,c.birthYear,c.deathYear));
     sg.strokeStyle=rgba(o.rgb,1); sg.lineWidth=1.4; sg.beginPath(); sg.arc(px,wy+4,4,0,7); sg.stroke();
-    seisHits.push({x0:px-6,x1:px+6,y0:wy-4,y1:wy+12,html:`<span class="k">${l.year} · contemporary</span><b>${o.name}</b><div class="d">${l.text}</div>`}); }
+    seisHits.push({x0:px-6,x1:px+6,y0:wy-4,y1:wy+12,html:`<span class="k">${esc(l.year)} · ${esc(t('river.event.contemporary'))}</span><b>${esc(o.name)}</b><div class="d">${esc(l.text)}</div>`}); }
   // music written and public standing
   const gr=sg.createLinearGradient(0,top,0,base); gr.addColorStop(0,'rgba(239,199,132,.55)'); gr.addColorStop(1,'rgba(239,199,132,0)');
   sg.beginPath(); sg.moveTo(x(c.birthYear),base); for(let y=c.birthYear;y<=c.deathYear;y+=.25) sg.lineTo(x(y),Yv(output(c,y))); sg.lineTo(x(c.deathYear),base); sg.fillStyle=gr; sg.fill();
   sg.beginPath(); for(let y=c.birthYear;y<=c.deathYear;y+=.25){const yy=Yv(standing(c,y)); y===c.birthYear?sg.moveTo(x(y),yy):sg.lineTo(x(y),yy);} sg.strokeStyle='rgba(207,224,255,.85)'; sg.lineWidth=1.4; sg.shadowColor='rgba(170,200,255,.8)'; sg.shadowBlur=8; sg.stroke(); sg.shadowBlur=0;
   for(const wk of c.works){ const px=x(wk.yearComposed), py=Yv(output(c,wk.yearComposed)); sg.fillStyle='#fff4dc';sg.beginPath();sg.arc(px,py,2.6,0,7);sg.fill();
-    seisHits.push({x0:px-6,x1:px+6,y0:py-6,y1:py+6,html:`<span class="k">${wk.yearComposed} · ${wk.genre}</span><b>${wk.title}</b>`}); }
+    seisHits.push({x0:px-6,x1:px+6,y0:py-6,y1:py+6,html:`<span class="k">${esc(wk.yearComposed)} · ${esc(wk.genre)}</span><b>${esc(wk.title)}</b>`}); }
   // life moments: at most three rows of labels; the rest live in hover
   const lvS=[]; sg.font='italic 400 12.5px Cormorant Garamond'; sg.textAlign='left';
   if(c.life) c.life.pts.forEach(p=>{ if(!p[3])return; const px=x(p[0]), py=Yv(p[1]); sg.fillStyle='rgba(239,212,151,.95)'; sg.save();sg.translate(px,py);sg.rotate(Math.PI/4);sg.fillRect(-3.5,-3.5,7,7);sg.restore();
-    seisHits.push({x0:px-8,x1:px+8,y0:py-8,y1:py+8,html:`<span class="k">${p[0]} · aged ${p[0]-c.birthYear}</span><b>${p[3]}</b>`});
+    seisHits.push({x0:px-8,x1:px+8,y0:py-8,y1:py+8,html:`<span class="k">${esc(p[0])} · aged ${esc(p[0]-c.birthYear)}</span><b>${esc(p[3])}</b>`});
     const tw=sg.measureText(p[3]).width; const right=px>w-tw-10; const a=right?px-tw-6:px+6; let L=0; while(L<3&&(lvS[L]||[]).some(q=>a<q[1]&&a+tw>q[0]))L++; if(L>=3)return; (lvS[L]||(lvS[L]=[])).push([a-6,a+tw+6]);
     const ly=12+L*15; sg.strokeStyle='rgba(239,212,151,.25)'; sg.lineWidth=1; sg.beginPath(); sg.moveTo(px,ly+3); sg.lineTo(px,py-5); sg.stroke(); sg.fillStyle='rgba(246,233,207,.86)'; sg.fillText(p[3],a,ly); });
   sg.font='500 8px Cinzel';sg.textAlign='left';
@@ -453,9 +476,10 @@ function loop(now){ const dt=Math.min(.05,(now-last)/1000); last=now; T+=dt; rev
   v0+=(tv0-v0)*Math.min(1,dt*5); v1+=(tv1-v1)*Math.min(1,dt*5); draw(); requestAnimationFrame(loop);}
 resize(); addEventListener('resize',resize);
 if(hp.get('zoom')){const [a,b]=hp.get('zoom').split('-').map(Number);tv0=v0=a;tv1=v1=b;}
-if(hp.get('focus')){reveal=1;const c=comps.find(o=>o.id===hp.get('focus'));if(c)setTimeout(()=>openLife(c),300);}
-if(hp.get('event')){reveal=1;const e=EV.find(e=>e.id===hp.get('event'));if(e)pin={kind:'event',v:e};}
-if(hp.get('country')){reveal=1;pin={kind:'lane',v:hp.get('country')};}
+const focusId=hp.get('focus'),eventId=hp.get('event'),country=hp.get('country');
+if(focusId&&Object.hasOwn(COMP,focusId)){reveal=1;setTimeout(()=>openLife(COMP[focusId]),300);}
+if(eventId&&Object.hasOwn(EVENTS_BY_ID,eventId)){reveal=1;pin={kind:'event',v:EVENTS_BY_ID[eventId]};}
+if(LANES.includes(country)){reveal=1;pin={kind:'lane',v:country};}
 if(hp.has('still'))reveal=1;
 requestAnimationFrame(loop);
 </script>

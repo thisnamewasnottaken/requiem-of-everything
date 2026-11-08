@@ -1,0 +1,15 @@
+{
+  "palestrina-missa-papae-marcelli": {
+    "title": "Missa Papae Marcelli",
+    "description": "Najsłynniejsza msza renesansu. Według legendy Palestrina skomponował ją, aby dowieść, że muzyka polifoniczna może być zarazem złożona i zrozumiała, ratując polifonię przed zakazem na Soborze Trydenckim.",
+    "instrumentation": "Chór SATB (6 głosów)",
+    "significance": "Stała się wzorem kontrreformacyjnej muzyki sakralnej i podstawą nauczania kontrapunktu gatunkowego."
+  },
+  "mozart-magic-flute": {
+    "title": "Czarodziejski flet",
+    "wikipediaSlug": "Czarodziejski_flet"
+  },
+  "chopin-nocturnes": {
+    "wikipediaSlug": "Nokturny_(Chopin)"
+  }
+}
