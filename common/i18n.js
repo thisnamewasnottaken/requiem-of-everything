@@ -301,7 +301,7 @@
     }
 
     const terms = translation.terms || {};
-    const baseFields = { term: 'term', shortDefinition: ['short', 'shortDefinition'], longDefinition: ['long', 'longDefinition'] };
+    const baseFields = { term: ['term'], shortDefinition: ['short', 'shortDefinition'], longDefinition: ['long', 'longDefinition'] };
     for (const term of window.ROE_TERMS_BASE || []) {
       const translated = terms[term.id];
       if (!translated) continue;

@@ -88,7 +88,7 @@ body.entered #whisper{opacity:.0}
 </defs></svg>
 
 <div id="title">
-  <h1>Requiem of Everything</h1>
+  <h1 id="homeTitle">Requiem of Everything</h1>
   <div class="rule"></div>
   <p><span id="homeSubtitle"></span><br><span id="homeInvitation"></span></p>
   <div id="enter">
@@ -250,7 +250,8 @@ void main(){
 import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
 const t=window.ROE_I18N.t;
-document.title=`${t('home.title')} — Requiem of Everything`;
+document.title=t('home.title');
+document.getElementById('homeTitle').textContent=t('home.title');
 document.getElementById('homeSubtitle').textContent=t('home.subtitle');
 document.getElementById('homeInvitation').textContent=t('home.invitation');
 document.getElementById('portals').setAttribute('aria-label',t('home.nav.aria'));
