@@ -1,1 +1,210 @@
-{}
+{
+  "violin": {
+    "renaissance": "Viole en stemme het ensembles gelei; vroeë viole het in hofdansorkeste begin opduik.",
+    "baroque": "Vivaldi se konserte en Bach se solo-partitas het die viool ’n ster van Barokmusiek gemaak.",
+    "classical": "Haydn en Mozart het die viool duidelike melodieë en ’n sentrale plek in simfonieë gegee.",
+    "early-romantic": "Beethoven en Paganini het die viool se drama en verstommende solo-virtuositeit uitgebrei.",
+    "late-romantic": "Brahms se Vioolkonsert span ’n singende solostem saam met ’n ryk orkes.",
+    "modern": "Bartók se vioolkonserte meng volksritmes met gewaagde moderne harmonieë."
+  },
+  "viola": {
+    "renaissance": "Viole het dikwels die middelstem gedra; die moderne altviool was nog besig om vorm te kry.",
+    "baroque": "Die altviool het harmonieë onder die viole gevul; Bach het dit in sy Brandenburgse Konserte gebruik.",
+    "classical": "Mozart se Sinfonia Concertante laat die altviool as gelyke solis op die viool antwoord.",
+    "early-romantic": "Berlioz het die altviool in Harold en Italie ’n storieverteller gemaak.",
+    "late-romantic": "Brahms het warm kamermusiekmelodieë vir altviool in sy strykkwintette geskryf.",
+    "modern": "Bartók se Altvioolkonsert het ’n groot moderne vertoonstuk vir sy singende klank geword."
+  },
+  "cello": {
+    "renaissance": "Groot basviole en ander strykers het musiek geanker voordat die tjello sy moderne vorm gekry het.",
+    "baroque": "Bach se Tjellosuites wys hoe die tjello ’n melodie alleen kan dra, nie net die bas nie.",
+    "classical": "Haydn se tjellokonserte en Mozart se kwartette laat die tjello aan die gesprek deelneem.",
+    "early-romantic": "Schumann se Tjellokonsert laat die tjello deur ’n aaneenlopende driedelige vorm sing.",
+    "late-romantic": "Dvořák se Tjellokonsert maak die tjello ’n simfoniese held.",
+    "modern": "Shostakovich se tjellokonserte wissel tussen intieme lied en vurige drama."
+  },
+  "double-bass": {
+    "renaissance": "Groot basviole het lae note gelewer voordat die moderne orkeskontrabas algemeen was.",
+    "baroque": "Die kontrabas het saam met tjello’s continuo-baslyne in opera en kerkmusiek versterk.",
+    "classical": "Haydn se simfonieë gebruik kontrabasse om harmonie te anker en die pols aan te dryf.",
+    "early-romantic": "Beethoven het die kontrabasse ritmiese energie en verrassende lyne in sy simfonieë gegee.",
+    "late-romantic": "Mahler se reuse-simfonieë rus op die kontrabas se gewig onder massiewe orkeste.",
+    "modern": "Bottesini en Koussevitzky het gewys dat die kontrabas ook as solis kan sing."
+  },
+  "harp": {
+    "renaissance": "Hofharpe het liedere en danse begelei, terwyl luit en viole meer algemeen was.",
+    "baroque": "Barokharpe het aan sommige howe verskyn, maar continuo het meestal op klavesimbel en bas gesteun.",
+    "classical": "Mozart se Fluit- en Harpkonsert gee die harp ’n sierlike solostem.",
+    "early-romantic": "Berlioz het harp se glinsterende akkoorde gebruik om die orkes te kleur.",
+    "late-romantic": "Wagner se operas gebruik harpe om onder hul mitiese tonele te glinster.",
+    "modern": "Debussy se Danses sacrée et profane maak harpklank ’n hele klankwêreld."
+  },
+  "viola-da-gamba": {
+    "renaissance": "Viol-ensembles het verskeie stemme saamgevleg in Engelse musiek van Byrd en Gibbons.",
+    "baroque": "Marin Marais en Sainte-Colombe het die viola da gamba in Franse hofsuites laat sing.",
+    "classical": "Die viola da gamba het plek gemaak vir die tjello, maar sommige spelers het sy sagte klank behou.",
+    "early-romantic": "Die viol het meestal uit openbare konserte verdwyn; ou musiek het dit in versamelings bewaar.",
+    "late-romantic": "Die viol het selde in nuwe orkesmusiek verskyn namate die tjello sy plek ingeneem het.",
+    "modern": "Vroeëmusiekspelers bring die viol terug in ensembles en speel Marais se suites."
+  },
+  "flute": {
+    "renaissance": "Blokfluit- en dwarsfluit-ensembles het danse en hofmusiek gespeel.",
+    "baroque": "Bach en Handel het die houtfluit ekspressiewe solopartye in konserte en kamermusiek gegee.",
+    "classical": "Mozart se fluitkonserte en -kwartette het die fluit ’n sierlike solostem gemaak.",
+    "early-romantic": "Fluite sing in Beethoven se simfonieë en Schubert se kamermusiek.",
+    "late-romantic": "Boehm se klepstelsel het die fluit se omvang vergroot namate orkeste groter geword het.",
+    "modern": "Debussy se Syrinx en Ravel se orkesklanke wys die fluit se vele kleure."
+  },
+  "oboe": {
+    "renaissance": "Die hobo het nog nie ontstaan nie; Renaissance-skalmeie het ’n helder dubbelrietklank gelewer.",
+    "baroque": "Bach en Handel het hobo’s gebruik om stemme te verdubbel en ekspressiewe solo’s te sing.",
+    "classical": "Mozart se Hobokonsert gee die instrument ’n helder, sierlike solostem.",
+    "early-romantic": "Hobomelodieë kleur Beethoven se simfonieë en Schumann se orkesmusiek.",
+    "late-romantic": "Wagner en Brahms het hobo’s warm binnestemme en klaende solo’s gegee.",
+    "modern": "Richard Strauss se Hobokonsert laat die instrument sing in ’n naoorlogse werk."
+  },
+  "clarinet": {
+    "renaissance": "Nog nie uitgevind nie: Johann Christoph Denner het die klarinet omstreeks 1700 ontwikkel.",
+    "baroque": "Teen die eeu se middel het die klarinet by orkeste aangesluit, maar hobo’s en blokfluite was algemener.",
+    "classical": "Mozart se Klarinetkonsert en -kwintet onthul sy warm, singende omvang.",
+    "early-romantic": "Weber se klarinetkonserte het die instrument ’n briljante Romantiese solis gemaak.",
+    "late-romantic": "Brahms se klarinetsonates en -kwintet pas warm, ingetoë melodieë daarby.",
+    "modern": "Stravinsky en Copland het die klarinet se spronge en kleure in moderne orkesmusiek gebruik."
+  },
+  "bassoon": {
+    "renaissance": "Die fagot het nog nie ontstaan nie; vroeë bas-dubbelriete het in Renaissance-ensembles gespeel.",
+    "baroque": "Bach en Vivaldi het die fagot gebruik om baslyne te anker en met solo’s te verras.",
+    "classical": "Mozart se Fagotkonsert laat die lae houtblaasinstrument verrassend ligvoetig dans.",
+    "early-romantic": "Weber se Andante and Hungarian Rondo maak die fagot ’n lenige solis.",
+    "late-romantic": "Tchaikovsky en Brahms het fagotte vir donker kleur en komiese wendings gebruik.",
+    "modern": "Stravinsky begin The Rite of Spring met ’n verstommende hoë fagotsolo."
+  },
+  "recorder": {
+    "renaissance": "Blokfluite het as ensembles gespeel en soet danse en stemagtige melodieë gekleur.",
+    "baroque": "Telemann en Vivaldi het lenige blokfluitkonserte vir dié helder houtfluit geskryf.",
+    "classical": "Die blokfluit het plek gemaak toe die dwarsfluit harder in die Klassieke orkes kon speel.",
+    "early-romantic": "Die blokfluit was skaars in nuwe musiek terwyl die moderne fluit die voortou geneem het.",
+    "late-romantic": "Die blokfluit het selde in nuwe orkeste verskyn, al het ou musiek bly voortleef.",
+    "modern": "Spelers herleef blokfluit-ensembles en verken nuwe werke vir dié ou instrument."
+  },
+  "french-horn": {
+    "renaissance": "Jaghorings het buite weerklink; die Franse horing vir orkeste het nog nie vorm gekry nie.",
+    "baroque": "Natuurlike horings sonder kleppe voeg jagroepe by Bach se Brandenburgse Konsert nr. 1.",
+    "classical": "Mozart se vier horingkonserte laat die natuurlike horing sing, nog voor kleppe bestaan het.",
+    "early-romantic": "Kleppe het omstreeks 1814–1818 gekom; Schumann se Konzertstück laat vier horings skitter.",
+    "late-romantic": "Wagner en Mahler vul hul partiture met horings wat sing, roep en skitter.",
+    "modern": "Strauss se Eine Alpensinfonie gebruik horings vir bergroepe en groot orkesklank."
+  },
+  "trumpet": {
+    "renaissance": "Natuurlike trompette het seremonies en hofoptogte met helder fanfare aangekondig.",
+    "baroque": "Bach se Brandenburgse Konsert nr. 2 gee die trompet ’n skitterende hoë solopart.",
+    "classical": "Haydn se Trompetkonsert van 1796 wys die nuwe gekleptrompet se chromatiese note.",
+    "early-romantic": "Kleppe, omstreeks 1814–1818 ontwikkel, het trompette gladde melodieë in elke toonsoort gegee.",
+    "late-romantic": "Mahler se trompette sny deur reuse-orkeste met gewaagde koperblaasroepe.",
+    "modern": "Stravinsky se Petrushka en The Rite of Spring gebruik skerp trompetkleure en skokkende ritmes."
+  },
+  "trombone": {
+    "renaissance": "Sakboute, vroeë trombones, het sangers in kerke en dorpsorkeste ondersteun.",
+    "baroque": "Bach het trombones gebruik om stemme in kerkmusiek, soos sy kantates, te versterk.",
+    "classical": "Mozart het trombones by kerkmusiek gevoeg, ook in die dramatiese koor van sy Requiem.",
+    "early-romantic": "Schubert en Berlioz het trombones vir groeiende kleur en krag in orkesmusiek gebruik.",
+    "late-romantic": "Wagner en Mahler gebruik trombones vir grootsheid, dreiging en kragtige koraalpassasies.",
+    "modern": "Ravel se Boléro gee die trombone ’n beroemde solo wat al hoe hoër styg."
+  },
+  "tuba": {
+    "renaissance": "Nog nie uitgevind nie: die tuba het omstreeks 1835 verskyn, lank ná die Renaissance.",
+    "baroque": "Nog nie uitgevind nie: die tuba het omstreeks 1835 gekom; strykers en fagotte het die bas gedra.",
+    "classical": "Nog nie uitgevind nie: die tuba het omstreeks 1835 verskyn, ná Haydn en Mozart se simfonieë.",
+    "early-romantic": "Die tuba het omstreeks 1835 gekom, naby dié era se einde, met ’n diep koperstem.",
+    "late-romantic": "Wagner en Mahler het die tuba gebruik om reuse-koperklanke nog dieper te maak.",
+    "modern": "Stravinsky en Holst gebruik die tuba se diep stem as veel meer as ’n stil bas."
+  },
+  "timpani": {
+    "renaissance": "Keteltromme het aan howe en by seremonies verskyn, maar was nie gewone ensemble-instrumente nie.",
+    "baroque": "Bach en Handel het pauke met trompette gepaar vir feesmusiek en gewyde hoogtepunte.",
+    "classical": "Haydn gebruik pauke vir verrassings, soos die beroemde hou in sy Simfonie nr. 94.",
+    "early-romantic": "Beethoven maak pauke dramatiese vennote, van sy Vyfde tot die Negende Simfonie.",
+    "late-romantic": "Mahler se simfonieë gee pauke donderende solo’s en groot dinamiese swiepe.",
+    "modern": "Stravinsky se Rite of Spring maak pauke ’n kragtige ritmiese dryfkrag."
+  },
+  "snare-drum": {
+    "renaissance": "Veldtromme het optogte en seremonies aangedui, maar selde Renaissance-kerkmusiek betree.",
+    "baroque": "Die snaartrom was ’n seldsame buiteklank; Barokorkeste het eerder pauke verkies.",
+    "classical": "Beethoven se Wellington’s Victory gebruik snaartromme om ’n slagveld uit te beeld.",
+    "early-romantic": "Die snaartrom het ’n spesiale kleur gebly en skerp militêre ritmes bygevoeg.",
+    "late-romantic": "Groter orkeste het die snaartrom na vore gebring vir militêre tonele en ritmiese kleur.",
+    "modern": "Ravel se Boléro maak die snaartrom se herhaalde ritme die werk se dryfkrag."
+  },
+  "cymbals-and-percussion": {
+    "renaissance": "Simbale en klein tromme het optogte gekleur; gewyde musiek het om stemme gedraai.",
+    "baroque": "Simbale was skaars in Barokensembles, behalwe soms in fees- of militêre musiek.",
+    "classical": "Turkse slagwerk verhelder Mozart se Die Entführung aus dem Serail en Beethoven se Negende.",
+    "early-romantic": "Berlioz se Symphonie fantastique gebruik slagwerk vir lewendige, ontstellende tonele.",
+    "late-romantic": "Rimsky-Korsakov se Scheherazade gebruik simbale om ’n sprokiessee op te roep.",
+    "modern": "Stravinsky se Rite of Spring maak slagwerk ’n kragtige bron van ritme en kleur."
+  },
+  "piano": {
+    "renaissance": "Nog nie uitgevind nie: Bartolomeo Cristofori het die eerste klavier omstreeks 1700 gebou.",
+    "baroque": "Cristofori se klavier het omstreeks 1700 verskyn, maar klavesimbels het Barokmusiek oorheers.",
+    "classical": "Mozart en Haydn het die klavier die ster van sonates en konserte gemaak.",
+    "early-romantic": "Chopin en Liszt het die klavier in ’n orkes vir een paar hande omskep.",
+    "late-romantic": "Rachmaninoff en Brahms het die klavier vir grootse virtuositeit en ryk kamermusiek gebruik.",
+    "modern": "Ravel se klaviermusiek en Gershwin se Rhapsody in Blue bring nuwe kleure en ritmes."
+  },
+  "organ": {
+    "renaissance": "Orrels het kerke met lang klanke gevul en gewyde musiek in Palestrina se tyd ondersteun.",
+    "baroque": "Bach se orrel-fugas verander die pype in ’n hele orkes.",
+    "classical": "Mozart het selde vir orrel geskryf, maar kerkorrels en kamermusiek het die instrument lewend gehou.",
+    "early-romantic": "Mendelssohn het die konsertorrel met sonates en Bach-geïnspireerde spel herleef.",
+    "late-romantic": "Franck en Widor het die groot Franse orrel ’n simfoniese soloinstrument gemaak.",
+    "modern": "Messiaen se orrelmusiek vul die kerk met helder kleure en voëlagtige ritmes."
+  },
+  "harpsichord": {
+    "renaissance": "Die klavesimbel het stemme en viole aan howe begelei met danse en liedere.",
+    "baroque": "Bach en Scarlatti het die klavesimbel ’n virtuoos instrument aan hof en kerk gemaak.",
+    "classical": "Die klavier het die voortou geneem, hoewel Mozart en jong Haydn steeds vir klavesimbel geskryf het.",
+    "early-romantic": "Klavesimbels was skaars in nuwe musiek toe klaviere harder en meer ekspressief geword het.",
+    "late-romantic": "Die klavesimbel het grootliks uit nuwe orkesmusiek verdwyn.",
+    "modern": "Wanda Landowska het die klavesimbel herleef; moderne komponiste verken sy helder klank."
+  },
+  "celesta": {
+    "renaissance": "Nog nie uitgevind nie: Auguste Mustel het die celesta in 1886 bekend gestel, eeue later.",
+    "baroque": "Nog nie uitgevind nie: Mustel het die celesta in 1886 bekend gestel, lank ná die Barok.",
+    "classical": "Nog nie uitgevind nie: die celesta het in 1886 gekom, lank ná die Klassieke era.",
+    "early-romantic": "Nog nie uitgevind nie: die celesta het in 1886 gekom, ná die vroeë Romantiek.",
+    "late-romantic": "Auguste Mustel het die celesta in 1886 bekend gestel; Tchaikovsky gebruik dit in The Nutcracker (1892).",
+    "modern": "Bartók se Music for Strings, Percussion and Celesta wys dié glasklank in ’n moderne meesterstuk."
+  },
+  "soprano": {
+    "renaissance": "Sopraanlyne sweef bo Renaissance-motette van Palestrina en Victoria uit.",
+    "baroque": "Bach se kantates en Handel se Messiah gee sopranos helder, ekspressiewe solopartye.",
+    "classical": "Mozart se operas en Requiem laat sopraanstemme van grasie na drama spring.",
+    "early-romantic": "Beethoven se Negende en Mendelssohn se oratoria laat sopranos bo die koor uitstyg.",
+    "late-romantic": "Verdi se Requiem en Wagner se operas gee sopranos kragtige dramatiese rolle.",
+    "modern": "Britten se War Requiem plaas sopraansoliste en ’n koor in treffende teenstelling."
+  },
+  "alto-mezzo": {
+    "renaissance": "Altstemme vorm die warm middel van Renaissance-polifonie, van Palestrina tot Victoria.",
+    "baroque": "Altstemme sing Bach se kantates en Handel se oratoria as soliste en koorsangers.",
+    "classical": "Mozart se Cherubino wys hoe ’n mezzostem jeugdige energie na opera bring.",
+    "early-romantic": "Beethoven se Negende gee altstemme ’n sterk plek in die laaste koorbeweging.",
+    "late-romantic": "Verdi se Requiem en Brahms se German Requiem gee altstemme ’n ryk koorgrondslag.",
+    "modern": "Orff se Carmina Burana gebruik ’n groot koor waarin altstemme die klank verdiep."
+  },
+  "tenor": {
+    "renaissance": "Tenore dra melodieë en kontrapunt in Palestrina se gewyde polifonie.",
+    "baroque": "Bach se Passies en Handel se Messiah gee tenore solodrama en koorpartye.",
+    "classical": "Mozart se operas maak tenore helde, van Idomeneo tot Don Giovanni.",
+    "early-romantic": "Beethoven se Negende laat tenore met die vreugdevolle slotkoor vorentoe tree.",
+    "late-romantic": "Verdi se operas en Requiem gee tenore hoë, meesleurende partye.",
+    "modern": "Britten se War Requiem gee die tenorsolis ’n spookagtige rol langs die koor."
+  },
+  "bass-baritone": {
+    "renaissance": "Basstemme grond Renaissance-motette en gee Palestrina se polifonie ’n stewige fondament.",
+    "baroque": "Bach se kantates en Handel se Messiah gee basse gewigtige aria’s en koorpartye.",
+    "classical": "Mozart se Figaro en Sarastro wys die pad van lenige bariton tot diep bas.",
+    "early-romantic": "Beethoven se Negende gee basse ’n indrukwekkende solo voor die Ode to Joy-koor.",
+    "late-romantic": "Brahms en Verdi het basstemme gebruik om groot requiems en operas te anker.",
+    "modern": "Orff se Carmina Burana gee basse ’n diep, onvergeetlike rol in sy groot koor."
+  }
+}
