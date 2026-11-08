@@ -1,1 +1,211 @@
-{}
+{
+  "violin": {
+    "showcase": {"why": "Vier kleurvolle konserte plaas die viool in die middel van elke seisoen."},
+    "greats": [
+      {"note": "Het viooltegniek met verbluffende virtuositeit verander."},
+      {"note": "’n Geliefde virtuoos van die 20ste eeu."},
+      {"note": "Geliefd vir sy warm toon en lang loopbaan."}
+    ]
+  },
+  "viola": {
+    "showcase": {"why": "’n Solo-altviool beweeg deur ’n kleurvolle orkesverhaal."},
+    "greats": [
+      {"note": "Het die altviool se aansien as solo-instrument verhoog."},
+      {"note": "Bekend vir ekspressiewe spel en onderrig."},
+      {"note": "’n Vooraanstaande altvioolsolis en stigter van ’n ensemble."}
+    ]
+  },
+  "cello": {
+    "showcase": {"why": "’n Diep liriese concerto waarin die tjello sing en swel."},
+    "greats": [
+      {"note": "Het gehelp om Bach se tjellosuites na konsertsale te bring."},
+      {"note": "’n Veelsydige uitvoerder en musikale ambassadeur."},
+      {"note": "Haar opname van Elgar se concerto het ikonies geword."}
+    ],
+    "goat": {"note": "’n Geliefde tjellis, bekend vir wyd uiteenlopende uitvoerings."}
+  },
+  "double-bass": {
+    "showcase": {"why": "’n Vertoonstuk wat die kontrabas se ratsheid en singende stem wys."},
+    "greats": [
+      {"note": "Was in sy tyd ’n vooraanstaande kontrabasvirtuoos."},
+      {"note": "Was ’n kontrabassolis voordat hy ’n beroemde dirigent geword het."},
+      {"note": "Het gehelp om die kontrabas as solo-instrument te vestig."}
+    ]
+  },
+  "harp": {
+    "showcase": {"why": "Die harp gly tussen glinsterende dansritmes en ernstige akkoorde."},
+    "greats": [
+      {"note": "’n Geliefde Franse harpiste en onderwyser."},
+      {"note": "Bekend vir solospel en kamermusiek."},
+      {"note": "Vandag een van die voorste harpsoliste."}
+    ]
+  },
+  "viola-da-gamba": {
+    "showcase": {"why": "Bekende variasies verander ’n eenvoudige tema in ’n gamba-vertoonstuk."},
+    "greats": [
+      {"note": "’n Vooraanstaande Franse komponis en gambaspeler."},
+      {"note": "’n Franse meester van die viola da gamba en ’n onderwyser."},
+      {"note": "’n Vooraanstaande hedendaagse uitvoerder en musiekkenner."}
+    ]
+  },
+  "flute": {
+    "showcase": {"why": "’n Solo-fluit skilder ’n stil mite sonder begeleiding."},
+    "greats": [
+      {"note": "Het die fluit as solo-instrument gewild gemaak."},
+      {"note": "Bekend vir ’n helder toon en ’n wye gehoor."},
+      {"note": "’n Vooraanstaande orkes- en fluitsolis."}
+    ]
+  },
+  "oboe": {
+    "showcase": {"why": "’n Grasieuse laat concerto laat die hobo van begin tot einde lei."},
+    "greats": [
+      {"note": "’n Virtuoos op die hobo, komponis en dirigent."},
+      {"note": "Bekend vir liriese spel by die Berlynse Filharmonie."},
+      {"note": "Het gehelp om moderne Franse hobospel te vorm."}
+    ]
+  },
+  "clarinet": {
+    "showcase": {"why": "Die klarinet se warm klankreeks skitter in Mozart se laaste concerto."},
+    "greats": [
+      {"note": "Jazzklarinettis wat ook nuwe konsertwerke bevorder het."},
+      {"note": "’n Vooraanstaande solis en orkesmusikant."},
+      {"note": "Bekend vir verbeeldingryke spel en programkeuses."}
+    ]
+  },
+  "bassoon": {
+    "showcase": {"why": "’n Speelse concerto wys die fagot se ratsheid en singende aard."},
+    "greats": [
+      {"note": "’n Geliefde solis en onderwyser."},
+      {"note": "Bekend vir solo- en kamermusiekuitvoerings."},
+      {"note": "’n Vooraanstaande speler van moderne en barokfagotte."}
+    ]
+  },
+  "recorder": {
+    "showcase": {"why": "Helder blokfluitlyne wys hoekom dié instrument in die Barok geliefd was."},
+    "greats": [
+      {"note": "Het gehelp om die blokfluit in die moderne konsertlewe te laat herleef."},
+      {"note": "’n Blokfluitsolis met talle opnames."},
+      {"note": "Voer vroeë musiek uit en gee daarin onderrig."}
+    ]
+  },
+  "french-horn": {
+    "showcase": {"why": "Lang melodieë en lewendige roepe wys die waldhoorn se omvang."},
+    "greats": [
+      {"note": "’n Baanbrekende waldhoornsolis van die 20ste eeu."},
+      {"note": "Bekend vir solospel en historiese uitvoeringspraktyk."},
+      {"note": "Het dekades lank die Chicago Simfonieorkes se horinggroep gelei."}
+    ]
+  },
+  "trumpet": {
+    "showcase": {"why": "Die nuwe kleptrumpet gee ’n helder, skitterende solostem."},
+    "greats": [
+      {"note": "Het gehelp om die trompet as solo-instrument gewild te maak."},
+      {"note": "’n Belangrike klassieke en jazztrompetsolis."},
+      {"note": "’n Vooraanstaande moderne trompetsolis."}
+    ]
+  },
+  "trombone": {
+    "showcase": {"why": "’n Bekende tromboonglytoon styg bo die herhalende dans uit."},
+    "greats": [
+      {"note": "’n Vooraanstaande trombonesolis en komponis."},
+      {"note": "Hoofpuisonspeler van die New Yorkse Filharmonie."},
+      {"note": "’n Bepalende trombonis in jazz."}
+    ]
+  },
+  "tuba": {
+    "showcase": {"why": "’n Volwaardige concerto gee die tuba selde die hoofrol."},
+    "greats": [
+      {"note": "Het gehelp om die tuba in Amerikaanse orkeste te vestig."},
+      {"note": "’n Pionier van die tuba se solovoordrag."},
+      {"note": "Bekend vir virtuoos solospel."}
+    ]
+  },
+  "timpani": {
+    "showcase": {"why": "Die pauke bring donder en dryfkrag na die simfonie se hoogtepunte."},
+    "greats": [
+      {"note": "’n Belangrike onderwyser wat Amerikaanse paukespel help vorm het."},
+      {"note": "’n Geliefde solis en opvoeder op perkussie."},
+      {"note": "Bekend vir solovoordragte op die pauke."}
+    ]
+  },
+  "snare-drum": {
+    "showcase": {"why": "Die militêre trom herhaal sy ritme terwyl die orkes steeds groter groei."},
+    "greats": [
+      {"note": "’n Belangrike onderwyser en metodesskrywer vir die militêre trom."},
+      {"note": "’n Geliefde rocktromspeler met ’n kragtige klank."},
+      {"note": "’n Vooraanstaande perkussiesolis."}
+    ]
+  },
+  "cymbals-and-percussion": {
+    "showcase": {"why": "’n Lewendige mengsel van tromme, simbale en perkussie dryf die partituur."},
+    "greats": [
+      {"note": "’n Vooraanstaande solis op allerlei perkussie-instrumente."},
+      {"note": "Het die gebruik van perkussie in konsertmusiek uitgebrei."},
+      {"note": "’n Meester-timbalesspeler en leier van ’n Latynse jazzorkes."}
+    ]
+  },
+  "piano": {
+    "showcase": {"why": "’n Stil opening en ’n stormagtige slot wys die klavier se omvang."},
+    "greats": [
+      {"note": "’n Rigtinggewende komponis vir klaviermusiek."},
+      {"note": "Het klavierspel en -tegniek ingrypend verander."},
+      {"note": "Bekend vir energieke, ekspressiewe uitvoerings."}
+    ]
+  },
+  "organ": {
+    "showcase": {"why": "Dapper openingsfrases lei na ’n diggeweefde fuga."},
+    "greats": [
+      {"note": "’n Sentrale komponis en virtuose orrelis."},
+      {"note": "Het Franse orrelmusiek in die 19de eeu laat herleef."},
+      {"note": "’n Belangrike orrelkomponis van die 20ste eeu."}
+    ]
+  },
+  "harpsichord": {
+    "showcase": {"why": "Dertig variasies verander een eenvoudige baslyn in ’n wêreld vol musiek."},
+    "greats": [
+      {"note": "Het die klavesimbel na die konsertverhoog teruggebring."},
+      {"note": "’n Belangrike uitvoerder en kenner van vroeë musiek."},
+      {"note": "’n Vooraanstaande klawesimbelspeler en dirigent."}
+    ]
+  },
+  "celesta": {
+    "showcase": {"why": "Die sprankelende celesta gee die dans sy betowerende klank."},
+    "greats": [
+      {"note": "Het die celesta beroemd gemaak met Die Neutekraker."},
+      {"note": "Het die celesta in sy Harpkonsert gebruik."},
+      {"note": "Gebruik die celesta se klank in film- en konsertmusiek."}
+    ]
+  },
+  "soprano": {
+    "showcase": {"why": "’n Koloratuur-aria laat die sopraan hoog spring en vinnig sing."},
+    "greats": [
+      {"note": "’n Geliefde operasangeres met ’n dramatiese stemomvang."},
+      {"note": "Beroemd vir haar skitterende koloratuursang."},
+      {"note": "’n Vooraanstaande liriese sopraan op die verhoog en opnames."}
+    ]
+  },
+  "alto-mezzo": {
+    "showcase": {"why": "Carmen se onvergeetlike intrede gee die mezzosopraan ’n gewaagde karakterrol."},
+    "greats": [
+      {"note": "’n Belangrike mezzosopraan en kenner van bel canto."},
+      {"note": "Bekend vir rats sang en herontdekte werke."},
+      {"note": "’n Geliefde Carmen- en Mozart-sangeres."}
+    ]
+  },
+  "tenor": {
+    "showcase": {"why": "’n Stygende tenooraria bou op na ’n beroemde hoë slotnoot."},
+    "greats": [
+      {"note": "Het die tenoorstem aan reusegehore bekend gestel."},
+      {"note": "’n Vroeë opname-ster van die operatenoorstem."},
+      {"note": "’n Vooraanstaande tenoor in opera en lied."}
+    ]
+  },
+  "bass-baritone": {
+    "showcase": {"why": "Leporello se vinnige lys gee ’n bas-bariton ’n komiese vertoonrol."},
+    "greats": [
+      {"note": "’n Bekende sanger van opera en kunslied."},
+      {"note": "Bekend vir ekspressiewe bas-baritonrolle."},
+      {"note": "’n Geliefde vertolker van Mozart en bel canto-rolle."}
+    ]
+  }
+}
