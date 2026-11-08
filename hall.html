@@ -48,9 +48,16 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
 #card li b{color:#f6e9cf;font-weight:500}
 #card li a{color:var(--gold);font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-decoration:none;margin-left:6px;white-space:nowrap}
 #card li a:hover{color:#fff2d6}
-#card .eras{display:flex;gap:4px;margin:10px 0}
-#card .eras span{flex:1;height:30px;border:1px solid var(--gold-faint);font-family:var(--inscr);font-size:.42rem;letter-spacing:.1em;color:var(--mist);display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;text-transform:uppercase;position:relative;overflow:hidden}
-#card .eras span i{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(239,212,151,.45))}
+#card .era-list{display:flex;flex-direction:column;gap:5px;margin:10px 0}
+#card .era-row{display:block;width:100%;padding:7px 9px 8px 11px;border:1px solid var(--gold-faint);border-left:2px solid transparent;background:rgba(14,11,9,.58);color:inherit;text-align:left;font:inherit;cursor:pointer;transition:background .18s,border-color .18s}
+#card .era-row:hover,#card .era-row:focus-visible{background:rgba(239,212,151,.09);border-color:var(--gold-dim);outline:none}
+#card .era-row.current{border-left-color:var(--gold);background:rgba(239,212,151,.065)}
+#card .era-head{display:flex;align-items:center;gap:9px;min-height:14px}
+#card .era-name{flex:1;font-family:var(--inscr);font-size:.5rem;letter-spacing:.16em;color:#efd497;text-transform:uppercase}
+#card .era-tag{font-family:var(--inscr);font-size:.4rem;letter-spacing:.1em;color:var(--gold);white-space:nowrap}
+#card .era-meter{display:block;flex:none;width:58px;height:3px;background:rgba(201,165,92,.14)}
+#card .era-meter i{display:block;height:100%;background:linear-gradient(90deg,var(--gold-dim),#efd497)}
+#card .era-note{display:block;margin-top:4px;color:rgba(230,216,189,.82);font-family:"Cormorant Garamond",serif;font-size:.9rem;line-height:1.22;letter-spacing:0}
 #card .row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 #card a.btn{text-decoration:none;display:inline-flex;align-items:center}
 #card .bio{font-size:1rem;line-height:1.5;color:rgba(230,216,189,.82);margin:10px 0;max-height:9.2em;overflow-y:auto;-webkit-mask-image:linear-gradient(#000 75%,transparent);mask-image:linear-gradient(#000 75%,transparent);padding-bottom:1.2em}
@@ -101,12 +108,12 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
   <div class="drow" id="pieces"></div>
 </div>
 <div id="tip" class="reliquary"></div>
-<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script><script src="common/hall-layout.js"></script>
+<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script><script src="common/instrument-eras.js"></script><script src="common/hall-layout.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 await sound.useHQ('samples/manifest.json');
 const D=window.ROE_DATA, INST=Object.fromEntries(D.instruments.map(i=>[i.id,i])), COMP=Object.fromEntries(D.composers.map(c=>[c.id,c]));
-const LIVES=window.ROE_LIVES||{}, XTRA=window.ROE_INSTR_EXTRA||{}, ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
+const LIVES=window.ROE_LIVES||{}, XTRA=window.ROE_INSTR_EXTRA||{}, INSTR_ERAS=window.ROE_INSTR_ERAS||{}, ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
 const {S,L,PIECES,ringR,layoutSeats,pieceDefs}=window.ROE_HALL;
 const $=id=>document.getElementById(id);
 const cv=$('hall'), g=cv.getContext('2d'), hz=$('haze'); let W,H,DPR; const HS=.5;
@@ -189,7 +196,6 @@ bS.onclick=()=>{silent=!silent;localStorage.setItem('roe-sound',silent?'off':'on
 addEventListener('storage',e=>{ if(e.key==='roe-sound'){ silent=e.newValue==='off'; paintS(); } });
 document.addEventListener('click',e=>{ const a=e.target.closest('a.who'); if(a){ e.preventDefault(); sound.unlock(); openComposer(a.dataset.c); } });
 // ---------- cards ----------
-const ERAS=['renaissance','baroque','classical','early-romantic','late-romantic','modern'];
 function openInstrument(sid){ const [label,fam,iid]=S[sid]; const I=INST[iid]||LOCAL[sid]||{}; const X=XTRA[iid]; card={kind:'inst',sid};
   const goat=X&&X.goat?(typeof X.goat==='string'?{name:X.goat}:X.goat):null; const sc=X&&X.showcase;
   const pr=Object.fromEntries((I.eraProminence||[]).map(p=>[p.era,p.prominence])); const HH={primary:1,secondary:.6,occasional:.3,rare:.15};
@@ -198,10 +204,15 @@ function openInstrument(sid){ const [label,fam,iid]=S[sid]; const I=INST[iid]||L
    ${sc?`<div class="show"><div class="k">Hear it shine</div><b>${sc.title}</b><i>${sc.composerId?`<a class="who" data-c="${sc.composerId}">${sc.composerName}</a>`:sc.composerName} · ${sc.year}</i><p>${sc.why}</p><a class="btn" href="${sc.spotifyUrl}" data-roe-key="instr:${iid}">Listen on Spotify</a><div class="spotify-player"></div></div>`:''}
    ${goat?`<div class="goat"><span class="k">Widely called the greatest</span><b>${goat.name}</b>${goat.note?`<span class="n">${goat.note}</span>`:''}</div>`:''}
    ${X&&X.greats&&X.greats.length?`<div class="k">Great players</div><ul>${X.greats.map(p=>`<li><b>${p.name}</b> · ${p.note}</li>`).join('')}</ul>`:''}
-   ${I.eraProminence?`<div class="k">Through the eras</div><div class="eras">${ERAS.map(e=>`<span><i style="height:${(HH[pr[e]]||0)*100}%"></i>${e.replace('-romantic','-rom')}</span>`).join('')}</div>`:''}
+   ${I.eraProminence?`<div class="k">Through the eras</div><div class="era-list">${D.eras.map(era=>{const level=HH[pr[era.id]]||0,isCurrent=(ERA_OF[era.id]||era.id)===st.era;return `<button type="button" class="era-row${isCurrent?' current':''}" data-era="${era.id}" aria-pressed="${isCurrent}"><span class="era-head"><span class="era-name">${ERAN[era.id]}</span>${isCurrent?'<span class="era-tag">on stage now</span>':''}<span class="era-meter" role="img" aria-label="${pr[era.id]||'no'} prominence"><i style="width:${level*100}%"></i></span></span><span class="era-note">${INSTR_ERAS[iid]?.[era.id]||''}</span></button>`;}).join('')}</div>`:''}
    <div class="row"><button class="btn" id="cHear">Hear it alone</button></div>`;
+  $('card').querySelectorAll('.era-row').forEach(button=>button.onclick=()=>{
+    const instrumentSid=card?.kind==='inst'?card.sid:null;
+    setEra(ERA_OF[button.dataset.era]||button.dataset.era,true);
+    if(instrumentSid)openInstrument(instrumentSid);
+  });
   $('cHear').onclick=()=>{sound.unlock().then(()=>motif(sid,.7,0,.4));};
-  $('card').classList.add('open'); $('card').scrollTop=0; $('hint').style.opacity=0; if(sound.started) motif(sid,.6,0,.34); }
+  $('card').classList.add('open'); if(tip.style.opacity==='1')positionTip(mouse); $('card').scrollTop=0; $('hint').style.opacity=0; if(sound.started) motif(sid,.6,0,.34); }
 function openComposer(id){ const c=COMP[id]; if(!c)return; card={kind:'comp',id}; const Lf=LIVES[id];
   const works=D.compositions.filter(w=>w.composerId===id).sort((a,b)=>a.yearComposed-b.yearComposed).slice(0,5);
   const seated=st.composer===id||(st.piece&&PIECES.find(p=>p.id===st.piece)?.composer===id);
@@ -495,6 +506,16 @@ function render(){ g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
     const sc=proj(0,3.2); gl.uniform3f(uh.st,sc.x*HS,(H-sc.y)*HS,W*.42*HS); gl.drawArrays(gl.TRIANGLES,0,3); } }
 // ---------- interaction & sound ----------
 const tip=$('tip'); let lastPlay=0;
+function positionTip(e){
+  const size=tip.getBoundingClientRect(), cardEl=$('card'), cardOpen=cardEl.classList.contains('open');
+  const cardRect=cardOpen?cardEl.getBoundingClientRect():null;
+  const overlaps=(x,y)=>cardOpen&&x<cardRect.right+8&&x+size.width>cardRect.left-8&&y<cardRect.bottom+8&&y+size.height>cardRect.top-8;
+  let x=Math.min(e.clientX+16,W-size.width-12), y=e.clientY+16;
+  if(overlaps(x,y)){x=e.clientX-size.width-16;if(overlaps(x,y)){tip.style.opacity=0;return false;}}
+  tip.style.left=x+'px';tip.style.top=y+'px';tip.style.opacity=1;
+  return true;
+}
+$('card').addEventListener('pointerenter',()=>{tip.style.opacity=0;});
 function podPt(){ if(camName==='podium') return {x:W/2,y:$('dock').getBoundingClientRect().top-14,s:1}; const q=proj(0,-.35); return {x:q.x,y:q.y,s:Math.max(.6,Math.min(1.8,q.p/.95))}; }
 function onPodium(mx,my){ const pc=podPt(), s=pc.s; if(camName==='podium') return !!curComposer()&&Math.abs(mx-pc.x)<110&&Math.abs(my-pc.y)<18; return Math.abs(mx-pc.x)<(curComposer()?90:30*s)&&my>pc.y-48*s&&my<pc.y+24*s; }
 function labelRectsOverlap(a,b,padding=4){ return a.x-padding<b.x+b.w+padding&&a.x+a.w+padding>b.x-padding&&a.y-padding<b.y+b.h+padding&&a.y+a.h+padding>b.y-padding; }
@@ -506,7 +527,7 @@ cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=
   if(s!==hoverS){ hoverS=s; if(s&&sound.started&&!wasMoving&&performance.now()-lastPlay>160){lastPlay=performance.now(); motif(s,.38);} }
   if(s){ const n=[...seats.values()].filter(o=>o.sid===s&&!o.dead).length; tip.innerHTML=`<b>${S[s][0]}</b><span>${n} player${n>1?'s':''} · ${FAMN[S[s][1]]} · click to meet</span>`; }
   else if(pod){ const c=curComposer(); tip.innerHTML=c?`<b>${c.name}</b><span>click to meet the composer</span>`:`<b>The podium</b><span>pick a composer or piece below</span>`; }
-  if(s||pod){ tip.style.opacity=1; tip.style.left=Math.min(e.clientX+16,W-260)+'px'; tip.style.top=(e.clientY+16)+'px'; cv.style.cursor='pointer'; } else { tip.style.opacity=0; cv.style.cursor=''; } });
+  if(s||pod){ positionTip(e); cv.style.cursor='pointer'; } else { tip.style.opacity=0; cv.style.cursor=''; } });
 cv.addEventListener('click',e=>{ sound.unlock(); const s=pickLabel(e.clientX,e.clientY)||pickSection(e.clientX,e.clientY);
   if(s){ st.instrument=S[s][2]||undefined; focusS=new Set(); openInstrument(s); mark(); setHash(); return; }
   if(onPodium(e.clientX,e.clientY)&&curComposer()){ openComposer(curComposer().id); return; }
