@@ -93,6 +93,11 @@
     'river.tooltip.years': '{count} year',
     'river.tooltip.years_one': '{count} year',
     'river.tooltip.years_other': '{count} years',
+    'river.tooltip.country': 'Country',
+    'river.tooltip.pin': 'click to pin',
+    'river.tooltip.unpin': 'click to unpin',
+    'river.tooltip.composers_one': '{count} composer in view lived or worked here',
+    'river.tooltip.composers_other': '{count} composers in view lived or worked here',
     'hall.sounding': 'Sounding',
     'hall.silence': 'Silence',
     'hall.hint.one': 'click a section or the podium to meet them',
@@ -298,6 +303,10 @@
     for (const [id, label] of Object.entries(hall.sections || {})) {
       const target = window.ROE_HALL?.S?.[id];
       if (target && typeof label === 'string') target[0] = label;
+    }
+    for (const [id, label] of Object.entries(hall.shortSections || {})) {
+      const target = window.ROE_HALL?.S?.[id];
+      if (target?.length > 7 && typeof label === 'string') target[7] = label;
     }
 
     const terms = translation.terms || {};

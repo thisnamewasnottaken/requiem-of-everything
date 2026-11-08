@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="icon.svg" type="image/svg+xml"><title>The Hall &amp; Voices — Requiem of Everything</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title></title>
 <link rel="stylesheet" href="common/style.css">
 <style>
 body{background:#060504}
@@ -30,6 +30,14 @@ a.who:hover{color:#fff2d6;border-color:#fff2d6}
 select.btn{appearance:none;-webkit-appearance:none;padding-right:26px;cursor:pointer;max-width:230px;
   background:rgba(14,11,9,.75) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23c9a55c'/%3E%3C/svg%3E") no-repeat right 10px center}
 select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-family:Georgia,serif;letter-spacing:0;text-transform:none}
+@media (min-width:1200px) and (min-height:501px){
+  #dock{width:min(1380px,96vw)}
+  #row1,#eras{flex-wrap:nowrap}
+  #eras{flex:0 0 auto}
+  #row1 .sep{flex:none}
+  #row1 select.btn{width:190px;min-width:135px;max-width:190px;flex:0 1 190px}
+  #bShare{flex:none;white-space:nowrap}
+}
 #card{position:fixed;right:28px;top:70px;width:370px;max-height:calc(100vh - 190px);overflow-y:auto;z-index:20;padding:18px 20px;opacity:0;transform:translateX(30px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.4) transparent}
 #card.open{opacity:1;transform:none;pointer-events:auto}
 #card h3{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf;margin:6px 0 2px}
@@ -94,7 +102,7 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
 <body>
 <canvas id="haze"></canvas><canvas id="hall"></canvas>
 <div class="vignette"></div><div class="grain"></div>
-<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a href="river.html">River</a><a class="here" href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><a href="river.html">River</a><a class="here" href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
 <button class="btn" id="bSilence" aria-pressed="false">Sounding</button>
 <div class="hint" id="hint">click a section or the podium to meet them<br>change the era to watch the players walk off and on</div>
 <div id="info"><div class="k" id="iYear"></div><h2 id="iName"></h2><div class="lead" id="iLead"></div><p id="iText"></p><div id="iComp"></div><div class="count" id="iCount"></div>
@@ -102,8 +110,8 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
 <div id="card" class="reliquary" role="dialog" aria-live="polite"></div>
 <div id="dock">
   <div class="drow" id="row1"><span id="eras" class="drow"></span><span class="sep"></span>
-    <select class="btn" id="fComposer" aria-label="Choose a composer"></select>
-    <select class="btn" id="fInstr" aria-label="Choose an instrument or voice"></select>
+    <select class="btn" id="fComposer" aria-label=""></select>
+    <select class="btn" id="fInstr" aria-label=""></select>
     <span class="sep"></span><button class="btn" id="bShare">Share this view</button></div>
   <div class="drow" id="pieces"></div>
 </div>
@@ -114,7 +122,7 @@ import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
 const t=window.ROE_I18N.t;
 const esc=window.ROE_HTML.esc;
-document.title=`${t('nav.hall')} — Requiem of Everything`;
+document.title=`${t('nav.hall')} — ${t('home.title')}`;
  document.getElementById('hint').innerHTML=`${esc(t('hall.hint.one'))}<br>${esc(t('hall.hint.two'))}`;
 document.getElementById('bSilence').setAttribute('aria-label',t('hall.sounding'));
 document.getElementById('tutti').textContent=t('hall.baton');
@@ -214,7 +222,7 @@ function openInstrument(sid){ if(!Object.hasOwn(S,sid))return; const [label,fam,
   const pr=Object.fromEntries((I.eraProminence||[]).map(p=>[p.era,p.prominence])); const HH={primary:1,secondary:.6,occasional:.3,rare:.15};
   $('card').innerHTML=`<div class="k">${esc(FAMN[fam]||'')} · ${esc(label)}</div><h3>${esc(I.name||label)}</h3>${I.range?`<div class="k dim">${esc(t('hall.card.range',{range:I.range}))}</div>`:''}
    <p class="role">${esc(I.role||'')}</p><p>${esc(I.description||'')}</p>
-   ${sc?`<div class="show"><div class="k">${esc(t('hall.card.hearShine'))}</div><b>${esc(sc.title)}</b><i>${scComposer?`<a class="who" data-c="${esc(sc.composerId)}">${esc(scComposer.name)}</a>`:esc(sc.composerName||'')} · ${esc(sc.year)}</i><p>${esc(sc.why)}</p><a class="btn" href="${esc(sc.spotifyUrl)}" data-roe-key="instr:${esc(iid)}">${esc(t('hall.card.listen'))}</a><div class="spotify-player"></div></div>`:''}
+   ${sc?`<div class="show"><div class="k">${esc(t('hall.card.hearShine'))}</div><b>${esc(D.compositions.find(w=>w.id===sc.compositionId)?.title||sc.title)}</b><i>${scComposer?`<a class="who" data-c="${esc(sc.composerId)}">${esc(scComposer.name)}</a>`:esc(sc.composerName||'')} · ${esc(sc.year)}</i><p>${esc(sc.why)}</p><a class="btn" href="${esc(sc.spotifyUrl)}" data-roe-key="instr:${esc(iid)}">${esc(t('hall.card.listen'))}</a><div class="spotify-player"></div></div>`:''}
    ${goat?`<div class="goat"><span class="k">${esc(t('hall.card.greatest'))}</span><b>${esc(goat.name)}</b>${goat.note?`<span class="n">${esc(goat.note)}</span>`:''}</div>`:''}
    ${X&&X.greats&&X.greats.length?`<div class="k">${esc(t('hall.card.greatPlayers'))}</div><ul>${X.greats.map(p=>`<li><b>${esc(p.name)}</b> · ${esc(p.note)}</li>`).join('')}</ul>`:''}
    ${I.eraProminence?`<div class="k">${esc(t('hall.card.throughEras'))}</div><div class="era-list">${D.eras.map(era=>{const prominence=pr[era.id]||'none',level=Object.hasOwn(HH,prominence)?HH[prominence]:0,isCurrent=(Object.hasOwn(ERA_OF,era.id)?ERA_OF[era.id]:era.id)===st.era,name=Object.hasOwn(ERAN,era.id)?ERAN[era.id]:era.name,note=eraNotes&&Object.hasOwn(eraNotes,era.id)?eraNotes[era.id]:'';return `<button type="button" class="era-row${isCurrent?' current':''}" data-era="${esc(era.id)}" aria-pressed="${isCurrent}"><span class="era-head"><span class="era-name">${esc(name)}</span>${isCurrent?`<span class="era-tag">${esc(t('hall.card.onStageNow'))}</span>`:''}<span class="era-meter" role="img" aria-label="${esc(t(`hall.prominence.${prominence}`))}"><i style="width:${level*100}%"></i></span></span><span class="era-note">${esc(note)}</span></button>`;}).join('')}</div>`:''}

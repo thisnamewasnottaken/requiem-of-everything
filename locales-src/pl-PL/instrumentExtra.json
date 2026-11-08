@@ -25,7 +25,7 @@
     "goat": {"note": "Ceniony wiolonczelista znany z bardzo szerokiego repertuaru."}
   },
   "double-bass": {
-    "showcase": {"why": "Popisowy utwór ukazuje zwinność i śpiewne brzmienie kontrabasu."},
+    "showcase": {"title": "Koncert nr 2 h-moll", "why": "Popisowy utwór ukazuje zwinność i śpiewne brzmienie kontrabasu."},
     "greats": [
       {"note": "Jeden z najwybitniejszych kontrabasowych wirtuozów swojej epoki."},
       {"note": "Był kontrabasistą-solistą, zanim zasłynął jako dyrygent."},
@@ -33,7 +33,7 @@
     ]
   },
   "harp": {
-    "showcase": {"why": "Harfa przepływa między migotliwymi rytmami tańca a uroczystymi akordami."},
+    "showcase": {"title": "Taniec sakralny i świecki", "why": "Harfa przepływa między migotliwymi rytmami tańca a uroczystymi akordami."},
     "greats": [
       {"note": "Ceniona francuska harfistka i pedagog."},
       {"note": "Znana z występów solowych i kameralnych."},
@@ -41,7 +41,7 @@
     ]
   },
   "viola-da-gamba": {
-    "showcase": {"why": "Słynne wariacje zmieniają prosty temat w popisowy utwór na violę da gamba."},
+    "showcase": {"title": "Les Folies d’Espagne", "why": "Słynne wariacje zmieniają prosty temat w popisowy utwór na violę da gamba."},
     "greats": [
       {"note": "Czołowy francuski kompozytor i wirtuoz violi da gamba."},
       {"note": "Francuski mistrz violi da gamba i nauczyciel."},
@@ -49,7 +49,7 @@
     ]
   },
   "flute": {
-    "showcase": {"why": "Samotny flet maluje spokojną opowieść mityczną bez akompaniamentu."},
+    "showcase": {"title": "Syrinx", "why": "Samotny flet maluje spokojną opowieść mityczną bez akompaniamentu."},
     "greats": [
       {"note": "Spopularyzował flet jako instrument solowy."},
       {"note": "Znany z jasnego brzmienia i szerokiej publiczności."},
@@ -57,7 +57,7 @@
     ]
   },
   "oboe": {
-    "showcase": {"why": "Późny, pełen wdzięku koncert pozwala obojowi prowadzić muzykę od początku do końca."},
+    "showcase": {"title": "Koncert obojowy D-dur", "why": "Późny, pełen wdzięku koncert pozwala obojowi prowadzić muzykę od początku do końca."},
     "greats": [
       {"note": "Wirtuoz oboju, kompozytor i dyrygent."},
       {"note": "Znany z lirycznej gry w Filharmonii Berlińskiej."},
@@ -65,7 +65,7 @@
     ]
   },
   "clarinet": {
-    "showcase": {"why": "Ciepła skala klarnetu rozkwita w ostatnim koncercie Mozarta."},
+    "showcase": {"title": "Koncert klarnetowy A-dur, KV 622", "why": "Ciepła skala klarnetu rozkwita w ostatnim koncercie Mozarta."},
     "greats": [
       {"note": "Jazzowy klarnecista, który wspierał też nowe dzieła koncertowe."},
       {"note": "Czołowa solistka i klarnecistka orkiestrowa."},
@@ -73,7 +73,7 @@
     ]
   },
   "bassoon": {
-    "showcase": {"why": "Pełen humoru koncert ukazuje zwinność i śpiewność fagotu."},
+    "showcase": {"title": "Koncert fagotowy B-dur, KV 191", "why": "Pełen humoru koncert ukazuje zwinność i śpiewność fagotu."},
     "greats": [
       {"note": "Ceniony solista i pedagog."},
       {"note": "Znany z występów solowych i kameralnych."},
@@ -81,7 +81,7 @@
     ]
   },
   "recorder": {
-    "showcase": {"why": "Jasne partie fletu prostego pokazują, czemu ceniono go w epoce baroku."},
+    "showcase": {"title": "Koncert na flet prosty C-dur, TWV 51:C1", "why": "Jasne partie fletu prostego pokazują, czemu ceniono go w epoce baroku."},
     "greats": [
       {"note": "Pomógł przywrócić flet prosty do współczesnego życia koncertowego."},
       {"note": "Solistka grająca na flecie prostym, znana z wielu nagrań."},
@@ -89,7 +89,7 @@
     ]
   },
   "french-horn": {
-    "showcase": {"why": "Długie melodie i żywe sygnały ukazują szerokie możliwości waltorni."},
+    "showcase": {"title": "Koncert waltorniowy nr 4 Es-dur, KV 495", "why": "Długie melodie i żywe sygnały ukazują szerokie możliwości waltorni."},
     "greats": [
       {"note": "Jedna z najważniejszych waltornistów-solistów XX wieku."},
       {"note": "Znany z występów solowych i wykonawstwa historycznego."},
@@ -97,7 +97,7 @@
     ]
   },
   "trumpet": {
-    "showcase": {"why": "Nowa trąbka klapowa wnosi jasny, błyskotliwy głos solowy."},
+    "showcase": {"title": "Koncert trąbkowy Es-dur", "why": "Nowa trąbka klapowa wnosi jasny, błyskotliwy głos solowy."},
     "greats": [
       {"note": "Pomógł spopularyzować trąbkę jako instrument solowy."},
       {"note": "Wybitny solista trąbki klasycznej i jazzowej."},
@@ -113,7 +113,7 @@
     ]
   },
   "tuba": {
-    "showcase": {"why": "Pełny koncert rzadko daje tubie główną rolę."},
+    "showcase": {"title": "Koncert tubowy f-moll", "why": "Pełny koncert rzadko daje tubie główną rolę."},
     "greats": [
       {"note": "Pomógł ugruntować pozycję tuby w amerykańskich orkiestrach."},
       {"note": "Pionier solowych recitali tubowych."},
@@ -169,7 +169,7 @@
     ]
   },
   "celesta": {
-    "showcase": {"why": "Lśniące brzmienie czelesty nadaje tańcowi magiczny charakter."},
+    "showcase": {"title": "Taniec Wróżki Cukrowej", "why": "Lśniące brzmienie czelesty nadaje tańcowi magiczny charakter."},
     "greats": [
       {"note": "Rozsławił czelestę w Dziadku do orzechów."},
       {"note": "Wykorzystał czelestę w swoim Koncercie harfowym."},
@@ -177,7 +177,7 @@
     ]
   },
   "soprano": {
-    "showcase": {"why": "Aria koloraturowa wymaga od sopranu wysokich skoków i szybkiego śpiewu."},
+    "showcase": {"title": "Aria Królowej Nocy z Czarodziejskiego fletu", "why": "Aria koloraturowa wymaga od sopranu wysokich skoków i szybkiego śpiewu."},
     "greats": [
       {"note": "Ceniona śpiewaczka operowa o szerokim zasięgu dramatycznym."},
       {"note": "Słynęła z błyskotliwego śpiewu koloraturowego."},
@@ -185,7 +185,7 @@
     ]
   },
   "alto-mezzo": {
-    "showcase": {"why": "Pamiętne wejście Carmen daje mezzosopranowi wyrazistą, odważną rolę."},
+    "showcase": {"title": "Habanera z Carmen", "why": "Pamiętne wejście Carmen daje mezzosopranowi wyrazistą, odważną rolę."},
     "greats": [
       {"note": "Wybitna mezzosopranistka i specjalistka od bel canta."},
       {"note": "Znana z ruchliwego głosu i odkrywania zapomnianych utworów."},
@@ -193,7 +193,7 @@
     ]
   },
   "tenor": {
-    "showcase": {"why": "Wznosząca się aria tenorowa prowadzi do słynnej, wysokiej nuty na zakończenie."},
+    "showcase": {"title": "„Nessun dorma” z Turandot", "why": "Wznosząca się aria tenorowa prowadzi do słynnej, wysokiej nuty na zakończenie."},
     "greats": [
       {"note": "Przybliżył głos tenorowy ogromnej publiczności."},
       {"note": "Jedna z pierwszych gwiazd nagrań wśród tenorów operowych."},
@@ -201,7 +201,7 @@
     ]
   },
   "bass-baritone": {
-    "showcase": {"why": "Szybka wyliczanka Leporella daje bas-barytonowi komiczny popis."},
+    "showcase": {"title": "Aria katalogowa z Don Giovanniego", "why": "Szybka wyliczanka Leporella daje bas-barytonowi komiczny popis."},
     "greats": [
       {"note": "Słynny śpiewak operowy i wykonawca pieśni."},
       {"note": "Znany z wyrazistych ról bas-barytonowych."},

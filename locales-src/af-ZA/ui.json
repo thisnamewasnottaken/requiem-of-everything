@@ -69,6 +69,11 @@
   "river.tooltip.years": "{count} jaar",
   "river.tooltip.years_one": "{count} jaar",
   "river.tooltip.years_other": "{count} jaar",
+  "river.tooltip.country": "Land",
+  "river.tooltip.pin": "klik om vas te pen",
+  "river.tooltip.unpin": "klik om los te maak",
+  "river.tooltip.composers_one": "{count} komponis in beeld het hier gewoon of gewerk",
+  "river.tooltip.composers_other": "{count} komponiste in beeld het hier gewoon of gewerk",
   "hall.sounding": "Klink",
   "hall.silence": "Stilte",
   "hall.hint.one": "klik ’n afdeling of die podium om hulle te ontmoet",
@@ -157,5 +162,14 @@
   "lexicon.rotate": "Draai asseblief jou toestel na landskap",
   "lexicon.tip.drag": "sleep om te draai",
   "lexicon.tip.zoom": "rol om nader te vlieg",
-  "common.loading": "Laai…"
+  "common.loading": "Laai…",
+  "river.region.americas": "Amerikas",
+  "river.region.british-isles": "Britse Eilande",
+  "river.region.nordic": "Nordiese lande",
+  "river.region.russia": "Rusland",
+  "river.region.central-europe": "Sentraal-Europa",
+  "river.region.german-lands": "Duitse lande",
+  "river.region.france": "Frankryk",
+  "river.region.iberia": "Iberië",
+  "river.region.italy": "Italië"
 }

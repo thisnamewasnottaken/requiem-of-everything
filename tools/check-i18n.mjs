@@ -164,7 +164,7 @@ for (const lang of locales) {
   const hall = await source(lang, 'hall');
   let hallCovered = 0, hallTotal = 0;
   for (const [id, era] of Object.entries(base.ROE_HALL.L)) {
-    for (const field of ['name', 'lead', 'text']) {
+    for (const field of ['name', 'lead', 'text', 'year']) {
       const value = hall.eras?.[id]?.[field];
       hallTotal++;
       if (typeof value === 'string' && value.trim()) hallCovered++;
@@ -173,11 +173,13 @@ for (const lang of locales) {
     }
   }
   for (const piece of base.ROE_HALL.PIECES) {
-    const value = hall.pieces?.[piece.id]?.label;
-    hallTotal++;
-    if (typeof value === 'string' && value.trim()) hallCovered++;
-    else errors.push(`${lang}/hall/pieces/${piece.id}/label`);
-    if (typeof value === 'string' && value.length > 30 && value === piece.label) identical.push(`${lang}/hall/pieces/${piece.id}/label`);
+    for (const field of ['label', 'year']) {
+      const value = hall.pieces?.[piece.id]?.[field];
+      hallTotal++;
+      if (typeof value === 'string' && value.trim()) hallCovered++;
+      else errors.push(`${lang}/hall/pieces/${piece.id}/${field}`);
+      if (typeof value === 'string' && value.length > 30 && value === piece[field]) identical.push(`${lang}/hall/pieces/${piece.id}/${field}`);
+    }
   }
   for (const [id, section] of Object.entries(base.ROE_HALL.S)) {
     const value = hall.sections?.[id];
@@ -185,6 +187,13 @@ for (const lang of locales) {
     if (typeof value === 'string' && value.trim()) hallCovered++;
     else errors.push(`${lang}/hall/sections/${id}`);
     if (typeof value === 'string' && value.length > 30 && value === section[0]) identical.push(`${lang}/hall/sections/${id}`);
+    if (section[7]) {
+      const shortValue = hall.shortSections?.[id];
+      hallTotal++;
+      if (typeof shortValue === 'string' && shortValue.trim()) hallCovered++;
+      else errors.push(`${lang}/hall/shortSections/${id}`);
+      if (typeof shortValue === 'string' && shortValue.length > 30 && shortValue === section[7]) identical.push(`${lang}/hall/shortSections/${id}`);
+    }
   }
   coverages.push(`hall ${hallCovered}/${hallTotal}`);
 
@@ -220,6 +229,11 @@ for (const lang of locales) {
       extraTotal += 1;
       if (typeof translated.showcase?.why === 'string' && translated.showcase.why.trim()) extraCovered++; else errors.push(`${lang}/instrumentExtra/${id}/showcase/why`);
       if (translated.showcase?.why?.length > 30 && translated.showcase.why === extra.showcase.why) identical.push(`${lang}/instrumentExtra/${id}/showcase/why`);
+      if (!extra.showcase.compositionId) {
+        extraTotal += 1;
+        if (typeof translated.showcase?.title === 'string' && translated.showcase.title.trim()) extraCovered++; else errors.push(`${lang}/instrumentExtra/${id}/showcase/title`);
+        if (translated.showcase?.title?.length > 30 && translated.showcase.title === extra.showcase.title) identical.push(`${lang}/instrumentExtra/${id}/showcase/title`);
+      }
     }
     for (let i = 0; i < (extra.greats || []).length; i++) {
       extraTotal++;
