@@ -37,7 +37,7 @@ window.ROE_LIVES = {
     [1693,.12,.2],[1703,.38,.45,'Ordained; begins teaching at the Pietà'],[1711,.72,.76],[1713,.82,.78,'His first opera opens in Vicenza'],[1725,1,.9,'The Four Seasons concertos are published'],[1735,.52,.58,'Staging operas brings money troubles'],[1740,.25,.18,'Travels to Vienna seeking a new patron'],[1741,.12,.12,'Dies in Vienna, far from his fame']
   ], [
     peer(1714,'johann-sebastian-bach','Bach transcribes several of his concertos')
-  ], {after:[[1926,.35,'Researchers find a large trove of his music'],[1950,.92,'The Four Seasons becomes a concert favorite']]}),
+  ], {after:[[1926,.35,'Researchers find a large trove of his music'],[1950,.92,'The Four Seasons becomes a concert favourite']]}),
   'georg-philipp-telemann': life('georg-philipp-telemann', [
     [1696,.1,.18],[1701,.38,.42,'Studies at Leipzig University'],[1704,.55,.62,'Becomes court composer in Sorau'],[1712,.78,.78,'Moves to Frankfurt as city music director'],[1721,1,.95,'Takes charge of Hamburg’s five main churches'],[1731,.82,.9,'Publishes music for players across Europe'],[1755,.35,.82,'Keeps composing into old age'],[1767,.12,.76,'Dies in Hamburg at 86']
   ], [
@@ -45,7 +45,7 @@ window.ROE_LIVES = {
     peer(1720,'george-frideric-handel','Close friend and correspondent with Handel')
   ]),
   'jean-philippe-rameau': life('jean-philippe-rameau', [
-    [1698,.08,.15],[1706,.3,.28,'Works as an organist in several French cities'],[1722,.5,.4,'Publishes his influential Treatise on Harmony'],[1733,.78,.76,'Hippolyte et Aricie stirs Paris opera'],[1745,1,.9,'Wins royal favor for his stage works'],[1753,.72,.7,'Paris debates French and Italian opera'],[1764,.2,.82,'Dies in Paris, honored by the court']
+    [1698,.08,.15],[1706,.3,.28,'Works as an organist in several French cities'],[1722,.5,.4,'Publishes his influential Treatise on Harmony'],[1733,.78,.76,'Hippolyte et Aricie stirs Paris opera'],[1745,1,.9,'Wins royal favour for his stage works'],[1753,.72,.7,'Paris debates French and Italian opera'],[1764,.2,.82,'Dies in Paris, honoured by the court']
   ], []),
   'johann-sebastian-bach': life('johann-sebastian-bach', [
     [1700,.1,.05],[1703,.2,.12,'Organist at Arnstadt'],[1708,.45,.25,'Weimar: the great organ works'],[1721,.55,.3,'Sends Brandenburg Concertos to the Margrave'],[1723,1,.4,'Leipzig: a cantata every week'],[1727,.9,.42,'St Matthew Passion'],[1735,.55,.38],[1747,.4,.3,'Writes the Musical Offering'],[1749,.45,.25,'Mass in B minor nearly complete'],[1750,.2,.2,'Dies after years of failing eyesight']
@@ -65,7 +65,7 @@ window.ROE_LIVES = {
     peer(1709,'george-frideric-handel','Meets Handel in Rome for a keyboard contest')
   ]),
   'christoph-willibald-gluck': life('christoph-willibald-gluck', [
-    [1729,.12,.18],[1737,.35,.38,'Works in Milan and other Italian cities'],[1741,.48,.5,'Wins success with his first opera'],[1750,.6,.58,'Marries and settles in Vienna'],[1762,1,.84,'Orfeo ed Euridice reforms opera'],[1774,.85,.92,'Wins acclaim in Paris'],[1779,.45,.68,'Returns to Vienna after a Paris failure'],[1787,.12,.82,'Dies honored at the Viennese court']
+    [1729,.12,.18],[1737,.35,.38,'Works in Milan and other Italian cities'],[1741,.48,.5,'Wins success with his first opera'],[1750,.6,.58,'Marries and settles in Vienna'],[1762,1,.84,'Orfeo ed Euridice reforms opera'],[1774,.85,.92,'Wins acclaim in Paris'],[1779,.45,.68,'Returns to Vienna after a Paris failure'],[1787,.12,.82,'Dies honoured at the Viennese court']
   ], [
     peer(1770,'joseph-haydn','Haydn conducts Gluck’s operas at Eszterháza'),
     peer(1781,'wolfgang-amadeus-mozart','Mozart adapts Gluck’s reforms in Idomeneo')
@@ -148,7 +148,7 @@ window.ROE_LIVES = {
     event(1849,'revolutions-of-1848','Revolution forces him into exile for years')
   ]),
   'giuseppe-verdi': life('giuseppe-verdi', [
-    [1828,.08,.12],[1832,.22,.14,'Rejected by Milan Conservatory; studies privately'],[1842,.65,.58,'Nabucco makes him famous'],[1851,.88,.82,'Rigoletto succeeds in Venice'],[1853,1,.92,'Il trovatore and La traviata premiere'],[1862,.65,.86,'La forza del destino premieres in St Petersburg'],[1874,.85,.95,'Requiem honors the poet Manzoni'],[1887,.68,.97,'Otello returns him to opera'],[1901,.1,.96,'Milan mourns his death']
+    [1828,.08,.12],[1832,.22,.14,'Rejected by Milan Conservatory; studies privately'],[1842,.65,.58,'Nabucco makes him famous'],[1851,.88,.82,'Rigoletto succeeds in Venice'],[1853,1,.92,'Il trovatore and La traviata premiere'],[1862,.65,.86,'La forza del destino premieres in St Petersburg'],[1874,.85,.95,'Requiem honours the poet Manzoni'],[1887,.68,.97,'Otello returns him to opera'],[1901,.1,.96,'Milan mourns his death']
   ], [
     event(1861,'italian-unification','His operas become symbols of Italian nationhood')
   ]),
@@ -305,7 +305,7 @@ window.ROE_LIVES = {
     event(1947,'cold-war-begins','Cold War politics affect his public life and work')
   ]),
   'dmitri-shostakovich': life('dmitri-shostakovich', [
-    [1921,.12,.08],[1926,.58,.65,'First Symphony brings fame at nineteen'],[1934,.82,.85,'Lady Macbeth is a success in Leningrad'],[1936,.28,.15,'Newspaper attack condemns his opera'],[1937,.72,.68,'Fifth Symphony wins back public favor'],[1942,.88,.94,'Leningrad Symphony is heard around the world'],[1948,.3,.2,'Official decree condemns his music'],[1953,.78,.7,'Writes the Tenth Symphony after Stalin dies'],[1962,.62,.82,'Babi Yar Symphony faces official pressure'],[1971,.55,.86,'Completes his Fifteenth Symphony'],[1975,.12,.84,'Dies after years of illness']
+    [1921,.12,.08],[1926,.58,.65,'First Symphony brings fame at nineteen'],[1934,.82,.85,'Lady Macbeth is a success in Leningrad'],[1936,.28,.15,'Newspaper attack condemns his opera'],[1937,.72,.68,'Fifth Symphony wins back public favour'],[1942,.88,.94,'Leningrad Symphony is heard around the world'],[1948,.3,.2,'Official decree condemns his music'],[1953,.78,.7,'Writes the Tenth Symphony after Stalin dies'],[1962,.62,.82,'Babi Yar Symphony faces official pressure'],[1971,.55,.86,'Completes his Fifteenth Symphony'],[1975,.12,.84,'Dies after years of illness']
   ], [
     event(1942,'world-war-2','His Leningrad Symphony becomes a wartime signal'),
     event(1948,'zhdanov-doctrine','The state condemns him again'),

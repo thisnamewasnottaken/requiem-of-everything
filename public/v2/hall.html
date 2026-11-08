@@ -108,9 +108,20 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
   <div class="drow" id="pieces"></div>
 </div>
 <div id="tip" class="reliquary"></div>
-<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script><script src="common/instrument-eras.js"></script><script src="common/hall-layout.js"></script>
+<script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script><script src="common/instrument-eras.js"></script><script src="common/hall-layout.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
+await window.ROE_I18N.ready;
+const t=window.ROE_I18N.t;
+const esc=window.ROE_HTML.esc;
+document.title=`${t('nav.hall')} — Requiem of Everything`;
+ document.getElementById('hint').innerHTML=`${esc(t('hall.hint.one'))}<br>${esc(t('hall.hint.two'))}`;
+document.getElementById('bSilence').setAttribute('aria-label',t('hall.sounding'));
+document.getElementById('tutti').textContent=t('hall.baton');
+document.getElementById('bMore').textContent=t('hall.about');
+document.getElementById('bShare').textContent=t('hall.share');
+document.getElementById('fComposer').setAttribute('aria-label',t('hall.composer.select'));
+document.getElementById('fInstr').setAttribute('aria-label',t('hall.instrument.select'));
 await sound.useHQ('samples/manifest.json');
 const D=window.ROE_DATA, INST=Object.fromEntries(D.instruments.map(i=>[i.id,i])), COMP=Object.fromEntries(D.composers.map(c=>[c.id,c]));
 const LIVES=window.ROE_LIVES||{}, XTRA=window.ROE_INSTR_EXTRA||{}, INSTR_ERAS=window.ROE_INSTR_ERAS||{}, ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
@@ -136,7 +147,7 @@ const P=(id,m,o={})=>{
     sound.play(id,m,options);
   }
 };
-const FAMN={strings:'Strings',winds:'Woodwinds',brass:'Brass',perc:'Percussion',keys:'Keyboards',voices:'Voices'};
+const FAMN={strings:t('hall.family.strings'),winds:t('hall.family.winds'),brass:t('hall.family.brass'),perc:t('hall.family.percussion'),keys:t('hall.family.keyboards'),voices:t('hall.family.voices')};
 const LOCAL={lute:{name:'Lute & Theorbo',role:'Plucked harmony for songs, dances and early opera',description:'Plucked strings with a rounded back. The long-necked theorbo, its bass cousin, filled in the harmony of early operas and songs alongside the harpsichord.'},
  cor:{name:'Cornett',role:'The virtuoso\u2019s wind instrument of 1600',description:'A curved wooden horn with finger holes and a trumpet-style mouthpiece. Players were prized because it could imitate the human voice so closely.'}};
 const ERA_OF={renaissance:'renaissance',baroque:'baroque',classical:'classical','early-romantic':'romantic','late-romantic':'romantic',modern:'modern'};
@@ -155,57 +166,59 @@ function apply(defs,meta){ current=meta; const {out:tgt,carp}=layoutSeats(defs);
   for(const sid in CAR) CAR[sid].on=false;
   for(const sid in carp){ const c=CAR[sid]; if(c){c.t=carp[sid];c.on=true;} else CAR[sid]={...carp[sid],t:carp[sid],al:0,on:true}; }
   $('iYear').textContent=meta.year; $('iName').textContent=meta.name; $('iLead').textContent=meta.lead; $('iText').textContent=meta.text;
-  $('iCount').textContent=tgt.length+' performers on stage'; pendingSync=true; renderComposers(); fitCamera(); }
+  $('iCount').textContent=t('hall.performers',{count:tgt.length}); pendingSync=true; renderComposers(); fitCamera(); }
 // ---------- filters & URL ----------
-function layoutFor(era){ return L[era].s; }
-function curComposer(){ return st.composer?COMP[st.composer]:st.piece?COMP[PIECES.find(p=>p.id===st.piece)?.composer]:null; }
+function layoutFor(era){ return Object.hasOwn(L,era)?L[era].s:null; }
+function curComposer(){ if(st.composer)return Object.hasOwn(COMP,st.composer)?COMP[st.composer]:null; const piece=st.piece&&PIECES.find(p=>p.id===st.piece); return piece&&Object.hasOwn(COMP,piece.composer)?COMP[piece.composer]:null; }
 function renderComposers(){ const c=curComposer(); const el=$('iComp');
-  if(c){ el.innerHTML=`Composer · <a class="who" data-c="${c.id}">${c.name}</a>`; return; }
+  if(c){ el.innerHTML=`${esc(t('hall.composer.label'))} <a class="who" data-c="${esc(c.id)}">${esc(c.name)}</a>`; return; }
   const eras=(L[st.era]||{}).eras||[]; const cs=D.composers.filter(x=>eras.includes(x.era)).sort((a,b)=>b.compositionIds.length-a.compositionIds.length).slice(0,5);
-  el.innerHTML=cs.length?'Composers of this era · '+cs.map(x=>`<a class="who" data-c="${x.id}">${x.shortName}</a>`).join(', '):''; }
+  el.innerHTML=cs.length?esc(t('hall.composers.ofEra'))+cs.map(x=>`<a class="who" data-c="${esc(x.id)}">${esc(x.shortName)}</a>`).join(', '):''; }
 function setHash(){ const p=new URLSearchParams(); if(st.piece)p.set('piece',st.piece); else if(st.composer)p.set('composer',st.composer); else p.set('era',st.era);
   if(st.instrument)p.set('instrument',st.instrument); history.replaceState(null,'','#'+p.toString()); }
 function mark(){ const era=st.piece?PIECES.find(p=>p.id===st.piece).era:st.era;
   eraBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===era&&!st.piece&&!st.composer));
   pBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===st.piece));
   $('fComposer').value=st.composer||''; $('fInstr').value=st.instrument||''; }
-function setEra(id,keepI){ st={era:id,instrument:keepI?st.instrument:undefined}; apply(layoutFor(id),L[id]); mark(); setHash(); }
+function setEra(id,keepI){ if(!Object.hasOwn(L,id))return; st={era:id,instrument:keepI?st.instrument:undefined}; apply(layoutFor(id),L[id]); mark(); setHash(); }
 function setPiece(p,asComposer){ st={era:p.era,piece:asComposer?undefined:p.id,composer:asComposer}; apply(pieceDefs(p),{...p,name:p.label.split(' · ')[1]}); mark(); setHash(); }
-function setComposer(id){ const c=COMP[id]; if(!c)return; const p=PIECES.find(p=>p.composer===id);
-  if(p) setPiece(p,id); else { const e=ERA_OF[c.era]; st={era:e,composer:id}; apply(layoutFor(e),{...L[e],year:`${c.birthYear} – ${c.deathYear}`,name:`${c.shortName}\u2019s orchestra`,lead:`${L[e].name}, as ${c.shortName} knew it`}); mark(); setHash(); }
+function setComposer(id){ if(!Object.hasOwn(COMP,id))return; const c=COMP[id]; const p=PIECES.find(p=>p.composer===id);
+  if(p) setPiece(p,id); else { const e=ERA_OF[c.era]; st={era:e,composer:id}; apply(layoutFor(e),{...L[e],year:`${c.birthYear} – ${c.deathYear}`,name:t('hall.composer.orchestra',{name:c.shortName}),lead:t('hall.composer.lead',{era:L[e].name,composer:c.shortName})}); mark(); setHash(); }
   openComposer(id); }
 const sidsFor=iid=>Object.keys(S).filter(k=>S[k][2]===iid||(iid==='snare-drum'&&k==='pc'));
 const present=()=>[...new Set([...seats.values()].filter(s=>!s.dead).map(s=>s.sid))];
 function setInstrument(iid){ if(!iid){ st.instrument=undefined; focusS=new Set(); closeCard(); mark(); setHash(); return; }
+  if(!Object.hasOwn(INST,iid))return;
   const sids=sidsFor(iid); if(!sids.length)return; const inLayout=(defs)=>defs.some(d=>sids.includes(d[0])&&d[1]>0);
   const curDefs=st.piece?pieceDefs(PIECES.find(p=>p.id===st.piece)):layoutFor(st.era);
   if(!inLayout(curDefs)){ const e=['classical','romantic','modern','baroque','renaissance'].find(e=>inLayout(L[e].s)); if(e) setEra(e); }
   st.instrument=iid; focusS=new Set(sids); const curPresent=(st.piece?pieceDefs(PIECES.find(p=>p.id===st.piece)):layoutFor(st.era)).map(d=>d[0]);
   openInstrument(sids.find(s=>curPresent.includes(s))||sids[0]); mark(); setHash(); }
 const eraBox=$('eras'), pBox=$('pieces');
-Object.entries(L).forEach(([id])=>{const b=document.createElement('button');b.className='btn';b.textContent=id;b.dataset.id=id;b.onclick=()=>setEra(id);eraBox.appendChild(b);});
+Object.entries(L).forEach(([id])=>{const b=document.createElement('button');b.className='btn';b.textContent=t(`hall.era.${id}`);b.dataset.id=id;b.onclick=()=>setEra(id);eraBox.appendChild(b);});
 PIECES.forEach(p=>{const b=document.createElement('button');b.className='btn';b.textContent=p.label;b.dataset.id=p.id;b.onclick=()=>setPiece(p);pBox.appendChild(b);});
-$('fComposer').innerHTML='<option value="">Composer…</option>'+[...D.composers].sort((a,b)=>a.birthYear-b.birthYear).map(c=>`<option value="${c.id}">${c.name} (${c.birthYear}–${c.deathYear})</option>`).join('');
-const FAMS={strings:'Strings',woodwinds:'Woodwinds',brass:'Brass',percussion:'Percussion',keyboards:'Keyboards',voice:'Voices'};
-$('fInstr').innerHTML='<option value="">Instrument or voice…</option>'+Object.entries(FAMS).map(([f,n])=>`<optgroup label="${n}">${D.instruments.filter(i=>i.family===f).map(i=>`<option value="${i.id}">${i.name}</option>`).join('')}</optgroup>`).join('');
+$('fComposer').innerHTML=`<option value="">${esc(t('hall.filter.composer'))}</option>`+[...D.composers].sort((a,b)=>a.birthYear-b.birthYear).map(c=>`<option value="${esc(c.id)}">${esc(c.name)} (${esc(c.birthYear)}–${esc(c.deathYear)})</option>`).join('');
+const FAMS={strings:t('hall.family.strings'),woodwinds:t('hall.family.winds'),brass:t('hall.family.brass'),percussion:t('hall.family.percussion'),keyboards:t('hall.family.keyboards'),voice:t('hall.family.voices')};
+$('fInstr').innerHTML=`<option value="">${esc(t('hall.filter.instrument'))}</option>`+Object.entries(FAMS).map(([f,n])=>`<optgroup label="${esc(n)}">${D.instruments.filter(i=>i.family===f).map(i=>`<option value="${esc(i.id)}">${esc(i.name)}</option>`).join('')}</optgroup>`).join('');
 $('fComposer').onchange=e=>{ sound.unlock(); e.target.value?setComposer(e.target.value):setEra(st.era); };
 $('fInstr').onchange=e=>{ sound.unlock(); setInstrument(e.target.value); };
-$('bShare').onclick=()=>{ const b=$('bShare'); navigator.clipboard?.writeText(location.href).then(()=>{b.textContent='Link copied';setTimeout(()=>b.textContent='Share this view',1800);}).catch(()=>{}); };
-const bS=$('bSilence'); const paintS=()=>{bS.textContent=silent?'Silence':'Sounding';bS.classList.toggle('on',!silent);bS.setAttribute('aria-pressed',!silent);}; paintS();
+$('bShare').onclick=()=>{ const b=$('bShare'); navigator.clipboard?.writeText(location.href).then(()=>{b.textContent=t('hall.share.copied');setTimeout(()=>b.textContent=t('hall.share'),1800);}).catch(()=>{}); };
+const bS=$('bSilence'); const paintS=()=>{bS.textContent=silent?t('hall.silence'):t('hall.sounding');bS.classList.toggle('on',!silent);bS.setAttribute('aria-pressed',!silent);}; paintS();
 bS.onclick=()=>{silent=!silent;localStorage.setItem('roe-sound',silent?'off':'on');paintS();};
 addEventListener('storage',e=>{ if(e.key==='roe-sound'){ silent=e.newValue==='off'; paintS(); } });
 document.addEventListener('click',e=>{ const a=e.target.closest('a.who'); if(a){ e.preventDefault(); sound.unlock(); openComposer(a.dataset.c); } });
 // ---------- cards ----------
-function openInstrument(sid){ const [label,fam,iid]=S[sid]; const I=INST[iid]||LOCAL[sid]||{}; const X=XTRA[iid]; card={kind:'inst',sid};
+function openInstrument(sid){ if(!Object.hasOwn(S,sid))return; const [label,fam,iid]=S[sid]; const I=Object.hasOwn(INST,iid)?INST[iid]:Object.hasOwn(LOCAL,sid)?LOCAL[sid]:{}; const X=Object.hasOwn(XTRA,iid)?XTRA[iid]:undefined, eraNotes=Object.hasOwn(INSTR_ERAS,iid)?INSTR_ERAS[iid]:undefined; card={kind:'inst',sid};
   const goat=X&&X.goat?(typeof X.goat==='string'?{name:X.goat}:X.goat):null; const sc=X&&X.showcase;
+  const scComposer=sc&&Object.hasOwn(COMP,sc.composerId)?COMP[sc.composerId]:null;
   const pr=Object.fromEntries((I.eraProminence||[]).map(p=>[p.era,p.prominence])); const HH={primary:1,secondary:.6,occasional:.3,rare:.15};
-  $('card').innerHTML=`<div class="k">${FAMN[fam]} · ${label}</div><h3>${I.name||label}</h3>${I.range?`<div class="k dim">Range ${I.range}</div>`:''}
-   <p class="role">${I.role||''}</p><p>${I.description||''}</p>
-   ${sc?`<div class="show"><div class="k">Hear it shine</div><b>${sc.title}</b><i>${sc.composerId?`<a class="who" data-c="${sc.composerId}">${sc.composerName}</a>`:sc.composerName} · ${sc.year}</i><p>${sc.why}</p><a class="btn" href="${sc.spotifyUrl}" data-roe-key="instr:${iid}">Listen on Spotify</a><div class="spotify-player"></div></div>`:''}
-   ${goat?`<div class="goat"><span class="k">Widely called the greatest</span><b>${goat.name}</b>${goat.note?`<span class="n">${goat.note}</span>`:''}</div>`:''}
-   ${X&&X.greats&&X.greats.length?`<div class="k">Great players</div><ul>${X.greats.map(p=>`<li><b>${p.name}</b> · ${p.note}</li>`).join('')}</ul>`:''}
-   ${I.eraProminence?`<div class="k">Through the eras</div><div class="era-list">${D.eras.map(era=>{const level=HH[pr[era.id]]||0,isCurrent=(ERA_OF[era.id]||era.id)===st.era;return `<button type="button" class="era-row${isCurrent?' current':''}" data-era="${era.id}" aria-pressed="${isCurrent}"><span class="era-head"><span class="era-name">${ERAN[era.id]}</span>${isCurrent?'<span class="era-tag">on stage now</span>':''}<span class="era-meter" role="img" aria-label="${pr[era.id]||'no'} prominence"><i style="width:${level*100}%"></i></span></span><span class="era-note">${INSTR_ERAS[iid]?.[era.id]||''}</span></button>`;}).join('')}</div>`:''}
-   <div class="row"><button class="btn" id="cHear">Hear it alone</button></div>`;
+  $('card').innerHTML=`<div class="k">${esc(FAMN[fam]||'')} · ${esc(label)}</div><h3>${esc(I.name||label)}</h3>${I.range?`<div class="k dim">${esc(t('hall.card.range',{range:I.range}))}</div>`:''}
+   <p class="role">${esc(I.role||'')}</p><p>${esc(I.description||'')}</p>
+   ${sc?`<div class="show"><div class="k">${esc(t('hall.card.hearShine'))}</div><b>${esc(sc.title)}</b><i>${scComposer?`<a class="who" data-c="${esc(sc.composerId)}">${esc(scComposer.name)}</a>`:esc(sc.composerName||'')} · ${esc(sc.year)}</i><p>${esc(sc.why)}</p><a class="btn" href="${esc(sc.spotifyUrl)}" data-roe-key="instr:${esc(iid)}">${esc(t('hall.card.listen'))}</a><div class="spotify-player"></div></div>`:''}
+   ${goat?`<div class="goat"><span class="k">${esc(t('hall.card.greatest'))}</span><b>${esc(goat.name)}</b>${goat.note?`<span class="n">${esc(goat.note)}</span>`:''}</div>`:''}
+   ${X&&X.greats&&X.greats.length?`<div class="k">${esc(t('hall.card.greatPlayers'))}</div><ul>${X.greats.map(p=>`<li><b>${esc(p.name)}</b> · ${esc(p.note)}</li>`).join('')}</ul>`:''}
+   ${I.eraProminence?`<div class="k">${esc(t('hall.card.throughEras'))}</div><div class="era-list">${D.eras.map(era=>{const prominence=pr[era.id]||'none',level=Object.hasOwn(HH,prominence)?HH[prominence]:0,isCurrent=(Object.hasOwn(ERA_OF,era.id)?ERA_OF[era.id]:era.id)===st.era,name=Object.hasOwn(ERAN,era.id)?ERAN[era.id]:era.name,note=eraNotes&&Object.hasOwn(eraNotes,era.id)?eraNotes[era.id]:'';return `<button type="button" class="era-row${isCurrent?' current':''}" data-era="${esc(era.id)}" aria-pressed="${isCurrent}"><span class="era-head"><span class="era-name">${esc(name)}</span>${isCurrent?`<span class="era-tag">${esc(t('hall.card.onStageNow'))}</span>`:''}<span class="era-meter" role="img" aria-label="${esc(t(`hall.prominence.${prominence}`))}"><i style="width:${level*100}%"></i></span></span><span class="era-note">${esc(note)}</span></button>`;}).join('')}</div>`:''}
+   <div class="row"><button class="btn" id="cHear">${esc(t('hall.card.hearAlone'))}</button></div>`;
   $('card').querySelectorAll('.era-row').forEach(button=>button.onclick=()=>{
     const instrumentSid=card?.kind==='inst'?card.sid:null;
     setEra(ERA_OF[button.dataset.era]||button.dataset.era,true);
@@ -213,14 +226,14 @@ function openInstrument(sid){ const [label,fam,iid]=S[sid]; const I=INST[iid]||L
   });
   $('cHear').onclick=()=>{sound.unlock().then(()=>motif(sid,.7,0,.4));};
   $('card').classList.add('open'); if(tip.style.opacity==='1')positionTip(mouse); $('card').scrollTop=0; $('hint').style.opacity=0; if(sound.started) motif(sid,.6,0,.34); }
-function openComposer(id){ const c=COMP[id]; if(!c)return; card={kind:'comp',id}; const Lf=LIVES[id];
+function openComposer(id){ if(!Object.hasOwn(COMP,id))return; const c=COMP[id]; card={kind:'comp',id}; const Lf=Object.hasOwn(LIVES,id)?LIVES[id]:undefined;
   const works=D.compositions.filter(w=>w.composerId===id).sort((a,b)=>a.yearComposed-b.yearComposed).slice(0,5);
   const seated=st.composer===id||(st.piece&&PIECES.find(p=>p.id===st.piece)?.composer===id);
-  $('card').innerHTML=`<div class="k">${ERAN[c.era]||c.era} · ${c.nationality}</div><h3>${c.name}</h3><div class="k dim">${c.birthYear} – ${c.deathYear} · ${c.birthPlace}</div>
-   ${Lf?`<canvas id="mini"></canvas><div class="mlg"><span><i style="background:#e7c784"></i>music written</span><span><i style="background:#cfe0ff"></i>public standing</span></div>`:''}
-   <div class="bio">${c.biography}</div>
-   <div class="k">Works to hear</div><ul>${works.map(w=>`<li><b>${w.title}</b> · ${w.yearComposed}<a href="${w.spotifyUrl}" data-roe-key="${w.id}">Listen on Spotify</a><div class="spotify-player"></div></li>`).join('')}</ul>
-   <div class="row"><a class="btn" href="river.html#focus=${id}">Follow the life in the River</a>${seated?'':'<button class="btn" id="cSeat">Seat their orchestra</button>'}</div>`;
+  $('card').innerHTML=`<div class="k">${esc(Object.hasOwn(ERAN,c.era)?ERAN[c.era]:c.era)} · ${esc(c.nationality)}</div><h3>${esc(c.name)}</h3><div class="k dim">${esc(c.birthYear)} – ${esc(c.deathYear)} · ${esc(c.birthPlace)}</div>
+   ${Lf?`<canvas id="mini"></canvas><div class="mlg"><span><i style="background:#e7c784"></i>${esc(t('river.legend.music'))}</span><span><i style="background:#cfe0ff"></i>${esc(t('river.legend.standing'))}</span></div>`:''}
+   <div class="bio">${esc(c.biography)}</div>
+   <div class="k">${esc(t('hall.card.works'))}</div><ul>${works.map(w=>`<li><b>${esc(w.title)}</b> · ${esc(w.yearComposed)}<a href="${esc(w.spotifyUrl)}" data-roe-key="${esc(w.id)}">${esc(t('hall.card.listen'))}</a><div class="spotify-player"></div></li>`).join('')}</ul>
+   <div class="row"><a class="btn" href="river.html#focus=${esc(id)}">${esc(t('hall.card.followLife'))}</a>${seated?'':`<button class="btn" id="cSeat">${esc(t('hall.card.seatOrchestra'))}</button>`}</div>`;
   if(!seated) $('cSeat').onclick=()=>setComposer(id);
   $('card').classList.add('open'); $('card').scrollTop=0; $('hint').style.opacity=0; if(Lf) requestAnimationFrame(()=>drawMini(c,Lf)); }
 function drawMini(c,Lf){ const m=$('mini'); if(!m)return; const w=m.clientWidth,h=m.clientHeight,d=Math.min(devicePixelRatio,2); m.width=w*d;m.height=h*d; const x=m.getContext('2d'); x.scale(d,d);
@@ -525,8 +538,8 @@ window.__labelCheck.rects=()=>sectionLabelRects.map(({sid,x,y,w,h})=>({sid,x,y,w
 function pickSection(mx,my){ let best=null,bd=1e9; for(const s of seats.values()){ if(s.dead)continue; const q=proj(s.cx,s.cz); const d=Math.hypot(q.x-mx,q.y-10*q.p-my); if(d<bd&&d<24*q.p+8){bd=d;best=s.sid;} } return best; }
 cv.addEventListener('pointermove',e=>{ mouse={x:e.clientX,y:e.clientY}; const s=pickLabel(e.clientX,e.clientY)||pickSection(e.clientX,e.clientY), pod=!s&&onPodium(e.clientX,e.clientY);
   if(s!==hoverS){ hoverS=s; if(s&&sound.started&&!wasMoving&&performance.now()-lastPlay>160){lastPlay=performance.now(); motif(s,.38);} }
-  if(s){ const n=[...seats.values()].filter(o=>o.sid===s&&!o.dead).length; tip.innerHTML=`<b>${S[s][0]}</b><span>${n} player${n>1?'s':''} · ${FAMN[S[s][1]]} · click to meet</span>`; }
-  else if(pod){ const c=curComposer(); tip.innerHTML=c?`<b>${c.name}</b><span>click to meet the composer</span>`:`<b>The podium</b><span>pick a composer or piece below</span>`; }
+  if(s){ const n=[...seats.values()].filter(o=>o.sid===s&&!o.dead).length; tip.innerHTML=`<b>${esc(S[s][0])}</b><span>${esc(t('hall.tooltip.player',{count:n}))} · ${esc(FAMN[S[s][1]])} · ${esc(t('hall.tooltip.clickMeet'))}</span>`; }
+  else if(pod){ const c=curComposer(); tip.innerHTML=c?`<b>${esc(c.name)}</b><span>${esc(t('hall.tooltip.composer'))}</span>`:`<b>${esc(t('hall.tooltip.podiumTitle'))}</b><span>${esc(t('hall.tooltip.podium'))}</span>`; }
   if(s||pod){ positionTip(e); cv.style.cursor='pointer'; } else { tip.style.opacity=0; cv.style.cursor=''; } });
 cv.addEventListener('click',e=>{ sound.unlock(); const s=pickLabel(e.clientX,e.clientY)||pickSection(e.clientX,e.clientY);
   if(s){ st.instrument=S[s][2]||undefined; focusS=new Set(); openInstrument(s); mark(); setHash(); return; }
@@ -542,12 +555,13 @@ const CHORD={cb:[38],vc:[50,57],va:[62],v2:[66],v1:[74,78],viol:[50,57],hc:[62,6
 async function raiseBaton(){ await sound.unlock(); await preload(); baton=3; const pr=new Set(present()); const order=ORDER.filter(s=>pr.has(s));
   order.forEach((sid,i)=>motif(sid,.45,i*.42,.3)); const t=order.length*.42+.3;
   order.forEach(sid=>CHORD[sid].forEach(m=>P(S[sid][3],m,{when:sound.now()+t,dur:3.4,vel:.5,voices:2,pan:sectionPan(sid),tag:sid}))); baton=Math.max(baton,(t+3)*.35); }
-$('bMore').onclick=()=>{ const i=$('info'); i.classList.toggle('more'); $('bMore').setAttribute('aria-expanded',i.classList.contains('more')); $('bMore').textContent=i.classList.contains('more')?'Less':'About this era'; };
+$('bMore').onclick=()=>{ const i=$('info'); i.classList.toggle('more'); $('bMore').setAttribute('aria-expanded',i.classList.contains('more')); $('bMore').textContent=i.classList.contains('more')?t('hall.about.less'):t('hall.about'); };
 $('tutti').onclick=()=>{ clearTimeout(syncTimer); pendingSync=false; raiseBaton(); };
 // ---------- boot from URL: #era=baroque  #piece=m40  #composer=gustav-mahler  #instrument=cello ----------
 const hp=new URLSearchParams(location.hash.slice(1));
 const pp=PIECES.find(p=>p.id===hp.get('piece'));
-if(pp) setPiece(pp); else if(hp.get('composer')&&COMP[hp.get('composer')]) setComposer(hp.get('composer')); else setEra(L[hp.get('era')]?hp.get('era'):'classical');
+const composerId=hp.get('composer'), eraId=hp.get('era');
+if(pp) setPiece(pp); else if(composerId&&Object.hasOwn(COMP,composerId)) setComposer(composerId); else setEra(Object.hasOwn(L,eraId)?eraId:'classical');
 if(hp.get('instrument')) setInstrument(hp.get('instrument'));
 document.fonts?.ready.then(()=>fitCamera());
 let last=performance.now(); if(hp.has('still')) for(let i=0;i<400;i++) step(1/30);

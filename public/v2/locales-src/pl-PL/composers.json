@@ -1,0 +1,26 @@
+{
+  "giovanni-pierluigi-da-palestrina": {
+    "name": "Giovanni Pierluigi da Palestrina",
+    "shortName": "Palestrina",
+    "biography": "Mistrz renesansowej polifonii. Gładki, płynny kontrapunkt Palestriny przez stulecia stał się wzorem komponowania muzyki sakralnej. Jego msze i motety reprezentują szczyt szkoły rzymskiej, a jego styl został później skodyfikowany jako podstawa nauki kontrapunktu.",
+    "birthPlace": "Palestrina, Państwo Kościelne",
+    "nationality": "Włoska"
+  },
+  "johann-sebastian-bach": {
+    "name": "Jan Sebastian Bach",
+    "shortName": "Bach",
+    "wikipediaSlug": "Jan_Sebastian_Bach"
+  },
+  "wolfgang-amadeus-mozart": {
+    "name": "Wolfgang Amadeusz Mozart",
+    "shortName": "Mozart",
+    "wikipediaSlug": "Wolfgang_Amadeusz_Mozart"
+  },
+  "frederic-chopin": {
+    "name": "Fryderyk Chopin",
+    "shortName": "Chopin",
+    "birthPlace": "Żelazowa Wola, Księstwo Warszawskie",
+    "nationality": "Polski",
+    "wikipediaSlug": "Fryderyk_Chopin"
+  }
+}

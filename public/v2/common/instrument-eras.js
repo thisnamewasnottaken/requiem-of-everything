@@ -33,11 +33,11 @@ window.ROE_INSTR_ERAS = {
   },
   harp: {
     renaissance: "Court harps accompanied songs and dances, while lutes and viols were more common.",
-    baroque: "Baroque harps appeared at some courts, but continuo usually centered on harpsichord and bass.",
+    baroque: "Baroque harps appeared at some courts, but continuo usually centred on harpsichord and bass.",
     classical: "Mozart's Flute and Harp Concerto gives the harp a graceful solo voice.",
-    'early-romantic': "Berlioz used the harp's shimmering chords to color the orchestra.",
+    'early-romantic': "Berlioz used the harp's shimmering chords to colour the orchestra.",
     'late-romantic': "Wagner's operas use harps to shimmer beneath their mythic scenes.",
-    modern: "Debussy's Danses sacrée et profane turns harp color into a whole sound world."
+    modern: "Debussy's Danses sacrée et profane turns harp colour into a whole sound world."
   },
   'viola-da-gamba': {
     renaissance: "Viol consorts wove several parts together in English music by Byrd and Gibbons.",
@@ -53,13 +53,13 @@ window.ROE_INSTR_ERAS = {
     classical: "Mozart's flute concertos and quartets made the flute a graceful solo voice.",
     'early-romantic': "Flutes sing in Beethoven's symphonies and Schubert's chamber music.",
     'late-romantic': "Boehm's key system widened the flute's range as orchestras grew larger.",
-    modern: "Debussy's Syrinx and Ravel's orchestral colors show the flute's many shades."
+    modern: "Debussy's Syrinx and Ravel's orchestral colours show the flute's many shades."
   },
   oboe: {
     renaissance: "The oboe had not yet emerged; Renaissance shawms supplied a bright double-reed sound.",
     baroque: "Bach and Handel used oboes to double voices and sing expressive solos.",
     classical: "Mozart's Oboe Concerto gives the instrument a bright, graceful solo voice.",
-    'early-romantic': "Oboe melodies add color to Beethoven's symphonies and Schumann's orchestral music.",
+    'early-romantic': "Oboe melodies add colour to Beethoven's symphonies and Schumann's orchestral music.",
     'late-romantic': "Wagner and Brahms gave oboes warm inner lines and plaintive solos.",
     modern: "Richard Strauss's Oboe Concerto lets the instrument sing through a postwar work."
   },
@@ -69,14 +69,14 @@ window.ROE_INSTR_ERAS = {
     classical: "Mozart's Clarinet Concerto and Quintet reveal the instrument's warm, singing range.",
     'early-romantic': "Weber's clarinet concertos made the instrument a brilliant Romantic soloist.",
     'late-romantic': "Brahms's clarinet sonatas and quintet pair it with warm, inward melodies.",
-    modern: "Stravinsky and Copland used the clarinet's leaps and colors in modern orchestral music."
+    modern: "Stravinsky and Copland used the clarinet's leaps and colours in modern orchestral music."
   },
   bassoon: {
     renaissance: "The bassoon had not yet emerged; Renaissance ensembles used earlier bass double reeds.",
     baroque: "Bach and Vivaldi used the bassoon to anchor bass lines and spring into solos.",
     classical: "Mozart's Bassoon Concerto lets the low woodwind dance with surprising lightness.",
     'early-romantic': "Weber's Andante and Hungarian Rondo turns the bassoon into a nimble soloist.",
-    'late-romantic': "Tchaikovsky and Brahms used bassoons for dark color and comic turns.",
+    'late-romantic': "Tchaikovsky and Brahms used bassoons for dark colour and comic turns.",
     modern: "Stravinsky begins The Rite of Spring with a startling high bassoon solo."
   },
   recorder: {
@@ -93,7 +93,7 @@ window.ROE_INSTR_ERAS = {
     classical: "Mozart's four horn concertos let the natural horn sing before valves existed.",
     'early-romantic': "Valves arrived around 1814–18; Schumann later showcased four horns in his Konzertstück.",
     'late-romantic': "Wagner and Mahler filled scores with horns that can sing, call, and blaze.",
-    modern: "Strauss's Alpine Symphony uses horns for mountain calls and huge orchestral color."
+    modern: "Strauss's Alpine Symphony uses horns for mountain calls and huge orchestral colour."
   },
   trumpet: {
     renaissance: "Natural trumpets announced ceremonies and courtly pageants with bright, ringing fanfares.",
@@ -101,13 +101,13 @@ window.ROE_INSTR_ERAS = {
     classical: "Haydn's 1796 trumpet concerto showcases a keyed trumpet's new chromatic notes.",
     'early-romantic': "Valves developed around 1814–18, freeing trumpets to play smooth melodies in every key.",
     'late-romantic': "Mahler used trumpets to cut through huge orchestras and launch bold brass calls.",
-    modern: "Stravinsky's Petrushka and The Rite of Spring use sharp trumpet colors and startling rhythms."
+    modern: "Stravinsky's Petrushka and The Rite of Spring use sharp trumpet colours and startling rhythms."
   },
   trombone: {
     renaissance: "Sackbuts, the trombone's early form, supported voices in churches and town bands.",
     baroque: "Bach used trombones to reinforce voices in sacred works such as his cantatas.",
     classical: "Mozart added trombones to sacred works, including the Requiem's dramatic choruses.",
-    'early-romantic': "Schubert and Berlioz used trombones for growing color and weight in orchestral scores.",
+    'early-romantic': "Schubert and Berlioz used trombones for growing colour and weight in orchestral scores.",
     'late-romantic': "Wagner and Mahler used trombones for grandeur, menace, and powerful chorales.",
     modern: "Ravel's Boléro gives the trombone a famous, rising solo."
   },
@@ -129,19 +129,19 @@ window.ROE_INSTR_ERAS = {
   },
   'snare-drum': {
     renaissance: "Field drums marked marches and ceremonies, but rarely entered Renaissance sacred ensembles.",
-    baroque: "The snare drum was a rare outdoor color, while Baroque orchestras favored timpani.",
+    baroque: "The snare drum was a rare outdoor colour, while Baroque orchestras favoured timpani.",
     classical: "Beethoven's Wellington's Victory uses snare drums to suggest a battlefield.",
-    'early-romantic': "The snare drum remained a special color, adding crisp military rhythms to early Romantic scores.",
-    'late-romantic': "Large orchestras brought the snare drum forward for military scenes and sharp rhythmic color.",
+    'early-romantic': "The snare drum remained a special colour, adding crisp military rhythms to early Romantic scores.",
+    'late-romantic': "Large orchestras brought the snare drum forward for military scenes and sharp rhythmic colour.",
     modern: "Ravel's Boléro makes the snare drum's repeating rhythm the engine of the whole work."
   },
   'cymbals-and-percussion': {
-    renaissance: "Cymbals and small drums colored processions, while sacred music centered on voices.",
+    renaissance: "Cymbals and small drums coloured processions, while sacred music centred on voices.",
     baroque: "Cymbals were rare in Baroque ensembles, appearing mainly in festive or military music.",
     classical: "Turkish-style percussion brightens Mozart's Abduction and Beethoven's Ninth.",
     'early-romantic': "Berlioz's Symphonie fantastique uses percussion for vivid and unsettling scenes.",
     'late-romantic': "Rimsky-Korsakov's Scheherazade uses cymbals to conjure a storybook sea.",
-    modern: "Stravinsky's Rite of Spring turns percussion into a vivid force of rhythm and color."
+    modern: "Stravinsky's Rite of Spring turns percussion into a vivid force of rhythm and colour."
   },
   piano: {
     renaissance: "Not yet invented: Bartolomeo Cristofori built the first piano around 1700.",
@@ -149,7 +149,7 @@ window.ROE_INSTR_ERAS = {
     classical: "Mozart and Haydn made the piano the star of sonatas and concertos.",
     'early-romantic': "Chopin and Liszt turned the piano into an orchestra for one pair of hands.",
     'late-romantic': "Rachmaninoff and Brahms used the piano for sweeping virtuosity and rich chamber music.",
-    modern: "Ravel's piano music and Gershwin's Rhapsody in Blue bring new colors and rhythms."
+    modern: "Ravel's piano music and Gershwin's Rhapsody in Blue bring new colours and rhythms."
   },
   organ: {
     renaissance: "Organs filled churches with long tones and supported sacred music in Palestrina's time.",
@@ -157,7 +157,7 @@ window.ROE_INSTR_ERAS = {
     classical: "Mozart wrote for organ rarely, while church organs and chamber works kept it in use.",
     'early-romantic': "Mendelssohn revived the concert organ with sonatas and Bach-inspired performances.",
     'late-romantic': "Franck and Widor made the great French organ a symphonic solo instrument.",
-    modern: "Messiaen's organ music fills the church with vivid color and birdlike rhythms."
+    modern: "Messiaen's organ music fills the church with vivid colour and birdlike rhythms."
   },
   harpsichord: {
     renaissance: "The harpsichord joined voices and viols in courts, accompanying dances and songs.",

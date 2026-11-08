@@ -1,0 +1,27 @@
+{
+  "gutenberg-printing-press": {
+    "title": "Prasa drukarska Gutenberga",
+    "description": "Johannes Gutenberg wynajduje w Europie druk z ruchomych czcionek, rewolucjonizując obieg wiedzy i ostatecznie czyniąc drukowaną muzykę szeroko dostępną.",
+    "musicalSignificance": "Umożliwiła masową dystrybucję zapisów nutowych. Ottaviano Petrucci opublikował w 1501 roku pierwszy zbiór muzyki polifonicznej (Harmonice Musices Odhecaton).",
+    "region": "Europa"
+  },
+  "fall-of-constantinople": {
+    "title": "Upadek Konstantynopola",
+    "description": "Imperium Osmańskie zdobywa Konstantynopol, kończąc istnienie Cesarstwa Bizantyjskiego. Greccy uczeni uciekają do Italii, przyspieszając nadejście renesansu.",
+    "musicalSignificance": "Napływ bizantyjskich uczonych i rękopisów do Italii przyczynił się do renesansowego fermentu kulturowego, który głęboko ukształtował rozwój muzyki.",
+    "region": "Region śródziemnomorski"
+  },
+  "columbus-americas": {
+    "title": "Kolumb dociera do obu Ameryk",
+    "description": "Wyprawa Krzysztofa Kolumba zapoczątkowuje europejską kolonizację obu Ameryk, przekształcając światowy handel, kulturę i układ sił.",
+    "region": "Ameryki"
+  },
+  "french-revolution": {
+    "title": "Rewolucja francuska",
+    "region": "Francja",
+    "wikipediaSlug": "Rewolucja_francuska"
+  },
+  "moon-landing": {
+    "wikipediaSlug": "Lądowanie_na_Księżycu"
+  }
+}

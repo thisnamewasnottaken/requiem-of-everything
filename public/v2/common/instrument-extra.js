@@ -12,12 +12,12 @@ const instrumentExtra = (title, composerName, composerId, year, why, surname, gr
 });
 
 window.ROE_INSTR_EXTRA = {
-  violin: instrumentExtra('The Four Seasons', 'Antonio Vivaldi', 'antonio-vivaldi', 1725, 'Four vivid concertos put the violin at the center of every season.', 'Vivaldi', [
+  violin: instrumentExtra('The Four Seasons', 'Antonio Vivaldi', 'antonio-vivaldi', 1725, 'Four vivid concertos put the violin at the centre of every season.', 'Vivaldi', [
     {name:'Niccolò Paganini',note:'Changed violin technique with dazzling virtuosity.'},
     {name:'Jascha Heifetz',note:'A celebrated 20th-century virtuoso.'},
     {name:'Itzhak Perlman',note:'Beloved for his warm tone and broad career.'}
   ]),
-  viola: instrumentExtra('Harold in Italy', 'Hector Berlioz', 'hector-berlioz', 1834, 'A solo viola travels through a colorful orchestral story.', 'Berlioz', [
+  viola: instrumentExtra('Harold in Italy', 'Hector Berlioz', 'hector-berlioz', 1834, 'A solo viola travels through a colourful orchestral story.', 'Berlioz', [
     {name:'William Primrose',note:'Raised the viola’s profile as a solo instrument.'},
     {name:'Tabea Zimmermann',note:'Known for expressive playing and teaching.'},
     {name:'Yuri Bashmet',note:'A leading viola soloist and ensemble founder.'}
@@ -120,7 +120,7 @@ window.ROE_INSTR_EXTRA = {
   celesta: instrumentExtra('Dance of the Sugar Plum Fairy', 'Pyotr Ilyich Tchaikovsky', 'pyotr-ilyich-tchaikovsky', 1892, 'Its sparkling celesta gives the dance its magical sound.', 'Tchaikovsky', [
     {name:'Tchaikovsky',note:'Made the celesta famous in The Nutcracker.'},
     {name:'Reinhold Glière',note:'Used the celesta in his Harp Concerto.'},
-    {name:'John Williams',note:'Uses celesta color in film and concert scores.'}
+    {name:'John Williams',note:'Uses celesta colour in film and concert scores.'}
   ]),
   soprano: instrumentExtra('“Queen of the Night” aria from The Magic Flute', 'Wolfgang Amadeus Mozart', 'wolfgang-amadeus-mozart', 1791, 'A coloratura aria asks the soprano to leap high and sing quickly.', 'Mozart', [
     {name:'Maria Callas',note:'A celebrated opera singer with dramatic range.'},

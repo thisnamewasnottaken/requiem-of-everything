@@ -1,0 +1,79 @@
+{
+  "renaissance": {
+    "name": "Renaissance",
+    "description": "n Tydperk van 'hergeboorte' in kuns en kultuur. Musiek het toenemend polifonies geword, met groeiende belangrikheid van sekulêre vorme naas gewyde musiek. Die drukpers het die wyer verspreiding van musiekpartiture moontlik gemaak.",
+    "characteristics": [
+      "Polifonie",
+      "Oorheersing van vokale musiek",
+      "Gewyde en sekulêre vorme",
+      "Modale harmonie",
+      "A cappella koortradisies",
+      "Madrigale en motette"
+    ]
+  },
+  "baroque": {
+    "name": "Barok",
+    "description": "n Era van grandeur en versiering. Die geboorte van opera, die ontwikkeling van tonaliteit, die uitvinding van die konsert en sonate. Komponiste het meer idiomatiese instrumentale musiek begin skryf, en die basso continuo het die grondslag van samemusisering geword.",
+    "characteristics": [
+      "Versiering en verfraaing",
+      "Basso continuo",
+      "Geboorte van opera",
+      "Concerto grosso en solokonsert",
+      "Fuga en kontrapunt",
+      "Trasvormige dinamiek",
+      "Tonale harmonie gevestig"
+    ]
+  },
+  "classical": {
+    "name": "Klassiek",
+    "description": "Helderheid, balans en strukturele elegansie definieer hierdie era. Die simfonie, strykkwartet en klaviersonate het die dominante vorme geword. Musiek het van aristokratiese howe na openbare konsertsale beweeg.",
+    "characteristics": [
+      "Helderheid en balans",
+      "Sonatevorm",
+      "Simfonie as belangrike vorm",
+      "Strykkwartetontwikkeling",
+      "Homofoniese tekstuur",
+      "Dinamiese kontras (crescendo/decrescendo)",
+      "Openbare konsertkultuur"
+    ]
+  },
+  "early-romantic": {
+    "name": "Vroeë Romantiek",
+    "description": "Emosie, individualisme en poëtiese uitdrukking neem die hoofrol. Komponiste het harmoniese grense verskuif en programmatiese musiek verken — om verhale deur klank te vertel. Die klavier het die dominante solo-instrument geword.",
+    "characteristics": [
+      "Emosionele uitdrukking",
+      "Programmatiese musiek",
+      "Uitgebreide harmoniese taal",
+      "Virtuose uitvoerders",
+      "Kunslied (Lied)",
+      "Miniatuurvorme (nokturne, étude, ballade)",
+      "Die komponis as Romantiese held"
+    ]
+  },
+  "late-romantic": {
+    "name": "Laat-Romantiek",
+    "description": "Massiewe orkestrale kragte, uiterste chromatisisme en nasionalistiese bewegings kenmerk die Laat-Romantiek. Komponiste het uitgestrekte simfoniese strukture en dramatiese operas gebou. Musikale nasionalisme het volkstradisies na die konsertsaal gebring.",
+    "characteristics": [
+      "Uitgebreide orkes",
+      "Uiterste chromatisisme",
+      "Musikale nasionalisme",
+      "Wagner se Gesamtkunstwerk",
+      "Toondigte",
+      "Verismo-opera",
+      "Tonale grense verskuif"
+    ]
+  },
+  "modern": {
+    "name": "Modern",
+    "description": "n Verbrokkeling van tradisie in veelvuldige bewegings: Impressionisme, Ekspressionisme, Neoklassisisme, Serialisme en verder. Komponiste het Romantiese konvensies verwerp of radikaal uitgebrei, en met nuwe toonlere, ritmes, klankkleure en vorme geëksperimenteer.",
+    "characteristics": [
+      "Atonaliteit en serialisme",
+      "Impressionisme",
+      "Neoklassisisme",
+      "Eksperimentering met ritme en klankkleur",
+      "Twaalftoontegniek",
+      "Beginpunte van elektroniese musiek",
+      "Verwerping van tradisionele vorme"
+    ]
+  }
+}

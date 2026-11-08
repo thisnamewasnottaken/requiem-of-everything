@@ -1,0 +1,132 @@
+{
+  "violin": {
+    "name": "Violon",
+    "role": "Instrument mélodique principal ; mène la section des cordes",
+    "description": "L'instrument à cordes standard le plus aigu. Le violon porte la plupart des mélodies orchestrales et constitue l'épine dorsale de la section des cordes. Son registre expressif va des lignes lyriques chantantes aux passages de virtuosité."
+  },
+  "viola": {
+    "name": "Alto",
+    "role": "Voix intérieure de la section des cordes ; apporte profondeur harmonique",
+    "description": "Légèrement plus grand que le violon, l'alto remplit le registre alto de la famille des cordes. Il fournit un soutien harmonique essentiel et des voix intérieures, conférant chaleur et richesse à la texture orchestrale. Son timbre plus sombre et plus voilé a inspiré de nombreuses œuvres solistes à partir de l'époque romantique."
+  },
+  "cello": {
+    "name": "Violoncelle",
+    "role": "Voix basse et ténor de la section des cordes ; aussi puissant en mélodie qu'en harmonie",
+    "description": "Le violoncelle couvre les registres ténor et basse, ce qui en fait l'un des instruments d'orchestre les plus polyvalents. Il ancre la ligne de basse de la section des cordes tout en portant des mélodies solo expressives. Son timbre riche et chantant est souvent comparé à la voix humaine."
+  },
+  "double-bass": {
+    "name": "Contrebasse",
+    "role": "Fondation de la basse orchestrale ; renforce le registre le plus grave",
+    "description": "Le plus grand et le plus grave des instruments à cordes frottées de l'orchestre. La contrebasse fournit la ligne de basse fondamentale qui soutient l'ensemble tout entier. Elle est généralement jouée à l'archet dans les contextes orchestraux et en pizzicato dans le jazz et la musique populaire."
+  },
+  "harp": {
+    "name": "Harpe",
+    "role": "Fournit des textures arpégées, des glissandos et des effets coloristiques",
+    "description": "La harpe orchestrale à pédales couvre presque toute l'étendue du piano. Elle apporte des arpèges chatoyants, des glissandos éthérés et des couleurs harmoniques à l'orchestre. Bien que d'origine ancienne, la harpe moderne à double mouvement est devenue un élément standard de l'orchestre à l'époque romantique."
+  },
+  "viola-da-gamba": {
+    "name": "Viole de gambe",
+    "role": "Instrument principal à cordes frottées de la Renaissance et du Baroque ; rôles de continuo et soliste",
+    "description": "Instrument à cordes frottées muni de frettes, tenu entre les jambes. La viole de gambe occupait une place centrale dans la musique de chambre de la Renaissance et du Baroque, servant à la fois d'instrument soliste et de continuo. Elle fut progressivement supplantée par la famille du violoncelle à l'époque classique."
+  },
+  "flute": {
+    "name": "Flûte",
+    "role": "Bois standard le plus aigu ; porte des mélodies brillantes et des passages ornementaux",
+    "description": "Instrument traversier dans lequel on souffle à travers une embouchure. La flûte moderne à système Boehm produit un son clair et brillant qui transperce la texture orchestrale. Elle excelle dans les passages rapides et les mélodies lyriques dans le registre aigu."
+  },
+  "oboe": {
+    "name": "Hautbois",
+    "role": "Voix soprano pénétrante des bois ; donne le la à l'orchestre",
+    "description": "Instrument à double anche au timbre distinctif et pénétrant. Le hautbois fournit la note d'accord (la4) à l'orchestre et porte des mélodies solo poignantes. Son timbre expressif, légèrement nasal, est prisé depuis l'époque baroque."
+  },
+  "clarinet": {
+    "name": "Clarinette",
+    "role": "Bois le plus agile ; large étendue dynamique et timbrale",
+    "description": "Instrument à anche simple possédant l'étendue la plus vaste des bois standard. Le timbre doux et chaleureux de la clarinette et son agilité exceptionnelle la rendent également adaptée aux mélodies lyriques et aux passages techniques rapides. Elle est entrée dans l'orchestre au milieu du XVIIIe siècle et est rapidement devenue indispensable."
+  },
+  "bassoon": {
+    "name": "Basson",
+    "role": "Voix basse de la section des bois ; se fond avec les cordes et les cors",
+    "description": "Grand instrument à double anche qui fournit les registres basse et ténor de la famille des bois. Le timbre chaud et nasillard du basson se mêle naturellement aux cordes et aux cors. Il est apprécié tant pour son registre grave sonore que pour sa capacité à produire des effets de staccato sec et comique."
+  },
+  "recorder": {
+    "name": "Flûte à bec",
+    "role": "Instrument à vent principal de la Renaissance et du début du Baroque ; largement supplanté par la flûte traversière",
+    "description": "Famille de flûtes en bois à embouchure terminale au son doux et pur. La flûte à bec fut l'un des instruments à vent les plus importants du Moyen Âge au Baroque, apparaissant en bonne place dans les œuvres de Bach, Haendel et Vivaldi. Elle fut largement remplacée par la flûte traversière à l'époque classique."
+  },
+  "french-horn": {
+    "name": "Cor d'harmonie",
+    "role": "Pont entre les bois et les cuivres ; apporte chaleur et couleur héroïque",
+    "description": "Instrument de cuivre enroulé doté d'un large pavillon conique. Le timbre doux et arrondi du cor d'harmonie se fond parfaitement avec les bois et les cordes, ce qui en fait le lien principal entre les sections de l'orchestre. Il est réputé pour sa sonorité noble et héroïque et son intonation notoirement délicate."
+  },
+  "trumpet": {
+    "name": "Trompette",
+    "role": "Voix soprano brillante des cuivres ; fanfares, signaux et thèmes héroïques",
+    "description": "L'instrument de cuivre standard le plus aigu. Le timbre brillant et incisif de la trompette a rempli des fonctions cérémonielles et militaires pendant des siècles. À l'orchestre, elle délivre fanfares, déclarations thématiques audacieuses et passages culminants brillants."
+  },
+  "trombone": {
+    "name": "Trombone",
+    "role": "Voix puissante de cuivre ténor-basse ; chorals, climax et emphase dramatique",
+    "description": "Instrument de cuivre utilisant une coulisse télescopique pour changer la hauteur. Le timbre audacieux et noble du trombone le rend idéal pour les passages en choral et les climax puissants. Son mécanisme de coulisse permet un legato et des effets de glissando inégalés parmi les cuivres."
+  },
+  "tuba": {
+    "name": "Tuba",
+    "role": "Cuivre le plus grave ; ancre le registre basse de la section des cuivres",
+    "description": "Le plus grand et le plus grave des instruments de cuivre standard. Le tuba fournit la basse fondamentale de la section des cuivres, tout comme la contrebasse le fait pour les cordes. Inventé dans les années 1830, il a remplacé l'ophicléide et le serpent pour devenir la voix de basse standard des cuivres orchestraux."
+  },
+  "timpani": {
+    "name": "Timbales",
+    "role": "Percussion à hauteur déterminée ; apporte emphase rythmique et renforcement harmonique",
+    "description": "Grandes caisses en cuivre accordées à des hauteurs définies. Les timbales sont les instruments de percussion orchestraux les plus anciens et les plus importants, renforçant les accents rythmiques et les notes de basse harmoniques. Un jeu standard de quatre timbales couvre environ deux octaves et peut être réaccordé par pédales pendant l'exécution."
+  },
+  "snare-drum": {
+    "name": "Caisse claire",
+    "role": "Articulation rythmique nette ; effets militaires et dramatiques",
+    "description": "Tambour peu profond à double peau avec des timbres métalliques tendus sous la peau inférieure, produisant un son vif et crépitant. La caisse claire est entrée dans la musique orchestrale depuis les fanfares militaires et est utilisée pour la précision rythmique, les effets martiaux et la tension dramatique dans les partitions orchestrales."
+  },
+  "cymbals-and-percussion": {
+    "name": "Cymbales et percussions auxiliaires",
+    "role": "Couleur, accent et effets spéciaux à travers une large famille d'instruments",
+    "description": "Regroupement collectif des percussions orchestrales au-delà des timbales et de la caisse claire, comprenant cymbales frappées, cymbale suspendue, grosse caisse, triangle, tambourin, glockenspiel, xylophone et cloches tubulaires. Ces instruments ajoutent accent rythmique, couleur timbrale et ponctuation dramatique à la palette orchestrale."
+  },
+  "piano": {
+    "name": "Piano",
+    "role": "Instrument solo et de concerto ; couleur orchestrale occasionnelle",
+    "description": "Instrument à clavier dans lequel des marteaux frappent des cordes. L'énorme étendue dynamique et de hauteur du piano en a fait l'instrument solo et de chambre dominant à partir de la fin du XVIIIe siècle. À l'orchestre, il apparaît le plus souvent comme soliste de concerto mais ajoute aussi une couleur percussive dans les partitions modernes."
+  },
+  "organ": {
+    "name": "Orgue",
+    "role": "Fournit une sonorité soutenue massive ; instrument sacré et de salle de concert",
+    "description": "Instrument à clavier dans lequel de l'air sous pression résonne à travers des rangées de tuyaux. La vaste palette timbrale de l'orgue à tuyaux et sa capacité à soutenir le son indéfiniment en ont fait un élément central de la musique sacrée de la Renaissance au Baroque. Il continue d'apparaître dans les œuvres orchestrales nécessitant une sonorité monumentale."
+  },
+  "harpsichord": {
+    "name": "Clavecin",
+    "role": "Clavier de continuo et soliste du Baroque ; mécanisme à cordes pincées",
+    "description": "Instrument à clavier qui pince les cordes plutôt que de les frapper, produisant un son brillant et incisif. Le clavecin fut le principal instrument à clavier de la Renaissance au Baroque, essentiel à l'accompagnement de basse continue. Il fut progressivement supplanté par le piano à la fin du XVIIIe siècle."
+  },
+  "celesta": {
+    "name": "Célesta",
+    "role": "Couleur éthérée de clochettes ; utilisé avec parcimonie pour des effets magiques ou délicats",
+    "description": "Instrument à clavier dans lequel des marteaux frappent des plaques métalliques au-dessus de résonateurs en bois, produisant un son chatoyant de clochettes. Inventé en 1886, le célesta est devenu célèbre grâce à la « Danse de la Fée Dragée » de Tchaïkovski et est utilisé pour des couleurs orchestrales éthérées ou surnaturelles."
+  },
+  "soprano": {
+    "name": "Soprano",
+    "role": "Voix féminine standard la plus aiguë ; porte les mélodies vocales principales dans les œuvres chorales et lyriques",
+    "description": "Le type de voix chantée le plus aigu, couvrant typiquement du do central au contre-ut. La voix de soprano mène les lignes mélodiques dans l'opéra, l'oratorio et la musique chorale. À travers toutes les époques, les sopranos ont tenu les rôles vocaux les plus éminents, des messes de la Renaissance à l'opéra moderne."
+  },
+  "alto-mezzo": {
+    "name": "Alto / Mezzo-soprano",
+    "role": "Voix féminine plus grave ; voix intérieure harmonique et rôles dramatiques de soutien",
+    "description": "Le type de voix féminine grave englobant les registres mezzo-soprano et contralto. En musique chorale, les altos fournissent des voix intérieures harmoniques essentielles. À l'opéra, les mezzo-sopranos incarnent souvent des personnages complexes et dramatiques — des rôles travestis aux femmes fatales."
+  },
+  "tenor": {
+    "name": "Ténor",
+    "role": "Voix masculine plus aiguë ; rôles héroïques principaux à l'opéra et lignes chorales proéminentes",
+    "description": "La voix masculine chantée standard la plus aiguë. Les ténors tiennent les rôles principaux à l'opéra — le héros romantique, le protagoniste tragique — et fournissent des lignes aiguës et brillantes dans l'écriture chorale. La puissance de projection et l'intensité expressive de la voix de ténor en font un élément central de la musique vocale à travers toutes les époques."
+  },
+  "bass-baritone": {
+    "name": "Basse-baryton / Basse",
+    "role": "Voix masculine la plus grave ; figures d'autorité, méchants et basse chorale fondamentale",
+    "description": "Le type de voix masculine chantée le plus grave, couvrant les registres basse et baryton. À l'opéra, les basses-barytons incarnent rois, prêtres, méchants et figures paternelles. En musique chorale, la section des basses fournit le fondement harmonique, ancrant l'ensemble vocal tout comme le violoncelle et la contrebasse ancrent les cordes."
+  }
+}

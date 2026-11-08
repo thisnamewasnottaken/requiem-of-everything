@@ -1,0 +1,359 @@
+{
+  "giovanni-pierluigi-da-palestrina": {
+    "name": "Giovanni Pierluigi da Palestrina",
+    "shortName": "Palestrina",
+    "biography": "El maestro de la polifonía renacentista. El contrapunto fluido y elegante de Palestrina se convirtió en el modelo de la composición de música sacra durante siglos. Sus misas y motetes representan la cima de la Escuela Romana, y su estilo fue posteriormente codificado como fundamento del estudio del contrapunto.",
+    "birthPlace": "Palestrina, Estados Pontificios",
+    "nationality": "Italiano"
+  },
+  "tomas-luis-de-victoria": {
+    "name": "Tomás Luis de Victoria",
+    "shortName": "Victoria",
+    "biography": "El más grande compositor español del Renacimiento y uno de los polifonistas más importantes de su época. Victoria se dedicó exclusivamente a la música sacra, produciendo misas, motetes y el profundamente expresivo Officium Defunctorum. Su estilo intensamente emocional lo distinguía de sus contemporáneos de la Escuela Romana.",
+    "birthPlace": "Ávila, España",
+    "nationality": "Español"
+  },
+  "claudio-monteverdi": {
+    "name": "Claudio Monteverdi",
+    "shortName": "Monteverdi",
+    "biography": "Una figura revolucionaria que unió el Renacimiento y el Barroco. Las óperas de Monteverdi — especialmente L'Orfeo — establecieron la ópera como una forma artística mayor. Sus madrigales ampliaron los límites de la armonía y la expresión textual, marcando la transición de la polifonía renacentista al drama barroco.",
+    "birthPlace": "Cremona, Ducado de Milán",
+    "nationality": "Italiano"
+  },
+  "henry-purcell": {
+    "name": "Henry Purcell",
+    "shortName": "Purcell",
+    "biography": "El más grande compositor barroco de Inglaterra. La música extraordinariamente expresiva de Purcell combinó de manera única las influencias italianas y francesas con las tradiciones inglesas. Su ópera Dido y Eneas contiene uno de los lamentos más famosos de toda la música, y su música teatral estableció un estándar inigualado en Inglaterra hasta el siglo XX.",
+    "birthPlace": "Westminster, Inglaterra",
+    "nationality": "Inglés"
+  },
+  "antonio-vivaldi": {
+    "name": "Antonio Vivaldi",
+    "shortName": "Vivaldi",
+    "biography": "El «Cura Rojo» de Venecia, Vivaldi fue uno de los compositores barrocos más prolíficos e influyentes. Sus conciertos — especialmente Las cuatro estaciones — establecieron la forma del concierto en tres movimientos e influyeron en generaciones de compositores, incluyendo a Bach. Escribió más de 500 conciertos y 46 óperas.",
+    "birthPlace": "Venecia, República de Venecia",
+    "nationality": "Italiano"
+  },
+  "georg-philipp-telemann": {
+    "name": "Georg Philipp Telemann",
+    "shortName": "Telemann",
+    "biography": "El compositor mayor más prolífico de la historia, Telemann produjo más de 3000 obras que abarcan todos los géneros de su época. Como director musical de las principales iglesias de Hamburgo y de la Oper am Gänsemarkt, fue el compositor alemán más famoso de su generación, eclipsando incluso a su amigo J.S. Bach en reputación contemporánea.",
+    "birthPlace": "Magdeburgo, Alemania",
+    "nationality": "Alemán"
+  },
+  "jean-philippe-rameau": {
+    "name": "Jean-Philippe Rameau",
+    "shortName": "Rameau",
+    "biography": "El principal compositor francés del siglo XVIII y un pionero teórico musical cuyo Tratado de armonía sentó las bases de la teoría tonal moderna. Rameau revolucionó la ópera francesa con obras de una riqueza armónica y un poder dramático sin precedentes, sucediendo a Lully como la fuerza dominante en el teatro musical francés.",
+    "birthPlace": "Dijon, Francia",
+    "nationality": "Francés"
+  },
+  "johann-sebastian-bach": {
+    "name": "Johann Sebastian Bach",
+    "shortName": "J.S. Bach",
+    "biography": "A menudo considerado el más grande compositor que jamás haya existido. Bach llevó el contrapunto barroco a su máxima altura, creando obras de una profundidad intelectual y un poder emocional sin igual. Desde la monumental Misa en si menor hasta las íntimas Suites para violonchelo, su música abarca prácticamente todos los géneros de su época excepto la ópera.",
+    "birthPlace": "Eisenach, Sajonia-Eisenach",
+    "nationality": "Alemán"
+  },
+  "george-frideric-handel": {
+    "name": "Georg Friedrich Händel",
+    "shortName": "Händel",
+    "biography": "Nacido el mismo año que Bach, Händel tomó el camino opuesto — cosmopolita, teatral y enormemente exitoso en vida. Sus óperas dominaron los teatros de Londres, y cuando cambiaron las modas, se reinventó como padre del oratorio inglés. El Mesías sigue siendo una de las obras corales más interpretadas de la historia.",
+    "birthPlace": "Halle, Ducado de Magdeburgo",
+    "nationality": "Germano-británico"
+  },
+  "domenico-scarlatti": {
+    "name": "Domenico Scarlatti",
+    "shortName": "D. Scarlatti",
+    "biography": "Un virtuoso clavecinista que pasó gran parte de su carrera en las cortes española y portuguesa, Scarlatti compuso más de 550 sonatas para teclado que exploraban técnicas radicalmente nuevas. Sus sonatas en un solo movimiento, con sus pasajes de cruce de manos, rápidas repeticiones e influencias folclóricas ibéricas, ampliaron las posibilidades expresivas y técnicas de la música para teclado.",
+    "birthPlace": "Nápoles, Italia",
+    "nationality": "Italiano"
+  },
+  "christoph-willibald-gluck": {
+    "name": "Christoph Willibald Gluck",
+    "shortName": "Gluck",
+    "biography": "El gran reformador de la ópera que despojó a la ópera seria barroca de sus excesos para crear una forma artística más natural y dramáticamente poderosa. Sus óperas de reforma, comenzando por Orfeo ed Euridice, subordinaron el despliegue vocal a la verdad dramática e influyeron en todos los compositores de ópera posteriores, desde Mozart hasta Wagner.",
+    "birthPlace": "Erasbach, Baviera",
+    "nationality": "Germano-bohemio"
+  },
+  "joseph-haydn": {
+    "name": "Joseph Haydn",
+    "shortName": "Haydn",
+    "biography": "El «Padre de la Sinfonía» y el «Padre del Cuarteto de cuerda». La larga carrera de Haydn en la corte de los Esterházy le dio libertad para experimentar sin cesar, desarrollando la sinfonía de un entretenimiento ligero a una profunda declaración artística. Su humor, su ingenio formal y su don melódico lo convirtieron en el compositor más célebre de Europa.",
+    "birthPlace": "Rohrau, Archiducado de Austria",
+    "nationality": "Austriaco"
+  },
+  "wolfgang-amadeus-mozart": {
+    "name": "Wolfgang Amadeus Mozart",
+    "shortName": "Mozart",
+    "biography": "Un prodigio que se convirtió en un titán. La música de Mozart alcanza una perfección de forma y expresión que parece casi sobrehumana. En sus breves 35 años, dominó todos los géneros — sinfonía, concierto, ópera, música de cámara, música sacra — e infundió a cada uno una profundidad de sentimiento y un poder dramático que trasciende los ideales de equilibrio y contención de la era clásica.",
+    "birthPlace": "Salzburgo, Arzobispado de Salzburgo",
+    "nationality": "Austriaco"
+  },
+  "ludwig-van-beethoven": {
+    "name": "Ludwig van Beethoven",
+    "shortName": "Beethoven",
+    "biography": "El compositor que lo cambió todo. Beethoven tomó las formas clásicas de Haydn y Mozart y rompió sus fronteras, vertiendo la pasión romántica en estructuras de una escala y una fuerza dramática sin precedentes. Su lucha contra la sordera es una de las grandes tragedias y triunfos de la música — la Novena Sinfonía, compuesta casi enteramente en la sordera, sigue siendo la declaración musical más poderosa de la humanidad sobre la fraternidad.",
+    "birthPlace": "Bonn, Electorado de Colonia",
+    "nationality": "Alemán"
+  },
+  "niccolo-paganini": {
+    "name": "Niccolò Paganini",
+    "shortName": "Paganini",
+    "biography": "El más legendario violinista virtuoso de la historia, cuya asombrosa técnica y presencia escénica generaron rumores de un pacto diabólico. Los 24 Caprichos para violín solo de Paganini establecieron un nuevo estándar de virtuosismo instrumental que inspiró a Liszt, Schumann, Brahms y Rachmaninoff a ampliar los límites de sus propios instrumentos.",
+    "birthPlace": "Génova, Italia",
+    "nationality": "Italiano"
+  },
+  "carl-maria-von-weber": {
+    "name": "Carl Maria von Weber",
+    "shortName": "Weber",
+    "biography": "El padre de la ópera romántica alemana, cuyo Der Freischütz estableció un nuevo tipo de ópera arraigada en el folclore alemán, la atmósfera sobrenatural y el color orquestal. Las innovaciones de Weber en la orquestación y la caracterización dramática sentaron las bases para los dramas musicales de Wagner y toda la tradición de la ópera romántica alemana.",
+    "birthPlace": "Eutin, Alemania",
+    "nationality": "Alemán"
+  },
+  "franz-schubert": {
+    "name": "Franz Schubert",
+    "shortName": "Schubert",
+    "biography": "El supremo melodista. El don de Schubert para la canción — más de 600 Lieder — transformó el lied en un vehículo profundo para la poesía y la emoción. Murió a los 31 años, dejando un asombroso corpus de obras que incluye la Sinfonía «Inconclusa», la «Gran» Sinfonía en do mayor y algunas de las más bellas músicas de cámara jamás escritas.",
+    "birthPlace": "Viena, Imperio Austriaco",
+    "nationality": "Austriaco"
+  },
+  "hector-berlioz": {
+    "name": "Hector Berlioz",
+    "shortName": "Berlioz",
+    "biography": "El gran innovador orquestal. Berlioz revolucionó la sinfonía con la Sinfonía fantástica, una de las primeras grandes obras programáticas de la música — un viaje alucinatorio y autobiográfico que amplió la paleta orquestal de formas que nadie había imaginado. Su Tratado de instrumentación se convirtió en la biblia de la orquestación.",
+    "birthPlace": "La Côte-Saint-André, Francia",
+    "nationality": "Francés"
+  },
+  "felix-mendelssohn": {
+    "name": "Felix Mendelssohn",
+    "shortName": "Mendelssohn",
+    "biography": "Un romántico con alma clásica. Mendelssohn combinó la expresividad romántica con la claridad y la elegancia clásicas. Revivió la música de Bach, fundó el Conservatorio de Leipzig y compuso obras de una belleza luminosa — desde la radiante Sinfonía «Italiana» hasta la etérea obertura del Sueño de una noche de verano, escrita a los 17 años.",
+    "birthPlace": "Hamburgo, Ciudad Libre de Hamburgo",
+    "nationality": "Alemán"
+  },
+  "frederic-chopin": {
+    "name": "Frédéric Chopin",
+    "shortName": "Chopin",
+    "biography": "El poeta del piano. Chopin compuso casi exclusivamente para su instrumento, pero en esa concentración alcanzó una profundidad de expresión sin rival. Sus nocturnos, estudios, preludios y baladas redefinieron lo que el piano podía decir. Exiliado polaco en París, su música está impregnada tanto de melancolía eslava como de elegancia parisina.",
+    "birthPlace": "Żelazowa Wola, Ducado de Varsovia",
+    "nationality": "Polaco-francés"
+  },
+  "robert-schumann": {
+    "name": "Robert Schumann",
+    "shortName": "R. Schumann",
+    "biography": "Schumann fue el romántico por excelencia — apasionado, literario, dividido entre impulsos opuestos que encarnó en los personajes Florestan y Eusebius. Sus obras para piano, canciones y sinfonías arden con intensidad poética. Como crítico, defendió a Chopin, Brahms y Berlioz, moldeando el propio movimiento romántico.",
+    "birthPlace": "Zwickau, Reino de Sajonia",
+    "nationality": "Alemán"
+  },
+  "franz-liszt": {
+    "name": "Franz Liszt",
+    "shortName": "Liszt",
+    "biography": "La primera superestrella musical moderna. El virtuosismo de Liszt al piano era legendario — el público se desmayaba, estallaban disturbios. Pero más allá del espectáculo, fue un profundo innovador: inventó el poema sinfónico, desarrolló la transformación temática, y en sus obras tardías exploró armonías tan radicales que anticiparon el siglo XX.",
+    "birthPlace": "Raiding, Imperio Austriaco",
+    "nationality": "Húngaro"
+  },
+  "richard-wagner": {
+    "name": "Richard Wagner",
+    "shortName": "Wagner",
+    "biography": "La figura más revolucionaria y controvertida de la música del siglo XIX. El concepto wagneriano de Gesamtkunstwerk — la «obra de arte total» — fusionó música, drama, poesía y espectáculo visual en los monumentales dramas musicales del ciclo del Anillo y Tristán e Isolda. Su armonía cromática llevó la tonalidad hasta su punto de ruptura.",
+    "birthPlace": "Leipzig, Reino de Sajonia",
+    "nationality": "Alemán"
+  },
+  "giuseppe-verdi": {
+    "name": "Giuseppe Verdi",
+    "shortName": "Verdi",
+    "biography": "El dramaturgo shakespeariano de la ópera. Las óperas de Verdi — Rigoletto, La Traviata, Aida, Otelo, Falstaff — combinan melodía irresistible con una devastadora perspicacia psicológica. También fue un símbolo de la unificación italiana; «¡Viva VERDI!» se convirtió en un grito de batalla político (acrónimo de «Vittorio Emanuele Re D'Italia»).",
+    "birthPlace": "Le Roncole, Ducado de Parma",
+    "nationality": "Italiano"
+  },
+  "cesar-franck": {
+    "name": "César Franck",
+    "shortName": "Franck",
+    "biography": "Un organista-compositor profundamente espiritual que se convirtió en el venerado maestro de toda una generación de músicos franceses. Las obras maduras de Franck — compuestas en su mayoría en la última década de su vida — introdujeron la forma cíclica y la armonía cromática que influyeron profundamente en Debussy, Ravel y la tradición sinfónica francesa.",
+    "birthPlace": "Lieja, Bélgica",
+    "nationality": "Belga-francés"
+  },
+  "bedrich-smetana": {
+    "name": "Bedřich Smetana",
+    "shortName": "Smetana",
+    "biography": "El padre de la música checa, Smetana forjó una identidad musical nacional a través de obras impregnadas de las tradiciones folclóricas bohemias y el sentimiento patriótico. Su ciclo de poemas sinfónicos Má vlast y la ópera La novia vendida siguen siendo pilares de la cultura checa, compuestas incluso cuando la sordera progresiva se apoderaba de él.",
+    "birthPlace": "Litomyšl, Bohemia",
+    "nationality": "Checo"
+  },
+  "johannes-brahms": {
+    "name": "Johannes Brahms",
+    "shortName": "Brahms",
+    "biography": "El gran conservador-progresista. Brahms se opuso a la «Nueva Música» de Wagner y Liszt, defendiendo las formas clásicas — pero las llenó de tal riqueza armónica, complejidad rítmica y profundidad emocional que las amplió desde dentro. Sus cuatro sinfonías, el Réquiem alemán y su música de cámara son pilares del repertorio.",
+    "birthPlace": "Hamburgo, Confederación Germánica",
+    "nationality": "Alemán"
+  },
+  "alexander-borodin": {
+    "name": "Alexander Borodin",
+    "shortName": "Borodin",
+    "biography": "Un distinguido químico y miembro del grupo nacionalista conocido como Los Cinco, Borodin compuso relativamente pocas obras, pero cada una es una obra maestra de riqueza melódica y color exótico. Su ópera inconclusa El príncipe Ígor y el poema sinfónico En las estepas de Asia Central capturan los vastos paisajes y las influencias orientales de la imaginación rusa.",
+    "birthPlace": "San Petersburgo, Rusia",
+    "nationality": "Ruso"
+  },
+  "camille-saint-saens": {
+    "name": "Camille Saint-Saëns",
+    "shortName": "Saint-Saëns",
+    "biography": "Un niño prodigio de una precocidad mozartiana, Saint-Saëns se convirtió en el estadista mayor de la música francesa a través de una carrera de más de siete décadas. Su refinada artesanía produjo obras perdurables en todos los géneros — desde la Sinfonía con órgano y los conciertos para piano hasta el juguetón El carnaval de los animales — combinando la forma clásica con el color romántico y la claridad francesa.",
+    "birthPlace": "París, Francia",
+    "nationality": "Francés"
+  },
+  "modest-mussorgsky": {
+    "name": "Modest Músorgski",
+    "shortName": "Músorgski",
+    "biography": "El más atrevidamente original de Los Cinco, Músorgski rechazó las convenciones académicas de Europa occidental para forjar un lenguaje musical ruso áspero y distintivo. Su ópera Boris Godunov y la suite para piano Cuadros de una exposición revelan una visión sin concesiones — tosca, armónicamente audaz y profundamente arraigada en los ritmos del habla y la vida folclórica rusas.",
+    "birthPlace": "Karevo, Rusia",
+    "nationality": "Ruso"
+  },
+  "pyotr-ilyich-tchaikovsky": {
+    "name": "Piotr Ilyich Chaikovski",
+    "shortName": "Chaikovski",
+    "biography": "El compositor más querido de Rusia. La música de Chaikovski pulsa con una emoción intensa y a menudo atormentada — la pasión desesperada de Romeo y Julieta, la grandiosidad de la Obertura 1812, el encanto de cuento de hadas de El lago de los cisnes y El cascanueces. Sus seis sinfonías trazan un viaje profundamente personal desde la energía juvenil hasta la desesperación desgarradora de la Patética.",
+    "birthPlace": "Votkinsk, Imperio Ruso",
+    "nationality": "Ruso"
+  },
+  "antonin-dvorak": {
+    "name": "Antonín Dvořák",
+    "shortName": "Dvořák",
+    "biography": "La voz de Bohemia. Dvořák llevó la música folclórica checa a la corriente sinfónica principal con una calidez y un color irresistibles. Su Sinfonía «Del Nuevo Mundo», compuesta durante su estancia en América, es una de las sinfonías más populares jamás escritas. Su concierto para violonchelo llevó a Brahms a exclamar: «¿Por qué no supe que se podía escribir un concierto para violonchelo así?»",
+    "birthPlace": "Nelahozeves, Imperio Austriaco",
+    "nationality": "Checo"
+  },
+  "edvard-grieg": {
+    "name": "Edvard Grieg",
+    "shortName": "Grieg",
+    "biography": "El más grande compositor noruego. Grieg capturó los paisajes, las leyendas folclóricas y el espíritu de Escandinavia en música de extraordinario color y encanto. Su Concierto para piano y las suites de Peer Gynt se encuentran entre las obras más populares del repertorio romántico, y sus Piezas líricas para piano son pequeñas joyas de poesía nórdica.",
+    "birthPlace": "Bergen, Noruega",
+    "nationality": "Noruego"
+  },
+  "nikolai-rimsky-korsakov": {
+    "name": "Nikolái Rimski-Kórsakov",
+    "shortName": "Rimski-Kórsakov",
+    "biography": "El supremo orquestador del siglo XIX y la figura rectora de la escuela nacionalista rusa. Como miembro de Los Cinco e influyente maestro de Stravinski y Prokófiev, Rimski-Kórsakov marcó el rumbo de la música rusa a través de sus brillantes óperas de cuentos de hadas orquestales y el famoso tratado de orquestación que sigue siendo una referencia estándar.",
+    "birthPlace": "Tikhvin, Rusia",
+    "nationality": "Ruso"
+  },
+  "edward-elgar": {
+    "name": "Edward Elgar",
+    "shortName": "Elgar",
+    "biography": "El compositor que puso fin por sí solo a la sequía de dos siglos de música orquestal mayor en Inglaterra. Las Variaciones Enigma de Elgar y sus dos sinfonías llevaron la música inglesa a la corriente principal europea, mientras que su Concierto para violonchelo — una despedida escrita tras la devastación de la Primera Guerra Mundial — se encuentra entre las obras más conmovedoras del siglo XX.",
+    "birthPlace": "Broadheath, Inglaterra",
+    "nationality": "Inglés"
+  },
+  "giacomo-puccini": {
+    "name": "Giacomo Puccini",
+    "shortName": "Puccini",
+    "biography": "El último gran maestro de la ópera italiana, cuyo don para la melodía soaring y el instinto teatral produjeron algunas de las obras más queridas del repertorio. La bohème, Tosca, Madama Butterfly y la inconclusa Turandot combinan el realismo verista con una lujosa orquestación y un infalible sentido del ritmo dramático.",
+    "birthPlace": "Lucca, Italia",
+    "nationality": "Italiano"
+  },
+  "gustav-mahler": {
+    "name": "Gustav Mahler",
+    "shortName": "Mahler",
+    "biography": "El último gran sinfonista romántico — y la primera voz de la modernidad. Las diez sinfonías de Mahler son vastas obras que abarcan el cosmos y lo contienen todo: canciones folclóricas y marchas fúnebres, trinos de pájaros y apocalipsis, íntima ternura y climax devastadores. «Una sinfonía debe ser como el mundo», dijo. «Debe contenerlo todo.»",
+    "birthPlace": "Kaliště, Imperio Austriaco",
+    "nationality": "Austriaco-bohemio"
+  },
+  "claude-debussy": {
+    "name": "Claude Debussy",
+    "shortName": "Debussy",
+    "biography": "El fundador del Impresionismo musical — aunque odiaba el término. Debussy disolvió la armonía tradicional en vibrantes lavados de color, creando un nuevo lenguaje musical inspirado en la poesía simbolista, el arte japonés y los sonidos de la naturaleza. El Preludio a la siesta de un fauno es a menudo llamado el comienzo de la música moderna.",
+    "birthPlace": "Saint-Germain-en-Laye, Francia",
+    "nationality": "Francés"
+  },
+  "richard-strauss": {
+    "name": "Richard Strauss",
+    "shortName": "R. Strauss",
+    "biography": "Maestro del poema sinfónico orquestal y la ópera. La deslumbrante orquestación e instinto dramático de Strauss produjeron obras de virtuosismo extraordinario — Así habló Zaratustra, El caballero de la rosa, las Cuatro últimas canciones. Vivió lo suficiente como para abarcar toda la era moderna, sobreviviendo a muchos que habían declarado muerto el Romanticismo.",
+    "birthPlace": "Múnich, Reino de Baviera",
+    "nationality": "Alemán"
+  },
+  "jean-sibelius": {
+    "name": "Jean Sibelius",
+    "shortName": "Sibelius",
+    "biography": "El compositor nacional de Finlandia y uno de los últimos grandes sinfonistas, Sibelius se inspiró en la mitología finlandesa y el austero paisaje nórdico. Sus siete sinfonías trazan un notable viaje desde la grandiosidad tardorromántica hasta una compresión casi mística de la forma, mientras que Finlandia se convirtió en el himno no oficial de la independencia finlandesa.",
+    "birthPlace": "Hämeenlinna, Finlandia",
+    "nationality": "Finlandés"
+  },
+  "erik-satie": {
+    "name": "Erik Satie",
+    "shortName": "Satie",
+    "biography": "Un visionario excéntrico que anticipó el minimalismo, la música ambiental y la vanguardia décadas antes de que surgieran. Las deceptivamente sencillas piezas para piano de Satie — las Gymnopédies, Gnossiennes y las provocadoramente tituladas Vexations — desafiaron todas las convenciones del exceso romántico, influyendo profundamente en Debussy, Ravel, Cage y toda la trayectoria de la música del siglo XX.",
+    "birthPlace": "Honfleur, Francia",
+    "nationality": "Francés"
+  },
+  "sergei-rachmaninoff": {
+    "name": "Serguéi Rachmaninoff",
+    "shortName": "Rachmaninoff",
+    "biography": "El último gran pianista-compositor romántico. La música de Rachmaninoff se define por la melodía arrolladora, la lujosa armonía y la escritura para piano más exigente del repertorio — todo interpretado por el propio compositor con un legendario virtuosismo. Su Concierto para piano n.º 2 y n.º 3 siguen siendo favoritos del público en todo el mundo.",
+    "birthPlace": "Semyonovo, Imperio Ruso",
+    "nationality": "Ruso"
+  },
+  "arnold-schoenberg": {
+    "name": "Arnold Schoenberg",
+    "shortName": "Schoenberg",
+    "biography": "El innovador más radical de la historia de la música occidental. El viaje de Schoenberg desde el exuberante posromanticismo a través de la «atonalidad libre» hasta el sistemático método dodecafónico reformuló los fundamentos de la composición musical. Su obra dividió el mundo musical, pero su influencia — a través de sus alumnos Berg y Webern — es incalculable.",
+    "birthPlace": "Viena, Austria-Hungría",
+    "nationality": "Austriaco-americano"
+  },
+  "maurice-ravel": {
+    "name": "Maurice Ravel",
+    "shortName": "Ravel",
+    "biography": "El relojero suizo de la música — cada nota precisamente colocada. La orquestación de Ravel es la más brillante de toda la música (su orquestación de los Cuadros de una exposición de Músorgski es más famosa que el original). El hipnótico crescendo del Bolero, la escena del amanecer de Dafnis y Cloe y sus dos conciertos para piano son milagros de color y maestría.",
+    "birthPlace": "Ciboure, Francia",
+    "nationality": "Francés"
+  },
+  "bela-bartok": {
+    "name": "Béla Bartók",
+    "shortName": "Bartók",
+    "biography": "Bartók fusionó la energía bruta de la música folclórica húngara, rumana y eslovaca con técnicas modernistas, creando un lenguaje musical único y poderoso. Sus seis cuartetos de cuerda son considerados los más importantes desde los de Beethoven. El Concierto para orquesta y la Música para cuerdas, percusión y celesta son pilares del repertorio del siglo XX.",
+    "birthPlace": "Nagyszentmiklós, Austria-Hungría",
+    "nationality": "Húngaro"
+  },
+  "igor-stravinsky": {
+    "name": "Ígor Stravinski",
+    "shortName": "Stravinski",
+    "biography": "El camaleón de la música moderna. La Consagración de la primavera de Stravinski provocó uno de los disturbios más famosos de la historia en su estreno de 1913 y cambió la música para siempre con sus salvajes ritmos y choques politonales. Luego se reinventó como neoclasicista y después serialista — cada fase produciendo obras maestras. Sigue siendo el compositor más influyente del siglo XX.",
+    "birthPlace": "Oranienbaum, Imperio Ruso",
+    "nationality": "Ruso-americano"
+  },
+  "sergei-prokofiev": {
+    "name": "Serguéi Prokófiev",
+    "shortName": "Prokófiev",
+    "biography": "Un modernista con un irreprimible don melódico. La música de Prokófiev bulle con ritmos mecánicos, ingenio mordaz e inesperada lirismo. Desde el cuento de hadas Pedro y el lobo hasta el cinematográfico ballet Romeo y Julieta, desde la satírica Sinfonía clásica hasta las Sonatas para piano de la época bélica, su alcance y vitalidad son extraordinarios.",
+    "birthPlace": "Sontsivka, Imperio Ruso",
+    "nationality": "Ruso-soviético"
+  },
+  "paul-hindemith": {
+    "name": "Paul Hindemith",
+    "shortName": "Hindemith",
+    "biography": "Un compositor versátil, violista virtuoso y teórico influyente que se convirtió en una de las figuras principales del neoclasicismo del siglo XX. La filosofía Gebrauchsmusik de Hindemith defendió la composición práctica y accesible, mientras que obras como Mathis der Maler y su exhaustivo tratado El arte de la composición musical moldearon la educación musical moderna.",
+    "birthPlace": "Hanau, Alemania",
+    "nationality": "Germano-americano"
+  },
+  "aaron-copland": {
+    "name": "Aaron Copland",
+    "shortName": "Copland",
+    "biography": "El decano de los compositores americanos, Copland forjó un sonido distintivamente americano a partir de ritmos de jazz, melodías folclóricas y armonías abiertas que evocan la vastedad del paisaje americano. Sus ballets La primavera en los Apalaches, Billy el Niño y Rodeo definieron la Americana musical, mientras que su docencia y defensa moldearon generaciones de compositores americanos.",
+    "birthPlace": "Brooklyn, Nueva York, EE. UU.",
+    "nationality": "Americano"
+  },
+  "dmitri-shostakovich": {
+    "name": "Dmitri Shostakóvich",
+    "shortName": "Shostakóvich",
+    "biography": "La voz del sufrimiento soviético. Shostakóvich vivió bajo la amenaza constante del régimen de Stalin, y sus 15 sinfonías y 15 cuartetos de cuerda codifican toda una vida de miedo, desafío, humor negro y pena. Su Quinta Sinfonía — descrita como «la respuesta creativa de un artista soviético a una crítica justa» — es una de las obras más debatidas de la música: ¿triunfo o ironía?",
+    "birthPlace": "San Petersburgo, Imperio Ruso",
+    "nationality": "Ruso-soviético"
+  },
+  "benjamin-britten": {
+    "name": "Benjamin Britten",
+    "shortName": "Britten",
+    "biography": "El más grande compositor de ópera inglés desde Purcell, Britten revitalizó la música inglesa con obras de extraordinario poder dramático y maestría técnica. Desde Peter Grimes hasta La vuelta de tuerca y el Réquiem de guerra, su producción combinó la accesibilidad con la sofisticación modernista, estableciendo Aldeburgh como un importante centro de la vida musical.",
+    "birthPlace": "Lowestoft, Inglaterra",
+    "nationality": "Inglés"
+  }
+}

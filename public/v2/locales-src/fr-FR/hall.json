@@ -1,0 +1,69 @@
+{
+  "eras": {
+    "renaissance": {
+      "name": "La chapelle vénitienne",
+      "lead": "Sous la conduite du maître de chapelle, qui bat la mesure",
+      "text": "Pas encore d’orchestre : les voix sont au cœur de la musique. Des chœurs se font face dans la basilique, avec des violes, sacqueboutes et cornets qui doublent les chanteurs ; le luth ou l’orgue lie l’harmonie."
+    },
+    "baroque": {
+      "name": "L’orchestre de cour",
+      "lead": "Dirigé depuis le clavecin ou par le premier violon",
+      "text": "Tout part de la basse continue : clavecin, violoncelle et contrebasse au centre. Les violons se partagent la scène, les hautbois doublent leurs lignes et trompettes et timbales sont réservées aux jours de fête. Derrière eux se tient un petit chœur, souvent trois ou quatre chanteurs par pupitre, pour les cantates de Bach et les oratorios de Haendel comme Le Messie."
+    },
+    "classical": {
+      "name": "L’orchestre classique",
+      "lead": "Le premier violon et le compositeur au clavier se partagent la direction",
+      "text": "Les vents arrivent par deux, chacun avec sa propre voix. Premiers et seconds violons se font face et se répondent d’un côté à l’autre de la scène. Pour La Création de Haydn et le Requiem de Mozart, un chœur se tient derrière l’orchestre."
+    },
+    "romantic": {
+      "name": "L’orchestre romantique",
+      "lead": "Le chef devient une vedette : Mahler au pupitre",
+      "text": "Quatre-vingt-dix musiciens. Les bois par trois, quatre à huit cors, trombones et tuba, harpes et tout un arsenal de percussions. Dans la disposition allemande, les violons sont séparés et les contrebasses derrière les premiers. De grands chœurs se placent derrière eux pour la Neuvième de Beethoven, le Requiem allemand de Brahms et celui de Verdi."
+    },
+    "modern": {
+      "name": "L’orchestre symphonique moderne",
+      "lead": "La disposition américaine de Stokowski, aujourd’hui répandue partout",
+      "text": "Premiers et seconds violons sont réunis à gauche pour ne faire qu’un ; les violoncelles s’écartent et les contrebasses prennent place à droite. Piano, célesta et vaste section de percussions occupent le fond. Un grand chœur rejoint des œuvres comme la Symphonie de psaumes de Stravinsky, Carmina Burana d’Orff et le War Requiem de Britten."
+    }
+  },
+  "pieces": {
+    "orfeo": { "label": "Monteverdi · L’Orfeo" },
+    "seasons": { "label": "Vivaldi · Les Quatre Saisons" },
+    "m40": { "label": "Mozart · Symphonie nº 40" },
+    "b5": { "label": "Beethoven · Symphonie nº 5" },
+    "m8": { "label": "Mahler · Symphonie nº 8" },
+    "rite": { "label": "Stravinsky · Le Sacre du printemps" }
+  },
+  "sections": {
+    "v1": "Premiers violons",
+    "v2": "Seconds violons",
+    "va": "Altos",
+    "vc": "Violoncelles",
+    "cb": "Contrebasses",
+    "viol": "Violes",
+    "lute": "Luth et théorbe",
+    "hp": "Harpes",
+    "fl": "Flûtes",
+    "pic": "Piccolo",
+    "rec": "Flûtes à bec",
+    "ob": "Hautbois",
+    "cl": "Clarinettes",
+    "bn": "Bassons",
+    "hn": "Cors",
+    "tp": "Trompettes",
+    "tb": "Trombones",
+    "sack": "Sacqueboutes",
+    "cor": "Cornets à bouquin",
+    "tu": "Tuba",
+    "ti": "Timbales",
+    "pc": "Percussions",
+    "hc": "Clavecin (basse continue)",
+    "fp": "Pianoforte",
+    "org": "Orgue",
+    "cel": "Célesta et piano",
+    "sop": "Sopranos",
+    "alt": "Altos",
+    "ten": "Ténors",
+    "bas": "Basses"
+  }
+}

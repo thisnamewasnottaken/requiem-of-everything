@@ -90,7 +90,7 @@ body.entered #whisper{opacity:.0}
 <div id="title">
   <h1>Requiem of Everything</h1>
   <div class="rule"></div>
-  <p>Six centuries of music, drawn in light.<br>Come in — the hall is already tuning.</p>
+  <p><span id="homeSubtitle"></span><br><span id="homeInvitation"></span></p>
   <div id="enter">
     <button class="btn on" id="withSound">Enter with sound</button>
     <button class="btn" id="silent">Enter in silence</button>
@@ -156,18 +156,18 @@ body.entered #whisper{opacity:.0}
 </div>
 
 <div id="about" class="reliquary" role="dialog" aria-label="Credits">
-  <h2>Credits</h2>
-  Nothing on this page is a picture. The light, the haze and the slow procession of embers come from one fragment shader.
-  The chords are played live from sampled instruments, in a concert hall that is only an equation.
-  Drift through the dark and the <em>celesta</em> answers you. Click anywhere to light a <em>votive</em> and the choir will sing for it.
+  <h2 id="aboutTitle">Credits</h2>
+  <p id="aboutShader">Nothing on this page is a picture. The light, the haze and the slow procession of embers come from one fragment shader.</p>
+  <p id="aboutSound">The chords are played live from sampled instruments, in a concert hall that is only an equation.</p>
+  <p><span id="aboutDrift">Drift through the dark and the</span> <em>celesta</em> <span id="aboutAnswers">answers you. Click anywhere to light a</span> <em>votive</em> <span id="aboutChoir">and the choir will sing for it.</span></p>
   <ul>
-    <li><b>thisnamewasnottaken</b><span>Creator · vision · curation</span></li>
-    <li><b>GitHub Copilot coding agent</b><span>The first edition</span></li>
-    <li><b>Devin of Cognition · session 3b05c5bc</b><span>The rebuild · light, sound &amp; prototypes</span></li>
+    <li><b>thisnamewasnottaken</b><span id="aboutCreator">Creator · vision · curation</span></li>
+    <li><b>GitHub Copilot coding agent</b><span id="aboutFirstEdition">The first edition</span></li>
+    <li><b>Devin of Cognition · session 3b05c5bc</b><span id="aboutRebuild">The rebuild · light, sound &amp; prototypes</span></li>
   </ul>
-  <div class="fine">Samples: MusyngKite soundfont via <a href="https://github.com/gleitz/midi-js-soundfonts" target="_blank" rel="noopener">gleitz/midi-js-soundfonts</a>
-  (CC BY-SA 3.0). Orchestral samples: VSCO 2 Community Edition (Versilian Studios, CC0). Choir, harpsichord and celesta samples: Sonatina Symphonic Orchestra (Mattias Westlund, CC Sampling Plus 1.0). Lighting inspired by <a href="https://elder-plinius.github.io/FABLE-SHOWCASE/infinite-cathedral/index.html" target="_blank" rel="noopener">Infinite Cathedral</a>.
-  Biographies courtesy of Wikipedia contributors.</div>
+  <div class="fine"><span id="aboutSamples">Samples: MusyngKite soundfont via</span> <a href="https://github.com/gleitz/midi-js-soundfonts" target="_blank" rel="noopener">gleitz/midi-js-soundfonts</a>
+  <span id="aboutOrchestra">(CC BY-SA 3.0). Orchestral samples: VSCO 2 Community Edition (Versilian Studios, CC0). Choir, harpsichord and celesta samples: Sonatina Symphonic Orchestra (Mattias Westlund, CC Sampling Plus 1.0).</span> <span id="aboutLighting">Lighting inspired by</span> <a href="https://elder-plinius.github.io/FABLE-SHOWCASE/infinite-cathedral/index.html" target="_blank" rel="noopener">Infinite Cathedral</a>.
+  <span id="aboutBiographies">Biographies courtesy of Wikipedia contributors.</span></div>
 </div>
 <div class="hint" id="whisper">drift through the dark · click to light a candle</div>
 
@@ -245,9 +245,39 @@ void main(){
   O=vec4(col,1.);
 }
 </script>
-<script src="common/data.js"></script>
+<script src="common/i18n.js"></script><script src="common/data.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
+await window.ROE_I18N.ready;
+const t=window.ROE_I18N.t;
+document.title=`${t('home.title')} — Requiem of Everything`;
+document.getElementById('homeSubtitle').textContent=t('home.subtitle');
+document.getElementById('homeInvitation').textContent=t('home.invitation');
+document.getElementById('portals').setAttribute('aria-label',t('home.nav.aria'));
+const portalCopy=[
+  ['home.portal.river.title','home.portal.river.description'],
+  ['home.portal.hall.title','home.portal.hall.description'],
+  ['home.portal.lexicon.title','home.portal.lexicon.description']
+];
+document.querySelectorAll('#portals .portal').forEach((portal,i)=>{
+  portal.querySelector('.name').textContent=t(portalCopy[i][0]);
+  portal.querySelector('.line').textContent=t(portalCopy[i][1]);
+});
+document.getElementById('withSound').textContent=t('home.enter.sound');
+document.getElementById('silent').textContent=t('home.enter.silence');
+document.getElementById('bAbout').textContent=t('home.credits');
+document.getElementById('bAbout').setAttribute('aria-label',t('home.credits'));
+const creditText={
+  aboutTitle:'home.credits.title',aboutShader:'home.credits.shader',aboutSound:'home.credits.sound',
+  aboutDrift:'home.credits.drift',aboutAnswers:'home.credits.answers',aboutChoir:'home.credits.choir',
+  aboutCreator:'home.credits.creator',aboutFirstEdition:'home.credits.firstEdition',
+  aboutRebuild:'home.credits.rebuild',aboutSamples:'home.credits.samples',
+  aboutLighting:'home.credits.lighting',aboutBiographies:'home.credits.biographies'
+};
+for(const [id,key] of Object.entries(creditText))document.getElementById(id).textContent=t(key);
+document.getElementById('aboutOrchestra').textContent=t('home.credits.orchestral');
+document.getElementById('about').setAttribute('aria-label',t('home.credits.aria'));
+document.getElementById('whisper').textContent=t('home.hint');
 const cv=document.getElementById('gl'); const gl=cv.getContext('webgl2',{antialias:false});
 const vs=`#version 300 es
 void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0,1);}`;
@@ -281,7 +311,7 @@ const PROG=[ // [bass, chord tones]
 const bSound=document.getElementById('bSound'), soundKey='roe-sound';
 let step=0, soundOn=false, soundEnabled=localStorage.getItem(soundKey)!=='off', chord=PROG[0], chordTimer=null, startingSound=null, autoStartHandler=null;
 const SCALE=[62,64,65,67,69,70,72,74,76,77,79,81,82,84,86];
-function paintSound(){bSound.textContent=soundEnabled?'Sounding':'Silence';bSound.classList.toggle('on',soundEnabled);bSound.setAttribute('aria-pressed',soundEnabled);}
+function paintSound(){bSound.textContent=soundEnabled?t('home.sounding'):t('home.silence');bSound.classList.toggle('on',soundEnabled);bSound.setAttribute('aria-pressed',soundEnabled);}
 function disarmAutoStart(){if(autoStartHandler){removeEventListener('pointerdown',autoStartHandler);autoStartHandler=null;}}
 function armAutoStart(){
   if(autoStartHandler||!soundEnabled)return;
