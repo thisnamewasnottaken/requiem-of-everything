@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title>The River of Time — Requiem of Everything</title>
+<link rel="stylesheet" href="common/style.css">
+<style>
+#river{position:fixed;inset:0;width:100%;height:100%;cursor:grab}
+#river.drag{cursor:grabbing}
+#head{position:fixed;top:20px;left:50%;transform:translateX(-50%);text-align:center;z-index:20;pointer-events:none}
+#head h1{font-family:var(--inscr);font-weight:400;font-size:1.05rem;letter-spacing:.42em;text-indent:.42em;color:#efe0c2;text-shadow:0 0 20px rgba(255,179,107,.25)}
+#head p{font-style:italic;font-weight:300;color:var(--mist);margin-top:6px;font-size:1rem}
+#tip{position:fixed;z-index:30;pointer-events:none;padding:12px 16px 10px;min-width:180px;max-width:320px;opacity:0;transition:opacity .25s;line-height:1.45}
+#tip b{font-weight:500;font-size:1.15rem;color:#f6e9cf;display:block}
+#tip .k{font-family:var(--inscr);font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+#tip .d{font-size:.95rem;color:rgba(230,216,189,.78);margin-top:5px;font-style:italic}
+#life.reliquary{background:linear-gradient(180deg,rgba(20,15,11,.97),rgba(11,9,7,.985));box-shadow:0 0 0 1px rgba(201,165,92,.08),0 -30px 120px 30px rgba(4,3,2,.82)}
+#life{position:fixed;left:50%;bottom:66px;width:min(1240px,calc(100vw - 40px));height:410px;transform:translateX(-50%) translateY(30px);z-index:28;
+  opacity:0;visibility:hidden;transition:opacity .7s,transform .8s cubic-bezier(.22,1,.36,1),visibility 0s linear .7s;padding:18px 24px;display:grid;grid-template-columns:300px 1fr;gap:28px}
+#life.open{opacity:1;visibility:visible;transform:translateX(-50%);transition-delay:0s}
+#life h2{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf}
+#life .dates{font-family:var(--inscr);font-size:.6rem;letter-spacing:.3em;color:var(--gold);margin:8px 0 10px}
+#life .left,#life .right{display:flex;flex-direction:column;min-height:0}
+#life .bio{flex:1;min-height:0;font-size:.98rem;line-height:1.5;color:rgba(230,216,189,.78);overflow-y:auto;padding-right:8px;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.55) rgba(201,165,92,.08);
+  -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+#life .bio.end{-webkit-mask-image:none;mask-image:none}
+#life .events{flex:0 0 92px;min-height:0;overflow:hidden;margin:3px 0 7px;padding-top:5px;border-top:1px solid var(--gold-faint)}
+#life .events h3{font-family:var(--inscr);font-size:.5rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-bottom:4px}
+#life .event-list{height:66px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.45) rgba(201,165,92,.06)}
+#life .event-row{display:block;padding:2px 0;font-size:.76rem;line-height:1.15;color:rgba(230,216,189,.48)}
+#life .event-row .year-title{color:rgba(230,216,189,.58)}
+#life .event-row.linked .year-title{color:rgba(246,233,207,.94)}
+#life .event-row .link-text{display:block;margin:2px 0 2px 1.2em;color:var(--gold-hi);font-style:italic}
+#life .more{font-family:var(--inscr);font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:4px;height:12px;transition:opacity .3s}
+#life .closehint{margin-left:auto;opacity:.6}
+#life .legend{font-family:var(--inscr);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist);display:flex;gap:18px;margin-bottom:4px}
+#life .legend i{display:inline-block;width:14px;height:2px;vertical-align:middle;margin-right:6px}
+#seis{width:100%;flex:1;min-height:0}
+#life .listen{margin-top:10px;align-self:flex-start}
+#life .spotify-player{width:100%;margin-top:8px}
+#life .spotify-player iframe{display:block;width:100%;height:152px;border:0}
+#bSilence{position:fixed;top:16px;right:20px;z-index:40}
+#findGroup{position:fixed;top:16px;right:145px;width:220px;z-index:41}
+.find-field{position:relative}
+#find{display:block;width:100%;height:36px;padding:0 32px 1px 12px;color:var(--parchment);background:rgba(16,12,9,.78);
+  border:1px solid var(--gold-dim);box-shadow:inset 0 0 24px rgba(201,165,92,.035);font:400 1rem var(--display);outline:none}
+#find::placeholder{color:rgba(216,203,180,.62);font:400 .52rem var(--inscr);letter-spacing:.14em;text-transform:uppercase;opacity:1}
+#find:focus{border-color:var(--gold);box-shadow:0 0 16px rgba(239,212,151,.14),inset 0 0 24px rgba(201,165,92,.035)}
+#findClear{position:absolute;right:7px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--mist);font:400 1.15rem var(--display);line-height:1;padding:3px;cursor:pointer}
+#findClear:hover,#findClear:focus-visible{color:var(--gold-hi);outline:none}
+#findClear[hidden]{display:none}
+#findResults{position:absolute;top:calc(100% + 7px);right:0;width:min(280px,calc(100vw - 24px));max-height:min(70vh,360px);overflow:auto;
+  padding:4px;background:rgba(16,12,9,.96);z-index:42}
+#findResults[hidden]{display:none}
+.find-result{display:flex;width:100%;align-items:center;gap:9px;padding:7px 9px;border:0;background:transparent;color:var(--parchment);text-align:left;cursor:pointer}
+.find-result:hover,.find-result[aria-selected="true"],.find-result:focus-visible{background:rgba(201,165,92,.1);outline:none}
+.find-dot{flex:0 0 7px;width:7px;height:7px;border-radius:50%;box-shadow:0 0 8px currentColor}
+.find-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 1rem var(--display);color:#f1e4cc}
+.find-years{flex:0 0 auto;font:400 .48rem var(--inscr);letter-spacing:.08em;color:var(--mist)}
+.find-empty{padding:10px 11px;color:rgba(216,203,180,.48);font:italic 400 .95rem var(--display)}
+#mini{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:min(900px,calc(100vw - 260px));height:34px;z-index:25;cursor:pointer}
+#legendE{position:fixed;right:22px;bottom:18px;z-index:25;font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);line-height:2}
+#legendE i{display:inline-block;width:6px;height:6px;transform:rotate(45deg);margin-right:8px}
+#hint{bottom:4px;top:auto;opacity:.55;font-size:.48rem}
+@media(max-width:640px){
+  .sigil{left:12px;top:12px;gap:0}
+  .sigil a:not(.mark){display:none}
+  #head{top:13px!important;width:196px;max-width:calc(100vw - 184px)}
+  #head h1{font-size:.7rem;letter-spacing:.18em;text-indent:.18em;white-space:nowrap}
+  #head p{display:none}
+  #life{left:10px;right:10px;bottom:58px;width:auto;height:min(78vh,660px);padding:14px 15px;display:block;overflow-y:auto;transform:translateY(30px)}
+  #life.open{transform:none}
+  #life h2{font-size:1.45rem}
+  #life .left{height:auto}
+  #life .bio{flex:none;max-height:5.5em}
+  #life .events{flex-basis:76px;margin-bottom:3px}
+  #life .event-list{height:52px}
+  #life .right{height:190px;min-height:190px;margin-top:10px}
+  #life .legend{font-size:.43rem;letter-spacing:.14em;gap:7px;flex-wrap:wrap}
+  #bSilence{top:54px;right:12px;padding:8px 10px;font-size:.5rem;letter-spacing:.12em}
+  #findGroup{top:54px;right:calc(12px + 90px + 8px);width:150px}
+}
+@media(max-height:500px){
+  #bSilence{top:84px;right:12px}
+  #findGroup{top:84px;right:calc(12px + 90px + 8px);width:150px}
+  #findResults{max-height:calc(100vh - 138px)}
+}
+#zoomlabel{position:fixed;left:24px;bottom:22px;z-index:25;font-family:var(--inscr);font-size:.55rem;letter-spacing:.26em;color:var(--mist);text-transform:uppercase}
+</style>
+</head>
+<body>
+<canvas id="river"></canvas>
+<div class="vignette"></div><div class="grain"></div>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a class="here" href="river.html">River</a><a href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
+<div id="head" style="top:14px"><h1>The River of Time</h1><p>Every thread is a life. Thick where the music poured out, bright when the world was listening.</p></div>
+<div id="tip" class="reliquary"></div>
+<div id="life" class="reliquary">
+  <div class="left"><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div><div class="more" id="lMore">↓ scroll for more</div>
+    <div class="events" id="lEvents"><h3>In their lifetime</h3><div class="event-list"></div></div>
+    <button class="btn listen" id="lListen">Listen on Spotify</button><div class="spotify-player" id="lPlayer"></div></div>
+  <div class="right"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
+</div>
+<canvas id="mini"></canvas>
+<div id="zoomlabel"></div>
+<div id="legendE"></div>
+<div id="findGroup">
+  <div class="find-field">
+    <input id="find" type="text" placeholder="Find a composer…" aria-label="Find a composer" aria-autocomplete="list" aria-controls="findResults" aria-expanded="false" autocomplete="off" spellcheck="false">
+    <button id="findClear" type="button" aria-label="Clear composer search" title="Clear search" hidden>×</button>
+  </div>
+  <div id="findResults" class="reliquary" role="listbox" aria-label="Composer matches" hidden></div>
+</div>
+<button class="btn" id="bSilence" aria-pressed="false">Silence</button>
+<div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
+<script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
+<script type="module">
+import { sound } from './common/sound.js';
+const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d');
+const findGroup=document.getElementById('findGroup'), findInput=document.getElementById('find'), findClear=document.getElementById('findClear'), findResults=document.getElementById('findResults');
+let W,H,DPR; function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);sizeMini();} 
+// ---------- regions (lanes) and migrations ----------
+const LANES=['Americas','British Isles','Nordic','Russia','Central Europe','German lands','France','Iberia','Italy'];
+const NAT={Italian:'Italy',Spanish:'Iberia',French:'France','Belgian-French':'France',German:'German lands','German-Bohemian':'German lands',Austrian:'German lands','Austrian-Bohemian':'German lands','German-British':'German lands','German-American':'German lands','Austrian-American':'German lands',Hungarian:'Central Europe',Czech:'Central Europe','Polish-French':'Central Europe',Russian:'Russia','Russian-Soviet':'Russia','Russian-American':'Russia',English:'British Isles',Norwegian:'Nordic',Finnish:'Nordic',American:'Americas'};
+const MOVES={'george-frideric-handel':[[1712,'British Isles']],'frederic-chopin':[[1831,'France']],'igor-stravinsky':[[1914,'France'],[1939,'Americas']],
+ 'sergei-rachmaninoff':[[1918,'Americas']],'arnold-schoenberg':[[1933,'Americas']],'bela-bartok':[[1940,'Americas']],'paul-hindemith':[[1940,'Americas']],
+ 'christoph-willibald-gluck':[[1774,'France'],[1779,'German lands']],'franz-liszt':[[1823,'France'],[1848,'German lands']],'sergei-prokofiev':[[1918,'Americas'],[1923,'France'],[1936,'Russia']],
+ 'domenico-scarlatti':[[1719,'Iberia']]};
+// ---------- hand-sketched lives (prototype: key facts, curves interpolated) ----------
+// [year, output 0..1, standing 0..1, moment?]
+const LIVES={
+ 'johann-sebastian-bach':{note:'posthumous revival 1829',pts:[[1700,.1,.05],[1703,.2,.12,'Organist at Arnstadt'],[1708,.45,.25,'Weimar: the great organ works'],[1717,.55,.3,'Köthen: Brandenburg Concertos'],[1723,1,.4,'Leipzig: a cantata every week'],[1727,.9,.42,'St Matthew Passion'],[1735,.55,.38],[1745,.4,.3,'Art of Fugue, Musical Offering'],[1749,.45,.25,'Mass in B minor completed'],[1750,.2,.2]],after:[[1760,.08],[1800,.12],[1829,.75,'Mendelssohn revives the St Matthew Passion'],[1900,.95]]},
+ 'wolfgang-amadeus-mozart':{pts:[[1760,.15,.3],[1763,.25,.8,'Child prodigy tours Europe'],[1770,.45,.6,'Mitridate in Milan'],[1775,.5,.35,'Salzburg service: restless'],[1781,.6,.45,'Breaks free: Vienna'],[1784,.95,.9,'Concert seasons at their height'],[1786,1,.85,'Le nozze di Figaro'],[1788,.9,.5,'Last three symphonies in six weeks'],[1790,.35,.35,'Debts, fewer subscribers'],[1791,.95,.75,'Die Zauberflöte; Requiem left unfinished']]},
+ 'ludwig-van-beethoven':{pts:[[1785,.15,.1],[1792,.35,.3,'Arrives in Vienna, studies with Haydn'],[1795,.55,.55,'Op. 1 trios; a virtuoso pianist'],[1802,.45,.5,'Heiligenstadt Testament: deafness'],[1804,.95,.75,'Eroica'],[1808,1,.85,'Fifth & Sixth symphonies'],[1812,.75,.95,'Celebrity of the Congress years'],[1816,.25,.6,'The fallow years'],[1819,.5,.5,'Hammerklavier, Missa solemnis'],[1824,.8,.9,'Ninth Symphony premiere'],[1826,.7,.6,'Late quartets']]},
+ 'franz-schubert':{note:'most music premiered after his death',pts:[[1810,.2,.02],[1814,.6,.05,'Gretchen am Spinnrade'],[1815,1,.08,'Some 140 songs in a single year'],[1818,.55,.1],[1822,.75,.15,'Unfinished Symphony'],[1824,.6,.2,'Schubertiades among friends'],[1828,.95,.32,'His only public concert, then death']],after:[[1839,.4,'The Great C major found by Schumann'],[1870,.75]]},
+ 'richard-wagner':{pts:[[1832,.2,.05],[1842,.55,.55,'Rienzi triumphs in Dresden'],[1845,.6,.6,'Tannhäuser'],[1849,.25,.2,'Exiled after the May Uprising'],[1857,.65,.3,'Tristan begun in Zürich'],[1864,.6,.6,'King Ludwig II pays his debts'],[1868,.7,.75,'Die Meistersinger'],[1876,.85,1,'First Bayreuth Festival: the Ring'],[1882,.5,.95,'Parsifal']]},
+ 'pyotr-ilyich-tchaikovsky':{pts:[[1862,.2,.05],[1866,.4,.25,'Teaches at the Moscow Conservatory'],[1875,.7,.5,'Piano Concerto No. 1'],[1877,.45,.4,'Marriage crisis; Nadezhda von Meck becomes patron'],[1878,.9,.55,'Violin Concerto, Fourth Symphony'],[1885,.6,.7],[1890,.85,.85,'Sleeping Beauty, Queen of Spades'],[1891,.5,.95,'Opens Carnegie Hall'],[1893,.8,.9,'Pathétique; dies nine days after its premiere']]},
+ 'igor-stravinsky':{pts:[[1905,.2,.05],[1910,.7,.6,'The Firebird for Diaghilev'],[1913,.9,.95,'The Rite of Spring: a riot'],[1918,.5,.6,'The Soldier\u2019s Tale, wartime Switzerland'],[1923,.6,.7,'Neoclassicism in Paris'],[1930,.75,.8,'Symphony of Psalms'],[1939,.35,.55,'Emigrates to America'],[1951,.7,.75,'The Rake\u2019s Progress'],[1957,.6,.8,'Turns to serialism'],[1966,.25,.85]]},
+ 'dmitri-shostakovich':{pts:[[1922,.25,.05],[1926,.6,.65,'First Symphony: instant fame at 19'],[1934,.8,.85,'Lady Macbeth hailed'],[1936,.3,.15,'Pravda: “Muddle instead of Music”'],[1937,.75,.7,'Fifth Symphony: rehabilitation'],[1942,.85,1,'Leningrad Symphony, heard worldwide'],[1948,.3,.2,'Zhdanov decree: denounced again'],[1953,.8,.7,'Tenth Symphony after Stalin\u2019s death'],[1962,.6,.8,'Babi Yar'],[1971,.55,.85,'Fifteenth Symphony']]},
+};
+// ---------- composer model ----------
+const eraCol=Object.fromEntries(D.eras.map(e=>[e.id,e.color]));
+const brighten=(hex,k=1.5)=>{const n=parseInt(hex.slice(1),16);let r=n>>16,gg=(n>>8)&255,b=n&255;const m=Math.max(r,gg,b,1),s=Math.min(255,m*k)/m;return [r*s|0,gg*s|0,b*s|0];};
+const byComposer={}; D.compositions.forEach(c=>(byComposer[c.composerId]||(byComposer[c.composerId]=[])).push(c));
+const voiceFor=c=>{const t=c.tags.join(' ');if(c.id==='johann-sebastian-bach')return 'organ';if(/violin/.test(t))return 'violin';if(/piano/.test(t))return 'piano';if(/opera/.test(t))return 'oohs';if(/choral|sacred|polyphony/.test(t))return 'choir';if(/harpsichord|keyboard/.test(t))return 'harpsichord';return ['harp','cello','horn','flute','clarinet'][c.birthYear%5];};
+const comps=D.composers.map((c,i)=>{const L=(window.ROE_LIVES||{})[c.id]||LIVES[c.id];const works=(byComposer[c.id]||[]).sort((a,b)=>a.yearComposed-b.yearComposed);
+  return {...c,i,rgb:brighten(eraCol[c.era]||'#c9a55c',1.7),home:NAT[c.nationality]||'German lands',moves:MOVES[c.id]||[],life:L,works,voice:voiceFor(c),slot:0,phase:Math.random()*6.28};});
+const normalizeSearch=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+const searchWords=s=>normalizeSearch(s).split(/[^a-z0-9]+/).filter(Boolean);
+const surnameWords=c=>searchWords(c.shortName||c.name).filter(word=>word.length>1);
+let searchQuery='', searchMatches=new Set(), searchResults=[], searchActive=-1, searchOpen=false;
+function composerMatches(c,q){return normalizeSearch(c.name).includes(q)||normalizeSearch(c.shortName||'').includes(q)||surnameWords(c).some(word=>word.startsWith(q));}
+function composerPrefix(c,q){return normalizeSearch(c.name).startsWith(q)||normalizeSearch(c.shortName||'').startsWith(q)||surnameWords(c).some(word=>word.startsWith(q));}
+function renderFindResults(){
+  findResults.replaceChildren();
+  const open=!!searchQuery&&searchOpen;
+  findResults.hidden=!open;
+  findInput.setAttribute('aria-expanded',String(open));
+  findClear.hidden=!findInput.value;
+  findInput.removeAttribute('aria-activedescendant');
+  if(!open)return;
+  if(!searchResults.length){const empty=document.createElement('div');empty.className='find-empty';empty.textContent='No composer by that name';findResults.append(empty);return;}
+  searchResults.slice(0,8).forEach((c,i)=>{
+    const option=document.createElement('button'), dot=document.createElement('span'), name=document.createElement('span'), dates=document.createElement('span');
+    option.type='button';option.className='find-result';option.id=`find-option-${i}`;option.dataset.composerId=c.id;option.setAttribute('role','option');option.setAttribute('aria-selected',String(i===searchActive));
+    dot.className='find-dot';dot.style.backgroundColor=`rgb(${c.rgb.join(',')})`;dot.style.color=`rgb(${c.rgb.join(',')})`;
+    name.className='find-name';name.textContent=c.name;dates.className='find-years';dates.textContent=`${c.birthYear}–${c.deathYear}`;
+    option.append(dot,name,dates);findResults.append(option);
+  });
+  if(searchActive>=0&&searchActive<Math.min(8,searchResults.length)){
+    findInput.setAttribute('aria-activedescendant',`find-option-${searchActive}`);
+    document.getElementById(`find-option-${searchActive}`)?.scrollIntoView({block:'nearest'});
+  }
+}
+function updateFindSearch(){
+  searchQuery=normalizeSearch(findInput.value);
+  const found=searchQuery?comps.filter(c=>composerMatches(c,searchQuery)):[];
+  searchMatches=new Set(found);
+  searchResults=found.sort((a,b)=>Number(!composerPrefix(a,searchQuery))-Number(!composerPrefix(b,searchQuery))||a.birthYear-b.birthYear);
+  renderFindResults();
+}
+// lane slots: pack contemporaries in each home lane
+const laneSlots={}; comps.slice().sort((a,b)=>a.birthYear-b.birthYear).forEach(c=>{const arr=laneSlots[c.home]||(laneSlots[c.home]=[]);let s=0;while(arr.some(o=>o.slot===s&&o.deathYear+3>c.birthYear))s++;c.slot=s;arr.push(c);});
+const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a,b)=>Math.max(a,Math.min(b,v)), smooth=t=>t*t*(3-2*t);
+function curve(pts,year,idx){ if(year<=pts[0][0])return pts[0][idx]; for(let k=1;k<pts.length;k++){if(year<=pts[k][0]){const t=(year-pts[k-1][0])/(pts[k][0]-pts[k-1][0]);return lerp(pts[k-1][idx],pts[k][idx],smooth(t));}} return pts[pts.length-1][idx];}
+function output(c,y){ if(c.life) return curve(c.life.pts,y,1);
+  const age=y-c.birthYear, span=c.deathYear-c.birthYear; let base=smooth(clamp((age-14)/12,0,1))*(.35+.15*Math.sin(age*.21+c.phase))*smooth(clamp((c.deathYear-y)/6,0,1));
+  for(const w of c.works){const d=(y-w.yearComposed)/2.6;base+=.55*Math.exp(-d*d);} return clamp(base,0,1);}
+function standing(c,y){ if(c.life) return curve(c.life.pts,y,2); const age=y-c.birthYear; return clamp(smooth(clamp((age-18)/22,0,1))*.7+.1,0,1);}
+// ---------- view ----------
+const MIN=1420, MAX=2000; let v0=1480, v1=2000, tv0=1480, tv1=2000; let focus=null, hoverC=null, hoverE=null, hoverW=null;
+const TOP=110, BOT=()=>H-120; const laneH=()=> (BOT()-TOP)/LANES.length;
+const X=y=>(y-v0)/(v1-v0)*W, Y2yr=x=>v0+x/W*(v1-v0);
+function laneOf(c,y){let lane=c.home, from=c.home, t0=-1e9; for(const [yr,to] of c.moves){ if(y>=yr){from=lane;lane=to;t0=yr;} }
+  const a=LANES.indexOf(from), b=LANES.indexOf(lane), k=smooth(clamp((y-t0)/9,0,1)); return lerp(a,b,k);}
+let T=0; const EV=D.events.map(e=>({...e,strength:/war|revolution/.test(e.category)?1:.6}));
+function ripple(y){let d=0;for(const e of EV){const dt=y-e.year;if(dt<-1||dt>14)continue;const amp=(e===hoverE?16:3.2)*e.strength;d+=amp*Math.sin(dt*1.7-T*2.4)*Math.exp(-Math.max(0,dt)/3.2)*smooth(clamp(dt+1,0,1));}return d;}
+function yAt(c,y){const lh=laneH(); const li=laneOf(c,y); const n=Math.max(1,(laneSlots[c.home]||[]).reduce((m,o)=>Math.max(m,o.slot+1),1));
+  return TOP+lh*(li+.5)+(c.slot-(n-1)/2)*Math.min(14,lh*.8/n)+Math.sin(y*.09+c.phase+T*.35)*3+ripple(y)*(focus&&focus!==c?.4:1);}
+// ---------- particles flowing along threads ----------
+const parts=[]; comps.forEach(c=>{const n=Math.round((c.deathYear-c.birthYear)/4);for(let k=0;k<n;k++)parts.push({c,u:c.birthYear+Math.random()*(c.deathYear-c.birthYear),s:.6+Math.random()*1.4});});
+// ---------- draw ----------
+const catCol={_:'#ffffff',war:'#ff6a4a',political:'#d9a6ff',revolution:'#ff4d6d',technological:'#7fd8ff',scientific:'#9fe6c8',religious:'#ffd98a',cultural:'#f3e6cb',literary:'#f3e6cb','natural-disaster':'#ff9b5a'};
+document.getElementById('legendE').innerHTML=[['war','War'],['revolution','Revolution'],['political','Politics'],['technological','Invention'],['scientific','Science'],['religious','Faith']].map(([k,l])=>`<div><i style="background:${catCol[k]}"></i>${l}</div>`).join('');
+let reveal=0;
+let hoverL=null, pin=null, soundEnabled=localStorage.getItem('roe-sound')!=='off';
+const evEnd=e=>e.endYear||e.year;
+const touches=(c,lane)=>c.home===lane||c.moves.some(m=>m[1]===lane);
+const lanesOf=c=>new Set([c.home,...c.moves.map(m=>m[1])]);
+const aliveIn=(c,a,b)=>c.birthYear<=b&&c.deathYear>=a;
+const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a})`;
+function activeFilter(){
+  if(hoverL) return {kind:'lane',v:hoverL,test:c=>touches(c,hoverL)};
+  if(hoverE) return {kind:'event',v:hoverE,test:c=>aliveIn(c,hoverE.year,evEnd(hoverE))};
+  if(searchQuery&&!focus) return {kind:'search',test:c=>searchMatches.has(c)};
+  if(pin) return pin.kind==='lane'?{...pin,test:c=>touches(c,pin.v)}:{...pin,test:c=>aliveIn(c,pin.v.year,evEnd(pin.v))};
+  return null;}
+// text is queued and drawn last, with a dark halo, so the bright threads never wash it out
+const labels=[]; const label=(text,x,y,font,fill,align='left',rot=0)=>labels.push({text,x,y,font,fill,align,rot});
+function flushLabels(){ g.globalCompositeOperation='source-over'; g.lineJoin='round';
+  for(const l of labels){ g.save(); g.translate(l.x,l.y); if(l.rot)g.rotate(l.rot); g.font=l.font; g.textAlign=l.align;
+    g.lineWidth=3.5; g.strokeStyle='rgba(10,8,7,.8)'; g.shadowColor='rgba(0,0,0,.95)'; g.shadowBlur=7; g.strokeText(l.text,0,0); g.shadowBlur=0; g.fillStyle=l.fill; g.fillText(l.text,0,0); g.restore(); }
+  labels.length=0; }
+let laneBoxes=[];
+function draw(){
+  g.globalCompositeOperation='source-over'; g.fillStyle='#0a0807'; g.fillRect(0,0,W,H);
+  const span=v1-v0, mid=(v0+v1)/2, F=activeFilter(), FE=F&&F.kind==='event'?F.v:null, FL=F&&F.kind==='lane'?F.v:null;
+  // era mists; the era at the centre of the view is named larger and brighter
+  for(const e of D.eras){const x0=X(e.startYear),x1=X(e.endYear); if(x1<0||x0>W)continue; const [r,gg,b]=brighten(e.color,1.2); const cur=mid>=e.startYear&&mid<e.endYear;
+    const gr=g.createLinearGradient(x0,0,x1,0); gr.addColorStop(0,`rgba(${r},${gg},${b},0)`);gr.addColorStop(.5,`rgba(${r},${gg},${b},${cur?.1:.06})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
+    g.fillStyle=gr; g.fillRect(x0,TOP-30,x1-x0,BOT()-TOP+60);
+    const fs=cur?clamp((x1-x0)/10,26,54):clamp((x1-x0)/14,11,30); const txt=e.name.toUpperCase().split('').join('\u200a');
+    g.font=`400 ${fs}px Cinzel`; const tw=g.measureText(txt).width; const lo=Math.max(x0,0)+tw/2+20, hi=Math.min(x1,W)-tw/2-20;
+    const cx=lo<hi?clamp((x0+x1)/2,lo,hi):(Math.max(x0,0)+Math.min(x1,W))/2;
+    label(txt,cx,BOT()+(cur?50:40),`400 ${fs}px Cinzel`,`rgba(${r},${gg},${b},${cur?.78:.2})`,'center');}
+  // time ruler; the years of a selected life take its colour
+  const stepY=span>300?50:span>120?25:span>50?10:span>20?5:1;
+  if(focus){g.fillStyle=rgba(focus.rgb,.6);g.fillRect(X(focus.birthYear),TOP-22,X(focus.deathYear)-X(focus.birthYear),2);}
+  if(FE&&evEnd(FE)>FE.year){const c=catCol[FE.category]||'#ffffff';g.fillStyle=c+'aa';g.fillRect(X(FE.year),TOP-22,X(evEnd(FE))-X(FE.year),2);}
+  for(let y=Math.ceil(v0/stepY)*stepY;y<=v1;y+=stepY){const x=X(y);g.fillStyle='rgba(201,165,92,.07)';g.fillRect(x,TOP-20,1,BOT()-TOP+30);
+    const inLife=focus&&y>=focus.birthYear&&y<=focus.deathYear; const inEv=FE&&y>=FE.year&&y<=evEnd(FE);
+    label(String(y),x,TOP-28,`${inLife||inEv?'600 13px':'400 11px'} Cormorant Garamond`,inLife?rgba(focus.rgb,1):inEv?(catCol[FE.category]||'#fff'):'rgba(216,203,180,.45)','center');}
+  // events: veils of light, spans for events that lasted years
+  g.globalCompositeOperation='source-over';
+  for(const e of EV){const x=X(e.year), xe=X(evEnd(e)); if(xe<-40||x>W+40)continue; const c=catCol[e.category]||'#ffffff'; const hov=e===FE; const multi=evEnd(e)>e.year;
+    if(hov&&multi){ const gr=g.createLinearGradient(0,TOP,0,BOT()); gr.addColorStop(0,c+'0a'); gr.addColorStop(.6,c+'1c'); gr.addColorStop(1,c+'34'); g.fillStyle=gr; g.fillRect(x,TOP-20,xe-x,BOT()-TOP+30);
+      g.fillStyle=c+'cc'; g.fillRect(x-.75,TOP-20,1.5,BOT()-TOP+30); g.fillRect(xe-.75,TOP-20,1.5,BOT()-TOP+30); g.fillRect(x,BOT()+11,xe-x,2.5); }
+    else if(hov){ const w=26*(1+e.strength); const gr=g.createLinearGradient(x-w,0,x+w,0); gr.addColorStop(0,c+'00'); gr.addColorStop(.5,c+'30'); gr.addColorStop(1,c+'00'); g.fillStyle=gr; g.fillRect(x-w,TOP-20,w*2,BOT()-TOP+30); }
+    else if(multi){ g.fillStyle=c+'50'; g.fillRect(x,BOT()+11.5,xe-x,1.5); }
+    const vg=g.createLinearGradient(0,TOP,0,BOT()); vg.addColorStop(0,c+'00'); vg.addColorStop(1,c+(hov?'aa':'2a')); g.fillStyle=vg; g.fillRect(x-.5,TOP,1,BOT()-TOP+8);
+    g.fillStyle=c+(hov?'ff':'99'); g.save(); g.translate(x,BOT()+12); g.rotate(Math.PI/4); g.fillRect(-3,-3,6,6); g.restore();
+    if(hov||span<70) label(e.title+(multi?`  ${e.year}–${evEnd(e)}`:''),x+4,BOT()-6,hov?'italic 400 15px Cormorant Garamond':'italic 300 12px Cormorant Garamond',hov?'#f6e9cf':'rgba(216,203,180,.6)','left',-Math.PI/2);
+    if(hov&&pin&&pin.v===e) label('◆ pinned',x+4,BOT()+30,'400 9px Cinzel',c,'left');
+    }
+  // threads
+  const revealYear=lerp(MIN,MAX,reveal);
+  const contemporaries=focus?new Set(comps.filter(o=>o.birthYear<focus.deathYear&&o.deathYear>focus.birthYear).map(o=>o.i)):null;
+  const stepYr=Math.max(.25,span/W*5);
+  for(const c of comps){ const a0=c.birthYear, a1=Math.min(c.deathYear,revealYear); if(a1<=a0) continue; if(X(c.deathYear)<-20||X(a0)>W+20)continue;
+    let dim=1; if(focus) dim=focus===c?1.6:contemporaries.has(c.i)?.3:.07; else if(hoverC) dim=hoverC===c?1.8:.35; else if(F) dim=F.test(c)?1.5:.16;
+    const [r,gg,b]=focus&&focus!==c?(()=>{const L=.3*c.rgb[0]+.59*c.rgb[1]+.11*c.rgb[2];return c.rgb.map(v=>Math.round(L*.85+v*.15));})():c.rgb; const zoomW=clamp(500/span,1,4);
+    const xs=[],ys=[],ws=[],ss=[]; for(let y=a0;;y+=stepYr){ const yy=Math.min(y,a1); xs.push(X(yy)); ys.push(yAt(c,yy)); ws.push((1+output(c,yy)*5.5)*zoomW*.5); ss.push(standing(c,yy)); if(yy>=a1)break; }
+    const ribbon=k=>{ const top=[],bot=[]; for(let i=0;i<xs.length;i++){ const j0=Math.max(0,i-1),j1=Math.min(xs.length-1,i+1); let tx=xs[j1]-xs[j0],ty=ys[j1]-ys[j0]; const l=Math.hypot(tx,ty)||1; const nx=-ty/l,ny=tx/l, w=ws[i]*k;
+        top.push([xs[i]+nx*w,ys[i]+ny*w]); bot.push([xs[i]-nx*w,ys[i]-ny*w]); }
+      g.beginPath(); g.moveTo(top[0][0],top[0][1]); for(const q of top)g.lineTo(q[0],q[1]); for(let i=bot.length-1;i>=0;i--)g.lineTo(bot[i][0],bot[i][1]); g.closePath(); };
+    const grad=(base,mul)=>{ const gx=g.createLinearGradient(xs[0],0,xs[xs.length-1]+.01,0); const n=xs.length, every=Math.max(1,Math.floor(n/28));
+      for(let i=0;i<n;i+=every){ const t=clamp((xs[i]-xs[0])/(xs[n-1]-xs[0]+.01),0,1); gx.addColorStop(t,`rgba(${r},${gg},${b},${Math.min(1,(base+ss[i]*mul)*dim)})`);} return gx; };
+    if(xs.length>1){ ribbon(2.4); g.fillStyle=grad(.012,.028); g.fill(); ribbon(1.45); g.fillStyle=grad(.035,.07); g.fill(); ribbon(1); g.fillStyle=grad(.22,.78); g.fill(); }
+    if(a1<c.deathYear){const x=X(a1),y=yAt(c,a1);const gr=g.createRadialGradient(x,y,0,x,y,12);gr.addColorStop(0,`rgba(${r},${gg},${b},.7)`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);g.fillStyle=gr;g.fillRect(x-22,y-22,44,44);}
+    if(c.life&&c.life.after&&a1>=c.deathYear){ g.setLineDash([2,6]); g.lineCap='round';
+      let px=X(c.deathYear),py=yAt(c,c.deathYear); const pts=[[c.deathYear,.2],...c.life.after];
+      for(let y=c.deathYear+1;y<=Math.min(MAX,revealYear);y+=stepYr*2){const s=curve(pts,y,1);const x=X(y),yy=yAt(c,c.deathYear);g.lineWidth=1+s*3;g.strokeStyle=`rgba(${r},${gg},${b},${(s*.32)*dim})`;g.beginPath();g.moveTo(px,py);g.lineTo(x,yy);g.stroke();px=x;py=yy;}
+      g.setLineDash([]); g.lineCap='butt';}
+    const nx=X(c.birthYear); if(nx>-200&&nx<W) label(c.shortName,nx-6,yAt(c,c.birthYear)+4,`${focus===c||hoverC===c?'500 15px':'400 12.5px'} Cormorant Garamond`,`rgba(${Math.min(255,r+30)},${Math.min(255,gg+30)},${Math.min(255,b+30)},${clamp(.45*dim+.2,0,1)})`,'right');
+    for(const w of c.works){ if(w.yearComposed>a1||w.yearComposed<a0)continue; const x=X(w.yearComposed),y=yAt(c,w.yearComposed); const hw=w===hoverW; const rr=(hw?6:2.2+zoomW*.6);
+      const gr=g.createRadialGradient(x,y,0,x,y,rr*2.2);gr.addColorStop(0,`rgba(255,244,220,${.9*Math.min(1,dim)})`);gr.addColorStop(.4,`rgba(${r},${gg},${b},${.4*Math.min(1,dim)})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
+      g.fillStyle=gr; g.fillRect(x-rr*2.2,y-rr*2.2,rr*4.4,rr*4.4);
+      if(span<60&&(focus?focus===c:dim>.5)) label(w.title,x+7,y-8,'italic 400 12px Cormorant Garamond','rgba(240,228,205,.8)'); }
+    if(c.life&&(focus===c||(!focus&&span<70&&dim>.5))){ const lv=[]; g.font='italic 400 12.5px Cormorant Garamond';
+      for(const p of c.life.pts){ if(!p[3]||p[0]>a1)continue; const x=X(p[0]),y=yAt(c,p[0]); const tw=g.measureText(p[3]).width+14; let L=0; while((lv[L]||[]).some(q=>Math.abs(q-x)<tw))L++; (lv[L]||(lv[L]=[])).push(x);
+        const up=L%2===0, ly=up? y-34-(L>>1)*17 : y+40+(L>>1)*17; g.strokeStyle='rgba(239,212,151,.3)'; g.lineWidth=1; g.beginPath(); g.moveTo(x,y+(up?-8:8)); g.lineTo(x,ly+(up?6:-12)); g.stroke();
+        label(p[3],x,ly,'italic 400 12.5px Cormorant Garamond','rgba(246,233,207,.92)','center'); } }
+  }
+  for(const p of parts){ const c=p.c; p.u+= p.s*(.15+output(c,p.u)*1.2)*(span/600)*.5; if(p.u>c.deathYear)p.u=c.birthYear; if(p.u>revealYear)continue;
+    const x=X(p.u); if(x<0||x>W)continue; const y=yAt(c,p.u); let dim=focus?(focus===c?1:.15):hoverC?(hoverC===c?1:.3):F?(F.test(c)?1:.15):1; const [r,gg,b]=c.rgb;
+    g.fillStyle=`rgba(${Math.min(255,r+60)},${Math.min(255,gg+60)},${Math.min(255,b+60)},${.55*dim})`; g.fillRect(x-1,y-1,2.2,2.2); }
+  // country labels: hover/click targets; a selected life lights the countries it lived in
+  g.font='400 10px Cinzel'; const fl=focus?lanesOf(focus):null; laneBoxes=[];
+  LANES.forEach((l,i)=>{ const t=l.toUpperCase().split('').join(' '); const y=TOP+laneH()*(i+.5)+3; const tw=g.measureText(t).width; laneBoxes.push({l,x0:10,x1:26+tw,y0:y-13,y1:y+7});
+    const on=FL===l, pinned=pin&&pin.kind==='lane'&&pin.v===l; const col=fl&&fl.has(l)?rgba(focus.rgb,1):on?'#f6e1b0':'rgba(216,203,180,.4)';
+    label((pinned?'◆ ':'')+t,18,y,`${(fl&&fl.has(l))||on?'600':'400'} 10px Cinzel`,col,'left'); });
+  flushLabels();
+  drawMini();
+}
+// ---------- minimap ----------
+const mini=document.getElementById('mini'), mg=mini.getContext('2d'); let MW,MH;
+function sizeMini(){const r=mini.getBoundingClientRect();MW=r.width;MH=r.height;mini.width=MW*DPR;mini.height=MH*DPR;mg.setTransform(DPR,0,0,DPR,0,0);}
+function drawMini(){ mg.clearRect(0,0,MW,MH); const mx=y=>(y-MIN)/(MAX-MIN)*MW;
+  for(const e of D.eras){const [r,gg,b]=brighten(e.color,1.3);mg.fillStyle=`rgba(${r},${gg},${b},.22)`;mg.fillRect(mx(e.startYear),MH*.35,mx(e.endYear)-mx(e.startYear),MH*.3);}
+  for(const c of comps){const [r,gg,b]=c.rgb;mg.fillStyle=`rgba(${r},${gg},${b},.5)`;mg.fillRect(mx(c.birthYear),4+ (LANES.indexOf(c.home)/LANES.length)*(MH-8),mx(c.deathYear)-mx(c.birthYear),1);}
+  mg.strokeStyle='rgba(239,212,151,.8)';mg.lineWidth=1;mg.strokeRect(mx(v0)+.5,.5,mx(v1)-mx(v0)-1,MH-1);
+  mg.font='400 9px Cinzel';mg.fillStyle='rgba(216,203,180,.5)';mg.textAlign='left';mg.fillText(MIN,2,MH-2);mg.textAlign='right';mg.fillText(MAX,MW-2,MH-2);
+  document.getElementById('zoomlabel').textContent=`${Math.round(v0)} — ${Math.round(v1)}`;}
+// ---------- interaction ----------
+let drag=null; const tip=document.getElementById('tip');
+cv.addEventListener('wheel',e=>{e.preventDefault();const yr=Y2yr(e.clientX);const k=Math.exp(e.deltaY*.0015);let s=clamp((tv1-tv0)*k,12,MAX-MIN);
+  const f=(yr-tv0)/(tv1-tv0); tv0=yr-f*s; tv1=tv0+s; if(tv0<MIN){tv1+=MIN-tv0;tv0=MIN;} if(tv1>MAX){tv0-=tv1-MAX;tv1=MAX;}},{passive:false});
+cv.addEventListener('pointerdown',e=>{if(findGroup.contains(e.target))return;drag={x:e.clientX,a:tv0,b:tv1,moved:false};cv.classList.add('drag');cv.setPointerCapture(e.pointerId);});
+cv.addEventListener('pointerup',e=>{if(findGroup.contains(e.target))return;cv.classList.remove('drag');if(drag&&!drag.moved)clickAt(e);drag=null;});
+cv.addEventListener('pointerleave',()=>{hoverC=hoverE=hoverW=hoverL=null;tip.style.opacity=0;});
+cv.addEventListener('pointermove',e=>{ if(findGroup.contains(e.target))return;if(drag){const dx=e.clientX-drag.x; if(Math.abs(dx)>3)drag.moved=true; const dy=dx/W*(drag.b-drag.a); let a=drag.a-dy,b=drag.b-dy; if(a<MIN){b+=MIN-a;a=MIN;} if(b>MAX){a-=b-MAX;b=MAX;} tv0=a;tv1=b; return;}
+  pick(e.clientX,e.clientY); showTip(e.clientX,e.clientY);});
+function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=Y2yr(mx); const span=v1-v0, zoomW=clamp(500/span,1,4), revealYear=lerp(MIN,MAX,reveal);
+  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<=b.y1){hoverL=b.l;return;} }
+  for(const c of comps){ for(const w of c.works){const d=Math.hypot(X(w.yearComposed)-mx,yAt(c,w.yearComposed)-my); if(d<9){hoverW=w;hoverC=c;return;}}}
+  if(my>BOT()-2&&my<BOT()+26){ let bw=1e9; for(const e of EV){ const x=X(e.year), xe=X(evEnd(e)); const inside=mx>=x-7&&mx<=Math.max(xe,x)+7; if(inside&&xe-x<bw){bw=xe-x;hoverE=e;} } if(hoverE)return; }
+  let best=1e9;
+  for(const c of comps){ if(c.birthYear>revealYear) continue;
+    const nx=X(c.birthYear), ny=yAt(c,c.birthYear); if(mx<nx&&mx>nx-c.shortName.length*7-10&&Math.abs(my-ny)<10){hoverC=c;return;}
+    if(yr<c.birthYear-.5||yr>c.deathYear+.5)continue; const yy=clamp(yr,c.birthYear,c.deathYear); const d=Math.abs(yAt(c,yy)-my);
+    const tol=10+(1+output(c,yy)*5.5)*zoomW; if(d<tol&&d<best){best=d;hoverC=c;} }
+  if(!hoverC){ for(const e of EV){ if(Math.abs(X(e.year)-mx)<5&&my>TOP&&my<BOT()){hoverE=e;break;} } } }
+function showTip(mx,my){ let html='';
+  if(hoverL){ const n=comps.filter(c=>touches(c,hoverL)&&X(c.deathYear)>0&&X(c.birthYear)<W).length; const p=pin&&pin.kind==='lane'&&pin.v===hoverL;
+    html=`<span class="k">Country · ${p?'click to unpin':'click to pin'}</span><b>${hoverL}</b><div class="d">${n} composer${n===1?'':'s'} in view lived or worked here</div>`;}
+  else if(hoverW) html=`<span class="k">${hoverW.yearComposed} · ${hoverW.genre}</span><b>${hoverW.title}</b><div class="d">${hoverW.description.slice(0,150)}…</div>`;
+  else if(hoverC){const yr=Math.round(clamp(Y2yr(mx),hoverC.birthYear,hoverC.deathYear)); const age=yr-hoverC.birthYear; html=`<span class="k">${hoverC.birthYear} – ${hoverC.deathYear} · ${hoverC.nationality}</span><b>${hoverC.name}</b><div class="d">In ${yr}, aged ${age}${hoverC.life?'':' · curve estimated from works'}</div>`;}
+  else if(hoverE){const p=pin&&pin.kind==='event'&&pin.v===hoverE; html=`<span class="k">${hoverE.year}${evEnd(hoverE)>hoverE.year?' – '+evEnd(hoverE):''} · ${hoverE.category} · ${p?'click to unpin':'click to pin'}</span><b>${hoverE.title}</b><div class="d">${hoverE.musicalSignificance||hoverE.description}</div>`;}
+  tip.style.opacity=html?1:0; if(html){tip.innerHTML=html; tip.style.left=Math.min(W-340,mx+18)+'px'; tip.style.top=Math.min(H-180,my+18)+'px';} cv.style.cursor=html?'pointer':''; }
+function clickAt(e){
+  if(findGroup.contains(e.target))return;
+  if(hoverL){ pin=pin&&pin.kind==='lane'&&pin.v===hoverL?null:{kind:'lane',v:hoverL}; showTip(e.clientX,e.clientY); return; }
+  if(hoverE&&!hoverC){ pin=pin&&pin.kind==='event'&&pin.v===hoverE?null:{kind:'event',v:hoverE}; showTip(e.clientX,e.clientY); return; }
+  if(hoverC){ openLife(hoverC); return; }
+  if(focus) closeLife(); }
+const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=soundEnabled?'Sounding':'Silence';bS.classList.toggle('on',soundEnabled);bS.setAttribute('aria-pressed',soundEnabled);}; paintS();
+bS.onclick=()=>{soundEnabled=!soundEnabled;localStorage.setItem('roe-sound',soundEnabled?'on':'off');paintS();if(soundEnabled)sound.unlock();else if(sound.ctx)sound.ctx.suspend();};
+addEventListener('storage',e=>{if(e.key!=='roe-sound'&&e.key!==null)return;soundEnabled=e.newValue!=='off';paintS();if(!soundEnabled&&sound.ctx)sound.ctx.suspend();});
+const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d'); const bio=document.getElementById('lBio'), more=document.getElementById('lMore'), eventsList=document.querySelector('#lEvents .event-list');
+const paintMore=()=>{const can=bio.scrollHeight>bio.clientHeight+4, end=bio.scrollTop+bio.clientHeight>=bio.scrollHeight-4; more.style.opacity=can&&!end?1:0; bio.classList.toggle('end',!can||end);};
+bio.addEventListener('scroll',paintMore);
+function openLife(c){ focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.18); tv0=c.birthYear-pad; tv1=c.deathYear+pad*(c.life&&c.life.after?2.5:1);
+  document.getElementById('lName').textContent=c.name; document.getElementById('lName').style.color=rgba(c.rgb,1); document.getElementById('lDates').textContent=`${c.birthYear} — ${c.deathYear} · ${c.birthPlace}`;
+  bio.textContent=c.biography; bio.scrollTop=0; document.getElementById('lNote').textContent=c.life?(c.life.note||''):'Sketch estimated from works in our catalogue';
+  renderLifetimeEvents(c);
+  document.getElementById('lListen').onclick=()=>{const w=c.works[0];window.ROE_PLAYER.mount(document.getElementById('lPlayer'),w?.id, w?.spotifyUrl||`https://open.spotify.com/search/${encodeURIComponent(c.name)}`);};
+  life.classList.add('open'); requestAnimationFrame(()=>{drawSeis(c);paintMore();});
+  if(sound.started&&soundEnabled){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
+function closeLife(){ focus=null; life.classList.remove('open'); document.getElementById('lPlayer').replaceChildren(); tv0=1480; tv1=2000; }
+addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
+function chooseComposer(c){
+  findInput.value=c.name;searchOpen=false;searchActive=-1;updateFindSearch();
+  history.replaceState(null,'',`#focus=${encodeURIComponent(c.id)}`);
+  openLife(c);
+}
+function clearComposerSearch(){
+  findInput.value='';searchOpen=false;searchActive=-1;updateFindSearch();
+  if(focus)closeLife();
+  findInput.focus({preventScroll:true});
+}
+findInput.addEventListener('input',()=>{
+  if(!findInput.value.trim()&&focus)closeLife();
+  searchOpen=!!findInput.value.trim();searchActive=-1;updateFindSearch();
+});
+findInput.addEventListener('focus',()=>{if(searchQuery){searchOpen=true;renderFindResults();}});
+findInput.addEventListener('keydown',e=>{
+  e.stopPropagation();
+  const count=Math.min(8,searchResults.length);
+  if(e.key==='ArrowDown'){e.preventDefault();if(count){searchOpen=true;searchActive=(searchActive+1)%count;renderFindResults();}}
+  else if(e.key==='ArrowUp'){e.preventDefault();if(count){searchOpen=true;searchActive=searchActive<0?count-1:(searchActive+count-1)%count;renderFindResults();}}
+  else if(e.key==='Enter'){e.preventDefault();const c=searchResults[searchActive>=0?searchActive:0];if(c)chooseComposer(c);}
+  else if(e.key==='Escape'){e.preventDefault();clearComposerSearch();}
+});
+findClear.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();clearComposerSearch();});
+findGroup.addEventListener('click',e=>e.stopPropagation());
+findResults.addEventListener('click',e=>{
+  const option=e.target.closest('.find-result[data-composer-id]');if(!option)return;
+  e.preventDefault();e.stopPropagation();
+  const c=comps.find(item=>item.id===option.dataset.composerId);if(c)chooseComposer(c);
+});
+document.addEventListener('pointerdown',e=>{
+  if(searchOpen&&!findGroup.contains(e.target)){searchOpen=false;renderFindResults();}
+});
+addEventListener('keydown',e=>{
+  const active=document.activeElement, inInput=active&&(['INPUT','TEXTAREA','SELECT'].includes(active.tagName)||active.isContentEditable);
+  if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!inInput){e.preventDefault();findInput.focus();}
+});
+let seisHits=[];
+function renderLifetimeEvents(c){
+  eventsList.replaceChildren();
+  const linked=new Map(((c.life&&c.life.links)||[]).filter(l=>l.kind==='event').map(l=>[l.ref,l]));
+  const events=EV.filter(e=>e.year<=c.deathYear&&evEnd(e)>=c.birthYear).sort((a,b)=>a.year-b.year);
+  for(const event of events){
+    const link=linked.get(event.id), row=document.createElement('div'), heading=document.createElement('span');
+    row.className='event-row'+(link?' linked':''); heading.className='year-title';
+    heading.textContent=`${event.year}${evEnd(event)>event.year?'–'+evEnd(event):''} · ${event.title}`;
+    row.append(heading);
+    if(link){const text=document.createElement('span');text.className='link-text';text.textContent=link.text;row.append(text);}
+    eventsList.append(row);
+  }
+}
+function drawSeis(c){ const r=seis.getBoundingClientRect(); seis.width=r.width*DPR; seis.height=r.height*DPR; sg.setTransform(DPR,0,0,DPR,0,0); const w=r.width,h=r.height;
+  const top=48, base=h-84, x=y=>(y-c.birthYear)/(c.deathYear-c.birthYear)*(w-64)+32, Yv=v=>base-v*(base-top); sg.clearRect(0,0,w,h); seisHits=[];
+  const col=rgba(c.rgb,1);
+  // decades as years; birth and death as the bounds
+  sg.font='400 10px Cinzel'; sg.textAlign='center';
+  for(let y=Math.ceil(c.birthYear/10)*10;y<c.deathYear;y+=10){ if(y-c.birthYear<4||c.deathYear-y<4)continue; sg.fillStyle='rgba(201,165,92,.12)'; sg.fillRect(x(y),top-8,1,base-top+8); sg.fillStyle='rgba(216,203,180,.42)'; sg.fillText(y,x(y),base+14); }
+  sg.font='600 11px Cinzel'; for(const y of [c.birthYear,c.deathYear]){ sg.fillStyle=rgba(c.rgb,.55); sg.fillRect(x(y)-.5,top-14,1.2,base-top+14); sg.fillStyle=col; sg.fillText(y,x(y),base+15); }
+  // the world: events touching the life, as a strip of coloured spans and faint veils through the graph
+  const wy=base+72; sg.font='400 8px Cinzel'; sg.textAlign='left'; sg.fillStyle='rgba(216,203,180,.4)'; sg.fillText('WORLD',0,wy+7);
+  const linked=new Map(((c.life&&c.life.links)||[]).filter(l=>l.kind==='event').map(l=>[l.ref,l]));
+  const eventLabels=[], labelRows=[[],[],[],[]];
+  for(const e of EV){ const a=Math.max(e.year,c.birthYear), b=Math.min(evEnd(e),c.deathYear); if(b<a)continue; const ec=catCol[e.category]||'#ffffff'; const L=linked.get(e.id);
+    const xa=x(a), xb=x(b); sg.fillStyle=ec+(L?'20':'08'); sg.fillRect(xa,top-8,Math.max(1,xb-xa),base-top+8);
+    sg.fillStyle=ec+(L?'ff':'55');
+    if(b===a){sg.lineWidth=L?2:1;sg.beginPath();sg.moveTo(xa,wy-2);sg.lineTo(xa,wy+9);sg.strokeStyle=ec+(L?'ff':'55');sg.stroke();}
+    else sg.fillRect(xa,wy,Math.max(2,xb-xa),L?8:5);
+    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${e.year}${evEnd(e)>e.year?' – '+evEnd(e):''} · ${e.category}</span><b>${e.title}</b><div class="d">${L?L.text:(e.musicalSignificance||e.description)}</div>`});
+    if(L){
+      sg.font='500 8px Cinzel'; const width=Math.min(Math.max(42,sg.measureText(L.text).width),Math.max(42,w*.42));
+      const labelX=clamp((xa+xb)/2-width/2,0,w-width), interval=[labelX-4,labelX+width+4];
+      const row=labelRows.findIndex(items=>items.every(q=>interval[1]<=q[0]||interval[0]>=q[1]));
+      if(row>=0){labelRows[row].push(interval);eventLabels.push({x:labelX,y:base+32+row*10,width,text:L.text,color:ec});}
+    }}
+  for(const l of ((c.life&&c.life.links)||[]).filter(l=>l.kind==='contemporary')){ const o=comps.find(k=>k.id===l.ref); if(!o)continue; const px=x(clamp(l.year,c.birthYear,c.deathYear));
+    sg.strokeStyle=rgba(o.rgb,1); sg.lineWidth=1.4; sg.beginPath(); sg.arc(px,wy+4,4,0,7); sg.stroke();
+    seisHits.push({x0:px-6,x1:px+6,y0:wy-4,y1:wy+12,html:`<span class="k">${l.year} · contemporary</span><b>${o.name}</b><div class="d">${l.text}</div>`}); }
+  // music written and public standing
+  const gr=sg.createLinearGradient(0,top,0,base); gr.addColorStop(0,'rgba(239,199,132,.55)'); gr.addColorStop(1,'rgba(239,199,132,0)');
+  sg.beginPath(); sg.moveTo(x(c.birthYear),base); for(let y=c.birthYear;y<=c.deathYear;y+=.25) sg.lineTo(x(y),Yv(output(c,y))); sg.lineTo(x(c.deathYear),base); sg.fillStyle=gr; sg.fill();
+  sg.beginPath(); for(let y=c.birthYear;y<=c.deathYear;y+=.25){const yy=Yv(standing(c,y)); y===c.birthYear?sg.moveTo(x(y),yy):sg.lineTo(x(y),yy);} sg.strokeStyle='rgba(207,224,255,.85)'; sg.lineWidth=1.4; sg.shadowColor='rgba(170,200,255,.8)'; sg.shadowBlur=8; sg.stroke(); sg.shadowBlur=0;
+  for(const wk of c.works){ const px=x(wk.yearComposed), py=Yv(output(c,wk.yearComposed)); sg.fillStyle='#fff4dc';sg.beginPath();sg.arc(px,py,2.6,0,7);sg.fill();
+    seisHits.push({x0:px-6,x1:px+6,y0:py-6,y1:py+6,html:`<span class="k">${wk.yearComposed} · ${wk.genre}</span><b>${wk.title}</b>`}); }
+  // life moments: at most three rows of labels; the rest live in hover
+  const lvS=[]; sg.font='italic 400 12.5px Cormorant Garamond'; sg.textAlign='left';
+  if(c.life) c.life.pts.forEach(p=>{ if(!p[3])return; const px=x(p[0]), py=Yv(p[1]); sg.fillStyle='rgba(239,212,151,.95)'; sg.save();sg.translate(px,py);sg.rotate(Math.PI/4);sg.fillRect(-3.5,-3.5,7,7);sg.restore();
+    seisHits.push({x0:px-8,x1:px+8,y0:py-8,y1:py+8,html:`<span class="k">${p[0]} · aged ${p[0]-c.birthYear}</span><b>${p[3]}</b>`});
+    const tw=sg.measureText(p[3]).width; const right=px>w-tw-10; const a=right?px-tw-6:px+6; let L=0; while(L<3&&(lvS[L]||[]).some(q=>a<q[1]&&a+tw>q[0]))L++; if(L>=3)return; (lvS[L]||(lvS[L]=[])).push([a-6,a+tw+6]);
+    const ly=12+L*15; sg.strokeStyle='rgba(239,212,151,.25)'; sg.lineWidth=1; sg.beginPath(); sg.moveTo(px,ly+3); sg.lineTo(px,py-5); sg.stroke(); sg.fillStyle='rgba(246,233,207,.86)'; sg.fillText(p[3],a,ly); });
+  sg.font='500 8px Cinzel';sg.textAlign='left';
+  for(const label of eventLabels){sg.fillStyle='rgba(10,8,7,.82)';sg.fillRect(label.x-2,label.y-8,label.width+4,10);sg.fillStyle=label.color;sg.fillText(label.text,label.x,label.y,label.width);}
+}
+seis.addEventListener('pointermove',e=>{ const r=seis.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top; const h=seisHits.find(k=>mx>=k.x0&&mx<=k.x1&&my>=k.y0&&my<=k.y1);
+  tip.style.opacity=h?1:0; if(h){tip.innerHTML=h.html; tip.style.left=Math.min(W-340,e.clientX+14)+'px'; tip.style.top=Math.max(10,e.clientY-120)+'px';} });
+seis.addEventListener('pointerleave',()=>tip.style.opacity=0);
+mini.addEventListener('pointerdown',e=>{const r=mini.getBoundingClientRect();const go=ev=>{const yr=MIN+(ev.clientX-r.left)/r.width*(MAX-MIN);const s=tv1-tv0;tv0=clamp(yr-s/2,MIN,MAX-s);tv1=tv0+s;};go(e);const mv=ev=>go(ev);addEventListener('pointermove',mv);addEventListener('pointerup',()=>removeEventListener('pointermove',mv),{once:true});});
+// first gesture wakes the sound
+let soundAssetsLoaded=false;
+addEventListener('pointerdown',()=>{if(soundEnabled)sound.unlock();if(soundAssetsLoaded)return;soundAssetsLoaded=true;['harp','cello','horn','flute','clarinet','piano','violin','oohs','choir','organ','harpsichord'].forEach(i=>sound.load(i));});
+// deep links for review: #focus=<id> or #zoom=1780-1830
+const hp=new URLSearchParams(location.hash.slice(1)); 
+let last=performance.now();
+function loop(now){ const dt=Math.min(.05,(now-last)/1000); last=now; T+=dt; reveal=Math.min(1,reveal+dt/4.5);
+  v0+=(tv0-v0)*Math.min(1,dt*5); v1+=(tv1-v1)*Math.min(1,dt*5); draw(); requestAnimationFrame(loop);}
+resize(); addEventListener('resize',resize);
+if(hp.get('zoom')){const [a,b]=hp.get('zoom').split('-').map(Number);tv0=v0=a;tv1=v1=b;}
+if(hp.get('focus')){reveal=1;const c=comps.find(o=>o.id===hp.get('focus'));if(c)setTimeout(()=>openLife(c),300);}
+if(hp.get('event')){reveal=1;const e=EV.find(e=>e.id===hp.get('event'));if(e)pin={kind:'event',v:e};}
+if(hp.get('country')){reveal=1;pin={kind:'lane',v:hp.get('country')};}
+if(hp.has('still'))reveal=1;
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
