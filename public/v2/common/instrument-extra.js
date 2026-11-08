@@ -143,3 +143,18 @@ window.ROE_INSTR_EXTRA = {
     {name:'Samuel Ramey',note:'A celebrated singer of Mozart and bel canto roles.'}
   ])
 };
+
+for (const [id, compositionId] of Object.entries({
+  violin: 'vivaldi-four-seasons',
+  viola: 'berlioz-harold-in-italy',
+  cello: 'elgar-cello-concerto',
+  trombone: 'ravel-bolero',
+  timpani: 'beethoven-symphony-9',
+  'snare-drum': 'ravel-bolero',
+  'cymbals-and-percussion': 'stravinsky-rite-of-spring',
+  piano: 'beethoven-moonlight-sonata',
+  organ: 'bach-toccata-fugue-d-minor',
+  harpsichord: 'bach-goldberg-variations'
+})) {
+  window.ROE_INSTR_EXTRA[id].showcase.compositionId = compositionId;
+}

@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="icon.svg" type="image/svg+xml"><title>Requiem of Everything — Overture</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title></title>
 <link rel="stylesheet" href="common/style.css">
 <style>
 #gl{position:fixed;inset:0;width:100%;height:100%}
@@ -88,7 +88,7 @@ body.entered #whisper{opacity:.0}
 </defs></svg>
 
 <div id="title">
-  <h1>Requiem of Everything</h1>
+  <h1 id="homeTitle"></h1>
   <div class="rule"></div>
   <p><span id="homeSubtitle"></span><br><span id="homeInvitation"></span></p>
   <div id="enter">
@@ -97,7 +97,7 @@ body.entered #whisper{opacity:.0}
   </div>
 </div>
 
-<nav id="portals" aria-label="Choose a path">
+<nav id="portals" aria-label="">
   <a class="portal" href="river.html" data-voice="river">
     <svg class="halo" viewBox="0 0 200 200"><circle class="glow" cx="100" cy="100" r="96"/><circle class="arch" cx="100" cy="100" r="80"/><circle class="ring2" cx="100" cy="100" r="66"/></svg>
     <svg class="icon" viewBox="0 0 100 100"><defs>
@@ -155,7 +155,7 @@ body.entered #whisper{opacity:.0}
   <button class="btn" id="bAbout" aria-expanded="false">Credits</button>
 </div>
 
-<div id="about" class="reliquary" role="dialog" aria-label="Credits">
+<div id="about" class="reliquary" role="dialog" aria-label="">
   <h2 id="aboutTitle">Credits</h2>
   <p id="aboutShader">Nothing on this page is a picture. The light, the haze and the slow procession of embers come from one fragment shader.</p>
   <p id="aboutSound">The chords are played live from sampled instruments, in a concert hall that is only an equation.</p>
@@ -169,7 +169,7 @@ body.entered #whisper{opacity:.0}
   <span id="aboutOrchestra">(CC BY-SA 3.0). Orchestral samples: VSCO 2 Community Edition (Versilian Studios, CC0). Choir, harpsichord and celesta samples: Sonatina Symphonic Orchestra (Mattias Westlund, CC Sampling Plus 1.0).</span> <span id="aboutLighting">Lighting inspired by</span> <a href="https://elder-plinius.github.io/FABLE-SHOWCASE/infinite-cathedral/index.html" target="_blank" rel="noopener">Infinite Cathedral</a>.
   <span id="aboutBiographies">Biographies courtesy of Wikipedia contributors.</span></div>
 </div>
-<div class="hint" id="whisper">drift through the dark · click to light a candle</div>
+<div class="hint" id="whisper"></div>
 
 <script type="x-shader/x-fragment" id="fs">#version 300 es
 precision highp float;
@@ -250,7 +250,8 @@ void main(){
 import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
 const t=window.ROE_I18N.t;
-document.title=`${t('home.title')} — Requiem of Everything`;
+document.title=t('home.title');
+document.getElementById('homeTitle').textContent=t('home.title');
 document.getElementById('homeSubtitle').textContent=t('home.subtitle');
 document.getElementById('homeInvitation').textContent=t('home.invitation');
 document.getElementById('portals').setAttribute('aria-label',t('home.nav.aria'));

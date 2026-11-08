@@ -25,7 +25,7 @@
     "goat": {"note": "’n Geliefde tjellis, bekend vir wyd uiteenlopende uitvoerings."}
   },
   "double-bass": {
-    "showcase": {"why": "’n Vertoonstuk wat die kontrabas se ratsheid en singende stem wys."},
+    "showcase": {"title": "Konsert nr. 2 in B-mineur", "why": "’n Vertoonstuk wat die kontrabas se ratsheid en singende stem wys."},
     "greats": [
       {"note": "Was in sy tyd ’n vooraanstaande kontrabasvirtuoos."},
       {"note": "Was ’n kontrabassolis voordat hy ’n beroemde dirigent geword het."},
@@ -33,7 +33,7 @@
     ]
   },
   "harp": {
-    "showcase": {"why": "Die harp gly tussen glinsterende dansritmes en ernstige akkoorde."},
+    "showcase": {"title": "Heilige dans en profane dans", "why": "Die harp gly tussen glinsterende dansritmes en ernstige akkoorde."},
     "greats": [
       {"note": "’n Geliefde Franse harpiste en onderwyser."},
       {"note": "Bekend vir solospel en kamermusiek."},
@@ -41,7 +41,7 @@
     ]
   },
   "viola-da-gamba": {
-    "showcase": {"why": "Bekende variasies verander ’n eenvoudige tema in ’n gamba-vertoonstuk."},
+    "showcase": {"title": "Spaanse folia’s", "why": "Bekende variasies verander ’n eenvoudige tema in ’n gamba-vertoonstuk."},
     "greats": [
       {"note": "’n Vooraanstaande Franse komponis en gambaspeler."},
       {"note": "’n Franse meester van die viola da gamba en ’n onderwyser."},
@@ -49,7 +49,7 @@
     ]
   },
   "flute": {
-    "showcase": {"why": "’n Solo-fluit skilder ’n stil mite sonder begeleiding."},
+    "showcase": {"title": "Syrinx", "why": "’n Solo-fluit skilder ’n stil mite sonder begeleiding."},
     "greats": [
       {"note": "Het die fluit as solo-instrument gewild gemaak."},
       {"note": "Bekend vir ’n helder toon en ’n wye gehoor."},
@@ -57,7 +57,7 @@
     ]
   },
   "oboe": {
-    "showcase": {"why": "’n Grasieuse laat concerto laat die hobo van begin tot einde lei."},
+    "showcase": {"title": "Hobokonsert in D majeur", "why": "’n Grasieuse laat concerto laat die hobo van begin tot einde lei."},
     "greats": [
       {"note": "’n Virtuoos op die hobo, komponis en dirigent."},
       {"note": "Bekend vir liriese spel by die Berlynse Filharmonie."},
@@ -65,7 +65,7 @@
     ]
   },
   "clarinet": {
-    "showcase": {"why": "Die klarinet se warm klankreeks skitter in Mozart se laaste concerto."},
+    "showcase": {"title": "Klarinetkonsert in A majeur, K. 622", "why": "Die klarinet se warm klankreeks skitter in Mozart se laaste concerto."},
     "greats": [
       {"note": "Jazzklarinettis wat ook nuwe konsertwerke bevorder het."},
       {"note": "’n Vooraanstaande solis en orkesmusikant."},
@@ -73,7 +73,7 @@
     ]
   },
   "bassoon": {
-    "showcase": {"why": "’n Speelse concerto wys die fagot se ratsheid en singende aard."},
+    "showcase": {"title": "Fagotkonsert in B-mol majeur, K. 191", "why": "’n Speelse concerto wys die fagot se ratsheid en singende aard."},
     "greats": [
       {"note": "’n Geliefde solis en onderwyser."},
       {"note": "Bekend vir solo- en kamermusiekuitvoerings."},
@@ -81,7 +81,7 @@
     ]
   },
   "recorder": {
-    "showcase": {"why": "Helder blokfluitlyne wys hoekom dié instrument in die Barok geliefd was."},
+    "showcase": {"title": "Blokfluitkonsert in C majeur, TWV 51:C1", "why": "Helder blokfluitlyne wys hoekom dié instrument in die Barok geliefd was."},
     "greats": [
       {"note": "Het gehelp om die blokfluit in die moderne konsertlewe te laat herleef."},
       {"note": "’n Blokfluitsolis met talle opnames."},
@@ -89,7 +89,7 @@
     ]
   },
   "french-horn": {
-    "showcase": {"why": "Lang melodieë en lewendige roepe wys die waldhoorn se omvang."},
+    "showcase": {"title": "Horinkonsert nr. 4 in Es majeur, K. 495", "why": "Lang melodieë en lewendige roepe wys die waldhoorn se omvang."},
     "greats": [
       {"note": "’n Baanbrekende waldhoornsolis van die 20ste eeu."},
       {"note": "Bekend vir solospel en historiese uitvoeringspraktyk."},
@@ -97,7 +97,7 @@
     ]
   },
   "trumpet": {
-    "showcase": {"why": "Die nuwe kleptrumpet gee ’n helder, skitterende solostem."},
+    "showcase": {"title": "Trompetkonsert in Es majeur", "why": "Die nuwe kleptrumpet gee ’n helder, skitterende solostem."},
     "greats": [
       {"note": "Het gehelp om die trompet as solo-instrument gewild te maak."},
       {"note": "’n Belangrike klassieke en jazztrompetsolis."},
@@ -113,7 +113,7 @@
     ]
   },
   "tuba": {
-    "showcase": {"why": "’n Volwaardige concerto gee die tuba selde die hoofrol."},
+    "showcase": {"title": "Tubakonsert in F mineur", "why": "’n Volwaardige concerto gee die tuba selde die hoofrol."},
     "greats": [
       {"note": "Het gehelp om die tuba in Amerikaanse orkeste te vestig."},
       {"note": "’n Pionier van die tuba se solovoordrag."},
@@ -169,7 +169,7 @@
     ]
   },
   "celesta": {
-    "showcase": {"why": "Die sprankelende celesta gee die dans sy betowerende klank."},
+    "showcase": {"title": "Dans van die Suikerpruimfeë", "why": "Die sprankelende celesta gee die dans sy betowerende klank."},
     "greats": [
       {"note": "Het die celesta beroemd gemaak met Die Neutekraker."},
       {"note": "Het die celesta in sy Harpkonsert gebruik."},
@@ -177,7 +177,7 @@
     ]
   },
   "soprano": {
-    "showcase": {"why": "’n Koloratuur-aria laat die sopraan hoog spring en vinnig sing."},
+    "showcase": {"title": "“Koningin van die Nag”-aria uit Die Toorfluit", "why": "’n Koloratuur-aria laat die sopraan hoog spring en vinnig sing."},
     "greats": [
       {"note": "’n Geliefde operasangeres met ’n dramatiese stemomvang."},
       {"note": "Beroemd vir haar skitterende koloratuursang."},
@@ -185,7 +185,7 @@
     ]
   },
   "alto-mezzo": {
-    "showcase": {"why": "Carmen se onvergeetlike intrede gee die mezzosopraan ’n gewaagde karakterrol."},
+    "showcase": {"title": "“Habanera” uit Carmen", "why": "Carmen se onvergeetlike intrede gee die mezzosopraan ’n gewaagde karakterrol."},
     "greats": [
       {"note": "’n Belangrike mezzosopraan en kenner van bel canto."},
       {"note": "Bekend vir rats sang en herontdekte werke."},
@@ -193,7 +193,7 @@
     ]
   },
   "tenor": {
-    "showcase": {"why": "’n Stygende tenooraria bou op na ’n beroemde hoë slotnoot."},
+    "showcase": {"title": "“Nessun dorma” uit Turandot", "why": "’n Stygende tenooraria bou op na ’n beroemde hoë slotnoot."},
     "greats": [
       {"note": "Het die tenoorstem aan reusegehore bekend gestel."},
       {"note": "’n Vroeë opname-ster van die operatenoorstem."},
@@ -201,7 +201,7 @@
     ]
   },
   "bass-baritone": {
-    "showcase": {"why": "Leporello se vinnige lys gee ’n bas-bariton ’n komiese vertoonrol."},
+    "showcase": {"title": "Katalogaria uit Don Giovanni", "why": "Leporello se vinnige lys gee ’n bas-bariton ’n komiese vertoonrol."},
     "greats": [
       {"note": "’n Bekende sanger van opera en kunslied."},
       {"note": "Bekend vir ekspressiewe bas-baritonrolle."},

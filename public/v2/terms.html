@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="icon.svg" type="image/svg+xml"><title>The Lexicon — Requiem of Everything</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title></title>
 <link rel="stylesheet" href="common/style.css">
 <style>
 body{background:#060504;overflow:hidden;touch-action:none}
@@ -41,8 +41,8 @@ body{background:#060504;overflow:hidden;touch-action:none}
 <body>
 <canvas id="haze"></canvas><canvas id="sky"></canvas>
 <div class="vignette"></div><div class="grain"></div>
-<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a href="river.html">River</a><a href="hall.html">Hall &amp; Voices</a><a class="here" href="terms.html">Lexicon</a></nav>
-<div id="head"><h1>THE LEXICON</h1><p>the words of music, heard as well as read · drag to turn, scroll to fly closer</p><input id="q" type="search" placeholder="find a word…" aria-label="Find a word" autocomplete="off"></div>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><a href="river.html">River</a><a href="hall.html">Hall &amp; Voices</a><a class="here" href="terms.html">Lexicon</a></nav>
+<div id="head"><h1></h1><p>the words of music, heard as well as read · drag to turn, scroll to fly closer</p><input id="q" type="search" placeholder="" aria-label="" autocomplete="off"></div>
 <div id="card" class="reliquary" role="dialog" aria-live="polite"></div>
 <div id="chips"></div>
 <div id="tip" class="reliquary"></div>
@@ -52,7 +52,7 @@ import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
 const t=window.ROE_I18N.t;
 const esc=window.ROE_HTML.esc;
-document.title=`${t('lexicon.title')} — Requiem of Everything`;
+document.title=`${t('lexicon.title')} — ${t('home.title')}`;
 document.querySelector('#head h1').textContent=t('lexicon.title');
 document.querySelector('#head p').textContent=t('lexicon.subtitle');
 document.getElementById('q').placeholder=t('lexicon.search.placeholder');

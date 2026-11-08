@@ -5,11 +5,1062 @@
     "instrumentation": "Chór SATB (6 głosów)",
     "significance": "Stała się wzorem kontrreformacyjnej muzyki sakralnej i podstawą nauczania kontrapunktu gatunkowego."
   },
+  "victoria-o-magnum-mysterium": {
+    "title": "O Magnum Mysterium",
+    "instrumentation": "Chór SATB (4 głosy)",
+    "description": "Niezwykle czuły motet bożonarodzeniowy do tekstu, który zachwyca się cudem narodzin Chrystusa. Jego świetlista harmonia sprawiła, że jest to jedno z najbardziej ukochanych dzieł renesansu."
+  },
+  "victoria-ave-maria": {
+    "title": "Ave Maria (na 4 głosy)",
+    "instrumentation": "Chór SATB (4 głosy)",
+    "description": "Pięknie opracowana modlitwa maryjna, ukazująca talent Victorii do eleganckich melodii splecionych z bogatą polifonią."
+  },
+  "victoria-o-vos-omnes": {
+    "title": "O Vos Omnes",
+    "instrumentation": "Chór SATB (4 głosy)",
+    "description": "Głęboko ekspresyjny responsorium Wielkiego Tygodnia. Surowa harmonia i żałobne linie melodyczne wyrażają przejmujący smutek. To jeden z najbardziej emocjonalnych utworów renesansu."
+  },
+  "palestrina-stabat-mater": {
+    "title": "Stabat Mater",
+    "instrumentation": "Podwójny chór (8 głosów)",
+    "description": "Wzniosłe opracowanie średniowiecznego hymnu o bólu Maryi pod krzyżem, napisane na dwa chóry. Pogodne piękno utworu ukazuje dojrzały styl Palestriny."
+  },
+  "victoria-officium-defunctorum": {
+    "title": "Officium Defunctorum",
+    "instrumentation": "Chór SATB (6 głosów), organy",
+    "description": "Ostatnie i największe dzieło Victorii — msza żałobna za cesarzową wdowę Marię. Surowe piękno i głębokie emocje czynią z niej jedno z najwybitniejszych osiągnięć renesansowej polifonii.",
+    "significance": "Uważana za najpiękniejsze Requiem epoki renesansu."
+  },
+  "monteverdi-lorfeo": {
+    "title": "L’Orfeo",
+    "instrumentation": "Soliści, chór, orkiestra (flety proste, smyczki, blacha, basso continuo)",
+    "description": "Często uznawana za pierwszą wielką operę. Monteverdi przekształcił nowe florenckie dramma per musica w dzieło o prawdziwej sile dramatycznej i muzycznej, używając orkiestry z niespotykaną wcześniej ekspresją.",
+    "significance": "Ugruntowała operę jako ważną formę sztuki i ukazała dramatyczne możliwości nowego, barokowego stylu monodycznego."
+  },
+  "monteverdi-vespers-1610": {
+    "title": "Nieszpory Najświętszej Maryi Panny (1610)",
+    "instrumentation": "Soliści, chór, orkiestra, organy",
+    "description": "Monumentalny zbiór muzyki sakralnej obejmujący niemal wszystkie style znane w 1610 roku: renesansową polifonię, barokową monodię, wirtuozowską technikę koncertującą i kameralne partie solowe.",
+    "significance": "Jedno z najwybitniejszych dzieł sakralnych w historii, łączące tradycje renesansu i baroku."
+  },
+  "purcell-dido-and-aeneas": {
+    "title": "Dydona i Eneasz",
+    "instrumentation": "Soliści, chór, smyczki, basso continuo",
+    "description": "Kameralne arcydzieło z jedną z najsłynniejszych arii operowych: lamentem Dydony „When I am laid in earth”, opartym na opadającym chromatycznym basie o przejmującej sile emocjonalnej.",
+    "significance": "Pierwsza wielka opera angielska i przełomowe dzieło wokalne baroku."
+  },
+  "purcell-king-arthur": {
+    "title": "Król Artur",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Półopera ze słowami Johna Drydena, łącząca mówiony dramat ze scenami muzycznymi. Scena mrozu i Fairest Isle należą do najbardziej natchnionych pomysłów Purcella."
+  },
+  "purcell-come-ye-sons": {
+    "title": "Przybywajcie, synowie sztuki",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Oda urodzinowa dla królowej Marii, zawierająca słynny duet „Sound the Trumpet”. Radosny, uroczysty utwór jest szczytowym osiągnięciem muzyki okolicznościowej Purcella."
+  },
+  "purcell-funeral-sentences": {
+    "title": "Muzyka na pogrzeb królowej Marii",
+    "instrumentation": "Chór, instrumenty dęte blaszane, kotły",
+    "description": "Uroczyste śpiewy żałobne i marsz skomponowane na pogrzeb królowej Marii II. Głuche bębny marsza i dostojne instrumenty dęte kancony mają ponadczasowy ceremonialny majestat."
+  },
+  "bach-toccata-fugue-d-minor": {
+    "title": "Toccata i fuga d-moll",
+    "instrumentation": "Organy",
+    "description": "Najsłynniejszy utwór organowy w historii. Jego dramatyczny początek jest rozpoznawalny na całym świecie, choć badacze spierają się, czy Bach rzeczywiście jest jego autorem."
+  },
+  "vivaldi-gloria": {
+    "title": "Gloria D-dur",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Promienne i pełne energii opracowanie tekstu Gloria, napisane dla Ospedale della Pietà. Początkowa część należy do najbardziej rozpoznawalnych fragmentów muzyki chóralnej."
+  },
+  "scarlatti-d-stabat-mater": {
+    "title": "Stabat Mater",
+    "instrumentation": "Chór SSAATTBB, basso continuo",
+    "description": "Opracowanie średniowiecznego hymnu na dziesięć głosów, skomponowane w Rzymie. Bogata polifonia i ekspresyjna harmonia ukazują mistrzostwo Scarlattiego w odziedziczonej po ojcu Alessandro tradycji wokalnej."
+  },
+  "telemann-viola-concerto-g": {
+    "title": "Koncert altówkowy G-dur",
+    "instrumentation": "Altówka solo, smyczki, basso continuo",
+    "description": "Najwcześniejszy znany koncert na altówkę, ukazujący nowatorskie podejście Telemanna do instrumentu, któremu zwykle powierzano głosy środkowe.",
+    "significance": "Pierwszy ważny koncert altówkowy w repertuarze."
+  },
+  "handel-water-music": {
+    "title": "Muzyka na wodzie",
+    "instrumentation": "Orkiestra (instrumenty dęte, blacha, smyczki)",
+    "description": "Trzy suity orkiestrowe napisane na rejs królewskiej barki Jerzego I po Tamizie. Król tak polubił muzykę, że kazał wykonać ją trzykrotnie."
+  },
+  "bach-cello-suites": {
+    "title": "Suity wiolonczelowe",
+    "instrumentation": "Wiolonczela solo",
+    "description": "Sześć suit na wiolonczelę solo, ukazujących pełnię możliwości instrumentu: od tanecznych części po głębokie sarabandy. Odkryte na nowo przez Pabla Casalsa na początku XX wieku, są dziś uważane za szczytowy repertuar wiolonczelowy."
+  },
+  "bach-brandenburg-concertos": {
+    "title": "Koncerty brandenburskie",
+    "instrumentation": "Różne instrumenty solowe, smyczki i basso continuo",
+    "description": "Sześć koncertów, z których każdy jest przeznaczony na inny zestaw instrumentów; ukazują olśniewającą różnorodność formy koncertowej. Od świątecznego blasku blachy w pierwszym po kameralną wirtuozerię klawesynu w piątym — to szczytowe osiągnięcie barokowego concerto grosso.",
+    "significance": "Najwybitniejszy zbiór utworów orkiestrowych epoki baroku."
+  },
+  "bach-well-tempered-clavier-1": {
+    "title": "Dobrze temperowany klawesyn, tom I",
+    "instrumentation": "Instrument klawiszowy (klawesyn, klawikord lub fortepian)",
+    "description": "Dwadzieścia cztery preludia i fugi we wszystkich tonacjach durowych i molowych — pełna podróż przez tonalność i możliwości kontrapunktu. Każda para tworzy osobny świat: od pogodnego preludium C-dur po grzmiącą fugę b-moll.",
+    "significance": "„Stary Testament” muzyki klawiszowej. Dzieło ukazało zalety stroju równomiernie temperowanego i stało się najważniejszą szkołą kontrapunktu dla następnych pokoleń."
+  },
+  "telemann-wassermusik": {
+    "title": "Wassermusik (Muzyka na wodzie)",
+    "instrumentation": "Orkiestra",
+    "description": "Uroczysta suita przedstawiająca bogów i handel w porcie Hamburga, skomponowana na stulecie miejskiego admiralicjum. Jej barwne malarstwo dźwiękowe dorównuje słynnej Muzyce na wodzie Händla."
+  },
+  "vivaldi-four-seasons": {
+    "title": "Cztery pory roku",
+    "instrumentation": "Skrzypce solo, orkiestra smyczkowa, basso continuo",
+    "description": "Cztery koncerty skrzypcowe, z których każdy maluje porę roku: śpiew ptaków wiosną, burze latem, żniwne tańce jesienią i przenikliwy chłód zimą. Towarzyszą im sonety — być może napisane przez samego Vivaldiego — opisujące muzyczny program każdej części.",
+    "significance": "Najsłynniejsze i najbardziej popularne dzieło baroku. Zapoczątkowało rozwój programowej muzyki instrumentalnej."
+  },
+  "vivaldi-winter": {
+    "title": "Cztery pory roku: Zima (koncert nr 4 f-moll)",
+    "instrumentation": "Skrzypce solo, smyczki, basso continuo",
+    "description": "Ostatni koncert z cyklu Cztery pory roku: słychać w nim szczękające zęby, poślizgnięcia na lodzie i wyjący zimowy wiatr. Porywające rytmy i błyskotliwa partia solowa sprawiają, że utwór jest równie popularny jak Wiosna."
+  },
+  "bach-st-matthew-passion": {
+    "title": "Pasja według św. Mateusza",
+    "instrumentation": "Soliści, dwa chóry, dwie orkiestry",
+    "description": "Monumentalne opracowanie historii Męki Pańskiej z Ewangelii Mateusza, przeznaczone na dwa chóry i dwie orkiestry. Rozmach emocjonalny — od intymnych arii skruchy po wstrząsające „Barabasza!” — czyni z niej jedno z najpotężniejszych dzieł dramatycznych sprzed epoki opery.",
+    "significance": "Wznowienie utworu przez Mendelssohna w 1829 roku zapoczątkowało odrodzenie twórczości Bacha i odmieniło historię muzyki."
+  },
+  "telemann-paris-quartets": {
+    "title": "Kwartety paryskie",
+    "instrumentation": "Flet, skrzypce, viola da gamba, basso continuo",
+    "description": "Dwanaście kwartetów skomponowanych dla Concert Spirituel w Paryżu. Błyskotliwie łączą styl francuski i włoski z charakterystyczną dla Telemanna pomysłowością melodyczną."
+  },
+  "telemann-tafelmusik": {
+    "title": "Tafelmusik (Muzyka stołowa)",
+    "instrumentation": "Różne zespoły: smyczki, instrumenty dęte, basso continuo",
+    "description": "Monumentalny zbiór suit orkiestrowych, koncertów, kwartetów i sonat solowych przeznaczonych do wykonywania podczas uczt. Była to najszerzej rozpowszechniona publikacja swojej epoki.",
+    "significance": "Jedna z najambitniejszych i najpopularniejszych publikacji baroku."
+  },
+  "rameau-hippolyte-et-aricie": {
+    "title": "Hipolit i Arycja",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Pierwsza opera Rameau, która wywołała sensację śmiałą harmonią i dramatyczną intensywnością. Zwolennicy Lully’ego uznali ją za zbyt włoską, a miłośnicy opery włoskiej — za zbyt francuską.",
+    "significance": "Zapoczątkowała spór buffonistów, jeden z największych sporów estetycznych w historii muzyki."
+  },
+  "rameau-les-indes-galantes": {
+    "title": "Indie galantne",
+    "instrumentation": "Soliści, chór, orkiestra, tancerze",
+    "description": "Opera-balet z prologiem i czterema entrées, której akcja toczy się w egzotycznych miejscach od Turcji po Peru. Olśniewająca orkiestracja i wyrafinowane tańce stanowią szczyt francuskiej sceny barokowej.",
+    "significance": "Najwybitniejsza opera-balet francuskiego baroku."
+  },
+  "rameau-castor-et-pollux": {
+    "title": "Kastor i Polluks",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Tragedia muzyczna oparta na micie o Dioskurach. Uznawana za operowe arcydzieło Rameau dzięki głębi emocjonalnej, szczególnie w scenie grobowca w czwartym akcie."
+  },
+  "scarlatti-d-keyboard-sonata-k141": {
+    "title": "Sonata klawesynowa d-moll, K. 141",
+    "instrumentation": "Klawesyn",
+    "description": "Jedna z najbardziej porywających spośród 555 sonat Scarlattiego. Szybkie powtórzenia dźwięków, krzyżowanie rąk i błyskotliwa wirtuozeria zapowiadają techniki, które powróciły dopiero u Liszta."
+  },
+  "scarlatti-d-keyboard-sonata-k27": {
+    "title": "Sonata klawesynowa h-moll, K. 27",
+    "instrumentation": "Klawesyn",
+    "description": "Czuła, liryczna sonata o niezwykłym pięknie. Śpiewna melodia i delikatne ozdobniki odsłaniają refleksyjną stronę twórczości Scarlattiego."
+  },
+  "bach-goldberg-variations": {
+    "title": "Wariacje Goldbergowskie",
+    "instrumentation": "Klawesyn (z dwoma manuałami) lub fortepian",
+    "description": "Aria i 30 wariacji o zdumiewającej różnorodności i intelektualnym blasku. Ich matematycznie precyzyjna konstrukcja tętni muzyczną osobowością. Legenda głosi, że utwór zamówiono, by ukoić bezsenny sen hrabiego.",
+    "significance": "Jeden z najwybitniejszych cykli wariacji w historii. Nagranie Glenna Goulda z 1955 roku uczyniło z niego jeden z najsłynniejszych utworów fortepianowych."
+  },
+  "handel-messiah": {
+    "title": "Mesjasz",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Mesjasz powstał w zaledwie 24 dni i jest najczęściej wykonywanym wielkim dziełem chóralnym muzyki zachodniej. Chór „Alleluja” jest tak słynny, że podobno król Jerzy II wstał podczas londyńskiej premiery, dając początek tradycji żywej do dziś.",
+    "significance": "Ukształtował tradycję angielskiego oratorium i stał się najbardziej ukochanym dziełem chóralnym na świecie."
+  },
+  "rameau-pieces-de-clavecin": {
+    "title": "Pièces de clavecin en concerts",
+    "instrumentation": "Klawesyn, skrzypce (lub flet), viola da gamba",
+    "description": "Pięć suit charakterystycznych, które zapoczątkowały prawdziwą muzykę kameralną z klawesynem. Wszystkie instrumenty są w nich równorzędnymi partnerami, a klawesyn nie ogranicza się do realizacji basso continuo."
+  },
+  "bach-mass-in-b-minor": {
+    "title": "Msza h-moll",
+    "instrumentation": "Soliści, podwójny chór, orkiestra",
+    "description": "Największe dzieło chóralne Bacha, złożone z utworów powstających przez dziesięciolecia i ukończone pod koniec jego życia. To rozległa synteza technik kontrapunktycznych, wokalnych i orkiestrowych baroku, zawierająca muzykę o niezwykłym pięknie.",
+    "significance": "Często uznawana za największe pojedyncze dzieło muzyki zachodniej."
+  },
+  "handel-music-for-royal-fireworks": {
+    "title": "Muzyka na królewskie fajerwerki",
+    "instrumentation": "Duży zespół instrumentów dętych i orkiestra",
+    "description": "Utwór powstał jako oprawa pokazu fajerwerków świętującego traktat w Akwizgranie. Próba generalna przyciągnęła 12 tysięcy osób i spowodowała trzygodzinny korek na Moście Londyńskim."
+  },
+  "scarlatti-d-keyboard-sonata-k380": {
+    "title": "Sonata klawesynowa E-dur, K. 380",
+    "instrumentation": "Klawesyn",
+    "description": "Promienna, dworska sonata o dostojnym, procesyjnym charakterze. To jeden z najpopularniejszych i najczęściej wykonywanych utworów Scarlattiego."
+  },
+  "scarlatti-d-keyboard-sonata-k466": {
+    "title": "Sonata klawesynowa f-moll, K. 466",
+    "instrumentation": "Klawesyn",
+    "description": "Głęboko melancholijna sonata o przejmującej melodii i mrocznej harmonii, brzmiąca niemal romantycznie. Należy do najbardziej poruszających emocjonalnie dzieł Scarlattiego."
+  },
+  "gluck-orfeo-ed-euridice": {
+    "title": "Orfeusz i Eurydyka",
+    "instrumentation": "Soliści, chór, orkiestra, balet",
+    "description": "Pierwsza opera reformowana Glucka. Odrzuca barokowy nadmiar wokalnych popisów na rzecz „pięknej prostoty”. Taniec błogosławionych duchów i aria Che farò senza Euridice do dziś zachwycają.",
+    "significance": "Zrewolucjonizowała operę, podporządkowując muzykę prawdzie dramatu."
+  },
+  "gluck-dance-blessed-spirits": {
+    "title": "Taniec błogosławionych duchów",
+    "instrumentation": "Flet solo, smyczki",
+    "description": "Eteryczne interludium baletowe z opery Orfeusz i Eurydyka, przedstawiające Pola Elizejskie. Spokojna melodia fletu to jeden z najbardziej rozpoznawalnych fragmentów muzyki klasycznej."
+  },
+  "gluck-alceste": {
+    "title": "Alceste",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Druga opera reformowana Glucka; jej przedmowa stała się manifestem reformy opery. Kompozytor pisał, że muzyka powinna służyć poezji, zamiast pozwalać słuchaczom odczuwać „przesyt”.",
+    "significance": "Przedmowa do opery jest jednym z najważniejszych dokumentów w historii tego gatunku."
+  },
+  "gluck-iphigenie-en-tauride": {
+    "title": "Ifigenia na Taurydzie",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Zwieńczenie reform operowych Glucka, chwalone przez Berlioza jako największa opera francuska. Nieprzerwane napięcie dramatyczne i mistrzowska orkiestracja wyznaczyły wzór dla następnych pokoleń."
+  },
+  "mozart-piano-concerto-21": {
+    "title": "Koncert fortepianowy nr 21",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Słynie z eterycznie pięknej części wolnej, rozsławionej przez szwedzki film Elvira Madigan z 1967 roku. Skrajne części iskrzą się dowcipem i wirtuozerią Mozarta."
+  },
+  "mozart-marriage-of-figaro": {
+    "title": "Wesele Figara",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Komedia o rewolucyjnej polityce i ludzkich pragnieniach. Na podstawie politycznie wywrotowej sztuki Beaumarchais’go Mozart i Da Ponte stworzyli operę o niezrównanej sztuce zespołowej, w której kilka postaci myśli i odczuwa jednocześnie.",
+    "significance": "Najwybitniejsza opera komiczna i arcydzieło sztuki humanistycznej."
+  },
+  "mozart-don-giovanni": {
+    "title": "Don Giovanni",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Najmroczniejsza i najbardziej złożona opera Mozarta — dramma giocoso, w którym komedia i tragedia łączą się z demoniczną siłą. W finale kamienny posąg Komandora wciąga Don Giovanniego do piekła; to jedna z najbardziej przerażających scen operowych.",
+    "significance": "Wielu uważa ją za najwybitniejszą operę w historii."
+  },
+  "mozart-symphony-41": {
+    "title": "Symfonia nr 41 „Jowiszowa”",
+    "instrumentation": "Orkiestra",
+    "description": "Ostatnia i największa symfonia Mozarta. Finał to cud kontrapunktu: pięć tematów łączy się jednocześnie w niezwykle złożonej kodzie fugowanej, a całość brzmi naturalnie i nieuchronnie.",
+    "significance": "Szczytowe osiągnięcie symfonii klasycznej przed Beethovenem."
+  },
+  "haydn-symphony-94": {
+    "title": "Symfonia nr 94 „Niespodzianka”",
+    "instrumentation": "Orkiestra",
+    "description": "Słynie z nagłego, głośnego akordu w cichej części wolnej — żartu Haydna, który miał obudzić przysypiających słuchaczy. To doskonały przykład jego dowcipu i mistrzostwa klasycznej symfonii."
+  },
   "mozart-magic-flute": {
     "title": "Czarodziejski flet",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Ostatnia opera Mozarta — masońska baśń, która przechodzi od farsy do wzniosłego rytuału. Aria Królowej Nocy z jej zawrotnymi koloraturami jest jedną z najsłynniejszych w całej operze.",
     "wikipediaSlug": "Czarodziejski_flet"
   },
+  "mozart-requiem": {
+    "title": "Requiem d-moll",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Ostatnie, niedokończone dzieło Mozarta — msza żałobna o wstrząsającej sile, otoczona legendą i tajemnicą. Anonimowe zamówienie, przekonanie kompozytora, że pisze muzykę na własny pogrzeb, oraz dokończenie dzieła przez ucznia Süssmayra składają się na jego mityczną sławę.",
+    "significance": "Jedno z najsłynniejszych i najbardziej poruszających Requiem w historii."
+  },
+  "haydn-string-quartets-op76": {
+    "title": "Kwartety smyczkowe op. 76",
+    "instrumentation": "Kwartet smyczkowy",
+    "description": "Sześć kwartetów stanowiących szczyt osiągnięć Haydna w gatunku, który sam rozwinął. Zbiór zawiera Kwartet cesarski — którego część wolna stała się hymnem Austrii, a później Niemiec — oraz Kwartet wschodzącego słońca."
+  },
+  "haydn-creation": {
+    "title": "Stworzenie świata",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Późne arcydzieło Haydna, przedstawiające stworzenie świata według Księgi Rodzaju i Raju utraconego Miltona. Chwila, gdy wśród ciszy rozlega się „ŚWIATŁO” — olśniewający akord C-dur — należy do najbardziej porywających efektów w muzyce.",
+    "significance": "Największe oratorium od czasów Mesjasza Händla i ukoronowanie kariery Haydna."
+  },
+  "beethoven-moonlight-sonata": {
+    "title": "Sonata fortepianowa nr 14 „Księżycowa”",
+    "instrumentation": "Fortepian",
+    "description": "Przydomek „Księżycowa” nie pochodzi od Beethovena i nawiązuje do marzycielskiej pierwszej części. Rewolucyjny początek odwraca tradycję: utwór otwiera część wolna zamiast szybkiej. Burzliwy finał rozpala się wirtuozowską furią."
+  },
+  "beethoven-symphony-3": {
+    "title": "Symfonia nr 3 „Eroica”",
+    "instrumentation": "Orkiestra",
+    "description": "Beethoven pierwotnie zadedykował ją Napoleonowi, lecz podarł stronę tytułową, gdy ten ogłosił się cesarzem. Eroica rozbiła wszelkie konwencje: jest dwukrotnie dłuższa od wcześniejszych symfonii, zawiera przejmujący marsz żałobny i finał pełen olśniewających wariacji.",
+    "significance": "Dzieło otwierające epokę muzyki romantycznej i nowoczesne rozumienie symfonii."
+  },
+  "beethoven-fidelio": {
+    "title": "Fidelio",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Jedyna opera Beethovena — opowieść o więźniu politycznym i małżeńskim oddaniu, która stała się symbolem wolności. Chór więźniów i sygnał trąbki zapowiadający wyzwolenie należą do najbardziej poruszających chwil w operze."
+  },
+  "beethoven-symphony-5": {
+    "title": "Symfonia nr 5",
+    "instrumentation": "Orkiestra",
+    "description": "Cztery najsłynniejsze dźwięki muzyki: ta-ta-ta-taaa. Piąta Symfonia prowadzi od zmagań c-moll do triumfu C-dur, od „losu pukającego do drzwi” po świetlisty finał wolności. Podczas II wojny światowej stała się symbolem zwycięstwa.",
+    "significance": "Najbardziej rozpoznawalna symfonia świata i wzorzec dramatycznej drogi „od mroku do światła”."
+  },
+  "beethoven-piano-concerto-5": {
+    "title": "Koncert fortepianowy nr 5 „Cesarski”",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Najwspanialszy koncert fortepianowy epoki klasycyzmu, napisany, gdy wojska Napoleona ostrzeliwały Wiedeń. Bohaterski początek, w którym solista rozpoczyna błyskotliwą kadencją, zanim orkiestra poda temat, był rozwiązaniem bez precedensu."
+  },
+  "weber-clarinet-concerto-1": {
+    "title": "Koncert klarnetowy nr 1 f-moll op. 73",
+    "instrumentation": "Klarnet solo, orkiestra",
+    "description": "Utwór napisany dla wirtuoza Heinricha Baermanna. Wykorzystuje cały zakres klarnetu: od śpiewnych kantylen po wirtuozowskie pasaże. Stał się jednym z filarów repertuaru klarnetowego."
+  },
+  "schubert-erlkoenig": {
+    "title": "Król olch",
+    "instrumentation": "Głos i fortepian",
+    "description": "Dramatyczna pieśń do ballady Goethego o ojcu jadącym nocą z umierającym dzieckiem, ściganym przez nadprzyrodzonego Króla olch. Nieustanne triolowe przebiegi fortepianu oddają galop konia, a śpiewak wciela się w cztery postacie. Schubert miał 18 lat, gdy ją napisał.",
+    "significance": "Ugruntowała pozycję pieśni artystycznej i ukazała przedwczesny talent dramatyczny Schuberta."
+  },
+  "paganini-24-caprices": {
+    "title": "24 kaprysy na skrzypce solo op. 1",
+    "instrumentation": "Skrzypce solo",
+    "description": "Dwadzieścia cztery etiudy na nowo określające możliwości skrzypiec. Wymagają użycia flażoletów, pizzicata lewej ręki, ricochetu i dwudźwięków. Temat 24. kaprysu zainspirował Brahmsa, Rachmaninoffa i Lutosławskiego.",
+    "significance": "Na zawsze poszerzyły techniczny język skrzypiec."
+  },
+  "paganini-violin-concerto-1": {
+    "title": "Koncert skrzypcowy nr 1 D-dur op. 6",
+    "instrumentation": "Skrzypce solo, orkiestra",
+    "description": "Wirtuozowski popis napisany, by ukazać nadludzką technikę Paganiniego. Wzniosłe melodie i akrobatyczne pasaże wyznaczyły wzorzec romantycznego koncertu skrzypcowego."
+  },
   "chopin-nocturnes": {
+    "title": "Nokturny",
+    "instrumentation": "Fortepian",
+    "description": "Dwadzieścia jeden nokturnów z całego okresu twórczości Chopina: lirycznych, introspektywnych miniatur, które śpiewają na klawiaturze. Nokturn Es-dur op. 9 nr 2 należy do najpopularniejszych utworów fortepianowych w historii.",
     "wikipediaSlug": "Nokturny_(Chopin)"
+  },
+  "weber-invitation-to-dance": {
+    "title": "Zaproszenie do tańca op. 65",
+    "instrumentation": "Fortepian (utwór orkiestrowany także przez Berlioza)",
+    "description": "Koncertowy walc przedstawiający scenę na balu: zaproszenie, taniec i pożegnanie. Ugruntował walc jako gatunek koncertowy, a Berlioz opracował go błyskotliwie na orkiestrę.",
+    "significance": "Zapoczątkował koncertowy walc."
+  },
+  "weber-der-freischutz": {
+    "title": "Wolny strzelec",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Pierwsza wielka niemiecka opera romantyczna. Scena w Wilczym Jarze przerażała publiczność nadprzyrodzonymi efektami orkiestrowymi. Ludowe melodie i muzyczne obrazy natury Webera określiły niemiecki styl opery romantycznej.",
+    "significance": "Ugruntowała niemiecką operę romantyczną i wywarła ogromny wpływ na Wagnera."
+  },
+  "schubert-symphony-8": {
+    "title": "Symfonia nr 8 „Niedokończona”",
+    "instrumentation": "Orkiestra",
+    "description": "Powstały tylko dwie części, ale są tak doskonałe, że żadna próba dokończenia dzieła nie przyniosła zadowalającego rezultatu. Symfonię otwiera jedna z najsłynniejszych melodii tego gatunku — samotny temat wynurzający się z mrocznej głębi."
+  },
+  "beethoven-symphony-9": {
+    "title": "Symfonia nr 9 „Chóralna”",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Ostatnia ukończona symfonia Beethovena i najpotężniejsza w muzyce zachodniej wypowiedź o powszechnym braterstwie. Finał łączy solistów, chór i orkiestrę, by wykonać „Odę do radości” Schillera, przełamując granice symfonii i oratorium. Utwór powstał niemal w całkowitej głuchocie.",
+    "significance": "Stała się podstawą hymnu Unii Europejskiej i na zawsze odmieniła symfonię. Po Dziewiątej każdy symfonik musiał się do niej odnieść."
+  },
+  "mendelssohn-octet": {
+    "title": "Oktet Es-dur op. 20",
+    "instrumentation": "Oktet smyczkowy (4 skrzypiec, 2 altówki, 2 wiolonczele)",
+    "description": "Mendelssohn napisał go w wieku zaledwie 16 lat. To być może najbardziej zdumiewający przykład młodzieńczego geniuszu w całej muzyce. Baśniowe scherzo zapowiada uwerturę do Snu nocy letniej.",
+    "significance": "Najwybitniejsze dzieło młodzieńczego geniuszu w muzyce kameralnej."
+  },
+  "paganini-violin-concerto-2": {
+    "title": "Koncert skrzypcowy nr 2 h-moll op. 7 „La campanella”",
+    "instrumentation": "Skrzypce solo, orkiestra",
+    "description": "Słynie z finałowego ronda naśladującego dźwięk dzwonka, później rozsławionego przez fortepianową transkrypcję Liszta. Koncert łączy operowy liryzm z olśniewającą wirtuozerią."
+  },
+  "weber-oberon": {
+    "title": "Oberon",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Ostatnia opera Webera, napisana dla Londynu. Baśniowa fabuła i jedne z najbardziej błyskotliwych pomysłów orkiestrowych kompozytora. Uwertura wciąż należy do ulubionych utworów koncertowych."
+  },
+  "schubert-winterreise": {
+    "title": "Podróż zimowa",
+    "instrumentation": "Głos i fortepian",
+    "description": "Cykl 24 pieśni o odrzuconym kochanku wędrującym przez skute lodem krajobrazy — przypowieść o rozpaczy, szaleństwie i śmierci. Ostatnia pieśń, „Der Leiermann” („Kataryniarz”), z posępnym, powracającym akompaniamentem, jest jednym z najbardziej przejmujących zakończeń w muzyce.",
+    "significance": "Najwybitniejszy cykl pieśniowy w historii i szczytowe osiągnięcie niemieckiej pieśni romantycznej."
+  },
+  "schubert-string-quintet": {
+    "title": "Kwintet smyczkowy C-dur",
+    "instrumentation": "Kwintet smyczkowy (2 skrzypiec, altówka, 2 wiolonczele)",
+    "description": "Schubert skomponował go w ostatnich tygodniach życia. To jedno z najbardziej transcendentnych dzieł muzyki kameralnej: część wolna otwiera świat nieziemskiego piękna, a emocjonalna skala utworu — od anielskiego spokoju po gwałtowną rozpacz — przytłacza.",
+    "significance": "Często uznawany za największe pojedyncze dzieło kameralne."
+  },
+  "chopin-etudes-op10": {
+    "title": "Etiudy op. 10",
+    "instrumentation": "Fortepian",
+    "description": "Dwanaście etiud, które na nowo zdefiniowały studium fortepianowe: nie są już tylko ćwiczeniami, lecz w pełni ukształtowanymi dziełami sztuki. Etiuda „Rewolucyjna” (nr 12) miała powstać w gniewie po wieści o upadku Warszawy pod rosyjskim atakiem.",
+    "significance": "Przekształciły etiudę z ćwiczenia technicznego w formę koncertową."
+  },
+  "paganini-god-save-the-king": {
+    "title": "Wariacje na temat „God Save the King” op. 9",
+    "instrumentation": "Skrzypce solo",
+    "description": "Błyskotliwe wariacje na temat brytyjskiego hymnu, prezentujące cały arsenał efektów Paganiniego: flażolety, pizzicato, szybkie pasaże i dwudźwięki."
+  },
+  "berlioz-symphonie-fantastique": {
+    "title": "Symfonia fantastyczna",
+    "instrumentation": "Wielka orkiestra",
+    "description": "Gorączkowa, autobiograficzna symfonia o młodym artyście, który z rozpaczy po nieodwzajemnionej miłości zażywa opium i doświadcza przerażających wizji: sabatu czarownic, własnej egzekucji i pastoralnego snu zmieniającego się w koszmar. Każda część wykorzystuje idée fixe — powracającą melodię ukochanej.",
+    "significance": "Pierwsza wielka symfonia programowa. Zrewolucjonizowała orkiestrację i ogromnie poszerzyła ekspresyjne możliwości orkiestry."
+  },
+  "chopin-piano-concerto-1": {
+    "title": "Koncert fortepianowy nr 1",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Młodzieńczy koncert Chopina, napisany, gdy miał 20 lat. Pełen poetyckich melodii i błyskotliwych partii fortepianu; część wolna jest nokturnem o niebiańskim pięknie."
+  },
+  "mendelssohn-symphony-4": {
+    "title": "Symfonia nr 4 „Włoska”",
+    "instrumentation": "Orkiestra",
+    "description": "Promienny obraz Włoch inspirowany podróżami Mendelssohna. Słoneczna pierwsza część tętni śródziemnomorską energią, a finał wiruje w rytmie włoskiego saltarello."
+  },
+  "mendelssohn-italian-symphony": {
+    "title": "Symfonia A-dur nr 4 op. 90 „Włoska”",
+    "instrumentation": "Orkiestra",
+    "description": "Symfonia inspirowana podróżą Mendelssohna po Włoszech, promieniująca śródziemnomorskim ciepłem i światłem — od porywającego początku po wirujący finał w rytmie saltarello."
+  },
+  "berlioz-harold-in-italy": {
+    "title": "Harold w Italii op. 16",
+    "instrumentation": "Altówka solo, orkiestra",
+    "description": "Symfonia z solową altówką, inspirowana poematem Byrona Wędrówki Childe Harolda. Zamówił ją Paganini, który nigdy jej nie wykonał, uznając partię altówki za zbyt łatwą. Łączy koncert i symfonię w wyjątkowy sposób."
+  },
+  "chopin-ballades": {
+    "title": "Ballady (nr 1–4)",
+    "instrumentation": "Fortepian",
+    "description": "Cztery wielkie utwory fortepianowe, które właściwie stworzyły nowy gatunek. Ballada g-moll nr 1 to być może najdoskonalszy utwór na fortepian solo: dramatyczna opowieść, która prowadzi od pytającego wstępu do burzliwej kody.",
+    "significance": "Chopin stworzył balladę jako formę instrumentalną. To jeden ze szczytów repertuaru fortepianowego."
+  },
+  "berlioz-requiem": {
+    "title": "Wielka msza żałobna (Requiem) op. 5",
+    "instrumentation": "Tenor solo, chór, orkiestra (w tym 4 zespoły dęte i 16 kotłów)",
+    "description": "Monumentalne Requiem, w którym podczas Dies Irae rozbrzmiewają cztery dęte zespoły zza sceny i szesnaście kotłów. Apokaliptyczna wizja i intymne Sanctus tworzą w muzyce niezwykłe skrajności.",
+    "significance": "Jedno z najbardziej monumentalnych dzieł chóralnych, jakie kiedykolwiek powstały."
+  },
+  "berlioz-romeo-juliet": {
+    "title": "Romeo i Julia op. 17",
+    "instrumentation": "Mezzosopran, tenor i bas solo, chór, orkiestra",
+    "description": "Symfonia dramatyczna, która łączy orkiestrę, solistów i chór w nowatorskim odczytaniu Szekspira. Scena miłosna należy do najbardziej zmysłowych fragmentów muzyki orkiestrowej."
+  },
+  "schumann-dichterliebe": {
+    "title": "Miłość poety",
+    "instrumentation": "Głos i fortepian",
+    "description": "Cykl pieśni do 16 wierszy Heinego o radości i rozpaczy miłości. Fortepian nie jest tu zwykłym akompaniamentem, lecz równorzędnym partnerem; słynny postludium, czyli solowy epilog po umilknięciu głosu, to jedna z najbardziej przejmujących chwil w muzyce."
+  },
+  "mendelssohn-violin-concerto": {
+    "title": "Koncert skrzypcowy e-moll",
+    "instrumentation": "Skrzypce solo, orkiestra",
+    "description": "Jeden z najbardziej ukochanych koncertów skrzypcowych, łączący romantyczną pasję z klasyczną elegancją. Nowatorskie rozwiązania — natychmiastowe wejście solisty z głównym tematem i połączenie części bez przerwy — wpłynęły na kolejne koncerty.",
+    "significance": "Jeden z trzech wielkich romantycznych koncertów skrzypcowych, obok dzieł Brahmsa i Tchaikovsky’ego."
+  },
+  "schumann-piano-concerto": {
+    "title": "Koncert fortepianowy a-moll",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Kwintesencja romantycznego koncertu fortepianowego, pełna poetyckiej fantazji i intymnego dialogu fortepianu z orkiestrą. Schumann napisał go dla żony Clary, jednej z najwybitniejszych pianistek XIX wieku; to ona wykonała go po raz pierwszy."
+  },
+  "liszt-hungarian-rhapsodies": {
+    "title": "Rapsodie węgierskie",
+    "instrumentation": "Fortepian (niektóre w wersji orkiestrowej)",
+    "description": "Dziewiętnaście utworów fortepianowych opartych na muzyce ludowej Węgier i Romów. Druga rapsodia jest jednym z najsłynniejszych dzieł fortepianowych, a cały cykl stał się synonimem olśniewającej wirtuozerii Liszta."
+  },
+  "wagner-ring-cycle": {
+    "title": "Pierścień Nibelunga",
+    "instrumentation": "Wielka orkiestra, soliści, chór",
+    "description": "Cztery opery — Złoto Renu, Walkiria, Zygfryd i Zmierzch bogów — trwające łącznie około 15 godzin. To najambitniejsze dzieło sztuki, jakie kiedykolwiek powstało: opowieść o bogach, bohaterach i przeklętym pierścieniu, prowadzona siecią motywów przewodnich.",
+    "significance": "Odmienił operę, harmonię i wyobrażenie o możliwościach muzyki. Wagner zbudował w Bayreuth własną operę, by wystawić cykl."
+  },
+  "liszt-totentanz": {
+    "title": "Totentanz (Taniec śmierci)",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Wariacje na temat Dies Irae na fortepian i orkiestrę, inspirowane freskiem Triumf śmierci. Demoniczna wirtuozeria i makabryczna atmosfera czynią z nich jedno z najbardziej porywających dzieł Liszta."
+  },
+  "liszt-piano-sonata-b-minor": {
+    "title": "Sonata fortepianowa h-moll",
+    "instrumentation": "Fortepian",
+    "description": "Jedno z najwybitniejszych dzieł fortepianowych w historii: monumentalna, trwająca pół godziny część, która prowadzi kilka tematów przez pełną gamę emocji i faktur. Jej jednoczęściowa forma nie miała precedensu.",
+    "significance": "Kamień milowy literatury fortepianowej i najdoskonalszy przykład techniki przekształcania tematów."
+  },
+  "verdi-la-traviata": {
+    "title": "Traviata",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Na podstawie powieści Alexandre’a Dumasa opera opowiada o kurtyzanie Violetcie: jej miłości do Alfreda, poświęceniu i śmierci na gruźlicę. Muzyka Verdiego oddaje jej radość, cierpienie i godność melodiami o łamiącym serce pięknie.",
+    "significance": "Jedna z najczęściej wystawianych oper świata i kamień milowy romantycznej tradycji operowej."
+  },
+  "wagner-tristan-und-isolde": {
+    "title": "Tristan i Izolda",
+    "instrumentation": "Wielka orkiestra, soliści",
+    "description": "Opera, która przełamała dotychczasowe granice muzyki. Opowieść o tragicznych kochankach doprowadza chromatyzm do miejsca, w którym tonalność zaczyna się rozpływać. Słynny akord tristanowski, pierwsze brzmienie opery, przez dziesięciolecia pozostawał nierozwiązanym zagadnieniem analizy muzycznej.",
+    "significance": "Punkt wyjścia dla wszystkiego, co nastąpiło: muzyki Mahlera, Straussa, Debussy’ego i Schoenberga. Być może najbardziej wpływowe dzieło w historii muzyki zachodniej."
+  },
+  "saint-saens-introduction-rondo": {
+    "title": "Introdukcja i rondo capriccioso op. 28",
+    "instrumentation": "Skrzypce solo, orkiestra",
+    "description": "Błyskotliwy utwór popisowy napisany dla Pabla de Sarasate. Łączy mroczny wstęp z ognistym rondem o hiszpańskim zabarwieniu i należy do podstawowego repertuaru wirtuozowskiego."
+  },
+  "smetana-bartered-bride": {
+    "title": "Sprzedana narzeczona",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Pełna czeskich tańców ludowych i zaraźliwych melodii błyskotliwa opera komiczna. Jej międzynarodowy sukces wprowadził czeską operę na światowe sceny.",
+    "significance": "Największy międzynarodowy sukces czeskiej opery."
+  },
+  "mussorgsky-night-bald-mountain": {
+    "title": "Noc na Łysej Górze",
+    "instrumentation": "Orkiestra",
+    "description": "Żywy poemat symfoniczny przedstawiający sabat czarownic, znany głównie z pośmiertnej orkiestracji Rimsky-Korsakova. Dzika energia i mroczne barwy czynią z niego jedno z najbardziej porywających dzieł orkiestrowych XIX wieku."
+  },
+  "wagner-die-meistersinger": {
+    "title": "Śpiewacy norymberscy",
+    "instrumentation": "Wielka orkiestra, soliści, chór",
+    "description": "Jedyna dojrzała opera komiczna Wagnera i najdłuższa opera w standardowym repertuarze — trwa około czterech i pół godziny. To pełen ciepła hołd dla sztuki, tradycji i twórczego ducha, rozgrywający się wśród średniowiecznych mistrzów śpiewu z Norymbergi."
+  },
+  "brahms-german-requiem": {
+    "title": "Niemieckie Requiem",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Nie liturgiczne requiem, lecz osobista medytacja o śmierci i pocieszeniu, do tekstów wybranych przez Brahmsa z Biblii Lutra: „Błogosławieni, którzy się smucą, albowiem oni będą pocieszeni”. Powstało w cieniu śmierci jego matki i choroby Roberta Schumanna.",
+    "significance": "Najwybitniejsze religijne dzieło chóralne XIX wieku od czasów Missa solemnis Beethovena."
+  },
+  "grieg-piano-concerto": {
+    "title": "Koncert fortepianowy a-moll",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Jeden z najpopularniejszych koncertów fortepianowych. Otwiera go dramatyczny, kaskadowy pasaż, rozpoznawalny od pierwszych dźwięków. Utwór łączy romantyczną formę koncertu z duchem norweskich krajobrazów i muzyki ludowej."
+  },
+  "saint-saens-piano-concerto-2": {
+    "title": "Koncert fortepianowy nr 2 g-moll op. 22",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Skomponowany w zaledwie 17 dni koncert prowadzi od improwizowanego, bachowskiego początku przez scherzo w stylu Mendelssohna po finałową tarantelę à la Offenbach. Różnorodność zachwyciła publiczność i krytyków."
+  },
+  "verdi-aida": {
+    "title": "Aida",
+    "instrumentation": "Soliści, chór, wielka orkiestra, orkiestra na scenie",
+    "description": "Wielka opera historyczna rozgrywająca się w starożytnym Egipcie, zamówiona na otwarcie Opery Kairskiej. Marsz triumfalny z trąbkami na scenie to jedna z najbardziej widowiskowych scen operowych. Za przepychem kryje się jednak intymna opowieść o niemożliwej miłości."
+  },
+  "mussorgsky-boris-godunov": {
+    "title": "Borys Godunow",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Monumentalna opera historyczna o dręczonym przez wyrzuty sumienia carze Borysie. Rewolucyjnie wykorzystuje prozę w libretcie, surową harmonię i chór jako zbiorowego bohatera.",
+    "significance": "Odmieniła rosyjską operę i wpłynęła na kolejne pokolenia kompozytorów."
+  },
+  "verdi-requiem": {
+    "title": "Requiem",
+    "instrumentation": "Soliści, podwójny chór, orkiestra",
+    "description": "Brahms miał nazwać je „operą w szatach kościelnych” — i grzmiące Dies Irae, wsparte potężnym chórem i orkiestrą, rzeczywiście należy do najbardziej przerażająco dramatycznych części muzyki sakralnej. Verdi skomponował Requiem ku pamięci pisarza Alessandro Manzoniego.",
+    "significance": "Jedno z największych Requiem, dorównujące dziełom Mozarta i Brahmsa."
+  },
+  "smetana-vltava": {
+    "title": "Wełtawa (Vltava)",
+    "instrumentation": "Orkiestra",
+    "description": "Drugi i najbardziej ukochany poemat z cyklu Moja ojczyzna. Śledzi bieg Wełtawy od dwóch źródeł przez lasy, wsie i księżycowe krajobrazy aż po jej triumfalny wpływ do Pragi."
+  },
+  "saint-saens-danse-macabre": {
+    "title": "Taniec śmierci op. 40",
+    "instrumentation": "Orkiestra (ze skrzypcami solo)",
+    "description": "Poemat symfoniczny, w którym Śmierć gra o północy na skrzypcach, a szkielety tańczą. Skrzypce solo są strojone w tryton, zwany „diabelskim interwałem”, a ksylofon naśladuje klekot kości."
+  },
+  "mussorgsky-pictures": {
+    "title": "Obrazki z wystawy",
+    "instrumentation": "Fortepian (orkiestrowane także przez Ravela)",
+    "description": "Suita dziesięciu muzycznych obrazów inspirowanych dziełami Viktora Hartmanna, połączonych powracającym tematem Promenady. Orkiestracja Ravela stała się jeszcze słynniejsza niż oryginał fortepianowy.",
+    "significance": "Kamień milowy muzycznego malarstwa i jeden z najczęściej orkiestrowanych utworów fortepianowych."
+  },
+  "tchaikovsky-piano-concerto-1": {
+    "title": "Koncert fortepianowy nr 1",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Najpopularniejszy koncert fortepianowy repertuaru. Jego grzmiące akordy otwierające są natychmiast rozpoznawalne. Nikolai Rubinstein początkowo odrzucił go jako „bezwartościowy i niewykonalny”, a dziś to żelazny punkt repertuaru koncertowego."
+  },
+  "grieg-peer-gynt": {
+    "title": "Suity Peer Gynt",
+    "instrumentation": "Orkiestra",
+    "description": "Muzyka sceniczna do dramatu Ibsena, zebrana w dwóch suitach orkiestrowych. „Poranek”, „W grocie Króla Gór” i „Pieśń Solvejgi” należą do najbardziej znanych melodii muzyki klasycznej."
+  },
+  "tchaikovsky-swan-lake": {
+    "title": "Jezioro łabędzie",
+    "instrumentation": "Orkiestra",
+    "description": "Wzorzec baletu romantycznego. Tchaikovsky przemienił muzykę baletową z użytkowego akompaniamentu tanecznego w dramat symfoniczny, a temat łabędzi stał się jedną z najbardziej rozpoznawalnych melodii w historii muzyki.",
+    "significance": "Uczyniło balet poważną formą sztuki, oprawioną muzyką o symfonicznej jakości."
+  },
+  "smetana-string-quartet-1": {
+    "title": "Kwartet smyczkowy nr 1 e-moll „Z mojego życia”",
+    "instrumentation": "Kwartet smyczkowy",
+    "description": "Autobiograficzny kwartet ukazujący drogę od młodzieńczego entuzjazmu po utratę słuchu. W finale zapowiada ją przenikliwy, bardzo wysoki flażolet e."
+  },
+  "borodin-symphony-2": {
+    "title": "Symfonia nr 2 h-moll",
+    "instrumentation": "Orkiestra",
+    "description": "Potężna, bohaterska symfonia przywołująca ducha dawnej Rusi. Śmiałe tematy i barwna orkiestracja skłoniły Liszta do nazwania Borodina symfonikiem pierwszej klasy."
+  },
+  "mussorgsky-songs-dances-death": {
+    "title": "Pieśni i tańce śmierci",
+    "instrumentation": "Głos, fortepian",
+    "description": "Wstrząsający cykl pieśni, w którym Śmierć ukazuje się w czterech postaciach: śpiewa kołysankę, tańczy, dowodzi wojskiem i serenadą uwodzi. To jedno z najpotężniejszych dzieł wokalnych XIX wieku."
+  },
+  "brahms-violin-concerto": {
+    "title": "Koncert skrzypcowy",
+    "instrumentation": "Skrzypce solo, orkiestra",
+    "description": "Napisany dla Josepha Joachima i z jego radami; łączy bohaterski rozmach z lirycznym ciepłem. Temat oboju w części wolnej to jedna z najpiękniejszych melodii Brahmsa."
+  },
+  "tchaikovsky-violin-concerto": {
+    "title": "Koncert skrzypcowy",
+    "instrumentation": "Skrzypce solo, orkiestra",
+    "description": "Utwór pełen wzniosłego rosyjskiego liryzmu. Krytyk Hanslick niesławnie nazwał go „muzyką, która śmierdzi w uszach”, lecz publiczność od razu go pokochała. Połączenie wirtuozerii z głębią emocjonalną czyni go jednym z najważniejszych koncertów skrzypcowych."
+  },
+  "smetana-ma-vlast": {
+    "title": "Má vlast (Moja ojczyzna)",
+    "instrumentation": "Orkiestra",
+    "description": "Cykl sześciu poematów symfonicznych sławiących czeską historię, legendy i krajobraz. Najsłynniejsza Wełtawa przedstawia podróż wielkiej rzeki od górskich źródeł do Pragi.",
+    "significance": "Fundamentalne dzieło czeskiego nacjonalizmu muzycznego."
+  },
+  "borodin-in-the-steppes": {
+    "title": "W stepach Azji Środkowej",
+    "instrumentation": "Orkiestra",
+    "description": "Poemat symfoniczny o karawanie przemierzającej środkowoazjatycki step. Łączy melodie rosyjskie i orientalne nad nieustępliwym rytmicznym pulsem. Sugestywna prostota uczyniła go jedną z najpopularniejszych miniatur orkiestrowych."
+  },
+  "brahms-piano-concerto-2": {
+    "title": "Koncert fortepianowy nr 2",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Brahms żartował, że to „malutki, malutki koncert fortepianowy z malutkim, malutkim scherzem”, choć dzieło ma symfoniczny rozmach i głębię. Partia wiolonczeli solo w części wolnej jest zachwycająca."
+  },
+  "borodin-string-quartet-2": {
+    "title": "Kwartet smyczkowy nr 2 D-dur",
+    "instrumentation": "Kwartet smyczkowy",
+    "description": "Ukochany przez publiczność dzięki lirycznemu nokturnowi w trzeciej części. To jeden z najpopularniejszych kwartetów repertuaru, pełen ciepła, barw i śpiewnych melodii."
+  },
+  "rimsky-korsakov-snow-maiden": {
+    "title": "Śnieżynka",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Liryczna opera baśniowa na podstawie sztuki Ostrowskiego, bogata w melodie inspirowane folklorem i muzyczne obrazy przyrody. Rimsky-Korsakov uważał ją za swoją najlepszą operę."
+  },
+  "franck-prelude-chorale-fugue": {
+    "title": "Preludium, chorał i fuga",
+    "instrumentation": "Fortepian",
+    "description": "Monumentalny utwór fortepianowy łączący formy Bachowskie z romantyczną harmonią i tworzący wyjątkową syntezę dawnego z nowym. Trzy części spajają powracające tematy."
+  },
+  "grieg-holberg-suite": {
+    "title": "Suita z czasów Holberga op. 40",
+    "instrumentation": "Orkiestra smyczkowa (pierwotnie fortepian)",
+    "description": "Suita w stylu barokowym, zadedykowana duńsko-norweskiemu dramaturgowi Ludvigowi Holbergowi. Łączy osiemnastowieczne formy taneczne z charakterystyczną dla Griega nordycką harmonią."
+  },
+  "brahms-symphony-4": {
+    "title": "Symfonia nr 4",
+    "instrumentation": "Orkiestra",
+    "description": "Ostatnia symfonia Brahmsa, być może jego największe dzieło. Finał to passacaglia oparta na barokowej formie i 30 wariacjach nad powracającym basem; dowodzi, że dawne formy mogą mieścić całkiem nowe emocje. Zamiast triumfem symfonia kończy się akceptacją potężniejszą niż zwycięstwo.",
+    "significance": "Najwybitniejsza synteza klasycznej formy i romantycznej ekspresji."
+  },
+  "franck-symphonic-variations": {
+    "title": "Wariacje symfoniczne",
+    "instrumentation": "Fortepian, orkiestra",
+    "description": "Zwięzły, mistrzowsko skomponowany utwór na fortepian i orkiestrę, który przekształca formę wariacji w nieprzerwany, organiczny przebieg. Jedno z najwybitniejszych dzieł na fortepian z orkiestrą."
+  },
+  "franck-violin-sonata": {
+    "title": "Sonata skrzypcowa A-dur",
+    "instrumentation": "Skrzypce, fortepian",
+    "description": "Podarowana Eugène’owi Ysaÿe’owi na ślub sonata jest jednym z arcydzieł repertuaru kameralnego. Cztery części łączą niezwykle piękne, powracające tematy.",
+    "significance": "Jedna z najwybitniejszych sonat skrzypcowych w historii."
+  },
+  "saint-saens-organ-symphony": {
+    "title": "Symfonia organowa nr 3 c-moll op. 78",
+    "instrumentation": "Orkiestra, organy, fortepian (na cztery ręce)",
+    "description": "Wspaniała symfonia z organami i fortepianem, zadedykowana pamięci Liszta. Triumfalny finał, w którym rozbrzmiewają pełne organy, to jedna z najbardziej porywających chwil muzyki symfonicznej.",
+    "significance": "Odnowiła francuską symfonię i zapoczątkowała użycie organów w muzyce symfonicznej."
+  },
+  "saint-saens-carnival-animals": {
+    "title": "Karnawał zwierząt",
+    "instrumentation": "Dwa fortepiany, flet, klarnet, harmonika szklana, ksylofon, smyczki",
+    "description": "Dowcipna zoologiczna fantazja w czternastu częściach, z muzycznymi portretami lwów, słoni, kangurów i pianistów. Saint-Saëns nie pozwalał wykonywać jej za życia, obawiając się o swoją poważną reputację."
+  },
+  "verdi-otello": {
+    "title": "Otello",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Verdi skomponował Otella w wieku 73 lat; opera bywa uznawana za jego największe dzieło. To przejmująca muzyczna adaptacja Szekspira, w której wokalistyka, orkiestracja i tempo dramatu osiągają kunszt wypracowywany przez kompozytora przez pół wieku.",
+    "significance": "Dowodzi, że włoska opera może dorównać Wagnerowi głębią muzyczną, nie tracąc śpiewnej melodii."
+  },
+  "rimsky-korsakov-capriccio-espagnol": {
+    "title": "Capriccio espagnol op. 34",
+    "instrumentation": "Orkiestra",
+    "description": "Błyskotliwy, pięcioczęściowy utwór orkiestrowy inspirowany hiszpańskimi melodiami. Pokazuje wirtuozerię poszczególnych grup orkiestry."
+  },
+  "franck-symphony-d-minor": {
+    "title": "Symfonia d-moll",
+    "instrumentation": "Orkiestra",
+    "description": "Jedyna symfonia Francka: zwarta, trzyczęściowa forma oparta na zasadzie cykliczności. Paryski establishment początkowo ją odrzucił, dziś należy do najczęściej wykonywanych symfonii francuskich.",
+    "significance": "Kamień milowy francuskiej muzyki symfonicznej i formy cyklicznej."
+  },
+  "rimsky-korsakov-scheherazade": {
+    "title": "Szeherezada op. 35",
+    "instrumentation": "Orkiestra (ze skrzypcami solo)",
+    "description": "Suita symfoniczna oparta na Księdze tysiąca i jednej nocy, lśniąca egzotycznymi barwami orkiestry. Skrzypce solo przedstawiają Szeherezadę, która snuje opowieści, by ocalić życie.",
+    "significance": "Jedno z najwybitniejszych osiągnięć w dziedzinie barwy orkiestrowej."
+  },
+  "rimsky-korsakov-russian-easter": {
+    "title": "Uwertura na Wielkanoc rosyjską op. 36",
+    "instrumentation": "Orkiestra",
+    "description": "Błyskotliwie zinstrumentowana uwertura oparta na rosyjskich śpiewach liturgicznych. Przedstawia wielkanocne świętowanie, które przechodzi od uroczystej ciemności do radosnego triumfu."
+  },
+  "satie-gymnopedies": {
+    "title": "Gymnopédies",
+    "instrumentation": "Fortepian",
+    "description": "Trzy powolne, senne utwory o oszczędnej, modalnej harmonii i nieruchomym charakterze. Zrywają z późnoromantycznym przepychem i zapowiadają muzykę ambientową o niemal sto lat.",
+    "significance": "Zapoczątkowały muzyczny minimalizm i wpłynęły na Debussy’ego, Cage’a oraz muzykę ambientową."
+  },
+  "debussy-clair-de-lune": {
+    "title": "Światło księżyca",
+    "instrumentation": "Fortepian",
+    "description": "Trzecia część Suity bergamaskiej i jeden z najsłynniejszych utworów fortepianowych w historii. Migotliwe pasaże i świetlista melodia przywołują księżycową noc z czułością, której nie oddaje etykieta impresjonizmu."
+  },
+  "borodin-prince-igor": {
+    "title": "Kniaź Igor (w tym Tańce połowieckie)",
+    "instrumentation": "Soliści, chór, orkiestra, balet",
+    "description": "Wielka opera, niedokończona przez Borodina i ukończona przez Rimsky-Korsakova oraz Glazunova. Tańce połowieckie należą do najbardziej porywających i barwnych scen operowych."
+  },
+  "tchaikovsky-nutcracker": {
+    "title": "Dziadek do orzechów",
+    "instrumentation": "Orkiestra",
+    "description": "Baśniowy balet bożonarodzeniowy, dziś nieodłącznie kojarzony ze świętami. Taniec Wieszczki Cukrowej — z czelestą, odkrytą przez Tchaikovsky’ego w Paryżu — oraz Walc kwiatów należą do najbardziej ukochanych utworów orkiestrowych."
+  },
+  "tchaikovsky-symphony-6": {
+    "title": "Symfonia nr 6 „Patetyczna”",
+    "instrumentation": "Orkiestra",
+    "description": "Ostatnia symfonia Tchaikovsky’ego, której premiera odbyła się dziewięć dni przed jego śmiercią. Łamie konwencję, kończąc się przejmującym Adagio lamentoso, które cichnie w milczeniu. Kompozytor nazwał ją swoim najszczerszym dziełem i „programem, który pozostanie zagadką”.",
+    "significance": "Jedna z najbardziej przytłaczających emocjonalnie symfonii w historii."
+  },
+  "dvorak-symphony-9": {
+    "title": "Symfonia nr 9 „Z Nowego Świata”",
+    "instrumentation": "Orkiestra",
+    "description": "Dvořák skomponował ją, gdy kierował konserwatorium w Nowym Jorku. Symfonia łączy czeskie ciepło z duchem Ameryki. Temat rożka angielskiego z części Largo — „Goin’ Home” — to jedna z najbardziej przejmująco pięknych melodii symfonicznych.",
+    "significance": "Jedna z najpopularniejszych symfonii w historii. Buzz Aldrin odtworzył ją podczas misji Apollo 11."
+  },
+  "satie-gnossiennes": {
+    "title": "Gnossiennes",
+    "instrumentation": "Fortepian",
+    "description": "Sześć tajemniczych utworów bez taktów i znaków tonacji, z ekscentrycznymi wskazówkami wykonawczymi („Otwórz głowę”, „Bądź jasnowidzem”). Ich egzotyczne skale przywodzą na myśl muzykę Bliskiego Wschodu."
+  },
+  "satie-vexations": {
+    "title": "Vexations",
+    "instrumentation": "Fortepian",
+    "description": "Krótki fragment z poleceniem, by powtórzyć go 840 razy — wykonanie trwa około 18 godzin. Odkryty na nowo przez Johna Cage’a w 1963 roku, zapowiadał sztukę konceptualną i performans wytrzymałościowy."
+  },
+  "mahler-symphony-2": {
+    "title": "Symfonia nr 2 „Zmartwychwstanie”",
+    "instrumentation": "Soliści, chór, wielka orkiestra, blacha zza sceny",
+    "description": "Dziewięćdziesięciominutowa podróż od śmierci do zmartwychwstania. Rozpoczyna ją gwałtowny marsz żałobny, a kończy chór śpiewający o powstaniu z martwych. Rozmach dorównuje Beethovenowi: blacha zza sceny, dzwony i potężny chór pomagają zadać pytania: po co żyjemy i czy istnieje życie po śmierci?",
+    "significance": "Jedno z najbardziej przytłaczających przeżyć koncertowych."
+  },
+  "debussy-prelude-apres-midi": {
+    "title": "Preludium do Popołudnia fauna",
+    "instrumentation": "Orkiestra",
+    "description": "Zmysłowy obraz orkiestrowy inspirowany poematem Mallarmégo o popołudniowej zadumie fauna. Zwiewna, chromatyczna melodia fletu, swobodna wobec kreski taktowej, otworzyła nowy świat muzyczny. Boulez nazwał utwór „początkiem muzyki nowoczesnej”.",
+    "significance": "Często wskazywane jako początek modernizmu i impresjonizmu muzycznego."
+  },
+  "dvorak-cello-concerto": {
+    "title": "Koncert wiolonczelowy h-moll",
+    "instrumentation": "Wiolonczela solo, orkiestra",
+    "description": "Najwybitniejszy koncert wiolonczelowy w historii. Gdy Brahms zobaczył partyturę, wykrzyknął: „Dlaczego nie wiedziałem, że można napisać taki koncert? Gdybym wiedział, sam bym go skomponował!”. Głębia emocji i blask orkiestry wyznaczyły standard, któremu żaden późniejszy koncert nie dorównał.",
+    "significance": "Niezrównany szczyt repertuaru wiolonczelowego."
+  },
+  "strauss-also-sprach-zarathustra": {
+    "title": "Tako rzecze Zaratustra",
+    "instrumentation": "Wielka orkiestra z organami",
+    "description": "Początkowa fanfara wschodu słońca — C-G-C nad pomrukiem organów — stała się jednym z najbardziej rozpoznawalnych momentów muzycznych, gdy Stanley Kubrick wykorzystał ją w filmie 2001: Odyseja kosmiczna. Cały poemat symfoniczny to półgodzinna podróż filozoficzna inspirowana Nietzschem."
+  },
+  "puccini-la-boheme": {
+    "title": "Cyganeria",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Przejmująca opowieść o młodej miłości i śmierci w paryskiej Dzielnicy Łacińskiej, opowiedziana z niezawodnym wyczuciem dramatu i melodyjnym talentem Pucciniego. Walc Musetty i scena śmierci Mimi należą do najbardziej ukochanych chwil operowych.",
+    "significance": "Jedna z najczęściej wystawianych oper na świecie."
+  },
+  "schoenberg-verklarte-nacht": {
+    "title": "Verklärte Nacht (Noc przemieniona)",
+    "instrumentation": "Sekstet smyczkowy (lub orkiestra smyczkowa)",
+    "description": "Bujny, romantyczny poemat na sekstet smyczkowy, oparty na wierszu Richarda Dehmela o nocnym spacerze i wyznaniu miłości. To jedno z ostatnich wielkich dzieł tonalnego romantyzmu — zanim sam Schoenberg odrzucił tonalność."
+  },
+  "elgar-enigma-variations": {
+    "title": "Wariacje Enigma op. 36",
+    "instrumentation": "Orkiestra",
+    "description": "Czternaście wariacji przedstawiających przyjaciół Elgara i jego żonę, każda jako wyrazisty portret. Dostojna wariacja Nimrod stała się nieoficjalnym hymnem Wielkiej Brytanii, wykonywanym podczas uroczystości państwowych i obchodów pamięci.",
+    "significance": "W jednej chwili uczyniły Elgara ważnym kompozytorem międzynarodowym."
+  },
+  "sibelius-finlandia": {
+    "title": "Finlandia op. 26",
+    "instrumentation": "Orkiestra",
+    "description": "Poemat symfoniczny, który stał się hymnem fińskiej tożsamości narodowej podczas walki o niepodległość od Rosji. Rosyjskie władze zakazywały wykonywania go pod prawdziwym tytułem.",
+    "significance": "Stała się symbolem fińskiej niepodległości."
+  },
+  "rimsky-korsakov-flight-bumblebee": {
+    "title": "Lot trzmiela",
+    "instrumentation": "Orkiestra",
+    "description": "Interludium orkiestrowe z opery Opowieść o carze Sałtanie, przedstawiające księcia przemienionego w trzmiela. Wirujące skale chromatyczne uczyniły z niego jeden z najsłynniejszych popisów wirtuozowskich."
+  },
+  "elgar-dream-gerontius": {
+    "title": "Sen Geroncjusza op. 38",
+    "instrumentation": "Mezzosopran, tenor i bas solo, chór, orkiestra",
+    "description": "Wielkie oratorium do poematu kardynała Newmana o podróży duszy po śmierci. Po nieudanej premierze dzieło zyskało w Niemczech poparcie Richarda Straussa, który wzniósł toast za Elgara jako „pierwszego angielskiego progresywistę”."
+  },
+  "puccini-tosca": {
+    "title": "Tosca",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Trzymający w napięciu dramat rozgrywający się w Rzymie podczas kampanii Napoleona, słynący z arii Vissi d’arte i porywającego finału. Szybkie tempo, przemoc i intensywne emocje zapowiadają opowiadanie filmowe."
+  },
+  "rachmaninoff-piano-concerto-2": {
+    "title": "Koncert fortepianowy nr 2",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Powstał, gdy Rachmaninoff przezwyciężył kryzys twórczy dzięki hipnoterapii. Otwierają go narastające, dzwonowe akordy, po których rozwijają się fale bogatych, namiętnych melodii. To jeden z najpopularniejszych koncertów w historii.",
+    "significance": "Dzieło definiujące późny romantyzm i jeden z największych sukcesów muzyki klasycznej."
+  },
+  "elgar-pomp-circumstance-1": {
+    "title": "Marsz Pomp and Circumstance nr 1 D-dur",
+    "instrumentation": "Orkiestra",
+    "description": "Pierwszy i najsłynniejszy z pięciu marszów. Melodia trio, znana jako Land of Hope and Glory, stała się drugim hymnem narodowym. Król Edward VII zasugerował, by dopisać do niej słowa."
+  },
+  "mahler-symphony-5": {
+    "title": "Symfonia nr 5",
+    "instrumentation": "Wielka orkiestra",
+    "description": "Od marsza żałobnego po porywające rondo — symfonia przemiany. Czwarta część, Adagietto na smyczki i harfę, zdobyła sławę dzięki filmowi Śmierć w Wenecji Viscontiego i należy dziś do najbardziej ukochanych wolnych części."
+  },
+  "sibelius-symphony-2": {
+    "title": "Symfonia D-dur nr 2 op. 43",
+    "instrumentation": "Orkiestra",
+    "description": "Bohaterska symfonia odczytywana w Finlandii jako deklaracja niepodległości od Rosji. Triumfalny finał, który wyrasta z drobnych motywów w świetlistą kulminację, pozostaje jednym z najbardziej porywających w repertuarze."
+  },
+  "sibelius-valse-triste": {
+    "title": "Valse triste op. 44",
+    "instrumentation": "Orkiestra smyczkowa",
+    "description": "Przejmujący walc z muzyki do sztuki, przedstawiający halucynację umierającej kobiety, która widzi upiorny bal. Melancholijne piękno utworu uczyniło go najpopularniejszą krótką kompozycją Sibeliusa."
+  },
+  "puccini-madama-butterfly": {
+    "title": "Madama Butterfly",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Tragiczna opowieść o japońskiej gejszy porzuconej przez amerykańskiego oficera marynarki. Po katastrofalnej premierze Puccini przerobił operę i stworzył jedno z najbardziej przejmujących dzieł w repertuarze."
+  },
+  "debussy-la-mer": {
+    "title": "Morze",
+    "instrumentation": "Orkiestra",
+    "description": "Trzy szkice symfoniczne przedstawiające morze: od świtu do południa, grę fal oraz dialog wiatru z wodą. Debussy nie opisuje wyglądu morza, lecz jego odczuwanie.",
+    "significance": "Najwybitniejsze dzieło orkiestrowe impresjonizmu."
+  },
+  "elgar-introduction-allegro": {
+    "title": "Introdukcja i allegro op. 47",
+    "instrumentation": "Kwartet smyczkowy, orkiestra smyczkowa",
+    "description": "Wspaniały utwór na kwartet i orkiestrę smyczkową, łączący formę sonatową z fugowaną. Wzniosłe, inspirowane Walią tematy i bogata faktura czynią go jednym z najwybitniejszych dzieł na smyczki."
+  },
+  "sibelius-violin-concerto": {
+    "title": "Koncert skrzypcowy d-moll op. 47",
+    "instrumentation": "Skrzypce solo, orkiestra",
+    "description": "Jedyny ukończony koncert Sibeliusa, łączący lodowatą nordycką atmosferę z namiętnym liryzmem i ogromnymi wymaganiami technicznymi. To jeden z najpopularniejszych i najtrudniejszych koncertów skrzypcowych."
+  },
+  "mahler-das-lied-von-der-erde": {
+    "title": "Pieśń o ziemi",
+    "instrumentation": "Mezzosopran, tenor, orkiestra",
+    "description": "Symfonia, choć Mahler nie nadał jej tego tytułu — obawiał się „klątwy dziewiątej symfonii”. Do niemieckich przekładów dawnych chińskich wierszy skomponował pożegnanie z życiem o łamiącym serce pięknie. Ostatnie słowo, „ewig” („wiecznie”), rozpływa się w ciszy nad nierozwiązanym akordem.",
+    "significance": "Być może największe dzieło Mahlera i jedno z najgłębszych w muzyce rozważań o śmiertelności i transcendencji."
+  },
+  "rachmaninoff-piano-concerto-3": {
+    "title": "Koncert fortepianowy nr 3",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "„Mount Everest” repertuaru koncertów fortepianowych. Napisany na pierwszą amerykańską trasę Rachmaninoffa, wymaga oszałamiającej techniki, nie tracąc nieprzerwanego toku natchnionej melodii. Horowitz i inni uczynili z niego próbę najwyższych umiejętności pianistycznych."
+  },
+  "stravinsky-firebird": {
+    "title": "Ognisty ptak",
+    "instrumentation": "Wielka orkiestra",
+    "description": "Przełomowe dzieło Stravinsky’ego — balet oparty na rosyjskich baśniach, zamówiony przez Diaghileva. Finałowa scena koronacji, z narastającym tematem rogów, należy do najbardziej porywających kulminacji muzyki orkiestrowej."
+  },
+  "strauss-der-rosenkavalier": {
+    "title": "Kawaler srebrnej róży",
+    "instrumentation": "Soliści, chór, wielka orkiestra",
+    "description": "Słodko-gorzka komedia o miłości i przemijaniu, rozgrywająca się w XVIII-wiecznym Wiedniu. Finałowe trio splata głosy trzech kobiet w pożegnaniu, które należy do najwznioślejszych chwil opery. Bogata, walcująca partytura Straussa zarazem składa hołd romantyzmowi i się z nim żegna."
+  },
+  "stravinsky-petrushka": {
+    "title": "Pietruszka",
+    "instrumentation": "Wielka orkiestra z fortepianem",
+    "description": "Balet o kukiełce, która ożywa podczas rosyjskiego karnawału. Słynny „akord Pietruszki” — jednoczesne brzmienie C-dur i Fis-dur — stał się symbolem politonalności i rozpadu tradycyjnej harmonii."
+  },
+  "schoenberg-pierrot-lunaire": {
+    "title": "Pierrot lunaire",
+    "instrumentation": "Głos (Sprechstimme), flet, klarnet, skrzypce, wiolonczela, fortepian",
+    "description": "Dwadzieścia jeden opracowań wierszy Alberta Girauda o oszalałym z miłości klaunie Pierrocie. Wykorzystują Sprechstimme — technikę między śpiewem a mową. Niewielki zespół kameralny tworzy niezwykłą paletę barw i nastrojów.",
+    "significance": "Kamień milowy ekspresjonizmu i najbardziej wpływowe dzieło kameralne XX wieku."
+  },
+  "ravel-daphnis-et-chloe": {
+    "title": "Dafnis i Chloe",
+    "instrumentation": "Wielka orkiestra, chór bez słów",
+    "description": "Balet zamówiony przez Diaghileva dla Ballets Russes. Scena świtu w trzeciej części, często wykonywana jako suita orkiestrowa, należy do najbardziej zapierających dech w piersiach fragmentów muzyki: orkiestra dosłownie wschodzi jak słońce.",
+    "significance": "Ravel uważał go za swoje najlepsze dzieło; bywa nazywany „największą francuską kompozycją orkiestrową”."
+  },
+  "stravinsky-rite-of-spring": {
+    "title": "Święto wiosny",
+    "instrumentation": "Bardzo wielka orkiestra",
+    "description": "Balet o pogańskim obrzędzie ofiarnym w prehistorycznej Rosji. Paryska premiera 29 maja 1913 roku wywołała jeden z najsłynniejszych skandali w historii: publiczność krzyczała, biła się i zagłuszała muzykę. Nieregularne rytmy, politonalna harmonia i gwałtowność orkiestry na zawsze odmieniły muzykę.",
+    "significance": "Najważniejsze dzieło orkiestrowe XX wieku i granica między romantyzmem a nowoczesnością."
+  },
+  "satie-parade": {
+    "title": "Parada",
+    "instrumentation": "Orkiestra (z maszyną do pisania, pistoletem i syreną)",
+    "description": "Kubistyczny balet stworzony z udziałem Cocteau, Picassa i Diaghileva. Partytura wykorzystuje maszynę do pisania, pistolety i syrenę, gorsząc publiczność. Apollinaire jako pierwszy opisał dzieło słowem „surrealistyczne”.",
+    "significance": "Przełomowy przykład współpracy awangardowej."
+  },
+  "puccini-gianni-schicchi": {
+    "title": "Gianni Schicchi",
+    "instrumentation": "Soliści, orkiestra",
+    "description": "Błyskotliwa, jednoaktowa komedia — rzadkość w twórczości Pucciniego — osadzona w średniowiecznej Florencji. O mio babbino caro to jedna z najpopularniejszych arii sopranowych."
+  },
+  "elgar-cello-concerto": {
+    "title": "Koncert wiolonczelowy e-moll op. 85",
+    "instrumentation": "Wiolonczela solo, orkiestra",
+    "description": "Arcydzieło pożegnalne powstałe po I wojnie światowej, przesycone jesienną melancholią. Legendarne nagranie Jacqueline du Pré uczyniło je jednym z najbardziej ukochanych koncertów wiolonczelowych."
+  },
+  "sibelius-symphony-5": {
+    "title": "Symfonia Es-dur nr 5 op. 82",
+    "instrumentation": "Orkiestra",
+    "description": "Dzieło o kosmicznym rozmachu, zainspirowane widokiem szesnastu lecących łabędzi. Wielki temat rogów w finale, rozbrzmiewający szerokimi frazami, należy do najbardziej wzniosłych chwil muzyki symfonicznej."
+  },
+  "prokofiev-piano-concerto-3": {
+    "title": "Koncert fortepianowy nr 3",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Olśniewający popis pianistycznego blasku i energii, łączący liryczną rosyjską melodię z motorycznym rytmem modernizmu. Początkowy temat klarnetu należy do najbardziej pamiętnych melodii Prokofiewa, a finałowa energia porywa."
+  },
+  "puccini-turandot": {
+    "title": "Turandot",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Ostatnia, niedokończona opera Pucciniego, rozgrywająca się w legendarnych Chinach. Nessun dorma stała się najsłynniejszą arią tenorową świata. Dzieło ukończył po śmierci kompozytora Franco Alfano."
+  },
+  "ravel-bolero": {
+    "title": "Bolero",
+    "instrumentation": "Wielka orkiestra",
+    "description": "Jedna melodia powtarzana przez piętnaście minut, podczas gdy zmienia się tylko orkiestracja: od ledwie słyszalnej solówki werbla po eksplozję całej orkiestry. Ravel nazwał je „utworem na orkiestrę bez muzyki”. Publiczność była innego zdania; stało się najczęściej wykonywaną kompozycją francuską.",
+    "significance": "Najpopularniejszy utwór francuskiego repertuaru orkiestrowego i lekcja mistrzowskiej orkiestracji."
+  },
+  "bartok-string-quartet-4": {
+    "title": "Kwartet smyczkowy nr 4",
+    "instrumentation": "Kwartet smyczkowy",
+    "description": "Pięcioczęściowy utwór o łukowej budowie, nieposkromionej intensywności i doskonałej konstrukcji. Nocna muzyka i perkusyjne pizzicato poszerzają ekspresję kwartetu bardziej, niż wcześniej ktokolwiek sobie wyobrażał."
+  },
+  "stravinsky-symphony-of-psalms": {
+    "title": "Symfonia psalmów",
+    "instrumentation": "Chór, orkiestra (bez skrzypiec i altówek)",
+    "description": "Neoklasyczne opracowanie trzech psalmów łacińskich, skomponowane „na chwałę Boga”. Surowe, rytualne brzmienie — bez skrzypiec i altówek — tworzy wyjątkowo archaiczny nastrój. Finałowe Laudate Dominum osiąga rzadki u Stravinsky’ego spokój."
+  },
+  "ravel-piano-concerto-g": {
+    "title": "Koncert fortepianowy G-dur",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "W skrajnych częściach jazzowy, migotliwy i dowcipny; część wolna należy do najpiękniejszych utworów Ravela. Długa, samotna melodia fortepianu rozwija się nad łagodnym akompaniamentem, inspirowana Mozartem."
+  },
+  "rachmaninoff-rhapsody-paganini": {
+    "title": "Rapsodia na temat Paganiniego",
+    "instrumentation": "Fortepian solo, orkiestra",
+    "description": "Dwadzieścia cztery wariacje na temat słynnego kaprysu a-moll Paganiniego. Wariacja osiemnasta odwraca temat w jedną z najbardziej wzniosłych romantycznych melodii; to jedna z ukochanych chwil muzyki klasycznej."
+  },
+  "hindemith-mathis-der-maler": {
+    "title": "Mathis der Maler (Symfonia)",
+    "instrumentation": "Orkiestra",
+    "description": "Trzyczęściowa symfonia oparta na operze Hindemitha o Matthiasie Grünewaldzie. Naziści zakazali premiery opery, co skłoniło Furtwänglera do publicznego protestu i rezygnacji.",
+    "significance": "Zakaz ze strony nazistów stał się głośnym symbolem walki o wolność sztuki."
+  },
+  "bartok-music-for-strings": {
+    "title": "Muzyka na instrumenty strunowe, perkusję i czelestę",
+    "instrumentation": "Podzielona orkiestra smyczkowa, perkusja, czelesta, harfa, fortepian",
+    "description": "Jedno z najwybitniejszych arcydzieł XX wieku. Fuga w pierwszej części, chromatycznie rozszerzająca się od dźwięku A, jest przykładem czystej architektury muzycznej. Kubrick wykorzystał trzecią część w filmie Lśnienie.",
+    "significance": "Szczytowe osiągnięcie kompozycji XX wieku, łączące folklor z modernistyczną strukturą."
+  },
+  "prokofiev-romeo-and-juliet": {
+    "title": "Romeo i Julia",
+    "instrumentation": "Wielka orkiestra",
+    "description": "Największa partytura baletowa Prokofiewa — żywa, dramatyczna i pełna niezapomnianych melodii. Taniec rycerzy, znany jako Montagues i Capulets, jest jedną z najpotężniejszych i najbardziej rozpoznawalnych kompozycji XX wieku."
+  },
+  "prokofiev-peter-and-wolf": {
+    "title": "Piotruś i wilk",
+    "instrumentation": "Narrator i orkiestra",
+    "description": "Symfoniczna baśń, która wprowadza dzieci w świat instrumentów orkiestrowych. Każdą postać przedstawia inny instrument: Piotr — smyczki, ptaka — flet, kaczkę — obój, kota — klarnet, a wilka — waltornie.",
+    "significance": "Najpopularniejsze dzieło edukacyjne w historii muzyki."
+  },
+  "hindemith-trauermusik": {
+    "title": "Trauermusik (Muzyka żałobna)",
+    "instrumentation": "Altówka solo, orkiestra smyczkowa",
+    "description": "Skomponowana w zaledwie sześć godzin, w dniu śmierci króla Jerzego V. Ta krótka elegia jest jednym z najbardziej przejmujących utworów okolicznościowych. Jej końcowy chorał głęboko porusza."
+  },
+  "shostakovich-symphony-5": {
+    "title": "Symfonia nr 5",
+    "instrumentation": "Orkiestra",
+    "description": "Napisana po publicznym potępieniu Shostakovicha przez reżim Stalina, została oficjalnie nazwana „twórczą odpowiedzią radzieckiego artysty na uzasadnioną krytykę”. Czy radosny finał wyraża prawdziwy triumf, czy wymuszone świętowanie? To jedno z najbardziej dyskutowanych pytań w muzyce.",
+    "significance": "Dzieło definiujące muzykę tworzoną pod rządami totalitarnymi. Jego siła tkwi w niejednoznaczności."
+  },
+  "copland-billy-the-kid": {
+    "title": "Billy the Kid",
+    "instrumentation": "Orkiestra",
+    "description": "Suita baletowa przedstawiająca życie legendarnego rewolwerowca na otwartej prerii. Kowbojskie melodie i oszczędne, szerokie brzmienie orkiestry przywołują bezkres amerykańskiego krajobrazu."
+  },
+  "shostakovich-symphony-7": {
+    "title": "Symfonia nr 7 „Leningradzka”",
+    "instrumentation": "Wielka orkiestra",
+    "description": "Powstawała podczas nazistowskiego oblężenia Leningradu. Partyturę przemycono na mikrofilmie, a jej wykonania na całym świecie stały się symbolem radzieckiego oporu. Słynny „temat inwazji” w pierwszej części — banalny marsz, który narasta do przytłaczającej brutalności — bywa odczytywany jako obraz nazistowskiego najazdu, terroru Stalina albo obu naraz.",
+    "significance": "Oręż kultury podczas II wojny światowej i pomnik artystycznego oporu w oblężonym mieście."
+  },
+  "hindemith-ludus-tonalis": {
+    "title": "Ludus Tonalis",
+    "instrumentation": "Fortepian",
+    "description": "Współczesny odpowiednik Dobrze temperowanego klawesynu Bacha: dwanaście fug połączonych interludiami, ujętych w preludium i postludium, które odwraca preludium."
+  },
+  "copland-fanfare-common-man": {
+    "title": "Fanfara dla zwykłego człowieka",
+    "instrumentation": "Instrumenty dęte blaszane, perkusja",
+    "description": "Majestatyczna, trzyminutowa fanfara na instrumenty dęte i perkusję, zamówiona podczas II wojny światowej. Proste, mocne gesty uczyniły ją jedną z najbardziej rozpoznawalnych kompozycji amerykańskich."
+  },
+  "copland-rodeo": {
+    "title": "Rodeo: cztery epizody taneczne",
+    "instrumentation": "Orkiestra",
+    "description": "Balet o kowbojce na ranczu, którego finałowa Hoedown stała się synonimem amerykańskiego Zachodu. Zaraźliwe rytmy i cytaty z melodii ludowych oddają populistyczny styl Coplanda."
+  },
+  "bartok-concerto-for-orchestra": {
+    "title": "Koncert na orkiestrę",
+    "instrumentation": "Orkiestra",
+    "description": "Napisany w Nowym Jorku podczas ostatniej choroby Bartóka. Traktuje całą orkiestrę jak wirtuozowskiego solistę, dając każdej grupie okazję, by zabłysnąć. „Przerwane intermezzo” parodiuje temat z Siódmej Symfonii Shostakovicha, a finał płonie węgierską energią.",
+    "significance": "Najpopularniejsze dzieło orkiestrowe XX wieku i najbardziej przystępne arcydzieło Bartóka."
+  },
+  "hindemith-symphonic-metamorphosis": {
+    "title": "Metamorfoza symfoniczna tematów Carla Marii von Webera",
+    "instrumentation": "Orkiestra",
+    "description": "Błyskotliwy utwór popisowy, który przekształca cztery mniej znane tematy Webera w olśniewające obrazy orkiestrowe. Żywiołowy marsz w finale stał się jednym z najpopularniejszych bisów orkiestrowych."
+  },
+  "britten-serenade-tenor-horn": {
+    "title": "Serenada na tenor, waltornię i smyczki op. 31",
+    "instrumentation": "Tenor, waltornia, orkiestra smyczkowa",
+    "description": "Cykl pieśni do sześciu angielskich wierszy o wieczorze i nocy, ujęty solową partią waltorni zza sceny. Napisany dla Petera Pearsa i Dennisa Braina, należy do najwybitniejszych angielskich dzieł wokalnych."
+  },
+  "copland-appalachian-spring": {
+    "title": "Wiosna w Appalachach",
+    "instrumentation": "Orkiestra (pierwotnie 13 instrumentów)",
+    "description": "Balet przedstawiający świętowanie osadników na wzgórzach Pensylwanii. Finał przynosi świetliste wariacje na temat hymnu shakerów Simple Gifts. Utwór zdobył Nagrodę Pulitzera i uosabia „amerykańskie brzmienie” w muzyce klasycznej.",
+    "significance": "Ukształtował brzmienie amerykańskiej muzyki klasycznej."
+  },
+  "britten-peter-grimes": {
+    "title": "Peter Grimes",
+    "instrumentation": "Soliści, chór, orkiestra",
+    "description": "Potężna opera o rybaku prześladowanym przez społeczność z Suffolk. Cztery Interludia morskie często wykonuje się jako suitę orkiestrową. Dzieło ożywiło angielską operę po dwóch wiekach zastoju.",
+    "significance": "Ożywiła angielską operę i ugruntowała międzynarodową sławę Brittena."
+  },
+  "britten-young-persons-guide": {
+    "title": "Przewodnik po orkiestrze dla młodych słuchaczy op. 34",
+    "instrumentation": "Orkiestra (opcjonalnie narrator)",
+    "description": "Wariacje i fuga na temat Purcella, które przedstawiają poszczególne grupy instrumentów. Błyskotliwa orkiestracja i radosna fuga końcowa uczyniły z utworu najpopularniejsze dzieło edukacyjne na orkiestrę."
+  },
+  "strauss-four-last-songs": {
+    "title": "Cztery ostatnie pieśni",
+    "instrumentation": "Sopran, orkiestra",
+    "description": "Napisane w ostatnim roku życia Straussa, gdy miał 84 lata. Cztery pieśni są pogodnym pożegnaniem z życiem i epoką romantyzmu. Ostatnia, Im Abendrot („O zmierzchu”), kończy się cytatem z jego wcześniejszej o 60 lat Śmierci i przemienienia: „Czy to może śmierć?”.",
+    "significance": "Ostatnie wielkie dzieło niemieckiego romantyzmu."
+  },
+  "copland-clarinet-concerto": {
+    "title": "Koncert klarnetowy",
+    "instrumentation": "Klarnet solo, smyczki, harfa, fortepian",
+    "description": "Napisany dla Benny’ego Goodmana koncert łączy klasykę z jazzem. Liryczną pierwszą połowę łączy z drugą, pełną jazzowych riffów, rozbudowana kadencja."
+  },
+  "britten-turn-of-the-screw": {
+    "title": "The Turn of the Screw (W kleszczach lęku)",
+    "instrumentation": "Sześciu solistów, orkiestra kameralna (13 instrumentów)",
+    "description": "Opera kameralna na podstawie opowiadania o duchach Henry’ego Jamesa, zbudowana jako temat i piętnaście wariacji. Niezwykle oszczędne środki tworzą atmosferę niepewności i grozy."
+  },
+  "shostakovich-string-quartet-8": {
+    "title": "Kwartet smyczkowy nr 8",
+    "instrumentation": "Kwartet smyczkowy",
+    "description": "Oficjalnie zadedykowany „pamięci ofiar faszyzmu i wojny”, lecz wielu uważa go za ukryty list samobójczy. Shostakovich przeplata osobisty muzyczny podpis D-S-C-H cytatami z własnych utworów, tworząc przejmujący, autobiograficzny krzyk rozpaczy."
+  },
+  "britten-war-requiem": {
+    "title": "Requiem wojenne op. 66",
+    "instrumentation": "Sopran, tenor i baryton solo, chór, chór chłopięcy, orkiestra, orkiestra kameralna",
+    "description": "Monumentalny protest przeciw wojnie, w którym łacińska msza żałobna przeplata się z poezją wojenną Wilfreda Owena. Britten skomponował dzieło na uroczystość poświęcenia odbudowanej katedry w Coventry, zniszczonej podczas bombardowań.",
+    "significance": "Jeden z najpotężniejszych muzycznych protestów przeciw wojnie."
   }
 }

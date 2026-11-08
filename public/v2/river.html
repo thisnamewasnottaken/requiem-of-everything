@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="icon.svg" type="image/svg+xml"><title>The River of Time — Requiem of Everything</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"><title></title>
 <link rel="stylesheet" href="common/style.css">
 <style>
 #river{position:fixed;inset:0;width:100%;height:100%;cursor:grab}
@@ -81,6 +81,7 @@
   #findGroup{top:54px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
 }
 @media(max-height:500px){
+  #life{height:calc(100vh - 124px);bottom:58px}
   #bSilence{top:84px;right:12px}
   #findGroup{top:84px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
   #findResults{max-height:calc(100vh - 138px)}
@@ -91,8 +92,8 @@
 <body>
 <canvas id="river"></canvas>
 <div class="vignette"></div><div class="grain"></div>
-<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="Requiem of Everything, home" title="Home"><img src="icon.svg" alt=""></a><a class="here" href="river.html">River</a><a href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
-<div id="head" style="top:14px"><h1>The River of Time</h1><p>Every thread is a life. Thick where the music poured out, bright when the world was listening.</p></div>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><a class="here" href="river.html">River</a><a href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
+<div id="head" style="top:14px"><h1></h1><p>Every thread is a life. Thick where the music poured out, bright when the world was listening.</p></div>
 <div id="tip" class="reliquary"></div>
 <div id="life" class="reliquary">
   <div class="left"><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div><div class="more" id="lMore">↓ scroll for more</div>
@@ -105,10 +106,10 @@
 <div id="legendE"></div>
 <div id="findGroup">
   <div class="find-field">
-    <input id="find" type="text" placeholder="Find a composer…" aria-label="Find a composer" aria-autocomplete="list" aria-controls="findResults" aria-expanded="false" autocomplete="off" spellcheck="false">
-    <button id="findClear" type="button" aria-label="Clear composer search" title="Clear search" hidden>×</button>
+    <input id="find" type="text" placeholder="" aria-label="" aria-autocomplete="list" aria-controls="findResults" aria-expanded="false" autocomplete="off" spellcheck="false">
+    <button id="findClear" type="button" aria-label="" title="" hidden>×</button>
   </div>
-  <div id="findResults" class="reliquary" role="listbox" aria-label="Composer matches" hidden></div>
+  <div id="findResults" class="reliquary" role="listbox" aria-label="" hidden></div>
 </div>
 <button class="btn" id="bSilence" aria-pressed="false">Silence</button>
 <div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
@@ -118,7 +119,9 @@ import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
 const t=window.ROE_I18N.t;
 const esc=window.ROE_HTML.esc;
-document.title=`${t('river.title')} — Requiem of Everything`;
+const EVENT_CATEGORY_KEYS={political:'politics',religious:'faith',scientific:'science',technological:'invention'};
+const eventCategory=category=>t(`river.event.${Object.hasOwn(EVENT_CATEGORY_KEYS,category)?EVENT_CATEGORY_KEYS[category]:category}`);
+document.title=`${t('river.title')} — ${t('home.title')}`;
 document.querySelector('#head h1').textContent=t('river.title');
 document.querySelector('#head p').textContent=t('river.subtitle');
 document.getElementById('find').placeholder=t('river.find.placeholder');
@@ -139,6 +142,11 @@ const findGroup=document.getElementById('findGroup'), findInput=document.getElem
 let W,H,DPR; function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);sizeMini();} 
 // ---------- regions (lanes) and migrations ----------
 const LANES=['Americas','British Isles','Nordic','Russia','Central Europe','German lands','France','Iberia','Italy'];
+const LANE_KEYS={
+  Americas:'americas','British Isles':'british-isles',Nordic:'nordic',Russia:'russia',
+  'Central Europe':'central-europe','German lands':'german-lands',France:'france',Iberia:'iberia',Italy:'italy'
+};
+const laneName=lane=>t(`river.region.${LANE_KEYS[lane]}`);
 const NAT={Italian:'Italy',Spanish:'Iberia',French:'France','Belgian-French':'France',German:'German lands','German-Bohemian':'German lands',Austrian:'German lands','Austrian-Bohemian':'German lands','German-British':'German lands','German-American':'German lands','Austrian-American':'German lands',Hungarian:'Central Europe',Czech:'Central Europe','Polish-French':'Central Europe',Russian:'Russia','Russian-Soviet':'Russia','Russian-American':'Russia',English:'British Isles',Norwegian:'Nordic',Finnish:'Nordic',American:'Americas'};
 const MOVES={'george-frideric-handel':[[1712,'British Isles']],'frederic-chopin':[[1831,'France']],'igor-stravinsky':[[1914,'France'],[1939,'Americas']],
  'sergei-rachmaninoff':[[1918,'Americas']],'arnold-schoenberg':[[1933,'Americas']],'bela-bartok':[[1940,'Americas']],'paul-hindemith':[[1940,'Americas']],
@@ -307,9 +315,9 @@ function draw(){
     g.fillStyle=`rgba(${Math.min(255,r+60)},${Math.min(255,gg+60)},${Math.min(255,b+60)},${.55*dim})`; g.fillRect(x-1,y-1,2.2,2.2); }
   // country labels: hover/click targets; a selected life lights the countries it lived in
   g.font='400 10px Cinzel'; const fl=focus?lanesOf(focus):null; laneBoxes=[];
-  LANES.forEach((l,i)=>{ const t=l.toUpperCase().split('').join(' '); const y=TOP+laneH()*(i+.5)+3; const tw=g.measureText(t).width; laneBoxes.push({l,x0:10,x1:26+tw,y0:y-13,y1:y+7});
+  LANES.forEach((l,i)=>{ const text=laneName(l).toUpperCase().split('').join(' '); const y=TOP+laneH()*(i+.5)+3; const tw=g.measureText(text).width; laneBoxes.push({l,x0:10,x1:26+tw,y0:y-13,y1:y+7});
     const on=FL===l, pinned=pin&&pin.kind==='lane'&&pin.v===l; const col=fl&&fl.has(l)?rgba(focus.rgb,1):on?'#f6e1b0':'rgba(216,203,180,.4)';
-    label((pinned?'◆ ':'')+t,18,y,`${(fl&&fl.has(l))||on?'600':'400'} 10px Cinzel`,col,'left'); });
+    label((pinned?'◆ ':'')+text,18,y,`${(fl&&fl.has(l))||on?'600':'400'} 10px Cinzel`,col,'left'); });
   flushLabels();
   drawMini();
 }
@@ -343,10 +351,10 @@ function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=
   if(!hoverC){ for(const e of EV){ if(Math.abs(X(e.year)-mx)<5&&my>TOP&&my<BOT()){hoverE=e;break;} } } }
 function showTip(mx,my){ let html='';
   if(hoverL){ const n=comps.filter(c=>touches(c,hoverL)&&X(c.deathYear)>0&&X(c.birthYear)<W).length; const p=pin&&pin.kind==='lane'&&pin.v===hoverL;
-    html=`<span class="k">Country · ${p?'click to unpin':'click to pin'}</span><b>${esc(hoverL)}</b><div class="d">${esc(n)} composer${n===1?'':'s'} in view lived or worked here</div>`;}
+    html=`<span class="k">${esc(t('river.tooltip.country'))} · ${esc(t(p?'river.tooltip.unpin':'river.tooltip.pin'))}</span><b>${esc(laneName(hoverL))}</b><div class="d">${esc(t('river.tooltip.composers',{count:n}))}</div>`;}
   else if(hoverW) html=`<span class="k">${esc(hoverW.yearComposed)} · ${esc(hoverW.genre)}</span><b>${esc(hoverW.title)}</b><div class="d">${esc((hoverW.description||'').slice(0,150))}…</div>`;
   else if(hoverC){const yr=Math.round(clamp(Y2yr(mx),hoverC.birthYear,hoverC.deathYear)); const age=yr-hoverC.birthYear; html=`<span class="k">${esc(hoverC.birthYear)} – ${esc(hoverC.deathYear)} · ${esc(hoverC.nationality)}</span><b>${esc(hoverC.name)}</b><div class="d">In ${esc(yr)}, aged ${esc(age)}${hoverC.life?'':' · curve estimated from works'}</div>`;}
-  else if(hoverE){const p=pin&&pin.kind==='event'&&pin.v===hoverE; html=`<span class="k">${esc(hoverE.year)}${evEnd(hoverE)>hoverE.year?' – '+esc(evEnd(hoverE)):''} · ${esc(hoverE.category)} · ${p?'click to unpin':'click to pin'}</span><b>${esc(hoverE.title)}</b><div class="d">${esc(hoverE.musicalSignificance||hoverE.description)}</div>`;}
+  else if(hoverE){const p=pin&&pin.kind==='event'&&pin.v===hoverE; html=`<span class="k">${esc(hoverE.year)}${evEnd(hoverE)>hoverE.year?' – '+esc(evEnd(hoverE)):''} · ${esc(eventCategory(hoverE.category))} · ${esc(t(p?'river.tooltip.unpin':'river.tooltip.pin'))}</span><b>${esc(hoverE.title)}</b><div class="d">${esc(hoverE.musicalSignificance||hoverE.description)}</div>`;}
   tip.style.opacity=html?1:0; if(html){tip.innerHTML=html; tip.style.left=Math.min(W-340,mx+18)+'px'; tip.style.top=Math.min(H-180,my+18)+'px';} cv.style.cursor=html?'pointer':''; }
 function clickAt(e){
   if(findGroup.contains(e.target))return;
@@ -437,7 +445,7 @@ function drawSeis(c){ const r=seis.getBoundingClientRect(); seis.width=r.width*D
     sg.fillStyle=ec+(L?'ff':'55');
     if(b===a){sg.lineWidth=L?2:1;sg.beginPath();sg.moveTo(xa,wy-2);sg.lineTo(xa,wy+9);sg.strokeStyle=ec+(L?'ff':'55');sg.stroke();}
     else sg.fillRect(xa,wy,Math.max(2,xb-xa),L?8:5);
-    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${esc(e.year)}${evEnd(e)>e.year?' – '+esc(evEnd(e)):''} · ${esc(t(`river.event.${e.category}`))}</span><b>${esc(e.title)}</b><div class="d">${esc(L?L.text:(e.musicalSignificance||e.description))}</div>`});
+    seisHits.push({x0:xa-3,x1:xb+3,y0:wy-4,y1:wy+12,html:`<span class="k">${esc(e.year)}${evEnd(e)>e.year?' – '+esc(evEnd(e)):''} · ${esc(eventCategory(e.category))}</span><b>${esc(e.title)}</b><div class="d">${esc(L?L.text:(e.musicalSignificance||e.description))}</div>`});
     if(L){
       sg.font='500 8px Cinzel'; const width=Math.min(Math.max(42,sg.measureText(L.text).width),Math.max(42,w*.42));
       const labelX=clamp((xa+xb)/2-width/2,0,w-width), interval=[labelX-4,labelX+width+4];

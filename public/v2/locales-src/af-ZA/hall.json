@@ -1,38 +1,43 @@
 {
   "eras": {
     "renaissance": {
+      "year": "omstreeks 1600",
       "name": "Die Venesiese kapel",
       "lead": "Onder leiding van die maestro di cappella, wat die tactus slaan",
       "text": "Nog geen orkes nie: stemme is die hart. Kore sing van weerskante van 'n basiliek, saam met violas, sakboeke en kornette wat die sangers verdubbel, terwyl 'n luit of orrel die harmonie bind."
     },
     "baroque": {
+      "year": "omstreeks 1720",
       "name": "Die hoforkes",
       "lead": "Gelei vanaf die klavesimbel of deur die eerste viool",
       "text": "Alles groei uit die basso continuo: klavesimbel, tjello en kontrabas in die middel. Viole sit links en regs; hobo's verdubbel hul lyne, en trompette met pauke word vir feesdae gehou. Agter hulle staan 'n klein koor, dikwels net drie of vier sangers per stemgroep, vir Bach se kantates en Handel se oratoria soos Messiah."
     },
     "classical": {
+      "year": "1795 · Haydn in Londen",
       "name": "Die klassieke orkes",
       "lead": "Die konsertmeester en die komponis by die klavier deel die leiding",
       "text": "Houtblasers kom in pare, elk met sy eie stem. Eerste en tweede viole sit oorkant mekaar, sodat melodieë oor die verhoog antwoord. Vir Haydn se Die Skepping en Mozart se Requiem staan 'n koor agter die orkes."
     },
     "romantic": {
+      "year": "omstreeks 1890 · Wene",
       "name": "Die Romantiese orkes",
       "lead": "Die dirigent word 'n ster: Mahler op die podium",
       "text": "Negentig spelers. Houtblasers in groepe van drie, vier tot agt horings, trombone en tuba, harpe en 'n hele battery perkussie. In die Duitse uitleg sit die viole uitmekaar en die kontrabasse agter die eerste viole. Groot koorverenigings staan agter hulle vir Beethoven se Negende, Brahms se Duitse Requiem en Verdi se Requiem."
     },
     "modern": {
+      "year": "sedert die 1920's",
       "name": "Die moderne simfonieorkes",
       "lead": "Stokowski se Amerikaanse uitleg, vandag wêreldwyd gebruik",
       "text": "Eerste en tweede viole sit saam links, sodat hulle soos een klink; tjello's skuif na buite en kontrabasse sit regs. Klavier, celesta en 'n groot perkussiegroep vul die agterste rye. 'n Groot koor sluit aan by werke soos Stravinsky se Simfonie van Psalms, Orff se Carmina Burana en Britten se War Requiem."
     }
   },
   "pieces": {
-    "orfeo": { "label": "Monteverdi · L’Orfeo" },
-    "seasons": { "label": "Vivaldi · Die vier seisoene" },
-    "m40": { "label": "Mozart · Simfonie nr. 40" },
-    "b5": { "label": "Beethoven · Simfonie nr. 5" },
-    "m8": { "label": "Mahler · Simfonie nr. 8" },
-    "rite": { "label": "Stravinsky · Die Lenteoffer" }
+    "orfeo": { "label": "Monteverdi · L’Orfeo", "year": "1607 · Mantua" },
+    "seasons": { "label": "Vivaldi · Die vier seisoene", "year": "1725 · Venesië" },
+    "m40": { "label": "Mozart · Simfonie nr. 40", "year": "1788 · Wene" },
+    "b5": { "label": "Beethoven · Simfonie nr. 5", "year": "1808 · Wene" },
+    "m8": { "label": "Mahler · Simfonie nr. 8", "year": "1910 · München" },
+    "rite": { "label": "Stravinsky · Die Lenteoffer", "year": "1913 · Parys" }
   },
   "sections": {
     "v1": "Eerste viole",
@@ -40,7 +45,7 @@
     "va": "Altviole",
     "vc": "Tjello's",
     "cb": "Kontrabasse",
-    "viol": "Viols",
+    "viol": "Violas da gamba",
     "lute": "Luit en teorbe",
     "hp": "Harpe",
     "fl": "Flaute",
@@ -58,12 +63,17 @@
     "ti": "Pauke",
     "pc": "Perkussie",
     "hc": "Klavesimbel (basso continuo)",
-    "fp": "Fortepiano",
+    "fp": "Historiese klavier",
     "org": "Orrel",
     "cel": "Celesta en klavier",
     "sop": "Sopranos",
     "alt": "Alte",
     "ten": "Tenore",
     "bas": "Basse"
+  },
+  "shortSections": {
+    "lute": "Luite",
+    "hc": "Klavesimbel",
+    "cel": "Celesta"
   }
 }

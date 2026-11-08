@@ -69,6 +69,11 @@
   "river.tooltip.years": "{count} year",
   "river.tooltip.years_one": "{count} year",
   "river.tooltip.years_other": "{count} years",
+  "river.tooltip.country": "Country",
+  "river.tooltip.pin": "click to pin",
+  "river.tooltip.unpin": "click to unpin",
+  "river.tooltip.composers_one": "{count} composer in view lived or worked here",
+  "river.tooltip.composers_other": "{count} composers in view lived or worked here",
   "hall.sounding": "Sounding",
   "hall.silence": "Silence",
   "hall.hint.one": "click a section or the podium to meet them",
@@ -157,5 +162,14 @@
   "lexicon.rotate": "Please rotate your device to landscape",
   "lexicon.tip.drag": "drag to turn",
   "lexicon.tip.zoom": "scroll to fly closer",
-  "common.loading": "Loading…"
+  "common.loading": "Loading…",
+  "river.region.americas": "Americas",
+  "river.region.british-isles": "British Isles",
+  "river.region.nordic": "Nordic",
+  "river.region.russia": "Russia",
+  "river.region.central-europe": "Central Europe",
+  "river.region.german-lands": "German lands",
+  "river.region.france": "France",
+  "river.region.iberia": "Iberia",
+  "river.region.italy": "Italy"
 }
