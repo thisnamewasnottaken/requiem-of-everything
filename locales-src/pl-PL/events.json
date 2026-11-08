@@ -16,12 +16,268 @@
     "description": "Wyprawa Krzysztofa Kolumba zapoczątkowuje europejską kolonizację obu Ameryk, przekształcając światowy handel, kulturę i układ sił.",
     "region": "Ameryki"
   },
+  "protestant-reformation": {
+    "title": "Początek reformacji protestanckiej",
+    "description": "Marcin Luter ogłasza 95 tez i rozpoczyna reformację, która dzieli zachodnie chrześcijaństwo.",
+    "musicalSignificance": "Luter wspierał wspólny śpiew wiernych i chorał. Stały się one podstawą protestanckiej muzyki kościelnej i głęboko wpłynęły na twórczość Jana Sebastiana Bacha.",
+    "region": "Europa"
+  },
+  "council-of-trent": {
+    "title": "Sobór trydencki",
+    "description": "Ważny sobór Kościoła katolickiego w czasach kontrreformacji. Zajmował się nauką Kościoła i praktykami religijnymi, w tym rolą muzyki w nabożeństwach.",
+    "musicalSignificance": "Dyskutowano o zakazie polifonii w kościele, bo obawiano się, że wiele głosów naraz zasłania tekst. Według legendy muzyka Palestriny pokazała, że polifonia może służyć słowom, i ocaliła ten gatunek.",
+    "region": "Europa"
+  },
+  "spanish-armada": {
+    "title": "Klęska Wielkiej Armady",
+    "description": "Król Hiszpanii Filip II wysyła potężną flotę, by najechała Anglię. Angielska marynarka pod wodzą Francisa Drake’a pokonuje Armadę, a burze rozpraszają jej okręty. Zwycięstwo umacnia Anglię jako kraj protestancki i rosnącą potęgę morską.",
+    "musicalSignificance": "Nowa pewność siebie Anglii i rozkwit kultury za panowania Elżbiety I sprzyjały rozwojowi angielskiego madrygału. Byrd, Morley, Dowland i Weelkes tworzyli w jednym ze złotych okresów angielskiej muzyki.",
+    "region": "Europa"
+  },
+  "shakespeare-active": {
+    "title": "Twórcza działalność Szekspira",
+    "description": "William Szekspir pisze sztuki i sonety, tworząc najwybitniejszy zbiór dramatów w języku angielskim.",
+    "musicalSignificance": "Dzieła Szekspira zainspirowały później niezliczone utwory muzyczne: Otella i Falstaffa Verdiego, Sen nocy letniej Mendelssohna, Romea i Julię Tchaikovsky’ego, balet Romeo i Julia Prokofiewa oraz operę Béatrice et Bénédict Berlioza.",
+    "region": "Anglia"
+  },
+  "galileo-telescope": {
+    "title": "Obserwacje teleskopowe Galileusza",
+    "description": "Galileusz ulepsza teleskop i obserwuje księżyce Jowisza. Potwierdza w ten sposób heliocentryczny model Kopernika i przyczynia się do narodzin rewolucji naukowej.",
+    "musicalSignificance": "Nacisk rewolucji naukowej na matematyczne proporcje wpłynął na barokowe teorie harmonii i stroju.",
+    "region": "Włochy"
+  },
+  "thirty-years-war": {
+    "title": "Wojna trzydziestoletnia",
+    "description": "Niszczycielski konflikt toczony głównie w Europie Środkowej. Zaczyna się jako wojna między protestanckimi i katolickimi państwami, a z czasem zmienia się w szerszą walkę polityczną.",
+    "musicalSignificance": "Na całe pokolenie niszczy życie muzyczne w Niemczech. Heinrich Schütz, najwybitniejszy niemiecki kompozytor przed Bachem, przeżywa te wydarzenia, a jego muzyka oddaje ból epoki.",
+    "region": "Europa Środkowa"
+  },
+  "english-civil-war": {
+    "title": "Angielska wojna domowa",
+    "description": "W Anglii ścierają się zwolennicy parlamentu i króla. Konflikt kończy się egzekucją Karola I i powstaniem republiki zwanej Wspólnotą Anglii.",
+    "musicalSignificance": "Purytańska republika zakazuje teatru i ogranicza życie muzyczne. Gdy w 1660 roku przywrócono monarchię, angielska muzyka rozkwitła na nowo, przygotowując grunt pod twórczość Purcella.",
+    "region": "Anglia"
+  },
+  "peace-of-westphalia": {
+    "title": "Pokój westfalski",
+    "description": "Seria traktatów kończy wojnę trzydziestoletnią i osiemdziesięcioletnią. Pokój ustanawia zasadę suwerenności państw i na nowo wyznacza polityczną oraz religijną mapę Europy.",
+    "musicalSignificance": "Pokój pozwala odbudować niemieckie życie muzyczne. Podział Niemiec na setki niewielkich dworów tworzy sieć mecenatu, dzięki której mogą działać kompozytorzy od Buxtehudego po Bacha.",
+    "region": "Europa"
+  },
+  "great-fire-of-london": {
+    "title": "Wielki pożar Londynu",
+    "description": "Przez cztery dni Londyn trawi pożar, który niszczy 13 200 domów, 87 kościołów i większość budynków publicznych. Wielka odbudowa na nowo zmienia miasto.",
+    "musicalSignificance": "Odbudowa londyńskich kościołów, w tym katedry św. Pawła, tworzy nowe miejsca dla muzyki sakralnej. Rozkwit miasta zbiega się z karierą Henry’ego Purcella, najwybitniejszego angielskiego kompozytora baroku.",
+    "region": "Europa"
+  },
+  "newton-principia": {
+    "title": "Newton publikuje Principia Mathematica",
+    "description": "Isaac Newton ogłasza prawa ruchu i powszechnego ciążenia w jednym z najważniejszych dzieł w historii nauki.",
+    "musicalSignificance": "Newtonowska wizja porządku, proporcji i praw natury głęboko wpłynęła na myśl oświecenia, a ta ukształtowała klasyczne ideały jasności i równowagi w muzyce.",
+    "region": "Anglia"
+  },
+  "glorious-revolution": {
+    "title": "Chwalebna rewolucja",
+    "description": "Jakub II traci tron, a władzę obejmują Wilhelm III i Maria II. Rewolucja przebiega niemal bez rozlewu krwi, umacniając monarchię konstytucyjną i zwierzchnictwo parlamentu w Anglii.",
+    "musicalSignificance": "Nowi monarchowie przywożą do Anglii wpływy muzyczne z Niderlandów i kontynentu. Purcell komponuje ody na ich cześć, a stabilna sytuacja polityczna pomaga pokolenie później sprowadzić Händla do Londynu.",
+    "region": "Europa"
+  },
+  "war-of-spanish-succession": {
+    "title": "Wojna o sukcesję hiszpańską",
+    "description": "Wielki konflikt europejski o następstwo tronu Hiszpanii, w który angażuje się większość ówczesnych potęg.",
+    "musicalSignificance": "Wstrząsy polityczne zmieniają sieć mecenatu. Händel przenosi się z Włoch do Londynu częściowo z powodu niestabilnej sytuacji na kontynencie.",
+    "region": "Europa"
+  },
+  "seven-years-war": {
+    "title": "Wojna siedmioletnia",
+    "description": "Światowy konflikt z udziałem wszystkich głównych potęg Europy, toczony w Europie, obu Amerykach, Afryce i Azji. Bywa nazywany pierwszą prawdziwą wojną światową; umacnia brytyjskie panowanie w Ameryce Północnej i Indiach.",
+    "musicalSignificance": "Wojna zakłóca życie muzyczne w całej Europie. Fryderyk Wielki, pruski król i flecista, utrzymuje muzyków dworskich nawet podczas kampanii. Powojenna odbudowa gospodarki wspiera rozwój publicznych koncertów w epoce klasycyzmu.",
+    "region": "Świat"
+  },
+  "american-independence": {
+    "title": "Deklaracja niepodległości Stanów Zjednoczonych",
+    "description": "Trzynaście kolonii amerykańskich ogłasza niepodległość od Wielkiej Brytanii i tworzy Stany Zjednoczone, odwołując się do ideałów oświecenia.",
+    "musicalSignificance": "Oświeceniowe ideały wolności jednostki i rozumnego porządku, które zainspirowały rewolucję, leżały również u podstaw klasycznej jasności, równowagi i wiary w muzykę zrozumiałą dla wszystkich.",
+    "region": "Ameryka Północna"
+  },
+  "declaration-rights-of-man": {
+    "title": "Deklaracja praw człowieka i obywatela",
+    "description": "Francuskie Zgromadzenie Narodowe przyjmuje deklarację, która głosi powszechne prawa do wolności, własności, bezpieczeństwa i oporu wobec ucisku. Dokument staje się fundamentem nowoczesnej demokracji.",
+    "musicalSignificance": "Idea powszechnej godności człowieka rozbrzmiewa w muzyce romantycznej. Pieśni rewolucyjne, takie jak Marsylianka, pokazują siłę muzyki jako głosu politycznego — z której korzystają później Beethoven i Verdi.",
+    "region": "Europa"
+  },
+  "napoleonic-wars": {
+    "title": "Wojny napoleońskie",
+    "description": "Seria konfliktów między Cesarstwem Francuskim Napoleona a europejskimi koalicjami, która zmienia polityczną mapę kontynentu.",
+    "musicalSignificance": "Beethoven komponuje Eroikę, pierwotnie dedykowaną Napoleonowi, oraz Koncert cesarski podczas bombardowania Wiednia. Wojny osłabiają dawny mecenat i kierują muzyków ku publicznym koncertom.",
+    "region": "Europa"
+  },
+  "congress-of-vienna": {
+    "title": "Kongres wiedeński",
+    "description": "Wielkie mocarstwa Europy spotykają się, by po klęsce Napoleona na nowo wyznaczyć granice. Ustanawiają konserwatywny porządek, który przetrwa do 1848 roku.",
+    "musicalSignificance": "W epoce Metternicha polityczne idee schodzą do podziemia, a ich wyrazem staje się sztuka. Romantyzm przekuwa rewolucyjną energię w muzykę i literaturę.",
+    "region": "Europa"
+  },
+  "abolition-british-slavery": {
+    "title": "Zniesienie niewolnictwa w Imperium Brytyjskim",
+    "description": "Ustawa o zniesieniu niewolnictwa zakazuje go na większości terytoriów Imperium Brytyjskiego i uwalnia ponad 800 tysięcy ludzi. To przełomowy moment światowego ruchu abolicjonistycznego.",
+    "region": "Świat"
+  },
+  "revolutions-of-1848": {
+    "title": "Rewolucje 1848 roku",
+    "description": "Fala powstań przetacza się przez Europę. Ich uczestnicy domagają się reform liberalnych, zjednoczenia narodów i rządów konstytucyjnych. Ten czas nazwano Wiosną Ludów.",
+    "musicalSignificance": "Wagner walczy na barykadach w Dreźnie i musi uciekać z kraju. Nastroje narodowe wzmacniają muzykę patriotyczną: kompozytorzy węgierscy, czescy i polscy coraz śmielej podkreślają swoją tożsamość.",
+    "region": "Europa"
+  },
+  "crimean-war": {
+    "title": "Wojna krymska",
+    "description": "Rosja walczy z koalicją Imperium Osmańskiego, Francji, Wielkiej Brytanii i Sardynii, głównie na Półwyspie Krymskim. Florence Nightingale reformuje opiekę nad rannymi, a fotografowie dokumentują wojnę.",
+    "musicalSignificance": "Po wojnie rozkwita rosyjski nacjonalizm kulturowy. „Potężna gromadka” — Bałakiriew, Cui, Musorgski, Rimsky-Korsakov i Borodin — dąży do stworzenia rosyjskiej muzyki niezależnej od tradycji Europy Zachodniej.",
+    "region": "Europa"
+  },
+  "darwin-origin-of-species": {
+    "title": "Darwin publikuje O powstawaniu gatunków",
+    "description": "Karol Darwin przedstawia teorię ewolucji przez dobór naturalny. Zmienia ona biologię i podważa tradycyjne poglądy na miejsce człowieka w przyrodzie.",
+    "musicalSignificance": "Książka współtworzy intelektualny przełom, który wpływa na późnoromantyczne idee postępu, walki i znaczenia indywidualnej ekspresji.",
+    "region": "Anglia"
+  },
+  "italian-unification": {
+    "title": "Zjednoczenie Włoch (Risorgimento)",
+    "description": "Po dziesięcioleciach walk ogłoszono powstanie Królestwa Włoch, jednocząc półwysep pod jednym rządem.",
+    "musicalSignificance": "Verdi staje się symbolem zjednoczenia Włoch. Napis „VIVA VERDI” służy jako polityczny skrót hasła „Vittorio Emanuele Re d’Italia”. Tematy wolności i patriotyzmu w jego operach podsycają ruch narodowy.",
+    "region": "Włochy"
+  },
+  "opening-suez-canal": {
+    "title": "Otwarcie Kanału Sueskiego",
+    "description": "Otwarto Kanał Sueski, który łączy Morze Śródziemne z Czerwonym i znacznie skraca morskie szlaki handlowe między Europą a Azją.",
+    "musicalSignificance": "Verdi otrzymuje zamówienie na Aidę dla nowej Opery Kairskiej, zbudowanej z okazji otwarcia kanału. Opera ma premierę dopiero w 1871 roku, ale pozostaje jednym z najsłynniejszych zamówień w historii gatunku.",
+    "region": "Świat"
+  },
+  "franco-prussian-war": {
+    "title": "Wojna francusko-pruska",
+    "description": "Konflikt kończy się klęską Francji, upadkiem Napoleona III i Komuną Paryską.",
+    "musicalSignificance": "Porażka Francji wzmacnia francuski nacjonalizm muzyczny. Saint-Saëns zakłada Société Nationale de Musique z hasłem „Ars Gallica”, promując francuską twórczość w odpowiedzi na dominację muzyki niemieckiej. W tym środowisku rozwijają się Debussy i Ravel.",
+    "region": "Europa"
+  },
+  "german-unification": {
+    "title": "Zjednoczenie Niemiec",
+    "description": "Po wojnie francusko-pruskiej w Wersalu ogłoszono powstanie Cesarstwa Niemieckiego, jednoczącego państwa niemieckie pod przywództwem Prus.",
+    "musicalSignificance": "Twórczość Wagnera łączy się z niemiecką tożsamością narodową. Nowe państwo wspiera Bayreuth i ideę niemieckiej wyższości muzycznej, co niesie daleko idące skutki kulturowe.",
+    "region": "Niemcy"
+  },
+  "first-phonograph": {
+    "title": "Edison wynajduje fonograf",
+    "description": "Thomas Edison wynajduje fonograf, dzięki któremu po raz pierwszy można nagrać i odtworzyć dźwięk.",
+    "musicalSignificance": "Wynalazek zmienia sposób słuchania muzyki. Na początku XX wieku nagrania sprawiają, że muzyka klasyczna dociera na cały świat, a wykonawcy stają się międzynarodowymi gwiazdami.",
+    "region": "Ameryka Północna"
+  },
+  "dreyfus-affair": {
+    "title": "Afera Dreyfusa",
+    "description": "We Francji żydowski oficer Alfred Dreyfus zostaje niesłusznie skazany za szpiegostwo. Skandal odsłania głęboki antysemityzm obecny w społeczeństwie.",
+    "musicalSignificance": "Afera dzieli francuskie środowiska, także muzyczne. Ujawnione uprzedzenia skłaniają artystów do podejmowania tematów sprawiedliwości społecznej i tożsamości narodowej.",
+    "region": "Francja"
+  },
+  "russo-japanese-war": {
+    "title": "Wojna rosyjsko-japońska",
+    "description": "Japonia pokonuje Rosję w konflikcie o wpływy w Mandżurii i Korei. To pierwsze nowoczesne zwycięstwo państwa azjatyckiego nad europejskim, które wywołuje rewolucję rosyjską 1905 roku.",
+    "musicalSignificance": "Wojna prowadzi do rewolucji 1905 roku i radykalizuje rosyjskie środowiska artystyczne. W awangardzie tego czasu powstają późne mistyczne dzieła Skriabina i wczesne eksperymenty Stravinsky’ego.",
+    "region": "Azja"
+  },
   "french-revolution": {
     "title": "Rewolucja francuska",
+    "description": "Obalenie monarchii francuskiej i ustanowienie republiki opartej na hasłach wolności, równości i braterstwa.",
+    "musicalSignificance": "Rewolucja głęboko wpływa na Beethovena i rodzący się romantyzm. Ideały wolności jednostki i heroicznej walki stają się ważne dla tej epoki. Eroikę Beethoven pierwotnie dedykuje Napoleonowi.",
     "region": "Francja",
     "wikipediaSlug": "Rewolucja_francuska"
   },
+  "world-war-1": {
+    "title": "I wojna światowa",
+    "description": "Wielka Wojna — światowy konflikt, w którym giną miliony ludzi, upadają imperia, a polityczna mapa Europy i Bliskiego Wschodu zmienia się na zawsze.",
+    "musicalSignificance": "Wojna rozbija romantyczny obraz świata. Późne utwory Debussy’ego naznacza wojenny nacjonalizm, a Ravel służy na froncie jako kierowca ambulansu. Powojenna utrata złudzeń sprzyja neoklasycyzmowi, ekspresjonizmowi i muzyce pełnej ironii oraz obiektywizmu.",
+    "region": "Świat"
+  },
+  "russian-revolution": {
+    "title": "Rewolucja rosyjska",
+    "description": "Obalenie Imperium Rosyjskiego i powstanie Związku Radzieckiego — jedno z najbardziej przełomowych wydarzeń XX wieku.",
+    "musicalSignificance": "Rachmaninow, Stravinsky i Prokofiew emigrują. Ci, którzy zostają lub wracają, jak Prokofiew, podlegają coraz większej kontroli państwa. Polityka kulturalna Związku Radzieckiego, szczególnie za Stalina, wpływa na całą karierę Shostakovicha.",
+    "region": "Rosja"
+  },
+  "treaty-of-versailles": {
+    "title": "Traktat wersalski",
+    "description": "Traktat kończy I wojnę światową, nakłada surowe warunki na Niemcy i zmienia granice w Europie.",
+    "musicalSignificance": "Karne warunki traktatu sprzyjają wzrostowi nazizmu, który niszczy europejskie życie muzyczne i zmusza Schoenberga, Bartóka, Stravinsky’ego, Hindemitha oraz wielu innych do emigracji.",
+    "region": "Europa"
+  },
+  "rise-of-nazism": {
+    "title": "Hitler zostaje kanclerzem Niemiec",
+    "description": "Adolf Hitler obejmuje urząd kanclerza Niemiec. Rozpoczyna się rządy nazistowskie, które doprowadzą do II wojny światowej i Holokaustu.",
+    "musicalSignificance": "Naziści zakazują „muzyki zdegenerowanej” (entartete Musik): jazzu, atonalności i utworów żydowskich kompozytorów. Schoenberg ucieka do Ameryki, Bartók opuszcza Węgry. To największy przymusowy exodus talentów muzycznych w historii.",
+    "region": "Niemcy"
+  },
+  "spanish-civil-war": {
+    "title": "Hiszpańska wojna domowa",
+    "description": "Brutalna wojna między republikanami i nacjonalistami staje się zastępczym starciem faszyzmu z demokracją. Zwycięstwo frankistów ustanawia dyktaturę, która trwa do 1975 roku.",
+    "musicalSignificance": "Manuel de Falla, najwybitniejszy współczesny kompozytor Hiszpanii, znajduje się między walczącymi stronami. Konflikt i późniejsza dyktatura izolują hiszpańskie życie muzyczne od zmian w Europie na dziesięciolecia.",
+    "region": "Europa"
+  },
+  "world-war-2": {
+    "title": "II wojna światowa",
+    "description": "Najbardziej śmiercionośny konflikt w historii, w którym ginie około 70–85 milionów ludzi, także podczas Holokaustu.",
+    "musicalSignificance": "Symfonia leningradzka Shostakovicha staje się symbolem oporu. Messiaen komponuje Kwartet na koniec czasu w obozie jenieckim. Bartók, Stravinsky i Schoenberg tworzą ważne dzieła na emigracji w Ameryce. Wojna na stałe przenosi centrum życia muzycznego z Europy do Ameryki.",
+    "region": "Świat"
+  },
+  "atomic-bombings": {
+    "title": "Ataki atomowe na Hiroszimę i Nagasaki",
+    "description": "Stany Zjednoczone zrzucają bomby atomowe na japońskie miasta Hiroszima i Nagasaki, kończąc II wojnę światową i rozpoczynając epokę atomową.",
+    "musicalSignificance": "Groźba zagłady nuklearnej głęboko wpływa na kompozytorów po wojnie. Threnos — ofiarom Hiroszimy Pendereckiego (1960) jest najbardziej bezpośrednią muzyczną odpowiedzią.",
+    "region": "Japonia"
+  },
+  "founding-of-un": {
+    "title": "Powstanie Organizacji Narodów Zjednoczonych",
+    "description": "Powstaje Organizacja Narodów Zjednoczonych, która ma wspierać współpracę międzynarodową i zapobiegać kolejnym wojnom światowym.",
+    "musicalSignificance": "Dziewiąta Symfonia Beethovena i jej „Oda do radości” stają się nieoficjalnym hymnem współpracy międzynarodowej, a później hymnem Unii Europejskiej.",
+    "region": "Świat"
+  },
+  "cold-war-begins": {
+    "title": "Początek zimnej wojny",
+    "description": "Napięcie między Stanami Zjednoczonymi a Związkiem Radzieckim kształtuje politykę światową przez ponad cztery dekady.",
+    "musicalSignificance": "Muzyka klasyczna staje się narzędziem zimnej wojny. CIA potajemnie finansuje amerykańską awangardę i międzynarodowe trasy koncertowe. Polityka radziecka nadal ogranicza twórczość Shostakovicha i Prokofiewa.",
+    "region": "Świat"
+  },
+  "zhdanov-doctrine": {
+    "title": "Doktryna Żdanowa w muzyce",
+    "description": "Władze radzieckie potępiają Shostakovicha, Prokofiewa i innych wybitnych kompozytorów za „formalizm” i żądają muzyki służącej państwu oraz zrozumiałej dla mas.",
+    "musicalSignificance": "Kompozytorzy radzieccy muszą pisać bardziej zachowawczą, tonalną muzykę albo narażają się na prześladowania. Doktryna głęboko wpływa na późne utwory Shostakovicha i Prokofiewa. Śmierć Prokofiewa w 1953 roku niemal przemilczano — zmarł tego samego dnia co Stalin.",
+    "region": "Związek Radziecki"
+  },
+  "korean-war": {
+    "title": "Wojna koreańska",
+    "description": "Korea Północna, wspierana przez Chiny i Związek Radziecki, walczy z Koreą Południową, wspieraną przez ONZ, głównie przez Stany Zjednoczone. Rozejm kończy walki, ale Korea pozostaje podzielona.",
+    "region": "Azja"
+  },
+  "death-of-stalin": {
+    "title": "Śmierć Stalina",
+    "description": "Umiera Józef Stalin. Za Chruszczowa zaczyna się odwilż w radzieckiej polityce kulturalnej.",
+    "musicalSignificance": "Tego samego dnia umiera Prokofiew. Odwilż po Stalinie przynosi kompozytorom nieco więcej swobody. Późne utwory Shostakovicha stają się bardziej osobiste i eksperymentalne.",
+    "region": "Związek Radziecki"
+  },
+  "launch-of-sputnik": {
+    "title": "Wystrzelenie Sputnika",
+    "description": "Związek Radziecki wysyła na orbitę Sputnika 1, pierwszego sztucznego satelitę Ziemi. Rozpoczyna się era kosmiczna i nasila rywalizacja mocarstw.",
+    "musicalSignificance": "Era kosmiczna inspiruje kompozytorów do poszukiwania nowych brzmień. Elektroniczne utwory Stockhausena i matematycznie skonstruowane kompozycje Xenakisa pokazują fascynację technologią i kosmosem, którą rozbudził Sputnik.",
+    "region": "Świat"
+  },
+  "construction-berlin-wall": {
+    "title": "Budowa muru berlińskiego",
+    "description": "Niemcy Wschodnie wznoszą mur dzielący Berlin, fizycznie odgradzając wschód od zachodu. Staje się on najbardziej wymownym symbolem żelaznej kurtyny i podziału zimnowojennego.",
+    "musicalSignificance": "Mur dzieli niemiecki świat muzyczny. Kompozytorzy na wschodzie, tacy jak Hanns Eisler i Paul Dessau, pracują pod kontrolą państwa, a na zachodzie rozwija się awangardowa szkoła darmstadzka. Podział wyznacza dwie odmienne drogi nowej muzyki niemieckiej.",
+    "region": "Europa"
+  },
   "moon-landing": {
+    "title": "Lądowanie Apollo 11 na Księżycu",
+    "description": "Astronauci NASA Neil Armstrong i Buzz Aldrin jako pierwsi ludzie stawiają kroki na Księżycu. Spełniają wyzwanie prezydenta Kennedy’ego i dokonują jednego z największych osiągnięć ludzkości.",
+    "musicalSignificance": "Lądowanie na Księżycu uosabia kulturowy wpływ ery kosmicznej. Stockhausen tworzy utwory inspirowane kosmosem, a wydarzenie pobudza kompozytorów elektronicznych i eksperymentalnych, by wyobrażali sobie muzykę dla cywilizacji podróżującej w kosmosie.",
+    "region": "Świat",
     "wikipediaSlug": "Lądowanie_na_Księżycu"
   }
 }
