@@ -102,7 +102,7 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
 <body>
 <canvas id="haze"></canvas><canvas id="hall"></canvas>
 <div class="vignette"></div><div class="grain"></div>
-<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><a href="river.html">River</a><a class="here" href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><a href="river.html">River of Time</a><a class="here" href="hall.html">Concert Hall</a><a href="terms.html">Lexicon</a></nav>
 <button class="btn" id="bSilence" aria-pressed="false">Sounding</button>
 <div class="hint" id="hint">click a section or the podium to meet them<br>change the era to watch the players walk off and on</div>
 <div id="info"><div class="k" id="iYear"></div><h2 id="iName"></h2><div class="lead" id="iLead"></div><p id="iText"></p><div id="iComp"></div><div class="count" id="iCount"></div>
@@ -163,7 +163,7 @@ PIECES.forEach(p=>p.composer=D.composers.find(c=>c.shortName===p.who)?.id);
 // ---------- seats ----------
 let WING=11;
 const seats=new Map(), CAR={}; let current={}, active={}, hoverS=null, focusS=new Set(), card=null, mouse={x:-99,y:-99}, st={era:'classical'}, sectionLabelRects=[], sectionLabelSkipped=[];
-let pendingSync=false, syncTimer=0, wasMoving=false, cacT=0, baton=0, T=0;
+let pendingSync=false, syncTimer=0, wasMoving=false, cacT=0, T=0;
 function apply(defs,meta){ current=meta; const {out:tgt,carp}=layoutSeats(defs); fitTargets=tgt; fitCarpets=carp; WING=Math.max(11,tgt.reduce((max,t)=>Math.max(max,Math.hypot(t.x,t.z)),0)+2); const keep=new Set(); clearTimeout(syncTimer);
   for(const t of tgt){ keep.add(t.key); let s=seats.get(t.key);
     if(!s){ const side=t.x<0?-1:1; s={key:t.key,sid:t.sid,cx:side*WING,cz:t.z,a:0,ph:Math.random()*6.28,delay:.4+Math.random()*2.2,speed:2.1+Math.random()*.9}; seats.set(t.key,s); }
@@ -389,7 +389,7 @@ function step(dt){ T+=dt; let moving=false; for(const k in camT) if(typeof camT[
   if(moving&&sound.started&&!silent){ const seated=[...seats.values()].filter(s=>!s.dead&&!s.walk&&s.delay<=0); cacT-=dt;
     if(cacT<=0&&seated.length){ cacT=Math.max(.06,.9/Math.sqrt(seated.length+1)); tune(seated[Math.random()*seated.length|0].sid); } }
   if(wasMoving&&!moving&&pendingSync){ pendingSync=false; if(sound.started&&!silent) syncUp(); }
-  wasMoving=moving; baton=Math.max(0,baton-dt*.35);
+  wasMoving=moving;
   for(const sid in active) active[sid]*=Math.pow(.25,dt); }
 function tune(sid){ const [,fam,,patch,notes]=S[sid]; const pan=sectionPan(sid);
   if(fam==='perc'){ if(Math.random()<.4) P(patch,notes[0],{vel:.1+Math.random()*.1,dur:.3,pan,tag:sid}); return; }
@@ -505,20 +505,11 @@ function render(){ g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
   g.textAlign='center'; g.letterSpacing='1.5px'; g.shadowColor='#000'; g.shadowBlur=6;
   for(const label of placed){ g.textBaseline=label.baseline; g.font=`${label.fontPx}px Cinzel`; g.globalAlpha=label.alpha; g.fillStyle=label.color; g.fillText(label.text,label.drawX,label.drawY); }
   g.shadowBlur=0; g.globalAlpha=1; g.letterSpacing='0px'; g.textBaseline='top';
-  // podium, conductor & baton
-  const pc=podPt(), cs=pc.s, up=baton>0?Math.min(1,baton*3):0, pod=camName==='podium';
-  let bx,by,ex,ey;
+  // podium and conductor
+  const pc=podPt(), cs=pc.s, pod=camName==='podium';
   if(!pod){ g.fillStyle='rgba(30,22,15,.95)'; g.beginPath(); g.ellipse(pc.x,pc.y,26*cs,8*cs,0,0,7); g.fill(); g.strokeStyle='rgba(239,212,151,.45)'; g.lineWidth=1; g.stroke();
     g.fillStyle='rgba(18,13,9,.95)'; g.beginPath(); g.ellipse(pc.x,pc.y-14*cs,8*cs,15*cs,0,Math.PI,0); g.fill(); g.strokeStyle='rgba(239,212,151,.6)'; g.stroke();
-    g.fillStyle='rgba(255,236,200,.95)'; g.beginPath(); g.arc(pc.x,pc.y-34*cs,5.5*cs,0,7); g.fill();
-    bx=pc.x+14*cs+(mouse.x-pc.x)*.04; by=pc.y-40*cs-up*26*cs-(baton>0?Math.abs(Math.sin(T*3.2))*8:Math.abs(Math.sin(T*1.4))*3)*cs+(mouse.y-pc.y)*.02; ex=bx+16*cs; ey=by-12*cs-up*6*cs;
-    g.strokeStyle='rgba(255,240,210,.9)'; g.lineWidth=1.4*cs; g.beginPath(); g.moveTo(pc.x+5*cs,pc.y-26*cs); g.lineTo(bx,by); g.lineTo(ex,ey); g.stroke(); }
-  else { bx=W/2; by=pc.y-26; let ang=mouse.x<0?-1.25:Math.atan2(mouse.y-by,mouse.x-bx); if(ang>0) ang=ang>Math.PI/2?-2.6:-.55; ang=Math.max(-2.6,Math.min(-.55,ang));
-    ang+=(baton>0?Math.sin(T*3.2)*.12:Math.sin(T*1.1)*.03); const L=Math.min(H*.3,290)*(1+up*.12); ex=bx+Math.cos(ang)*L; ey=by+Math.sin(ang)*L;
-    const nx=-Math.sin(ang), ny=Math.cos(ang); g.fillStyle='rgba(255,240,210,.88)'; g.beginPath(); g.moveTo(bx+nx*2.6,by+ny*2.6); g.lineTo(ex+nx*.5,ey+ny*.5); g.lineTo(ex-nx*.5,ey-ny*.5); g.lineTo(bx-nx*2.6,by-ny*2.6); g.closePath(); g.fill();
-    g.globalCompositeOperation='lighter'; const hg=g.createRadialGradient(bx,by,0,bx,by,26); hg.addColorStop(0,'rgba(255,214,160,.45)'); hg.addColorStop(1,'rgba(255,214,160,0)'); g.fillStyle=hg; g.fillRect(bx-26,by-26,52,52); g.globalCompositeOperation='source-over';
-    g.fillStyle='rgba(40,30,22,.95)'; g.beginPath(); g.ellipse(bx,by+3,6,4,0,0,7); g.fill(); g.strokeStyle='rgba(239,212,151,.6)'; g.lineWidth=1; g.stroke(); }
-  g.globalCompositeOperation='lighter'; const bg=g.createRadialGradient(ex,ey,0,ex,ey,30+up*30); bg.addColorStop(0,`rgba(255,240,210,${.45+up*.4})`); bg.addColorStop(1,'rgba(255,240,210,0)'); g.fillStyle=bg; g.fillRect(ex-70,ey-70,140,140); g.globalCompositeOperation='source-over';
+    g.fillStyle='rgba(255,236,200,.95)'; g.beginPath(); g.arc(pc.x,pc.y-34*cs,5.5*cs,0,7); g.fill(); }
   const cc=curComposer(); if(cc){ g.font='12px Cinzel'; g.letterSpacing='3px'; g.fillStyle=onPodium(mouse.x,mouse.y)?'#fff3da':'rgba(239,212,151,.85)'; g.shadowColor='#000'; g.shadowBlur=8; g.fillText(cc.name.toUpperCase(),pc.x,pod?pc.y:pc.y+14*cs); g.shadowBlur=0; g.letterSpacing='0px'; }
   // haze
   if(uh){ const n=Math.min(24,cones.length), A=new Float32Array(96), B=new Float32Array(96), C=new Float32Array(72);
@@ -560,9 +551,9 @@ sound.onNote(n=>{ if(!n.tag)return; const delay=Math.max(0,(n.when-sound.now())*
 async function preload(){ const ids=new Set([...present().map(sid=>S[sid][3]),'oohs']); await Promise.all([...ids].map(id=>sound.load(id))); }
 const ORDER=['cb','vc','viol','va','v2','v1','hc','fp','lute','org','bas','ten','alt','sop','rec','bn','cl','ob','fl','pic','cor','sack','hn','tb','tu','tp','hp','cel','ti','pc'];
 const CHORD={cb:[38],vc:[50,57],va:[62],v2:[66],v1:[74,78],viol:[50,57],hc:[62,66,69],fp:[62,66,69],org:[38,50,57],sop:[74,78],alt:[66,69],ten:[57,62],bas:[43,50],lute:[62,69],rec:[74],bn:[50],cl:[69],ob:[74],fl:[81],pic:[86],cor:[74],sack:[50,57],hn:[62,66],tb:[50,57],tu:[38],tp:[74,78],hp:[50,57,62,66,69,74],cel:[86,90],ti:[38],pc:[86]};
-async function raiseBaton(){ await sound.unlock(); await preload(); baton=3; const pr=new Set(present()); const order=ORDER.filter(s=>pr.has(s));
+async function raiseBaton(){ await sound.unlock(); await preload(); const pr=new Set(present()); const order=ORDER.filter(s=>pr.has(s));
   order.forEach((sid,i)=>motif(sid,.45,i*.42,.3)); const t=order.length*.42+.3;
-  order.forEach(sid=>CHORD[sid].forEach(m=>P(S[sid][3],m,{when:sound.now()+t,dur:3.4,vel:.5,voices:2,pan:sectionPan(sid),tag:sid}))); baton=Math.max(baton,(t+3)*.35); }
+  order.forEach(sid=>CHORD[sid].forEach(m=>P(S[sid][3],m,{when:sound.now()+t,dur:3.4,vel:.5,voices:2,pan:sectionPan(sid),tag:sid}))); }
 $('bMore').onclick=()=>{ const i=$('info'); i.classList.toggle('more'); $('bMore').setAttribute('aria-expanded',i.classList.contains('more')); $('bMore').textContent=i.classList.contains('more')?t('hall.about.less'):t('hall.about'); };
 $('tutti').onclick=()=>{ clearTimeout(syncTimer); pendingSync=false; raiseBaton(); };
 // ---------- boot from URL: #era=baroque  #piece=m40  #composer=gustav-mahler  #instrument=cello ----------

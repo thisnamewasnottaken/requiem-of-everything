@@ -7,9 +7,9 @@
 <style>
 #river{position:fixed;inset:0;width:100%;height:100%;cursor:grab}
 #river.drag{cursor:grabbing}
-#head{position:fixed;top:20px;left:50%;transform:translateX(-50%);text-align:center;z-index:20;pointer-events:none}
-#head h1{font-family:var(--inscr);font-weight:400;font-size:1.05rem;letter-spacing:.42em;text-indent:.42em;color:#efe0c2;text-shadow:0 0 20px rgba(255,179,107,.25)}
-#head p{font-style:italic;font-weight:300;color:var(--mist);margin-top:6px;font-size:1rem}
+#head{position:fixed;top:20px;left:calc(50% - 18px);transform:translateX(-50%);text-align:center;z-index:20;pointer-events:none}
+#head h1{font-family:var(--inscr);font-weight:400;font-size:1.05rem;letter-spacing:.18em;text-indent:.18em;color:#efe0c2;text-shadow:0 0 20px rgba(255,179,107,.25)}
+#head p{font-style:italic;font-weight:300;color:var(--mist);margin:6px auto 0;font-size:.88rem;white-space:nowrap}
 #tip{position:fixed;z-index:30;pointer-events:none;padding:12px 16px 10px;min-width:180px;max-width:320px;opacity:0;transition:opacity .25s;line-height:1.45}
 #tip b{font-weight:500;font-size:1.15rem;color:#f6e9cf;display:block}
 #tip .k{font-family:var(--inscr);font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
@@ -81,6 +81,8 @@
   #findGroup{top:54px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
 }
 @media(max-height:500px){
+  #head{top:52px!important;left:50%}
+  #head p{display:none}
   #life{height:calc(100vh - 124px);bottom:58px}
   #bSilence{top:84px;right:12px}
   #findGroup{top:84px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
@@ -92,7 +94,7 @@
 <body>
 <canvas id="river"></canvas>
 <div class="vignette"></div><div class="grain"></div>
-<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><a class="here" href="river.html">River</a><a href="hall.html">Hall &amp; Voices</a><a href="terms.html">Lexicon</a></nav>
+<nav class="sigil"><a class="mark home" href="index.html#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><a class="here" href="river.html">River of Time</a><a href="hall.html">Concert Hall</a><a href="terms.html">Lexicon</a></nav>
 <div id="head" style="top:14px"><h1></h1><p>Every thread is a life. Thick where the music poured out, bright when the world was listening.</p></div>
 <div id="tip" class="reliquary"></div>
 <div id="life" class="reliquary">
