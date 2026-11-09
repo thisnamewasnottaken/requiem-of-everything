@@ -1,0 +1,211 @@
+{
+  "violin": {
+    "showcase": {"why": "Cztery pełne życia koncerty stawiają skrzypce w samym centrum każdej pory roku."},
+    "greats": [
+      {"note": "Odmienił technikę skrzypcową olśniewającą wirtuozerią."},
+      {"note": "Jeden z najbardziej podziwianych wirtuozów XX wieku."},
+      {"note": "Kochany za ciepłe brzmienie i bogatą karierę."}
+    ]
+  },
+  "viola": {
+    "showcase": {"why": "Altówka solo prowadzi słuchacza przez barwną opowieść orkiestrową."},
+    "greats": [
+      {"note": "Zwiększył rangę altówki jako instrumentu solowego."},
+      {"note": "Znana z ekspresyjnej gry i działalności pedagogicznej."},
+      {"note": "Czołowy altowiolista i założyciel zespołów."}
+    ]
+  },
+  "cello": {
+    "showcase": {"why": "Głęboko liryczny koncert pozwala wiolonczeli śpiewać i rozkwitać."},
+    "greats": [
+      {"note": "Pomógł wprowadzić suity wiolonczelowe Bacha do sal koncertowych."},
+      {"note": "Wszechstronny wykonawca i ambasador muzyki."},
+      {"note": "Jego nagranie koncertu Elgara stało się legendarne."}
+    ],
+    "goat": {"note": "Ceniony wiolonczelista znany z bardzo szerokiego repertuaru."}
+  },
+  "double-bass": {
+    "showcase": {"title": "Koncert nr 2 h-moll", "why": "Popisowy utwór ukazuje zwinność i śpiewne brzmienie kontrabasu."},
+    "greats": [
+      {"note": "Jeden z najwybitniejszych kontrabasowych wirtuozów swojej epoki."},
+      {"note": "Był kontrabasistą-solistą, zanim zasłynął jako dyrygent."},
+      {"note": "Pomógł ugruntować pozycję kontrabasu jako instrumentu solowego."}
+    ]
+  },
+  "harp": {
+    "showcase": {"title": "Taniec sakralny i świecki", "why": "Harfa przepływa między migotliwymi rytmami tańca a uroczystymi akordami."},
+    "greats": [
+      {"note": "Ceniona francuska harfistka i pedagog."},
+      {"note": "Znana z występów solowych i kameralnych."},
+      {"note": "Jedna z czołowych współczesnych harfistek solowych."}
+    ]
+  },
+  "viola-da-gamba": {
+    "showcase": {"title": "Les Folies d’Espagne", "why": "Słynne wariacje zmieniają prosty temat w popisowy utwór na violę da gamba."},
+    "greats": [
+      {"note": "Czołowy francuski kompozytor i wirtuoz violi da gamba."},
+      {"note": "Francuski mistrz violi da gamba i nauczyciel."},
+      {"note": "Wybitny współczesny wykonawca i badacz dawnej muzyki."}
+    ]
+  },
+  "flute": {
+    "showcase": {"title": "Syrinx", "why": "Samotny flet maluje spokojną opowieść mityczną bez akompaniamentu."},
+    "greats": [
+      {"note": "Spopularyzował flet jako instrument solowy."},
+      {"note": "Znany z jasnego brzmienia i szerokiej publiczności."},
+      {"note": "Czołowy flecista orkiestrowy i solista."}
+    ]
+  },
+  "oboe": {
+    "showcase": {"title": "Koncert obojowy D-dur", "why": "Późny, pełen wdzięku koncert pozwala obojowi prowadzić muzykę od początku do końca."},
+    "greats": [
+      {"note": "Wirtuoz oboju, kompozytor i dyrygent."},
+      {"note": "Znany z lirycznej gry w Filharmonii Berlińskiej."},
+      {"note": "Pomógł ukształtować nowoczesną francuską szkołę oboju."}
+    ]
+  },
+  "clarinet": {
+    "showcase": {"title": "Koncert klarnetowy A-dur, KV 622", "why": "Ciepła skala klarnetu rozkwita w ostatnim koncercie Mozarta."},
+    "greats": [
+      {"note": "Jazzowy klarnecista, który wspierał też nowe dzieła koncertowe."},
+      {"note": "Czołowa solistka i klarnecistka orkiestrowa."},
+      {"note": "Znany z pomysłowych wykonań i programów."}
+    ]
+  },
+  "bassoon": {
+    "showcase": {"title": "Koncert fagotowy B-dur, KV 191", "why": "Pełen humoru koncert ukazuje zwinność i śpiewność fagotu."},
+    "greats": [
+      {"note": "Ceniony solista i pedagog."},
+      {"note": "Znany z występów solowych i kameralnych."},
+      {"note": "Czołowy wykonawca na fagotach współczesnych i barokowych."}
+    ]
+  },
+  "recorder": {
+    "showcase": {"title": "Koncert na flet prosty C-dur, TWV 51:C1", "why": "Jasne partie fletu prostego pokazują, czemu ceniono go w epoce baroku."},
+    "greats": [
+      {"note": "Pomógł przywrócić flet prosty do współczesnego życia koncertowego."},
+      {"note": "Solistka grająca na flecie prostym, znana z wielu nagrań."},
+      {"note": "Wykonuje i uczy muzyki dawnej."}
+    ]
+  },
+  "french-horn": {
+    "showcase": {"title": "Koncert waltorniowy nr 4 Es-dur, KV 495", "why": "Długie melodie i żywe sygnały ukazują szerokie możliwości waltorni."},
+    "greats": [
+      {"note": "Jedna z najważniejszych waltornistów-solistów XX wieku."},
+      {"note": "Znany z występów solowych i wykonawstwa historycznego."},
+      {"note": "Przez dziesięciolecia prowadził sekcję waltorni Chicago Symphony."}
+    ]
+  },
+  "trumpet": {
+    "showcase": {"title": "Koncert trąbkowy Es-dur", "why": "Nowa trąbka klapowa wnosi jasny, błyskotliwy głos solowy."},
+    "greats": [
+      {"note": "Pomógł spopularyzować trąbkę jako instrument solowy."},
+      {"note": "Wybitny solista trąbki klasycznej i jazzowej."},
+      {"note": "Jedna z czołowych współczesnych trębaczek solowych."}
+    ]
+  },
+  "trombone": {
+    "showcase": {"why": "Słynne glissando puzonu wybija się ponad powtarzający się taniec."},
+    "greats": [
+      {"note": "Czołowy puzonista-solista i kompozytor."},
+      {"note": "Pierwszy puzonista Filharmonii Nowojorskiej."},
+      {"note": "Jedna z najważniejszych postaci puzonu jazzowego."}
+    ]
+  },
+  "tuba": {
+    "showcase": {"title": "Koncert tubowy f-moll", "why": "Pełny koncert rzadko daje tubie główną rolę."},
+    "greats": [
+      {"note": "Pomógł ugruntować pozycję tuby w amerykańskich orkiestrach."},
+      {"note": "Pionier solowych recitali tubowych."},
+      {"note": "Znany z wirtuozowskich występów solowych."}
+    ]
+  },
+  "timpani": {
+    "showcase": {"why": "Kotły dodają symfonicznym kulminacjom grzmotu i energii."},
+    "greats": [
+      {"note": "Wpływowy pedagog, który ukształtował amerykańską grę na kotłach."},
+      {"note": "Ceniona solistka perkusyjna i edukatorka."},
+      {"note": "Znany z solowych występów na kotłach."}
+    ]
+  },
+  "snare-drum": {
+    "showcase": {"why": "Werbel powtarza swój rytm, a orkiestra stopniowo narasta."},
+    "greats": [
+      {"note": "Ważny pedagog gry na werblu i autor podręczników."},
+      {"note": "Ceniony perkusista rockowy o potężnym brzmieniu."},
+      {"note": "Czołowa perkusistka-solistka."}
+    ]
+  },
+  "cymbals-and-percussion": {
+    "showcase": {"why": "Barwna mieszanka bębnów, talerzy i perkusji napędza całą partyturę."},
+    "greats": [
+      {"note": "Czołowa solistka na wielu instrumentach perkusyjnych."},
+      {"note": "Rozszerzył rolę perkusji w muzyce koncertowej."},
+      {"note": "Mistrz timbalesów i lider zespołu latynoskiego jazzu."}
+    ]
+  },
+  "piano": {
+    "showcase": {"why": "Cichy początek i burzliwy finał pokazują pełnię możliwości fortepianu."},
+    "greats": [
+      {"note": "Jeden z najważniejszych kompozytorów na fortepian solo."},
+      {"note": "Odmienił pianistykę i technikę gry na fortepianie."},
+      {"note": "Znana z pełnych energii, ekspresyjnych wykonań."}
+    ]
+  },
+  "organ": {
+    "showcase": {"why": "Śmiałe pasaże na początku prowadzą do misternie splecionej fugi."},
+    "greats": [
+      {"note": "Wybitny kompozytor i wirtuoz organów."},
+      {"note": "Odnowił francuską muzykę organową w XIX wieku."},
+      {"note": "Jeden z najważniejszych kompozytorów organowych XX wieku."}
+    ]
+  },
+  "harpsichord": {
+    "showcase": {"why": "Trzydzieści wariacji zmienia prostą linię basu w cały świat muzyki."},
+    "greats": [
+      {"note": "Pomogła przywrócić klawesyn na estrady koncertowe."},
+      {"note": "Wybitny wykonawca i badacz muzyki dawnej."},
+      {"note": "Czołowy klawesynista i dyrygent."}
+    ]
+  },
+  "celesta": {
+    "showcase": {"title": "Taniec Wróżki Cukrowej", "why": "Lśniące brzmienie czelesty nadaje tańcowi magiczny charakter."},
+    "greats": [
+      {"note": "Rozsławił czelestę w Dziadku do orzechów."},
+      {"note": "Wykorzystał czelestę w swoim Koncercie harfowym."},
+      {"note": "Wykorzystuje barwę czelesty w muzyce filmowej i koncertowej."}
+    ]
+  },
+  "soprano": {
+    "showcase": {"title": "Aria Królowej Nocy z Czarodziejskiego fletu", "why": "Aria koloraturowa wymaga od sopranu wysokich skoków i szybkiego śpiewu."},
+    "greats": [
+      {"note": "Ceniona śpiewaczka operowa o szerokim zasięgu dramatycznym."},
+      {"note": "Słynęła z błyskotliwego śpiewu koloraturowego."},
+      {"note": "Czołowa sopranistka liryczna na scenie i w nagraniach."}
+    ]
+  },
+  "alto-mezzo": {
+    "showcase": {"title": "Habanera z Carmen", "why": "Pamiętne wejście Carmen daje mezzosopranowi wyrazistą, odważną rolę."},
+    "greats": [
+      {"note": "Wybitna mezzosopranistka i specjalistka od bel canta."},
+      {"note": "Znana z ruchliwego głosu i odkrywania zapomnianych utworów."},
+      {"note": "Ceniona wykonawczyni ról Carmen i Mozarta."}
+    ]
+  },
+  "tenor": {
+    "showcase": {"title": "„Nessun dorma” z Turandot", "why": "Wznosząca się aria tenorowa prowadzi do słynnej, wysokiej nuty na zakończenie."},
+    "greats": [
+      {"note": "Przybliżył głos tenorowy ogromnej publiczności."},
+      {"note": "Jedna z pierwszych gwiazd nagrań wśród tenorów operowych."},
+      {"note": "Czołowy tenor operowy i pieśniarz."}
+    ]
+  },
+  "bass-baritone": {
+    "showcase": {"title": "Aria katalogowa z Don Giovanniego", "why": "Szybka wyliczanka Leporella daje bas-barytonowi komiczny popis."},
+    "greats": [
+      {"note": "Słynny śpiewak operowy i wykonawca pieśni."},
+      {"note": "Znany z wyrazistych ról bas-barytonowych."},
+      {"note": "Ceniony wykonawca ról Mozarta i bel canta."}
+    ]
+  }
+}
