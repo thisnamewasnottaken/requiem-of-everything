@@ -173,7 +173,8 @@ const byComposer=Object.create(null); D.compositions.forEach(c=>(Object.hasOwn(b
 const voiceFor=c=>{const t=c.tags.join(' ');if(c.id==='johann-sebastian-bach')return 'organ';if(/violin/.test(t))return 'violin';if(/piano/.test(t))return 'piano';if(/opera/.test(t))return 'oohs';if(/choral|sacred|polyphony/.test(t))return 'choir';if(/harpsichord|keyboard/.test(t))return 'harpsichord';return ['harp','cello','horn','flute','clarinet'][c.birthYear%5];};
 const localeLives=window.ROE_LIVES||{};
 const comps=D.composers.map((c,i)=>{const L=Object.hasOwn(localeLives,c.id)?localeLives[c.id]:Object.hasOwn(LIVES,c.id)?LIVES[c.id]:undefined;const works=Object.hasOwn(byComposer,c.id)?byComposer[c.id].sort((a,b)=>a.yearComposed-b.yearComposed):[];
-  return {...c,i,rgb:brighten(Object.hasOwn(eraCol,c.era)?eraCol[c.era]:'#c9a55c',1.7),home:Object.hasOwn(NAT,c.nationality)?NAT[c.nationality]:'German lands',moves:Object.hasOwn(MOVES,c.id)?MOVES[c.id]:[],life:L,works,voice:voiceFor(c),slot:0,phase:Math.random()*6.28};});
+  const nationalityKey=c.nationalityKey??c.nationality;
+  return {...c,i,rgb:brighten(Object.hasOwn(eraCol,c.era)?eraCol[c.era]:'#c9a55c',1.7),home:Object.hasOwn(NAT,nationalityKey)?NAT[nationalityKey]:'German lands',moves:Object.hasOwn(MOVES,c.id)?MOVES[c.id]:[],life:L,works,voice:voiceFor(c),slot:0,phase:Math.random()*6.28};});
 const COMP=Object.create(null); comps.forEach(c=>{COMP[c.id]=c;});
 const normalizeSearch=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
 const searchWords=s=>normalizeSearch(s).split(/[^a-z0-9]+/).filter(Boolean);
@@ -365,8 +366,8 @@ function clickAt(e){
   if(hoverC){ openLife(hoverC); return; }
   if(focus) closeLife(); }
 const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=soundEnabled?t('river.sounding'):t('river.silence');bS.classList.toggle('on',soundEnabled);bS.setAttribute('aria-pressed',soundEnabled);}; paintS();
-bS.onclick=()=>{soundEnabled=!soundEnabled;localStorage.setItem('roe-sound',soundEnabled?'on':'off');paintS();if(soundEnabled)sound.unlock();else if(sound.ctx)sound.ctx.suspend();};
-addEventListener('storage',e=>{if(e.key!=='roe-sound'&&e.key!==null)return;soundEnabled=e.newValue!=='off';paintS();if(!soundEnabled&&sound.ctx)sound.ctx.suspend();});
+bS.onclick=()=>{soundEnabled=!soundEnabled;localStorage.setItem('roe-sound',soundEnabled?'on':'off');paintS();if(soundEnabled)sound.unlock();else sound.stopAll();};
+addEventListener('storage',e=>{if(e.key!=='roe-sound'&&e.key!==null)return;soundEnabled=e.newValue!=='off';paintS();if(!soundEnabled)sound.stopAll();});
 const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d'); const bio=document.getElementById('lBio'), more=document.getElementById('lMore'), eventsList=document.querySelector('#lEvents .event-list');
 const paintMore=()=>{const can=bio.scrollHeight>bio.clientHeight+4, end=bio.scrollTop+bio.clientHeight>=bio.scrollHeight-4; more.style.opacity=can&&!end?1:0; bio.classList.toggle('end',!can||end);};
 bio.addEventListener('scroll',paintMore);

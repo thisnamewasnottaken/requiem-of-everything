@@ -16,7 +16,11 @@
   const params = new URLSearchParams(location.search);
   let stored = null;
   try { stored = localStorage.getItem('i18nextLng'); } catch {}
-  const lang = primary(params.get('lang')) || primary(stored) || (navigator.languages || []).map(primary).find(Boolean) || 'en-GB';
+  const requested = primary(params.get('lang'));
+  if (requested) {
+    try { localStorage.setItem('i18nextLng', requested); } catch {}
+  }
+  const lang = requested || primary(stored) || (navigator.languages || []).map(primary).find(Boolean) || 'en-GB';
   const pluralRules = new Intl.PluralRules(lang);
   let locale = { ui: {} };
 
@@ -247,9 +251,10 @@
   }
 
   function mergeRecords(records, translations) {
-    if (!Array.isArray(records) || !translations) return;
+    if (!Array.isArray(records)) return;
     for (const record of records) {
-      const translated = translations[record.id];
+      if (Object.hasOwn(record, 'nationality')) record.nationalityKey ??= record.nationality;
+      const translated = translations?.[record.id];
       if (translated) Object.assign(record, translated);
     }
   }

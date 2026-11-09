@@ -347,7 +347,7 @@ async function startSound(){
   })();
   try{await startingSound;}finally{startingSound=null;}
 }
-function stopSound(){soundOn=false;clearInterval(chordTimer);chordTimer=null;if(sound.ctx)sound.ctx.suspend();}
+function stopSound(){soundOn=false;clearInterval(chordTimer);chordTimer=null;sound.stopAll();}
 bSound.onclick=()=>{const enabled=!soundEnabled;setSoundEnabled(enabled);if(enabled)startSound();};
 addEventListener('storage',e=>{
   if(e.key!==soundKey&&e.key!==null)return;

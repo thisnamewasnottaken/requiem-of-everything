@@ -37,7 +37,7 @@ export const PATCHES = {
 };
 
 class Engine {
-  constructor() { this.ctx = null; this.banks = {}; this.decoded = {}; this.loopBuffers = {}; this.listeners = new Set(); this.level = 0; this.hqManifest = null; this.hqLoading = null; this.hqBanks = {}; this.hqUsed = {}; }
+  constructor() { this.ctx = null; this.banks = {}; this.decoded = {}; this.loopBuffers = {}; this.listeners = new Set(); this.voices = new Set(); this.generation = 0; this.level = 0; this.hqManifest = null; this.hqLoading = null; this.hqBanks = {}; this.hqUsed = {}; }
   get started() { return !!this.ctx && this.ctx.state === 'running'; }
   async unlock() {
     if (!this.ctx) this._build();
@@ -157,6 +157,7 @@ class Engine {
   // Play a note. voices>1 = section ensemble (slight detune + timing spread).
   async play(id, midi, o = {}) {
     if (!this.ctx) return;
+    const generation = this.generation;
     const p = PATCHES[id] || { gm: id, attack: .05, release: 1 };
     const hqPatch = this.hqManifest?.[id];
     let buf, sampleNote, sampleUrl, name = noteName(Math.round(midi));
@@ -174,6 +175,7 @@ class Engine {
       this.load(id);
       try { buf = await this._buffer(p.gm, name); } catch { return; }
     }
+    if (generation !== this.generation) return;
     const loop = o.loop ? this._loopBuffer(hqPatch ? `hq:${id}` : p.gm, hqPatch ? String(sampleNote) : name, buf, o.loopStart ?? .35, o.loopEnd ?? .85) : null;
     const ctx = this.ctx, voices = Math.max(1, Math.min(o.voices || 1, 4));
     const t0 = Math.max(ctx.currentTime + .01, o.when || 0), dur = o.dur ?? 1.2, vel = o.vel ?? .7;
@@ -192,12 +194,34 @@ class Engine {
       g.gain.exponentialRampToValueAtTime(.0001, ts + Math.max(attack, dur) + release);
       src.connect(g).connect(pan); pan.connect(this.dry);
       const send = ctx.createGain(); send.gain.value = o.wet ?? 1; pan.connect(send).connect(this.verb);
+      const voice = { source: src, gain: g };
+      this.voices.add(voice);
+      src.addEventListener('ended', () => this.voices.delete(voice), { once: true });
       if (loop) src.start(ts, loop.start); else src.start(ts);
       src.stop(ts + Math.max(attack, dur) + release + .05);
     }
     this.listeners.forEach(fn => fn({ id, midi, when: t0, dur, vel, tag: o.tag }));
   }
   onNote(fn) { this.listeners.add(fn); return () => this.listeners.delete(fn); }
+  stopAll(fade = .08) {
+    this.generation++;
+    const ctx = this.ctx;
+    if (ctx) {
+      const now = ctx.currentTime, end = now + fade;
+      for (const { source, gain } of this.voices) {
+        const param = gain.gain;
+        if (typeof param.cancelAndHoldAtTime === 'function') param.cancelAndHoldAtTime(now);
+        else {
+          const value = param.value;
+          param.cancelScheduledValues(now);
+          param.setValueAtTime(value, now);
+        }
+        param.linearRampToValueAtTime(0, end);
+        try { source.stop(end + .02); } catch {}
+      }
+    }
+    this.voices.clear();
+  }
   rms() {
     if (!this.analyser) return 0;
     this.analyser.getByteTimeDomainData(this._abuf); let s = 0;
