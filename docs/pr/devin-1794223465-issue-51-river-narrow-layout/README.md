@@ -1,6 +1,6 @@
 # Issue #51: tidier River of Time on narrow screens
 
-The v2 page nav now lists only the *other* pages, since the current page is already the hero title. At 1180px and below it collapses into a burger menu next to the home mark. This applies to River, Concert Hall and Lexicon. On the River page, the find-a-composer field shrinks to a magnifier button between 641px and 1499px wide. It expands when you click it, press `/`, or type in it. Below 1180px the subtitle is hidden so the title no longer runs into the nav or the search field. Before this change, the nav links were hidden entirely at 640px and below. Now they stay reachable through the burger.
+The v2 page nav now lists only the *other* pages, since the current page is already the hero title. At 1180px and below it collapses into a burger menu next to the home mark. This applies to River, Concert Hall and Lexicon. On the River page, the find-a-composer field shrinks to a magnifier button between 641px and 1499px wide. It expands while focused (click it or press `/`) and the title fades out during that time. Below 1180px the subtitle is hidden so the title no longer runs into the nav or the search field. Before this change, the nav links were hidden entirely at 640px and below. Now they stay reachable through the burger.
 
 ## River of Time, 899×952 (the width in the issue)
 
@@ -17,6 +17,14 @@ The title, subtitle, nav and search no longer overlap. The nav is now a burger m
 | ![River at 899px before](before-river-899-menu.png) | ![River at 899px with the menu open](after-river-899-menu.png) |
 
 The burger opens a dropdown with Concert Hall and Lexicon. River of Time is not listed because it is the current page.
+
+## River of Time, 899×952, searching for "Bach"
+
+| **Before (main)** | **After (this PR)** |
+|---|---|
+| ![River search before](before-river-899-find.png) | ![River search after](after-river-899-find.png) |
+
+While the search field has focus it expands and the title fades out. On blur it collapses back to the magnifier, and a gold border marks an active query.
 
 ## River of Time, 1024×768
 

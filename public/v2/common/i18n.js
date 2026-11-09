@@ -260,7 +260,7 @@
     };
     burger.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
     nav.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); burger.focus(); }
+      if (event.key === 'Escape' && nav.classList.contains('open')) { event.stopPropagation(); setOpen(false); burger.focus(); }
     });
     nav.addEventListener('focusout', event => { if (!nav.contains(event.relatedTarget)) setOpen(false); });
     document.addEventListener('pointerdown', event => { if (!nav.contains(event.target)) setOpen(false); });
