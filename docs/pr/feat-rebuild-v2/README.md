@@ -15,10 +15,6 @@ River now preserves each composer’s English nationality key for region mapping
 - **Locale persistence:** Start with `i18nextLng` set to `en-GB`, open `index.html?lang=pl-PL`, choose “Enter in silence”, then follow the Hall link. The destination has no language query and should still have `<html lang="pl-PL">`.
 - **Silence:** In Hall, unlock audio, click “Raise the baton”, then click “Silence” within 0.5 seconds. Active audio sources should reach zero within 300 ms and remain at zero for five seconds. River and Home use the same source-stopping behavior when silenced.
 
-### Verification outputs
+### Verification
 
-- [`check-i18n`](checks/check-i18n.log)
-- [River nationality integrity check](checks/check-river-nationality.log)
-- [`check-hall`](checks/check-hall.log)
-- [Browser checks](checks/browser-checks.json)
-- [Production i18n and test suite](checks/npm-checks.log)
+`node public/v2/tools/check-i18n.mjs`, `check-river-nationality.mjs` and `check-hall.mjs`, plus `npm run i18n:strict` and `npm run test:run`, all pass. Raw logs are kept locally in `test-artifacts/` (gitignored), not committed.
