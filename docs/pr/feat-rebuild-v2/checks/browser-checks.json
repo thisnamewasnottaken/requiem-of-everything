@@ -1,0 +1,37 @@
+{
+  "river": {
+    "state": {
+      "lang": "pl-PL",
+      "model": [
+        {
+          "id": "antonio-vivaldi",
+          "nationality": "włoski",
+          "nationalityKey": "Italian",
+          "home": "Italy"
+        },
+        {
+          "id": "frederic-chopin",
+          "nationality": "Polski",
+          "nationalityKey": "Polish-French",
+          "home": "Central Europe"
+        }
+      ],
+      "lifeVisible": true
+    },
+    "screenshot": "docs/pr/feat-rebuild-v2/after-river-pl-vivaldi.png",
+    "bytes": 591371
+  },
+  "navigation": {
+    "url": "http://127.0.0.1:8766/v2/hall.html#era=classical",
+    "query": "",
+    "stored": "pl-PL",
+    "lang": "pl-PL"
+  },
+  "hallSilence": {
+    "activeBeforeSilence": 188,
+    "raiseToSilenceSeconds": 0.4,
+    "activeWithin300ms": 0,
+    "activeAfter5s": 0
+  },
+  "consoleErrors": []
+}
