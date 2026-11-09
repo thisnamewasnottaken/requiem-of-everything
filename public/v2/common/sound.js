@@ -221,6 +221,11 @@ class Engine {
       }
     }
     this.voices.clear();
+    if (ctx && this.verb) {
+      const tail = this.verb, verb = ctx.createConvolver();
+      verb.buffer = tail.buffer; verb.connect(this.wet); this.verb = verb;
+      setTimeout(() => tail.disconnect(), (fade + .03) * 1000);
+    }
   }
   rms() {
     if (!this.analyser) return 0;
