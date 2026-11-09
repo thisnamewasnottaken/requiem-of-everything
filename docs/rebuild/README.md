@@ -13,10 +13,10 @@ Every screenshot is 1440×900, taken in headless Chrome. The old site was built 
 | Arrival | A dense timeline of bars, straight away | An eye-level walk through infinite darkness: light columns, incense, a floor you drift across, and votive voices that follow your clicks |
 | Navigation | Header tabs: Timeline · Terms · Orchestra · Credits | Three glowing halos: River of Time · Concert Hall · Lexicon. The Votive icon takes you home |
 | Composers | 51 bars on a timeline | 51 living threads whose thickness and brightness show how much they wrote and how much they were heard. Each has a fact-checked life arc with world events and contemporaries |
-| Orchestra | A 2D seating map with family lists | A lit 3D stage from the conductor's podium, in 5 eras and 6 pieces. Players walk off and on, tune, then play "Raise the baton" |
+| Orchestra | A 2D seating map with family lists | A lit 3D stage from the conductor's podium, in 5 eras, plus a signature piece for six composers. Players walk off and on, tune, then play "Raise the baton" |
 | Sound | Links out to Spotify | Recorded orchestral samples (VSCO 2 CE, Sonatina) in the Hall, plus Spotify playing inside the page for 222 verified recordings |
 | Terms | 27 cards in a grid | 92 terms in one explorable 3D constellation. Most have a "Hear it" demo that plays and draws the notes |
-| Sharing | No deep links | Every view is a URL: `river.html#focus=…`, `hall.html#piece=m8&instrument=cello`, `terms.html#term=pizzicato` |
+| Sharing | No deep links | Every view is a URL: `river.html#focus=…`, `hall.html#composer=gustav-mahler&instrument=cello`, `terms.html#term=pizzicato` |
 | Devices | Desktop-first | Desktop and landscape phones; portrait shows a "turn your phone" prompt |
 
 ---
@@ -43,7 +43,7 @@ The timeline's information now lives in the **River of Time**. Each composer is 
 
 **After:** you stand on the conductor's podium. Each section sits on its own lit floor under its own lamp, with incense drifting through the light. The choir stands at the back in every era where it belongs. Changing the era or piece sends players walking off and new ones walking on. They tune and noodle, then come together on "Raise the baton". Below: Mahler's *Symphony of a Thousand*, with all 158 performers on stage.
 
-![New site: Concert Hall, Mahler 8](screenshots/new-hall-m8.png)
+![New site: Concert Hall, Mahler's Symphony No. 8](screenshots/new-hall-m8.png)
 
 Click a section or its name to meet the instrument. Its card shows the range, its role, a showcase piece playing in the page, the player widely called the greatest, and great players.
 
@@ -119,6 +119,7 @@ The rebuild was a conversation. Each round of feedback became a commit, and you 
 - "Voices missing" → labels that never overlap, and a choir wherever history puts one.
 - "Through the eras isn't working" → interactive notes for every era.
 - "River => River of Time, Hall & Voices => Concert Hall, remove the baton" → clearer names, and a stage with nothing in front of the orchestra.
+- "Remove the major composers at the bottom, the feature falls flat" → the piece row is gone; choosing a composer still brings their signature piece on stage.
 
 ## Next steps
 
