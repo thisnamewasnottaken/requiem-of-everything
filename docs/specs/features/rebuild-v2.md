@@ -9,6 +9,12 @@ This is the next-generation Requiem of Everything experience, built as a static,
 - `hall.html`: Concert Hall. A 3D stage from the conductor's view, 5 eras plus six composers' signature pieces (via the Composer menu), composer and instrument cards, and recorded samples. Deep links: `#era=`, `#piece=`, `#composer=`, `#instrument=`.
 - `terms.html`: Lexicon. A 3D term constellation with Hear-it demos. Deep link: `#term=<id>`.
 
+## Navigation
+- The top-left `.sigil` nav holds the Home mark plus links to the other pages. The current page is left out, because its title is already shown in the hero.
+- At 1180px and narrower, the links collapse behind a `.sigil-burger` button (label `nav.menu`). It toggles on click and closes on Escape (which does not reach page handlers), on focus leaving the nav, or on a click outside it.
+- Nav labels are translated by link `href`, not by position.
+- River of Time between 641 and 1499px wide (when taller than 500px): the search field is a magnifier button that expands while focused (click or `/`), and the hero title fades out during that time. At 1180px and narrower the hero subtitle is hidden.
+
 ## Constraints
 - All paths are relative, with no runtime requests outside `v2/` except Spotify embeds.
 - No secrets. Spotify is used only through public embeds, with search links as a fallback.
