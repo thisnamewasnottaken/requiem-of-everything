@@ -11,7 +11,7 @@ Every screenshot is 1440×900, taken in headless Chrome. The old site was built 
 | | Old site (`main`) | New site (v2) |
 |---|---|---|
 | Arrival | A dense timeline of bars, straight away | An eye-level walk through infinite darkness: light columns, incense, a floor you drift across, and votive voices that follow your clicks |
-| Navigation | Header tabs: Timeline · Terms · Orchestra · Credits | Three glowing halos: River of Time · Hall & Voices · Lexicon. The Votive icon takes you home |
+| Navigation | Header tabs: Timeline · Terms · Orchestra · Credits | Three glowing halos: River of Time · Concert Hall · Lexicon. The Votive icon takes you home |
 | Composers | 51 bars on a timeline | 51 living threads whose thickness and brightness show how much they wrote and how much they were heard. Each has a fact-checked life arc with world events and contemporaries |
 | Orchestra | A 2D seating map with family lists | A lit 3D stage from the conductor's podium, in 5 eras and 6 pieces. Players walk off and on, tune, then play "Raise the baton" |
 | Sound | Links out to Spotify | Recorded orchestral samples (VSCO 2 CE, Sonatina) in the Hall, plus Spotify playing inside the page for 222 verified recordings |
@@ -35,15 +35,15 @@ The timeline's information now lives in the **River of Time**. Each composer is 
 
 ![New site: River of Time with Chopin's life open](screenshots/new-river-chopin.png)
 
-## 2. Orchestra → Hall & Voices
+## 2. Orchestra → Concert Hall
 
 **Before:** a flat seating diagram beside a panel of text and family lists.
 
 ![Old site: Orchestra Explorer](screenshots/old-orchestra.png)
 
-**After:** you stand on the conductor's podium with the baton in your hand. Each section sits on its own lit floor under its own lamp, with incense drifting through the light. The choir stands at the back in every era where it belongs. Changing the era or piece sends players walking off and new ones walking on. They tune and noodle, then come together on "Raise the baton". Below: Mahler's *Symphony of a Thousand*, with all 158 performers on stage.
+**After:** you stand on the conductor's podium. Each section sits on its own lit floor under its own lamp, with incense drifting through the light. The choir stands at the back in every era where it belongs. Changing the era or piece sends players walking off and new ones walking on. They tune and noodle, then come together on "Raise the baton". Below: Mahler's *Symphony of a Thousand*, with all 158 performers on stage.
 
-![New site: Hall & Voices, Mahler 8](screenshots/new-hall-m8.png)
+![New site: Concert Hall, Mahler 8](screenshots/new-hall-m8.png)
 
 Click a section or its name to meet the instrument. Its card shows the range, its role, a showcase piece playing in the page, the player widely called the greatest, and great players.
 
@@ -85,7 +85,7 @@ An automated check confirms that every locale covers 100% of every namespace and
 | Afrikaans: Home | Français: a life in the River |
 |---|---|
 | ![Home in Afrikaans](screenshots/lang-home-af-ZA.png) | ![River in French](screenshots/lang-river-fr-FR.png) |
-| **Polski: Hall & Voices** | **Español: the Lexicon** |
+| **Polski: Concert Hall** | **Español: the Lexicon** |
 | ![Hall in Polish](screenshots/lang-hall-pl-PL.png) | ![Lexicon in Spanish](screenshots/lang-lexicon-es-ES.png) |
 
 The translations still need a review by native speakers before launch.
@@ -118,6 +118,7 @@ The rebuild was a conversation. Each round of feedback became a commit, and you 
 - "Card is translucent" → opaque cards over a dimmed River.
 - "Voices missing" → labels that never overlap, and a choir wherever history puts one.
 - "Through the eras isn't working" → interactive notes for every era.
+- "River => River of Time, Hall & Voices => Concert Hall, remove the baton" → clearer names, and a stage with nothing in front of the orchestra.
 
 ## Next steps
 

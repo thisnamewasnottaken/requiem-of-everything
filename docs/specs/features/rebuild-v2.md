@@ -6,7 +6,7 @@ This is the next-generation Requiem of Everything experience, built as a static,
 ## Pages
 - `index.html`: Home. An eye-level infinite dark floor with light columns and incense, plus three halo destinations. The sound toggle (`roe-sound` in localStorage) is shared by every page.
 - `river.html`: River of Time. Composer threads, world events and countries, life cards with arcs, and composer search. Deep link: `#focus=<composerId>`.
-- `hall.html`: Hall & Voices. A 3D stage from the conductor's view, 5 eras and 6 pieces, composer and instrument cards, and recorded samples. Deep links: `#era=`, `#piece=`, `#composer=`, `#instrument=`.
+- `hall.html`: Concert Hall. A 3D stage from the conductor's view, 5 eras and 6 pieces, composer and instrument cards, and recorded samples. Deep links: `#era=`, `#piece=`, `#composer=`, `#instrument=`.
 - `terms.html`: Lexicon. A 3D term constellation with Hear-it demos. Deep link: `#term=<id>`.
 
 ## Constraints
