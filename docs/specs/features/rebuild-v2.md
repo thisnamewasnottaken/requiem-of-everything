@@ -13,7 +13,11 @@ This is the next-generation Requiem of Everything experience, built as a static,
 - All paths are relative, with no runtime requests outside `v2/` except Spotify embeds.
 - No secrets. Spotify is used only through public embeds, with search links as a fallback.
 - Landscape is required on phones; portrait shows a rotate prompt.
-- Languages: en-GB (default), af-ZA, es-ES, fr-FR, pl-PL. The language comes from `?lang=`, then the shared `i18nextLng` localStorage key, then the browser.
+- Languages: en-GB (default), af-ZA, es-ES, fr-FR, pl-PL. The language comes from `?lang=`, then the shared `i18nextLng` localStorage key, then the browser. A valid `?lang=` is saved to `i18nextLng`, so it carries over to pages linked without the query.
+
+## Sound
+- `common/sound.js` (`sound`) is the single Web Audio engine. River composer data keeps the English `nationalityKey` for geography; localized `nationality` is display-only.
+- Silence (Home, River, Hall; `roe-sound=off`) calls `sound.stopAll()`. Every tracked voice fades out over 80 ms and stops, including notes scheduled for later. Notes still loading are dropped, and the reverb's convolver is replaced so its tail is cut too. The audio context is not suspended, so nothing queued plays again on unmute. The Hall also cancels its pending sync and motif-light timers.
 
 ## Validation
 `public/v2/tools/check-*.mjs` (Node) checks the Hall layout and fit, life-arc data, Spotify IDs, instrument era notes and i18n coverage.
