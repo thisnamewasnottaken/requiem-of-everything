@@ -87,6 +87,7 @@ The goal is _discovery_: a user should be able to land on any point in time and 
 | Internationalisation    | i18next + react-i18next                         | HTTP backend, 5 languages (en-GB, fr-FR, af-ZA, es-ES, pl-PL) |
 | Wikipedia Integration   | Localized article links                         | Biographies and event descriptions come from bundled data |
 | Testing                 | Vitest + Testing Library                        | Unit and component tests                                |
+| Linting                 | ESLint 9 flat config                            | Checks JavaScript and TypeScript                        |
 | AI Integration (future) | REST API contract (OpenAI/Anthropic-compatible) | Pluggable, provider-agnostic                            |
 
 ## 6. Development Approach — Spec-Driven

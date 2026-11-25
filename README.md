@@ -28,10 +28,9 @@ Open [localhost:5173](http://localhost:5173/) for V2 or [localhost:5173/legacy/v
 | --- | --- |
 | `npm run build` | Compiles TypeScript and builds the site into `dist/`, including the static rebuild. |
 | `npm run type-check` | Checks TypeScript without producing build output. |
+| `npm run lint` | Lints JavaScript and TypeScript with ESLint. |
 | `npm run test:run` | Runs the Vitest unit and component tests once. |
 | `npm run test:e2e` | Builds the site and checks both routes in Chromium. Install the browser first with `npx playwright install chromium`. |
-
-`npm run lint` currently fails because there is no ESLint flat config.
 
 ## Repository map
 
