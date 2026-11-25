@@ -148,7 +148,7 @@
   <div id="findResults" class="reliquary" role="listbox" aria-label="" hidden></div>
 </div>
 <button class="btn" id="bSilence" aria-pressed="false">Silence</button>
-<script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
+<script src="common/i18n.js"></script><script src="common/canvas.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
@@ -173,7 +173,7 @@ document.querySelector('.legend span:nth-child(1)').lastChild.textContent=t('riv
 document.querySelector('.legend span:nth-child(2)').lastChild.textContent=t('river.legend.standing');
 document.querySelector('.legend span:nth-child(3)').lastChild.textContent=t('river.legend.world');
 document.getElementById('hint').textContent=t('river.hint');
-const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d');
+const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d',ROE_CANVAS.c2d);
 const findGroup=document.getElementById('findGroup'), findInput=document.getElementById('find'), findClear=document.getElementById('findClear'), findResults=document.getElementById('findResults');
 let W,H,DPR; function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);sizeMini();sizeFooter();}
 // ---------- regions (lanes) and migrations ----------
@@ -405,7 +405,7 @@ function draw(){
   drawMini();
 }
 // ---------- minimap ----------
-const mini=document.getElementById('mini'), mg=mini.getContext('2d'); let MW,MH,footerHeight=0;
+const mini=document.getElementById('mini'), mg=mini.getContext('2d',ROE_CANVAS.c2d); let MW,MH,footerHeight=0;
 const footer=document.getElementById('riverFooter');
 function sizeMini(){const r=mini.getBoundingClientRect();MW=r.width;MH=r.height;mini.width=MW*DPR;mini.height=MH*DPR;mg.setTransform(DPR,0,0,DPR,0,0);}
 function sizeFooter(){
@@ -461,7 +461,7 @@ function clickAt(e){
 const bS=document.getElementById('bSilence'); const paintS=()=>{bS.textContent=soundEnabled?t('river.sounding'):t('river.silence');bS.classList.toggle('on',soundEnabled);bS.setAttribute('aria-pressed',soundEnabled);}; paintS();
 bS.onclick=()=>{soundEnabled=!soundEnabled;localStorage.setItem('roe-sound',soundEnabled?'on':'off');paintS();if(soundEnabled)sound.unlock();else sound.stopAll();};
 addEventListener('storage',e=>{if(e.key!=='roe-sound'&&e.key!==null)return;soundEnabled=e.newValue!=='off';paintS();if(!soundEnabled)sound.stopAll();});
-const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d'); const bio=document.getElementById('lBio'), more=document.getElementById('lMore'), eventsList=document.querySelector('#lEvents .event-list');
+const life=document.getElementById('life'), seis=document.getElementById('seis'), sg=seis.getContext('2d',ROE_CANVAS.c2d); const bio=document.getElementById('lBio'), more=document.getElementById('lMore'), eventsList=document.querySelector('#lEvents .event-list');
 const paintMore=()=>{const can=bio.scrollHeight>bio.clientHeight+4, end=bio.scrollTop+bio.clientHeight>=bio.scrollHeight-4; more.style.opacity=can&&!end?1:0; bio.classList.toggle('end',!can||end);};
 bio.addEventListener('scroll',paintMore);
 function openLife(c){ if(!c||!Object.hasOwn(COMP,c.id)||COMP[c.id]!==c)return; focus=c; const pad=Math.max(6,(c.deathYear-c.birthYear)*.18); tv0=c.birthYear-pad; tv1=c.deathYear+pad*(c.life&&c.life.after?2.5:1);
