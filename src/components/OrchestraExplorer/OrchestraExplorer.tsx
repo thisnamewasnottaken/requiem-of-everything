@@ -648,8 +648,8 @@ export default function OrchestraExplorer({
       const nextEra = ALL_ERAS[nextIndex];
       selectEra(nextEra);
       event.currentTarget.parentElement
-        ?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
-        [nextIndex]?.focus();
+        ?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[nextIndex]
+        ?.focus();
     },
     [selectEra],
   );

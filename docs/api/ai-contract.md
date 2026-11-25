@@ -1,6 +1,6 @@
 # AI Integration API Contract
 
-> Defines the interface between the Requiem of Everything frontend and any AI backend service. This contract is provider-agnostic — any LLM (OpenAI, Anthropic, local models) can be wired behind it.
+> Proposed, provider-agnostic contract for a future AI backend for the React app. Neither the React UI nor v2 calls these endpoints today; the React service wrapper exists, but no AI backend ships with the static Pages deployment.
 
 ## Base URL
 
@@ -8,7 +8,7 @@
 /api/ai/
 ```
 
-In development, this proxies to a configurable endpoint. In production, it points to the deployed AI service.
+In development, Vite proxies `/api/ai` to `http://localhost:3001` by default. A future production integration would need a separately deployed backend or reverse proxy.
 
 ---
 
@@ -221,19 +221,17 @@ Error codes:
 
 ## Configuration
 
-The AI service URL and API key are configured via environment variables:
+The React service wrapper reads these public Vite variables:
 
 ```env
-VITE_AI_SERVICE_URL=http://localhost:3001/api/ai
-VITE_AI_API_KEY=your-api-key-here
 VITE_AI_ENABLED=false
 ```
 
-When `VITE_AI_ENABLED=false`, all AI UI elements are hidden and no requests are made.
+When `VITE_AI_ENABLED` is not `true`, the wrapper returns no-op responses without making requests. The wrapper defaults to `/api/ai`; an override in `VITE_AI_SERVICE_URL` sets its base URL and, when set in the shell, also sets Vite's development proxy target. Keep authentication on the server: Vite exposes `VITE_*` values to the browser, so do not put API credentials in them.
 
 ---
 
-## UI Integration Points
+## Proposed UI Integration Points (not implemented)
 
 1. **Command Palette**: Queries prefixed with `>` are routed to `/api/ai/query`.
 2. **Composer Card "Explore with AI"**: Sends `/api/ai/summarize` for the selected composer.

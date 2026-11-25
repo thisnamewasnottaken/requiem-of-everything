@@ -15,24 +15,19 @@ Comparison mode is driven entirely by store state — there are no dedicated com
 
 ## Visual States
 
-- **Default**: Shared timeline zoomed to the union of all selected composers' lifespans, with each composer on a separate row.
-- **Single Composer**: If only one selected, shows a message to add more.
-- **Empty**: No composers selected; shows guidance text.
+- **Active**: The existing timeline zooms to the combined lifespans after the collapse delay. Composers keep the timeline's usual row layout.
+- **Single Composer**: The header displays one chip and a hint to add another; the timeline is not yet in comparison mode.
+- **Empty**: No comparison toolbar or comparison mode.
 
 ## Layout
 
-```
-┌─────────────────────────────────────────────┐
-│  Composer A  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │
-│              ● ●   ●  ●●  ●   ●  ●        │
-│─────────────────────────────────────────────│
-│  Composer B     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓     │
-│                 ●  ●  ● ●   ●●  ●         │
-│─────────────────────────────────────────────│
-│  Events     |   |      |    |       |      │
-│  ──────────┬─────┬──────┬────┬───────┬──── │
-│           1700  1720   1740  1760   1780    │
-└─────────────────────────────────────────────┘
+```text
+Header         [Composer A ×] [Composer B ×] Clear
+Time ruler     ──1700──1720──1740──1760──1780──
+Dimmed events         ◇            ◇      ◇
+Composer A      ━━━━━━━━━━━━━━━━━━━━━
+Composer C           ───────────────  (collapsed)
+Composer B              ━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## Design Philosophy
@@ -50,19 +45,17 @@ This distinction is intentional and should be preserved in future development.
 - If a composer detail panel is open, Ctrl+clicking another bar transfers both into comparison.
 - Click a composer's name to open their detail panel.
 - Hover a composition marker to see its title and year.
-- Click "Add composer" to add more to the comparison.
-- Click "×" on a composer row to remove them.
-- Shared events between the composers' lifespans are highlighted.
+- Remove composers with their header chips, or clear the full comparison with the header action.
+- Historical event markers are dimmed rather than highlighted.
 - After ~3 seconds of no comparison changes, non-compared composers collapse to 6px height; hover to expand.
 - On collapse, the timeline auto-zooms to the union of compared composers' lifespans (±15 years padding), similar to single-composer "Focus Timeline" behavior.
-- The pre-comparison viewport is saved and restored when comparison mode is exited (clearing all compared composers).
+- After the comparison zoom, leaving comparison mode (fewer than two composers) restores the previous viewport.
 - Tooltips on bars and composition markers near the top of the viewport flip below to avoid occlusion.
 
 ## Accessibility
 
-- Comparison view has `role="region"` with `aria-label="Composer comparison"`.
-- Each row is labeled with the composer's name.
-- Keyboard: Tab between rows, Enter to select a composer.
+- The existing timeline bars remain focusable; Enter or Space selects a focused composer.
+- Comparison chips and the clear action are buttons in the header.
 
 ## Dependencies
 
@@ -73,10 +66,7 @@ This distinction is intentional and should be preserved in future development.
 
 ## Test Scenarios
 
-1. Renders one row per selected composer.
-2. Timeline is zoomed to the union of all lifespans ± 10 years.
-3. Compositions are shown as markers on each row.
-4. Events spanning the shared range are shown.
-5. Adding a composer adds a row and adjusts the timeline range.
-6. Removing a composer removes the row.
-7. Empty/single state shows guidance.
+1. With two or more compared composers, other visible bars dim and then collapse.
+2. After the collapse delay, the timeline frames the compared lifespans with 15 years of padding, bounded by the timeline.
+3. Leaving comparison mode after auto-zoom restores the previous viewport.
+4. One compared composer shows a chip and hint. The toolbar is hidden when the set is empty.
