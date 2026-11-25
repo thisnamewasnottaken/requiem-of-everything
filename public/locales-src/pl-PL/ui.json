@@ -158,6 +158,8 @@
   "lexicon.term.tookShape": "Ukształtowało się w epoce: {eras}",
   "lexicon.term.hearIn": "Posłuchaj w",
   "lexicon.term.hear": "Posłuchaj",
+  "lexicon.term.follow": "Przejdź do: {term} →",
+  "lexicon.term.back": "Wstecz",
   "lexicon.term.hearAgain": "Posłuchaj ponownie",
   "lexicon.term.tuning": "Strojenie…",
   "lexicon.term.listen": "Słuchaj w Spotify",
