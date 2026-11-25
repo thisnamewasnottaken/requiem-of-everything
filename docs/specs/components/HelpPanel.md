@@ -42,12 +42,12 @@ Fixed-position panel, slides in from the right side of the viewport (mirrors Fil
    | `R` | Reset timeline view |
    | `?` | Toggle help panel |
    | `Esc` | Close open panels |
-   | Scroll wheel | Zoom in/out at cursor |
+   | Ctrl/Cmd + scroll wheel | Zoom in/out at cursor |
    | Click + drag | Pan timeline |
    | Ctrl+click | Add/remove composer from comparison |
 
 2. **Navigation** — Prose instructions:
-   - Scroll to zoom, drag to pan.
+   - Ctrl/Cmd + scroll to zoom, drag to pan. The panel currently labels the zoom shortcut “Scroll.”
    - Click a composer bar to see details.
    - Use the zoom controls (+/−/↺) in the top-right corner.
    - The year range indicator shows the current viewport.

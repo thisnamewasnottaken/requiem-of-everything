@@ -2,6 +2,8 @@
 
 > An interactive timeline of classical music: composers, compositions, and the world that shaped them.
 
+The deployment root still serves the React app described by the original goals and milestones below. The [v2 rebuild](docs/specs/features/rebuild-v2.md) is also shipped, under `v2/`, with a separate Home, River of Time, Concert Hall and Lexicon. See [Architecture](ARCHITECTURE.md) for how both sites are built and deployed.
+
 ## 1. Vision
 
 **Requiem of Everything** is a richly interactive web application that lets users explore the history of Western classical music through an immersive, zoomable timeline. It connects composers to their contemporaries, their works to the historical events that surrounded them, and musical eras to the broader arc of human civilization.
@@ -71,7 +73,7 @@ The goal is _discovery_: a user should be able to land on any point in time and 
 | Extensibility    | Plugin-ready architecture for AI modules                     |
 | Offline Capable  | Core experience works offline once loaded (PWA stretch goal) |
 
-## 5. Technology Stack
+## 5. Technology Stack (React app)
 
 | Layer                   | Choice                                          | Rationale                                               |
 | ----------------------- | ----------------------------------------------- | ------------------------------------------------------- |
@@ -81,10 +83,10 @@ The goal is _discovery_: a user should be able to land on any point in time and 
 | State Management        | Zustand                                         | Lightweight, no boilerplate, good for zoom/filter state |
 | Styling                 | CSS Modules + CSS Custom Properties             | Scoped styles, theming via variables                    |
 | Animations              | Motion (Framer Motion)                          | Spring physics, staggered entry, AnimatePresence        |
-| Data Layer              | Static JSON + fetch API                         | Start static, evolve to API                             |
+| Data Layer              | Bundled JSON + locale overrides                 | Data hooks assemble localised content                   |
 | Internationalisation    | i18next + react-i18next                         | HTTP backend, 5 languages (en-GB, fr-FR, af-ZA, es-ES, pl-PL) |
-| Wikipedia Integration   | Wikipedia REST API                              | Historical event enrichment                             |
-| Testing                 | Vitest + Playwright                             | Unit + E2E, spec-driven                                 |
+| Wikipedia Integration   | Localized article links                         | Biographies and event descriptions come from bundled data |
+| Testing                 | Vitest + Testing Library                        | Unit and component tests                                |
 | AI Integration (future) | REST API contract (OpenAI/Anthropic-compatible) | Pluggable, provider-agnostic                            |
 
 ## 6. Development Approach — Spec-Driven
@@ -103,7 +105,7 @@ Every feature begins as a specification (this document + component specs), not a
 
 ### 6.3 Rebuilding
 
-Because all behavior is defined by specs and validated by tests, any component can be rebuilt from scratch at any time. The spec is the source of truth, not the current implementation.
+The specs capture design intent. For current behavior, check the corresponding implementation and tests; planned features below are not available in the app.
 
 ## 7. AI Integration Architecture (Future-Ready)
 
@@ -121,7 +123,7 @@ The app is designed with clear seams where AI can be plugged in:
 
 These endpoints follow a standard request/response contract defined in `docs/api/ai-contract.md`. Any AI provider (OpenAI, Anthropic, local model) can be wired in behind the contract.
 
-### 7.3 UI Integration
+### 7.3 Proposed UI Integration (not implemented)
 
 - A command palette / search bar that accepts natural language
 - An "Explore with AI" button on composer/era/event cards
@@ -132,7 +134,7 @@ These endpoints follow a standard request/response contract defined in `docs/api
 | Source               | What                               | How                       |
 | -------------------- | ---------------------------------- | ------------------------- |
 | Curated JSON         | Core composers, compositions, eras | Bundled with app          |
-| Wikipedia REST API   | Historical events, composer bios   | Fetched on demand, cached |
+| Wikipedia            | Further reading                    | External localized links  |
 | IMSLP (future)       | Score metadata, additional works   | API integration           |
 | MusicBrainz (future) | Recording metadata                 | API integration           |
 
@@ -140,42 +142,25 @@ These endpoints follow a standard request/response contract defined in `docs/api
 
 ```
 requiem-of-everything/
+├── index.html              # React entry point
+├── src/                    # React components, data, stores, services and tests
+├── public/
+│   ├── locales/            # React app dictionaries
+│   └── v2/                 # Static pages, shared scripts, locales, samples and tools
 ├── docs/
-│   ├── specs/              # Feature specifications
-│   ├── api/                # API contracts (including AI)
-│   └── architecture/       # Architecture decisions
-├── src/
-│   ├── components/         # React components
-│   │   ├── Timeline/       # Core timeline visualization
-│   │   ├── ComposerBar/    # Composer lifespan bar (on timeline)
-│   │   ├── ComposerCard/   # Composer detail panel
-│   │   ├── CompositionMarker/ # Composition dot on timeline
-│   │   ├── EventMarker/    # Historical event marker
-│   │   ├── EraBackdrop/    # Era color bands
-│   │   ├── TimeRuler/      # Year axis with tick labels
-│   │   ├── FilterPanel/    # Search, filter controls
-│   │   ├── ComparisonBar/  # Header toolbar for comparison mode
-│   │   ├── HelpPanel/      # In-app help / keyboard shortcuts
-│   │   └── CommandPalette/ # Search + future AI queries
-│   ├── data/               # Static JSON data files
-│   ├── hooks/              # Custom React hooks
-│   ├── services/           # API services (Wikipedia, future AI)
-│   ├── stores/             # Zustand state stores
-│   ├── types/              # TypeScript type definitions
-│   ├── utils/              # Utility functions
-│   ├── styles/             # Global styles, CSS variables, themes
-│   └── __tests__/          # Test files
-├── scripts/                # Build & utility scripts
-├── public/                 # Static assets
+│   ├── specs/              # Feature and component specifications
+│   ├── api/                # Proposed AI API contract
+│   ├── rebuild/            # v2 comparison and retirement proposal
+│   └── pr/                 # Historical review evidence
 ├── PROJECT_SPEC.md         # This file
 ├── ARCHITECTURE.md         # Technical architecture doc
 ├── DATA_SCHEMA.md          # Data model definitions
 └── CHANGELOG.md            # Version history
 ```
 
-## 10. Milestones
+## 10. React app milestones (historical)
 
-### M1 — Foundation (Current)
+### M1 — Foundation
 
 - [x] Project specification
 - [x] Architecture document
@@ -239,4 +224,4 @@ requiem-of-everything/
 
 ---
 
-_This spec is the source of truth. Code implements the spec. When requirements change, update the spec first, then rebuild._
+_For maintenance, update the relevant spec and changelog when implementation changes._
