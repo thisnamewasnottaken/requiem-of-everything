@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **Project and contribution guides**: added a root README and contribution guide covering local setup, the React app and static rebuild, and the checks and translation workflows for each.
+
 - **Rebuild v2 (`public/v2/`)**: a new static experience served at `/v2/` beside the current app. It has an atmospheric Home, the River of Time (composer threads, fact-checked life arcs and search), Concert Hall (a 3D conductor's-view orchestra across 5 eras and 6 pieces, recorded samples, instrument cards with notes for every era) and the Lexicon (92 terms in a 3D constellation with Hear-it demos). Spotify plays in the page, every view has a shareable URL, and the site is available in 5 languages. Spec: `docs/specs/features/rebuild-v2.md`. Old-vs-new comparison: `docs/rebuild/README.md`.
 - **Polish (pl-PL) locale** — added `pl-PL` to `supportedLngs`, the header and walkthrough language switchers, and the test i18n setup. Added a full Polish `translation.json`, Polish era translations, and targeted Polish namespace overrides for composer/composition/event copy and Wikipedia article titles.
 - **Spanish (es-ES) locale** — full translations for all 7 namespaces: `translation` (UI chrome), `composers` (51 composers), `compositions` (196 compositions), `events` (47 historical events), `eras` (6 eras), `terms` (empty, no terms data yet), and `instruments` (empty, no instruments data yet). App title translates as "Réquiem de Todo". `es-ES` added to `supportedLngs` in `src/i18n/index.ts`. Spec updated at `docs/specs/features/i18n.md`.
@@ -18,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- **Documentation** — clarified that the React app still serves the deployment root and v2 ships beside it; aligned architecture diagrams, current behavior, and local validation steps with main.
 - **v2 navigation on narrow screens** — at 1180px and narrower the v2 nav collapses into a burger menu, and each page leaves itself out of the nav. Between 641 and 1499px, River of Time's search shrinks to a magnifier that expands while focused, so it no longer collides with the header. Spec: `docs/specs/features/rebuild-v2.md`.
 - **Orchestra Explorer concept reimagining** — transformed the seating-map-only browse into a six-era listening journey. Era chapters now drive a translated history lesson, dated representative scores, prominence-aware stage lighting, score-specific instrument emphasis, and clear external Spotify listening actions; the seating map remains an instrument atlas within the story.
 - **Orchestra Explorer reimagining** — recast the seating map as an editorial stage plan with a persistent, localized family index and instrument counts, accessible keyboard-operable seating zones, touch-friendly navigation, and reduced-motion support. Pointer lighting no longer triggers React renders.
@@ -31,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- **Repository lint command** — restored `npm run lint` for JavaScript and TypeScript with an ESLint 9 flat config.
 - **Locale-specific Wikipedia article slugs** — `useData` now localises `wikipediaSlug` fields for composers, compositions, events, terms, and instruments. This lets Polish locale files point links and REST lookups at working article titles such as `Fryderyk_Chopin` and `Rewolucja_francuska` instead of assuming direct subdomain swaps of English slugs will resolve.
 - **Timeline event backdrop noise** — historical events no longer render full-height translucent colour bands. Vertical backdrop bands are now reserved for musical eras only, while historical events remain visible as top-band markers with dashed lines and tooltips.
 - **App title and description now update when switching language** — `app.title` and `app.subtitle` translations in `fr-FR` ("Requiem de Tout" / "Une chronologie interactive de la musique classique") and `af-ZA` ("Requiem van Alles") were incorrect (still showing English). Fixed the translation values. `document.title` now updates on every language change via a `useEffect` in `App.tsx`. The `<html lang>` attribute also updates dynamically. A visually-hidden `aria-live` region announces the new app title to screen readers on language switch.

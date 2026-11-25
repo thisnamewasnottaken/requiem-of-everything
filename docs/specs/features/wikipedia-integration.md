@@ -2,17 +2,13 @@
 
 ## Overview
 
-The app fetches content from the Wikipedia REST API to enrich composer biographies and provide historical event context. Wikipedia data is supplementary — the app works fully without it, but it adds depth.
+The React app renders biographies and event descriptions from its bundled data and links out to the localized Wikipedia articles. `src/services/WikipediaService.ts` provides REST helpers but is not currently called by the UI. V2 uses its own curated data.
 
 Locale namespace files may override an entity's `wikipediaSlug` whenever the article title on the target Wikipedia differs from the canonical English slug. This keeps direct links and REST summary requests pointed at a working page for languages such as Polish, where titles like `Fryderyk_Chopin` do not match the English article slug.
 
 ## Image Sourcing Policy
 
-**Composer portrait thumbnails are always fetched from English Wikipedia (`en.wikipedia.org`)**, regardless of the user's language setting. This ensures maximum image availability because English Wikipedia has the most complete collection of composer images. Non-English Wikipedia editions may not have an article (or may lack a thumbnail) for a given composer.
-
-Article text, extract, description, and the "Read on Wikipedia" link still use the language-localised Wikipedia endpoint matching the user's i18n preference.
-
-The `getEnglishWikipediaApiBase()` utility in `src/utils/wikipedia.ts` always returns `https://en.wikipedia.org/api/rest_v1` and must be used for any thumbnail or image fetch. The localised `getWikipediaApiBase()` must only be used for text content.
+Composer bars and cards use the static `portraitUrl` field. When called separately, the REST summary helper prefers an English Wikipedia thumbnail and falls back to the localized response's thumbnail. Text is taken from the localized summary.
 
 ## API Endpoints Used
 
@@ -33,7 +29,7 @@ GET https://en.wikipedia.org/api/rest_v1/page/summary/{slug}
 ```
 
 Returns: thumbnail image URL (`thumbnail.source`).
-Used for: composer portrait images. Always called against `en.wikipedia.org` regardless of UI language.
+The summary helper requests this from English Wikipedia in parallel with the localized request when the UI language is not English.
 
 ### Mobile HTML (lightweight)
 
@@ -41,15 +37,14 @@ Used for: composer portrait images. Always called against `en.wikipedia.org` reg
 GET https://{lang}.wikipedia.org/api/rest_v1/page/mobile-html/{slug}
 ```
 
-Returns: lightweight HTML of the full article.
-Used for: expanded "Read more" sections in detail panels.
+Returns raw article HTML. The app does not render it.
 
 ## Caching Strategy
 
-- All Wikipedia responses are cached in `localStorage` under the key `wiki:{slug}`.
+- Summary and HTML responses are cached in `localStorage` under `wiki:summary:{slug}` and `wiki:html:{slug}`.
 - Cache TTL: 24 hours.
 - Cache format: `{ data: <response>, timestamp: <epoch_ms> }`.
-- If cache is stale, fetch fresh data but still show stale content during loading.
+- If a fresh request fails, the helper returns stale cached data when available; otherwise it throws.
 
 ## Service Interface
 
@@ -74,25 +69,24 @@ interface WikiSummary {
 }
 ```
 
-## Rate Limiting
+## Request Pacing
 
-- Maximum 200 requests per minute to Wikipedia API.
-- Prefetching is batched with 50ms delays between requests.
-- Requests are deduped: if a fetch for the same slug is in-flight, join the existing promise.
+- Prefetching runs sequentially with a 50ms pause after each uncached summary attempt. There is no global requests-per-minute cap.
+- In-flight requests for the same cache key share a promise.
 
 ## Error Handling
 
-- If Wikipedia is unreachable, show cached data if available, otherwise show a "Wikipedia content unavailable" message.
+- Prefetch ignores failed requests so it can continue with the remaining slugs.
 - Never let a Wikipedia failure break the core timeline experience.
 
 ## Test Scenarios
 
 1. `getSummary` returns cached data when cache is fresh.
 2. `getSummary` fetches from API when cache is stale.
-3. `getSummary` returns stale cache and refreshes in background.
-4. Rate limiting prevents exceeding 200 req/min.
+3. Concurrent requests for the same summary share an in-flight request.
+4. A localized thumbnail is used if an English thumbnail is unavailable.
 5. Network failure falls back to cached data.
-6. Network failure with no cache shows fallback message.
+6. Network failure with no cache rejects the request.
 7. `getSummary` fetches thumbnail from `en.wikipedia.org` even when the UI language is non-English.
 8. `getSummary` fetches article text from the localised endpoint even when the thumbnail comes from English.
 9. `getEnglishWikipediaApiBase()` always returns `https://en.wikipedia.org/api/rest_v1` regardless of i18n state.

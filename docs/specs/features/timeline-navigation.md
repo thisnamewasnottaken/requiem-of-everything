@@ -2,7 +2,7 @@
 
 ## Overview
 
-The core interaction model for the timeline: zooming, panning, and navigating to specific points in time. This defines how users move through 400+ years of music history.
+The React timeline's viewport controls. V2 River of Time has [its own navigation](rebuild-v2.md#navigation).
 
 ## Viewport Model
 
@@ -15,12 +15,12 @@ The full range is approximately 1400–1970, but the default view shows 1580–1
 
 ## Zoom Behavior
 
-### Mouse Wheel Zoom
+### Wheel and Trackpad Zoom
 
-- Scroll up = zoom in (narrower year range, more detail)
-- Scroll down = zoom out (wider year range, less detail)
+- Ctrl/Cmd + wheel up zooms in; Ctrl/Cmd + wheel down zooms out.
+- Trackpad pinch is handled through the modified wheel event. Plain wheel events do not zoom.
 - Zoom is centered on the cursor's year position
-- Minimum range: 10 years
+- Target minimum range: 10 years, subject to timeline bounds
 - Maximum range: full timeline (570 years)
 - Zoom factor per scroll tick: 1.15x
 
@@ -34,11 +34,10 @@ newEnd = newStart + newRange
 clamp(newStart, newEnd) to [1400, 1970]
 ```
 
-### Keyboard Zoom
+### Zoom and Reset Controls
 
-- `+` or `=`: Zoom in (centered on viewport center)
-- `-`: Zoom out (centered on viewport center)
-- `0`: Reset to default view
+- The `+` and `−` buttons zoom about the viewport center. The reset button or `R` restores the default view.
+- On a touchscreen, use two fingers to pinch-zoom.
 
 ## Pan Behavior
 
@@ -48,12 +47,7 @@ clamp(newStart, newEnd) to [1400, 1970]
 - Cursor changes to grab/grabbing
 - Pan is 1:1 with pixel movement
 
-### Keyboard Pan
-
-- `←` / `→`: Pan left/right by 5% of current range
-- `Shift + ←` / `Shift + →`: Pan by 20% of current range
-- `Home`: Jump to start of timeline
-- `End`: Jump to end of timeline
+On a touchscreen, drag horizontally with one finger to pan.
 
 ### Pan Algorithm
 
@@ -81,12 +75,6 @@ interface TimelineNavigation {
   /** Center on a specific year */
   centerOnYear(year: number): void;
 
-  /** Zoom to fit a composer's lifespan */
-  zoomToComposer(composerId: string): void;
-
-  /** Zoom to an era */
-  zoomToEra(eraId: MusicalEra): void;
-
   /** Reset to default view */
   resetView(): void;
 }
@@ -94,33 +82,22 @@ interface TimelineNavigation {
 
 ## Detail Levels
 
-Different zoom levels reveal different amounts of information:
-
-| Year Range    | Level    | Shows                                        |
-| ------------- | -------- | -------------------------------------------- |
-| > 200 years   | Overview | Era bands, composer name labels only         |
-| 100–200 years | Period   | + composer bars, major composition markers   |
-| 50–100 years  | Decade   | + all composition markers, event markers     |
-| 20–50 years   | Detail   | + composition titles, event labels           |
-| < 20 years    | Close-up | + full text, detailed markers, relationships |
+The ruler adapts its tick interval to the year range. Era bands and composer bars appear in the overview. Composition markers are hidden when the visible span exceeds 200 years; otherwise, works in range can appear on their composer's row. Historical event markers are controlled separately by the historical events toggle.
 
 ## Performance
 
-- Zoom/pan updates are throttled to 60fps using `requestAnimationFrame`.
-- Position recalculations use `useMemo` keyed on viewport bounds.
-- Only elements within `[viewStartYear - margin, viewEndYear + margin]` are rendered.
+- Timeline scales, ticks and visible entities are memoized with their relevant inputs.
+- Composer rows and historical event markers are limited to entities overlapping the viewport; works are limited to years within it.
 
 ## Test Scenarios
 
 1. Default view shows 1580–1970.
-2. Scroll up zooms in, centered on cursor year.
-3. Scroll down zooms out, centered on cursor year.
-4. Cannot zoom below 10-year range.
+2. Ctrl/Cmd + scroll up zooms in around the pointer's year.
+3. Ctrl/Cmd + scroll down zooms out around that year.
+4. Zooming in stops at the 10-year minimum away from the timeline bounds.
 5. Cannot zoom beyond full timeline.
 6. Click-drag pans the viewport.
 7. Cannot pan beyond timeline bounds.
-8. Keyboard +/- zooms centered on viewport center.
-9. Arrow keys pan by 5% of range.
-10. `zoomToComposer` adjusts viewport to show the composer's full lifespan ± 10 years.
-11. `zoomToEra` adjusts viewport to show the era's full range.
-12. `resetView` returns to default viewport.
+8. The zoom buttons zoom around the viewport center.
+9. Focus Timeline calls `zoomToRange` with lifespan bounds, 15 years of padding and a right inset for the composer card.
+10. `resetView` returns to the default viewport.

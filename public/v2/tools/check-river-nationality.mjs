@@ -13,7 +13,7 @@ assert.equal(baseComposers.length, 51, 'expected all 51 River composers');
 const englishNationality = new Map(baseComposers.map(composer => [composer.id, composer.nationality]));
 
 const i18nSource = await readFile(path.join(root, 'common/i18n.js'), 'utf8');
-const mergeFunction = i18nSource.match(/function mergeRecords\(records, translations\) \{[\s\S]*?\n  \}/)?.[0];
+const mergeFunction = i18nSource.match(/function mergeRecords\(records, translations\) \{[\s\S]*?\n {2}\}/)?.[0];
 assert.ok(mergeFunction, 'could not find mergeRecords in common/i18n.js');
 const mergeContext = {};
 vm.runInNewContext(`${mergeFunction}\nglobalThis.mergeRecords = mergeRecords;`, mergeContext, { filename: 'common/i18n.js#mergeRecords' });
