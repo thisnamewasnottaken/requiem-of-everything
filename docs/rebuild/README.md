@@ -2,18 +2,18 @@
 
 > "I would like to rebuild, and I stress rebuild, the Requiem of Everything into a hauntingly beautiful site that draws in newcomers and avid fans of classical music into a joyous interactive experience."
 
-This report compares the **first edition** (the React app) with **V2**, built in one Devin session: <https://app.devin.ai/sessions/3b05c5bc8d3f4f8384ab4a1c4492e415>. V2 now lives in [`public/`](../../public/) and is served at `/requiem-of-everything/`, with the first edition at `/requiem-of-everything/legacy/v1/`.
+This report compares the **first edition** (the React app) with **V2**, built in one Devin session: <https://app.devin.ai/sessions/3b05c5bc8d3f4f8384ab4a1c4492e415>. Both shipped on `main` after PR #50. V2 now lives in [`public/`](../../public/) and is served at `/requiem-of-everything/`, with the first edition at `/requiem-of-everything/legacy/v1/`. See the [v2 feature spec](../specs/features/rebuild-v2.md) for current behavior, including the responsive navigation added in PR #52.
 
-Every screenshot is 1440×900, taken in headless Chrome. The old site was built from `main`; the new site comes from this branch.
+The 1440×900 headless Chrome screenshots are historical: the old site was built from pre-rebuild `main`, and the new site from the rebuild branch.
 
 ## At a glance
 
-| | Old site (`main`) | New site (v2) |
+| | React site (rebuild baseline) | New site (v2) |
 |---|---|---|
 | Arrival | A dense timeline of bars, straight away | An eye-level walk through infinite darkness: light columns, incense, a floor you drift across, and votive voices that follow your clicks |
 | Navigation | Header tabs: Timeline · Terms · Orchestra · Credits | Three glowing halos: River of Time · Concert Hall · Lexicon. The Votive icon takes you home |
 | Composers | 51 bars on a timeline | 51 living threads whose thickness and brightness show how much they wrote and how much they were heard. Each has a fact-checked life arc with world events and contemporaries |
-| Orchestra | A 2D seating map with family lists | A lit 3D stage from the conductor's podium, in 5 eras, plus a signature piece for six composers. Players walk off and on, tune, then play "Raise the baton" |
+| Orchestra | A six-era listening journey with a 2D seating map and instrument atlas | A lit 3D stage from the conductor's podium, in 5 eras, plus a signature piece for six composers. Players walk off and on, tune, then play "Raise the baton" |
 | Sound | Links out to Spotify | Recorded orchestral samples (VSCO 2 CE, Sonatina) in the Hall, plus Spotify playing inside the page for 222 verified recordings |
 | Terms | 27 cards in a grid | 92 terms in one explorable 3D constellation. Most have a "Hear it" demo that plays and draws the notes |
 | Sharing | No deep links | Every view is a URL: `river.html#focus=…`, `hall.html#composer=gustav-mahler&instrument=cello`, `terms.html#term=pizzicato` |
@@ -37,7 +37,7 @@ The timeline's information now lives in the **River of Time**. Each composer is 
 
 ## 2. Orchestra → Concert Hall
 
-**Before:** a flat seating diagram beside a panel of text and family lists.
+**Before:** the React Orchestra Explorer used a 2D seating map, era chapters, score selections and external listening links.
 
 ![Old site: Orchestra Explorer](screenshots/old-orchestra.png)
 
@@ -78,7 +78,7 @@ The old site already spoke English, Afrikaans, French and Spanish, and part of P
 - 92 Lexicon terms;
 - 26 instruments, with their showcases, great players and 156 era notes.
 
-An automated check confirms that every locale covers 100% of every namespace and that no English is left on screen. A language switcher sits on every page. It remembers your choice, which it shares with the old site's setting, and links can carry `?lang=pl-PL`.
+The i18n validator checks translation coverage and flags unexpected identical strings; it does not establish translation quality or translate the English-only portrait overlay in the shared stylesheet. A language switcher sits on every page. It remembers your choice, which it shares with the React site's setting, and links can carry `?lang=pl-PL`.
 
 ![Language switcher](screenshots/lang-switcher.png)
 
@@ -101,10 +101,10 @@ The translations still need a review by native speakers before launch.
 - **Sound:** recorded orchestral samples from VSCO 2 Community Edition (CC0) and Sonatina Symphonic Orchestra (CC Sampling Plus 1.0, credited). Each instrument loads only when it is needed. Each section is layered from slightly offset voices so it sounds like a group of players.
 - **Checks:** automated scripts in `public/tools/` confirm that:
   - no two Hall sections or labels overlap, and every player stays in view, across 11 layouts at 3 screen sizes;
-  - every Spotify ID resolves;
+  - Spotify IDs resolve when checked against Spotify's oEmbed endpoint;
   - the life-arc data is complete;
   - every instrument has an era note for each of the 6 eras.
-- **Static and safe:** plain HTML, Canvas and WebGL on GitHub Pages, with no build step, no backend and no secrets.
+- **Static:** plain HTML, Canvas and WebGL with no backend or credentials. The browser loads the checked-in v2 files without bundling; GitHub Pages still runs the React Vite build to produce the combined deployment artifact.
 
 ## How it was built
 
@@ -123,5 +123,5 @@ The rebuild was a conversation. Each round of feedback became a commit, and you 
 
 ## Next steps
 
-- Replace the old site at the root with v2.
+- Replacing the root React app with v2 is a [separate proposal](RETIRE-OLD-SITE.md), not part of the merged rebuild.
 - Have a native speaker review the Afrikaans, Spanish, French and Polish text.

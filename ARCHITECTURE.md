@@ -1,31 +1,36 @@
 # Architecture — Requiem of Everything
 
-> Technical architecture decisions and patterns.
+GitHub Pages publishes two experiences from `main`: static V2 at the deployment root and the original React app under `legacy/v1/`. The old `v2/` page URLs redirect to V2's current routes.
+
+```text
+main
+ ├─ legacy/v1/index.html + src/ ── Vite build ──> dist/legacy/v1/index.html + bundled assets
+ └─ public/
+     ├─ index.html, river.html, hall.html, terms.html ──> dist/ (static V2)
+     ├─ common/, samples/ ──────────────────────────────> dist/ (V2 shared assets)
+     ├─ locales/ ───────────────────────────────────────> dist/locales/ (React app)
+     └─ v2/ ────────────────────────────────────────────> dist/v2/ (redirects)
+```
+
+[The Pages workflow](.github/workflows/deploy.yml) installs dependencies, type-checks, runs Vitest, builds with `VITE_BASE_PATH` (default `/`), and uploads `dist/`. The four v2 pages use relative assets and links; they do not import React code or read React locale files at runtime. Both sites share the browser's `i18nextLng` language preference when served from the same origin. See the [v2 feature spec](docs/specs/features/rebuild-v2.md) for implementation and validation.
+
+## React app at `/legacy/v1/`
+
+The diagram, architecture decisions, rendering notes and [component specs](docs/specs/components/) apply to the React app, not to v2.
 
 ## 1. High-Level Architecture
 
+```text
+React App
+ ├─ Header: view tabs, search, filters and comparison controls
+ ├─ Views: Timeline (D3 scales), Terms, Orchestra and Credits
+ ├─ Zustand: viewport, selection, filters and comparison
+ └─ Localized content
+     ├─ Bundled src/data/*.json → data hooks
+     └─ public/locales/ → i18next → UI strings and data overrides
 ```
-┌─────────────────────────────────────────────────────────┐
-│                     Browser Client                       │
-│                                                         │
-│  ┌─────────────┐  ┌──────────────┐  ┌───────────────┐  │
-│  │  Timeline    │  │  Discovery   │  │  Command      │  │
-│  │  Viewport    │  │  Panels      │  │  Palette      │  │
-│  │  (D3 + React)│  │  (React)     │  │  (Planned)    │  │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬────────┘  │
-│         │                 │                  │           │
-│  ┌──────┴─────────────────┴──────────────────┴────────┐  │
-│  │              Zustand State Store                    │  │
-│  │  (viewport, selections, filters, comparison mode)  │  │
-│  └──────┬─────────────────┬──────────────────┬────────┘  │
-│         │                 │                  │           │
-│  ┌──────┴───────┐  ┌──────┴───────┐  ┌──────┴────────┐  │
-│  │  Data Layer  │  │  Wikipedia   │  │  AI Service   │  │
-│  │  (Static JSON│  │  Service     │  │  (Future)     │  │
-│  │   + hooks)   │  │  (REST API)  │  │               │  │
-│  └──────────────┘  └──────────────┘  └───────────────┘  │
-└─────────────────────────────────────────────────────────┘
-```
+
+Wikipedia articles open as external links. The Wikipedia REST helper and proposed AI client are not wired into the UI.
 
 ## 2. Key Architecture Decisions
 
@@ -76,7 +81,7 @@ const xScale = d3.scaleLinear()
 
 ### ADR-004: Static JSON First, API Later
 
-**Decision**: Ship with bundled JSON data files. Design the data access layer as async hooks so it can be swapped to an API later.
+**Decision**: Ship with bundled JSON data files. React data hooks in `src/hooks/useData.ts` apply locale overrides to the imported JSON.
 
 **Rationale**: Starting with static JSON removes backend complexity and lets us iterate on the UI. The data access hooks (`useComposers()`, `useCompositions()`, `useEvents()`) return the same shape regardless of whether data comes from a JSON import or an API call, so migration is seamless.
 
@@ -99,14 +104,14 @@ export function useComposers(): Composer[] {
 
 ### ADR-005: Wikipedia Integration via REST API
 
-**Decision**: Use the Wikipedia REST API (`en.wikipedia.org/api/rest_v1/`) for historical event data and composer biographies.
+**Decision**: Bundle historical events and biographies in JSON. The Wikipedia REST client can fetch localized summaries and English thumbnails; see the [Wikipedia integration spec](docs/specs/features/wikipedia-integration.md).
 
 **Rationale**: Wikipedia has comprehensive, freely available data on historical events and composers. The REST API provides clean summaries without needing to parse wikitext.
 
 **Endpoints Used**:
 
 - `/page/summary/{slug}` — Short summary and thumbnail
-- `/page/mobile-html/{slug}` — Full article HTML (for detail views)
+- `/page/mobile-html/{slug}` — Raw article HTML returned by the service; it is not rendered by the app
 
 **Caching**: Responses are cached in `localStorage` with a 24-hour TTL to avoid redundant requests.
 
@@ -165,23 +170,20 @@ Layer 1: Era Backdrop Bands                             — HTML/CSS (div overla
 Layer 0: Time Ruler & Grid Lines                        — HTML/CSS
 ```
 
-Each layer is a React component that receives the D3 scale and renders its content. Layers are composable and independently toggleable.
+The timeline composes these layers using viewport bounds and dimensions. Historical events can be toggled separately. Decorative score lines and the era field note sit outside the interactive data layers.
 
 ### 3.2 Viewport Management
 
 The timeline viewport is defined by `(viewStartYear, viewEndYear)`. All positioning is derived from a D3 linear scale mapping years to pixels.
 
-**Zoom**: Changes the year range while keeping the center point fixed.
+**Zoom**: Changes the year range around the viewport center or the pointer, depending on the input.
 **Pan**: Shifts both start and end years by the same delta.
-**Scroll Zoom**: Mouse wheel on the timeline area.
-**Pinch Zoom**: Touch gesture (stretch goal).
+**Scroll Zoom**: Ctrl/Cmd + mouse wheel or trackpad pinch on the timeline area, anchored at the pointer's year.
+**Touch**: Drag with one finger to pan or pinch with two to zoom.
 
 ### 3.3 Performance Strategy
 
-- **Virtualization**: Only render composers/events within the current viewport ± margin.
-- **Debounced Updates**: Zoom/pan updates are debounced to prevent re-render storms.
-- **Memoization**: Heavy computations (filtering, sorting, position calculations) are memoized with `useMemo`.
-- **SVG Optimization**: Group elements by layer, minimize re-renders with React keys.
+- **Memoization**: Timeline data indexes, filtered composers and layout calculations are reused across renders where their inputs are unchanged.
 
 ## 4. Folder Conventions
 
@@ -206,9 +208,8 @@ The timeline viewport is defined by `(viewStartYear, viewEndYear)`. All position
 | Unit        | Vitest                   | Utility functions, data transformations, hooks |
 | Component   | Vitest + Testing Library | Component rendering, interactions              |
 | Integration | Vitest                   | Store interactions, data flow                  |
-| E2E         | Playwright               | Full user journeys, visual regression          |
 
-**Spec-Test Alignment**: Each spec in `docs/specs/` maps to a test file in `src/__tests__/`. The test file name mirrors the spec file name.
+React tests live in `src/__tests__/` and run with `npm run test:run`. The Playwright routing tests (`npm run test:e2e`) and the V2 Node validators under `public/tools/` are separate from Vitest and are not run by the Pages workflow.
 
 ---
 
