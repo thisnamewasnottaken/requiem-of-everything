@@ -284,7 +284,7 @@ void main(){
   O=vec4(col,1.);
 }
 </script>
-<script src="common/i18n.js"></script><script src="common/data.js"></script>
+<script src="common/i18n.js"></script><script src="common/canvas.js"></script><script src="common/data.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
@@ -337,7 +337,7 @@ function showGlNotice(){
   n.hidden=false;
 }
 function initVisuals(cv,kind){
-  const gl=cv.getContext(kind,{antialias:false});
+  const gl=cv.getContext(kind,{antialias:false,...ROE_CANVAS.gl});
   if(!gl) return null;
   const src=SHADERS[kind];
   function sh(type,text){const s=gl.createShader(type);gl.shaderSource(s,text);gl.compileShader(s);

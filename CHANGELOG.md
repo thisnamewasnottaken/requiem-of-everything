@@ -37,6 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- **Black canvases in Firefox on hybrid-GPU laptops** — Firefox could draw a canvas on the discrete GPU and composite it on the integrated one, so Home, River, Lexicon and Concert Hall showed black. In Firefox, WebGL now asks for the low-power GPU and 2D canvases draw in software.
 - **Home page light in Firefox** — Home tries WebGL 1 if WebGL 2 fails to initialize and shows a CSS hall of light if neither renderer starts or the active context is lost. It also switches to CSS if its startup check detects near-black output or if no draw has completed when the 8-second timer fires and the page is visible. A dismissible notice offers troubleshooting tips if neither renderer starts or either startup check triggers the fallback; context loss alone does not show it.
 - **v2 River of Time bottom band** — era captions stay legible without colliding, and the event key has its own row below the minimap instead of covering the event diamonds. On short landscape screens, country hover and pin targets remain separate and the life chart scrolls rather than collapsing.
 - **Repository lint command** — restored `npm run lint` for JavaScript and TypeScript with an ESLint 9 flat config.
