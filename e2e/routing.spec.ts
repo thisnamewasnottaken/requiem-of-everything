@@ -19,6 +19,21 @@ test("the production root opens V2 and links to V1 and back", async ({ page }, t
   await expect(page.getByRole("button", { name: "Enter in silence" })).toBeVisible();
 });
 
+test("visitors can enter V2 and open the River without WebGL2", async ({ page }) => {
+  await page.addInitScript(() => {
+    const getContext = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (type: string, ...args: unknown[]) {
+      return type === "webgl2" ? null : Reflect.apply(getContext, this, [type, ...args]);
+    };
+  });
+  await page.goto("./");
+  await page.getByRole("button", { name: "Enter in silence" }).click();
+  await expect(page.locator("body")).toHaveClass(/\bentered\b/);
+  await page.getByRole("link", { name: /The River of Time/ }).click();
+  await expect(page).toHaveURL(/\/requiem-of-everything\/river\.html$/);
+  await expect(page.locator("#river")).toBeVisible();
+});
+
 test("the direct legacy document URL still loads the React app and its locales", async ({ page }, testInfo) => {
   await page.addInitScript(() => {
     localStorage.setItem("i18nextLng", "fr-FR");

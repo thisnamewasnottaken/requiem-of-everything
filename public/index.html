@@ -281,31 +281,34 @@ for(const [id,key] of Object.entries(creditText))document.getElementById(id).tex
 document.getElementById('aboutOrchestra').textContent=t('home.credits.orchestral');
 document.getElementById('about').setAttribute('aria-label',t('home.credits.aria'));
 document.getElementById('whisper').textContent=t('home.hint');
-const cv=document.getElementById('gl'); const gl=cv.getContext('webgl2',{antialias:false});
-const vs=`#version 300 es
-void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0,1);}`;
-function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));return s;}
-const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,document.getElementById('fs').textContent.trim()));gl.linkProgram(pr);gl.useProgram(pr);
-const U=n=>gl.getUniformLocation(pr,n);
-const u={res:U('uRes'),time:U('uTime'),mouse:U('uMouse'),level:U('uLevel'),hour:U('uHour'),fog:U('uFog'),enter:U('uEnter'),c:U('uCandles'),n:U('uN'),hov:U('uHover'),hovx:U('uHoverX')};
-let scale=.7, W,H; function resize(){const d=Math.min(devicePixelRatio,2)*scale;W=cv.width=innerWidth*d|0;H=cv.height=innerHeight*d|0;gl.viewport(0,0,W,H);} resize(); addEventListener('resize',resize);
-const mouse={x:innerWidth/2,y:innerHeight*.6,vx:0,vy:0}; let enter=0, enterT=0, hover=0, hoverX=0, hoverTarget=0;
+const mouse={x:innerWidth/2,y:innerHeight*.6,vx:0,vy:0}; let enterT=0, hoverX=0, hoverTarget=0;
 const candles=[];
 const sL={value:18}, sF={value:58};
-let last=performance.now(), frames=0, acc=0;
-function frame(now){
-  const t=now/1000; const dt=Math.min(.05,(now-last)/1000); last=now;
-  enter+= (enterT-enter)*Math.min(1,dt*.8); hover+=(hoverTarget-hover)*Math.min(1,dt*4);
-  gl.uniform2f(u.res,W,H); gl.uniform1f(u.time,t); const d=W/innerWidth; gl.uniform2f(u.mouse,mouse.x*d,(innerHeight-mouse.y)*d);
-  gl.uniform1f(u.level,sound.rms()); gl.uniform1f(u.hour,.18); gl.uniform1f(u.fog,.58); gl.uniform1f(u.enter,enter);
-  gl.uniform1f(u.hov,hover); gl.uniform1f(u.hovx,hoverX);
-  const arr=new Float32Array(64); candles.forEach((c,i)=>arr.set([c.x,c.y,c.t,c.h],i*4)); gl.uniform4fv(u.c,arr); gl.uniform1i(u.n,candles.length);
-  gl.drawArrays(gl.TRIANGLES,0,3);
-  // adaptive resolution
-  acc+=dt; frames++; if(acc>2){const fps=frames/acc; if(fps<45&&scale>.4){scale-=.1;resize();} else if(fps>58&&scale<.9){scale+=.05;resize();} acc=0;frames=0;}
+function startVisuals(){
+  const cv=document.getElementById('gl'); const gl=cv.getContext('webgl2',{antialias:false});
+  if(!gl) return;
+  const vs=`#version 300 es
+void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0,1);}`;
+  function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));return s;}
+  const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,document.getElementById('fs').textContent.trim()));gl.linkProgram(pr);gl.useProgram(pr);
+  const U=n=>gl.getUniformLocation(pr,n);
+  const u={res:U('uRes'),time:U('uTime'),mouse:U('uMouse'),level:U('uLevel'),hour:U('uHour'),fog:U('uFog'),enter:U('uEnter'),c:U('uCandles'),n:U('uN'),hov:U('uHover'),hovx:U('uHoverX')};
+  let scale=.7, W,H; function resize(){const d=Math.min(devicePixelRatio,2)*scale;W=cv.width=innerWidth*d|0;H=cv.height=innerHeight*d|0;gl.viewport(0,0,W,H);} resize(); addEventListener('resize',resize);
+  let enter=0, hover=0, last=performance.now(), frames=0, acc=0;
+  function frame(now){
+    const t=now/1000; const dt=Math.min(.05,(now-last)/1000); last=now;
+    enter+= (enterT-enter)*Math.min(1,dt*.8); hover+=(hoverTarget-hover)*Math.min(1,dt*4);
+    gl.uniform2f(u.res,W,H); gl.uniform1f(u.time,t); const d=W/innerWidth; gl.uniform2f(u.mouse,mouse.x*d,(innerHeight-mouse.y)*d);
+    gl.uniform1f(u.level,sound.rms()); gl.uniform1f(u.hour,.18); gl.uniform1f(u.fog,.58); gl.uniform1f(u.enter,enter);
+    gl.uniform1f(u.hov,hover); gl.uniform1f(u.hovx,hoverX);
+    const arr=new Float32Array(64); candles.forEach((c,i)=>arr.set([c.x,c.y,c.t,c.h],i*4)); gl.uniform4fv(u.c,arr); gl.uniform1i(u.n,candles.length);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+    // adaptive resolution
+    acc+=dt; frames++; if(acc>2){const fps=frames/acc; if(fps<45&&scale>.4){scale-=.1;resize();} else if(fps>58&&scale<.9){scale+=.05;resize();} acc=0;frames=0;}
+    requestAnimationFrame(frame);
+  }
   requestAnimationFrame(frame);
 }
-requestAnimationFrame(frame);
 
 // ---------- music: a slow, breathing progression; the visitor improvises over it ----------
 const PROG=[ // [bass, chord tones]
@@ -400,6 +403,7 @@ bAbout.onclick=()=>{const o=about.classList.toggle('open');bAbout.setAttribute('
 addEventListener('keydown',e=>{if(e.key==='Escape'){about.classList.remove('open');bAbout.classList.remove('on');}});
 if(location.hash==='#credits'){enterHall(false);about.classList.add('open');}
 if(location.hash==='#entered'){enterHall(false);}
+startVisuals();
 </script>
 </body>
 </html>
