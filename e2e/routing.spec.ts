@@ -30,6 +30,7 @@ test("visitors can enter V2 and open the River without WebGL2", async ({ page })
   await expect(page.locator("#homeTitle")).toHaveText("Requiem of Everything");
   await expect(page.locator("#gl")).toBeVisible();
   await expect(page.locator("body")).not.toHaveClass(/\bno-gl\b/);
+  await expect(page.locator("#glNotice")).toBeHidden();
   await page.getByRole("button", { name: "Enter in silence" }).click();
   await expect(page.locator("body")).toHaveClass(/\bentered\b/);
   await page.getByRole("link", { name: /The River of Time/ }).click();
@@ -48,6 +49,13 @@ test("the home page keeps its hall of light without WebGL", async ({ page }) => 
   await expect(page.locator("body")).toHaveClass(/\bno-gl\b/);
   await expect(page.locator("#hallLight")).toBeVisible();
   await expect(page.locator("#gl")).toBeHidden();
+  const notice = page.getByRole("status").filter({ hasText: "withholding WebGL" });
+  await expect(notice).toBeVisible();
+  await notice.getByRole("button", { name: "Dismiss" }).click();
+  await expect(notice).toBeHidden();
+  await page.reload();
+  await expect(page.locator("body")).toHaveClass(/\bno-gl\b/);
+  await expect(page.locator("#glNotice")).toBeHidden();
   await page.getByRole("button", { name: "Enter in silence" }).click();
   await expect(page.locator("body")).toHaveClass(/\bentered\b/);
 });

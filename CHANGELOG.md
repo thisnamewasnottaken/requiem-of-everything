@@ -35,7 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
-- **Home page light in Firefox** — the home page shader now falls back to WebGL 1 when WebGL 2 is unavailable or fails to compile, and to a CSS hall of light shafts when WebGL is off or the context is lost, instead of showing a black screen.
+- **Home page light in Firefox** — the home page shader now falls back to WebGL 1 when WebGL 2 is unavailable or fails to compile, and to a CSS hall of light shafts when WebGL is off or the context is lost, instead of showing a black screen. When the browser withholds WebGL, a dismissible notice explains how to restore the full scene.
 - **v2 River of Time bottom band** — era captions stay legible without colliding, and the event key has its own row below the minimap instead of covering the event diamonds. On short landscape screens, country hover and pin targets remain separate and the life chart scrolls rather than collapsing.
 - **Repository lint command** — restored `npm run lint` for JavaScript and TypeScript with an ESLint 9 flat config.
 - **Locale-specific Wikipedia article slugs** — `useData` now localises `wikipediaSlug` fields for composers, compositions, events, terms, and instruments. This lets Polish locale files point links and REST lookups at working article titles such as `Fryderyk_Chopin` and `Rewolucja_francuska` instead of assuming direct subdomain swaps of English slugs will resolve.

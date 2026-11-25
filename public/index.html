@@ -23,6 +23,11 @@ body.no-gl #hallLight{display:block}
   background-size:283px 347px,157px 229px,89px 113px;background-position:13px 71px,97px 23px,41px 59px;
   -webkit-mask-image:radial-gradient(ellipse 45% 60% at 50% 35%,#000,transparent);mask-image:radial-gradient(ellipse 45% 60% at 50% 35%,#000,transparent);
   animation:motes 60s linear infinite}
+#glNotice{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(560px,calc(100vw - 300px));z-index:30;
+  display:flex;align-items:center;gap:16px;padding:12px 16px 12px 20px;font-size:.95rem;line-height:1.5;color:#d8cbb4}
+#glNotice[hidden]{display:none}
+#glNotice .btn{flex:none}
+@media (max-width:900px){#glNotice{top:72px;width:calc(100vw - 32px)}}
 @keyframes shaft{from{opacity:.55}to{opacity:1}}
 @keyframes motes{to{transform:translateY(20%)}}
 @media (prefers-reduced-motion:reduce){#hallLight *{animation:none}}
@@ -203,6 +208,7 @@ body.entered #whisper{opacity:.0}
   <span id="aboutBiographies">Biographies courtesy of Wikipedia contributors.</span></div>
 </div>
 <div class="hint" id="whisper"></div>
+<div id="glNotice" class="reliquary" role="status" hidden><p id="glNoticeText"></p><button class="btn" id="glNoticeClose"></button></div>
 
 <script type="x-shader/x-fragment" id="fs">#version 300 es
 precision highp float;
@@ -322,6 +328,14 @@ const SHADERS={
     fs:FS3.replace('#version 300 es','').replace('out vec4 O;','#define O gl_FragColor')}
 };
 function noVisuals(on){document.body.classList.toggle('no-gl',on);}
+const glNoticeKey='roe-gl-notice';
+function showGlNotice(){
+  if(localStorage.getItem(glNoticeKey)==='dismissed')return;
+  const n=document.getElementById('glNotice'), close=document.getElementById('glNoticeClose');
+  document.getElementById('glNoticeText').textContent=t('home.noWebgl'); close.textContent=t('home.noWebgl.dismiss');
+  close.onclick=()=>{n.hidden=true;localStorage.setItem(glNoticeKey,'dismissed');};
+  n.hidden=false;
+}
 function initVisuals(cv,kind){
   const gl=cv.getContext(kind,{antialias:false});
   if(!gl) return null;
@@ -345,7 +359,7 @@ function startVisuals(){
     cv.dataset.tried='1';
     ctx=initVisuals(cv,k); if(ctx){kind=k;break;}
   }
-  if(!ctx){noVisuals(true);return;}
+  if(!ctx){noVisuals(true);showGlNotice();return;}
   let scale=.7, W,H; function resize(){const d=Math.min(devicePixelRatio,2)*scale;W=cv.width=innerWidth*d|0;H=cv.height=innerHeight*d|0;ctx.gl.viewport(0,0,W,H);} resize(); addEventListener('resize',resize);
   let enter=0, hover=0, last=performance.now(), frames=0, acc=0, raf=0;
   cv.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(raf);raf=0;noVisuals(true);});
