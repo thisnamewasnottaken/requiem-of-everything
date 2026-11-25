@@ -6,8 +6,8 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 ## Pages
 - `index.html`: Home. A WebGL2 scene with a dark floor, light columns, incense and three halo destinations. `#credits` opens the credits.
 - `river.html`: River of Time. A Canvas 2D timeline with composer threads, world events, countries, life cards and composer search. Hash parameters: `focus`, `zoom` (e.g. `1780-1830`), `event` and `country`.
-- `hall.html`: Concert Hall. A 3D stage from the conductor's view, five era layouts and six signature-piece layouts (via the Composer menu), composer and instrument cards, and recorded samples. Hash parameters: `era`, `piece`, `composer` and `instrument`.
-- `terms.html`: Lexicon. A 3D term constellation with on-demand Hear-it demos. Hash parameters: `term` and `group`.
+- `hall.html`: Concert Hall. A 3D stage from the conductor's view, five era layouts and six signature-piece layouts (via the Composer menu), composer and instrument cards, and recorded samples. Hash parameters: `era`, `piece`, `composer`, `instrument` and `fromTerm`.
+- `terms.html`: Lexicon. A 3D term constellation with navigable related terms, a breadcrumb trail and Back control, and on-demand Hear-it demos. Hash parameters: `term` and `group`.
 
 ## Navigation
 - On River, Hall and Lexicon, the top-left `.sigil` nav holds the Home mark plus links to the other two pages. The current page is left out, because its title is already shown in the hero. Home uses the three halos instead.
@@ -21,6 +21,11 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 - On short screens, country captions fit inside their lanes so the hover and pin target covers the full caption without overlapping its neighbours.
 - On short landscape screens, the life panel lets its chart scroll instead of squeezing the plot between its annotations and event strip.
 
+## Lexicon
+- Term cards list immediate neighbours from the constellation's `EDGES` as **Related terms** buttons, including neighbours in other groups. Following one opens its card, moves focus to the term heading, recentres the camera, highlights its immediate connections and updates `#term=<id>`. Back returns one step; selecting a breadcrumb returns to that term so readers can follow another branch. A direct or reloaded term URL opens the selected term.
+- With `prefers-reduced-motion: reduce`, camera changes are instant, idle auto-rotation and node drift stop, and the card opens without its transition.
+- Only term cards with a Concert Hall destination link there. The Hall preserves the originating `fromTerm=<id>` in its hash and points its Lexicon nav link to `terms.html#term=<id>`, so returning restores the term.
+
 ## Constraints
 - Site assets and page links use relative paths. External dependencies include Google Fonts, MusyngKite soundfonts and on-demand Spotify embeds.
 - No secrets. Spotify is used only through public embeds, with search links as a fallback.
@@ -33,7 +38,7 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 
 ## Sound
 - `common/sound.js` (`sound`) is the shared Web Audio engine. The Hall uses local samples when available and falls back to MusyngKite for other patches.
-- Home, River and Hall share the `roe-sound` localStorage setting. Lexicon demos are started explicitly with Hear it and do not use that setting.
+- Home, River and Hall share the `roe-sound` localStorage setting. Lexicon demos are started explicitly with Hear it and do not use that setting. Switching terms or closing the term card stops active demos through `sound.stopAll()` and clears pending note highlight timers.
 - Silence (Home, River, Hall; `roe-sound=off`) calls `sound.stopAll()`. Every tracked voice fades out over 80 ms and stops, including notes scheduled for later. Notes still loading are dropped, and the reverb's convolver is replaced so its tail is cut too. The audio context is not suspended, so nothing queued plays again on unmute. The Hall also cancels its pending sync and motif-light timers.
 
 ## Validation
