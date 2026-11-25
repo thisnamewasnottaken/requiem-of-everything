@@ -55,7 +55,7 @@ test('River era captions and event key have distinct space at desktop and narrow
     }
     expect(trackY).toBeLessThan(key.top);
     expect(map.bottom).toBeLessThanOrEqual(key.top);
-    expect(key.bottom).toBeLessThanOrEqual(hint.top);
+    expect(key.bottom).toBeLessThanOrEqual(hint.height > 0 ? hint.top : height);
   }
 });
 
@@ -66,7 +66,9 @@ test('country captions hover and pin their own lane at 568×320', async ({ page 
     CanvasRenderingContext2D.prototype.fillText = function (text, ...args) {
       if (this.canvas.id === 'river' && text.endsWith('I T A L Y')) {
         const { e: x, f: y } = this.getTransform();
-        window.italyCaption = { x, y, pinned: text.startsWith('◆') };
+        const ink = this.measureText(text);
+        window.italyCaption = { x: x + ink.actualBoundingBoxRight - 1, top: y - ink.actualBoundingBoxAscent,
+          bottom: y + ink.actualBoundingBoxDescent, pinned: text.startsWith('◆') };
       }
       return fillText.call(this, text, ...args);
     };
@@ -74,9 +76,12 @@ test('country captions hover and pin their own lane at 568×320', async ({ page 
   });
   await page.goto(url);
   await page.waitForFunction(() => window.italyCaption);
-  const { x, y } = await page.evaluate(() => window.italyCaption);
-  await page.mouse.move(x + 8, y - 4);
-  await expect(page.locator('#tip b')).toHaveText('Italy');
-  await page.mouse.click(x + 8, y - 4);
+  const { x, top, bottom } = await page.evaluate(() => window.italyCaption);
+  for (const y of [Math.ceil(top), Math.ceil(bottom) - 1]) {
+    await page.mouse.move(x, y);
+    await expect(page.locator('#tip b')).toHaveText('Italy');
+    await expect(page.locator('#tip')).toHaveCSS('opacity', '1');
+  }
+  await page.mouse.click(x, Math.ceil(bottom) - 1);
   await page.waitForFunction(() => window.italyCaption.pinned);
 });

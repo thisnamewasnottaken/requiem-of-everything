@@ -17,8 +17,8 @@ This is the next-generation Requiem of Everything experience, built as a static,
 
 ## River bottom band
 - Event diamonds sit below the country lanes, with era captions beneath them. Captions stay near each visible era's midpoint, with at least 14 CSS px between measured text widths. Eras containing the centre of the view are larger and brighter. If space runs out, captions shrink first, then the narrowest non-current eras are omitted as needed.
-- The zoom range sits alongside the minimap; the wrapping event key and interaction hint each have a separate row below it. The canvas and the open life panel reserve space based on the measured footer height.
-- Country labels' hover and pin targets stay within their lanes, even on short landscape screens.
+- The zoom range sits alongside the minimap; the wrapping event key and interaction hint each have a separate row below it. At 500px high and shorter, the minimap is shallower and the hint is hidden to leave more room for the lanes. The canvas and open life panel reserve space based on the measured footer height.
+- On short screens, country captions fit inside their lanes so the hover and pin target covers the full caption without overlapping its neighbours.
 
 ## Constraints
 - All paths are relative, with no runtime requests outside `v2/` except Spotify embeds.
