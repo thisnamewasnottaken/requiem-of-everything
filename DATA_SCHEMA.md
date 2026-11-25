@@ -1,8 +1,8 @@
 # Data Schema — Requiem of Everything
 
-> Data and TypeScript contracts for the React app at the deployment root.
+> Data and TypeScript contracts for the React app at `/legacy/v1/`.
 
-The React app loads its core entities from `src/data/*.json`; the actual type definitions are in [`src/types/index.ts`](src/types/index.ts). Its data hooks overlay translations from `public/locales/`. V2 has a separate JavaScript data snapshot in [`public/v2/common/data.js`](public/v2/common/data.js), plus dedicated life-arc, instrument, Hall and Lexicon modules and its own locales. Changes to React data do not automatically propagate to v2; see the [v2 feature spec](docs/specs/features/rebuild-v2.md).
+The React app loads its core entities from `src/data/*.json`; the actual type definitions are in [`src/types/index.ts`](src/types/index.ts). Its data hooks overlay translations from `public/locales/`. V2 has a separate JavaScript data snapshot in [`public/common/data.js`](public/common/data.js), plus dedicated life-arc, instrument, Hall and Lexicon modules and its own locales. Changes to React data do not automatically propagate to v2; see the [v2 feature spec](docs/specs/features/rebuild-v2.md).
 
 ---
 

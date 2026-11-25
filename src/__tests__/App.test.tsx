@@ -1,6 +1,6 @@
 import React from "react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { render, act, fireEvent } from "@testing-library/react";
+import { render, act, fireEvent, screen } from "@testing-library/react";
 import i18n from "i18next";
 
 // Mock heavy sub-components so App.tsx can be rendered in isolation
@@ -77,6 +77,14 @@ describe("App — document title and html lang i18n updates", () => {
   it("sets document.documentElement.lang to en-GB on mount", () => {
     render(<App />);
     expect(document.documentElement.lang).toBe("en-GB");
+  });
+
+  it("links from V1 back to the application root", () => {
+    render(<App />);
+    expect(screen.getByRole("link", { name: "Requiem V2" })).toHaveAttribute(
+      "href",
+      import.meta.env.BASE_URL,
+    );
   });
 
   it("updates document.title when language changes to fr-FR", async () => {

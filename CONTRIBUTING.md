@@ -1,6 +1,6 @@
 # Contributing to Requiem of Everything
 
-Follow the [README](README.md#run-locally) to get both experiences running. In your pull request, say whether the change affects the React app at `/`, the static rebuild at `/v2/`, or both.
+Follow the [README](README.md#run-locally) to get both experiences running. In your pull request, say whether the change affects V2 at `/`, the original React app at `/legacy/v1/`, or both.
 
 ## Workflow
 
@@ -26,20 +26,20 @@ The pre-commit script runs `npm run i18n:strict` first. By default it runs relat
 
 ## Adding data or translations
 
-### React app (`/`)
+### React app (`/legacy/v1/`)
 
 - Add or update records in [`src/data/`](src/data/) using the [data schema](DATA_SCHEMA.md) and [TypeScript types](src/types/index.ts). Follow existing ID conventions. For a new composition, set its `composerId` and add its ID to that composer's `compositionIds`.
 - Use i18next keys for UI text (the `translation.json` namespace). Put translated data fields in the corresponding namespace JSON in [`public/locales/`](public/locales/), using the entity ID as the top-level key.
 - Provide translations for new user-facing content in `en-GB`, `af-ZA`, `es-ES`, `fr-FR`, and `pl-PL`. The strict hook compares Afrikaans and French keys against British English and rejects placeholder markers in those target files; review Spanish and Polish separately.
 - When introducing a locale, register it in [the i18next configuration](src/i18n/index.ts), update the language pickers in [the app header](src/App.tsx) and [walkthrough](src/components/WalkthroughOverlay/WalkthroughOverlay.tsx), and update [the test i18n setup](src/__tests__/setup.ts).
 
-### Static rebuild (`/v2/`)
+### Static V2 (`/`)
 
-The rebuild has separate shared data in [`public/v2/common/`](public/v2/common/) and locale source JSON in [`public/v2/locales-src/`](public/v2/locales-src/). Edit the source JSON rather than generated locale bundles. Run these after translation changes and include any updated bundles from `public/v2/common/locales/` in the PR:
+The rebuild has separate shared data in [`public/common/`](public/common/) and locale source JSON in [`public/locales-src/`](public/locales-src/). Edit the source JSON rather than generated locale bundles. Run these after translation changes and include any updated bundles from `public/common/locales/` in the PR:
 
 ```sh
-node public/v2/tools/build-locales.mjs
-node public/v2/tools/check-i18n.mjs
+node public/tools/build-locales.mjs
+node public/tools/check-i18n.mjs
 ```
 
-For a new v2 locale, update the locale lists in the [runtime](public/v2/common/i18n.js), [bundle builder](public/v2/tools/build-locales.mjs), and [i18n validator](public/v2/tools/check-i18n.mjs). See the [rebuild spec](docs/specs/features/rebuild-v2.md) for how the pages, data, and locale bundles fit together.
+For a new v2 locale, update the locale lists in the [runtime](public/common/i18n.js), [bundle builder](public/tools/build-locales.mjs), and [i18n validator](public/tools/check-i18n.mjs). See the [rebuild spec](docs/specs/features/rebuild-v2.md) for how the pages, data, and locale bundles fit together.

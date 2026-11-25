@@ -4,7 +4,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig(
-  // Locale bundles are generated from public/v2/locales-src/.
+  // Locale bundles are generated from public/locales-src/.
   globalIgnores([
     "dist/",
     "coverage/",
@@ -12,7 +12,7 @@ export default defineConfig(
     "test-results/",
     "test-artifacts/",
     "scratchpad/",
-    "public/v2/common/locales/",
+    "public/common/locales/",
   ]),
   {
     files: ["**/*.{js,mjs,cjs,ts,tsx}"],
@@ -32,7 +32,7 @@ export default defineConfig(
     rules: { "@typescript-eslint/no-require-imports": "warn" },
   },
   {
-    files: ["public/v2/common/**/*.js"],
+    files: ["public/common/**/*.js", "public/v2/redirect.js"],
     languageOptions: {
       // Do not rely on the deprecated implicit window.event global.
       globals: { ...globals.browser, event: "off" },
@@ -41,7 +41,7 @@ export default defineConfig(
     rules: { "no-empty": ["error", { allowEmptyCatch: true }] },
   },
   {
-    files: ["public/v2/common/sound.js"],
+    files: ["public/common/sound.js"],
     languageOptions: { sourceType: "module" },
   },
   {

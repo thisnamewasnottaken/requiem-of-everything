@@ -9,7 +9,29 @@ const base = process.env.VITE_BASE_PATH ?? "/";
 
 export default defineConfig({
   base,
-  plugins: [react()],
+  appType: "mpa",
+  plugins: [
+    react(),
+    {
+      name: "static-directory-indexes",
+      configureServer(server) {
+        const root = server.config.base;
+        server.middlewares.use((req, _res, next) => {
+          const url = req.url ?? "";
+          const pathname = url.split("?", 1)[0];
+          if (pathname === root || pathname === `${root}v2/`) {
+            req.url = `${pathname}index.html${url.slice(pathname.length)}`;
+          }
+          next();
+        });
+      },
+    },
+  ],
+  build: {
+    rollupOptions: {
+      input: path.resolve(import.meta.dirname, "legacy/v1/index.html"),
+    },
+  },
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "./src"),

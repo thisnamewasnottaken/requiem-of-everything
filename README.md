@@ -6,8 +6,8 @@ The repository contains two experiences, served side by side:
 
 | Local route | What to explore |
 | --- | --- |
-| [`/`](http://localhost:5173/) | The React app: pan and zoom the Timeline, search or compare composers, browse the Terms glossary, and explore orchestral instruments. |
-| [`/v2/`](http://localhost:5173/v2/) | The static rebuild: follow composers' lives in the River of Time, listen to instrument samples in the Concert Hall, and hear examples of musical terms in the Lexicon. |
+| [`/`](http://localhost:5173/) | V2: follow composers' lives in the River of Time, listen to instrument samples in the Concert Hall, and hear examples of musical terms in the Lexicon. |
+| [`/legacy/v1/`](http://localhost:5173/legacy/v1/) | The original React app: pan and zoom the Timeline, search or compare composers, browse the Terms glossary, and explore orchestral instruments. |
 
 Both offer English (UK), Afrikaans, Spanish, French, and Polish. The React app uses TypeScript, React, Vite, Zustand for state, D3 for scales and positioning, and i18next for translations. The rebuild uses plain HTML, CSS, and JavaScript with Web Audio for sound. The core site does not require a backend or API keys.
 
@@ -20,7 +20,7 @@ npm ci
 npm run dev
 ```
 
-Open [localhost:5173](http://localhost:5173/) for the React app or [localhost:5173/v2/](http://localhost:5173/v2/) for the rebuild. If port 5173 is occupied, use the port Vite prints. Stop the server with **Ctrl+C**.
+Open [localhost:5173](http://localhost:5173/) for V2 or [localhost:5173/legacy/v1/](http://localhost:5173/legacy/v1/) for the original React app. If port 5173 is occupied, use the port Vite prints. Stop the server with **Ctrl+C**.
 
 ## Build and check
 
@@ -30,8 +30,7 @@ Open [localhost:5173](http://localhost:5173/) for the React app or [localhost:51
 | `npm run type-check` | Checks TypeScript without producing build output. |
 | `npm run lint` | Lints JavaScript and TypeScript with ESLint. |
 | `npm run test:run` | Runs the Vitest unit and component tests once. |
-
-`npm run test:e2e` is not currently a working check: it picks up Vitest files instead of running a Playwright suite.
+| `npm run test:e2e` | Builds the site and checks both routes in Chromium. Install the browser first with `npx playwright install chromium`. |
 
 ## Repository map
 
@@ -39,7 +38,7 @@ Open [localhost:5173](http://localhost:5173/) for the React app or [localhost:51
 | --- | --- |
 | [`src/`](src/) | React app, including components, hooks, stores, and tests. |
 | [`src/data/`](src/data/) and [`public/locales/`](public/locales/) | React app data and translation namespaces. |
-| [`public/v2/`](public/v2/) | Static rebuild pages, shared code, audio samples, locale sources, and build and validation helpers. |
+| [`public/`](public/) | Static V2 pages, shared code, audio samples, locale sources, and build and validation helpers. |
 | [`docs/`](docs/) | Feature and component specs, the rebuild comparison, and past PR notes. |
 
 Start with the [contribution guide](CONTRIBUTING.md), [project spec](PROJECT_SPEC.md), [architecture notes](ARCHITECTURE.md), [data schema](DATA_SCHEMA.md), or the [rebuild comparison](docs/rebuild/README.md). See [CHANGELOG.md](CHANGELOG.md) for changes and [LICENSE](LICENSE) for the repository license. The v2 home page credits separately licensed samples and other assets.

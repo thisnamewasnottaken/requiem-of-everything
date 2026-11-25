@@ -1,21 +1,20 @@
 # Architecture — Requiem of Everything
 
-GitHub Pages publishes two experiences from `main`: the React app at the deployment root and the static rebuild under `v2/`. V2 has not replaced the root app.
+GitHub Pages publishes two experiences from `main`: static V2 at the deployment root and the original React app under `legacy/v1/`. The old `v2/` page URLs redirect to V2's current routes.
 
 ```text
 main
- ├─ index.html + src/ ──────── Vite build ──> dist/index.html + bundled assets
+ ├─ legacy/v1/index.html + src/ ── Vite build ──> dist/legacy/v1/index.html + bundled assets
  └─ public/
-     ├─ locales/ ───────────── copied ──────> dist/locales/   (React app)
-     └─ v2/ ────────────────── copied ──────> dist/v2/        (static rebuild)
-                                               index.html → River / Hall / Lexicon
-                                               common/ → scripts, data and locales
-                                               samples/ → Hall audio
+     ├─ index.html, river.html, hall.html, terms.html ──> dist/ (static V2)
+     ├─ common/, samples/ ──────────────────────────────> dist/ (V2 shared assets)
+     ├─ locales/ ───────────────────────────────────────> dist/locales/ (React app)
+     └─ v2/ ────────────────────────────────────────────> dist/v2/ (redirects)
 ```
 
 [The Pages workflow](.github/workflows/deploy.yml) installs dependencies, type-checks, runs Vitest, builds with `VITE_BASE_PATH` (default `/`), and uploads `dist/`. The four v2 pages use relative assets and links; they do not import React code or read React locale files at runtime. Both sites share the browser's `i18nextLng` language preference when served from the same origin. See the [v2 feature spec](docs/specs/features/rebuild-v2.md) for implementation and validation.
 
-## React app at the deployment root
+## React app at `/legacy/v1/`
 
 The diagram, architecture decisions, rendering notes and [component specs](docs/specs/components/) apply to the React app, not to v2.
 
@@ -211,7 +210,7 @@ The timeline viewport is defined by `(viewStartYear, viewEndYear)`. All position
 | Integration | Vitest                   | Store interactions, data flow                  |
 | Static      | ESLint + TypeScript      | `npm run lint` and `npm run type-check`          |
 
-React tests live in `src/__tests__/` and run with `npm run test:run`. The v2 Node validators under `public/v2/tools/` are separate from Vitest and are not run by the Pages workflow.
+React tests live in `src/__tests__/` and run with `npm run test:run`. The Playwright routing tests (`npm run test:e2e`) and the V2 Node validators under `public/tools/` are separate from Vitest and are not run by the Pages workflow.
 
 ---
 

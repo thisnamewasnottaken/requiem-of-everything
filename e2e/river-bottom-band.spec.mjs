@@ -1,15 +1,5 @@
+/* global CanvasRenderingContext2D, document, innerHeight, innerWidth, window */
 import { expect, test } from '@playwright/test';
-import { createServer } from 'vite';
-
-test.use({ launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } });
-
-let server, url;
-test.beforeAll(async () => {
-  server = await createServer({ configFile: false, optimizeDeps: { noDiscovery: true }, server: { host: '127.0.0.1', port: 0 } });
-  await server.listen();
-  url = new URL('v2/river.html#still', server.resolvedUrls.local[0]).href;
-});
-test.afterAll(async () => { await server.close(); });
 
 test('River era captions and event key have distinct space at desktop and narrow widths', async ({ page }) => {
   await page.addInitScript(() => {
@@ -35,7 +25,7 @@ test('River era captions and event key have distinct space at desktop and narrow
     };
   });
   await page.setViewportSize({ width: 1024, height: 800 });
-  await page.goto(url);
+  await page.goto('river.html#still');
   await page.evaluate(() => document.fonts.ready);
 
   for (const [width, height] of [[1024, 800], [1280, 800], [1440, 800], [768, 600], [1920, 800], [667, 375]]) {
@@ -74,7 +64,7 @@ test('country captions hover and pin their own lane at 568×320', async ({ page 
     };
     localStorage.setItem('roe-sound', 'off');
   });
-  await page.goto(url);
+  await page.goto('river.html#still');
   await page.waitForFunction(() => window.italyCaption);
   const { x, top, bottom } = await page.evaluate(() => window.italyCaption);
   for (const y of [Math.ceil(top), Math.ceil(bottom) - 1]) {
@@ -96,7 +86,7 @@ test('life chart retains an upright plot on short landscape screens', async ({ p
   });
   for (const [width, height] of [[667, 350], [667, 375], [568, 320]]) {
     await page.setViewportSize({ width, height });
-    await page.goto(`${url.split('#')[0]}?checkHeight=${height}#focus=johann-sebastian-bach`);
+    await page.goto(`river.html?checkHeight=${height}#focus=johann-sebastian-bach`);
     await page.waitForFunction(() => window.lifePlotHeight !== undefined);
     expect(await page.evaluate(() => window.lifePlotHeight)).toBeGreaterThan(0);
     await page.locator('#lListen').scrollIntoViewIfNeeded();

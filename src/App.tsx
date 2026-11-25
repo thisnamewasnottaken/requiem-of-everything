@@ -224,6 +224,9 @@ export default function App() {
                         : t("app.viewCredits", "Credits")}
                 </button>
               ))}
+              <a className="app-view-tab" href={import.meta.env.BASE_URL} aria-label="Requiem V2">
+                V2
+              </a>
             </nav>
             <select
               className="app-language-select"

@@ -2,7 +2,7 @@
 
 > An interactive timeline of classical music: composers, compositions, and the world that shaped them.
 
-The deployment root still serves the React app described by the original goals and milestones below. The [v2 rebuild](docs/specs/features/rebuild-v2.md) is also shipped, under `v2/`, with a separate Home, River of Time, Concert Hall and Lexicon. See [Architecture](ARCHITECTURE.md) for how both sites are built and deployed.
+The deployment root serves the [V2 rebuild](docs/specs/features/rebuild-v2.md), with its Home, River of Time, Concert Hall and Lexicon. The original goals and milestones below describe the React app served under `legacy/v1/`. See [Architecture](ARCHITECTURE.md) for how both sites are built and deployed.
 
 ## 1. Vision
 
@@ -143,11 +143,12 @@ These endpoints follow a standard request/response contract defined in `docs/api
 
 ```
 requiem-of-everything/
-├── index.html              # React entry point
+├── legacy/v1/index.html    # React entry point
 ├── src/                    # React components, data, stores, services and tests
 ├── public/
+│   ├── index.html          # V2 entry point alongside feature pages and shared assets
 │   ├── locales/            # React app dictionaries
-│   └── v2/                 # Static pages, shared scripts, locales, samples and tools
+│   └── v2/                 # Redirects for original V2 page URLs
 ├── docs/
 │   ├── specs/              # Feature and component specifications
 │   ├── api/                # Proposed AI API contract

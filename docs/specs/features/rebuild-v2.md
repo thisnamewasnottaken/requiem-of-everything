@@ -1,7 +1,7 @@
-# Feature: Rebuild v2 (static site in `public/v2/`)
+# Feature: Rebuild v2 (static site in `public/`)
 
 ## Purpose
-V2 is a static HTML/CSS/JavaScript experience shipped under `v2/` relative to the deployment root. The React app still owns the root. Vite copies `public/v2/` into `dist/v2/` without bundling it.
+V2 is a static HTML/CSS/JavaScript experience served at the application root (on GitHub Pages, `/requiem-of-everything/`). Vite copies `public/` into `dist/` without bundling the static files and builds the original React app at `/legacy/v1/` relative to that root. The old `/v2/` home and feature-page links redirect to the corresponding new URLs and retain their query strings and fragments.
 
 ## Pages
 - `index.html`: Home. A WebGL2 scene with a dark floor, light columns, incense and three halo destinations. `#credits` opens the credits.
@@ -29,7 +29,7 @@ V2 is a static HTML/CSS/JavaScript experience shipped under `v2/` relative to th
 ## Data and translations
 - `common/data.js` exposes `ROE_DATA`; `common/lives.js`, `instrument-extra.js`, `instrument-eras.js`, `hall-layout.js`, `terms-base.js` and `terms.js` add v2-specific content. River keeps the English `nationalityKey` for geography; localized `nationality` is display-only.
 - `common/i18n.js` resolves `?lang=`, then the shared `i18nextLng` localStorage key, then browser languages, falling back to en-GB. A recognized query language is saved so it carries over to pages linked without the query.
-- For af-ZA, es-ES, fr-FR and pl-PL, edit `locales-src/<lang>/*.json`, then run `node public/v2/tools/build-locales.mjs` from the repo root to regenerate `common/locales/<lang>.js`. The build script does not generate an en-GB bundle; English runtime defaults come from the pages and shared scripts.
+- For af-ZA, es-ES, fr-FR and pl-PL, edit `locales-src/<lang>/*.json`, then run `node public/tools/build-locales.mjs` from the repo root to regenerate `common/locales/<lang>.js`. The build script does not generate an en-GB bundle; English runtime defaults come from the pages and shared scripts.
 
 ## Sound
 - `common/sound.js` (`sound`) is the shared Web Audio engine. The Hall uses local samples when available and falls back to MusyngKite for other patches.
@@ -37,17 +37,17 @@ V2 is a static HTML/CSS/JavaScript experience shipped under `v2/` relative to th
 - Silence (Home, River, Hall; `roe-sound=off`) calls `sound.stopAll()`. Every tracked voice fades out over 80 ms and stops, including notes scheduled for later. Notes still loading are dropped, and the reverb's convolver is replaced so its tail is cut too. The audio context is not suspended, so nothing queued plays again on unmute. The Hall also cancels its pending sync and motif-light timers.
 
 ## Validation
-From the repo root, serve the static files with `python3 -m http.server --directory public 8000` and open `http://localhost:8000/v2/`. To run both sites through Vite, use `npm ci` and `npm run dev`, then open `http://localhost:5173/` or `http://localhost:5173/v2/`.
+From the repo root, use `npm ci` and `npm run dev`, then open `http://localhost:5173/` for V2 or `http://localhost:5173/legacy/v1/` for V1.
 
 Run the offline v2 checks with Node:
 
 ```sh
 for check in i18n river-nationality hall instrument-eras lives; do
-  node "public/v2/tools/check-$check.mjs" || exit 1
+  node "public/tools/check-$check.mjs" || exit 1
 done
 ```
 
-`node public/v2/tools/check-spotify.mjs` additionally checks the Spotify IDs via the public oEmbed endpoint and requires network access. The v2 validators are not part of the current Pages workflow.
+`node public/tools/check-spotify.mjs` additionally checks the Spotify IDs via the public oEmbed endpoint and requires network access. The v2 validators are not part of the current Pages workflow.
 
 ## Comparison
 See `docs/rebuild/README.md`.
