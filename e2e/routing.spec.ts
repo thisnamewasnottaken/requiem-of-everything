@@ -19,6 +19,31 @@ test("the production root opens V2 and links to V1 and back", async ({ page }, t
   await expect(page.getByRole("button", { name: "Enter in silence" })).toBeVisible();
 });
 
+test("Home text cannot be selected by dragging", async ({ page }) => {
+  await page.goto("./");
+  await expect(page.locator("#enter")).toHaveCSS("opacity", "1", { timeout: 10_000 });
+
+  for (const selector of ["#homeTitle", "#aboutTitle"]) {
+    if (selector === "#aboutTitle") {
+      await page.getByRole("button", { name: "Enter in silence" }).click();
+      await page.getByRole("button", { name: "Credits" }).click();
+      await expect(page.getByRole("dialog", { name: "Credits" })).toHaveCSS("opacity", "1");
+    }
+
+    const { x, y, width } = await page.locator(selector).evaluate(el => {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const rect = range.getBoundingClientRect();
+      return { x: rect.left, y: rect.top + rect.height / 2, width: rect.width };
+    });
+    await page.mouse.move(x + 2, y);
+    await page.mouse.down();
+    await page.mouse.move(x + width - 2, y, { steps: 10 });
+    await page.mouse.up();
+    expect(await page.evaluate(() => window.getSelection()?.toString())).toBe("");
+  }
+});
+
 test("visitors can enter V2 and open the River without WebGL2", async ({ page }) => {
   await page.addInitScript(() => {
     const getContext = HTMLCanvasElement.prototype.getContext;
