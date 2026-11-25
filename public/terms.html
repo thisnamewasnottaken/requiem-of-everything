@@ -56,7 +56,7 @@ body{background:#060504;overflow:hidden}
 <div id="connections"></div>
 <div id="chips"></div>
 <div id="tip" class="reliquary"></div>
-<script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/terms-base.js"></script><script src="common/terms.js"></script>
+<script src="common/i18n.js"></script><script src="common/canvas.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/terms-base.js"></script><script src="common/terms.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
@@ -73,8 +73,8 @@ const CL={tempo:[t('lexicon.group.tempo'),'#ffcf8a'],dyn:[t('lexicon.group.dyn')
 const CK=Object.keys(CL);
 const TERMS=[...window.ROE_TERMS_BASE.map(b=>{const m=Object.hasOwn(window.ROE_TERMS_MAP,b.id)?window.ROE_TERMS_MAP[b.id]:['genre',null]; return {id:b.id,term:b.term,c:m[0],lit:'',short:b.shortDefinition,long:b.longDefinition,demo:m[1],hall:m[2],examples:b.exampleCompositionIds||[],eras:b.eraOrigin||[]};}),...window.ROE_TERMS_NEW];
 const BY=Object.fromEntries(TERMS.map(t=>[t.id,t]));
-const cv=$('sky'), g=cv.getContext('2d'), hz=$('haze'); let W,H,DPR; const HS=.5;
-const gl=hz.getContext('webgl',{antialias:false,alpha:false});
+const cv=$('sky'), g=cv.getContext('2d',ROE_CANVAS.c2d), hz=$('haze'); let W,H,DPR; const HS=.5;
+const gl=hz.getContext('webgl',{...ROE_CANVAS.gl,antialias:false,alpha:false});
 let G={}, focusG=null, hover=null, card=null, query='', T=0, pulse=0, idle=0, offX=0, offY=0, basis=null, drag=null;
 const termCard=$('card'), motion=matchMedia('(prefers-reduced-motion: reduce)');
 let cardHeight=0;
@@ -208,7 +208,7 @@ async function play(t){ if(!t.demo)return; const b=$('dPlay'); await sound.unloc
 sound.onNote(n=>{ if(n.tag==='demo'){ const dl=Math.max(0,(n.when-sound.now())*1000);
   const timer=setTimeout(()=>{ demoTimers.delete(timer); pulse=Math.min(1,pulse+.5*n.vel+.25); },dl); demoTimers.add(timer); } });
 function stopDemo(){ if(roll.length)sound.stopAll(); demoTimers.forEach(clearTimeout); demoTimers.clear(); playing=false; pulse=0; roll=[]; secs=[]; }
-function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.clientHeight,d=Math.min(devicePixelRatio,2); if(c.width!==w*d){c.width=w*d;c.height=h*d;} const x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); x.clearRect(0,0,w,h);
+function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.clientHeight,d=Math.min(devicePixelRatio,2); if(c.width!==w*d){c.width=w*d;c.height=h*d;} const x=c.getContext('2d',ROE_CANVAS.c2d); x.setTransform(d,0,0,d,0,0); x.clearRect(0,0,w,h);
   x.strokeStyle='rgba(201,165,92,.1)'; for(let i=1;i<5;i++){ x.beginPath(); x.moveTo(0,i*h/5); x.lineTo(w,i*h/5); x.stroke(); }
   if(!roll.length){ x.fillStyle='rgba(216,203,180,.4)'; x.font='italic 15px Cormorant Garamond'; x.textAlign='center'; x.fillText(t('lexicon.term.rollPrompt'),w/2,h/2+5); return; }
   const lo=Math.min(...roll.map(n=>n.m))-2, hi=Math.max(...roll.map(n=>n.m))+2, X=t=>4+t/span*(w-8), Y=m=>18+(1-(m-lo)/(hi-lo||1))*(h-26), now=playing?sound.now()-rT0:-1;

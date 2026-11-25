@@ -112,7 +112,7 @@ select.btn option,select.btn optgroup{background:#14100d;color:#e6d8bd;font-fami
     <span class="sep"></span><button class="btn" id="bShare">Share this view</button></div>
 </div>
 <div id="tip" class="reliquary"></div>
-<script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script><script src="common/instrument-eras.js"></script><script src="common/hall-layout.js"></script>
+<script src="common/i18n.js"></script><script src="common/canvas.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script><script src="common/instrument-extra.js"></script><script src="common/instrument-eras.js"></script><script src="common/hall-layout.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
 await window.ROE_I18N.ready;
@@ -131,8 +131,8 @@ const D=window.ROE_DATA, INST=Object.fromEntries(D.instruments.map(i=>[i.id,i]))
 const LIVES=window.ROE_LIVES||{}, XTRA=window.ROE_INSTR_EXTRA||{}, INSTR_ERAS=window.ROE_INSTR_ERAS||{}, ERAN=Object.fromEntries(D.eras.map(e=>[e.id,e.name]));
 const {S,L,PIECES,ringR,layoutSeats,pieceDefs}=window.ROE_HALL;
 const $=id=>document.getElementById(id);
-const cv=$('hall'), g=cv.getContext('2d'), hz=$('haze'); let W,H,DPR; const HS=.5;
-const gl=hz.getContext('webgl',{antialias:false,alpha:false,premultipliedAlpha:false});
+const cv=$('hall'), g=cv.getContext('2d',ROE_CANVAS.c2d), hz=$('haze'); let W,H,DPR; const HS=.5;
+const gl=hz.getContext('webgl',{...ROE_CANVAS.gl,antialias:false,alpha:false,premultipliedAlpha:false});
 let fitTargets=[],fitCarpets={},fitWarningShown=false,cameraReady=false;
 function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);hz.width=Math.round(W*HS);hz.height=Math.round(H*HS);gl&&gl.viewport(0,0,hz.width,hz.height);if(cameraReady)fitCamera();}
 resize(); addEventListener('resize',resize);
@@ -243,7 +243,7 @@ function openComposer(id){ if(!Object.hasOwn(COMP,id))return; const c=COMP[id]; 
    <div class="row"><a class="btn" href="river.html#focus=${esc(id)}">${esc(t('hall.card.followLife'))}</a>${seated?'':`<button class="btn" id="cSeat">${esc(t('hall.card.seatOrchestra'))}</button>`}</div>`;
   if(!seated) $('cSeat').onclick=()=>setComposer(id);
   $('card').classList.add('open'); $('card').scrollTop=0; $('hint').style.opacity=0; if(Lf) requestAnimationFrame(()=>drawMini(c,Lf)); }
-function drawMini(c,Lf){ const m=$('mini'); if(!m)return; const w=m.clientWidth,h=m.clientHeight,d=Math.min(devicePixelRatio,2); m.width=w*d;m.height=h*d; const x=m.getContext('2d'); x.scale(d,d);
+function drawMini(c,Lf){ const m=$('mini'); if(!m)return; const w=m.clientWidth,h=m.clientHeight,d=Math.min(devicePixelRatio,2); m.width=w*d;m.height=h*d; const x=m.getContext('2d',ROE_CANVAS.c2d); x.scale(d,d);
   const pts=Lf.pts, y0=c.birthYear, y1=c.deathYear, X=y=>8+(y-y0)/(y1-y0)*(w-16), Y=v=>h-14-v*(h-22);
   x.beginPath(); x.moveTo(X(y0),Y(0)); pts.forEach(p=>x.lineTo(X(p[0]),Y(p[1]))); x.lineTo(X(y1),Y(0)); x.closePath();
   const gr=x.createLinearGradient(0,0,0,h); gr.addColorStop(0,'rgba(231,199,132,.55)'); gr.addColorStop(1,'rgba(231,199,132,.05)'); x.fillStyle=gr; x.fill();
