@@ -6,6 +6,31 @@
 <link rel="stylesheet" href="common/style.css">
 <style>
 #gl{position:fixed;inset:0;width:100%;height:100%}
+#hallLight{position:fixed;inset:0;display:none;overflow:hidden;pointer-events:none;
+  background:radial-gradient(ellipse 60% 9% at 50% 64%,rgba(255,179,107,.13),transparent 70%),
+    radial-gradient(ellipse 90% 40% at 50% 66%,rgba(140,92,48,.12),transparent 70%),
+    linear-gradient(180deg,#0b0806 0%,#120d09 58%,#060504 66%,#030202 100%)}
+body.no-gl #gl{display:none}
+body.no-gl #hallLight{display:block}
+#hallLight i{position:absolute;bottom:34%;height:120%;left:var(--x);width:var(--w);transform:translateX(-50%) rotate(var(--r));transform-origin:50% 100%;
+  background:linear-gradient(180deg,transparent,rgba(255,186,118,var(--a)) 45%,rgba(255,196,130,calc(var(--a) * 1.5)) 92%,transparent);
+  filter:blur(var(--b,14px));opacity:.85;animation:shaft var(--d) ease-in-out var(--delay,0s) infinite alternate}
+#hallLight b{position:absolute;top:63%;left:var(--x);width:calc(var(--w) * 2.6);height:7%;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,186,118,calc(var(--a) * 2.2)),transparent);filter:blur(6px);animation:shaft var(--d) ease-in-out var(--delay,0s) infinite alternate}
+#hallLight .motes{position:absolute;inset:-20% 0 0;
+  background-image:radial-gradient(circle,rgba(255,214,160,.5) 0 1px,transparent 1.5px),radial-gradient(circle,rgba(255,214,160,.3) 0 .8px,transparent 1.3px),
+    radial-gradient(circle,rgba(255,214,160,.22) 0 .7px,transparent 1.2px);
+  background-size:283px 347px,157px 229px,89px 113px;background-position:13px 71px,97px 23px,41px 59px;
+  -webkit-mask-image:radial-gradient(ellipse 45% 60% at 50% 35%,#000,transparent);mask-image:radial-gradient(ellipse 45% 60% at 50% 35%,#000,transparent);
+  animation:motes 60s linear infinite}
+#glNotice{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(560px,calc(100vw - 300px));z-index:30;
+  display:flex;align-items:center;gap:16px;padding:12px 16px 12px 20px;font-size:.95rem;line-height:1.5;color:#d8cbb4}
+#glNotice[hidden]{display:none}
+#glNotice .btn{flex:none}
+@media (max-width:900px){#glNotice{top:72px;width:calc(100vw - 32px)}}
+@keyframes shaft{from{opacity:.55}to{opacity:1}}
+@keyframes motes{to{transform:translateY(20%)}}
+@media (prefers-reduced-motion:reduce){#hallLight *{animation:none}}
 #title{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;z-index:20;
   transition:transform 2.4s cubic-bezier(.19,1,.22,1),opacity 1.6s}
 #title h1{font-family:var(--inscr);font-weight:400;font-size:clamp(1.5rem,4.4vw,3.3rem);letter-spacing:.38em;text-indent:.38em;
@@ -90,6 +115,7 @@ body.entered #whisper{opacity:.0}
 </head>
 <body>
 <canvas id="gl"></canvas>
+<div id="hallLight" aria-hidden="true"><i style="--x:50%;--w:9vw;--r:0deg;--a:.10;--d:9s;--delay:0s"></i><i style="--x:37%;--w:6vw;--r:-6deg;--a:.08;--d:11s;--delay:-3s"></i><i style="--x:63%;--w:6vw;--r:6deg;--a:.08;--d:10s;--delay:-5s"></i><i style="--x:22%;--w:7vw;--r:-13deg;--a:.07;--d:13s;--delay:-2s"></i><i style="--x:78%;--w:7vw;--r:13deg;--a:.07;--d:12s;--delay:-7s"></i><i style="--x:8%;--w:8vw;--r:-20deg;--a:.05;--d:14s;--delay:-4s"></i><i style="--x:92%;--w:8vw;--r:20deg;--a:.05;--d:15s;--delay:-9s"></i><b style="--x:50%;--w:9vw;--a:.10;--d:9s;--delay:0s"></b><b style="--x:37%;--w:6vw;--a:.08;--d:11s;--delay:-3s"></b><b style="--x:63%;--w:6vw;--a:.08;--d:10s;--delay:-5s"></b><b style="--x:22%;--w:7vw;--a:.07;--d:13s;--delay:-2s"></b><b style="--x:78%;--w:7vw;--a:.07;--d:12s;--delay:-7s"></b><b style="--x:8%;--w:8vw;--a:.05;--d:14s;--delay:-4s"></b><b style="--x:92%;--w:8vw;--a:.05;--d:15s;--delay:-9s"></b><span class="motes"></span></div>
 <div class="vignette"></div><div class="grain"></div>
 <svg width="0" height="0" style="position:absolute"><defs>
   <linearGradient id="archFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a130d" stop-opacity=".25"/><stop offset="1" stop-color="#070504" stop-opacity=".75"/></linearGradient>
@@ -182,6 +208,7 @@ body.entered #whisper{opacity:.0}
   <span id="aboutBiographies">Biographies courtesy of Wikipedia contributors.</span></div>
 </div>
 <div class="hint" id="whisper"></div>
+<div id="glNotice" class="reliquary" role="status" hidden><p id="glNoticeText"></p><button class="btn" id="glNoticeClose"></button></div>
 
 <script type="x-shader/x-fragment" id="fs">#version 300 es
 precision highp float;
@@ -294,18 +321,51 @@ document.getElementById('whisper').textContent=t('home.hint');
 const mouse={x:innerWidth/2,y:innerHeight*.6,vx:0,vy:0}; let enterT=0, hoverX=0, hoverTarget=0;
 const candles=[];
 const sL={value:18}, sF={value:58};
-function startVisuals(){
-  const cv=document.getElementById('gl'); const gl=cv.getContext('webgl2',{antialias:false});
-  if(!gl) return;
-  const vs=`#version 300 es
-void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0,1);}`;
-  function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));return s;}
-  const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,document.getElementById('fs').textContent.trim()));gl.linkProgram(pr);gl.useProgram(pr);
+const FS3=document.getElementById('fs').textContent.trim();
+const SHADERS={
+  webgl2:{vs:'#version 300 es\nin vec2 aPos;void main(){gl_Position=vec4(aPos,0.,1.);}',fs:FS3},
+  webgl:{vs:'attribute vec2 aPos;void main(){gl_Position=vec4(aPos,0.,1.);}',
+    fs:FS3.replace('#version 300 es','').replace('out vec4 O;','#define O gl_FragColor')}
+};
+function noVisuals(on){document.body.classList.toggle('no-gl',on);}
+const glNoticeKey='roe-gl-notice';
+function showGlNotice(){
+  if(localStorage.getItem(glNoticeKey)==='dismissed')return;
+  const n=document.getElementById('glNotice'), close=document.getElementById('glNoticeClose');
+  document.getElementById('glNoticeText').textContent=t('home.noWebgl'); close.textContent=t('home.noWebgl.dismiss');
+  close.onclick=()=>{n.hidden=true;localStorage.setItem(glNoticeKey,'dismissed');};
+  n.hidden=false;
+}
+function initVisuals(cv,kind){
+  const gl=cv.getContext(kind,{antialias:false});
+  if(!gl) return null;
+  const src=SHADERS[kind];
+  function sh(type,text){const s=gl.createShader(type);gl.shaderSource(s,text);gl.compileShader(s);
+    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)&&!gl.isContextLost())console.warn(kind,gl.getShaderInfoLog(s));return s;}
+  const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,src.vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,src.fs));
+  gl.bindAttribLocation(pr,0,'aPos');gl.linkProgram(pr);
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){if(!gl.isContextLost())console.warn(kind,gl.getProgramInfoLog(pr));return null;}
+  gl.useProgram(pr);
+  gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
   const U=n=>gl.getUniformLocation(pr,n);
   const u={res:U('uRes'),time:U('uTime'),mouse:U('uMouse'),level:U('uLevel'),hour:U('uHour'),fog:U('uFog'),enter:U('uEnter'),c:U('uCandles'),n:U('uN'),hov:U('uHover'),hovx:U('uHoverX')};
-  let scale=.7, W,H; function resize(){const d=Math.min(devicePixelRatio,2)*scale;W=cv.width=innerWidth*d|0;H=cv.height=innerHeight*d|0;gl.viewport(0,0,W,H);} resize(); addEventListener('resize',resize);
-  let enter=0, hover=0, last=performance.now(), frames=0, acc=0;
+  return {gl,u};
+}
+function startVisuals(){
+  let cv=document.getElementById('gl'), ctx=null, kind=null;
+  for(const k of ['webgl2','webgl']){
+    if(cv.dataset.tried){const fresh=cv.cloneNode();cv.replaceWith(fresh);cv=fresh;}
+    cv.dataset.tried='1';
+    ctx=initVisuals(cv,k); if(ctx){kind=k;break;}
+  }
+  if(!ctx){noVisuals(true);showGlNotice();return;}
+  let scale=.7, W,H; function resize(){const d=Math.min(devicePixelRatio,2)*scale;W=cv.width=innerWidth*d|0;H=cv.height=innerHeight*d|0;ctx.gl.viewport(0,0,W,H);} resize(); addEventListener('resize',resize);
+  let enter=0, hover=0, last=performance.now(), frames=0, acc=0, raf=0;
+  cv.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(raf);raf=0;noVisuals(true);});
+  cv.addEventListener('webglcontextrestored',()=>{const c=initVisuals(cv,kind);if(!c)return;ctx=c;resize();noVisuals(false);last=performance.now();raf=requestAnimationFrame(frame);});
   function frame(now){
+    const {gl,u}=ctx;
     const t=now/1000; const dt=Math.min(.05,(now-last)/1000); last=now;
     enter+= (enterT-enter)*Math.min(1,dt*.8); hover+=(hoverTarget-hover)*Math.min(1,dt*4);
     gl.uniform2f(u.res,W,H); gl.uniform1f(u.time,t); const d=W/innerWidth; gl.uniform2f(u.mouse,mouse.x*d,(innerHeight-mouse.y)*d);
@@ -315,9 +375,9 @@ void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Posit
     gl.drawArrays(gl.TRIANGLES,0,3);
     // adaptive resolution
     acc+=dt; frames++; if(acc>2){const fps=frames/acc; if(fps<45&&scale>.4){scale-=.1;resize();} else if(fps>58&&scale<.9){scale+=.05;resize();} acc=0;frames=0;}
-    requestAnimationFrame(frame);
+    raf=requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
+  raf=requestAnimationFrame(frame);
 }
 
 // ---------- music: a slow, breathing progression; the visitor improvises over it ----------
@@ -332,7 +392,7 @@ function disarmAutoStart(){if(autoStartHandler){removeEventListener('pointerdown
 function armAutoStart(){
   if(autoStartHandler||!soundEnabled)return;
   autoStartHandler=e=>{
-    if(e.target.closest('#bSound,#silent,#withSound,#legacy'))return;
+    if(e.target.closest('#bSound,#silent,#withSound,#legacy,#glNotice'))return;
     disarmAutoStart(); startSound();
   };
   addEventListener('pointerdown',autoStartHandler);

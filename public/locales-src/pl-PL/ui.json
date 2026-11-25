@@ -9,6 +9,8 @@
   "home.credits": "Twórcy",
   "home.credits.aria": "Twórcy",
   "home.hint": "płyń przez mrok · kliknij, by zapalić świecę",
+  "home.noWebgl": "Twoja przeglądarka blokuje WebGL, więc widzisz uproszczoną salę. Włącz akcelerację sprzętową lub zezwól na WebGL dla tej strony w rozszerzeniach prywatności, aby zobaczyć pełne światło.",
+  "home.noWebgl.dismiss": "Zamknij",
   "home.portal.river.title": "Rzeka czasu",
   "home.portal.river.description": "Zobacz, jak splatają się losy kompozytorów i jak odmienia je historia.",
   "home.portal.hall.title": "Sala koncertowa",
