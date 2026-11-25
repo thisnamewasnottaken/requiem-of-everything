@@ -53,6 +53,17 @@ test("the home page falls back to its CSS hall when WebGL renders black", async 
   await expect(page.getByRole("status").filter({ hasText: "withholding WebGL" })).toBeVisible();
 });
 
+test("the home page falls back to its CSS hall when WebGL draws nothing", async ({ page }) => {
+  await page.addInitScript(() => {
+    for (const proto of [WebGLRenderingContext.prototype, WebGL2RenderingContext.prototype]) {
+      proto.drawArrays = () => {};
+    }
+  });
+  await page.goto("./");
+  await expect(page.locator("body")).toHaveClass(/\bno-gl\b/);
+  await expect(page.getByRole("status").filter({ hasText: "withholding WebGL" })).toBeVisible();
+});
+
 test("the home page keeps its hall of light without WebGL", async ({ page }) => {
   await page.addInitScript(() => {
     const getContext = HTMLCanvasElement.prototype.getContext;
