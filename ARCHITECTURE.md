@@ -209,6 +209,7 @@ The timeline viewport is defined by `(viewStartYear, viewEndYear)`. All position
 | Unit        | Vitest                   | Utility functions, data transformations, hooks |
 | Component   | Vitest + Testing Library | Component rendering, interactions              |
 | Integration | Vitest                   | Store interactions, data flow                  |
+| Static      | ESLint + TypeScript      | `npm run lint` and `npm run type-check`          |
 
 React tests live in `src/__tests__/` and run with `npm run test:run`. The v2 Node validators under `public/v2/tools/` are separate from Vitest and are not run by the Pages workflow.
 

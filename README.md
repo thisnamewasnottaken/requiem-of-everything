@@ -28,9 +28,10 @@ Open [localhost:5173](http://localhost:5173/) for the React app or [localhost:51
 | --- | --- |
 | `npm run build` | Compiles TypeScript and builds the site into `dist/`, including the static rebuild. |
 | `npm run type-check` | Checks TypeScript without producing build output. |
+| `npm run lint` | Lints JavaScript and TypeScript with ESLint. |
 | `npm run test:run` | Runs the Vitest unit and component tests once. |
 
-Two package scripts are not currently working checks: `npm run lint` fails because there is no ESLint flat config, and `npm run test:e2e` picks up Vitest files instead of running a Playwright suite.
+`npm run test:e2e` is not currently a working check: it picks up Vitest files instead of running a Playwright suite.
 
 ## Repository map
 
