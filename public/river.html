@@ -15,12 +15,13 @@
 #tip .k{font-family:var(--inscr);font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 #tip .d{font-size:.95rem;color:rgba(230,216,189,.78);margin-top:5px;font-style:italic}
 #life.reliquary{background:linear-gradient(180deg,rgba(20,15,11,.97),rgba(11,9,7,.985));box-shadow:0 0 0 1px rgba(201,165,92,.08),0 -30px 120px 30px rgba(4,3,2,.82)}
-#life{position:fixed;left:50%;bottom:66px;width:min(1240px,calc(100vw - 40px));height:410px;transform:translateX(-50%) translateY(30px);z-index:28;
+#life{position:fixed;left:50%;bottom:max(66px,var(--river-footer-height,0px));width:min(1240px,calc(100vw - 40px));height:410px;transform:translateX(-50%) translateY(30px);z-index:28;
   opacity:0;visibility:hidden;transition:opacity .7s,transform .8s cubic-bezier(.22,1,.36,1),visibility 0s linear .7s;padding:18px 24px;display:grid;grid-template-columns:300px 1fr;gap:28px}
 #life.open{opacity:1;visibility:visible;transform:translateX(-50%);transition-delay:0s}
 #life h2{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf}
 #life .dates{font-family:var(--inscr);font-size:.6rem;letter-spacing:.3em;color:var(--gold);margin:8px 0 10px}
 #life .left,#life .right{display:flex;flex-direction:column;min-height:0}
+#life .right:focus-visible{outline:1px solid var(--gold);outline-offset:-1px}
 #life .bio{flex:1;min-height:0;font-size:.98rem;line-height:1.5;color:rgba(230,216,189,.78);overflow-y:auto;padding-right:8px;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.55) rgba(201,165,92,.08);
   -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
 #life .bio.end{-webkit-mask-image:none;mask-image:none}
@@ -58,10 +59,13 @@
 .find-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 1rem var(--display);color:#f1e4cc}
 .find-years{flex:0 0 auto;font:400 .48rem var(--inscr);letter-spacing:.08em;color:var(--mist)}
 .find-empty{padding:10px 11px;color:rgba(216,203,180,.48);font:italic 400 .95rem var(--display)}
-#mini{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:min(900px,calc(100vw - 260px));height:34px;z-index:25;cursor:pointer}
-#legendE{position:fixed;right:22px;bottom:18px;z-index:25;font-family:var(--inscr);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);line-height:2}
-#legendE i{display:inline-block;width:6px;height:6px;transform:rotate(45deg);margin-right:8px}
-#hint{bottom:4px;top:auto;opacity:.55;font-size:.48rem}
+#riverFooter{position:fixed;inset:auto 22px 0;z-index:25;display:grid;grid-template-columns:1fr min(900px,calc(100% - 216px)) 1fr;gap:5px 12px;padding-bottom:5px;pointer-events:none}
+#mini{grid-column:2;grid-row:1;width:100%;height:28px;cursor:pointer;pointer-events:auto}
+#zoomlabel{grid-column:1;grid-row:1;align-self:end;font-family:var(--inscr);font-size:.55rem;letter-spacing:.26em;color:var(--mist);text-transform:uppercase;white-space:nowrap}
+#legendE{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 16px;font-family:var(--inscr);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);line-height:1.5}
+#legendE div{display:flex;align-items:center;gap:7px;white-space:nowrap}
+#legendE i{width:6px;height:6px;transform:rotate(45deg)}
+#hint{grid-column:1/-1;position:static;transform:none;text-align:center;opacity:.55;font-size:.48rem}
 @media(max-width:1180px){
   #head p{display:none}
 }
@@ -82,11 +86,12 @@
   #head{left:116px;transform:none;text-align:left}
 }
 @media(max-width:640px){
+  #riverFooter{inset-inline:12px;grid-template-columns:auto minmax(0,1fr)}
   .sigil{left:12px;top:12px;gap:8px}
   #head{top:13px!important;width:196px;max-width:calc(100vw - 184px)}
   #head h1{font-size:.7rem;letter-spacing:.18em;text-indent:.18em;white-space:nowrap}
   #head p{display:none}
-  #life{left:10px;right:10px;bottom:58px;width:auto;height:min(78vh,660px);padding:14px 15px;display:block;overflow-y:auto;transform:translateY(30px)}
+  #life{left:10px;right:10px;bottom:max(58px,var(--river-footer-height,0px));width:auto;height:min(78vh,660px);padding:14px 15px;display:block;overflow-y:auto;transform:translateY(30px)}
   #life.open{transform:none}
   #life h2{font-size:1.45rem}
   #life .left{height:auto}
@@ -101,12 +106,20 @@
 @media(max-height:500px){
   #head{top:52px!important;left:50%}
   #head p{display:none}
-  #life{height:calc(100vh - 124px);bottom:58px}
+  #riverFooter{row-gap:3px;padding-bottom:4px}
+  #mini{height:22px}
+  #hint{display:none}
+  #life{height:calc(100vh - max(124px,66px + var(--river-footer-height,0px)));bottom:max(58px,var(--river-footer-height,0px))}
+  #life .right{overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.45) rgba(201,165,92,.06)}
+  #seis{min-height:176px}
   #bSilence{top:84px;right:12px}
   #findGroup{top:84px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
   #findResults{max-height:calc(100vh - 138px)}
 }
-#zoomlabel{position:fixed;left:24px;bottom:22px;z-index:25;font-family:var(--inscr);font-size:.55rem;letter-spacing:.26em;color:var(--mist);text-transform:uppercase}
+@media(max-width:640px) and (max-height:500px){
+  #life .right{height:auto;overflow:visible}
+  #seis{flex:none;height:176px}
+}
 </style>
 </head>
 <body>
@@ -119,11 +132,14 @@
   <div class="left"><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div><div class="more" id="lMore">↓ scroll for more</div>
     <div class="events" id="lEvents"><h3>In their lifetime</h3><div class="event-list"></div></div>
     <button class="btn listen" id="lListen">Listen on Spotify</button><div class="spotify-player" id="lPlayer"></div></div>
-  <div class="right"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
+  <div class="right" id="lChart" role="region" tabindex="0"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
 </div>
-<canvas id="mini"></canvas>
-<div id="zoomlabel"></div>
-<div id="legendE"></div>
+<div id="riverFooter">
+  <canvas id="mini"></canvas>
+  <div id="zoomlabel"></div>
+  <div id="legendE"></div>
+  <div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
+</div>
 <div id="findGroup">
   <div class="find-field">
     <input id="find" type="text" placeholder="" aria-label="" aria-autocomplete="list" aria-controls="findResults" aria-expanded="false" autocomplete="off" spellcheck="false">
@@ -132,7 +148,6 @@
   <div id="findResults" class="reliquary" role="listbox" aria-label="" hidden></div>
 </div>
 <button class="btn" id="bSilence" aria-pressed="false">Silence</button>
-<div class="hint" id="hint">scroll to zoom · drag to travel · click a thread to open a life · hover a country or event to light its composers</div>
 <script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/lives.js"></script>
 <script type="module">
 import { sound } from './common/sound.js';
@@ -152,6 +167,7 @@ document.getElementById('findResults').setAttribute('aria-label',t('river.find.m
 document.getElementById('lMore').textContent=t('river.more');
 document.querySelector('#lEvents h3').textContent=t('river.events.lifetime');
 document.getElementById('lListen').textContent=t('river.listen');
+document.getElementById('lChart').setAttribute('aria-label',t('river.life.chart'));
 document.querySelector('.closehint').textContent=t('river.close');
 document.querySelector('.legend span:nth-child(1)').lastChild.textContent=t('river.legend.music');
 document.querySelector('.legend span:nth-child(2)').lastChild.textContent=t('river.legend.standing');
@@ -159,7 +175,7 @@ document.querySelector('.legend span:nth-child(3)').lastChild.textContent=t('riv
 document.getElementById('hint').textContent=t('river.hint');
 const D=window.ROE_DATA; const cv=document.getElementById('river'), g=cv.getContext('2d');
 const findGroup=document.getElementById('findGroup'), findInput=document.getElementById('find'), findClear=document.getElementById('findClear'), findResults=document.getElementById('findResults');
-let W,H,DPR; function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);sizeMini();}
+let W,H,DPR; function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);sizeMini();sizeFooter();}
 // ---------- regions (lanes) and migrations ----------
 const LANES=['Americas','British Isles','Nordic','Russia','Central Europe','German lands','France','Iberia','Italy'];
 const LANE_KEYS={
@@ -238,7 +254,7 @@ function output(c,y){ if(c.life) return curve(c.life.pts,y,1);
 function standing(c,y){ if(c.life) return curve(c.life.pts,y,2); const age=y-c.birthYear; return clamp(smooth(clamp((age-18)/22,0,1))*.7+.1,0,1);}
 // ---------- view ----------
 const MIN=1420, MAX=2000; let v0=1480, v1=2000, tv0=1480, tv1=2000; let focus=null, hoverC=null, hoverE=null, hoverW=null;
-const TOP=110, BOT=()=>H-120; const laneH=()=> (BOT()-TOP)/LANES.length;
+const TOP=110, ERA_BASELINE=58, BOT=()=>H-Math.max(120,footerHeight+ERA_BASELINE+14); const laneH=()=> (BOT()-TOP)/LANES.length;
 const X=y=>(y-v0)/(v1-v0)*W, Y2yr=x=>v0+x/W*(v1-v0);
 function laneOf(c,y){let lane=c.home, from=c.home, t0=-1e9; for(const [yr,to] of c.moves){ if(y>=yr){from=lane;lane=to;t0=yr;} }
   const a=LANES.indexOf(from), b=LANES.indexOf(lane), k=smooth(clamp((y-t0)/9,0,1)); return lerp(a,b,k);}
@@ -271,18 +287,50 @@ function flushLabels(){ g.globalCompositeOperation='source-over'; g.lineJoin='ro
   for(const l of labels){ g.save(); g.translate(l.x,l.y); if(l.rot)g.rotate(l.rot); g.font=l.font; g.textAlign=l.align;
     g.lineWidth=3.5; g.strokeStyle='rgba(10,8,7,.8)'; g.shadowColor='rgba(0,0,0,.95)'; g.shadowBlur=7; g.strokeText(l.text,0,0); g.shadowBlur=0; g.fillStyle=l.fill; g.fillText(l.text,0,0); g.restore(); }
   labels.length=0; }
+function drawEraLabels(eras){
+  const inset=12, gap=14, available=W-2*inset, baseline=BOT()+ERA_BASELINE;
+  const captions=eras.map(e=>{
+    const text=e.name.toUpperCase().split('').join('\u200a');
+    const font=`400 ${e.cur?clamp(e.width/10,26,36):clamp(e.width/14,11,22)}px Cinzel`;
+    g.font=font;
+    return {...e,text,font,textWidth:g.measureText(text).width};
+  });
+  const required=()=>captions.reduce((sum,e)=>sum+e.textWidth+gap,-gap);
+  if(required()>available){
+    for(const e of captions){
+      e.font=`400 ${e.cur?22:11}px Cinzel`;
+      g.font=e.font; e.textWidth=g.measureText(e.text).width;
+    }
+    while(captions.length>1&&required()>available){
+      const leastVisible=captions.reduce((a,b)=>!b.cur&&(a.cur||b.width<a.width)?b:a);
+      captions.splice(captions.indexOf(leastVisible),1);
+    }
+  }
+  let right=W-inset;
+  // Reserve space for later captions before placing each one near its era's centre.
+  for(let i=captions.length-1;i>=0;i--){
+    const e=captions[i]; e.lastLeft=right-e.textWidth; right=e.lastLeft-gap;
+  }
+  let left=inset;
+  for(const e of captions){
+    if(e.textWidth>available)continue;
+    const x=clamp(e.center-e.textWidth/2,left,e.lastLeft);
+    label(e.text,x+e.textWidth/2,baseline,e.font,e.fill,'center');
+    left=x+e.textWidth+gap;
+  }
+}
 let laneBoxes=[];
 function draw(){
   g.globalCompositeOperation='source-over'; g.fillStyle='#0a0807'; g.fillRect(0,0,W,H);
   const span=v1-v0, mid=(v0+v1)/2, F=activeFilter(), FE=F&&F.kind==='event'?F.v:null, FL=F&&F.kind==='lane'?F.v:null;
   // era mists; the era at the centre of the view is named larger and brighter
-  for(const e of D.eras){const x0=X(e.startYear),x1=X(e.endYear); if(x1<0||x0>W)continue; const [r,gg,b]=brighten(e.color,1.2); const cur=mid>=e.startYear&&mid<e.endYear;
+  const visibleEras=[];
+  for(const e of D.eras){const x0=X(e.startYear),x1=X(e.endYear); if(x1<=0||x0>=W)continue; const [r,gg,b]=brighten(e.color,1.2); const cur=mid>=e.startYear&&mid<e.endYear;
     const gr=g.createLinearGradient(x0,0,x1,0); gr.addColorStop(0,`rgba(${r},${gg},${b},0)`);gr.addColorStop(.5,`rgba(${r},${gg},${b},${cur?.1:.06})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
     g.fillStyle=gr; g.fillRect(x0,TOP-30,x1-x0,BOT()-TOP+60);
-    const fs=cur?clamp((x1-x0)/10,26,54):clamp((x1-x0)/14,11,30); const txt=e.name.toUpperCase().split('').join('\u200a');
-    g.font=`400 ${fs}px Cinzel`; const tw=g.measureText(txt).width; const lo=Math.max(x0,0)+tw/2+20, hi=Math.min(x1,W)-tw/2-20;
-    const cx=lo<hi?clamp((x0+x1)/2,lo,hi):(Math.max(x0,0)+Math.min(x1,W))/2;
-    label(txt,cx,BOT()+(cur?50:40),`400 ${fs}px Cinzel`,`rgba(${r},${gg},${b},${cur?.78:.2})`,'center');}
+    const start=Math.max(0,x0), end=Math.min(W,x1);
+    visibleEras.push({name:e.name,cur,width:end-start,center:(start+end)/2,fill:rgba([r,gg,b],cur?.86:.52)});}
+  drawEraLabels(visibleEras);
   // time ruler; the years of a selected life take its colour
   const stepY=span>300?50:span>120?25:span>50?10:span>20?5:1;
   if(focus){g.fillStyle=rgba(focus.rgb,.6);g.fillRect(X(focus.birthYear),TOP-22,X(focus.deathYear)-X(focus.birthYear),2);}
@@ -335,16 +383,43 @@ function draw(){
     const x=X(p.u); if(x<0||x>W)continue; const y=yAt(c,p.u); let dim=focus?(focus===c?1:.15):hoverC?(hoverC===c?1:.3):F?(F.test(c)?1:.15):1; const [r,gg,b]=c.rgb;
     g.fillStyle=`rgba(${Math.min(255,r+60)},${Math.min(255,gg+60)},${Math.min(255,b+60)},${.55*dim})`; g.fillRect(x-1,y-1,2.2,2.2); }
   // country labels: hover/click targets; a selected life lights the countries it lived in
-  g.font='400 10px Cinzel'; const fl=focus?lanesOf(focus):null; laneBoxes=[];
-  LANES.forEach((l,i)=>{ const text=laneName(l).toUpperCase().split('').join(' '); const y=TOP+laneH()*(i+.5)+3; const tw=g.measureText(text).width; laneBoxes.push({l,x0:10,x1:26+tw,y0:y-13,y1:y+7});
-    const on=FL===l, pinned=pin&&pin.kind==='lane'&&pin.v===l; const col=fl&&fl.has(l)?rgba(focus.rgb,1):on?'#f6e1b0':'rgba(216,203,180,.4)';
-    label((pinned?'◆ ':'')+text,18,y,`${(fl&&fl.has(l))||on?'600':'400'} 10px Cinzel`,col,'left'); });
+  const fl=focus?lanesOf(focus):null; laneBoxes=[];
+  const lh=laneH(), hitRadius=Math.min(10,lh/2), captionX=18;
+  if(lh>=2)LANES.forEach((l,i)=>{
+    const on=FL===l, pinned=pin&&pin.kind==='lane'&&pin.v===l, visited=fl&&fl.has(l);
+    const text=(pinned?'◆ ':'')+laneName(l).toUpperCase().split('').join(' ');
+    const center=TOP+lh*(i+.5), weight=visited||on?600:400, size=Math.min(10,lh);
+    g.font=`${weight} ${size}px Cinzel`;
+    let ink=g.measureText(text);
+    const inkHeight=ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent;
+    if(inkHeight>2*hitRadius-1){
+      g.font=`${weight} ${size*(2*hitRadius-1)/inkHeight}px Cinzel`;
+      ink=g.measureText(text);
+    }
+    const y=center+(lh<20?(ink.actualBoundingBoxAscent-ink.actualBoundingBoxDescent)/2:3);
+    laneBoxes.push({l,x0:Math.min(10,captionX-ink.actualBoundingBoxLeft),x1:captionX+Math.max(ink.width+8,ink.actualBoundingBoxRight),
+      y0:center-hitRadius,y1:center+hitRadius});
+    label(text,captionX,y,g.font,visited?rgba(focus.rgb,1):on?'#f6e1b0':'rgba(216,203,180,.4)','left');
+  });
   flushLabels();
   drawMini();
 }
 // ---------- minimap ----------
-const mini=document.getElementById('mini'), mg=mini.getContext('2d'); let MW,MH;
+const mini=document.getElementById('mini'), mg=mini.getContext('2d'); let MW,MH,footerHeight=0;
+const footer=document.getElementById('riverFooter');
 function sizeMini(){const r=mini.getBoundingClientRect();MW=r.width;MH=r.height;mini.width=MW*DPR;mini.height=MH*DPR;mg.setTransform(DPR,0,0,DPR,0,0);}
+function sizeFooter(){
+  footerHeight=footer.getBoundingClientRect().height;
+  document.body.style.setProperty('--river-footer-height',`${footerHeight}px`);
+}
+const footerObserver=new ResizeObserver(entries=>{
+  for(const entry of entries){
+    if(entry.target===mini)sizeMini();
+    else sizeFooter();
+  }
+});
+footerObserver.observe(footer);
+footerObserver.observe(mini);
 function drawMini(){ mg.clearRect(0,0,MW,MH); const mx=y=>(y-MIN)/(MAX-MIN)*MW;
   for(const e of D.eras){const [r,gg,b]=brighten(e.color,1.3);mg.fillStyle=`rgba(${r},${gg},${b},.22)`;mg.fillRect(mx(e.startYear),MH*.35,mx(e.endYear)-mx(e.startYear),MH*.3);}
   for(const c of comps){const [r,gg,b]=c.rgb;mg.fillStyle=`rgba(${r},${gg},${b},.5)`;mg.fillRect(mx(c.birthYear),4+ (LANES.indexOf(c.home)/LANES.length)*(MH-8),mx(c.deathYear)-mx(c.birthYear),1);}
@@ -361,7 +436,7 @@ cv.addEventListener('pointerleave',()=>{hoverC=hoverE=hoverW=hoverL=null;tip.sty
 cv.addEventListener('pointermove',e=>{ if(findGroup.contains(e.target))return;if(drag){const dx=e.clientX-drag.x; if(Math.abs(dx)>3)drag.moved=true; const dy=dx/W*(drag.b-drag.a); let a=drag.a-dy,b=drag.b-dy; if(a<MIN){b+=MIN-a;a=MIN;} if(b>MAX){a-=b-MAX;b=MAX;} tv0=a;tv1=b; return;}
   pick(e.clientX,e.clientY); showTip(e.clientX,e.clientY);});
 function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=Y2yr(mx); const span=v1-v0, zoomW=clamp(500/span,1,4), revealYear=lerp(MIN,MAX,reveal);
-  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<=b.y1){hoverL=b.l;return;} }
+  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<b.y1){hoverL=b.l;return;} }
   for(const c of comps){ for(const w of c.works){const d=Math.hypot(X(w.yearComposed)-mx,yAt(c,w.yearComposed)-my); if(d<9){hoverW=w;hoverC=c;return;}}}
   if(my>BOT()-2&&my<BOT()+26){ let bw=1e9; for(const e of EV){ const x=X(e.year), xe=X(evEnd(e)); const inside=mx>=x-7&&mx<=Math.max(xe,x)+7; if(inside&&xe-x<bw){bw=xe-x;hoverE=e;} } if(hoverE)return; }
   let best=1e9;

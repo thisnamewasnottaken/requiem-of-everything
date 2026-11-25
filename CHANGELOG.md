@@ -35,6 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- **v2 River of Time bottom band** — era captions stay legible without colliding, and the event key has its own row below the minimap instead of covering the event diamonds. On short landscape screens, country hover and pin targets remain separate and the life chart scrolls rather than collapsing.
 - **Repository lint command** — restored `npm run lint` for JavaScript and TypeScript with an ESLint 9 flat config.
 - **Locale-specific Wikipedia article slugs** — `useData` now localises `wikipediaSlug` fields for composers, compositions, events, terms, and instruments. This lets Polish locale files point links and REST lookups at working article titles such as `Fryderyk_Chopin` and `Rewolucja_francuska` instead of assuming direct subdomain swaps of English slugs will resolve.
 - **Timeline event backdrop noise** — historical events no longer render full-height translucent colour bands. Vertical backdrop bands are now reserved for musical eras only, while historical events remain visible as top-band markers with dashed lines and tooltips.
