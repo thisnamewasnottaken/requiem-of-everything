@@ -207,6 +207,7 @@ The timeline viewport is defined by `(viewStartYear, viewEndYear)`. All position
 | Component   | Vitest + Testing Library | Component rendering, interactions              |
 | Integration | Vitest                   | Store interactions, data flow                  |
 | E2E         | Playwright               | Full user journeys, visual regression          |
+| Static      | ESLint + TypeScript      | `npm run lint` and `npm run type-check`          |
 
 **Spec-Test Alignment**: Each spec in `docs/specs/` maps to a test file in `src/__tests__/`. The test file name mirrors the spec file name.
 
