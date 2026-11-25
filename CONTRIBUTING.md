@@ -21,19 +21,19 @@ npm run build
 bash .githooks/pre-commit
 ```
 
-The [GitHub Pages workflow](.github/workflows/deploy.yml) runs type checking, the Vitest suite, and the build on pushes to `main`. Keep unit and component tests under `src/` as `*.test.ts`, `*.test.tsx`, `*.spec.ts`, or `*.spec.tsx`. For UI changes, also try the affected route in the local dev server.
+The [GitHub Pages workflow](.github/workflows/deploy.yml) runs type checking, the Vitest suite, and the build on pushes to `main`. Keep unit and component tests under `src/` as `*.test.ts`, `*.test.tsx`, `*.spec.ts`, or `*.spec.tsx`.
 
 The pre-commit script runs `npm run i18n:strict` first. By default it runs related Vitest tests when staged source or test-relevant config files match its filters. With `CI=true` or `PRECOMMIT_TEST_SCOPE=full`, it runs the full unit suite. The `hooks:install` npm script sets Git's hook path but does not make files executable. Since the checked-in hook is not executable, run it explicitly with Bash as shown above; do not assume Git ran it automatically.
 
 ### UI acceptance checklist
 
-For every UI change, verify the affected route and record what you checked in the PR:
+For every UI change, verify the affected route in the local dev server and record what you checked in the PR:
 
-- [ ] Desktop, tablet, and phone layouts work at widths that exercise the affected UI's breakpoints.
+- [ ] The affected experience works at desktop, tablet, and phone widths that exercise its existing breakpoints. For V2, where applicable, check the rotate prompt in portrait at 820px or narrower and exercise the affected UI in landscape rather than bypassing the prompt.
 - [ ] Touch targets are easy to tap, applicable gestures work, and essential actions don't require hover.
 - [ ] Keyboard interactions work, focus order is logical, focus is visible, and affected shortcuts work.
 
-Include relevant tests or screenshots. The [routing tests](e2e/routing.spec.ts) show how to vary the viewport, and the [Lexicon tests](e2e/lexicon-links.spec.ts) show how to exercise touch input in Playwright.
+Include relevant tests or screenshots. The [V2 routing tests](e2e/routing.spec.ts) illustrate setting viewport sizes; the portrait pointer test checks the rotate prompt before bypassing it to inspect the underlying targets. The [Lexicon tests](e2e/lexicon-links.spec.ts) illustrate keyboard interaction and touch long-press/tap in Playwright. Choose widths and inputs for the UI you changed rather than reusing those examples as a complete checklist.
 
 ## Adding data or translations
 
