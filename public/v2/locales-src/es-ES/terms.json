@@ -1,0 +1,202 @@
+{
+  "symphony": {
+    "term": "Sinfonía",
+    "shortDefinition": "Obra orquestal de gran formato, normalmente en cuatro movimientos con tempos y caracteres contrastantes.",
+    "longDefinition": "Una sinfonía es una composición orquestal extensa, por lo general en cuatro movimientos: una apertura rápida en forma sonata, un movimiento lento y lírico, un scherzo o minueto danzable y un vigoroso final. Haydn y Mozart desarrollaron la forma en el Clasicismo; Beethoven la amplió de manera decisiva, y después lo hicieron compositores románticos como Brahms, Chaikovski y Mahler. La sinfonía representa una de las mayores ambiciones de la orquesta y ofrece a los compositores un espacio para expresar sus ideas musicales más profundas."
+  },
+  "concerto": {
+    "term": "Concierto",
+    "shortDefinition": "Composición para instrumento solista y orquesta que muestra la virtuosidad del solista en diálogo con el conjunto.",
+    "longDefinition": "El concierto enfrenta musicalmente a un solista con la orquesta entera, equilibrando el lucimiento virtuosístico con la colaboración. Nació en el Barroco con compositores como Vivaldi y Bach, y evolucionó con Mozart y Beethoven hasta el gran concierto romántico. Suele tener tres movimientos (rápido–lento–rápido) e incluye una cadencia: un pasaje sin acompañamiento en el que el solista demuestra su dominio técnico y su interpretación personal."
+  },
+  "sonata": {
+    "term": "Sonata",
+    "shortDefinition": "Obra en varios movimientos para uno o dos instrumentos, organizada mediante temas contrastantes y relaciones tonales.",
+    "longDefinition": "La sonata es una composición en varios movimientos para uno o dos instrumentos, construida a partir de temas contrastantes que se desarrollan mediante relaciones entre tonalidades. La forma sonata-allegro —exposición, desarrollo y reexposición— se convirtió en la base estructural de la música clásica. Desde las sonatas dramáticas para piano de Beethoven hasta las innovaciones en un solo movimiento de Liszt, la sonata ha servido para poner a prueba el arte de componer y la expresión instrumental."
+  },
+  "opera": {
+    "term": "Ópera",
+    "shortDefinition": "Obra dramática que combina música vocal y orquestal con una representación teatral y un libreto.",
+    "longDefinition": "La ópera es una forma de arte dramático que combina canto, música orquestal, interpretación y escenografía para contar historias con música. Surgió en la Italia de finales del Renacimiento con las obras pioneras de Monteverdi y evolucionó en tradiciones nacionales distintas: el bel canto italiano, el drama musical alemán y la grand opéra francesa. Desde las ingeniosas comedias de Mozart hasta las mitologías épicas de Wagner y el verismo emotivo de Puccini, sigue siendo una de las fusiones más completas de música y teatro."
+  },
+  "oratorio": {
+    "term": "Oratorio",
+    "shortDefinition": "Gran obra vocal sacra para solistas, coro y orquesta, interpretada sin escenografía ni vestuario.",
+    "longDefinition": "Un oratorio es un relato musical de gran formato para solistas, coro y orquesta, normalmente sobre un tema sagrado, que se interpreta en concierto en vez de escenificarse con decorados y vestuario. La forma se desarrolló en el Barroco y alcanzó su apogeo con El Mesías de Händel y las Pasiones de Bach. A diferencia de la ópera, confía el drama al poder de la música y el texto, y convierte al coro en una fuerza dramática central."
+  },
+  "mass": {
+    "term": "Misa",
+    "shortDefinition": "Composición coral que pone música a los textos litúrgicos de la misa católica.",
+    "longDefinition": "La misa musical pone en música textos de la liturgia católica romana, sobre todo los del Ordinario: Kyrie, Gloria, Credo, Sanctus y Agnus Dei. Desde la polifonía renacentista de Palestrina hasta la monumental Misa en si menor de Bach, los compositores han usado este marco sagrado para crear obras de extraordinaria belleza y profundidad espiritual. Las misas de concierto de épocas posteriores suelen trascender su origen litúrgico y convertirse en obras artísticas independientes."
+  },
+  "requiem": {
+    "term": "Réquiem",
+    "shortDefinition": "Música para la misa católica de difuntos, compuesta a menudo como obra de concierto.",
+    "longDefinition": "Un réquiem pone música a la misa católica por los difuntos (Missa pro defunctis) e incluye tradicionalmente movimientos como Dies irae, Lacrimosa y Lux aeterna. Lo que comenzó como música litúrgica se convirtió en un poderoso género de concierto. El Réquiem inacabado de Mozart, la versión operística de Verdi y la reinterpretación protestante de Brahms muestran cómo los compositores transformaron este solemne rito en expresiones personales de duelo, esperanza y trascendencia."
+  },
+  "chamber-music": {
+    "term": "Música de cámara",
+    "shortDefinition": "Música para un conjunto pequeño, normalmente de dos a nueve intérpretes, con una persona por parte.",
+    "longDefinition": "La música de cámara se compone para un grupo pequeño de instrumentos, con una parte independiente para cada intérprete. Al principio se destinaba a reuniones domésticas e íntimas, no a grandes salas, y exige un diálogo musical estrecho entre los músicos. El cuarteto de cuerda, el trío con piano y el quinteto de viento son conjuntos de cámara clásicos. Desde los innovadores cuartetos de Haydn hasta las obras audaces de Schoenberg, ofrece algunas de las páginas más refinadas e intelectuales de la música clásica."
+  },
+  "string-quartet": {
+    "term": "Cuarteto de cuerda",
+    "shortDefinition": "Composición para dos violines, viola y violonchelo, considerada la forma más pura de música de cámara.",
+    "longDefinition": "El cuarteto de cuerda —dos violines, viola y violonchelo— suele considerarse la forma más refinada de música de cámara. Haydn estableció el género y escribió más de sesenta cuartetos; desde entonces, ha servido a los compositores para expresar ideas íntimas y experimentar. Los últimos cuartetos de Beethoven ampliaron sus límites emocionales y estructurales, y Bartók y Shostakóvich lo llevaron al siglo XX con intensidad modernista y ecos políticos."
+  },
+  "piano-solo": {
+    "term": "Piano solo",
+    "shortDefinition": "Composición para piano sin acompañamiento, desde piezas de carácter hasta sonatas de gran formato.",
+    "longDefinition": "La música para piano solo reúne toda composición escrita para un único pianista sin acompañamiento. La enorme extensión y capacidad dinámica del instrumento lo hacen ideal tanto para miniaturas íntimas como para piezas virtuosísticas de gran envergadura. Desde las poéticas baladas y nocturnos de Chopin hasta los cuadros impresionistas de Debussy, el repertorio para piano solo es uno de los más ricos y variados de la tradición musical occidental."
+  },
+  "choral": {
+    "term": "Música coral",
+    "shortDefinition": "Música para coro, a menudo con acompañamiento orquestal, desde himnos sacros hasta obras de concierto.",
+    "longDefinition": "La música coral está escrita para un conjunto de cantantes, normalmente dividido en soprano, alto, tenor y bajo. Abarca obras sacras y profanas, desde motetes renacentistas y cantatas barrocas hasta grandes piezas corales sinfónicas. El coro puede cantar a cappella o con acompañamiento instrumental. La escritura coral ha sido esencial en la música occidental desde el canto llano medieval hasta obras modernas como la Sinfonía de los salmos de Stravinsky."
+  },
+  "art-song": {
+    "term": "Canción artística",
+    "shortDefinition": "Composición para voz solista y piano que pone poesía en música y cuida especialmente el texto.",
+    "longDefinition": "La canción artística (Lied en alemán) es una composición para voz solista y piano que realza la poesía mediante la música. Surgió a comienzos del Romanticismo y exige una colaboración entre iguales: el piano no se limita a acompañar, sino que aporta comentarios y atmósfera. La abundante obra de Schubert, con ciclos como Viaje de invierno, estableció el género, que después desarrollaron Schumann, Brahms, Wolf y Strauss."
+  },
+  "ballet": {
+    "term": "Ballet",
+    "shortDefinition": "Obra teatral que combina música orquestal y danza coreografiada para narrar o expresar ideas.",
+    "longDefinition": "La música de ballet acompaña una representación de danza coreografiada y combina escritura orquestal con narración dramática a través del movimiento. Aunque el ballet tiene raíces en los entretenimientos cortesanos del Renacimiento, su música floreció en el Romanticismo con El lago de los cisnes y El cascanueces de Chaikovski. En el siglo XX, las partituras revolucionarias de Stravinsky para los Ballets Rusos transformaron el ballet en un vehículo para la innovación de vanguardia."
+  },
+  "overture": {
+    "term": "Obertura",
+    "shortDefinition": "Introducción orquestal a una ópera, oratorio o suite, que a menudo anticipa sus temas principales.",
+    "longDefinition": "Una obertura es una pieza orquestal que sirve de introducción a una ópera, oratorio u obra teatral. Suele establecer el ambiente y anticipar temas que aparecerán más adelante. Algunas oberturas, como las de Weber y Beethoven, se hicieron tan populares que se interpretan a menudo como piezas de concierto independientes, separadas de las óperas que presentan."
+  },
+  "suite": {
+    "term": "Suite",
+    "shortDefinition": "Conjunto ordenado de piezas instrumentales, a menudo danzas o fragmentos de obras más extensas.",
+    "longDefinition": "Una suite es una colección ordenada de movimientos instrumentales, a menudo basados en danzas estilizadas como la allemande, la courante, la sarabande y la gigue. En el Barroco, Bach y Händel compusieron suites para instrumentos solistas y para orquesta. La forma volvió en el Romanticismo y la época moderna, cuando los compositores reunieron piezas de música incidental o partituras de ballet, como hizo Grieg con su Suite de Peer Gynt."
+  },
+  "prelude": {
+    "term": "Preludio",
+    "shortDefinition": "Pieza breve que al principio precedía a una obra mayor y que después se convirtió en una forma independiente.",
+    "longDefinition": "El preludio es una pieza breve que originalmente antecedía a una obra más extensa, como una fuga o un movimiento de suite. El Clave bien temperado de Bach empareja preludios y fugas en todas las tonalidades. En el Romanticismo, compositores como Chopin y Debussy lo convirtieron en una miniatura independiente: su libertad de estructura les permitió explorar el carácter, el color y la atmósfera en pocas páginas."
+  },
+  "fugue": {
+    "term": "Fuga",
+    "shortDefinition": "Composición contrapuntística en la que otras voces van retomando un tema presentado por una de ellas.",
+    "longDefinition": "La fuga es una técnica de composición en la que una voz presenta una melodía breve, llamada sujeto, y otras voces la imitan al entrar una tras otra. Las líneas se entretejen en contrapunto estricto y forman una conversación musical compleja. Bach llevó la fuga a su máximo desarrollo en obras como El arte de la fuga y El clave bien temperado; es uno de los grandes logros de la polifonía occidental."
+  },
+  "etude": {
+    "term": "Estudio",
+    "shortDefinition": "Pieza que desarrolla una destreza técnica concreta y, a la vez, constituye una obra musical completa.",
+    "longDefinition": "Un estudio es una composición pensada para desarrollar un aspecto concreto de la técnica instrumental, como las escalas, los arpegios o las octavas. Aunque nació con fines pedagógicos, en el Romanticismo se convirtió en música digna de la sala de conciertos. Los Estudios, op. 10 y op. 25, de Chopin revolucionaron el género al combinar grandes exigencias técnicas con una profunda belleza musical, y demostraron que virtuosismo y expresión artística pueden ir de la mano."
+  },
+  "nocturne": {
+    "term": "Nocturno",
+    "shortDefinition": "Composición lírica y soñadora que evoca la noche, escrita normalmente para piano solo.",
+    "longDefinition": "El nocturno es una composición contemplativa y lírica inspirada en la atmósfera de la noche. Lo inició el compositor irlandés John Field y Chopin lo llevó a su forma más conocida. Suele presentar una melodía cantable sobre un acompañamiento suavemente oscilante, como una noche de luna. Los veintiún nocturnos de Chopin definen el género: combinan ternura íntima con estallidos de pasión que contrastan con su superficie serena."
+  },
+  "waltz": {
+    "term": "Vals",
+    "shortDefinition": "Danza en compás ternario, con el primer tiempo marcado y un movimiento elegante y fluido.",
+    "longDefinition": "El vals es una danza en compás de 3/4, nacida de tradiciones populares austríacas y alemanas antes de extenderse por los salones europeos a comienzos del siglo XIX. En la sala de conciertos, los compositores aprovecharon su ritmo balanceante para escribir obras orquestales y pianísticas. Desde la Invitación a la danza de Weber hasta los valses de ballet de Chaikovski, el vals une elegancia y calidez emocional."
+  },
+  "mazurka": {
+    "term": "Mazurca",
+    "shortDefinition": "Danza folclórica polaca en compás ternario, con acentos en el segundo o tercer tiempo.",
+    "longDefinition": "La mazurca es una danza folclórica polaca en compás ternario. Se distingue del vals porque suele acentuar el segundo o el tercer tiempo, no el primero. Chopin convirtió esta danza nacional en una forma artística refinada: compuso más de cincuenta mazurcas que mezclan ritmos folclóricos, armonías cromáticas y libertad de improvisación. Sus mazurcas reflejan la identidad polaca y exploran armonías muy adelantadas a su tiempo."
+  },
+  "polonaise": {
+    "term": "Polonesa",
+    "shortDefinition": "Danza procesional polaca y solemne en compás ternario, asociada al orgullo nacional y a las ceremonias.",
+    "longDefinition": "La polonesa es una danza procesional polaca, solemne y en compás ternario, ligada a ceremonias y al orgullo nacional. Las polonesas de Chopin, en especial la Polonesa heroica en la bemol mayor, transformaron la danza en una expresión patriótica, con ritmos marciales y escritura pianística virtuosa. La forma encarna la identidad y la resistencia polacas, y permite crear obras para piano dramáticas y de gran formato."
+  },
+  "rhapsody": {
+    "term": "Rapsodia",
+    "shortDefinition": "Composición libre y episódica, a menudo basada en melodías folclóricas y llena de contrastes y virtuosismo.",
+    "longDefinition": "La rapsodia es una composición libre, normalmente en un solo movimiento, con grandes contrastes de carácter, tempo y dinámica. A menudo se inspira en melodías folclóricas y combina el despliegue virtuosístico con una expresión apasionada. Las Rapsodias húngaras de Liszt hicieron del género un vehículo de identidad cultural y brillantez pianística. La Rapsodia sobre un tema de Paganini de Rajmáninov mostró después que también podía albergar elaboradas variaciones dentro de una forma libre."
+  },
+  "tone-poem": {
+    "term": "Poema sinfónico",
+    "shortDefinition": "Obra orquestal en un movimiento que ilustra musicalmente un relato, una escena o una idea literaria.",
+    "longDefinition": "El poema sinfónico es una obra orquestal en un solo movimiento que representa musicalmente un relato, una escena o una idea filosófica. Liszt lo creó y Richard Strauss lo llevó a su máximo desarrollo. La forma libera a la música orquestal de estructuras abstractas y permite que siga el curso de su tema. El Preludio a la siesta de un fauno de Debussy y Así habló Zaratustra de Strauss muestran cómo la orquesta puede evocar imágenes con sonidos."
+  },
+  "variation": {
+    "term": "Variación",
+    "shortDefinition": "Forma en la que se presenta un tema y luego se repite en versiones transformadas.",
+    "longDefinition": "El tema con variaciones presenta una idea musical y la repite en una serie de versiones modificadas. Cada variación puede cambiar la melodía, la armonía, el ritmo o la orquestación, pero conserva un vínculo reconocible con el tema original. Desde las Variaciones Goldberg de Bach hasta las Variaciones Enigma de Elgar, esta forma permite descubrir posibilidades nuevas en un material que parece sencillo."
+  },
+  "cantata": {
+    "term": "Cantata",
+    "shortDefinition": "Obra vocal para solistas, coro e instrumentos, a menudo basada en textos o relatos sacros.",
+    "longDefinition": "Una cantata es una composición vocal para solistas, coro y conjunto instrumental, normalmente dividida en movimientos con arias, recitativos y coros. Floreció en el Barroco, sobre todo en las iglesias luteranas alemanas, donde J. S. Bach compuso más de doscientas cantatas sacras para los oficios semanales. Las cantatas profanas italianas exploraban temas dramáticos y líricos en grupos reducidos, y fueron un importante antecedente de la ópera."
+  },
+  "motet": {
+    "term": "Motete",
+    "shortDefinition": "Composición coral polifónica sobre un texto sacro en latín, cantada sin acompañamiento instrumental.",
+    "longDefinition": "El motete es una composición coral polifónica sobre un texto sacro, normalmente en latín y cantada a cappella. Surgió en la Francia medieval y alcanzó su apogeo artístico en el Renacimiento con compositores como Palestrina y Victoria. Sus motetes muestran el ideal de una polifonía vocal equilibrada y fluida. Al dar importancia a la claridad del texto y a la expresión espiritual, el motete fue durante siglos una pieza fundamental de la música sacra."
+  },
+  "tempo": {"term": "Tempo", "short": "La velocidad de la música, indicada normalmente con una palabra italiana o un número de pulsaciones por minuto.", "lit": "Italiano: “tiempo”"},
+  "largo": {"term": "Largo", "short": "Muy lento y amplio, con sensación de espacio y solemnidad. Unas 40–60 pulsaciones por minuto.", "lit": "Italiano: “amplio”"},
+  "adagio": {"term": "Adagio", "short": "Lento y expresivo. Muchos de los movimientos lentos más queridos llevan esta indicación.", "lit": "Italiano “ad agio”: con calma"},
+  "andante": {"term": "Andante", "short": "A un paso tranquilo, como al caminar: ni lento ni rápido.", "lit": "Italiano: “caminando”"},
+  "moderato": {"term": "Moderato", "short": "A una velocidad moderada y constante.", "lit": "Italiano: “moderado”"},
+  "allegro": {"term": "Allegro", "short": "Rápido y animado. Suele indicar el primer movimiento de una sinfonía o un concierto.", "lit": "Italiano: “alegre”"},
+  "presto": {"term": "Presto", "short": "Muy rápido. Prestissimo es todavía más rápido.", "lit": "Italiano: “rápidamente”"},
+  "accelerando": {"term": "Accelerando", "short": "Cada vez más rápido, poco a poco.", "lit": "Italiano: “acelerando”"},
+  "ritardando": {"term": "Ritardando", "short": "Cada vez más lento, a menudo al final de una frase. Se abrevia rit. o ritard.", "lit": "Italiano: “frenando”"},
+  "rubato": {"term": "Rubato", "short": "Ritmo flexible: el intérprete alarga unas notas y acelera otras para que la música respire.", "lit": "Italiano: “robado” (tiempo)"},
+  "fermata": {"term": "Fermata", "short": "Signo de pausa (un arco sobre un punto) que indica que se alargue una nota más de lo escrito.", "lit": "Italiano: “detención”"},
+  "dynamics": {"term": "Dinámica", "short": "El volumen de la música —más fuerte o más suave— y cómo cambia.", "lit": "Del griego “dynamis”: fuerza"},
+  "pianissimo": {"term": "Pianissimo (pp)", "short": "Muy suave.", "lit": "Italiano: “muy suave”"},
+  "piano-dyn": {"term": "Piano (p)", "short": "Suave. Piano viene de pianoforte, un instrumento que podía sonar suave y fuerte.", "lit": "Italiano: “suave”"},
+  "mezzo-forte": {"term": "Mezzo forte (mf)", "short": "Moderadamente fuerte.", "lit": "Italiano: “medio fuerte”"},
+  "forte": {"term": "Forte (f)", "short": "Fuerte.", "lit": "Italiano: “fuerte”"},
+  "fortissimo": {"term": "Fortissimo (ff)", "short": "Muy fuerte.", "lit": "Italiano: “muy fuerte”"},
+  "crescendo": {"term": "Crescendo", "short": "Aumentando el volumen poco a poco. Se escribe cresc. o con un signo que se abre (<).", "lit": "Italiano: “creciendo”"},
+  "diminuendo": {"term": "Diminuendo", "short": "Bajando el volumen poco a poco. También se llama decrescendo; se escribe dim. o con un signo que se cierra (>).", "lit": "Italiano: “disminuyendo”"},
+  "sforzando": {"term": "Sforzando (sfz)", "short": "Un acento repentino y fuerte en una sola nota o acorde.", "lit": "Italiano: “forzando”"},
+  "legato": {"term": "Legato", "short": "Ligado y fluido: cada nota enlaza suavemente con la siguiente.", "lit": "Italiano: “unido”"},
+  "staccato": {"term": "Staccato", "short": "Corto y separado; se indica con un punto encima o debajo de la nota.", "lit": "Italiano: “despegado”"},
+  "pizzicato": {"term": "Pizzicato", "short": "Los instrumentos de cuerda se tocan pellizcando las cuerdas con un dedo, sin arco.", "lit": "Italiano: “pellizcado”"},
+  "arco": {"term": "Arco", "short": "Volver a tocar con el arco, normalmente después de un pasaje pizzicato.", "lit": "Italiano: “arco”"},
+  "tremolo": {"term": "Tremolo", "short": "Repetición muy rápida de una nota, que crea un sonido brillante o tenso.", "lit": "Italiano: “temblor”"},
+  "trill": {"term": "Trino", "short": "Alternancia rápida entre una nota y la que está justo por encima, como el canto de un pájaro.", "lit": "Del italiano “trillo”"},
+  "glissando": {"term": "Glissando", "short": "Deslizamiento de una nota a otra, pasando por todas las alturas intermedias. El glissando del arpa es famoso.", "lit": "Italianismo tomado del francés “glisser”: deslizar"},
+  "vibrato": {"term": "Vibrato", "short": "Pequeña oscilación regular del tono que da calidez a una nota sostenida. Cantantes y cuerda lo usan a menudo.", "lit": "Italiano: “vibrado”"},
+  "cadenza": {"term": "Cadencia", "short": "Pasaje solista cerca del final de un movimiento de concierto: la orquesta calla y el solista se luce. Antes se improvisaba; hoy suele escribirse.", "lit": "Italiano: “cadencia”"},
+  "tutti": {"term": "Tutti", "short": "Todos tocan a la vez, en contraste con un solo.", "lit": "Italiano: “todos”"},
+  "melody": {"term": "Melodía", "short": "Una línea de notas que se oye como una sola canción: la parte que tarareas.", "lit": "Del griego “melōidia”: canto"},
+  "harmony": {"term": "Armonía", "short": "Notas que suenan a la vez y la manera en que los acordes se mueven bajo una melodía.", "lit": "Del griego “harmonia”: unión"},
+  "chord": {"term": "Acorde", "short": "Tres o más notas que suenan al mismo tiempo.", "lit": "Sin etimología literal indicada."},
+  "major-minor": {"term": "Mayor y menor", "short": "Las dos principales familias de tonalidades. Mayor suele sonar luminoso; menor, más oscuro o triste.", "lit": "Sin etimología literal indicada."},
+  "dissonance": {"term": "Consonancia y disonancia", "short": "Las notas consonantes encajan con calma; las disonantes chocan y crean una tensión que pide resolverse.", "lit": "Del latín: “sonar juntos” y “sonar separados”"},
+  "cadence": {"term": "Cadencia", "short": "El punto o la coma musicales: los acordes que cierran una frase.", "lit": "Del latín “cadere”: caer"},
+  "counterpoint": {"term": "Contrapunto", "short": "Dos o más melodías independientes entretejidas a la vez. Bach fue un gran maestro de esta técnica.", "lit": "Latín “punctus contra punctum”: nota contra nota"},
+  "canon": {"term": "Canon", "short": "Una melodía que otras voces imitan al entrar más tarde, como en la ronda Frère Jacques.", "lit": "Del griego “kanōn”: regla"},
+  "drone": {"term": "Bordón", "short": "Nota larga y sostenida bajo la música, como en la gaita.", "lit": "Sin etimología literal indicada."},
+  "unison": {"term": "Unísono", "short": "Todos tocan o cantan las mismas notas al mismo tiempo.", "lit": "Del latín: “un solo sonido”"},
+  "modulation": {"term": "Modulación", "short": "Cambio de una tonalidad a otra durante una pieza.", "lit": "Sin etimología literal indicada."},
+  "leitmotif": {"term": "Leitmotiv", "short": "Tema breve asociado a un personaje, objeto o idea, que reaparece transformado. Wagner construyó así sus óperas.", "lit": "Del alemán “motivo conductor”"},
+  "continuo": {"term": "Bajo continuo", "short": "La base del Barroco: una línea grave de violonchelo o fagot, con clave u órgano que completa los acordes.", "lit": "Italiano: “bajo continuo”"},
+  "movement": {"term": "Movimiento", "short": "Parte independiente de una obra mayor, como un capítulo. Tradicionalmente, el público espera al último antes de aplaudir.", "lit": "Sin etimología literal indicada."},
+  "sonata-form": {"term": "Forma sonata", "short": "El gran plan clásico para un movimiento: la exposición presenta dos temas, el desarrollo los transforma y la reexposición los trae de vuelta.", "lit": "Sin etimología literal indicada."},
+  "rondo": {"term": "Rondó", "short": "Tema principal que vuelve una y otra vez entre episodios contrastantes: A B A C A.", "lit": "Del francés “rondeau”: redondo"},
+  "ternary": {"term": "Forma ternaria", "short": "A B A: una sección, otra contrastante y el regreso de la primera.", "lit": "Del latín: “de tres en tres”"},
+  "scherzo": {"term": "Scherzo", "short": "Movimiento rápido y juguetón, a menudo el tercero de una sinfonía. Beethoven lo convirtió en sucesor del minueto.", "lit": "Italiano: “broma”"},
+  "aria": {"term": "Aria", "short": "Canción solista en una ópera, oratorio o cantata, donde el tiempo se detiene y un personaje expresa sus sentimientos.", "lit": "Italiano: “aire”"},
+  "recitative": {"term": "Recitativo", "short": "Canto parecido al habla que hace avanzar la historia entre las arias.", "lit": "Italiano “recitativo”: recitado"},
+  "a-cappella": {"term": "A cappella", "short": "Voces que cantan sin instrumentos.", "lit": "Italiano: “al estilo de la capilla”"},
+  "libretto": {"term": "Libreto", "short": "Texto de una ópera u oratorio, escrito por un libretista.", "lit": "Italiano: “librito”"},
+  "satb": {"term": "SATB", "short": "Las cuatro partes principales de un coro, de la más aguda a la más grave.", "lit": "Soprano, alto, tenor y bajo"},
+  "minuet": {"term": "Minueto", "short": "Elegante danza cortesana en tres tiempos, convertida en tercer movimiento de muchas sinfonías clásicas.", "lit": "Del francés “menu”: pequeño, delicado"},
+  "gigue": {"term": "Giga", "short": "Danza barroca animada y saltarina, a menudo el último movimiento de una suite.", "lit": "Del inglés “jig”"},
+  "serenade": {"term": "Serenata", "short": "Música de noche, primero cantada bajo una ventana; después, piezas ligeras para pequeña orquesta, como la Eine kleine Nachtmusik de Mozart.", "lit": "Del italiano “sereno”: aire tranquilo y claro del atardecer"},
+  "berceuse": {"term": "Berceuse", "short": "Nana de ritmo suave y balanceante. Chopin escribió una célebre para piano.", "lit": "Del francés “berceau”: cuna"},
+  "conductor": {"term": "Director de orquesta", "short": "Guía la interpretación con la batuta y sus gestos: el tempo, el equilibrio y el carácter.", "lit": "A menudo llamado “Maestro”: maestro"},
+  "concertmaster": {"term": "Concertino", "short": "Primer violín de la orquesta: guía a la cuerda, afina el conjunto y toca los solos de violín.", "lit": "En Gran Bretaña, “el líder”"},
+  "soloist": {"term": "Solista", "short": "Intérprete que destaca delante de la orquesta, como en un concierto.", "lit": "Sin etimología literal indicada."},
+  "virtuoso": {"term": "Virtuoso", "short": "Intérprete de destreza técnica deslumbrante, como Paganini al violín o Liszt al piano.", "lit": "Italiano: “hábil, excelente”"},
+  "orchestra": {"term": "Orquesta", "short": "Gran conjunto de cuerda, viento madera, viento metal y percusión. El nombre alude al espacio ante el escenario de los teatros griegos antiguos.", "lit": "Del griego “orkhēstra”: lugar de danza"},
+  "opus": {"term": "Opus (Op.)", "short": "Número asignado a una obra, normalmente según su orden de publicación; por ejemplo, la Sinfonía n.º 5 de Beethoven, Op. 67.", "lit": "Del latín: “obra”"},
+  "encore": {"term": "Bis", "short": "Pieza extra que se interpreta al final de un concierto como respuesta a los aplausos.", "lit": "Del francés: “otra vez”"},
+  "tuning": {"term": "Afinación", "short": "Antes del concierto, el oboe da un la y las secciones de la orquesta afinan por turnos.", "lit": "Sin etimología literal indicada."}
+}

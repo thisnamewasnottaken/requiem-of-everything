@@ -1,0 +1,211 @@
+{
+  "giovanni-pierluigi-da-palestrina": {
+    "pts": [null, "Word musiekleier by Sint Pieter in Rome", "Verlaat die pouslike koor ná ’n verandering in die reëls", "Kerkhervorming vorm die kerkmusiek", "Keer terug na Sint Pieter as musiekdirekteur", "Sy misse en motette word wyd bewonder", "Sterf in Rome aan pleuris"],
+    "links": ["Kerkhervormings bepaal die raamwerk vir die musiek wat hy dien", "Victoria word in Rome deur sy styl beïnvloed", "Bach bestudeer en voer Palestrina se Missa sine nomine uit"]
+  },
+  "tomas-luis-de-victoria": {
+    "pts": [null, "Studeer aan die Jesuïetekollege in Rome", "Publiseer sy eerste motetbundel", "Word georden en tree as priester op", "Keer terug na Spanje en dien keiserin Maria", "Skryf musiek vir die keiserin se begrafnis", "Sterf in Madrid"],
+    "links": ["Katolieke hervorming vorm die wêreld van sy kerkmusiek", "Palestrina se styl beïnvloed Victoria in Rome"]
+  },
+  "claudio-monteverdi": {
+    "pts": [null, "Sluit by die hof in Mantua aan", "Verdedig sy nuwe styl in die voorwoord van ’n boek", "L’Orfeo help die vroeë opera vorm", "Publiseer sy Vespers in Venesië", "Word musiekdirekteur by Sint Markus", "Venesië open openbare operahuise", "Sterf ná ’n lang loopbaan in Venesië"],
+    "after": [null, "Vroeë operas keer terug na die verhoog"]
+  },
+  "henry-purcell": {
+    "pts": [null, "Word ’n koorlid by die Chapel Royal", "Word as orrelis van Westminster-abdy aangestel", "Skryf musiek vir Londense teaters", "Behou sy koninklike musiekwerk ondanks ’n bewindsverandering", "Die Feetjiekoningin bekoor gehore in Londen", "Sterf op 36; Engeland treur oor sy voorste komponis"],
+    "links": ["Behou sy koninklike pos wanneer ’n nuwe bewind aanbreek"]
+  },
+  "antonio-vivaldi": {
+    "pts": [null, "Word as priester georden; begin onderrig gee by die Pietà", null, "Sy eerste opera gaan in Vicenza in première", "Die Vier Seisoene-konserte verskyn in druk", "Die opvoering van operas bring geldelike probleme", "Reis na Wene op soek na ’n nuwe beskermheer", "Sterf in Wene, ver van sy roem"],
+    "links": ["Bach verwerk verskeie van sy konserte"],
+    "after": ["Navorsers ontdek ’n groot versameling van sy musiek", "Die Vier Seisoene word ’n gunsteling op die konsertverhoog"]
+  },
+  "georg-philipp-telemann": {
+    "pts": [null, "Studeer aan die Universiteit van Leipzig", "Word hofkomponis in Sorau", "Verhuis na Frankfurt as stad se musiekdirekteur", "Neem beheer oor Hamburg se vyf hoofkerke", "Publiseer musiek vir uitvoerders regoor Europa", "Hou aan komponeer tot op hoë ouderdom", "Sterf in Hamburg op 86"],
+    "links": ["Bach se vriend en peetpa van sy seun Carl Philipp", "’n Hegte vriend en briefmaat van Händel"]
+  },
+  "jean-philippe-rameau": {
+    "pts": [null, "Werk as orrelis in verskeie Franse stede", "Publiseer sy invloedryke Verhandeling oor harmonie", "Hippolyte et Aricie roer die Paryse operawêreld", "Verwerf koninklike guns vir sy verhoogwerke", "Parys debatteer oor Franse en Italiaanse opera", "Sterf in Parys, geëer deur die hof"]
+  },
+  "johann-sebastian-bach": {
+    "pts": [null, "Orrelis in Arnstadt", "Weimar: die groot orrelwerke", "Stuur die Brandenburgse Konserte aan die markgraaf", "Leipzig: elke week ’n kantate", "Matteuspassie", null, "Skryf die Musikale offergawe", "Mis in B-mineur byna voltooi", "Sterf ná jare se verswakkende sig"],
+    "links": ["Verwerk Vivaldi se konserte vir klawerbord", "Vriendskap verbind die twee voorste Duitse komponiste", "Mendelssohn laat die Matteuspassie herleef"],
+    "after": [null, null, "Mendelssohn laat die Matteuspassie herleef"]
+  },
+  "george-frideric-handel": {
+    "pts": [null, "Reis na Italië en skryf Italiaanse opera", "Verhuis na Londen vir ’n koninklike operapos", "Maak Londen sy tuiste", "Lei die Royal Academy of Music", "’n Beroerte dwing hom om te rus", "Skryf Messias in ’n vlaag van skeppingskrag", "Musiek vir die Koninklike Vuurwerke lok ’n skare", "Sterf ná dekades as ’n ster in Londen"],
+    "links": ["Vriendskap en briewe verbind die twee komponiste"]
+  },
+  "domenico-scarlatti": {
+    "pts": [null, "Werk vir die koninklike kapel in Napels", "Ontmoet Händel tydens ’n klawerbordwedstryd in Rome", "Verhuis na Lissabon om die koninklike familie te onderrig", "Volg sy leerling Maria Barbara na Spanje", "Publiseer sy eerste 30 klawerbordsonates", "Sterf in Madrid"],
+    "links": ["Ontmoet Händel in Rome vir ’n klawerbordwedstryd"]
+  },
+  "christoph-willibald-gluck": {
+    "pts": [null, "Werk in Milaan en ander Italiaanse stede", "Behaal sukses met sy eerste opera", "Trou en vestig hom in Wene", "Orfeo ed Euridice hervorm die opera", "Word in Parys geloof", "Keer ná ’n mislukking in Parys terug na Wene", "Sterf, geëer deur die Weense hof"],
+    "links": ["Haydn dirigeer Gluck se operas by Eszterháza", "Mozart pas Gluck se hervormings in Idomeneo aan"]
+  },
+  "joseph-haydn": {
+    "pts": [null, "Verlaat die katedraalkoor in Wene", "Sluit by die Esterházy-hoforkes aan", "Lei die Esterházy-musikante", "Skryf die dramatiese Afskeidsimfonie", "’n Nuwe beskermheer stel hom in staat om Londen te besoek", "Die Skepping besorg hom nuwe lof", "Voltooi die oratorium Die Seisoene", "Sterf terwyl Napoleon se leër Wene binnetrek"],
+    "links": ["Mozart dra ses strykkwartette aan Haydn op", "Beethoven studeer komposisie by Haydn in Wene"]
+  },
+  "wolfgang-amadeus-mozart": {
+    "pts": [null, "Skryf vroeë simfonieë in Salzburg", "Soek deur Europa na ’n beter pos", "Verlaat Salzburg en vestig hom in Wene", "Die Huwelik van Figaro verower Wene", "Skryf sy laaste drie simfonieë", "Die Towerfluit gaan in première; Requiem bly onvoltooi"],
+    "links": ["Haydn prys Mozart se kwartette en word sy vriend", "Pas Gluck se hervormings in Idomeneo aan"]
+  },
+  "ludwig-van-beethoven": {
+    "pts": [null, "Kom in Wene aan en studeer by Haydn", "Trio’s op. 1 maak hom ’n pianis om dop te hou", "Skryf oor sy vrees namate sy gehoor verswak", "Eroica baan nuwe weë", "Die Vyfde en Sesde simfonieë gaan in première", "Fidelio keer terug na die Weense verhoog", "Hervat komposisie ná ’n stil tydperk", "Die Negende Simfonie gaan met groot applous in première", "Sterf ná jare van doofheid"],
+    "links": ["Haydn gee hom komposisieles in Wene", "Skrap Napoleon se naam uit die Eroica-opdrag", "Schubert woon sy begrafnis in Wene by"]
+  },
+  "niccolo-paganini": {
+    "pts": [null, "Word Elisa Bonaparte se eerste violis", "Hervat sy toere deur Italië", "Milanese gehore is verstom deur sy spel", "Toer deur Europa en word ’n sensasie", "Staak sy toere namate sy gesondheid verswak", "Sterf in Nice"],
+    "links": ["Paganini se spel inspireer Liszt se klaviervirtuositeit", "’n Opdrag lei tot Berlioz se Harold in Italië", "Dien Napoleon se suster Elisa in Lucca"]
+  },
+  "carl-maria-von-weber": {
+    "pts": [null, "Studeer by die komponis Michael Haydn", "Lei operageselskappe in Duitse stede", "Dirigeer opera in Praag", "Word musiekdirekteur in Dresden", "Der Freischütz maak Duitse opera beroemd", "Sterf in Londen ná ’n uitvoering van Oberon"],
+    "links": ["Weber se Duitse operas inspireer die jong Wagner"]
+  },
+  "franz-schubert": {
+    "pts": [null, "Skryf Gretchen by die Spinnewiel", "Skep liedere teen ’n ongelooflike pas", "Reis Hongarye toe om musiek te onderrig", "Begin die Onvoltooide Simfonie", "Vriende kom saans bymekaar vir Schubertiades", "Gee sy enigste openbare konsert en sterf daarna"],
+    "links": ["Schubert woon Beethoven se begrafnis by", "Schumann ontdek en bevorder die Groot Simfonie in C-majeur", "Mendelssohn dirigeer die pas ontdekte C-majeur-simfonie"],
+    "after": ["Schumann bring die Groot Simfonie in C-majeur aan die lig"],
+    "note": "Baie van sy werke is eers ná sy dood uitgevoer"
+  },
+  "hector-berlioz": {
+    "pts": [null, "Begin musiek studeer aan die Parys-konservatorium", "Wen die Prix de Rome", "Trou met die aktrise Harriet Smithson", "Skryf Harold in Italië vir Paganini", "Die Verdoemenis van Faust misluk in Parys", "Voltooi die opera Die Trojane", "Dirigeer sy opera in Baden-Baden", "Sterf ná jare van siekte en verdriet"],
+    "links": ["Paganini gee opdrag vir Harold in Italië", "Liszt ondersteun sy musiek en verwerk dit vir klavier", "Onrus in Parys ontwrig sy konsertlewe"]
+  },
+  "felix-mendelssohn": {
+    "pts": [null, "Dirigeer Bach se Matteuspassie tydens ’n herlewing", "Lei die musiek in Düsseldorf", "Word dirigent van Leipzig se Gewandhausorkes", "Trou met Cécile Jeanrenaud", "Stig die Leipzig-konservatorium", "Elia is ’n sukses by die première", "Sy suster Fanny sterf; Felix volg maande later"],
+    "links": ["Schumann en Mendelssohn deel Leipzig se musieklewe", "Ontmoet Chopin in Parys"]
+  },
+  "frederic-chopin": {
+    "pts": [null, "Word as jong pianis in Warskou geprys", "Vestig hom in Parys ná ’n mislukte opstand", "Bring ’n winter saam met George Sand op Mallorca deur", "Gee gevierde klaviervoordragte in Parys", "Sy verhouding met Sand eindig", "Sterf in Parys aan tuberkulose"],
+    "links": ["Liszt en Chopin raak in Parys bevriend", "Schumann bevorder sy klaviermusiek", "Onrus in Parys ontwrig sy laaste jare"]
+  },
+  "robert-schumann": {
+    "pts": [null, "Laat vaar die regte om klavier en musiek te studeer", "Begin die Nuwe Tydskrif vir Musiek", "Trou met Clara Wieck ná ’n hofsaak", "Gee klas by Mendelssohn se Leipzig-konservatorium", "Siekte dwing hom om uit Leipzig te trek", "Word ná ’n geesteskrisis in ’n hospitaal opgeneem", "Sterf naby Bonn"],
+    "links": ["Ontdek Brahms en verwelkom hom as ’n nuwe stem", "Vriend en medeleier van Leipzig se musieklewe", "Schumann prys Chopin se klavierraffinement"]
+  },
+  "franz-liszt": {
+    "pts": [null, "Hoor Paganini en hervorm die klaviertegniek", "Toer deur Europa tydens “Lisztomania”", "Vestig hom in Weimar om te komponeer en dirigeer", "Begin ná gesinsverliese ’n stiller lewe", "Word tot die laer orden van die Katolieke Kerk toegelaat", "Raak beseer toe hy val", "Sterf op 74 in Bayreuth"],
+    "links": ["Paganini se spel inspireer sy pianostyl", "Liszt bevorder Wagner se werke in Weimar"]
+  },
+  "richard-wagner": {
+    "pts": [null, "Werk as koormeester in Würzburg", "Rienzi is ’n sukses in Dresden", "Vlug ná die opstand in Dresden", "Begin Tristan und Isolde in ballingskap", "Koning Ludwig II betaal sy skuld", "Die eerste Bayreuth-fees voer Die Ring op", "Parsifal open in Bayreuth", "Sterf in Venesië"],
+    "links": ["Liszt ondersteun hom en word later sy skoonpa", "Die rewolusie dwing hom jare lank in ballingskap"]
+  },
+  "giuseppe-verdi": {
+    "pts": [null, "Die Milaan-konservatorium wys hom af; hy studeer privaat", "Nabucco maak hom beroemd", "Rigoletto is ’n sukses in Venesië", "Il trovatore en La traviata gaan in première", "La forza del destino gaan in Sint Petersburg in première", "Requiem vereer die digter Manzoni", "Otello bring hom terug na die opera", "Milaan treur oor sy dood"],
+    "links": ["Sy operas word simbole van Italiaanse nasietrots"]
+  },
+  "cesar-franck": {
+    "pts": [null, "Studeer klavier en orrel in Parys", "Laat vaar sy toerloopbaan en vestig hom in Parys", "Word orrelis by Sainte-Clotilde", "Gee klas aan die Parys-konservatorium", "Komponeer groot werke laat in sy lewe", "Sy Vioolsonate word wyd geprys", "Sterf ná ’n verkeersongeluk"],
+    "links": ["Albei vorm die nuwe Franse musiekvereniging", "Debussy studeer in die Paryse musiekwêreld wat Franck lei", "Oorlog en die nagevolge daarvan verander die Franse musieklewe"]
+  },
+  "bedrich-smetana": {
+    "pts": [null, "Sluit by die opstand in Praag aan", "Verhuis na Swede om klas te gee en te dirigeer", "Die Verkoopte Bruid gaan in Praag in première", "Verloor sy gehoor, maar hou aan komponeer", "Skryf die simfoniese siklus My Vaderland", "Sterf ná jare van siekte"],
+    "links": ["Neem deel aan die opstand in Praag", "Moedig Dvořák se loopbaan in Praag aan", "Liszt ondersteun sy vroeë musikale ambisies"]
+  },
+  "johannes-brahms": {
+    "pts": [null, "Ontmoet Schumann, wat sy musiek prys", "Sy eerste Klavierkonsert kry ’n koel ontvangs", "’n Duitse Requiem bring blywende roem", "Sy Eerste Simfonie gaan eindelik in première", "Sy Derde Simfonie word wyd geprys", "Beplan om op te hou komponeer, maar gaan voort", "Sterf ná ’n lang siekte in Wene"],
+    "links": ["Schumann stel hom aan die musiekwêreld bekend", "Ontmoet Liszt terwyl Romantiese komponiste oor nuwe musiek verskil", "Moedig Dvořák aan en help hom om ’n uitgewer te kry"]
+  },
+  "alexander-borodin": {
+    "pts": [null, "Begin medisyne en chemie studeer", "Ontmoet die komponiste van “Die Vyf”", "Begin aan die opera Prins Igor werk", "Gee chemieklas en komponeer wanneer hy kan", "Komponeer In die steppe van Sentraal-Asië", "Sterf skielik by ’n bal"],
+    "links": ["Vriendskap groei tussen lede van “Die Vyf”", "Werk saam met Rimski-Korsakof aan Russiese musiek"]
+  },
+  "camille-saint-saens": {
+    "pts": [null, "Gradueer aan die Parys-konservatorium", "Word orrelis by La Madeleine", "Toer as pianis en komponis", "Simson en Delila bereik die verhoog", "Die Orrelsimfonie en Die Karnaval van die Diere verskyn", "Toer wyd deur Europa en Amerika", "Sterf op 86 in Algiers"],
+    "links": ["Albei lei ’n nuwe geslag Franse komponiste"]
+  },
+  "modest-mussorgsky": {
+    "pts": [null, "Verlaat militêre diens om musiek te studeer", "Werk saam met ander Russiese komponiste", "Voltooi die eerste weergawe van Boris Godunov", "Boris Godunov gaan in première; skryf Beelde uit ’n uitstalling", "Sy gesondheid en geldsake versleg", "Sterf in ’n militêre hospitaal"],
+    "links": ["Word ’n hegte vriend van Borodin", "Rimski-Korsakof verwerk en voer later sy musiek uit"]
+  },
+  "pyotr-ilyich-tchaikovsky": {
+    "pts": [null, "Begin by die nuwe Sint Petersburg-konservatorium studeer", "Begin klas gee in Moskou", "Klavierkonsert nr. 1 neem vorm aan", "Huwelikskrisis; beskermvrou Nadezhda von Meck help hom", "Skryf die Vioolkonsert en Vierde Simfonie", "Die Skoppensvrou gaan in première", "Dirigeer by Carnegie Hall se opening", "Patetiese Simfonie gaan in première; hy sterf dae later"],
+    "links": ["Vriendskap verbind twee vooraanstaande Russiese komponiste", "Ontmoet Saint-Saëns tydens sy besoek aan Rusland"]
+  },
+  "antonin-dvorak": {
+    "pts": [null, "Speel altviool in Praagse teaterorkeste", "Verwerf roem met sy Tsjeggiese koorliedere", "Slawiese Danse word gewild", "Toer deur Engeland met sy musiek", "Verhuis na New York om ’n musiekskool te lei", "Skryf die Nuwe Wêreld-simfonie", "Keer as ’n geëerde ouer komponis terug na Praag", "Sterf in Praag"],
+    "links": ["Brahms beveel hom by die uitgewer Simrock aan", "Smetana dirigeer Dvořák se musiek in Praag", "Ontmoet Tsjaikofski tydens sy besoek aan Praag"]
+  },
+  "edvard-grieg": {
+    "pts": [null, "Studeer aan die Leipzig-konservatorium", "Stig ’n musiekakademie in Oslo", "Ibsen vra hom om musiek vir Peer Gynt te skryf", "Bou ’n huis naby Bergen", "Cambridge ken hom ’n eredoktorsgraad toe", "Sterf ná jare se hartprobleme"],
+    "links": ["Liszt prys Grieg se Klavierkonsert"]
+  },
+  "nikolai-rimsky-korsakov": {
+    "pts": [null, "Sluit as kadet by die Russiese vloot aan", "Skryf sy Eerste Simfonie ter see", "Word ’n professor in Sint Petersburg", "Verlaat die vloot om op musiek te fokus", "Scheherazade word met lof ontvang", "Ondersteun studenteprotes by die konservatorium", "Sterf ná ’n hartkwaal"],
+    "links": ["Vriend en medelid van “Die Vyf”", "Werk saam met Borodin in Russiese musiekkringe", "Gee onderrig aan die jong Stravinsky en tree as sy mentor op"]
+  },
+  "edward-elgar": {
+    "pts": [null, "Leer musiek terwyl hy sy pa se winkel help beman", "Werk as violis en musiekonderwyser", "Enigma-variasies besorg hom nasionale roem", "Mars nr. 1 uit Pomp and Circumstance is ’n treffer", "Skryf musiek wanneer die oorlog uitbreek", "Sy vrou Alice sterf", "Sterf in Worcester"],
+    "links": ["Mahler dirigeer Elgar se Enigma-variasies in New York", "Strauss prys en ontmoet die Engelse komponis", "Oorlog verander die land en die musiek wat hy skryf"]
+  },
+  "giacomo-puccini": {
+    "pts": [null, "Studeer musiek in Lucca en Milaan", "Sy eerste opera gaan in Milaan in première", "Manon Lescaut bring sukses", "La bohème gaan in Turyn in première", "Madama Butterfly word ná ’n swak opening hersien", "Die Meisie van die Goue Weste open in New York", "Sterf voordat hy Turandot voltooi"],
+    "links": ["Mahler voeg La bohème by die Weense Hofopera se repertorium", "Oorlog vertraag die beplande Weense première van La rondine"]
+  },
+  "gustav-mahler": {
+    "pts": [null, "Gradueer aan die Weense konservatorium", "Dirigeer in Kassel en skryf liedere", "Voltooi sy Eerste Simfonie", "Word direkteur van die Weense Opera", "Trou met Alma Schindler", "Sy dogter sterf; dokters ontdek hartsiekte", "Die Agtste Simfonie gaan in München in première", "Sterf in Wene"],
+    "links": ["Ontmoet Sibelius en gesels oor wat ’n simfonie behoort te wees", "Ondersteun Schoenberg en sy nuwe musiek"],
+    "after": [null, "Bernstein en ander wek weer belangstelling in sy simfonieë"]
+  },
+  "claude-debussy": {
+    "pts": [null, "Studeer aan die Parys-konservatorium", "Wen die Prix de Rome", "Voorspel tot die middag van ’n faun gaan in première", "Pelléas et Mélisande open in Parys", "La mer bereik die konsertsaal", "Kanker en oorlog vertraag sy werk", "Sterf tydens die Eerste Wêreldoorlog"],
+    "links": ["Debussy orkestreer twee van Satie se klavierstukke", "Oorlog onderbreek sy laaste jare en beplande werke"]
+  },
+  "richard-strauss": {
+    "pts": [null, "Werk as assistent van dirigent Hans von Bülow", "Don Juan vestig sy naam as komponis", "Salome skok gehore en besorg hom roem", "Der Rosenkavalier is ’n sukses in Dresden", "Lei Duitsland se staatsmusiekkantoor onder Hitler", "Skryf Metamorphosen toe die oorlog eindig", "Sterf op 85 in Beiere"],
+    "links": ["Kollegas en teenstanders in die opera- en konsertwêreld", "Aanvaar ’n musiekleierspos onder die Nazi-bewind"]
+  },
+  "jean-sibelius": {
+    "pts": [null, "Studeer musiek in Helsinki en Berlyn", "Kullervo maak hom ’n Finse nasionale figuur", "Finlandia vuur gehore aan", "Verhuis na ’n huis buite Helsinki", "Sy vyftigste verjaardag word in die openbaar gevier", "Voltooi sy laaste groot orkeswerk", "Hou op om nuwe simfonieë te skryf", "Sterf ná dekades van stilte"],
+    "links": ["Ontmoet Mahler tydens sy besoek aan Helsinki", "Finse onafhanklikheid volg op die Russiese rewolusie"]
+  },
+  "erik-satie": {
+    "pts": [null, "Verlaat die Parys-konservatorium sonder ’n diploma", "Skryf die eerste Gymnopédies", "Komponeer vir die Rosekruisersbeweging", "Hervat sy studies aan die Schola Cantorum", "Jong komponiste ontdek sy musiek", "Die ballet Parade bring hom onder die publiek se aandag", "Sterf in Parys ná jare van siekte"],
+    "links": ["Debussy orkestreer Satie se Gymnopédies", "Ravel voer Satie se musiek in Parys uit"],
+    "after": ["Nuwe luisteraars herontdek sy eenvoudige klavierstukke"]
+  },
+  "sergei-rachmaninoff": {
+    "pts": [null, "Gradueer aan die Moskou-konservatorium", "Sy Eerste Simfonie misluk; hy hou op komponeer", "Die Tweede Klavierkonsert bring sukses", "Toer deur Amerika met sy Derde Konsert", "Verlaat Rusland ná die rewolusie", "Hervat komposisie ná ’n lang pouse", "Rapsodie op ’n tema van Paganini gaan in première", "Sterf in Kalifornië"],
+    "links": ["Tsjaikofski prys sy vroeë musiek voor sy eie dood", "Die rewolusie dwing hom om Rusland te verlaat"]
+  },
+  "arnold-schoenberg": {
+    "pts": [null, "Studeer kontrapunt by Alexander von Zemlinsky", "Skryf die strykkwintet Verklärte Nacht", "Beweeg weg van tradisionele tonaliteit", "Pierrot Lunaire verstom gehore in Berlyn", "Ontwikkel ’n twaalftoonmetode", "Vlug uit Duitsland nadat die Nazi’s aan bewind kom", "Gee ná die oorlog klas in Kalifornië", "Sterf in Los Angeles"],
+    "links": ["Mahler ondersteun sy musiek wanneer gehore protesteer", "Verlaat Duitsland wanneer Nazi-bewind begin"]
+  },
+  "maurice-ravel": {
+    "pts": [null, "Studeer aan die Parys-konservatorium", "’n Skandaal by die konservatorium beëindig sy studentejare", "Diaghilev gee opdrag vir Daphnis et Chloé", "Die ballet gaan in Parys in première", "Dien tydens die oorlog as vragmotorbestuurder", "Boléro word ’n internasionale treffer", "’n Taxi-ongeluk benadeel sy gesondheid", "Sterf ná ’n breinoperasie"],
+    "links": ["Help om aandag op Satie se vroeë klaviermusiek te vestig", "Dien in die leër en verloor vriende in die oorlog"]
+  },
+  "bela-bartok": {
+    "pts": [null, "Trek aandag as pianis en komponis", "Versamel volksliedere saam met Zoltán Kodály", "Sy opera Bloubaard se kasteel word afgekeur", "Danse-suite bring orkesukses", "Los die onderwys om voltyds volksmusiek te bestudeer", "Verhuis na die Verenigde State om die oorlog te ontvlug", "Skryf sy Konsert vir orkes", "Sterf in New York"],
+    "links": ["Debussy se musiek beïnvloed sy vroeë moderne werke", "Verlaat Europa namate die oorlog uitbrei"]
+  },
+  "igor-stravinsky": {
+    "pts": [null, "Studeer by Rimski-Korsakof", "Die Vuurvoël maak hom beroemd", "Die Lenteoffer ontketen ’n oproer", "Skryf Die Soldaat se verhaal in Switserland tydens die oorlog", "Wend hom in Parys tot neoklassieke musiek", "Verhuis na die Verenigde State", "Die Rake’s Progress gaan in première", "Begin seriële tegnieke gebruik", "Hou aan komponeer tot op hoë ouderdom", "Sterf in New York"],
+    "links": ["Rimski-Korsakof onderrig hom en tree as mentor op", "Debussy woon die première van Die Lenteoffer by"]
+  },
+  "sergei-prokofiev": {
+    "pts": [null, "Begin aan die Sint Petersburg-konservatorium studeer", "Wen ’n klavierkompetisie met sy eie konsert", "Verlaat Rusland ná die rewolusie", "Die opera Liefde vir drie lemoene gaan in première", "Keer terug om in die Sowjetunie te woon", "Romeo en Juliet bereik die verhoog", "Sowjet-amptenare veroordeel sy musiek", "Sterf op dieselfde dag as Stalin"],
+    "links": ["Ontmoet Stravinsky en ander Russiese moderniste in Europa", "’n Amptelike dekreet veroordeel sy musiek"]
+  },
+  "paul-hindemith": {
+    "pts": [null, "Sluit by die Frankfurtse Opera-orkes aan", "Stig die Amar-strykkwartet", "Word musiekonderwyser in Berlyn", "Die Nazi-bewind maak sy werk moeilik", "Verhuis na Switserland", "Emigreer na die Verenigde State", "Dirigeer en gee weer klas in Europa", "Sterf in Frankfurt"],
+    "links": ["Verlaat Duitsland namate Nazi-beperkings verskerp"]
+  },
+  "aaron-copland": {
+    "pts": [null, "Studeer in Parys by Nadia Boulanger", "Sy eerste groot orkeswerke bereik New York", "Komponeer in ’n modernistiese styl", "Wend hom tot ’n meer toeganklike Amerikaanse klank", "Appalachian Spring gaan in Washington in première", "Gee klas en dirigeer regoor die land", null, "Sterf in New York"],
+    "links": ["Koue Oorlog-politiek beïnvloed sy openbare lewe en werk"]
+  },
+  "dmitri-shostakovich": {
+    "pts": [null, "Sy Eerste Simfonie besorg hom op negentienjarige ouderdom roem", "Lady Macbeth is ’n sukses in Leningrad", "’n Koerantaanval veroordeel sy opera", "Sy Vyfde Simfonie herwin die publiek se guns", "Die Leningrad-simfonie word wêreldwyd gehoor", "’n Amptelike dekreet veroordeel sy musiek", "Skryf die Tiende Simfonie ná Stalin se dood", "Die Babi Yar-simfonie kom onder amptelike druk", "Voltooi sy Vyftiende Simfonie", "Sterf ná jare van siekte"],
+    "links": ["Sy Leningrad-simfonie word ’n oorlogstydse boodskap", "Die staat veroordeel hom weer", "Die twee komponiste raak bevriend en besoek mekaar"]
+  },
+  "benjamin-britten": {
+    "pts": [null, "Studeer aan die Royal College of Music", "Variasies op ’n tema van Frank Bridge is ’n sukses", "Keer tydens die oorlog terug na Engeland", "Peter Grimes maak hom beroemd", "Billy Budd open by Covent Garden", "Oorlogsrequiem gaan in Coventry in première", "Siekte dwing hom om minder te werk", "Sterf in Aldeburgh"],
+    "links": ["Die oorlog beïnvloed sy terugkeer na Engeland", "Die komponiste raak bevriend en besoek mekaar", "Copland en Britten deel musiek en vriendskap"]
+  }
+}

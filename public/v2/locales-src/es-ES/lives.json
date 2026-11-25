@@ -1,0 +1,211 @@
+{
+  "giovanni-pierluigi-da-palestrina": {
+    "pts": [null, "Dirige la música en San Pedro de Roma", "Deja el coro papal tras un cambio en las normas", "La reforma de la Iglesia influye en la música sacra", "Vuelve a San Pedro como director musical", "Sus misas y motetes gozan de gran estima", "Muere de pleuresía en Roma"],
+    "links": ["Las reformas de la Iglesia marcan el marco musical en el que trabaja", "El estilo de Palestrina influye en Victoria durante su estancia en Roma", "Bach estudia e interpreta la Missa sine nomine de Palestrina"]
+  },
+  "tomas-luis-de-victoria": {
+    "pts": [null, "Estudia en el colegio jesuita de Roma", "Publica su primer libro de motetes", "Se ordena sacerdote y ejerce como tal", "Vuelve a España y sirve a la emperatriz María", "Compone música para el funeral de la emperatriz", "Muere en Madrid"],
+    "links": ["La reforma católica marca el mundo de su música sacra", "El estilo de Palestrina influye en Victoria en Roma"]
+  },
+  "claudio-monteverdi": {
+    "pts": [null, "Entra al servicio de la corte de Mantua", "Defiende su nuevo estilo en el prólogo de un libro", "L’Orfeo contribuye a dar forma a la primera ópera", "Publica sus Vísperas en Venecia", "Es nombrado director musical de San Marcos", "Venecia inaugura teatros de ópera públicos", "Muere tras una larga carrera en Venecia"],
+    "after": [null, "Las primeras óperas vuelven a los escenarios"]
+  },
+  "henry-purcell": {
+    "pts": [null, "Entra en el coro de la Capilla Real", "Lo nombran organista de la abadía de Westminster", "Compone música para los teatros londinenses", "Conserva su puesto musical en la corte pese al cambio de régimen", "La Reina de las Hadas encanta al público londinense", "Muere a los 36 años; Inglaterra llora a su principal compositor"],
+    "links": ["Conserva su puesto musical en la corte cuando llega un nuevo reinado"]
+  },
+  "antonio-vivaldi": {
+    "pts": [null, "Se ordena sacerdote y empieza a enseñar en la Pietà", null, "Estrena su primera ópera en Vicenza", "Se publican los conciertos de Las cuatro estaciones", "La producción de óperas le trae problemas económicos", "Viaja a Viena en busca de un nuevo protector", "Muere en Viena, lejos de su fama"],
+    "links": ["Bach transcribe varios de sus conciertos"],
+    "after": ["Los investigadores descubren un gran conjunto de su música", "Las cuatro estaciones se convierte en una obra favorita de concierto"]
+  },
+  "georg-philipp-telemann": {
+    "pts": [null, "Estudia en la Universidad de Leipzig", "Es nombrado compositor de la corte en Sorau", "Se traslada a Fráncfort como director musical de la ciudad", "Se hace cargo de las cinco iglesias principales de Hamburgo", "Publica música para intérpretes de toda Europa", "Sigue componiendo hasta una edad avanzada", "Muere en Hamburgo a los 86 años"],
+    "links": ["Amigo de Bach y padrino de su hijo Carl Philipp", "Gran amigo de Händel, con quien mantiene correspondencia"]
+  },
+  "jean-philippe-rameau": {
+    "pts": [null, "Trabaja como organista en varias ciudades francesas", "Publica su influyente Tratado de armonía", "Hippolyte et Aricie conmociona la ópera parisina", "Se gana el favor de la corte con sus obras escénicas", "París debate sobre la ópera francesa y la italiana", "Muere en París, honrado por la corte"]
+  },
+  "johann-sebastian-bach": {
+    "pts": [null, "Organista en Arnstadt", "Weimar: sus grandes obras para órgano", "Envía los Conciertos de Brandeburgo al margrave", "Leipzig: una cantata cada semana", "Pasión según san Mateo", null, "Escribe La ofrenda musical", "La Misa en si menor está casi terminada", "Muere tras años de pérdida progresiva de visión"],
+    "links": ["Transcribe para teclado varios conciertos de Vivaldi", "La amistad une a los dos grandes compositores alemanes", "Mendelssohn recupera la Pasión según san Mateo"],
+    "after": [null, null, "Mendelssohn recupera la Pasión según san Mateo"]
+  },
+  "george-frideric-handel": {
+    "pts": [null, "Viaja a Italia y compone ópera italiana", "Se traslada a Londres para ocupar un puesto en la ópera real", "Fija su hogar en Londres", "Dirige la Royal Academy of Music", "Un ataque cerebral le obliga a descansar", "Compone El Mesías en un arrebato creativo", "La Música para los reales fuegos artificiales atrae a una multitud", "Muere tras décadas como estrella en Londres"],
+    "links": ["La amistad y las cartas unen a los dos compositores"]
+  },
+  "domenico-scarlatti": {
+    "pts": [null, "Trabaja para la capilla real de Nápoles", "Se enfrenta a Händel en un concurso de teclado en Roma", "Se traslada a Lisboa para enseñar a la familia real", "Sigue a su alumna María Bárbara a España", "Publica sus primeras 30 sonatas para teclado", "Muere en Madrid"],
+    "links": ["Se encuentra con Händel en Roma para competir al teclado"]
+  },
+  "christoph-willibald-gluck": {
+    "pts": [null, "Trabaja en Milán y otras ciudades italianas", "Triunfa con su primera ópera", "Se casa y se instala en Viena", "Orfeo y Eurídice reforma la ópera", "Recibe elogios en París", "Vuelve a Viena tras un fracaso en París", "Muere honrado por la corte vienesa"],
+    "links": ["Haydn dirige las óperas de Gluck en Eszterháza", "Mozart adapta las reformas de Gluck en Idomeneo"]
+  },
+  "joseph-haydn": {
+    "pts": [null, "Deja el coro de la catedral de Viena", "Entra en la orquesta de la corte de los Esterházy", "Se pone al frente de los músicos de los Esterházy", "Compone la dramática Sinfonía de los adioses", "Un nuevo mecenas le permite viajar a Londres", "La Creación le trae nuevos elogios", "Termina el oratorio Las estaciones", "Muere cuando el ejército de Napoleón entra en Viena"],
+    "links": ["Mozart dedica a Haydn seis cuartetos de cuerda", "Beethoven estudia composición con Haydn en Viena"]
+  },
+  "wolfgang-amadeus-mozart": {
+    "pts": [null, "Compone sus primeras sinfonías en Salzburgo", "Recorre Europa en busca de un empleo mejor", "Deja Salzburgo para instalarse en Viena", "Las bodas de Fígaro triunfa en Viena", "Compone sus tres últimas sinfonías", "Se estrena La flauta mágica; el Réquiem queda inacabado"],
+    "links": ["Haydn elogia los cuartetos de Mozart y se hace amigo suyo", "Adapta las reformas de Gluck en Idomeneo"]
+  },
+  "ludwig-van-beethoven": {
+    "pts": [null, "Llega a Viena y estudia con Haydn", "Los tríos op. 1 lo convierten en un pianista prometedor", "Escribe sobre su temor al perder oído", "La Heroica abre nuevos caminos", "Se estrenan las sinfonías Quinta y Sexta", "Fidelio vuelve a los escenarios de Viena", "Retoma la composición tras un periodo de calma", "La Sinfonía n.º 9 se estrena entre grandes aplausos", "Muere tras años de sordera"],
+    "links": ["Haydn le enseña composición en Viena", "Borra el nombre de Napoleón de la dedicatoria de la Heroica", "Schubert asiste a su funeral en Viena"]
+  },
+  "niccolo-paganini": {
+    "pts": [null, "Se convierte en primer violín de Elisa Bonaparte", "Retoma las giras por Italia", "El público de Milán se maravilla con su interpretación", "Recorre Europa y causa sensación", "Deja de viajar al empeorar su salud", "Muere en Niza"],
+    "links": ["Oír a Paganini inspira el virtuosismo pianístico de Liszt", "El encargo da lugar al Harold en Italia de Berlioz", "Sirve a Elisa, hermana de Napoleón, en Lucca"]
+  },
+  "carl-maria-von-weber": {
+    "pts": [null, "Estudia con el compositor Michael Haydn", "Dirige compañías de ópera en varias ciudades alemanas", "Dirige ópera en Praga", "Es nombrado director musical en Dresde", "El cazador furtivo da fama a la ópera alemana", "Muere en Londres tras dirigir Oberon"],
+    "links": ["Las óperas alemanas de Weber inspiran al joven Wagner"]
+  },
+  "franz-schubert": {
+    "pts": [null, "Compone Gretchen en la rueca", "Compone canciones a un ritmo asombroso", "Viaja a Hungría para dar clases de música", "Empieza la Sinfonía inacabada", "Sus amigos se reúnen en veladas Schubertiadas", "Ofrece su único concierto público y muere poco después"],
+    "links": ["Schubert asiste al funeral de Beethoven", "Schumann descubre y reivindica la Gran sinfonía en do mayor", "Mendelssohn dirige la recién descubierta sinfonía en do mayor"],
+    "after": ["Schumann saca a la luz la Gran sinfonía en do mayor"],
+    "note": "Muchas obras se estrenaron después de su muerte"
+  },
+  "hector-berlioz": {
+    "pts": [null, "Ingresa en el Conservatorio de París para estudiar música", "Gana el Prix de Rome", "Se casa con la actriz Harriet Smithson", "Escribe Harold en Italia para Paganini", "La condenación de Fausto fracasa en París", "Termina la ópera Los troyanos", "Dirige su ópera en Baden-Baden", "Muere tras años de enfermedad y tristeza"],
+    "links": ["Paganini encarga Harold en Italia", "Liszt apoya su música y la adapta para piano", "La agitación en París trastoca su vida de conciertos"]
+  },
+  "felix-mendelssohn": {
+    "pts": [null, "Dirige la reposición de la Pasión según san Mateo de Bach", "Dirige la música en Düsseldorf", "Lo nombran director de la Gewandhaus de Leipzig", "Se casa con Cécile Jeanrenaud", "Funda el Conservatorio de Leipzig", "Elías triunfa en su estreno", "Muere su hermana Fanny; Felix la sigue meses después"],
+    "links": ["Schumann y Mendelssohn comparten la vida musical de Leipzig", "Conoce a Chopin en París"]
+  },
+  "frederic-chopin": {
+    "pts": [null, "Recibe elogios como joven pianista en Varsovia", "Se instala en París tras un levantamiento fallido", "Pasa un invierno en Mallorca con George Sand", "Ofrece recitales muy celebrados en París", "Termina su relación con Sand", "Muere en París de tuberculosis"],
+    "links": ["Liszt y Chopin se hacen amigos en París", "Schumann defiende su música para piano", "La agitación en París altera sus últimos años"]
+  },
+  "robert-schumann": {
+    "pts": [null, "Abandona el derecho para estudiar piano y música", "Funda la Nueva Revista de Música", "Se casa con Clara Wieck tras un proceso judicial", "Da clases en el Conservatorio de Leipzig de Mendelssohn", "Una enfermedad le obliga a dejar Leipzig", "Ingresa en un hospital tras una crisis mental", "Muere cerca de Bonn"],
+    "links": ["Descubre a Brahms y lo recibe como una nueva voz", "Amigo y figura central de la vida musical de Leipzig", "Schumann elogia las variaciones para piano de Chopin"]
+  },
+  "franz-liszt": {
+    "pts": [null, "Oír a Paganini transforma su técnica pianística", "Recorre Europa durante la “Lisztomanía”", "Se instala en Weimar para componer y dirigir", "Lleva una vida más tranquila tras varias pérdidas familiares", "Recibe las órdenes menores de la Iglesia católica", "Se lesiona al sufrir una caída", "Muere en Bayreuth a los 74 años"],
+    "links": ["La interpretación de Paganini inspira su estilo pianístico", "Liszt defiende las obras de Wagner en Weimar"]
+  },
+  "richard-wagner": {
+    "pts": [null, "Trabaja como maestro de coro en Wurzburgo", "Rienzi triunfa en Dresde", "Huye tras la insurrección de Dresde", "Empieza Tristán e Isolda en el exilio", "El rey Luis II paga sus deudas", "El primer Festival de Bayreuth representa El anillo", "Parsifal se estrena en Bayreuth", "Muere en Venecia"],
+    "links": ["Liszt lo apoya y más tarde se convierte en su suegro", "La revolución le obliga a vivir exiliado durante años"]
+  },
+  "giuseppe-verdi": {
+    "pts": [null, "El Conservatorio de Milán lo rechaza; estudia en privado", "Nabucco le da fama", "Rigoletto triunfa en Venecia", "Se estrenan Il trovatore y La traviata", "La fuerza del destino se estrena en San Petersburgo", "El Réquiem honra al poeta Manzoni", "Otello lo devuelve a la ópera", "Milán llora su muerte"],
+    "links": ["Sus óperas se convierten en símbolos de la identidad italiana"]
+  },
+  "cesar-franck": {
+    "pts": [null, "Estudia piano y órgano en París", "Abandona las giras y se instala en París", "Es nombrado organista de Sainte-Clotilde", "Enseña en el Conservatorio de París", "Compone sus grandes obras al final de su vida", "Su Sonata para violín recibe grandes elogios", "Muere tras un accidente de tráfico"],
+    "links": ["Ambos dan forma a la nueva sociedad musical francesa", "Debussy estudia en el ambiente musical parisino que Franck lidera", "La guerra y sus consecuencias transforman la vida musical francesa"]
+  },
+  "bedrich-smetana": {
+    "pts": [null, "Se suma a la insurrección de Praga", "Se traslada a Suecia para enseñar y dirigir", "La novia vendida se estrena en Praga", "Pierde el oído, pero sigue componiendo", "Escribe el ciclo sinfónico Mi patria", "Muere tras años de enfermedad"],
+    "links": ["Participa en la insurrección de Praga", "Impulsa la carrera de Dvořák en Praga", "Liszt apoya sus primeras ambiciones musicales"]
+  },
+  "johannes-brahms": {
+    "pts": [null, "Conoce a Schumann, que elogia su música", "Su primer Concierto para piano recibe una respuesta fría", "Un Réquiem alemán le da fama duradera", "Por fin se estrena su Primera sinfonía", "Su Tercera sinfonía recibe grandes elogios", "Piensa dejar de componer, pero sigue adelante", "Muere en Viena tras una larga enfermedad"],
+    "links": ["Schumann lo presenta al mundo musical", "Conoce a Liszt mientras los compositores románticos debaten sobre la nueva música", "Anima a Dvořák y le ayuda a encontrar editorial"]
+  },
+  "alexander-borodin": {
+    "pts": [null, "Empieza a estudiar medicina y química", "Conoce a los compositores de «Los Cinco»", "Empieza a trabajar en la ópera El príncipe Ígor", "Da clases de química y compone cuando puede", "Compone En las estepas del Asia Central", "Muere de repente durante un baile"],
+    "links": ["La amistad crece entre los miembros de «Los Cinco»", "Trabaja con Rimski-Kórsakov en la música rusa"]
+  },
+  "camille-saint-saens": {
+    "pts": [null, "Se gradúa en el Conservatorio de París", "Es nombrado organista de La Madeleine", "Viaja como pianista y compositor", "Sansón y Dalila llega a los escenarios", "Aparecen la Sinfonía con órgano y El carnaval de los animales", "Gira por Europa y América", "Muere en Argel a los 86 años"],
+    "links": ["Ambos lideran una nueva generación de compositores franceses"]
+  },
+  "modest-mussorgsky": {
+    "pts": [null, "Deja el ejército para estudiar música", "Colabora con otros compositores rusos", "Completa la primera versión de Borís Godunov", "Se estrena Borís Godunov; compone Cuadros de una exposición", "Empeoran sus problemas de salud y dinero", "Muere en un hospital militar"],
+    "links": ["Se hace muy amigo de Borodin", "Rimski-Kórsakov revisa y estrena más tarde su música"]
+  },
+  "pyotr-ilyich-tchaikovsky": {
+    "pts": [null, "Ingresa en el nuevo Conservatorio de San Petersburgo", "Empieza a dar clases en Moscú", "Toma forma el Concierto para piano n.º 1", "Crisis matrimonial; la mecenas Nadezhda von Meck le ayuda", "Compone el Concierto para violín y la Sinfonía n.º 4", "Se estrena La dama de picas", "Dirige en la inauguración del Carnegie Hall", "Se estrena la Sinfonía Patética; muere pocos días después"],
+    "links": ["La amistad une a dos grandes compositores rusos", "Conoce a Saint-Saëns durante su visita a Rusia"]
+  },
+  "antonin-dvorak": {
+    "pts": [null, "Toca la viola en orquestas teatrales de Praga", "Se hace famoso con sus himnos checos", "Las Danzas eslavas se hacen populares", "Viaja a Inglaterra con su música", "Se traslada a Nueva York para dirigir una escuela de música", "Compone la Sinfonía del Nuevo Mundo", "Regresa a Praga como una figura respetada", "Muere en Praga"],
+    "links": ["Brahms lo recomienda al editor Simrock", "Smetana dirige la música de Dvořák en Praga", "Conoce a Chaikovski durante su visita a Praga"]
+  },
+  "edvard-grieg": {
+    "pts": [null, "Estudia en el Conservatorio de Leipzig", "Funda una academia de música en Oslo", "Ibsen le pide música para Peer Gynt", "Construye una casa cerca de Bergen", "Cambridge le concede un título honorífico", "Muere tras años de problemas cardíacos"],
+    "links": ["Liszt elogia su Concierto para piano"]
+  },
+  "nikolai-rimsky-korsakov": {
+    "pts": [null, "Ingresa como cadete en la Armada rusa", "Escribe su Primera sinfonía en alta mar", "Es nombrado profesor en San Petersburgo", "Deja la Armada para dedicarse a la música", "Scheherezade recibe elogios", "Apoya las protestas estudiantiles en el conservatorio", "Muere a causa de una dolencia cardíaca"],
+    "links": ["Amigo y miembro de «Los Cinco»", "Colabora con Borodin en los círculos musicales rusos", "Enseña y orienta al joven Stravinski"]
+  },
+  "edward-elgar": {
+    "pts": [null, "Aprende música mientras ayuda en la tienda de su padre", "Trabaja como violinista y profesor de música", "Las Variaciones Enigma le dan fama nacional", "La Marcha n.º 1 de Pompa y circunstancia es un éxito", "Compone música al estallar la guerra", "Muere su esposa Alice", "Muere en Worcester"],
+    "links": ["Mahler dirige las Variaciones Enigma de Elgar en Nueva York", "Strauss elogia y conoce al compositor inglés", "La guerra transforma el país y la música que escribe"]
+  },
+  "giacomo-puccini": {
+    "pts": [null, "Estudia música en Lucca y Milán", "Estrena su primera ópera en Milán", "Manon Lescaut le trae el éxito", "La bohème se estrena en Turín", "Revisa Madama Butterfly tras un estreno poco afortunado", "La chica del Oeste se estrena en Nueva York", "Muere antes de terminar Turandot"],
+    "links": ["Mahler incorpora La bohème al repertorio de la Ópera de Viena", "La guerra retrasa el estreno previsto de La rondine en Viena"]
+  },
+  "gustav-mahler": {
+    "pts": [null, "Se gradúa en el Conservatorio de Viena", "Dirige en Kassel y compone canciones", "Termina su Primera sinfonía", "Es nombrado director de la Ópera de Viena", "Se casa con Alma Schindler", "Muere su hija; los médicos le detectan una cardiopatía", "La Sinfonía n.º 8 se estrena en Múnich", "Muere en Viena"],
+    "links": ["Conoce a Sibelius y debate con él qué debe ser una sinfonía", "Apoya a Schoenberg y su nueva música"],
+    "after": [null, "Bernstein y otros reavivan el interés por sus sinfonías"]
+  },
+  "claude-debussy": {
+    "pts": [null, "Estudia en el Conservatorio de París", "Gana el Prix de Rome", "Se estrena Preludio a la siesta de un fauno", "Pelléas y Mélisande se estrena en París", "La mar llega a las salas de conciertos", "El cáncer y la guerra frenan su trabajo", "Muere durante la Primera Guerra Mundial"],
+    "links": ["Debussy orquesta dos piezas para piano de Satie", "La guerra interrumpe sus últimos años y varios proyectos"]
+  },
+  "richard-strauss": {
+    "pts": [null, "Trabaja como ayudante del director Hans von Bülow", "Don Juan lo da a conocer como compositor", "Salomé escandaliza al público y le da fama", "El caballero de la rosa triunfa en Dresde", "Dirige la oficina estatal de música de Alemania bajo Hitler", "Compone Metamorphosen al terminar la guerra", "Muere en Baviera a los 85 años"],
+    "links": ["Colegas y rivales en el mundo de la ópera y los conciertos", "Acepta un cargo musical bajo el régimen nazi"]
+  },
+  "jean-sibelius": {
+    "pts": [null, "Estudia música en Helsinki y Berlín", "Kullervo lo convierte en figura nacional finlandesa", "Finlandia enardece al público", "Se traslada a una casa a las afueras de Helsinki", "Celebra su cincuenta cumpleaños con un homenaje público", "Termina su última gran obra orquestal", "Deja de componer nuevas sinfonías", "Muere tras décadas de silencio"],
+    "links": ["Conoce a Mahler durante su visita a Helsinki", "Finlandia logra la independencia tras la revolución rusa"]
+  },
+  "erik-satie": {
+    "pts": [null, "Deja el Conservatorio de París sin diploma", "Compone las primeras Gymnopédies", "Compone para el movimiento rosacruz", "Vuelve a estudiar en la Schola Cantorum", "Los jóvenes compositores descubren su música", "El ballet Parade le da fama entre el público", "Muere en París tras años de enfermedad"],
+    "links": ["Debussy orquesta las Gymnopédies de Satie", "Ravel interpreta la música de Satie en París"],
+    "after": ["Nuevos oyentes redescubren sus sencillas piezas para piano"]
+  },
+  "sergei-rachmaninoff": {
+    "pts": [null, "Se gradúa en el Conservatorio de Moscú", "Su Primera sinfonía fracasa y deja de componer", "El Segundo concierto para piano le trae el éxito", "Gira por Estados Unidos con su Tercer concierto", "Abandona Rusia tras la revolución", "Vuelve a componer después de una larga pausa", "Se estrena la Rapsodia sobre un tema de Paganini", "Muere en California"],
+    "links": ["Chaikovski elogia sus primeras obras poco antes de morir", "La revolución le obliga a abandonar Rusia"]
+  },
+  "arnold-schoenberg": {
+    "pts": [null, "Estudia contrapunto con Alexander von Zemlinsky", "Compone el sexteto de cuerda Verklärte Nacht", "Se aleja de la tonalidad tradicional", "Pierrot Lunaire desconcierta al público de Berlín", "Desarrolla el método dodecafónico", "Huye de Alemania cuando los nazis llegan al poder", "Enseña en California tras la guerra", "Muere en Los Ángeles"],
+    "links": ["Mahler apoya su música cuando el público protesta", "Abandona Alemania al comenzar el régimen nazi"]
+  },
+  "maurice-ravel": {
+    "pts": [null, "Estudia en el Conservatorio de París", "Un escándalo en el conservatorio pone fin a sus años de estudiante", "Diaghilev le encarga Daphnis et Chloé", "El ballet se estrena en París", "Sirve como conductor de camión durante la guerra", "Boléro se convierte en un éxito internacional", "Un accidente de taxi perjudica su salud", "Muere tras una operación cerebral"],
+    "links": ["Ayuda a dar a conocer las primeras piezas para piano de Satie", "Sirve en el ejército y pierde amigos durante la guerra"]
+  },
+  "bela-bartok": {
+    "pts": [null, "Se da a conocer como pianista y compositor", "Recopila canciones populares con Zoltán Kodály", "Rechazan su ópera El castillo de Barbazul", "La Suite de danzas le da éxito orquestal", "Deja la enseñanza para estudiar música folclórica a tiempo completo", "Se traslada a Estados Unidos para huir de la guerra", "Compone su Concierto para orquesta", "Muere en Nueva York"],
+    "links": ["La música de Debussy influye en sus primeras obras modernas", "Abandona Europa mientras se extiende la guerra"]
+  },
+  "igor-stravinsky": {
+    "pts": [null, "Estudia con Rimski-Kórsakov", "El pájaro de fuego le da fama", "La consagración de la primavera provoca un tumulto", "Compone Historia de un soldado en la Suiza de la guerra", "Se acerca al neoclasicismo en París", "Se traslada a Estados Unidos", "Se estrena La carrera del libertino", "Empieza a utilizar técnicas seriales", "Sigue componiendo hasta una edad avanzada", "Muere en Nueva York"],
+    "links": ["Rimski-Kórsakov le enseña y le sirve de mentor", "Debussy asiste al estreno de La consagración de la primavera"]
+  },
+  "sergei-prokofiev": {
+    "pts": [null, "Ingresa en el Conservatorio de San Petersburgo", "Gana un concurso de piano con su propio concierto", "Deja Rusia tras la revolución", "Se estrena la ópera El amor por tres naranjas", "Vuelve a vivir en la Unión Soviética", "Romeo y Julieta llega a los escenarios", "Las autoridades soviéticas condenan su música", "Muere el mismo día que Stalin"],
+    "links": ["Conoce a Stravinski y a otros modernistas rusos en Europa", "Un decreto oficial condena su música"]
+  },
+  "paul-hindemith": {
+    "pts": [null, "Se incorpora a la orquesta de la Ópera de Fráncfort", "Funda el Cuarteto de cuerda Amar", "Es nombrado profesor de música en Berlín", "El régimen nazi dificulta su trabajo", "Se traslada a Suiza", "Emigra a Estados Unidos", "Vuelve a dirigir y enseñar en Europa", "Muere en Fráncfort"],
+    "links": ["Abandona Alemania al endurecerse las restricciones nazis"]
+  },
+  "aaron-copland": {
+    "pts": [null, "Estudia en París con Nadia Boulanger", "Sus primeras grandes obras orquestales llegan a Nueva York", "Compone con un estilo modernista", "Se inclina por un sonido estadounidense más accesible", "Appalachian Spring se estrena en Washington", "Enseña y dirige por todo el país", null, "Muere en Nueva York"],
+    "links": ["La política de la Guerra Fría influye en su vida pública y su obra"]
+  },
+  "dmitri-shostakovich": {
+    "pts": [null, "Su Primera sinfonía le da fama a los diecinueve años", "Lady Macbeth triunfa en Leningrado", "Un artículo de prensa condena su ópera", "La Quinta sinfonía recupera el favor del público", "La Sinfonía de Leningrado se escucha en todo el mundo", "Un decreto oficial condena su música", "Compone la Décima sinfonía tras la muerte de Stalin", "La Sinfonía Babi Yar sufre presiones oficiales", "Termina su Decimoquinta sinfonía", "Muere tras años de enfermedad"],
+    "links": ["Su Sinfonía de Leningrado se convierte en un símbolo durante la guerra", "El Estado vuelve a condenarlo", "Los dos compositores se hacen amigos y se visitan"]
+  },
+  "benjamin-britten": {
+    "pts": [null, "Estudia en el Royal College of Music", "Triunfan sus Variaciones sobre un tema de Frank Bridge", "Vuelve a Inglaterra durante la guerra", "Peter Grimes le da fama", "Billy Budd se estrena en Covent Garden", "El Réquiem de guerra se estrena en Coventry", "La enfermedad le obliga a reducir su actividad", "Muere en Aldeburgh"],
+    "links": ["La guerra influye en su regreso a Inglaterra", "Los compositores se hacen amigos y se visitan", "Copland y Britten comparten música y amistad"]
+  }
+}

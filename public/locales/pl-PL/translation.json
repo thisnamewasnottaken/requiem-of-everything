@@ -150,9 +150,10 @@
   },
   "orchestraExplorer": {
     "title": "Przewodnik po orkiestrze",
-    "subtitle": "Interaktywna topografia orkiestry",
+    "subtitle": "Sześć stuleci, jedna żywa orkiestra",
     "backToTimeline": "← Oś czasu",
     "clickPrompt": "Kliknij sekcję, aby poznać jej instrumenty",
+    "familyIndex": "Wybierz rodzinę",
     "conductor": "Dyrygent",
     "strings": "Smyczki",
     "woodwinds": "Dęte drewniane",
@@ -173,7 +174,20 @@
     "featuredIn": "Występuje w",
     "readMore": "Czytaj więcej →",
     "instruments": "{{count}} instrumentów",
-    "closeDetail": "Zamknij"
+    "instruments_one": "{{count}} instrument",
+    "instruments_few": "{{count}} instrumenty",
+    "instruments_many": "{{count}} instrumentów",
+    "instruments_other": "{{count}} instrumentu",
+    "closeDetail": "Zamknij",
+    "journeyTitle": "Orkiestra w ruchu",
+    "journeyPrompt": "Muzyczna podróż przez sześć stuleci",
+    "journeyEraLabel": "Wybierz rozdział muzyczny",
+    "journeyScoreLabel": "Wejdź w historię przez partyturę",
+    "journeyListenFor": "Zwróć uwagę na",
+    "journeyEraEmphasis": "Ważne w tej epoce",
+    "journeyListenAction": "Znajdź to nagranie w Spotify",
+    "journeyInstrumentCount": "Znaczenie w epoce: {{count}} / {{total}}",
+    "journeyNoScores": "Brak utworów kompozytorów z tej epoki w podanym przedziale dat."
   },
   "walkthrough": {
     "progress": "{{current}} z {{total}}",
@@ -238,7 +252,7 @@
       },
       "orchestraView": {
         "title": "Przewodnik po orkiestrze",
-        "description": "Przewodnik po orkiestrze pokazuje orkiestrę z góry jako interaktywną mapę. Kliknij sekcję — smyczki, dęte drewniane, dęte blaszane, perkusję, instrumenty klawiszowe lub głos — aby poznać poszczególne instrumenty, ich rolę, epokę i wyróżnione kompozycje."
+        "description": "Przemierz sześć epok muzycznych i obserwuj, jak zmienia się brzmienie orkiestry. Poznaj historię i partytury każdego rozdziału, a potem otwórz rodzinę na mapie sceny, by spotkać jej instrumenty."
       },
       "search": {
         "title": "Wyszukiwanie i filtry",

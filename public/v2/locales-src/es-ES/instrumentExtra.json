@@ -1,0 +1,211 @@
+{
+  "violin": {
+    "showcase": {"why": "Cuatro conciertos llenos de vida ponen el violín en el centro de cada estación."},
+    "greats": [
+      {"note": "Transformó la técnica violinística con una virtuosidad deslumbrante."},
+      {"note": "Un virtuoso muy admirado del siglo XX."},
+      {"note": "Muy querido por su sonido cálido y su larga trayectoria."}
+    ]
+  },
+  "viola": {
+    "showcase": {"why": "Una viola solista recorre una historia orquestal llena de color."},
+    "greats": [
+      {"note": "Elevó el prestigio de la viola como instrumento solista."},
+      {"note": "Conocida por su interpretación expresiva y su labor docente."},
+      {"note": "Destacado solista de viola y fundador de conjuntos."}
+    ]
+  },
+  "cello": {
+    "showcase": {"why": "Un concierto profundamente lírico que hace cantar y crecer al violonchelo."},
+    "greats": [
+      {"note": "Ayudó a llevar las suites para violonchelo de Bach a las salas de concierto."},
+      {"note": "Intérprete versátil y embajador de la música."},
+      {"note": "Su grabación del concierto de Elgar se volvió emblemática."}
+    ],
+    "goat": {"note": "Violonchelista muy admirado por su repertorio amplio y variado."}
+  },
+  "double-bass": {
+    "showcase": {"title": "Concierto n.º 2 en si menor", "why": "Una pieza de lucimiento que revela la agilidad y la voz cantarina del contrabajo."},
+    "greats": [
+      {"note": "Fue uno de los grandes virtuosos del contrabajo de su época."},
+      {"note": "Fue solista de contrabajo antes de convertirse en un director célebre."},
+      {"note": "Ayudó a consolidar el contrabajo como instrumento solista."}
+    ]
+  },
+  "harp": {
+    "showcase": {"title": "Danza sacra y danza profana", "why": "El arpa se desliza entre ritmos de danza centelleantes y acordes solemnes."},
+    "greats": [
+      {"note": "Destacada arpista y profesora francesa."},
+      {"note": "Conocida por su trabajo solista y de cámara."},
+      {"note": "Una de las principales figuras actuales del arpa solista."}
+    ]
+  },
+  "viola-da-gamba": {
+    "showcase": {"title": "Las folías de España", "why": "Variaciones célebres convierten un tema sencillo en una pieza de lucimiento para viola da gamba."},
+    "greats": [
+      {"note": "Compositor francés de referencia y destacado violagambista."},
+      {"note": "Maestro francés de la viola da gamba y profesor."},
+      {"note": "Intérprete y estudioso actual de primer nivel."}
+    ]
+  },
+  "flute": {
+    "showcase": {"title": "Syrinx", "why": "Una flauta sola pinta un mito sereno, sin acompañamiento."},
+    "greats": [
+      {"note": "Popularizó la flauta como instrumento solista."},
+      {"note": "Conocido por su sonido brillante y su amplio público."},
+      {"note": "Destacado flautista de orquesta y solista."}
+    ]
+  },
+  "oboe": {
+    "showcase": {"title": "Concierto para oboe en re mayor", "why": "Un concierto tardío y elegante deja que el oboe lidere de principio a fin."},
+    "greats": [
+      {"note": "Virtuoso del oboe, compositor y director."},
+      {"note": "Conocido por su interpretación lírica con la Filarmónica de Berlín."},
+      {"note": "Contribuyó a definir la escuela moderna francesa de oboe."}
+    ]
+  },
+  "clarinet": {
+    "showcase": {"title": "Concierto para clarinete en la mayor, K. 622", "why": "El cálido registro del clarinete brilla en el último concierto de Mozart."},
+    "greats": [
+      {"note": "Clarinetista de jazz que también impulsó nuevas obras de concierto."},
+      {"note": "Destacada solista e intérprete de orquesta."},
+      {"note": "Conocido por sus interpretaciones y programas imaginativos."}
+    ]
+  },
+  "bassoon": {
+    "showcase": {"title": "Concierto para fagot en si bemol mayor, K. 191", "why": "Un concierto juguetón muestra la agilidad y el carácter cantarín del fagot."},
+    "greats": [
+      {"note": "Solista y profesor muy admirado."},
+      {"note": "Conocido por sus actuaciones solistas y de cámara."},
+      {"note": "Intérprete destacado de fagotes modernos y barrocos."}
+    ]
+  },
+  "recorder": {
+    "showcase": {"title": "Concierto para flauta de pico en do mayor, TWV 51:C1", "why": "Las líneas brillantes de la flauta de pico muestran por qué fue tan apreciada en el Barroco."},
+    "greats": [
+      {"note": "Ayudó a recuperar la flauta de pico en los conciertos modernos."},
+      {"note": "Solista de flauta de pico con numerosas grabaciones."},
+      {"note": "Interpreta y enseña música antigua."}
+    ]
+  },
+  "french-horn": {
+    "showcase": {"title": "Concierto para trompa n.º 4 en mi bemol mayor, K. 495", "why": "Las melodías largas y las llamadas vivaces muestran el amplio registro de la trompa."},
+    "greats": [
+      {"note": "Figura decisiva de la trompa solista en el siglo XX."},
+      {"note": "Conocido por sus recitales y la interpretación histórica."},
+      {"note": "Dirigió durante décadas la sección de trompas de la Sinfónica de Chicago."}
+    ]
+  },
+  "trumpet": {
+    "showcase": {"title": "Concierto para trompeta en mi bemol mayor", "why": "La nueva trompeta de llaves aporta una voz solista clara y brillante."},
+    "greats": [
+      {"note": "Ayudó a popularizar la trompeta como instrumento solista."},
+      {"note": "Figura destacada de la trompeta clásica y jazz."},
+      {"note": "Una de las principales trompetistas solistas actuales."}
+    ]
+  },
+  "trombone": {
+    "showcase": {"why": "Un célebre glissando del trombón se eleva sobre la danza repetitiva."},
+    "greats": [
+      {"note": "Destacado solista de trombón y compositor."},
+      {"note": "Trombón principal de la Filarmónica de Nueva York."},
+      {"note": "Una figura decisiva del trombón de jazz."}
+    ]
+  },
+  "tuba": {
+    "showcase": {"title": "Concierto para tuba en fa menor", "why": "Un concierto completo concede a la tuba un papel protagonista poco habitual."},
+    "greats": [
+      {"note": "Ayudó a consolidar la tuba en las orquestas estadounidenses."},
+      {"note": "Pionero de los recitales solistas de tuba."},
+      {"note": "Conocido por sus virtuosas actuaciones solistas."}
+    ]
+  },
+  "timpani": {
+    "showcase": {"why": "Los timbales aportan truenos y empuje a los clímax de la sinfonía."},
+    "greats": [
+      {"note": "Profesor influyente que marcó la interpretación de timbales en Estados Unidos."},
+      {"note": "Percusionista solista y educadora muy admirada."},
+      {"note": "Conocido por sus actuaciones solistas con timbales."}
+    ]
+  },
+  "snare-drum": {
+    "showcase": {"why": "La caja repite su ritmo mientras la orquesta crece sin cesar."},
+    "greats": [
+      {"note": "Importante profesor de caja y autor de métodos."},
+      {"note": "Baterista de rock muy admirado por su potente sonido."},
+      {"note": "Destacada percusionista solista."}
+    ]
+  },
+  "cymbals-and-percussion": {
+    "showcase": {"why": "Una mezcla vibrante de tambores, platillos y percusión impulsa la partitura."},
+    "greats": [
+      {"note": "Solista destacada de toda la familia de la percusión."},
+      {"note": "Amplió el papel de la percusión en la música de concierto."},
+      {"note": "Maestro de los timbales latinos y director de una banda de jazz latino."}
+    ]
+  },
+  "piano": {
+    "showcase": {"why": "Un comienzo sereno y un final tempestuoso revelan todo el alcance del piano."},
+    "greats": [
+      {"note": "Compositor fundamental para el piano solista."},
+      {"note": "Transformó la interpretación y la técnica pianísticas."},
+      {"note": "Conocida por sus interpretaciones enérgicas y expresivas."}
+    ]
+  },
+  "organ": {
+    "showcase": {"why": "Unas audaces frases iniciales conducen a una fuga de entramado preciso."},
+    "greats": [
+      {"note": "Compositor esencial y virtuoso del órgano."},
+      {"note": "Reavivó la música francesa para órgano en el siglo XIX."},
+      {"note": "Compositor de órgano fundamental del siglo XX."}
+    ]
+  },
+  "harpsichord": {
+    "showcase": {"why": "Treinta variaciones convierten una sencilla línea de bajo en todo un mundo musical."},
+    "greats": [
+      {"note": "Ayudó a devolver el clave a las salas de concierto."},
+      {"note": "Intérprete y estudioso de referencia en música antigua."},
+      {"note": "Destacado clavecinista y director."}
+    ]
+  },
+  "celesta": {
+    "showcase": {"title": "Danza del Hada de Azúcar", "why": "La celesta, con su brillo, da a la danza un sonido mágico."},
+    "greats": [
+      {"note": "Hizo famosa la celesta en El cascanueces."},
+      {"note": "Utilizó la celesta en su Concierto para arpa."},
+      {"note": "Aprovecha el color de la celesta en partituras de cine y concierto."}
+    ]
+  },
+  "soprano": {
+    "showcase": {"title": "Aria de la Reina de la Noche de La flauta mágica", "why": "Un aria de coloratura exige a la soprano saltos agudos y un canto veloz."},
+    "greats": [
+      {"note": "Cantante de ópera muy admirada, con gran amplitud dramática."},
+      {"note": "Famosa por su brillante canto de coloratura."},
+      {"note": "Destacada soprano lírica en los escenarios y en las grabaciones."}
+    ]
+  },
+  "alto-mezzo": {
+    "showcase": {"title": "Habanera de Carmen", "why": "La memorable entrada de Carmen da a la mezzosoprano un papel audaz y lleno de carácter."},
+    "greats": [
+      {"note": "Mezzosoprano de referencia y especialista en bel canto."},
+      {"note": "Conocida por su agilidad vocal y por recuperar obras olvidadas."},
+      {"note": "Intérprete muy admirada de Carmen y Mozart."}
+    ]
+  },
+  "tenor": {
+    "showcase": {"title": "«Nessun dorma» de Turandot", "why": "Un aria de tenor ascendente culmina en una famosa nota aguda."},
+    "greats": [
+      {"note": "Acercó la voz de tenor a un público inmenso."},
+      {"note": "Una de las primeras estrellas discográficas del tenor operístico."},
+      {"note": "Destacado tenor de ópera y canción."}
+    ]
+  },
+  "bass-baritone": {
+    "showcase": {"title": "Aria del catálogo de Don Giovanni", "why": "La lista vertiginosa de Leporello ofrece al bajo-barítono una escena cómica."},
+    "greats": [
+      {"note": "Reconocido cantante de ópera y canción artística."},
+      {"note": "Conocido por sus papeles expresivos de bajo-barítono."},
+      {"note": "Intérprete muy admirado de Mozart y del bel canto."}
+    ]
+  }
+}

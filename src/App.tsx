@@ -119,7 +119,7 @@ export default function App() {
         {t("app.title")}
       </div>
       <header className="app-header" data-tour="header">
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <div className="app-header-inner">
           <div>
             <h1>{t("app.title")}</h1>
             <p>{t("app.subtitle")}</p>
@@ -194,14 +194,7 @@ export default function App() {
               </p>
             </div>
           )}
-          <div
-            style={{
-              marginLeft: "auto",
-              display: "flex",
-              gap: "8px",
-              alignItems: "center",
-            }}
-          >
+          <div className="app-header-tools">
             {activeView === "timeline" && <ComparisonBar />}
             {activeView !== "orchestra" && activeView !== "credits" && (
               <div data-tour="search-filter">
@@ -212,38 +205,15 @@ export default function App() {
               </div>
             )}
             <nav
+              className="app-view-nav"
               data-tour="view-tabs"
-              style={{
-                display: "flex",
-                gap: "2px",
-                background: "var(--bg-surface)",
-                borderRadius: "6px",
-                padding: "2px",
-                border: "1px solid var(--border-default)",
-              }}
             >
               {(["timeline", "terms", "orchestra", "credits"] as const).map((view) => (
                 <button
                   key={view}
                   onClick={() => setActiveView(view)}
-                  style={{
-                    padding: "4px 12px",
-                    border: "none",
-                    borderRadius: "4px",
-                    background:
-                      activeView === view
-                        ? "var(--text-accent)"
-                        : "transparent",
-                    color:
-                      activeView === view
-                        ? "var(--bg-primary)"
-                        : "var(--text-secondary)",
-                    cursor: "pointer",
-                    fontFamily: "var(--font-body)",
-                    fontSize: "var(--text-sm)",
-                    fontWeight: activeView === view ? 600 : 400,
-                    transition: "all 0.15s ease",
-                  }}
+                  className={`app-view-tab${activeView === view ? " is-active" : ""}`}
+                  aria-current={activeView === view ? "page" : undefined}
                 >
                   {view === "timeline"
                     ? t("app.viewTimeline", "Timeline")
@@ -256,20 +226,11 @@ export default function App() {
               ))}
             </nav>
             <select
+              className="app-language-select"
               data-tour="language-switcher"
               value={i18n.language}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
               aria-label={t("app.languageSelect")}
-              style={{
-                padding: "4px 8px",
-                border: "1px solid var(--border-default)",
-                borderRadius: "6px",
-                background: "var(--bg-surface)",
-                color: "var(--text-secondary)",
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-sm)",
-                cursor: "pointer",
-              }}
             >
               <option value="en-GB">English</option>
               <option value="fr-FR">Français</option>
@@ -278,26 +239,10 @@ export default function App() {
               <option value="pl-PL">Polski</option>
             </select>
             <button
+              className="app-help-button"
               data-tour="help-button"
               onClick={() => setHelpOpen((p) => !p)}
-              style={{
-                width: "32px",
-                height: "32px",
-                border: "1px solid var(--border-default)",
-                borderRadius: "6px",
-                background: helpOpen
-                  ? "var(--bg-elevated)"
-                  : "var(--bg-surface)",
-                color: "var(--text-secondary)",
-                cursor: "pointer",
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--text-sm)",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.15s ease",
-              }}
+              data-open={helpOpen}
               aria-label={t("app.helpAriaLabel")}
               title={t("app.helpTitle")}
             >

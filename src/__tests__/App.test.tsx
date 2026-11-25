@@ -1,6 +1,6 @@
 import React from "react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { render, act } from "@testing-library/react";
+import { render, act, fireEvent } from "@testing-library/react";
 import i18n from "i18next";
 
 // Mock heavy sub-components so App.tsx can be rendered in isolation
@@ -29,6 +29,9 @@ vi.mock("@/components/TermExplorer/TermExplorer", () => ({
   default: () => null,
 }));
 vi.mock("@/components/OrchestraExplorer/OrchestraExplorer", () => ({
+  default: () => null,
+}));
+vi.mock("@/components/CreditsPage/CreditsPage", () => ({
   default: () => null,
 }));
 vi.mock("@/components/WalkthroughOverlay/WalkthroughOverlay", () => ({
@@ -135,5 +138,17 @@ describe("App — document title and html lang i18n updates", () => {
     const liveRegion = container.querySelector('[aria-live="polite"]');
     expect(liveRegion).not.toBeNull();
     expect(liveRegion?.getAttribute("aria-atomic")).toBe("true");
+  });
+
+  it("updates the active view tab and its accessible current-page state", () => {
+    const { getByRole } = render(<App />);
+    const timelineTab = getByRole("button", { name: "Timeline" });
+    const creditsTab = getByRole("button", { name: "Credits" });
+
+    expect(timelineTab).toHaveAttribute("aria-current", "page");
+    fireEvent.click(creditsTab);
+
+    expect(creditsTab).toHaveAttribute("aria-current", "page");
+    expect(timelineTab).not.toHaveAttribute("aria-current");
   });
 });

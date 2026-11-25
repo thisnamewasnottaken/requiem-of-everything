@@ -150,9 +150,10 @@
   },
   "orchestraExplorer": {
     "title": "Orchestra Explorer",
-    "subtitle": "Interactive Orchestral Topography",
+    "subtitle": "Six centuries, one living orchestra",
     "backToTimeline": "← Timeline",
     "clickPrompt": "Click a section to explore its instruments",
+    "familyIndex": "Choose a family",
     "conductor": "Conductor",
     "strings": "Strings",
     "woodwinds": "Woodwinds",
@@ -173,7 +174,18 @@
     "featuredIn": "Featured In",
     "readMore": "Read more →",
     "instruments": "{{count}} instruments",
-    "closeDetail": "Close"
+    "instruments_one": "{{count}} instrument",
+    "instruments_other": "{{count}} instruments",
+    "closeDetail": "Close",
+    "journeyTitle": "An orchestra in motion",
+    "journeyPrompt": "A listening journey through six centuries",
+    "journeyEraLabel": "Choose a musical chapter",
+    "journeyScoreLabel": "Enter through a score",
+    "journeyListenFor": "Listen for",
+    "journeyEraEmphasis": "Prominent in this era",
+    "journeyListenAction": "Find this recording on Spotify",
+    "journeyInstrumentCount": "Era emphasis: {{count}} / {{total}}",
+    "journeyNoScores": "No works by a composer of this era are recorded within these dates."
   },
   "walkthrough": {
     "progress": "{{current}} of {{total}}",
@@ -238,7 +250,7 @@
       },
       "orchestraView": {
         "title": "Orchestra Explorer",
-        "description": "The Orchestra Explorer shows the orchestra from above as an interactive map. Click a section — Strings, Woodwinds, Brass, Percussion, Keyboards, or Voice — to explore individual instruments, their role, historical era, and featured compositions."
+        "description": "Travel through six musical eras and watch the orchestra's sound world change. Explore each chapter's history and scores, then open a family on the stage map to meet its instruments."
       },
       "search": {
         "title": "Search & Filters",

@@ -1,0 +1,783 @@
+{
+  "violin": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          76
+        ],
+        "notes": {
+          "43": "samples/violin/G2-soft.mp3",
+          "45": "samples/violin/A2-soft.mp3",
+          "47": "samples/violin/B2-soft.mp3",
+          "50": "samples/violin/D3-soft.mp3",
+          "54": "samples/violin/F%233-soft.mp3",
+          "57": "samples/violin/A3-soft.mp3",
+          "60": "samples/violin/C4-soft.mp3",
+          "64": "samples/violin/E4-soft.mp3",
+          "67": "samples/violin/G4-soft.mp3",
+          "71": "samples/violin/B4-soft.mp3",
+          "74": "samples/violin/D5-soft.mp3"
+        }
+      },
+      {
+        "vel": [
+          77,
+          127
+        ],
+        "notes": {
+          "43": "samples/violin/G2-loud.mp3",
+          "45": "samples/violin/A2-loud.mp3",
+          "47": "samples/violin/B2-loud.mp3",
+          "50": "samples/violin/D3-loud.mp3",
+          "54": "samples/violin/F%233-loud.mp3",
+          "57": "samples/violin/A3-loud.mp3",
+          "60": "samples/violin/C4-loud.mp3",
+          "64": "samples/violin/E4-loud.mp3",
+          "67": "samples/violin/G4-loud.mp3",
+          "71": "samples/violin/B4-loud.mp3",
+          "74": "samples/violin/D5-loud.mp3"
+        }
+      }
+    ],
+    "attack": 0.1,
+    "release": 0.9
+  },
+  "viola": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          76
+        ],
+        "notes": {
+          "36": "samples/viola/C2-soft.mp3",
+          "38": "samples/viola/D2-soft.mp3",
+          "40": "samples/viola/E2-soft.mp3",
+          "43": "samples/viola/G2-soft.mp3",
+          "47": "samples/viola/B2-soft.mp3",
+          "50": "samples/viola/D3-soft.mp3",
+          "53": "samples/viola/F3-soft.mp3",
+          "57": "samples/viola/A3-soft.mp3",
+          "60": "samples/viola/C4-soft.mp3",
+          "64": "samples/viola/E4-soft.mp3",
+          "67": "samples/viola/G4-soft.mp3",
+          "71": "samples/viola/B4-soft.mp3",
+          "74": "samples/viola/D5-soft.mp3"
+        }
+      },
+      {
+        "vel": [
+          77,
+          127
+        ],
+        "notes": {
+          "36": "samples/viola/C2-loud.mp3",
+          "38": "samples/viola/D2-loud.mp3",
+          "40": "samples/viola/E2-loud.mp3",
+          "43": "samples/viola/G2-loud.mp3",
+          "47": "samples/viola/B2-loud.mp3",
+          "50": "samples/viola/D3-loud.mp3",
+          "53": "samples/viola/F3-loud.mp3",
+          "57": "samples/viola/A3-loud.mp3",
+          "60": "samples/viola/C4-loud.mp3",
+          "64": "samples/viola/E4-loud.mp3",
+          "67": "samples/viola/G4-loud.mp3",
+          "71": "samples/viola/B4-loud.mp3",
+          "74": "samples/viola/D5-loud.mp3"
+        }
+      }
+    ],
+    "attack": 0.1,
+    "release": 0.9
+  },
+  "cello": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          76
+        ],
+        "notes": {
+          "24": "samples/cello/C1-soft.mp3",
+          "28": "samples/cello/E1-soft.mp3",
+          "31": "samples/cello/G1-soft.mp3",
+          "35": "samples/cello/B1-soft.mp3",
+          "38": "samples/cello/D2-soft.mp3",
+          "41": "samples/cello/F2-soft.mp3",
+          "45": "samples/cello/A2-soft.mp3",
+          "48": "samples/cello/C3-soft.mp3",
+          "52": "samples/cello/E3-soft.mp3",
+          "55": "samples/cello/G3-soft.mp3",
+          "59": "samples/cello/B3-soft.mp3",
+          "62": "samples/cello/D4-soft.mp3",
+          "65": "samples/cello/F4-soft.mp3"
+        }
+      },
+      {
+        "vel": [
+          77,
+          127
+        ],
+        "notes": {
+          "24": "samples/cello/C1-loud.mp3",
+          "28": "samples/cello/E1-loud.mp3",
+          "31": "samples/cello/G1-loud.mp3",
+          "35": "samples/cello/B1-loud.mp3",
+          "38": "samples/cello/D2-loud.mp3",
+          "41": "samples/cello/F2-loud.mp3",
+          "45": "samples/cello/A2-loud.mp3",
+          "48": "samples/cello/C3-loud.mp3",
+          "52": "samples/cello/E3-loud.mp3",
+          "55": "samples/cello/G3-loud.mp3",
+          "59": "samples/cello/B3-loud.mp3",
+          "62": "samples/cello/D4-loud.mp3",
+          "65": "samples/cello/F4-loud.mp3"
+        }
+      }
+    ],
+    "attack": 0.1,
+    "release": 1.0
+  },
+  "bass": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          76
+        ],
+        "notes": {
+          "18": "samples/bass/F%230-soft.mp3",
+          "19": "samples/bass/G0-soft.mp3",
+          "22": "samples/bass/A%230-soft.mp3",
+          "24": "samples/bass/C1-soft.mp3",
+          "26": "samples/bass/D1-soft.mp3",
+          "28": "samples/bass/E1-soft.mp3",
+          "30": "samples/bass/F%231-soft.mp3",
+          "32": "samples/bass/G%231-soft.mp3",
+          "33": "samples/bass/A1-soft.mp3",
+          "37": "samples/bass/C%232-soft.mp3",
+          "40": "samples/bass/E2-soft.mp3",
+          "44": "samples/bass/G%232-soft.mp3",
+          "47": "samples/bass/B2-soft.mp3"
+        }
+      },
+      {
+        "vel": [
+          77,
+          127
+        ],
+        "notes": {
+          "18": "samples/bass/F%230-loud.mp3",
+          "19": "samples/bass/G0-loud.mp3",
+          "22": "samples/bass/A%230-loud.mp3",
+          "24": "samples/bass/C1-loud.mp3",
+          "26": "samples/bass/D1-loud.mp3",
+          "28": "samples/bass/E1-loud.mp3",
+          "30": "samples/bass/F%231-loud.mp3",
+          "32": "samples/bass/G%231-loud.mp3",
+          "33": "samples/bass/A1-loud.mp3",
+          "37": "samples/bass/C%232-loud.mp3",
+          "40": "samples/bass/E2-loud.mp3",
+          "44": "samples/bass/G%232-loud.mp3",
+          "47": "samples/bass/B2-loud.mp3"
+        }
+      }
+    ],
+    "attack": 0.12,
+    "release": 1.0
+  },
+  "flute": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "48": "samples/flute/C3.mp3",
+          "52": "samples/flute/E3.mp3",
+          "57": "samples/flute/A3.mp3",
+          "60": "samples/flute/C4.mp3",
+          "64": "samples/flute/E4.mp3",
+          "69": "samples/flute/A4.mp3",
+          "72": "samples/flute/C5.mp3",
+          "76": "samples/flute/E5.mp3",
+          "81": "samples/flute/A5.mp3",
+          "84": "samples/flute/C6.mp3"
+        }
+      }
+    ],
+    "attack": 0.06,
+    "release": 0.6
+  },
+  "piccolo": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "67": "samples/piccolo/G4.mp3",
+          "72": "samples/piccolo/C5.mp3",
+          "79": "samples/piccolo/G5.mp3",
+          "84": "samples/piccolo/C6.mp3",
+          "91": "samples/piccolo/G6.mp3"
+        }
+      }
+    ],
+    "attack": 0.05,
+    "release": 0.5
+  },
+  "oboe": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "46": "samples/oboe/A%232.mp3",
+          "50": "samples/oboe/D3.mp3",
+          "53": "samples/oboe/F3.mp3",
+          "58": "samples/oboe/A%233.mp3",
+          "62": "samples/oboe/D4.mp3",
+          "65": "samples/oboe/F4.mp3",
+          "70": "samples/oboe/A%234.mp3",
+          "74": "samples/oboe/D5.mp3",
+          "77": "samples/oboe/F5.mp3"
+        }
+      }
+    ],
+    "attack": 0.05,
+    "release": 0.5
+  },
+  "clarinet": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "38": "samples/clarinet/D2.mp3",
+          "41": "samples/clarinet/F2.mp3",
+          "46": "samples/clarinet/A%232.mp3",
+          "50": "samples/clarinet/D3.mp3",
+          "53": "samples/clarinet/F3.mp3",
+          "58": "samples/clarinet/A%233.mp3",
+          "62": "samples/clarinet/D4.mp3",
+          "65": "samples/clarinet/F4.mp3",
+          "70": "samples/clarinet/A%234.mp3",
+          "74": "samples/clarinet/D5.mp3",
+          "78": "samples/clarinet/F%235.mp3"
+        }
+      }
+    ],
+    "attack": 0.05,
+    "release": 0.6
+  },
+  "bassoon": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "22": "samples/bassoon/A%230.mp3",
+          "25": "samples/bassoon/C%231.mp3",
+          "29": "samples/bassoon/F1.mp3",
+          "33": "samples/bassoon/A1.mp3",
+          "34": "samples/bassoon/A%231.mp3",
+          "36": "samples/bassoon/C2.mp3",
+          "43": "samples/bassoon/G2.mp3",
+          "48": "samples/bassoon/C3.mp3",
+          "51": "samples/bassoon/D%233.mp3",
+          "56": "samples/bassoon/G%233.mp3",
+          "57": "samples/bassoon/A3.mp3",
+          "60": "samples/bassoon/C4.mp3",
+          "63": "samples/bassoon/D%234.mp3"
+        }
+      }
+    ],
+    "attack": 0.05,
+    "release": 0.6
+  },
+  "horn": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          76
+        ],
+        "notes": {
+          "21": "samples/horn/A0-soft.mp3",
+          "24": "samples/horn/C1-soft.mp3",
+          "27": "samples/horn/D%231-soft.mp3",
+          "31": "samples/horn/G1-soft.mp3",
+          "34": "samples/horn/A%231-soft.mp3",
+          "38": "samples/horn/D2-soft.mp3",
+          "41": "samples/horn/F2-soft.mp3",
+          "45": "samples/horn/A2-soft.mp3",
+          "48": "samples/horn/C3-soft.mp3",
+          "62": "samples/horn/D4-soft.mp3",
+          "65": "samples/horn/F4-soft.mp3"
+        }
+      },
+      {
+        "vel": [
+          77,
+          127
+        ],
+        "notes": {
+          "24": "samples/horn/C1-loud.mp3",
+          "27": "samples/horn/D%231-loud.mp3",
+          "31": "samples/horn/G1-loud.mp3",
+          "34": "samples/horn/A%231-loud.mp3",
+          "38": "samples/horn/D2-loud.mp3",
+          "41": "samples/horn/F2-loud.mp3",
+          "45": "samples/horn/A2-loud.mp3",
+          "48": "samples/horn/C3-loud.mp3"
+        }
+      }
+    ],
+    "attack": 0.12,
+    "release": 1.0
+  },
+  "trumpet": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "41": "samples/trumpet/F2.mp3",
+          "45": "samples/trumpet/A2.mp3",
+          "48": "samples/trumpet/C3.mp3",
+          "51": "samples/trumpet/D%233.mp3",
+          "55": "samples/trumpet/G3.mp3",
+          "58": "samples/trumpet/A%233.mp3",
+          "62": "samples/trumpet/D4.mp3",
+          "65": "samples/trumpet/F4.mp3",
+          "69": "samples/trumpet/A4.mp3",
+          "72": "samples/trumpet/C5.mp3"
+        }
+      }
+    ],
+    "attack": 0.03,
+    "release": 0.6
+  },
+  "trombone": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "22": "samples/trombone/A%230.mp3",
+          "25": "samples/trombone/C%231.mp3",
+          "27": "samples/trombone/D%231.mp3",
+          "29": "samples/trombone/F1.mp3",
+          "34": "samples/trombone/A%231.mp3",
+          "38": "samples/trombone/D2.mp3",
+          "41": "samples/trombone/F2.mp3",
+          "48": "samples/trombone/C3.mp3",
+          "49": "samples/trombone/C%233.mp3",
+          "51": "samples/trombone/D%233.mp3",
+          "53": "samples/trombone/F3.mp3"
+        }
+      }
+    ],
+    "attack": 0.06,
+    "release": 0.8
+  },
+  "tuba": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "17": "samples/tuba/F0.mp3",
+          "22": "samples/tuba/A%230.mp3",
+          "27": "samples/tuba/D%231.mp3",
+          "29": "samples/tuba/F1.mp3",
+          "34": "samples/tuba/A%231.mp3",
+          "38": "samples/tuba/D2.mp3",
+          "41": "samples/tuba/F2.mp3",
+          "46": "samples/tuba/A%232.mp3",
+          "50": "samples/tuba/D3.mp3"
+        }
+      }
+    ],
+    "attack": 0.08,
+    "release": 0.9
+  },
+  "harp": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "28": "samples/harp/E1.mp3",
+          "35": "samples/harp/B1.mp3",
+          "38": "samples/harp/D2.mp3",
+          "41": "samples/harp/F2.mp3",
+          "45": "samples/harp/A2.mp3",
+          "48": "samples/harp/C3.mp3",
+          "52": "samples/harp/E3.mp3",
+          "55": "samples/harp/G3.mp3",
+          "59": "samples/harp/B3.mp3",
+          "62": "samples/harp/D4.mp3",
+          "65": "samples/harp/F4.mp3",
+          "69": "samples/harp/A4.mp3",
+          "72": "samples/harp/C5.mp3",
+          "76": "samples/harp/E5.mp3",
+          "79": "samples/harp/G5.mp3",
+          "83": "samples/harp/B5.mp3",
+          "86": "samples/harp/D6.mp3",
+          "89": "samples/harp/F6.mp3",
+          "93": "samples/harp/A6.mp3",
+          "95": "samples/harp/B6.mp3",
+          "98": "samples/harp/D7.mp3",
+          "101": "samples/harp/F7.mp3"
+        }
+      }
+    ],
+    "attack": 0.005,
+    "release": 2.2
+  },
+  "glock": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "67": "samples/glock/G4.mp3",
+          "72": "samples/glock/C5.mp3",
+          "79": "samples/glock/G5.mp3",
+          "84": "samples/glock/C6.mp3",
+          "91": "samples/glock/G6.mp3",
+          "96": "samples/glock/C7.mp3"
+        }
+      }
+    ],
+    "attack": 0.002,
+    "release": 2.0
+  },
+  "pizz": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "43": "samples/pizz/G2.mp3",
+          "45": "samples/pizz/A2.mp3",
+          "47": "samples/pizz/B2.mp3",
+          "50": "samples/pizz/D3.mp3",
+          "54": "samples/pizz/F%233.mp3",
+          "57": "samples/pizz/A3.mp3",
+          "60": "samples/pizz/C4.mp3",
+          "64": "samples/pizz/E4.mp3",
+          "67": "samples/pizz/G4.mp3",
+          "71": "samples/pizz/B4.mp3",
+          "74": "samples/pizz/D5.mp3"
+        }
+      }
+    ],
+    "attack": 0.005,
+    "release": 0.6
+  },
+  "timpani": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "42": "samples/timpani/F%232.mp3",
+          "54": "samples/timpani/F%233.mp3",
+          "56": "samples/timpani/G%233.mp3",
+          "53": "samples/timpani/F3.mp3",
+          "61": "samples/timpani/C%234.mp3"
+        }
+      }
+    ],
+    "attack": 0.002,
+    "release": 2.5
+  },
+  "organ": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "48": "samples/organ/C3.mp3",
+          "51": "samples/organ/D%233.mp3",
+          "54": "samples/organ/F%233.mp3",
+          "57": "samples/organ/A3.mp3",
+          "60": "samples/organ/C4.mp3",
+          "63": "samples/organ/D%234.mp3",
+          "66": "samples/organ/F%234.mp3",
+          "69": "samples/organ/A4.mp3",
+          "72": "samples/organ/C5.mp3",
+          "75": "samples/organ/D%235.mp3",
+          "78": "samples/organ/F%235.mp3",
+          "81": "samples/organ/A5.mp3",
+          "84": "samples/organ/C6.mp3",
+          "87": "samples/organ/D%236.mp3",
+          "90": "samples/organ/F%236.mp3",
+          "93": "samples/organ/A6.mp3",
+          "96": "samples/organ/C7.mp3",
+          "99": "samples/organ/D%237.mp3",
+          "102": "samples/organ/F%237.mp3",
+          "105": "samples/organ/A7.mp3",
+          "108": "samples/organ/C8.mp3"
+        }
+      }
+    ],
+    "attack": 0.15,
+    "release": 1.8
+  },
+  "piano": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "21": "samples/piano/A0.mp3",
+          "25": "samples/piano/C%231.mp3",
+          "29": "samples/piano/F1.mp3",
+          "33": "samples/piano/A1.mp3",
+          "37": "samples/piano/C%232.mp3",
+          "41": "samples/piano/F2.mp3",
+          "45": "samples/piano/A2.mp3",
+          "49": "samples/piano/C%233.mp3",
+          "53": "samples/piano/F3.mp3",
+          "57": "samples/piano/A3.mp3",
+          "61": "samples/piano/C%234.mp3",
+          "65": "samples/piano/F4.mp3",
+          "69": "samples/piano/A4.mp3",
+          "73": "samples/piano/C%235.mp3",
+          "77": "samples/piano/F5.mp3",
+          "81": "samples/piano/A5.mp3",
+          "85": "samples/piano/C%236.mp3",
+          "89": "samples/piano/F6.mp3",
+          "93": "samples/piano/A6.mp3",
+          "97": "samples/piano/C%237.mp3",
+          "101": "samples/piano/F7.mp3",
+          "105": "samples/piano/A7.mp3",
+          "109": "samples/piano/C%238.mp3"
+        }
+      }
+    ],
+    "attack": 0.002,
+    "release": 1.6
+  },
+  "harpsichord": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "34": "samples/harpsichord/A%231.mp3",
+          "46": "samples/harpsichord/A%232.mp3",
+          "70": "samples/harpsichord/A%234.mp3",
+          "82": "samples/harpsichord/A%235.mp3",
+          "57": "samples/harpsichord/A3.mp3",
+          "37": "samples/harpsichord/C%232.mp3",
+          "49": "samples/harpsichord/C%233.mp3",
+          "61": "samples/harpsichord/C%234.mp3",
+          "72": "samples/harpsichord/C5.mp3",
+          "84": "samples/harpsichord/C6.mp3",
+          "62": "samples/harpsichord/D4.mp3",
+          "74": "samples/harpsichord/D5.mp3",
+          "40": "samples/harpsichord/E2.mp3",
+          "52": "samples/harpsichord/E3.mp3",
+          "64": "samples/harpsichord/E4.mp3",
+          "76": "samples/harpsichord/E5.mp3",
+          "30": "samples/harpsichord/F%231.mp3",
+          "42": "samples/harpsichord/F%232.mp3",
+          "54": "samples/harpsichord/F%233.mp3",
+          "66": "samples/harpsichord/F%234.mp3",
+          "78": "samples/harpsichord/F%235.mp3",
+          "32": "samples/harpsichord/G%231.mp3",
+          "44": "samples/harpsichord/G%232.mp3",
+          "56": "samples/harpsichord/G%233.mp3",
+          "68": "samples/harpsichord/G%234.mp3",
+          "80": "samples/harpsichord/G%235.mp3",
+          "22": "samples/harpsichord/A%230.mp3",
+          "58": "samples/harpsichord/A%233.mp3",
+          "24": "samples/harpsichord/C1.mp3",
+          "36": "samples/harpsichord/C2.mp3",
+          "48": "samples/harpsichord/C3.mp3",
+          "60": "samples/harpsichord/C4.mp3",
+          "26": "samples/harpsichord/D1.mp3",
+          "38": "samples/harpsichord/D2.mp3",
+          "50": "samples/harpsichord/D3.mp3",
+          "28": "samples/harpsichord/E1.mp3",
+          "18": "samples/harpsichord/F%230.mp3",
+          "20": "samples/harpsichord/G%230.mp3"
+        }
+      }
+    ],
+    "attack": 0.002,
+    "release": 0.9
+  },
+  "celesta": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "60": "samples/celesta/C4.mp3",
+          "64": "samples/celesta/E4.mp3",
+          "68": "samples/celesta/G%234.mp3",
+          "72": "samples/celesta/C5.mp3",
+          "76": "samples/celesta/E5.mp3",
+          "80": "samples/celesta/G%235.mp3",
+          "84": "samples/celesta/C6.mp3",
+          "88": "samples/celesta/E6.mp3",
+          "92": "samples/celesta/G%236.mp3",
+          "96": "samples/celesta/C7.mp3",
+          "100": "samples/celesta/E7.mp3",
+          "104": "samples/celesta/G%237.mp3"
+        }
+      }
+    ],
+    "attack": 0.002,
+    "release": 2.0
+  },
+  "choir": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "43": "samples/choir/G2.mp3",
+          "44": "samples/choir/G%232.mp3",
+          "45": "samples/choir/A2.mp3",
+          "46": "samples/choir/A%232.mp3",
+          "47": "samples/choir/B2.mp3",
+          "48": "samples/choir/C3.mp3",
+          "49": "samples/choir/C%233.mp3",
+          "50": "samples/choir/D3.mp3",
+          "51": "samples/choir/D%233.mp3",
+          "52": "samples/choir/E3.mp3",
+          "53": "samples/choir/F3.mp3",
+          "54": "samples/choir/F%233.mp3",
+          "55": "samples/choir/G3.mp3",
+          "56": "samples/choir/G%233.mp3",
+          "57": "samples/choir/A3.mp3",
+          "58": "samples/choir/A%233.mp3",
+          "59": "samples/choir/B3.mp3",
+          "60": "samples/choir/C4.mp3",
+          "61": "samples/choir/C%234.mp3",
+          "62": "samples/choir/D4.mp3",
+          "63": "samples/choir/D%234.mp3",
+          "64": "samples/choir/E4.mp3",
+          "65": "samples/choir/F4.mp3",
+          "66": "samples/choir/F%234.mp3",
+          "67": "samples/choir/G4.mp3",
+          "68": "samples/choir/G%234.mp3",
+          "69": "samples/choir/A4.mp3",
+          "70": "samples/choir/A%234.mp3",
+          "71": "samples/choir/B4.mp3",
+          "72": "samples/choir/C5.mp3",
+          "73": "samples/choir/C%235.mp3",
+          "74": "samples/choir/D5.mp3",
+          "75": "samples/choir/D%235.mp3",
+          "76": "samples/choir/E5.mp3",
+          "77": "samples/choir/F5.mp3",
+          "78": "samples/choir/F%235.mp3",
+          "79": "samples/choir/G5.mp3",
+          "80": "samples/choir/G%235.mp3",
+          "81": "samples/choir/A5.mp3",
+          "82": "samples/choir/A%235.mp3",
+          "83": "samples/choir/B5.mp3",
+          "84": "samples/choir/C6.mp3"
+        }
+      }
+    ],
+    "attack": 0.4,
+    "release": 1.8
+  },
+  "oohs": {
+    "layers": [
+      {
+        "vel": [
+          0,
+          127
+        ],
+        "notes": {
+          "43": "samples/choir/G2.mp3",
+          "44": "samples/choir/G%232.mp3",
+          "45": "samples/choir/A2.mp3",
+          "46": "samples/choir/A%232.mp3",
+          "47": "samples/choir/B2.mp3",
+          "48": "samples/choir/C3.mp3",
+          "49": "samples/choir/C%233.mp3",
+          "50": "samples/choir/D3.mp3",
+          "51": "samples/choir/D%233.mp3",
+          "52": "samples/choir/E3.mp3",
+          "53": "samples/choir/F3.mp3",
+          "54": "samples/choir/F%233.mp3",
+          "55": "samples/choir/G3.mp3",
+          "56": "samples/choir/G%233.mp3",
+          "57": "samples/choir/A3.mp3",
+          "58": "samples/choir/A%233.mp3",
+          "59": "samples/choir/B3.mp3",
+          "60": "samples/choir/C4.mp3",
+          "61": "samples/choir/C%234.mp3",
+          "62": "samples/choir/D4.mp3",
+          "63": "samples/choir/D%234.mp3",
+          "64": "samples/choir/E4.mp3",
+          "65": "samples/choir/F4.mp3",
+          "66": "samples/choir/F%234.mp3",
+          "67": "samples/choir/G4.mp3",
+          "68": "samples/choir/G%234.mp3",
+          "69": "samples/choir/A4.mp3",
+          "70": "samples/choir/A%234.mp3",
+          "71": "samples/choir/B4.mp3",
+          "72": "samples/choir/C5.mp3",
+          "73": "samples/choir/C%235.mp3",
+          "74": "samples/choir/D5.mp3",
+          "75": "samples/choir/D%235.mp3",
+          "76": "samples/choir/E5.mp3",
+          "77": "samples/choir/F5.mp3",
+          "78": "samples/choir/F%235.mp3",
+          "79": "samples/choir/G5.mp3",
+          "80": "samples/choir/G%235.mp3",
+          "81": "samples/choir/A5.mp3",
+          "82": "samples/choir/A%235.mp3",
+          "83": "samples/choir/B5.mp3",
+          "84": "samples/choir/C6.mp3"
+        }
+      }
+    ],
+    "attack": 0.35,
+    "release": 1.6
+  }
+}
