@@ -27,6 +27,7 @@ test("visitors can enter V2 and open the River without WebGL2", async ({ page })
     };
   });
   await page.goto("./");
+  await expect(page.locator("#homeTitle")).toHaveText("Requiem of Everything");
   await page.getByRole("button", { name: "Enter in silence" }).click();
   await expect(page.locator("body")).toHaveClass(/\bentered\b/);
   await page.getByRole("link", { name: /The River of Time/ }).click();
@@ -65,6 +66,14 @@ test("the old River link retains the focused composer and can return to the V2 r
   await page.locator(".sigil .home").click();
   await expect(page).toHaveURL(/\/requiem-of-everything\/#entered$/);
   await expect(page.locator("body")).toHaveClass(/\bentered\b/);
+  await expect(page.locator("#enter")).toHaveJSProperty("inert", true);
+  await page.getByRole("button", { name: "Credits" }).focus();
+  await page.keyboard.press("Tab");
+  const legacyLink = page.getByRole("link", { name: "Requiem V1" });
+  await expect(legacyLink).toBeVisible();
+  await expect(legacyLink).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/requiem-of-everything\/legacy\/v1\/$/);
 });
 
 for (const { path, selector, text } of [
