@@ -55,7 +55,9 @@ test.describe("touch on the Home entry screen", () => {
     await expect(renderedVotives).toHaveAttribute("data-votive-count", "0");
     const overlay = await page.locator("body").evaluate(body => getComputedStyle(body, "::after").content);
     expect(overlay).toContain("Please turn your phone sideways");
+    await page.touchscreen.tap(195, 422);
     await page.setViewportSize({ width: 844, height: 390 });
+    await expect(renderedVotives).toHaveAttribute("data-votive-count", "0");
     await page.getByRole("button", { name: "Light a votive" }).tap();
     await expect(renderedVotives).toHaveAttribute("data-votive-count", "1");
     await page.touchscreen.tap(75, 220);

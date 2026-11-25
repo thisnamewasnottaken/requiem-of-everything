@@ -469,6 +469,7 @@ addEventListener('pointermove',e=>{
   }
 });
 function lightVotive(clientX,clientY){
+  if(getComputedStyle(document.body,'::after').content!=='none') return;
   const x=(clientX-innerWidth/2)/innerHeight, y=(innerHeight/2-clientY)/innerHeight;
   candles.push({x,y,t:performance.now()/1000,h:+sL.value/100}); if(candles.length>16) candles.shift();
   if(soundOn){
