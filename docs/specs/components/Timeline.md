@@ -2,16 +2,11 @@
 
 ## Purpose
 
-The root timeline component. Renders the full interactive, zoomable, pannable timeline of classical music. Composes all visual layers (eras, composers, compositions, events) and manages the viewport.
+The React app's interactive, zoomable, pannable timeline. It composes the era, composer, composition and event layers. The v2 River is a [separate implementation](../features/rebuild-v2.md).
 
 ## Props / Inputs
 
-| Prop           | Type                     | Description                 |
-| -------------- | ------------------------ | --------------------------- |
-| `composers`    | `Composer[]`             | All composers to display    |
-| `compositions` | `Composition[]`          | All compositions to display |
-| `events`       | `HistoricalEvent[]`      | All historical events       |
-| `eras`         | `MusicalEraDefinition[]` | Musical era definitions     |
+No props. Timeline reads localized entities through `src/hooks/useData.ts` and viewport, selection, filtering and comparison state through Zustand stores.
 
 ## Visual States
 
@@ -20,7 +15,6 @@ The root timeline component. Renders the full interactive, zoomable, pannable ti
 - **Filtered**: Only matching composers/compositions shown; others hidden or dimmed.
 - **Focus Mode (single composer)**: Timeline is zoomed to a single composer's lifespan. Non-focused composers and historical events are dimmed; non-focused composers collapse to 6px height after 1.5 seconds (same visual treatment as comparison mode). Composition markers for non-focused composers are also dimmed.
 - **Comparison Mode**: Two or more composers highlighted; non-compared composers dim immediately, then collapse to 6px height after 3 seconds. Historical events and composition markers for non-compared composers are dimmed. Timeline auto-zooms to the union of compared composers' lifespans. This deliberately strips away surrounding context to focus on comparing the selected composers.
-- **Loading**: Skeleton or shimmer state while data loads.
 
 ## Design Philosophy: Focus vs Comparison
 
@@ -45,16 +39,16 @@ Both modes zoom the timeline to frame the relevant composers, but focus mode pre
 
 ## Interactions
 
-- **Scroll zoom**: Ctrl+wheel (or trackpad pinch, which the browser reports as Ctrl+wheel) zooms in/out, centered on cursor position. The wheel listener is attached natively with `{ passive: false }` so `preventDefault()` stops the browser's built-in page zoom. Plain (non-Ctrl) wheel events are not intercepted.
+- **Scroll zoom**: Ctrl/Cmd+wheel (or trackpad pinch reported as Ctrl+wheel) zooms in/out at the pointer's year. The native wheel listener uses `{ passive: false }` so it can prevent browser zoom. Unmodified wheel events are not intercepted.
 - **Click-drag pan**: Left mouse drag pans the timeline horizontally.
+- **Touch**: One finger pans; two fingers pinch to zoom.
 - **Click composer bar**: Selects the composer, opens detail panel.
 - **Click composition marker**: Selects the composition, opens detail panel.
 - **Hover**: Shows tooltip with name and dates.
 
 ## Accessibility
 
-- Timeline is presented as an application region with `role="application"`.
-- Keyboard: Arrow keys for panning, +/- for zoom.
+- Keyboard: Use the focusable zoom/reset buttons; `R` resets the view outside text and select fields.
 - Each composer bar and marker has `aria-label` with the name and year.
 - Focus ring visible on keyboard navigation.
 
@@ -75,6 +69,6 @@ Both modes zoom the timeline to frame the relevant composers, but focus mode pre
 3. Zooming changes the viewport range and re-positions elements.
 4. Panning shifts the viewport and re-positions elements.
 5. Clicking a composer bar dispatches selection.
-6. Only composers within the viewport (± margin) are rendered (virtualization).
+6. Only composers overlapping the viewport are assigned a row and rendered.
 7. Historical events render as markers/lines and do not render full-height backdrop bands.
-8. Keyboard navigation (arrows, +/-) modifies the viewport.
+8. Activating the zoom buttons modifies the viewport; reset restores the default.
