@@ -1,7 +1,7 @@
-# Feature: Rebuild v2 (static site in `public/v2/`)
+# Feature: Rebuild v2 (static site in `public/`)
 
 ## Purpose
-This is the next-generation Requiem of Everything experience, built as a static, self-contained site. It is served at `/<base>/v2/` beside the current React app until it replaces it.
+The current Requiem of Everything experience is a static site served at the application root (on GitHub Pages, `/requiem-of-everything/`). The original React app is available at `/legacy/v1/` relative to that root. The old `/v2/` home and feature-page links redirect to the corresponding new URLs and retain their query strings and fragments.
 
 ## Pages
 - `index.html`: Home. An eye-level infinite dark floor with light columns and incense, plus three halo destinations. The sound toggle (`roe-sound` in localStorage) is shared by every page.
@@ -26,7 +26,7 @@ This is the next-generation Requiem of Everything experience, built as a static,
 - Silence (Home, River, Hall; `roe-sound=off`) calls `sound.stopAll()`. Every tracked voice fades out over 80 ms and stops, including notes scheduled for later. Notes still loading are dropped, and the reverb's convolver is replaced so its tail is cut too. The audio context is not suspended, so nothing queued plays again on unmute. The Hall also cancels its pending sync and motif-light timers.
 
 ## Validation
-`public/v2/tools/check-*.mjs` (Node) checks the Hall layout and fit, life-arc data, Spotify IDs, instrument era notes and i18n coverage.
+`public/tools/check-*.mjs` (Node) checks the Hall layout and fit, life-arc data, Spotify IDs, instrument era notes and i18n coverage.
 
 ## Comparison
 See `docs/rebuild/README.md`.

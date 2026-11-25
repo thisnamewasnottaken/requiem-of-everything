@@ -2,7 +2,7 @@
 
 > "I would like to rebuild, and I stress rebuild, the Requiem of Everything into a hauntingly beautiful site that draws in newcomers and avid fans of classical music into a joyous interactive experience."
 
-This report compares the **old site** (the React app on `main`) with the **new site** built in one Devin session: <https://app.devin.ai/sessions/3b05c5bc8d3f4f8384ab4a1c4492e415>. The new site lives in [`public/v2/`](../../public/v2/), so once it's merged it is served at `/requiem-of-everything/v2/` alongside the current site.
+This report compares the **first edition** (the React app) with **V2**, built in one Devin session: <https://app.devin.ai/sessions/3b05c5bc8d3f4f8384ab4a1c4492e415>. V2 now lives in [`public/`](../../public/) and is served at `/requiem-of-everything/`, with the first edition at `/requiem-of-everything/legacy/v1/`.
 
 Every screenshot is 1440×900, taken in headless Chrome. The old site was built from `main`; the new site comes from this branch.
 
@@ -95,11 +95,11 @@ The translations still need a review by native speakers before launch.
 
 ## Under the hood
 
-- **Research:** a life arc for each of the 51 composers, covering output and public standing over time, world events and contemporaries. Each arc was fact-checked against Wikipedia, which produced 71 corrections (log: [`public/v2/tools/factcheck-log.md`](../../public/v2/tools/factcheck-log.md)).
+- **Research:** a life arc for each of the 51 composers, covering output and public standing over time, world events and contemporaries. Each arc was fact-checked against Wikipedia, which produced 71 corrections (log: [`public/tools/factcheck-log.md`](../../public/tools/factcheck-log.md)).
 - **Instruments:** 26 instruments and voices, each with a showcase recording, great players and 156 era notes (one per era).
-- **Listening:** 222 Spotify recordings (196 works and 26 showcases), each verified by its title through Spotify's public oEmbed endpoint and listed for review in [`spotify-review.csv`](../../public/v2/tools/spotify-review.csv). They play through Spotify's official embed, so no keys or secrets are involved.
+- **Listening:** 222 Spotify recordings (196 works and 26 showcases), each verified by its title through Spotify's public oEmbed endpoint and listed for review in [`spotify-review.csv`](../../public/tools/spotify-review.csv). They play through Spotify's official embed, so no keys or secrets are involved.
 - **Sound:** recorded orchestral samples from VSCO 2 Community Edition (CC0) and Sonatina Symphonic Orchestra (CC Sampling Plus 1.0, credited). Each instrument loads only when it is needed. Each section is layered from slightly offset voices so it sounds like a group of players.
-- **Checks:** automated scripts in `public/v2/tools/` confirm that:
+- **Checks:** automated scripts in `public/tools/` confirm that:
   - no two Hall sections or labels overlap, and every player stays in view, across 11 layouts at 3 screen sizes;
   - every Spotify ID resolves;
   - the life-arc data is complete;
