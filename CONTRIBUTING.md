@@ -25,6 +25,16 @@ The [GitHub Pages workflow](.github/workflows/deploy.yml) runs type checking, th
 
 The pre-commit script runs `npm run i18n:strict` first. By default it runs related Vitest tests when staged source or test-relevant config files match its filters. With `CI=true` or `PRECOMMIT_TEST_SCOPE=full`, it runs the full unit suite. The `hooks:install` npm script sets Git's hook path but does not make files executable. Since the checked-in hook is not executable, run it explicitly with Bash as shown above; do not assume Git ran it automatically.
 
+### UI acceptance checklist
+
+For every UI change, verify the affected route and record what you checked in the PR:
+
+- [ ] Desktop, tablet, and phone layouts work at widths that exercise the affected UI's breakpoints.
+- [ ] Touch targets are easy to tap, applicable gestures work, and essential actions don't require hover.
+- [ ] Keyboard interactions work, focus order is logical, focus is visible, and affected shortcuts work.
+
+Include relevant tests or screenshots. The [routing tests](e2e/routing.spec.ts) show how to vary the viewport, and the [Lexicon tests](e2e/lexicon-links.spec.ts) show how to exercise touch input in Playwright.
+
 ## Adding data or translations
 
 ### React app (`/legacy/v1/`)
