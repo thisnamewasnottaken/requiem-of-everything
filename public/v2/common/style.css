@@ -35,6 +35,28 @@ canvas{display:block}
 .sigil a.mark.home{width:26px;height:26px;transform:none;border:0;box-shadow:none;padding:0;display:inline-flex;filter:drop-shadow(0 0 6px rgba(239,212,151,.35))}
 .sigil a.mark.home img{width:26px;height:26px;display:block}
 .sigil a.mark.home:hover{filter:drop-shadow(0 0 10px rgba(255,200,130,.7))}
+.sigil-links{display:flex;gap:18px;align-items:center}
+.sigil-burger{display:none;width:34px;height:30px;padding:0;align-items:center;justify-content:center;cursor:pointer;
+  background:rgba(16,12,9,.6);border:1px solid var(--gold-faint);transition:border-color .4s,box-shadow .4s}
+.sigil-burger i,.sigil-burger i::before,.sigil-burger i::after{display:block;width:14px;height:1px;background:var(--gold-hi);transition:transform .3s,background-color .3s}
+.sigil-burger i{position:relative}
+.sigil-burger i::before,.sigil-burger i::after{content:"";position:absolute;left:0}
+.sigil-burger i::before{top:-5px}
+.sigil-burger i::after{top:5px}
+.sigil-burger:hover,.sigil-burger:focus-visible,.sigil.open .sigil-burger{border-color:var(--gold-dim);box-shadow:0 0 14px rgba(239,212,151,.18);outline:none}
+.sigil.open .sigil-burger i{background:transparent}
+.sigil.open .sigil-burger i::before{transform:translateY(5px) rotate(45deg)}
+.sigil.open .sigil-burger i::after{transform:translateY(-5px) rotate(-45deg)}
+@media (max-width:1180px){
+  .sigil{gap:12px}
+  .sigil.open{z-index:45}
+  .sigil-burger{display:inline-flex}
+  .sigil-links{display:none;position:absolute;left:0;top:calc(100% + 10px);min-width:210px;padding:6px;flex-direction:column;align-items:stretch;gap:2px;
+    background:rgba(16,12,9,.95);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--gold-dim);box-shadow:0 10px 50px rgba(0,0,0,.6)}
+  .sigil.open .sigil-links{display:flex}
+  .sigil-links a{padding:11px 12px;white-space:nowrap}
+  .sigil-links a:hover,.sigil-links a:focus-visible{background:rgba(239,212,151,.08);outline:none}
+}
 
 @media (orientation:portrait) and (max-width:820px){
   body::after{content:"Please turn your phone sideways\A\A Requiem of Everything is made for landscape";white-space:pre-wrap;position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 12vw;

@@ -64,6 +64,7 @@
     'nav.river': 'River of Time',
     'nav.hall': 'Concert Hall',
     'nav.lexicon': 'Lexicon',
+    'nav.menu': 'Menu',
     'river.title': 'The River of Time',
     'river.region.americas': 'Americas',
     'river.region.british-isles': 'British Isles',
@@ -244,10 +245,25 @@
       home.setAttribute('aria-label', t('nav.home'));
       home.title = t('nav.home.title');
     }
-    const labels = [t('nav.river'), t('nav.hall'), t('nav.lexicon')];
-    [...nav.querySelectorAll('a:not(.mark)')].forEach((link, index) => {
-      if (labels[index]) link.textContent = labels[index];
+    const labels = { 'river.html': t('nav.river'), 'hall.html': t('nav.hall'), 'terms.html': t('nav.lexicon') };
+    for (const link of nav.querySelectorAll('a:not(.mark)')) {
+      const page = link.getAttribute('href');
+      if (Object.hasOwn(labels, page)) link.textContent = labels[page];
+    }
+    const burger = nav.querySelector('.sigil-burger');
+    if (!burger) return;
+    burger.setAttribute('aria-label', t('nav.menu'));
+    burger.title = t('nav.menu');
+    const setOpen = open => {
+      nav.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+    };
+    burger.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+    nav.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('open')) { event.stopPropagation(); setOpen(false); burger.focus(); }
     });
+    nav.addEventListener('focusout', event => { if (!nav.contains(event.relatedTarget)) setOpen(false); });
+    document.addEventListener('pointerdown', event => { if (!nav.contains(event.target)) setOpen(false); });
   }
 
   function mergeRecords(records, translations) {
