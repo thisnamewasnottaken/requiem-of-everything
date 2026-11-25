@@ -9,6 +9,8 @@
   "home.credits": "Crédits",
   "home.credits.aria": "Crédits",
   "home.hint": "dérivez dans l’obscurité · cliquez pour allumer une bougie",
+  "home.noWebgl": "Votre navigateur bloque WebGL : vous voyez donc une salle simplifiée. Activez l’accélération matérielle, ou autorisez WebGL pour ce site dans vos extensions de confidentialité, pour retrouver toute la lumière.",
+  "home.noWebgl.dismiss": "Fermer",
   "home.portal.river.title": "Le fleuve du temps",
   "home.portal.river.description": "Voyez les vies des compositeurs s’entrelacer et l’histoire les bouleverser.",
   "home.portal.hall.title": "La Salle de concert",
