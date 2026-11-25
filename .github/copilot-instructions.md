@@ -59,6 +59,10 @@ Each component lives in `src/components/ComponentName/` with:
 - Fonts: Playfair Display (display), Source Sans 3 (body), JetBrains Mono (code/years)
 - Dark theme only. Use existing CSS variables, never hardcode colors.
 
+### Form factors and input
+
+Always consider desktop, tablet, and phone layouts and both touch and keyboard input. For UI changes, follow the [agent rule](../AGENTS.md) and the [contributor acceptance checklist](../CONTRIBUTING.md#ui-acceptance-checklist).
+
 ### Timeline rendering layers (bottom→top)
 
 TimeRuler → EraBackdrop → ComposerBar → CompositionMarker → EventMarker → UI Overlays. Each layer is a separate component receiving the D3 scale and viewport bounds.

@@ -41,7 +41,7 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 - Silence (Home, River, Hall; `roe-sound=off`) calls `sound.stopAll()`. Every tracked voice fades out over 80 ms and stops, including notes scheduled for later. Notes still loading are dropped, and the reverb's convolver is replaced so its tail is cut too. The audio context is not suspended, so nothing queued plays again on unmute. The Hall also cancels its pending sync and motif-light timers.
 
 ## Validation
-From the repo root, use `npm ci` and `npm run dev`, then open `http://localhost:5173/` for V2 or `http://localhost:5173/legacy/v1/` for V1.
+From the repo root, use `npm ci` and `npm run dev`, then open `http://localhost:5173/` for V2 or `http://localhost:5173/legacy/v1/` for V1. For V2 UI changes, also complete the [UI acceptance checklist](../../../CONTRIBUTING.md#ui-acceptance-checklist) and record the results in the PR.
 
 Run the offline v2 checks with Node:
 

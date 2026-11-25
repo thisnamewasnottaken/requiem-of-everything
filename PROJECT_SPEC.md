@@ -67,7 +67,7 @@ The goal is _discovery_: a user should be able to land on any point in time and 
 | Requirement      | Target                                                       |
 | ---------------- | ------------------------------------------------------------ |
 | Performance      | 60fps timeline scrolling/zooming with 200+ composers loaded  |
-| Responsiveness   | Desktop-first, tablet-friendly; mobile as stretch goal       |
+| Responsiveness   | Originally desktop-first; verify UI changes at desktop, tablet, and phone widths. |
 | Accessibility    | Keyboard navigation, screen reader labels, contrast ratios   |
 | Data Portability | All data in structured JSON; importable/exportable           |
 | Extensibility    | Plugin-ready architecture for AI modules                     |
@@ -101,7 +101,7 @@ Every feature begins as a specification (this document + component specs), not a
 1. **Spec** → Write or update the spec for a feature in `docs/specs/`.
 2. **Test** → Write failing tests that validate the spec in `src/__tests__/`.
 3. **Implement** → Write the minimum code to make tests pass.
-4. **Review** → Verify against spec, refine.
+4. **Review** → Verify against spec, refine, and complete the [UI acceptance checklist](CONTRIBUTING.md#ui-acceptance-checklist) for UI changes.
 5. **Document** → Update `CHANGELOG.md` and component docs.
 
 ### 6.3 Rebuilding
