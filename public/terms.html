@@ -124,6 +124,7 @@ const ODE=[[64,1],[64,1],[65,1],[67,1],[67,1],[65,1],[64,1],[62,1],[60,1],[60,1]
 const FRERE=[[60,1],[62,1],[64,1],[60,1],[60,1],[62,1],[64,1],[60,1],[64,1],[65,1],[67,2]];
 const PCOL={piano:'#f3ead8',violin:'#ffc27a',viola:'#f2a3b4',cello:'#e0703f',bass:'#b8573a',pizz:'#ffb36b',harp:'#ffd9b0',flute:'#c4f5d8',oboe:'#79d6a6',clarinet:'#62c7cf',bassoon:'#3fae8a',horn:'#ffe07f',trumpet:'#fff3b8',timpani:'#ff7a55',harpsichord:'#f6e7c8',choir:'#a9c4ff',oohs:'#cfe0ff'};
 let roll=[], secs=[], info='', rT0=0, span=1, playing=false;
+const pulseTimers=new Set();
 const N=(p,m,t,d,v=.5,o={})=>{ roll.push({p,m,t,d,v,o}); return t+d; };
 function line(p,notes,{t=0,bpm=100,v=.5,art=1,tr=0,vf,tf,o}={}){ let x=t; notes.forEach(([m,b],i)=>{ const d=b*60/(tf?tf(i/notes.length):bpm); N(p,m+tr,x,d*art,vf?vf(i/notes.length,i):v,o); x+=d; }); return x; }
 const chord=(p,ms,t,d,v=.38)=>{ ms.forEach(m=>N(p,m,t,d,v)); return t+d; };
@@ -197,7 +198,8 @@ async function play(t){ if(!t.demo)return; const b=$('dPlay'); await sound.unloc
   const need={}; roll.forEach(n=>(need[n.p]??=new Set()).add(Math.round(n.m))); await Promise.all(Object.entries(need).map(([p,s])=>sound.preload(p,[...s]).catch(()=>{})));
   if(card!==t||b!==$('dPlay'))return;
   rT0=sound.now()+.15; playing=true; roll.forEach(n=>sound.play(n.p,n.m,{when:rT0+n.t,dur:n.d,vel:n.v,tag:'demo',...n.o})); b.textContent=window.ROE_I18N.t('lexicon.term.hearAgain'); $('dinfo').textContent=info; }
-sound.onNote(n=>{ if(n.tag==='demo'){ const dl=Math.max(0,(n.when-sound.now())*1000); setTimeout(()=>pulse=Math.min(1,pulse+.5*n.vel+.25),dl); } });
+sound.onNote(n=>{ if(n.tag==='demo'){ const dl=Math.max(0,(n.when-sound.now())*1000); const timer=setTimeout(()=>{ pulseTimers.delete(timer); pulse=Math.min(1,pulse+.5*n.vel+.25); },dl); pulseTimers.add(timer); } });
+function stopDemo(){ if(roll.length)sound.stopAll(); pulseTimers.forEach(clearTimeout); pulseTimers.clear(); roll=[]; secs=[]; playing=false; pulse=0; }
 function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.clientHeight,d=Math.min(devicePixelRatio,2); if(c.width!==w*d){c.width=w*d;c.height=h*d;} const x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); x.clearRect(0,0,w,h);
   x.strokeStyle='rgba(201,165,92,.1)'; for(let i=1;i<5;i++){ x.beginPath(); x.moveTo(0,i*h/5); x.lineTo(w,i*h/5); x.stroke(); }
   if(!roll.length){ x.fillStyle='rgba(216,203,180,.4)'; x.font='italic 15px Cormorant Garamond'; x.textAlign='center'; x.fillText(t('lexicon.term.rollPrompt'),w/2,h/2+5); return; }
@@ -211,7 +213,7 @@ function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.
   if(playing&&now<=span){ x.strokeStyle='rgba(255,243,218,.7)'; x.beginPath(); x.moveTo(X(now),0); x.lineTo(X(now),h); x.stroke(); } else if(playing&&now>span) playing=false; }
 // ---------- card ----------
 const termCard=$('card');
-function openTerm(t,{silentHash,path=[]}={}){ if(!t||!Object.hasOwn(BY,t.id))return; card=t; trail=path; roll=[]; secs=[]; playing=false; pulse=0; const col=Object.hasOwn(CL,t.c)?CL[t.c][1]:'#efd497';
+function openTerm(t,{silentHash,path=[]}={}){ if(!t||!Object.hasOwn(BY,t.id))return; stopDemo(); card=t; trail=path; const col=Object.hasOwn(CL,t.c)?CL[t.c][1]:'#efd497';
   const ex=(t.examples||[]).filter(id=>Object.hasOwn(CMP,id)).map(id=>CMP[id]);
   const related=[...neighbors.get(t)], copy=window.ROE_I18N.t;
   termCard.innerHTML=`${trail.length?`<nav class="term-trail" aria-label="${esc(copy('lexicon.term.trail'))}">
@@ -240,7 +242,7 @@ termCard.addEventListener('click',e=>{
     openTerm(trail[index],{path:trail.slice(0,index)});
   }
 });
-function closeCard(){ const hadFocus=termCard.contains(document.activeElement); card=null; trail=[]; termCard.inert=true; termCard.classList.remove('open'); aim(); history.replaceState(null,'',focusG?'#group='+focusG:'#'); if(hadFocus)$('q').focus(); }
+function closeCard(){ const hadFocus=termCard.contains(document.activeElement); stopDemo(); card=null; trail=[]; termCard.inert=true; termCard.classList.remove('open'); aim(); history.replaceState(null,'',focusG?'#group='+focusG:'#'); if(hadFocus)$('q').focus(); }
 // ---------- chips, search ----------
 const chips=$('chips'); const mk=(k,label,col)=>{ const b=document.createElement('button'); b.className='btn'; b.dataset.k=k; b.innerHTML=(col?`<i style="color:${esc(col)};background:${esc(col)}"></i>`:'')+esc(label); b.onclick=()=>setGroup(k||null); chips.appendChild(b); };
 mk('',t('lexicon.group.all')); CK.forEach(k=>mk(k,CL[k][0],CL[k][1]));

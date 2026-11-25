@@ -101,7 +101,20 @@ test.describe("touch and reduced motion", () => {
     await expect(page).toHaveURL(/#term=diminuendo$/);
     const diminuendo = page.getByRole("dialog", { name: "Diminuendo" });
     await expect(diminuendo.getByRole("link", { name: /Concert Hall/ })).toHaveCount(0);
+    await page.evaluate(async () => {
+      const { sound } = await import(new URL("common/sound.js", location.href).href);
+      sound.load = async () => {};
+      sound._buffer = async () => sound.ctx.createBuffer(1, sound.ctx.sampleRate * 2, sound.ctx.sampleRate);
+    });
     await diminuendo.getByRole("button", { name: "Hear it", exact: true }).tap();
     await expect(diminuendo.getByRole("button", { name: "Hear it again" })).toBeVisible({ timeout: 15_000 });
+    const activeVoices = () => page.evaluate(async () => {
+      const { sound } = await import(new URL("common/sound.js", location.href).href);
+      return sound.voices.size;
+    });
+    await expect.poll(activeVoices).toBeGreaterThan(0);
+    await diminuendo.getByRole("button", { name: "Back to Crescendo" }).tap();
+    await expect(card).toBeVisible();
+    await expect.poll(activeVoices, { timeout: 1000 }).toBe(0);
   });
 });
