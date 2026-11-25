@@ -147,6 +147,35 @@ test("a double-click jumps without revealing a Follow chip on the first click", 
   expect(await activated.jsonValue()).toEqual([]);
 });
 
+test("following a connection stops the previous term's audio demo", async ({ page }) => {
+  await watchGraph(page);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("terms.html?lang=en-GB#term=crescendo");
+  const demo = await page.evaluateHandle(async () => {
+    const { sound } = await import(new URL("common/sound.js", location.href).href);
+    sound.load = async () => {};
+    sound._buffer = async () => sound.ctx.createBuffer(1, sound.ctx.sampleRate * 8, sound.ctx.sampleRate);
+    return {
+      active: () => sound.voices.size as number,
+      finished: () => Promise.all(Array.from(sound.voices, ({ source }: { source: AudioBufferSourceNode }) =>
+        new Promise<void>(resolve => source.addEventListener("ended", () => resolve(), { once: true }))
+      )),
+    };
+  });
+  const hear = page.getByRole("button", { name: "Hear it", exact: true });
+  await hear.click();
+  await expect.poll(() => demo.evaluate(d => d.active())).toBeGreaterThan(0);
+  const ended = await demo.evaluateHandle(d => ({ result: d.finished() }));
+  const point = await linePoint(page, "Crescendo", "Diminuendo");
+  await page.mouse.move(point.x, point.y);
+  await chip(page, "Diminuendo").click();
+  await expect(heading(page, "Diminuendo")).toBeVisible();
+  expect(await demo.evaluate(d => d.active())).toBe(0);
+  await ended.evaluate(d => d.result);
+  await hear.click();
+  await expect.poll(() => demo.evaluate(d => d.active())).toBeGreaterThan(0);
+});
+
 test("Piano Solo draws in both neighbors without normalising their perspective sizes", async ({ page }, testInfo) => {
   await watchGraph(page);
   await page.emulateMedia({ reducedMotion: "reduce" });
