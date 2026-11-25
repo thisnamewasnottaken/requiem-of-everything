@@ -182,7 +182,7 @@ function renderComposers(){ const c=curComposer(); const el=$('iComp');
   const eras=(L[st.era]||{}).eras||[]; const cs=D.composers.filter(x=>eras.includes(x.era)).sort((a,b)=>b.compositionIds.length-a.compositionIds.length).slice(0,5);
   el.innerHTML=cs.length?esc(t('hall.composers.ofEra'))+cs.map(x=>`<a class="who" data-c="${esc(x.id)}">${esc(x.shortName)}</a>`).join(', '):''; }
 function setHash(){ const p=new URLSearchParams(); if(st.composer)p.set('composer',st.composer); else p.set('era',st.era);
-  if(st.instrument)p.set('instrument',st.instrument); history.replaceState(null,'','#'+p.toString()); }
+  if(st.instrument)p.set('instrument',st.instrument); if(fromTerm)p.set('fromTerm',fromTerm); history.replaceState(null,'','#'+p.toString()); }
 function mark(){
   eraBox.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',b.dataset.id===st.era&&!st.composer));
   $('fComposer').value=st.composer||''; $('fInstr').value=st.instrument||''; }
@@ -557,6 +557,8 @@ $('bMore').onclick=()=>{ const i=$('info'); i.classList.toggle('more'); $('bMore
 $('tutti').onclick=()=>{ clearTimeout(syncTimer); pendingSync=false; raiseBaton(); };
 // ---------- boot from URL: #era=baroque  #composer=gustav-mahler  #instrument=cello ----------
 const hp=new URLSearchParams(location.hash.slice(1));
+const fromTerm=/^[a-z0-9-]+$/.test(hp.get('fromTerm')||'')?hp.get('fromTerm'):null;
+if(fromTerm)document.querySelector('.sigil a[href="terms.html"]').hash=new URLSearchParams({term:fromTerm}).toString();
 const pp=PIECES.find(p=>p.id===hp.get('piece'));
 const pieceComposer=pp&&Object.hasOwn(COMP,pp.composer)?pp.composer:null;
 const composerId=hp.get('composer'), eraId=hp.get('era');

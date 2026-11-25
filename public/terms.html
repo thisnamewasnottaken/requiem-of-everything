@@ -17,9 +17,19 @@ body{background:#060504;overflow:hidden;touch-action:none}
 #chips{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:20;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;width:min(1200px,96vw)}
 #chips .btn{font-size:.5rem;padding:7px 10px}
 #chips .btn i{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:7px;vertical-align:middle;box-shadow:0 0 8px currentColor}
-#card{position:fixed;right:28px;top:84px;width:380px;max-height:calc(100vh - 170px);overflow-y:auto;z-index:20;padding:18px 20px;opacity:0;transform:translateX(30px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.4) transparent}
+#card{position:fixed;right:28px;top:84px;width:380px;max-height:calc(100vh - 170px);overflow-y:auto;z-index:41;padding:18px 20px;opacity:0;transform:translateX(30px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.4) transparent}
 #card.open{opacity:1;transform:none;pointer-events:auto}
+#card :focus-visible{outline:2px solid #efd497;outline-offset:2px}
 #card h3{font-weight:400;font-size:2.2rem;line-height:1.05;color:#f6e9cf;margin:6px 0 2px}
+#card .term-trail{display:flex;align-items:center;gap:4px 8px;flex-wrap:wrap;margin:0 0 12px;color:var(--mist);font-size:.95rem}
+#card .term-trail button{min-height:36px;padding:4px 7px;border:0;background:none;color:var(--gold-hi);font:inherit;cursor:pointer}
+#card .term-trail button:hover{text-decoration:underline}
+#card .term-trail [aria-current]{color:#f6e9cf}
+#card .related{margin:14px 0}
+#card .related h4{margin:0;font-weight:500}
+#card .related .btn{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px;text-align:left}
+#card .related strong{font:500 1.08rem var(--display);letter-spacing:0;text-transform:none;color:#f6e9cf}
+#card .related span{font-size:.5rem;color:var(--mist)}
 #card .lit{font-style:italic;color:var(--mist);font-size:1.02rem}
 #card p{font-size:1.06rem;line-height:1.5;color:rgba(230,216,189,.86);margin:10px 0}
 #card .demo{margin:12px 0;padding:10px 12px;border:1px solid var(--gold-faint);background:rgba(255,200,130,.03)}
@@ -37,6 +47,7 @@ body{background:#060504;overflow:hidden;touch-action:none}
 #tip b{font-weight:500;color:#f6e9cf;font-size:1.05rem;display:block}#tip span{font-size:.95rem;color:rgba(230,216,189,.8);line-height:1.35}
 @media (max-width:760px){#head{top:58px}#head h1,#head p{display:none}#q{margin-top:0}#card{left:8px;right:8px;width:auto;top:auto;bottom:62px;max-height:60vh}#chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;bottom:12px}#chips .btn{font-size:.45rem;padding:7px 9px;white-space:nowrap;flex:none}}
 @media (max-height:500px) and (min-width:761px){#head{top:52px;left:0;transform:none;width:100%}#head h1{font-size:.9rem;letter-spacing:.3em}#head p{display:none}#q{position:fixed;top:84px;left:12px;margin-top:0;width:min(320px,calc(100vw - 460px))}}
+@media (prefers-reduced-motion:reduce){#card{transition:none}}
 </style>
 </head>
 <body>
@@ -44,7 +55,7 @@ body{background:#060504;overflow:hidden;touch-action:none}
 <div class="vignette"></div><div class="grain"></div>
 <nav class="sigil"><a class="mark home" href="./#entered" aria-label="" title=""><img src="icon.svg" alt=""></a><button class="sigil-burger" type="button" aria-expanded="false" aria-controls="sigilLinks" aria-label="" title=""><i></i></button><span class="sigil-links" id="sigilLinks"><a href="river.html">River of Time</a><a href="hall.html">Concert Hall</a></span></nav>
 <div id="head"><h1></h1><p>the words of music, heard as well as read · drag to turn, scroll to fly closer</p><input id="q" type="search" placeholder="" aria-label="" autocomplete="off"></div>
-<div id="card" class="reliquary" role="dialog" aria-live="polite"></div>
+<div id="card" class="reliquary" role="dialog" aria-labelledby="termName" inert></div>
 <div id="chips"></div>
 <div id="tip" class="reliquary"></div>
 <script src="common/i18n.js"></script><script src="common/html.js"></script><script src="common/data.js"></script><script src="common/spotify-ids.js"></script><script src="common/spotify-embed.js"></script><script src="common/terms-base.js"></script><script src="common/terms.js"></script>
@@ -66,7 +77,8 @@ const TERMS=[...window.ROE_TERMS_BASE.map(b=>{const m=Object.hasOwn(window.ROE_T
 const BY=Object.fromEntries(TERMS.map(t=>[t.id,t]));
 const cv=$('sky'), g=cv.getContext('2d'), hz=$('haze'); let W,H,DPR; const HS=.5;
 const gl=hz.getContext('webgl',{antialias:false,alpha:false});
-let G={}, focusG=null, hover=null, card=null, query='', T=0, pulse=0, idle=0, offX=0, basis=null, drag=null;
+let G={}, focusG=null, hover=null, card=null, trail=[], query='', T=0, pulse=0, idle=0, offX=0, basis=null, drag=null;
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const cam={yaw:.35,pitch:-.16,dist:1550,tx:0,ty:0,tz:0}, camT={...cam};
 const stars=Array.from({length:520},()=>{ const u=Math.random()*2-1, a=Math.random()*6.283, r=900+Math.random()*1800, q=Math.sqrt(1-u*u); return {x:Math.cos(a)*q*r,y:u*r*.75,z:Math.sin(a)*q*r,b:Math.random()}; });
 function resize(){DPR=Math.min(devicePixelRatio,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;hz.width=Math.round(W*HS);hz.height=Math.round(H*HS);gl&&gl.viewport(0,0,hz.width,hz.height);layout();}
@@ -76,6 +88,8 @@ const EDGES=[['tempo','movement'],['allegro','sonata-form'],['adagio','movement'
  ['leitmotif','tone-poem'],['sonata-form','sonata'],['tutti','orchestra'],['conductor','orchestra'],['tuning','concertmaster'],['concertmaster','orchestra'],['crescendo','dynamics'],['pizzicato','arco'],['legato','staccato'],['nocturne','piano-solo'],
  ['berceuse','nocturne'],['etude','piano-solo'],['polonaise','mazurka'],['gigue','suite'],['string-quartet','chamber-music'],['harmony','chord'],['chord','cadence'],['major-minor','modulation'],['rubato','nocturne'],['serenade','chamber-music'],
  ['ternary','minuet'],['rondo','concerto'],['variation','sonata'],['tremolo','dynamics'],['accelerando','ritardando'],['crescendo','diminuendo'],['satb','a-cappella'],['opus','symphony'],['encore','soloist'],['drone','harmony'],['mass','motet']].filter(([a,b])=>Object.hasOwn(BY,a)&&Object.hasOwn(BY,b)).map(([a,b])=>[BY[a],BY[b]]);
+const neighbors=new Map(TERMS.map(t=>[t,new Set()]));
+for(const [a,b] of EDGES){ neighbors.get(a).add(b); neighbors.get(b).add(a); }
 const fib=(i,n)=>{ const y=1-2*(i+.5)/n, r=Math.sqrt(1-y*y), a=i*2.39996+.4; return [Math.cos(a)*r,y,Math.sin(a)*r]; };
 function layout(){ CK.forEach((k,i)=>{ const [x,y,z]=fib(i,CK.length); G[k]={x:x*740,y:y*430,z:z*740}; const items=TERMS.filter(t=>t.c===k), R=100+items.length*5;
     items.forEach((t,j)=>{ const [a,b,c]=fib(j,items.length), jr=R*(.8+.4*((j*37)%10)/10); t.x=G[k].x+a*jr*1.3; t.y=G[k].y+b*jr*.85; t.z=G[k].z+c*jr*1.3; t.fs=t.demo?19:17; t.ph??=Math.random()*6.28; }); }); aim(); }
@@ -179,9 +193,10 @@ function build(d){ roll=[]; secs=[]; info=''; let x=0;
    case 'tuneup': N('oboe',69,0,2.4,.5); sec(0,2.4,'the oboe gives an A'); [[28,2.3],[12,3.1],[0,3.9]].forEach(([dt,t])=>N('violin',69,t,1.2,.35,{detune:dt})); N('cello',57,2.6,1,.35,{detune:-25}); N('cello',57,3.6,1.6,.4); sec(2.3,5.3,'strings tune'); chord('flute',[81],5.3,1.6,.35); chord('clarinet',[69],5.3,1.6,.35); chord('horn',[57],5.4,1.6,.35); x=7; sec(5.3,7,'winds tune'); break;
   }
   roll.sort((a,b)=>a.t-b.t); span=Math.max(x,...roll.map(n=>n.t+n.d))+.4; }
-async function play(t){ if(!t.demo)return; const b=$('dPlay'); await sound.unlock(); build(t.demo); if(b){b.textContent=window.ROE_I18N.t('lexicon.term.tuning');}
+async function play(t){ if(!t.demo)return; const b=$('dPlay'); await sound.unlock(); if(card!==t||b!==$('dPlay'))return; build(t.demo); b.textContent=window.ROE_I18N.t('lexicon.term.tuning');
   const need={}; roll.forEach(n=>(need[n.p]??=new Set()).add(Math.round(n.m))); await Promise.all(Object.entries(need).map(([p,s])=>sound.preload(p,[...s]).catch(()=>{})));
-  rT0=sound.now()+.15; playing=true; roll.forEach(n=>sound.play(n.p,n.m,{when:rT0+n.t,dur:n.d,vel:n.v,tag:'demo',...n.o})); if(b){b.textContent=window.ROE_I18N.t('lexicon.term.hearAgain');} $('dinfo').textContent=info; }
+  if(card!==t||b!==$('dPlay'))return;
+  rT0=sound.now()+.15; playing=true; roll.forEach(n=>sound.play(n.p,n.m,{when:rT0+n.t,dur:n.d,vel:n.v,tag:'demo',...n.o})); b.textContent=window.ROE_I18N.t('lexicon.term.hearAgain'); $('dinfo').textContent=info; }
 sound.onNote(n=>{ if(n.tag==='demo'){ const dl=Math.max(0,(n.when-sound.now())*1000); setTimeout(()=>pulse=Math.min(1,pulse+.5*n.vel+.25),dl); } });
 function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.clientHeight,d=Math.min(devicePixelRatio,2); if(c.width!==w*d){c.width=w*d;c.height=h*d;} const x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); x.clearRect(0,0,w,h);
   x.strokeStyle='rgba(201,165,92,.1)'; for(let i=1;i<5;i++){ x.beginPath(); x.moveTo(0,i*h/5); x.lineTo(w,i*h/5); x.stroke(); }
@@ -195,47 +210,66 @@ function drawRoll(){ const c=$('roll'); if(!c)return; const w=c.clientWidth,h=c.
   x.globalAlpha=1; x.globalCompositeOperation='source-over';
   if(playing&&now<=span){ x.strokeStyle='rgba(255,243,218,.7)'; x.beginPath(); x.moveTo(X(now),0); x.lineTo(X(now),h); x.stroke(); } else if(playing&&now>span) playing=false; }
 // ---------- card ----------
-function openTerm(t,{silentHash}={}){ if(!t||!Object.hasOwn(BY,t.id))return; card=t; roll=[]; secs=[]; const col=Object.hasOwn(CL,t.c)?CL[t.c][1]:'#efd497';
+const termCard=$('card');
+function openTerm(t,{silentHash,path=[]}={}){ if(!t||!Object.hasOwn(BY,t.id))return; card=t; trail=path; roll=[]; secs=[]; playing=false; pulse=0; const col=Object.hasOwn(CL,t.c)?CL[t.c][1]:'#efd497';
   const ex=(t.examples||[]).filter(id=>Object.hasOwn(CMP,id)).map(id=>CMP[id]);
-  $('card').setAttribute('aria-label',`${t.term}. ${t.short}`);
-  $('card').innerHTML=`<div class="k" style="color:${esc(col)}">${esc(Object.hasOwn(CL,t.c)?CL[t.c][0]:'')}</div><h3>${esc(t.term)}</h3>${t.lit?`<div class="lit">${esc(t.lit)}</div>`:''}<p>${esc(t.short)}</p>
+  const related=[...neighbors.get(t)], copy=window.ROE_I18N.t;
+  termCard.innerHTML=`${trail.length?`<nav class="term-trail" aria-label="${esc(copy('lexicon.term.trail'))}">
+    <button type="button" data-hop="${trail.length-1}" aria-label="${esc(copy('lexicon.term.backTo',{term:trail.at(-1).term}))}">‹ ${esc(copy('lexicon.term.back'))}</button>
+    ${trail.map((step,i)=>`<button type="button" data-hop="${i}">${esc(step.term)}</button><span aria-hidden="true">›</span>`).join('')}
+    <span aria-current="location">${esc(t.term)}</span></nav>`:''}
+   <div class="k" style="color:${esc(col)}">${esc(Object.hasOwn(CL,t.c)?CL[t.c][0]:'')}</div><h3 id="termName" tabindex="-1">${esc(t.term)}</h3>${t.lit?`<div class="lit">${esc(t.lit)}</div>`:''}<p>${esc(t.short)}</p>
+   ${related.length?`<section class="related" aria-labelledby="relatedHeading"><h4 class="k" id="relatedHeading">${esc(copy('lexicon.term.related'))}</h4>
+    <ul>${related.map(next=>`<li><button type="button" class="btn" data-related="${esc(next.id)}"><strong>${esc(next.term)}</strong><span>${esc(CL[next.c][0])}</span></button></li>`).join('')}</ul></section>`:''}
    ${t.demo?`<div class="demo"><canvas id="roll"></canvas><div class="drow"><span id="dinfo"></span><button class="btn" id="dPlay">${esc(window.ROE_I18N.t('lexicon.term.hear'))}</button></div></div>`:''}
    ${t.long?`<div class="bio">${esc(t.long)}</div>`:''}
    ${t.eras&&t.eras.length?`<div class="k" style="margin-top:8px">${esc(window.ROE_I18N.t('lexicon.term.tookShape',{eras:t.eras.map(e=>Object.hasOwn(ERAN,e)?ERAN[e]:'').join(' & ')}))}</div>`:''}
    ${ex.length?`<div class="k" style="margin-top:12px">${esc(window.ROE_I18N.t('lexicon.term.hearIn'))}</div><ul>${ex.map(w=>{const composer=Object.hasOwn(COMP,w.composerId)?COMP[w.composerId]:null;return `<li><b>${esc(w.title)}</b> · ${esc(composer?.shortName||'')}<a href="${esc(w.spotifyUrl)}" data-roe-key="${esc(w.id)}">${esc(window.ROE_I18N.t('lexicon.term.listen'))}</a><div class="spotify-player"></div></li>`;}).join('')}</ul>`:''}
-   <div class="row">${t.hall?`<a class="btn" href="hall.html#${esc(t.hall)}">${esc(window.ROE_I18N.t('lexicon.term.seeHall'))}</a>`:''}</div>`;
+   ${t.hall?`<div class="row"><a class="btn" href="hall.html#${esc(t.hall)}&amp;fromTerm=${encodeURIComponent(t.id)}">${esc(copy('lexicon.term.seeHall'))}</a></div>`:''}`;
   if(t.demo) $('dPlay').onclick=()=>play(t);
-  $('card').classList.add('open'); $('card').scrollTop=0; aim(); if(!silentHash) history.replaceState(null,'','#term='+t.id); }
-function closeCard(){ card=null; $('card').classList.remove('open'); aim(); history.replaceState(null,'',focusG?'#group='+focusG:'#'); }
+  termCard.inert=false; termCard.classList.add('open'); termCard.scrollTop=0; aim();
+  if(!silentHash){ history.replaceState(null,'','#term='+encodeURIComponent(t.id)); $('termName').focus({preventScroll:true}); } }
+termCard.addEventListener('click',e=>{
+  const button=e.target.closest('button');
+  if(!button)return;
+  if(button.dataset.related){
+    const next=BY[button.dataset.related];
+    if(neighbors.get(card)?.has(next))openTerm(next,{path:[...trail,card]});
+  } else if(button.dataset.hop!==undefined){
+    const index=Number(button.dataset.hop);
+    openTerm(trail[index],{path:trail.slice(0,index)});
+  }
+});
+function closeCard(){ const hadFocus=termCard.contains(document.activeElement); card=null; trail=[]; termCard.inert=true; termCard.classList.remove('open'); aim(); history.replaceState(null,'',focusG?'#group='+focusG:'#'); if(hadFocus)$('q').focus(); }
 // ---------- chips, search ----------
 const chips=$('chips'); const mk=(k,label,col)=>{ const b=document.createElement('button'); b.className='btn'; b.dataset.k=k; b.innerHTML=(col?`<i style="color:${esc(col)};background:${esc(col)}"></i>`:'')+esc(label); b.onclick=()=>setGroup(k||null); chips.appendChild(b); };
 mk('',t('lexicon.group.all')); CK.forEach(k=>mk(k,CL[k][0],CL[k][1]));
 function setGroup(k){ if(k!==null&&!Object.hasOwn(CL,k))return; focusG=k; chips.querySelectorAll('.btn').forEach(b=>b.classList.toggle('on',(b.dataset.k||null)===k)); aim(); if(!card) history.replaceState(null,'',k?'#group='+k:'#'); }
 const matches=t=>!query||t.term.toLowerCase().includes(query)||t.short.toLowerCase().includes(query)||(t.lit||'').toLowerCase().includes(query);
 $('q').addEventListener('input',e=>{ query=e.target.value.trim().toLowerCase(); });
-$('q').addEventListener('keydown',e=>{ if(e.key==='Enter'){ const t=TERMS.filter(matches).sort((a,b)=>a.term.toLowerCase().startsWith(query)?-1:1)[0]; if(t){ if(focusG&&focusG!==t.c) setGroup(null); openTerm(t); e.target.blur(); } } });
+$('q').addEventListener('keydown',e=>{ if(e.key==='Enter'){ const t=TERMS.filter(matches).sort((a,b)=>a.term.toLowerCase().startsWith(query)?-1:1)[0]; if(t){ if(focusG&&focusG!==t.c) setGroup(null); openTerm(t); } } });
 // ---------- render ----------
 const drift=t=>[Math.sin(T*.25+t.ph)*6,Math.cos(T*.21+t.ph)*5,Math.sin(T*.17+t.ph*1.7)*6];
-function render(dt){ T+=dt; idle+=dt; pulse*=Math.pow(.15,dt); const k=Math.min(1,dt*2.4);
-  if(!drag&&idle>3.5&&!card&&!focusG) camT.yaw+=dt*.035;
+function render(dt){ T+=dt; idle+=dt; pulse*=Math.pow(.15,dt); const reduce=reducedMotion.matches, k=reduce?1:Math.min(1,dt*2.4);
+  if(!reduce&&!drag&&idle>3.5&&!card&&!focusG) camT.yaw+=dt*.035;
   for(const key of ['yaw','pitch','dist','tx','ty','tz']) cam[key]+=(camT[key]-cam[key])*k; offX+=((card&&W>=760?-200:0)-offX)*k;
   setBasis(); g.setTransform(DPR,0,0,DPR,0,0); g.clearRect(0,0,W,H);
   g.globalCompositeOperation='lighter'; g.fillStyle='#ffd9a0';
   for(const st of stars){ const p=P3(st.x,st.y,st.z); if(!p)continue; const r=Math.min(2.2,.4+p.s*1.1); g.globalAlpha=(.18+.3*st.b)*(.7+.3*Math.sin(T*.7+st.b*9))*p.a; g.fillRect(p.x,p.y,r,r); }
-  for(const t of TERMS){ const d=drift(t); t.p=P3(t.x+d[0],t.y+d[1],t.z+d[2]); }
+  for(const t of TERMS){ const d=reduce?[0,0,0]:drift(t); t.p=P3(t.x+d[0],t.y+d[1],t.z+d[2]); }
   for(const c of CK) G[c].p=P3(G[c].x,G[c].y,G[c].z);
   const act=card||hover;
   for(const t of TERMS){ const c=G[t.c].p; if(!t.p||!c)continue; const on=act&&act.c===t.c, foc=!focusG||focusG===t.c; g.globalAlpha=Math.min(t.p.a,c.a)*(on?.28:.1)*(foc?1:.35)*(matches(t)?1:.3); g.strokeStyle=CL[t.c][1]; g.lineWidth=on?1:.7; g.beginPath(); g.moveTo(c.x,c.y); g.lineTo(t.p.x,t.p.y); g.stroke(); }
   for(const [a,b] of EDGES){ if(!a.p||!b.p)continue; const on=act&&(act===a||act===b); const gr=g.createLinearGradient(a.p.x,a.p.y,b.p.x,b.p.y); gr.addColorStop(0,CL[a.c][1]); gr.addColorStop(1,CL[b.c][1]);
-    g.strokeStyle=gr; g.globalAlpha=Math.min(a.p.a,b.p.a)*(on?.75:.07); g.lineWidth=on?1.4:.7; g.beginPath(); g.moveTo(a.p.x,a.p.y); const mx=(a.p.x+b.p.x)/2, my=(a.p.y+b.p.y)/2-Math.hypot(a.p.x-b.p.x,a.p.y-b.p.y)*.12; g.quadraticCurveTo(mx,my,b.p.x,b.p.y); g.stroke(); }
+    g.strokeStyle=gr; g.globalAlpha=on?Math.max(a.p.a,b.p.a)*.75:Math.min(a.p.a,b.p.a)*.07; g.lineWidth=on?1.4:.7; g.beginPath(); g.moveTo(a.p.x,a.p.y); const mx=(a.p.x+b.p.x)/2, my=(a.p.y+b.p.y)/2-Math.hypot(a.p.x-b.p.x,a.p.y-b.p.y)*.12; g.quadraticCurveTo(mx,my,b.p.x,b.p.y); g.stroke(); }
   g.globalCompositeOperation='source-over'; g.textAlign='center'; g.textBaseline='middle';
   const nodes=[...TERMS.filter(t=>t.p).map(t=>({t,z:t.p.zc})),...CK.filter(c=>G[c].p).map(c=>({c,z:G[c].p.zc}))].sort((a,b)=>b.z-a.z);
   for(const n of nodes){
     if(n.c){ const P0=G[n.c].p, fg=card?card.c:focusG, foc=!fg||fg===n.c, fs=Math.max(8,Math.min(22,11*P0.s*1.35)); g.font=`${fs.toFixed(1)}px Cinzel`; g.letterSpacing=(fs*.35).toFixed(1)+'px'; const label=CL[n.c][0].toUpperCase(), w=g.measureText(label).width;
       g.globalAlpha=P0.a*(foc?.9:(fg?.14:.3)); g.fillStyle=CL[n.c][1]; g.shadowColor=CL[n.c][1]; g.shadowBlur=12; g.fillText(label,P0.x,P0.y); G[n.c].hit={x:P0.x,y:P0.y,w:w+10,h:fs+8}; g.letterSpacing='0px'; continue; }
-    const t=n.t, p=t.p, col=CL[t.c][1], fg=card?card.c:focusG, foc=!fg||fg===t.c, m=matches(t), hv=t===hover, sel=card===t, pu=sel?pulse:0;
+    const t=n.t, p=t.p, col=CL[t.c][1], fg=card?card.c:focusG, foc=!fg||fg===t.c, m=matches(t), hv=t===hover, sel=card===t, related=neighbors.get(card)?.has(t), pu=sel?pulse:0;
     const fs=Math.max(7,Math.min(36,t.fs*p.s*1.12))+(hv||sel?2:0)+pu*4; g.font=`${hv||sel?'600 ':''}${fs.toFixed(1)}px Cormorant Garamond`;
-    g.globalAlpha=p.a*(m?1:.13)*(foc?1:(fg?.14:.3))*(hv||sel?1:.9); g.shadowColor=col; g.shadowBlur=(hv||sel?22:8)+pu*26; g.fillStyle=hv||sel||(query&&m)?'#fff3da':'#ead9b8'; g.fillText(t.term,p.x,p.y);
+    g.globalAlpha=p.a*(sel||related?1:(m?1:.13)*(foc?1:(fg?.14:.3))*(hv?1:.9)); g.shadowColor=col; g.shadowBlur=(hv||sel?22:8)+pu*26; g.fillStyle=hv||sel||related||(query&&m)?'#fff3da':'#ead9b8'; g.fillText(t.term,p.x,p.y);
     const w=g.measureText(t.term).width; t.hit={x:p.x,y:p.y,w:w+12,h:fs+6};
     if(t.demo){ g.shadowBlur=6; g.fillStyle=col; g.beginPath(); g.arc(p.x-w/2-6,p.y,Math.max(1.2,fs*.09),0,7); g.fill(); } }
   g.shadowBlur=0; g.globalAlpha=1;
