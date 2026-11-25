@@ -101,5 +101,14 @@ test('life chart retains an upright plot on short landscape screens', async ({ p
     expect(await page.evaluate(() => window.lifePlotHeight)).toBeGreaterThan(0);
     await page.locator('#lListen').scrollIntoViewIfNeeded();
     await expect(page.locator('#lListen')).toBeInViewport();
+    if (width === 667 && height === 350) {
+      await page.locator('#lListen').focus();
+      await page.keyboard.press('Tab');
+      const chart = page.getByRole('region', { name: 'Life chart' });
+      await expect(chart).toBeFocused();
+      await expect(chart).toHaveCSS('outline-style', 'solid');
+      await page.keyboard.press('ArrowDown');
+      await expect.poll(() => chart.evaluate(el => el.scrollTop)).toBeGreaterThan(0);
+    }
   }
 });

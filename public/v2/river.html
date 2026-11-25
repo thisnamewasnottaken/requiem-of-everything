@@ -21,6 +21,7 @@
 #life h2{font-weight:400;font-size:1.9rem;line-height:1.05;color:#f6e9cf}
 #life .dates{font-family:var(--inscr);font-size:.6rem;letter-spacing:.3em;color:var(--gold);margin:8px 0 10px}
 #life .left,#life .right{display:flex;flex-direction:column;min-height:0}
+#life .right:focus-visible{outline:1px solid var(--gold);outline-offset:-1px}
 #life .bio{flex:1;min-height:0;font-size:.98rem;line-height:1.5;color:rgba(230,216,189,.78);overflow-y:auto;padding-right:8px;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.55) rgba(201,165,92,.08);
   -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
 #life .bio.end{-webkit-mask-image:none;mask-image:none}
@@ -131,7 +132,7 @@
   <div class="left"><h2 id="lName"></h2><div class="dates" id="lDates"></div><div class="bio" id="lBio"></div><div class="more" id="lMore">↓ scroll for more</div>
     <div class="events" id="lEvents"><h3>In their lifetime</h3><div class="event-list"></div></div>
     <button class="btn listen" id="lListen">Listen on Spotify</button><div class="spotify-player" id="lPlayer"></div></div>
-  <div class="right"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
+  <div class="right" id="lChart" role="region" tabindex="0"><div class="legend"><span><i style="background:#e7c784"></i>Music written</span><span><i style="background:#cfe0ff"></i>Public standing</span><span><i style="background:#ff6a4a;height:6px"></i>The world</span><span id="lNote"></span><span class="closehint">click outside to close</span></div><canvas id="seis"></canvas></div>
 </div>
 <div id="riverFooter">
   <canvas id="mini"></canvas>
@@ -166,6 +167,7 @@ document.getElementById('findResults').setAttribute('aria-label',t('river.find.m
 document.getElementById('lMore').textContent=t('river.more');
 document.querySelector('#lEvents h3').textContent=t('river.events.lifetime');
 document.getElementById('lListen').textContent=t('river.listen');
+document.getElementById('lChart').setAttribute('aria-label',t('river.life.chart'));
 document.querySelector('.closehint').textContent=t('river.close');
 document.querySelector('.legend span:nth-child(1)').lastChild.textContent=t('river.legend.music');
 document.querySelector('.legend span:nth-child(2)').lastChild.textContent=t('river.legend.standing');
