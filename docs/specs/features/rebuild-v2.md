@@ -10,6 +10,7 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 - `terms.html`: Lexicon. A 3D term constellation with on-demand Hear-it demos. Hash parameters: `term` and `group`.
 
 ## Navigation
+- Home text is not selectable before or after entering the hall, including in the credits. Links and controls remain interactive. Text selection on other pages is unchanged.
 - On River, Hall and Lexicon, the top-left `.sigil` nav holds the Home mark plus links to the other two pages. The current page is left out, because its title is already shown in the hero. Home uses the three halos instead.
 - At 1180px and narrower, the links collapse behind a `.sigil-burger` button (label `nav.menu`). It toggles on click and closes on Escape (which does not reach page handlers), on focus leaving the nav, or on a click outside it.
 - Nav labels are translated by link `href`, not by position.
