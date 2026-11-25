@@ -15,6 +15,10 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 - Nav labels are translated by link `href`, not by position.
 - River of Time between 641 and 1499px wide (when taller than 500px): the search field is a magnifier button that expands while focused (click or `/`), and the hero title fades out during that time. At 1180px and narrower the hero subtitle is hidden.
 
+## Lexicon connections
+- The selected term's direct connections can be hovered, clicked, long-pressed, or keyboard-focused to reveal a translated **Follow** button. Following opens the connected term; a double-click on the line skips the button. **Back** returns to the term from which the link was followed.
+- Direct neighbors draw closer to the focused term without losing their perspective scale or depth order. Deselecting restores the layout. Reduced motion disables the camera and pull-in transitions.
+
 ## River bottom band
 - Event diamonds sit below the country lanes, with era captions beneath them. Captions stay near each visible era's midpoint, with at least 14 CSS px between measured text widths. Eras containing the centre of the view are larger and brighter. If space runs out, captions shrink first, then the narrowest non-current eras are omitted as needed.
 - The zoom range sits alongside the minimap; the wrapping event key and interaction hint each have a separate row below it. At 500px high and shorter, the minimap is shallower and the hint is hidden to leave more room for the lanes. The canvas and open life panel reserve space based on the measured footer height.
@@ -33,7 +37,7 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 
 ## Sound
 - `common/sound.js` (`sound`) is the shared Web Audio engine. The Hall uses local samples when available and falls back to MusyngKite for other patches.
-- Home, River and Hall share the `roe-sound` localStorage setting. Lexicon demos are started explicitly with Hear it and do not use that setting.
+- Home, River and Hall share the `roe-sound` localStorage setting. Lexicon demos are started explicitly with Hear it and do not use that setting. Switching terms or closing the term card stops active demo playback via `sound.stopAll()` and clears pending pulse timers.
 - Silence (Home, River, Hall; `roe-sound=off`) calls `sound.stopAll()`. Every tracked voice fades out over 80 ms and stops, including notes scheduled for later. Notes still loading are dropped, and the reverb's convolver is replaced so its tail is cut too. The audio context is not suspended, so nothing queued plays again on unmute. The Hall also cancels its pending sync and motif-light timers.
 
 ## Validation

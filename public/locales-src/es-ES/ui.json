@@ -152,6 +152,8 @@
   "lexicon.term.tookShape": "Tomó forma en la época {eras}",
   "lexicon.term.hearIn": "Escúchalo en",
   "lexicon.term.hear": "Escuchar",
+  "lexicon.term.follow": "Seguir: {term} →",
+  "lexicon.term.back": "Volver",
   "lexicon.term.hearAgain": "Escuchar otra vez",
   "lexicon.term.tuning": "Afinando…",
   "lexicon.term.listen": "Escuchar en Spotify",
