@@ -85,3 +85,21 @@ test('country captions hover and pin their own lane at 568×320', async ({ page 
   await page.mouse.click(x, Math.ceil(bottom) - 1);
   await page.waitForFunction(() => window.italyCaption.pinned);
 });
+
+test('life chart retains an upright plot on short landscape screens', async ({ page }) => {
+  await page.addInitScript(() => {
+    const { createLinearGradient } = CanvasRenderingContext2D.prototype;
+    CanvasRenderingContext2D.prototype.createLinearGradient = function (x0, y0, x1, y1) {
+      if (this.canvas.id === 'seis') window.lifePlotHeight = y1 - y0;
+      return createLinearGradient.call(this, x0, y0, x1, y1);
+    };
+  });
+  for (const [width, height] of [[667, 350], [667, 375], [568, 320]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto(`${url.split('#')[0]}?checkHeight=${height}#focus=johann-sebastian-bach`);
+    await page.waitForFunction(() => window.lifePlotHeight !== undefined);
+    expect(await page.evaluate(() => window.lifePlotHeight)).toBeGreaterThan(0);
+    await page.locator('#lListen').scrollIntoViewIfNeeded();
+    await expect(page.locator('#lListen')).toBeInViewport();
+  }
+});
