@@ -150,6 +150,8 @@
   "lexicon.term.tookShape": "Took shape in the {eras} era",
   "lexicon.term.hearIn": "Hear it in",
   "lexicon.term.hear": "Hear it",
+  "lexicon.term.follow": "Follow {term} →",
+  "lexicon.term.back": "Back",
   "lexicon.term.hearAgain": "Hear it again",
   "lexicon.term.tuning": "Tuning…",
   "lexicon.term.listen": "Listen on Spotify",

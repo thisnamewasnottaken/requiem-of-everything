@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **Lexicon connections** — follow a highlighted line to its related term. Connected terms draw closer to the selection while keeping the constellation's 3D depth.
+
 - **Project and contribution guides**: added a root README and contribution guide covering local setup, the React app and static rebuild, and the checks and translation workflows for each.
 
 - **Rebuild v2 (`public/v2/`)**: a new static experience served at `/v2/` beside the current app. It has an atmospheric Home, the River of Time (composer threads, fact-checked life arcs and search), Concert Hall (a 3D conductor's-view orchestra across 5 eras and 6 pieces, recorded samples, instrument cards with notes for every era) and the Lexicon (92 terms in a 3D constellation with Hear-it demos). Spotify plays in the page, every view has a shareable URL, and the site is available in 5 languages. Spec: `docs/specs/features/rebuild-v2.md`. Old-vs-new comparison: `docs/rebuild/README.md`.

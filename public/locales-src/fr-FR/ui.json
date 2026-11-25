@@ -150,6 +150,8 @@
   "lexicon.term.tookShape": "A pris forme à l’époque {eras}",
   "lexicon.term.hearIn": "À écouter dans",
   "lexicon.term.hear": "Écouter",
+  "lexicon.term.follow": "Suivre : {term} →",
+  "lexicon.term.back": "Retour",
   "lexicon.term.hearAgain": "Réécouter",
   "lexicon.term.tuning": "Accord en cours…",
   "lexicon.term.listen": "Écouter sur Spotify",

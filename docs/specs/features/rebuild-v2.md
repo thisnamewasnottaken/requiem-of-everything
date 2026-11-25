@@ -15,6 +15,10 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 - Nav labels are translated by link `href`, not by position.
 - River of Time between 641 and 1499px wide (when taller than 500px): the search field is a magnifier button that expands while focused (click or `/`), and the hero title fades out during that time. At 1180px and narrower the hero subtitle is hidden.
 
+## Lexicon connections
+- The selected term's direct connections can be hovered, clicked, long-pressed, or keyboard-focused to reveal a translated **Follow** button. Following opens the connected term; a double-click on the line skips the button. **Back** returns to the term from which the link was followed.
+- Direct neighbors draw closer to the focused term without losing their perspective scale or depth order. Deselecting restores the layout. Reduced motion disables the camera and pull-in transitions.
+
 ## River bottom band
 - Event diamonds sit below the country lanes, with era captions beneath them. Captions stay near each visible era's midpoint, with at least 14 CSS px between measured text widths. Eras containing the centre of the view are larger and brighter. If space runs out, captions shrink first, then the narrowest non-current eras are omitted as needed.
 - The zoom range sits alongside the minimap; the wrapping event key and interaction hint each have a separate row below it. At 500px high and shorter, the minimap is shallower and the hint is hidden to leave more room for the lanes. The canvas and open life panel reserve space based on the measured footer height.

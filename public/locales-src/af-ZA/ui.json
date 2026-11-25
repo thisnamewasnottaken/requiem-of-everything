@@ -150,6 +150,8 @@
   "lexicon.term.tookShape": "Het vorm aangeneem in die {eras}-era",
   "lexicon.term.hearIn": "Hoor dit in",
   "lexicon.term.hear": "Luister",
+  "lexicon.term.follow": "Volg {term} →",
+  "lexicon.term.back": "Terug",
   "lexicon.term.hearAgain": "Luister weer",
   "lexicon.term.tuning": "Stem in…",
   "lexicon.term.listen": "Luister op Spotify",
