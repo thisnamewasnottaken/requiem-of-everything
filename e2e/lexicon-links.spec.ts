@@ -1,7 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 
 type Point = { x: number; y: number };
-type Label = Point & { size: number; width: number };
+type Label = Point & { size: number; width: number; alpha: number };
 type Curve = { a: Point; b: Point; control: Point; width: number };
 type Frame = { labels: Record<string, Label>; curves: Curve[] };
 
@@ -25,7 +25,7 @@ async function watchGraph(page: Page) {
     };
     ctx.fillText = function (...args: Parameters<typeof fillText>) {
       const [text, x, y] = args;
-      if (this.canvas.id === "sky") read().labels[text] = { x, y, size: Number(this.font.match(/([\d.]+)px/)?.[1]), width: this.measureText(text).width };
+      if (this.canvas.id === "sky") read().labels[text] = { x, y, size: Number(this.font.match(/([\d.]+)px/)?.[1]), width: this.measureText(text).width, alpha: this.globalAlpha };
       return fillText.apply(this, args);
     };
   });
@@ -95,6 +95,8 @@ test("hover, click, and double-click follow one lit connection at a time", async
 });
 
 test("keyboard users can reveal, dismiss, and follow one connection", async ({ page }) => {
+  await watchGraph(page);
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("terms.html?lang=en-GB");
   const search = page.locator("#q");
   await search.fill("Crescendo");
@@ -111,6 +113,38 @@ test("keyboard users can reveal, dismiss, and follow one connection", async ({ p
   await page.keyboard.press("Tab");
   await page.keyboard.press("Space");
   await expect(heading(page, "Dynamics")).toBeFocused();
+  await expect(search).toHaveValue("Crescendo");
+  await expect.poll(() => page.evaluate(() =>
+    (window as Window & { graphFrame: Frame }).graphFrame.labels.Dynamics?.alpha ?? 0
+  )).toBeGreaterThan(0.5);
+});
+
+test("a double-click jumps without revealing a Follow chip on the first click", async ({ page }) => {
+  await watchGraph(page);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("terms.html?lang=en-GB#term=crescendo");
+  const point = await linePoint(page, "Crescendo", "Dynamics");
+  const activated = await page.evaluateHandle(() => {
+    const buttons: string[] = [];
+    new MutationObserver(records => {
+      for (const { target, oldValue } of records) {
+        if (oldValue?.split(" ").includes("active") || (target as Element).classList.contains("active")) {
+          buttons.push(target.textContent ?? "");
+        }
+      }
+    }).observe(document.querySelector("#connections")!, {
+      subtree: true, attributes: true, attributeFilter: ["class"], attributeOldValue: true,
+    });
+    return buttons;
+  });
+  const cdp = await page.context().newCDPSession(page);
+  for (const clickCount of [1, 2]) {
+    await cdp.send("Input.dispatchMouseEvent", { type: "mousePressed", ...point, button: "left", clickCount });
+    await cdp.send("Input.dispatchMouseEvent", { type: "mouseReleased", ...point, button: "left", clickCount });
+    if (clickCount === 1) await page.waitForTimeout(225);
+  }
+  await expect(heading(page, "Dynamics")).toBeVisible();
+  expect(await activated.jsonValue()).toEqual([]);
 });
 
 test("Piano Solo draws in both neighbors without normalising their perspective sizes", async ({ page }, testInfo) => {

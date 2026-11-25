@@ -91,7 +91,8 @@ const EDGES=[['tempo','movement'],['allegro','sonata-form'],['adagio','movement'
 const adjacent=new Map(TERMS.map(term=>[term,[]]));
 for(const [a,b] of EDGES){ adjacent.get(a).push(b); adjacent.get(b).push(a); }
 const backTerms=[], connections=new Map();
-let activeConnection=null, connectionMode=null, dismissTimer;
+let activeConnection=null, connectionMode=null, dismissTimer, clickTimer;
+const doubleClickWindow=500;
 const fib=(i,n)=>{ const y=1-2*(i+.5)/n, r=Math.sqrt(1-y*y), a=i*2.39996+.4; return [Math.cos(a)*r,y,Math.sin(a)*r]; };
 function layout(){ CK.forEach((k,i)=>{ const [x,y,z]=fib(i,CK.length); G[k]={x:x*740,y:y*430,z:z*740}; const items=TERMS.filter(t=>t.c===k), R=100+items.length*5;
     items.forEach((t,j)=>{ const [a,b,c]=fib(j,items.length), jr=R*(.8+.4*((j*37)%10)/10); t.x=G[k].x+a*jr*1.3; t.y=G[k].y+b*jr*.85; t.z=G[k].z+c*jr*1.3; t.fs=t.demo?19:17; t.ph??=Math.random()*6.28; }); }); aim(); }
@@ -240,7 +241,7 @@ function showConnection(term,mode){ if(term&&!connections.has(term))return; clea
   if(term!==activeConnection){ connections.get(activeConnection)?.button.classList.remove('active'); connections.get(term)?.button.classList.add('active'); }
   activeConnection=term; connectionMode=mode; }
 function delayDismiss(){ if(connectionMode==='hover'){ clearTimeout(dismissTimer); dismissTimer=setTimeout(()=>showConnection(null),300); } }
-function syncConnections(){ showConnection(null); connections.clear();
+function syncConnections(){ clearTimeout(clickTimer); showConnection(null); connections.clear();
   const buttons=(adjacent.get(card)||[]).map(term=>{
     const button=document.createElement('button'); button.type='button'; button.className='follow';
     button.textContent=t('lexicon.term.follow',{term:term.term});
@@ -333,7 +334,7 @@ function render(dt){ if(!motion.matches){ T+=dt; idle+=dt; } pulse*=Math.pow(.15
       g.globalAlpha=P0.a*(foc?.9:(fg?.14:.3)); g.fillStyle=CL[n.c][1]; g.shadowColor=CL[n.c][1]; g.shadowBlur=12; g.fillText(label,P0.x,P0.y); G[n.c].hit={x:P0.x,y:P0.y,w:w+10,h:fs+8}; g.letterSpacing='0px'; continue; }
     const t=n.t, p=t.p, col=CL[t.c][1], fg=card?card.c:focusG, foc=!fg||fg===t.c, m=matches(t), hv=t===hover, sel=card===t, pu=sel?pulse:0;
     const fs=Math.max(7,Math.min(36,t.fs*p.s*1.12))+(hv||sel?2:0)+pu*4; g.font=`${hv||sel?'600 ':''}${fs.toFixed(1)}px Cormorant Garamond`;
-    g.globalAlpha=p.a*(m||connections.has(t)?1:.13)*(foc||connections.has(t)?1:(fg?.14:.3))*(hv||sel?1:.9); g.shadowColor=col; g.shadowBlur=(hv||sel?22:8)+pu*26; g.fillStyle=hv||sel||(query&&m)?'#fff3da':'#ead9b8'; g.fillText(t.term,p.x,p.y);
+    g.globalAlpha=p.a*(m||sel||connections.has(t)?1:.13)*(foc||connections.has(t)?1:(fg?.14:.3))*(hv||sel?1:.9); g.shadowColor=col; g.shadowBlur=(hv||sel?22:8)+pu*26; g.fillStyle=hv||sel||(query&&m)?'#fff3da':'#ead9b8'; g.fillText(t.term,p.x,p.y);
     const w=g.measureText(t.term).width; t.hit={x:p.x,y:p.y,w:w+12,h:fs+6};
     if(t.demo){ g.shadowBlur=6; g.fillStyle=col; g.beginPath(); g.arc(p.x-w/2-6,p.y,Math.max(1.2,fs*.09),0,7); g.fill(); } }
   g.shadowBlur=0; g.globalAlpha=1;
@@ -361,6 +362,7 @@ function pickConnection(e,node){ if(node&&(node===card||connections.has(node)))r
 function cancelDrag(e){ if(drag?.id!==e.pointerId)return; clearTimeout(drag.timer); drag=null; }
 cv.addEventListener('pointerdown',e=>{
   if(!e.isPrimary||e.button!==0)return;
+  clearTimeout(clickTimer);
   drag={id:e.pointerId,x:e.clientX,y:e.clientY,yaw:camT.yaw,pitch:camT.pitch,moved:false,held:false};
   idle=0; cv.setPointerCapture(e.pointerId);
   if(e.pointerType==='touch'){
@@ -385,14 +387,15 @@ cv.addEventListener('pointercancel',cancelDrag);
 cv.addEventListener('lostpointercapture',cancelDrag);
 cv.addEventListener('pointerup',e=>{ if(drag?.id!==e.pointerId)return; const {moved,held}=drag; cancelDrag(e); if(moved||held)return;
   const t=pick(e.clientX,e.clientY), term=pickConnection(e,t); tip.style.opacity=0;
-  if(term){ if(e.pointerType!=='touch')showConnection(term,'pinned'); return; }
+  if(term){ if(e.pointerType!=='touch')clickTimer=setTimeout(()=>showConnection(term,'pinned'),doubleClickWindow); return; }
   if(t&&t.cluster){ if(card) closeCard(); setGroup(t.cluster); return; }
   if(t){ if(card===t){ showConnection(null); play(t); } else openTerm(t); } else if(card) closeCard(); else if(focusG) setGroup(null); });
-cv.addEventListener('dblclick',e=>{ const term=pickConnection(e,pick(e.clientX,e.clientY)); if(term)follow(term); });
+cv.addEventListener('dblclick',e=>{ clearTimeout(clickTimer); const term=pickConnection(e,pick(e.clientX,e.clientY)); if(term)follow(term); });
 cv.addEventListener('contextmenu',e=>{ if(activeConnection||drag?.timer)e.preventDefault(); });
-document.addEventListener('pointerdown',e=>{ if(e.target!==cv&&!e.target.closest('#connections'))showConnection(null); });
+document.addEventListener('pointerdown',e=>{ if(e.target!==cv&&!e.target.closest('#connections')){ clearTimeout(clickTimer); showConnection(null); } });
 addEventListener('wheel',e=>{ if(e.target.closest('#card'))return; camT.dist=Math.max(260,Math.min(3400,camT.dist*Math.exp(e.deltaY*.0012))); idle=0; },{passive:true});
 addEventListener('keydown',e=>{ if(e.key==='Escape'){
+    clearTimeout(clickTimer);
     if(activeConnection){ if(connectionMode==='keyboard')termCard.querySelector('h3').focus({preventScroll:true}); showConnection(null); }
     else if(card){ closeCard(); $('q').focus(); } else if(focusG) setGroup(null);
   }
