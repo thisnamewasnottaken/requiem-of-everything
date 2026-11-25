@@ -14,6 +14,7 @@ Follow the [README](README.md#run-locally) to get both experiences running. In y
 From the repository root, run:
 
 ```sh
+npm run lint
 npm run type-check
 npm run test:run
 npm run build
