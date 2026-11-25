@@ -15,6 +15,11 @@ This is the next-generation Requiem of Everything experience, built as a static,
 - Nav labels are translated by link `href`, not by position.
 - River of Time between 641 and 1499px wide (when taller than 500px): the search field is a magnifier button that expands while focused (click or `/`), and the hero title fades out during that time. At 1180px and narrower the hero subtitle is hidden.
 
+## River bottom band
+- Event diamonds sit below the country lanes, with era captions beneath them. Captions stay near each visible era's midpoint, with at least 14 CSS px between measured text widths. Eras containing the centre of the view are larger and brighter. If space runs out, captions shrink first, then the narrowest non-current eras are omitted as needed.
+- The zoom range sits alongside the minimap; the wrapping event key and interaction hint each have a separate row below it. The canvas and the open life panel reserve space based on the measured footer height.
+- Country labels' hover and pin targets stay within their lanes, even on short landscape screens.
+
 ## Constraints
 - All paths are relative, with no runtime requests outside `v2/` except Spotify embeds.
 - No secrets. Spotify is used only through public embeds, with search links as a fallback.
