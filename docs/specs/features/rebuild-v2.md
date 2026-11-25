@@ -16,6 +16,11 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 - Nav labels are translated by link `href`, not by position.
 - River of Time between 641 and 1499px wide (when taller than 500px): the search field is a magnifier button that expands while focused (click or `/`), and the hero title fades out during that time. At 1180px and narrower the hero subtitle is hidden.
 
+## Home votives
+- Clicking or tapping the hall background lights a votive, both before and after entering. Only primary-button presses count, and presses on buttons, halos, cards or the credits do not.
+- Before entering, a **Light a votive** button (`home.votive.light`) below the Enter buttons lights one at the horizontal centre, a quarter of the way down. It is keyboard-reachable after Enter in silence, has a visible focus ring and a 44px minimum height.
+- Home keeps the 16 most recent votives. With sound on, each one plays a choir and bell note from the current chord, higher when placed higher and panned by its horizontal position. The CSS fallback hall draws no votives, and no votive is lit while the portrait rotate overlay is showing.
+
 ## Lexicon connections
 - The selected term's direct connections can be hovered, clicked, long-pressed, or keyboard-focused to reveal a translated **Follow** button. Following opens the connected term; a double-click on the line skips the button. **Back** returns to the term from which the link was followed.
 - Direct neighbors draw closer to the focused term without losing their perspective scale or depth order. Deselecting restores the layout. Reduced motion disables the camera and pull-in transitions.
