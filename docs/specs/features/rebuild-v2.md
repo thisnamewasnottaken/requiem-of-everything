@@ -4,7 +4,7 @@
 V2 is a static HTML/CSS/JavaScript experience served at the application root (on GitHub Pages, `/requiem-of-everything/`). Vite copies `public/` into `dist/` without bundling the static files and builds the original React app at `/legacy/v1/` relative to that root. The old `/v2/` home and feature-page links redirect to the corresponding new URLs and retain their query strings and fragments.
 
 ## Pages
-- `index.html`: Home. A WebGL2 scene with a dark floor, light columns, incense and three halo destinations. `#credits` opens the credits.
+- `index.html`: Home. A hall of light with a dark floor, light columns, incense and three halo destinations. The scene tries WebGL 2 first, then WebGL 1 if initialization fails. If neither starts, or if the active WebGL context is lost, CSS draws the light shafts, pools of light and drifting motes, without animation under `prefers-reduced-motion: reduce`. The shader resumes if the WebGL context is successfully restored. When no WebGL context starts at all, a dismissible notice (remembered in `localStorage` as `roe-gl-notice`) suggests turning on hardware acceleration or allowing WebGL in privacy add-ons. `#credits` opens the credits.
 - `river.html`: River of Time. A Canvas 2D timeline with composer threads, world events, countries, life cards and composer search. Hash parameters: `focus`, `zoom` (e.g. `1780-1830`), `event` and `country`.
 - `hall.html`: Concert Hall. A 3D stage from the conductor's view, five era layouts and six signature-piece layouts (via the Composer menu), composer and instrument cards, and recorded samples. Hash parameters: `era`, `piece`, `composer` and `instrument`.
 - `terms.html`: Lexicon. A 3D term constellation with on-demand Hear-it demos. Hash parameters: `term` and `group`.

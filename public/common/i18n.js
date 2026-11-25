@@ -37,6 +37,8 @@
     'home.credits': 'Credits',
     'home.credits.aria': 'Credits',
     'home.hint': 'drift through the dark · click to light a candle',
+    'home.noWebgl': 'Your browser is withholding WebGL, so you are seeing a simpler hall. Turn on hardware acceleration, or allow WebGL for this site in your privacy add-ons, for the full light.',
+    'home.noWebgl.dismiss': 'Dismiss',
     'home.portal.river.title': 'The River of Time',
     'home.portal.river.description': "Watch composers' lives braid together, and see history shake them.",
     'home.portal.hall.title': 'The Concert Hall',

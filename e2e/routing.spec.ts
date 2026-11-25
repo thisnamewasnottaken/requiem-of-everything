@@ -28,11 +28,36 @@ test("visitors can enter V2 and open the River without WebGL2", async ({ page })
   });
   await page.goto("./");
   await expect(page.locator("#homeTitle")).toHaveText("Requiem of Everything");
+  await expect(page.locator("#gl")).toBeVisible();
+  await expect(page.locator("body")).not.toHaveClass(/\bno-gl\b/);
+  await expect(page.locator("#glNotice")).toBeHidden();
   await page.getByRole("button", { name: "Enter in silence" }).click();
   await expect(page.locator("body")).toHaveClass(/\bentered\b/);
   await page.getByRole("link", { name: /The River of Time/ }).click();
   await expect(page).toHaveURL(/\/requiem-of-everything\/river\.html$/);
   await expect(page.locator("#river")).toBeVisible();
+});
+
+test("the home page keeps its hall of light without WebGL", async ({ page }) => {
+  await page.addInitScript(() => {
+    const getContext = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (type: string, ...args: unknown[]) {
+      return /webgl/.test(type) ? null : Reflect.apply(getContext, this, [type, ...args]);
+    };
+  });
+  await page.goto("./");
+  await expect(page.locator("body")).toHaveClass(/\bno-gl\b/);
+  await expect(page.locator("#hallLight")).toBeVisible();
+  await expect(page.locator("#gl")).toBeHidden();
+  const notice = page.getByRole("status").filter({ hasText: "withholding WebGL" });
+  await expect(notice).toBeVisible();
+  await notice.getByRole("button", { name: "Dismiss" }).click();
+  await expect(notice).toBeHidden();
+  await page.reload();
+  await expect(page.locator("body")).toHaveClass(/\bno-gl\b/);
+  await expect(page.locator("#glNotice")).toBeHidden();
+  await page.getByRole("button", { name: "Enter in silence" }).click();
+  await expect(page.locator("body")).toHaveClass(/\bentered\b/);
 });
 
 test("the direct legacy document URL still loads the React app and its locales", async ({ page }, testInfo) => {

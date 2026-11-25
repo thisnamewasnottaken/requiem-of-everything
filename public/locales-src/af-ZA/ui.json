@@ -9,6 +9,8 @@
   "home.credits": "Krediete",
   "home.credits.aria": "Krediete",
   "home.hint": "dryf deur die donker · klik om ’n kers aan te steek",
+  "home.noWebgl": "Jou blaaier weerhou WebGL, dus sien jy ’n eenvoudiger saal. Skakel hardewareversnelling aan, of laat WebGL vir hierdie werf toe in jou privaatheidsbylaes, vir die volle lig.",
+  "home.noWebgl.dismiss": "Maak toe",
   "home.portal.river.title": "Die Tydrivier",
   "home.portal.river.description": "Kyk hoe komponiste se lewens ineenvleg en hoe die geskiedenis hulle raak.",
   "home.portal.hall.title": "Die Konsertsaal",

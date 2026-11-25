@@ -9,6 +9,8 @@
   "home.credits": "Créditos",
   "home.credits.aria": "Créditos",
   "home.hint": "déjate llevar por la oscuridad · pulsa para encender una vela",
+  "home.noWebgl": "Tu navegador está bloqueando WebGL, así que ves una sala más sencilla. Activa la aceleración por hardware, o permite WebGL para este sitio en tus extensiones de privacidad, para ver toda la luz.",
+  "home.noWebgl.dismiss": "Cerrar",
   "home.portal.river.title": "El río del tiempo",
   "home.portal.river.description": "Observa cómo se entrelazan las vidas de los compositores y cómo les afecta la historia.",
   "home.portal.hall.title": "La sala de conciertos",
