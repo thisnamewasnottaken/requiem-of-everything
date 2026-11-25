@@ -1,8 +1,8 @@
 # Data Schema — Requiem of Everything
 
-> Type definitions and data models for all entities in the system.
+> Data and TypeScript contracts for the React app at the deployment root.
 
-All runtime data is stored as typed JSON. These schemas are the contract between the data files, the UI components, and future API integrations.
+The React app loads its core entities from `src/data/*.json`; the actual type definitions are in [`src/types/index.ts`](src/types/index.ts). Its data hooks overlay translations from `public/locales/`. V2 has a separate JavaScript data snapshot in [`public/v2/common/data.js`](public/v2/common/data.js), plus dedicated life-arc, instrument, Hall and Lexicon modules and its own locales. Changes to React data do not automatically propagate to v2; see the [v2 feature spec](docs/specs/features/rebuild-v2.md).
 
 ---
 
@@ -221,7 +221,7 @@ type EventCategory =
 
 ## 6. Timeline View State
 
-These types represent the current state of the timeline UI and are managed by Zustand:
+`TimelineState` describes a combined type. The React implementation splits live state across the timeline, selection, filter and comparison Zustand stores:
 
 ```typescript
 interface TimelineState {
@@ -387,11 +387,11 @@ interface Instrument {
 
 ## 10. Data File Conventions
 
-- All data lives in `src/data/`
+- The React app's base entity files live in `src/data/`
 - One file per entity type: `composers.json`, `compositions.json`, `events.json`, `eras.json`, `terms.json`, `instruments.json`
 - IDs are kebab-case and globally unique within their type
 - Years are integers (negative for BCE if ever needed)
-- All text fields support Markdown
+- Text fields are displayed as text; do not rely on Markdown rendering
 - Wikipedia slugs are the article path segment (e.g., `"Johann_Sebastian_Bach"`)
 
 ---

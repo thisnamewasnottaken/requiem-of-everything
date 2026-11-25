@@ -1,5 +1,7 @@
 # OrchestraExplorer
 
+This is the React app's Orchestra view. The v2 [Concert Hall](../features/rebuild-v2.md#pages) is a separate implementation with its own stage layouts and audio.
+
 ## Purpose
 
 An interactive listening journey through the changing orchestra, from Renaissance polyphony to twentieth-century experimentation. Users travel through six musical eras, see the stage recompose around instruments prominent in each period, encounter a representative score, and follow a listening prompt into an existing Spotify search link. The seating map remains a navigable instrument atlas, but serves the larger story: how orchestral colour and musical possibility change over time.

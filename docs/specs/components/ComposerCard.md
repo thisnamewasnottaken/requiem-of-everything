@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A detail panel that shows comprehensive information about a selected composer. Appears when a user clicks on a composer bar in the timeline. Shows biography, key works, contemporaries, and historical context.
+A React detail panel for a selected composer. It shows a biography, key works and contemporaries when a composer bar is selected.
 
 ## Props / Inputs
 
@@ -24,15 +24,13 @@ Actions (close, navigate, compare) use store actions directly:
 
 ## Visual States
 
-- **Default**: Shows portrait, name, dates, biography, mini-timeline of works.
-- **Expanded**: Shows full biography, all works listed, contemporaries grid.
-- **Loading Wikipedia**: Skeleton for Wikipedia-enriched content.
+- **Default**: Shows the portrait (if available), name, dates, birthplace, biography, and lists of works and contemporaries when available.
 - **Comparison Selected**: Visual indicator that this composer is in comparison mode.
-- **Hidden by view switch**: Not rendered when the active view is Terms or Orchestra. Selection state in `useSelectionStore` is preserved so the card reappears when the user returns to Timeline.
+- **Hidden by view switch**: Only rendered in Timeline. Selection state in `useSelectionStore` is preserved so the card can reappear when the user returns to Timeline.
 
 ## Sections
 
-1. **Header**: Portrait (circular, 120px, from `portraitUrl`), name, birth–death years, nationality, era badge. If the portrait image fails to load (404 or any network error), the portrait container is hidden entirely — no broken image, no placeholder. The error state is **scoped to the current composer** — selecting a different composer must reset it so a valid portrait can appear again.
+1. **Header**: Portrait (from `portraitUrl`), name, birth–death years, birthplace and era badge. If the portrait fails to load, its container is hidden. The error state resets on composer change.
 2. **Biography**: One-paragraph core bio from `composer.biography`, followed by a "Read on Wikipedia" external link (localised via `getWikipediaUrl()`). Wikipedia content is not fetched or displayed inline.
 3. **Key Works**: List of compositions sorted by year, each showing year, title, and genre. Clicking an item calls `selectComposition(id)`.
 4. **Contemporaries**: Chip buttons of overlapping composers (capped at 15). Clicking a chip calls `selectComposer(id)`.
@@ -45,9 +43,7 @@ The "View on Wikipedia" link is localised to match the user's current i18n langu
 
 ## Portrait Image Sourcing
 
-Composer portrait thumbnails are **always fetched from English Wikipedia** (`en.wikipedia.org`), regardless of the current UI language. English Wikipedia has the most complete collection of composer images; non-English editions may lack thumbnails for a given composer.
-
-The static `portraitUrl` field in `src/data/composers.json` uses direct Wikimedia Commons URLs, which are language-agnostic. Dynamic thumbnails from `WikipediaService.getSummary()` are sourced from the English REST API endpoint via `getEnglishWikipediaApiBase()` even when the localized text is fetched from a different language subdomain.
+The card uses the static `portraitUrl` field in `src/data/composers.json` and does not call the Wikipedia REST service.
 
 ## Focus Timeline Behavior
 
@@ -65,7 +61,6 @@ The button is a **toggle**: clicking it again clears focus mode (label changes t
 
 ## Accessibility
 
-- Panel has `role="dialog"` with `aria-label`.
 - Close button is focusable and labeled.
 - All portrait images have alt text.
 - Lists are semantic `<ul>` / `<ol>`.

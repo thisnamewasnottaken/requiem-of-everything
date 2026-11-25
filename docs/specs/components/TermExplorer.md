@@ -1,5 +1,7 @@
 # TermExplorer Component Spec
 
+This is the React app's Terms view. The v2 [Lexicon](../features/rebuild-v2.md#pages) is a separate implementation.
+
 ## Purpose
 
 Full-page view for browsing and searching the musical terms glossary. Displays all 27 terms from `src/data/terms.json` as a filterable, searchable card grid. Serves as an educational reference for musical forms, genres, and techniques encountered on the timeline.
