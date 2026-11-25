@@ -76,6 +76,26 @@ test("the old River link retains the focused composer and can return to the V2 r
   await expect(page).toHaveURL(/\/requiem-of-everything\/legacy\/v1\/$/);
 });
 
+test("Credits and the V1 link do not overlap at 375px", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 375, height: 374 });
+  await page.goto("./#entered");
+  const credits = page.getByRole("button", { name: "Credits" });
+  const legacyLink = page.getByRole("link", { name: "Requiem V1" });
+  await expect(credits).toBeVisible();
+  await expect(legacyLink).toBeVisible();
+
+  const [creditsBox, legacyBox] = await Promise.all([credits.boundingBox(), legacyLink.boundingBox()]);
+  expect(creditsBox).not.toBeNull();
+  expect(legacyBox).not.toBeNull();
+  const a = creditsBox!;
+  const b = legacyBox!;
+  expect(a.x + a.width <= b.x || b.x + b.width <= a.x || a.y + a.height <= b.y || b.y + b.height <= a.y).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath("v2-entered-375px.png") });
+  await credits.click();
+  const dialog = page.getByRole("dialog", { name: "Credits" });
+  await expect(dialog).toHaveClass(/\bopen\b/);
+});
+
 for (const { path, selector, text } of [
   { path: "hall.html?lang=en-GB#composer=gustav-mahler", selector: "#card", text: "Gustav Mahler" },
   { path: "terms.html?lang=en-GB#term=fugue", selector: "#card", text: "Fugue" },
