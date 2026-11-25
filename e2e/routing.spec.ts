@@ -38,6 +38,32 @@ test("visitors can enter V2 and open the River without WebGL2", async ({ page })
   await expect(page.locator("#river")).toBeVisible();
 });
 
+test("the home page falls back to its CSS hall when WebGL renders black", async ({ page }) => {
+  await page.addInitScript(() => {
+    for (const proto of [WebGLRenderingContext.prototype, WebGL2RenderingContext.prototype]) {
+      proto.drawArrays = function (this: WebGLRenderingContext) {
+        this.clearColor(0, 0, 0, 1);
+        this.clear(this.COLOR_BUFFER_BIT);
+      };
+    }
+  });
+  await page.goto("./");
+  await expect(page.locator("body")).toHaveClass(/\bno-gl\b/);
+  await expect(page.locator("#hallLight")).toBeVisible();
+  await expect(page.getByRole("status").filter({ hasText: "withholding WebGL" })).toBeVisible();
+});
+
+test("the home page falls back to its CSS hall when WebGL draws nothing", async ({ page }) => {
+  await page.addInitScript(() => {
+    for (const proto of [WebGLRenderingContext.prototype, WebGL2RenderingContext.prototype]) {
+      proto.drawArrays = () => {};
+    }
+  });
+  await page.goto("./");
+  await expect(page.locator("body")).toHaveClass(/\bno-gl\b/);
+  await expect(page.getByRole("status").filter({ hasText: "withholding WebGL" })).toBeVisible();
+});
+
 test("the home page keeps its hall of light without WebGL", async ({ page }) => {
   await page.addInitScript(() => {
     const getContext = HTMLCanvasElement.prototype.getContext;
