@@ -133,6 +133,31 @@ for (const alias of ["v2/", "v2/index.html"]) {
   });
 }
 
+for (const gecko of [true, false]) {
+  test(`canvases ${gecko ? "stay on one GPU in Firefox" : "keep default GPU options elsewhere"}`, async ({ page }) => {
+    await page.addInitScript((gecko) => {
+      if (gecko) Object.defineProperty(window, "mozInnerScreenX", { value: 0 });
+      const seen: [string, unknown][] = [];
+      (window as unknown as { seen: typeof seen }).seen = seen;
+      const getContext = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (type: string, ...args: unknown[]) {
+        seen.push([type, args[0] ?? {}]);
+        return Reflect.apply(getContext, this, [type, ...args]);
+      };
+    }, gecko);
+    const seen = () => page.evaluate(() => (window as unknown as { seen: [string, Record<string, unknown>][] }).seen);
+    await page.goto("./");
+    await expect(page.locator("#homeTitle")).toHaveText("Requiem of Everything");
+    const [home] = (await seen()).filter(([type]) => /webgl/.test(type));
+    expect(home[1].powerPreference).toBe(gecko ? "low-power" : undefined);
+    await page.goto("./river.html");
+    await expect(page.locator("#river")).toBeVisible();
+    const river = (await seen()).filter(([type]) => type === "2d");
+    expect(river.length).toBeGreaterThan(0);
+    for (const [, options] of river) expect(options.willReadFrequently).toBe(gecko ? true : undefined);
+  });
+}
+
 test("the old River link retains the focused composer and can return to the V2 root", async ({ page }, testInfo) => {
   await page.goto("v2/river.html?lang=en-GB#focus=johann-sebastian-bach");
   await expect(page).toHaveURL(/\/requiem-of-everything\/river\.html\?lang=en-GB#focus=johann-sebastian-bach$/);

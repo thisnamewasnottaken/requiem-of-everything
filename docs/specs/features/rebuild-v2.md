@@ -30,6 +30,7 @@ V2 is a static HTML/CSS/JavaScript experience served at the application root (on
 - Site assets and page links use relative paths. External dependencies include Google Fonts, MusyngKite soundfonts and on-demand Spotify embeds.
 - No secrets. Spotify is used only through public embeds, with search links as a fallback.
 - A rotate overlay covers the pages when the viewport is portrait and 820px wide or narrower.
+- In Firefox (detected by `'mozInnerScreenX' in window`), `common/canvas.js` (`ROE_CANVAS`) makes Home, River, Hall and Lexicon request `powerPreference: 'low-power'` for WebGL and `willReadFrequently: true` for 2D canvases. On hybrid-GPU laptops, Firefox can otherwise draw a canvas on one GPU and composite it on the other, which shows black. 2D drawing in Firefox therefore runs on the CPU. Other browsers get empty options.
 
 ## Data and translations
 - `common/data.js` exposes `ROE_DATA`; `common/lives.js`, `instrument-extra.js`, `instrument-eras.js`, `hall-layout.js`, `terms-base.js` and `terms.js` add v2-specific content. River keeps the English `nationalityKey` for geography; localized `nationality` is display-only.

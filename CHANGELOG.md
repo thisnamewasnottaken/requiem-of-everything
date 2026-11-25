@@ -37,11 +37,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
-- **V2 Home text** — dragging across the page no longer highlights text. Links and controls still work.
-
+- **Black canvases in Firefox on hybrid-GPU laptops** — Firefox could draw a canvas on the discrete GPU and composite it on the integrated one, so Home, River, Lexicon and Concert Hall showed black. In Firefox, WebGL now asks for the low-power GPU and 2D canvases draw in software.
 - **Home page light in Firefox** — the home page shader now falls back to WebGL 1 when WebGL 2 is unavailable or fails to compile, and to a CSS hall of light shafts when WebGL is off or the context is lost, instead of showing a black screen. The page also switches to the CSS hall when WebGL starts but draws a black frame or nothing within 8 seconds. In each of these cases, a dismissible notice explains how to restore the full scene.
 - **v2 River of Time bottom band** — era captions stay legible without colliding, and the event key has its own row below the minimap instead of covering the event diamonds. On short landscape screens, country hover and pin targets remain separate and the life chart scrolls rather than collapsing.
 - **Repository lint command** — restored `npm run lint` for JavaScript and TypeScript with an ESLint 9 flat config.
+- **V2 Home text** — dragging across the page no longer highlights text. Links and controls still work.
 - **Locale-specific Wikipedia article slugs** — `useData` now localises `wikipediaSlug` fields for composers, compositions, events, terms, and instruments. This lets Polish locale files point links and REST lookups at working article titles such as `Fryderyk_Chopin` and `Rewolucja_francuska` instead of assuming direct subdomain swaps of English slugs will resolve.
 - **Timeline event backdrop noise** — historical events no longer render full-height translucent colour bands. Vertical backdrop bands are now reserved for musical eras only, while historical events remain visible as top-band markers with dashed lines and tooltips.
 - **App title and description now update when switching language** — `app.title` and `app.subtitle` translations in `fr-FR` ("Requiem de Tout" / "Une chronologie interactive de la musique classique") and `af-ZA` ("Requiem van Alles") were incorrect (still showing English). Fixed the translation values. `document.title` now updates on every language change via a `useEffect` in `App.tsx`. The `<html lang>` attribute also updates dynamically. A visually-hidden `aria-live` region announces the new app title to screen readers on language switch.
