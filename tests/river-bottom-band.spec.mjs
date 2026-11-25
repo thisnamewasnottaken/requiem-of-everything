@@ -58,3 +58,25 @@ test('River era captions and event key have distinct space at desktop and narrow
     expect(key.bottom).toBeLessThanOrEqual(hint.top);
   }
 });
+
+test('country captions hover and pin their own lane at 568×320', async ({ page }) => {
+  await page.setViewportSize({ width: 568, height: 320 });
+  await page.addInitScript(() => {
+    const { fillText } = CanvasRenderingContext2D.prototype;
+    CanvasRenderingContext2D.prototype.fillText = function (text, ...args) {
+      if (this.canvas.id === 'river' && text.endsWith('I T A L Y')) {
+        const { e: x, f: y } = this.getTransform();
+        window.italyCaption = { x, y, pinned: text.startsWith('◆') };
+      }
+      return fillText.call(this, text, ...args);
+    };
+    localStorage.setItem('roe-sound', 'off');
+  });
+  await page.goto(url);
+  await page.waitForFunction(() => window.italyCaption);
+  const { x, y } = await page.evaluate(() => window.italyCaption);
+  await page.mouse.move(x + 8, y - 4);
+  await expect(page.locator('#tip b')).toHaveText('Italy');
+  await page.mouse.click(x + 8, y - 4);
+  await page.waitForFunction(() => window.italyCaption.pinned);
+});

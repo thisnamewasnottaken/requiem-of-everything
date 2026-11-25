@@ -373,7 +373,9 @@ function draw(){
     g.fillStyle=`rgba(${Math.min(255,r+60)},${Math.min(255,gg+60)},${Math.min(255,b+60)},${.55*dim})`; g.fillRect(x-1,y-1,2.2,2.2); }
   // country labels: hover/click targets; a selected life lights the countries it lived in
   g.font='400 10px Cinzel'; const fl=focus?lanesOf(focus):null; laneBoxes=[];
-  LANES.forEach((l,i)=>{ const text=laneName(l).toUpperCase().split('').join(' '); const y=TOP+laneH()*(i+.5)+3; const tw=g.measureText(text).width; laneBoxes.push({l,x0:10,x1:26+tw,y0:y-13,y1:y+7});
+  const lh=laneH(), hitRadius=Math.min(10,lh/2);
+  LANES.forEach((l,i)=>{ const text=laneName(l).toUpperCase().split('').join(' '); const center=TOP+lh*(i+.5), y=center+3; const tw=g.measureText(text).width;
+    laneBoxes.push({l,x0:10,x1:26+tw,y0:center-hitRadius,y1:center+hitRadius});
     const on=FL===l, pinned=pin&&pin.kind==='lane'&&pin.v===l; const col=fl&&fl.has(l)?rgba(focus.rgb,1):on?'#f6e1b0':'rgba(216,203,180,.4)';
     label((pinned?'◆ ':'')+text,18,y,`${(fl&&fl.has(l))||on?'600':'400'} 10px Cinzel`,col,'left'); });
   flushLabels();
@@ -410,7 +412,7 @@ cv.addEventListener('pointerleave',()=>{hoverC=hoverE=hoverW=hoverL=null;tip.sty
 cv.addEventListener('pointermove',e=>{ if(findGroup.contains(e.target))return;if(drag){const dx=e.clientX-drag.x; if(Math.abs(dx)>3)drag.moved=true; const dy=dx/W*(drag.b-drag.a); let a=drag.a-dy,b=drag.b-dy; if(a<MIN){b+=MIN-a;a=MIN;} if(b>MAX){a-=b-MAX;b=MAX;} tv0=a;tv1=b; return;}
   pick(e.clientX,e.clientY); showTip(e.clientX,e.clientY);});
 function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=Y2yr(mx); const span=v1-v0, zoomW=clamp(500/span,1,4), revealYear=lerp(MIN,MAX,reveal);
-  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<=b.y1){hoverL=b.l;return;} }
+  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<b.y1){hoverL=b.l;return;} }
   for(const c of comps){ for(const w of c.works){const d=Math.hypot(X(w.yearComposed)-mx,yAt(c,w.yearComposed)-my); if(d<9){hoverW=w;hoverC=c;return;}}}
   if(my>BOT()-2&&my<BOT()+26){ let bw=1e9; for(const e of EV){ const x=X(e.year), xe=X(evEnd(e)); const inside=mx>=x-7&&mx<=Math.max(xe,x)+7; if(inside&&xe-x<bw){bw=xe-x;hoverE=e;} } if(hoverE)return; }
   let best=1e9;
