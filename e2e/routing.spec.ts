@@ -96,6 +96,29 @@ test("Credits and the V1 link do not overlap at 375px", async ({ page }, testInf
   await expect(dialog).toHaveClass(/\bopen\b/);
 });
 
+for (const [width, height] of [[375, 667], [740, 360], [1440, 900]]) {
+  test(`V2 destination names receive pointer input at ${width}×${height}`, async ({ page }, testInfo) => {
+    await page.setViewportSize({ width, height });
+    await page.goto("./#entered");
+    await expect(page.locator("body")).toHaveClass(/\bentered\b/);
+
+    if (width < height) {
+      const overlay = await page.locator("body").evaluate(body => getComputedStyle(body, "::after").content);
+      expect(overlay).toContain("Please turn your phone sideways");
+      await page.addStyleTag({ content: "body::after { pointer-events: none; }" });
+    }
+
+    const names = page.locator("#portals .name");
+    await expect(names).toHaveCount(3);
+    await expect.poll(() => names.evaluateAll(labels => labels.map(label => {
+      const { x, y, width, height } = label.getBoundingClientRect();
+      return document.elementFromPoint(x + width / 2, y + height / 2)?.closest(".portal") === label.closest(".portal");
+    }))).toEqual([true, true, true]);
+
+    if (width >= height) await page.screenshot({ path: testInfo.outputPath(`v2-entered-${width}x${height}.png`) });
+  });
+}
+
 for (const { path, selector, text } of [
   { path: "hall.html?lang=en-GB#composer=gustav-mahler", selector: "#card", text: "Gustav Mahler" },
   { path: "terms.html?lang=en-GB#term=fugue", selector: "#card", text: "Fugue" },
