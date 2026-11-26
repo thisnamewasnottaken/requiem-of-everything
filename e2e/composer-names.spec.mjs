@@ -45,6 +45,16 @@ for (const [width, height] of [[1600, 900], [1024, 768], [844, 390], [568, 320]]
       const switcher = await page.locator('#roe-language').boundingBox();
       const hint = await page.locator('.closehint').boundingBox();
       expect(switcher.y + switcher.height).toBeLessThan(hint.y);
+      await page.keyboard.press('/');
+      await expect(page.locator('#find')).toBeFocused();
+      const search = await page.locator('#find').boundingBox();
+      const card = await page.locator('#life').boundingBox();
+      expect(search.y + search.height).toBeLessThan(card.y);
+      await page.keyboard.type('Bach');
+      await page.keyboard.press('ArrowDown');
+      await expect(page.locator('.find-result[aria-selected="true"]')).toBeVisible();
+      await page.keyboard.press('Enter');
+      await expect(page.locator('#lName')).toHaveText('Johann Sebastian Bach');
     }
     await context.close();
   });
