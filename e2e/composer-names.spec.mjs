@@ -115,6 +115,7 @@ test('search buttons remain clickable when the browser does not focus buttons', 
   await page.locator('#find').fill('Mozart');
   await page.locator('.find-result').first().click();
   await expect(page.locator('#lName')).toHaveText('Wolfgang Amadeus Mozart');
+  await expect(page.locator('#life')).toBeFocused();
   await page.locator('#find').fill('Bach');
   await page.locator('#findClear').click();
   await expect(page.locator('#find')).toHaveValue('');
