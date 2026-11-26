@@ -119,6 +119,10 @@
   #findGroup{top:84px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
   #findResults{max-height:calc(100vh - 138px)}
 }
+@media(max-height:500px) and (max-width:480px){
+  body:has(#life.open) #findGroup:focus-within{top:48px!important;left:12px;right:12px;width:auto}
+  body:has(#findGroup:focus-within) #life.open{height:calc(100vh - max(164px,106px + var(--river-footer-height,0px)))}
+}
 @media(max-width:640px) and (max-height:500px){
   #life .right{height:auto;overflow:visible}
   #seis{flex:none;height:176px}

@@ -77,6 +77,28 @@ test('dismissing a keyboard search does not reopen the life on reload', async ({
   await expect(page.locator('#life')).not.toHaveClass(/open/);
 });
 
+test('compact landscape search has room for a readable query', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 374 });
+  await page.goto('river.html#still&focus=johann-sebastian-bach');
+  await expect(page.locator('#life')).toHaveClass(/open/);
+  await page.keyboard.press('/');
+  const input = page.locator('#find');
+  await expect(input).toBeFocused();
+  await input.fill('Mozart');
+  const textWidth = await input.evaluate(el => {
+    const style = window.getComputedStyle(el);
+    return el.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+  });
+  expect(textWidth).toBeGreaterThan(200);
+  const search = await input.boundingBox(), card = await page.locator('#life').boundingBox();
+  expect(search.y + search.height).toBeLessThan(card.y);
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#lName')).toHaveText('Wolfgang Amadeus Mozart');
+  await page.locator('.sigil-burger').click();
+  await expect(page.locator('.sigil')).toHaveClass(/open/);
+});
+
 test('a hovered name painted over a country opens its composer', async ({ page }) => {
   // Isolate a real composer's lane to make the zoomed label overlap deterministic.
   await page.route('**/common/data.js', async route => {
