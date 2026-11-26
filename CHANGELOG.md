@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **Light votives from Home** — visitors can light a votive on Home before entering, by clicking or tapping the hall or with the new keyboard-accessible **Light a votive** button, localized in all five languages. Spec: `docs/specs/features/rebuild-v2.md`.
 - **Lexicon connections** — follow a highlighted line to its related term. Connected terms draw closer to the selection while keeping the constellation's 3D depth.
 
 - **Project and contribution guides**: added a root README and contribution guide covering local setup, the React app and static rebuild, and the checks and translation workflows for each.
