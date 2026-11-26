@@ -1,7 +1,7 @@
 /* global CanvasRenderingContext2D, innerWidth, innerHeight, window */
 import { expect, test } from '@playwright/test';
 
-for (const [width, height] of [[1600, 900], [1024, 768], [844, 390], [568, 320]]) {
+for (const [width, height] of [[1600, 900], [1024, 768], [844, 390], [568, 320], [430, 320]]) {
   test(`overview composer names stay separate and work without hover at ${width}×${height}`, async ({ browser }) => {
     const context = await browser.newContext({ viewport: { width, height }, hasTouch: true });
     const page = await context.newPage();
@@ -55,6 +55,8 @@ for (const [width, height] of [[1600, 900], [1024, 768], [844, 390], [568, 320]]
       await expect(page.locator('.find-result[aria-selected="true"]')).toBeVisible();
       await page.keyboard.press('Enter');
       await expect(page.locator('#lName')).toHaveText('Johann Sebastian Bach');
+      await page.locator('.sigil-burger').click();
+      await expect(page.locator('.sigil')).toHaveClass(/open/);
     }
     await context.close();
   });

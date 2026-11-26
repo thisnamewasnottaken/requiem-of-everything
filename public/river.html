@@ -112,6 +112,7 @@
   #hint{display:none}
   #life{height:calc(100vh - max(124px,66px + var(--river-footer-height,0px)));bottom:max(58px,var(--river-footer-height,0px))}
   body:has(#life.open) :is(#findGroup,#bSilence,#roe-language){top:8px!important}
+  body:has(#life.open) #findGroup{width:clamp(36px,calc(100vw - 330px),150px)}
   #life .right{overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.45) rgba(201,165,92,.06)}
   #seis{min-height:176px}
   #bSilence{top:84px;right:12px}
