@@ -504,6 +504,7 @@ function openLife(c){ if(!c||!Object.hasOwn(COMP,c.id)||COMP[c.id]!==c)return; f
   life.scrollTop=0;life.classList.add('open'); requestAnimationFrame(()=>{drawSeis(c);paintMore();});
   if(sound.started&&soundEnabled){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
 function closeLife(){ focus=null; life.classList.remove('open'); document.getElementById('lPlayer').replaceChildren(); tv0=1480; tv1=2000;
+  findInput.value='';searchOpen=false;searchActive=-1;updateFindSearch();
   const hash=new URLSearchParams(location.hash.slice(1));if(hash.has('focus')){hash.delete('focus');history.replaceState(null,'',location.pathname+location.search+(hash.size?'#'+hash:''));} }
 addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
 function chooseComposer(c){

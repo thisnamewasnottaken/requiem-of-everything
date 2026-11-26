@@ -73,6 +73,8 @@ test('dismissing a keyboard search does not reopen the life on reload', async ({
   await page.keyboard.press('Escape');
   await expect(page.locator('#life')).not.toHaveClass(/open/);
   await expect(page).not.toHaveURL(/focus=/);
+  await expect(page.locator('#find')).toHaveValue('');
+  await expect(page.locator('#findResults')).toBeHidden();
   await page.reload();
   await expect(page.locator('#life')).not.toHaveClass(/open/);
 });
