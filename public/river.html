@@ -458,11 +458,11 @@ cv.addEventListener('pointerleave',()=>{hoverC=hoverE=hoverW=hoverL=null;tip.sty
 cv.addEventListener('pointermove',e=>{ if(findGroup.contains(e.target))return;if(drag){const dx=e.clientX-drag.x; if(Math.abs(dx)>3)drag.moved=true; const dy=dx/W*(drag.b-drag.a); let a=drag.a-dy,b=drag.b-dy; if(a<MIN){b+=MIN-a;a=MIN;} if(b>MAX){a-=b-MAX;b=MAX;} tv0=a;tv1=b; return;}
   pick(e.clientX,e.clientY); showTip(e.clientX,e.clientY);});
 function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=Y2yr(mx); const span=v1-v0, zoomW=clamp(500/span,1,4), revealYear=lerp(MIN,MAX,reveal);
-  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<b.y1){hoverL=b.l;return;} }
   // Match the painted text, not a character-count estimate or a nearby thread.
   const names=nameBoxes.filter(b=>mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<=b.y1);
   names.sort((a,b)=>Number(b.active)-Number(a.active)||Math.abs(my-(a.y0+a.y1)/2)-Math.abs(my-(b.y0+b.y1)/2));
   if(names.length){hoverC=names[0].c;return;}
+  for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<b.y1){hoverL=b.l;return;} }
   for(const c of comps){ for(const w of c.works){const d=Math.hypot(X(w.yearComposed)-mx,yAt(c,w.yearComposed)-my); if(d<9){hoverW=w;hoverC=c;return;}}}
   if(my>BOT()-2&&my<BOT()+26){ let bw=1e9; for(const e of EV){ const x=X(e.year), xe=X(evEnd(e)); const inside=mx>=x-7&&mx<=Math.max(xe,x)+7; if(inside&&xe-x<bw){bw=xe-x;hoverE=e;} } if(hoverE)return; }
   let best=1e9;

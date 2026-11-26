@@ -74,3 +74,34 @@ test('dismissing a keyboard search does not reopen the life on reload', async ({
   await page.reload();
   await expect(page.locator('#life')).not.toHaveClass(/open/);
 });
+
+test('a hovered name painted over a country opens its composer', async ({ page }) => {
+  // Isolate a real composer's lane to make the zoomed label overlap deterministic.
+  await page.route('**/common/data.js', async route => {
+    const response = await route.fetch();
+    await route.fulfill({ response, body: await response.text() +
+      '\nwindow.ROE_DATA.composers.forEach(c => { if (c.id !== "wolfgang-amadeus-mozart") c.nationalityKey = "Italian"; });' });
+  });
+  await page.addInitScript(() => {
+    const { fillText } = CanvasRenderingContext2D.prototype;
+    CanvasRenderingContext2D.prototype.fillText = function (text, ...args) {
+      if (this.canvas.id === 'river') {
+        const { e: x, f: y, a: dpr } = this.getTransform();
+        const ink = this.measureText(text);
+        if (String(text).replaceAll(' ', '') === 'GERMANLANDS') window.countryCenter = y / dpr - 3;
+        if (text === 'Mozart') window.mozartName = { x: x / dpr - ink.width / 2, y: y / dpr - 3 };
+      }
+      return fillText.call(this, text, ...args);
+    };
+  });
+  await page.goto('river.html#still&zoom=1750-1850');
+  await page.waitForFunction(() => window.countryCenter);
+  const countryY = await page.evaluate(() => window.countryCenter);
+  // Hover a thread away from the caption, revealing its otherwise omitted name.
+  await page.mouse.move(400, countryY);
+  await page.waitForFunction(() => window.mozartName);
+  const name = await page.evaluate(() => window.mozartName);
+  await page.mouse.click(name.x, name.y);
+  await expect(page.locator('#life')).toHaveClass(/open/);
+  await expect(page.locator('#lName')).toHaveText('Wolfgang Amadeus Mozart');
+});
