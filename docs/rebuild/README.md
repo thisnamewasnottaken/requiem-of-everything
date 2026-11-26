@@ -4,14 +4,14 @@
 
 This report compares the **first edition** (the React app) with **V2**, built in one Devin session: <https://app.devin.ai/sessions/3b05c5bc8d3f4f8384ab4a1c4492e415>. Both shipped on `main` after PR #50. V2 now lives in [`public/`](../../public/) and is served at `/requiem-of-everything/`, with the first edition at `/requiem-of-everything/legacy/v1/`. See the [v2 feature spec](../specs/features/rebuild-v2.md) for current behavior, including the responsive navigation added in PR #52.
 
-The 1440×900 headless Chrome screenshots are historical: the old site was built from pre-rebuild `main`, and the new site from the rebuild branch.
+The 1440×900 headless Chrome screenshots are historical: the old site was built from pre-rebuild `main`, and the new site from the rebuild branch. The timeline is now named **Variations Through Time**; screenshots and quoted feedback retain its historical name.
 
 ## At a glance
 
 | | React site (rebuild baseline) | New site (v2) |
 |---|---|---|
 | Arrival | A dense timeline of bars, straight away | An eye-level walk through infinite darkness: light columns, incense, a floor you drift across, and votive voices that follow your clicks |
-| Navigation | Header tabs: Timeline · Terms · Orchestra · Credits | Three glowing halos: River of Time · Concert Hall · Lexicon. The Votive icon takes you home |
+| Navigation | Header tabs: Timeline · Terms · Orchestra · Credits | Three glowing halos: Variations Through Time · Concert Hall · Lexicon. The Votive icon takes you home |
 | Composers | 51 bars on a timeline | 51 living threads whose thickness and brightness show how much they wrote and how much they were heard. Each has a fact-checked life arc with world events and contemporaries |
 | Orchestra | A six-era listening journey with a 2D seating map and instrument atlas | A lit 3D stage from the conductor's podium, in 5 eras, plus a signature piece for six composers. Players walk off and on, tune, then play "Raise the baton" |
 | Sound | Links out to Spotify | Recorded orchestral samples (VSCO 2 CE, Sonatina) in the Hall, plus Spotify playing inside the page for 222 verified recordings |
@@ -27,13 +27,13 @@ The 1440×900 headless Chrome screenshots are historical: the old site was built
 
 ![Old site: Timeline](screenshots/old-timeline.png)
 
-**After:** the new home page is a place rather than a page. You stand at eye level in endless dark. Shafts of light fall through incense onto the patch of floor around you. Three halos lead to the River, the Hall and the Lexicon, each with an animated emblem and its own sound.
+**After:** the new home page is a place rather than a page. You stand at eye level in endless dark. Shafts of light fall through incense onto the patch of floor around you. Three halos lead to Variations Through Time, the Hall and the Lexicon, each with an animated emblem and its own sound.
 
 ![New site: Home](screenshots/new-home.png)
 
-The timeline's information now lives in the **River of Time**. Each composer is a thread that swells when the music poured out and brightens when the world was listening. World events and countries light up the lives they touched. Opening a life shows its arc, its biography, the events of its lifetime and a Spotify player.
+The timeline's information now lives in **Variations Through Time**. Each composer is a thread that swells when the music poured out and brightens when the world was listening. World events and countries light up the lives they touched. Opening a life shows its arc, its biography, the events of its lifetime and a Spotify player.
 
-![New site: River of Time with Chopin's life open](screenshots/new-river-chopin.png)
+![New site: Variations Through Time with Chopin's life open (historical screenshot)](screenshots/new-river-chopin.png)
 
 ## 2. Orchestra → Concert Hall
 
