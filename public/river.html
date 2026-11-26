@@ -8,7 +8,7 @@
 #river{position:fixed;inset:0;width:100%;height:100%;cursor:grab}
 #river.drag{cursor:grabbing}
 #head{position:fixed;top:20px;left:calc(50% - 18px);transform:translateX(-50%);text-align:center;z-index:20;pointer-events:none}
-#head h1{font-family:var(--inscr);font-weight:400;font-size:1.05rem;letter-spacing:.18em;text-indent:.18em;color:#efe0c2;text-shadow:0 0 20px rgba(255,179,107,.25)}
+#head h1{font-family:var(--inscr);font-weight:400;font-size:1.05rem;letter-spacing:.18em;text-indent:.18em;color:#efe0c2;text-shadow:0 0 20px rgba(255,179,107,.25);text-wrap:balance}
 #head p{font-style:italic;font-weight:300;color:var(--mist);margin:6px auto 0;font-size:.88rem;white-space:nowrap}
 #tip{position:fixed;z-index:30;pointer-events:none;padding:12px 16px 10px;min-width:180px;max-width:320px;opacity:0;transition:opacity .25s;line-height:1.45}
 #tip b{font-weight:500;font-size:1.15rem;color:#f6e9cf;display:block}
@@ -67,6 +67,7 @@
 #legendE i{width:6px;height:6px;transform:rotate(45deg)}
 #hint{grid-column:1/-1;position:static;transform:none;text-align:center;opacity:.55;font-size:.48rem}
 @media(max-width:1180px){
+  #head{max-width:calc(100vw - 650px)}
   #head p{display:none}
 }
 @media(min-width:641px) and (max-width:1499px) and (min-height:501px){
@@ -83,13 +84,13 @@
   body:has(#findGroup:focus-within) #head{opacity:0}
 }
 @media(min-width:641px) and (max-width:820px) and (min-height:501px){
-  #head{left:116px;transform:none;text-align:left}
+  #head{left:116px;transform:none;text-align:left;max-width:calc(100vw - 450px)}
 }
 @media(max-width:640px){
   #riverFooter{inset-inline:12px;grid-template-columns:auto minmax(0,1fr)}
   .sigil{left:12px;top:12px;gap:8px}
   #head{top:13px!important;width:196px;max-width:calc(100vw - 184px)}
-  #head h1{font-size:.7rem;letter-spacing:.18em;text-indent:.18em;white-space:nowrap}
+  #head h1{font-size:.7rem;letter-spacing:.18em;text-indent:.18em}
   #head p{display:none}
   #life{left:10px;right:10px;bottom:max(58px,var(--river-footer-height,0px));width:auto;height:min(78vh,660px);padding:14px 15px;display:block;overflow-y:auto;transform:translateY(30px)}
   #life.open{transform:none}
@@ -104,12 +105,14 @@
   #findGroup{top:54px;right:calc(12px + 90px + 8px + 120px + 8px);width:150px}
 }
 @media(max-height:500px){
-  #head{top:52px!important;left:50%}
+  #head{top:52px!important;left:50%;max-width:calc(100vw - 184px)}
   #head p{display:none}
   #riverFooter{row-gap:3px;padding-bottom:4px}
   #mini{height:22px}
   #hint{display:none}
   #life{height:calc(100vh - max(124px,66px + var(--river-footer-height,0px)));bottom:max(58px,var(--river-footer-height,0px))}
+  #life.open{z-index:44}
+  body:has(#life.open) #roe-language{top:8px!important}
   #life .right{overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(201,165,92,.45) rgba(201,165,92,.06)}
   #seis{min-height:176px}
   #bSilence{top:84px;right:12px}
@@ -282,10 +285,24 @@ function activeFilter(){
   if(pin) return pin.kind==='lane'?{...pin,test:c=>touches(c,pin.v)}:{...pin,test:c=>aliveIn(c,pin.v.year,evEnd(pin.v))};
   return null;}
 // text is queued and drawn last, with a dark halo, so the bright threads never wash it out
-const labels=[]; const label=(text,x,y,font,fill,align='left',rot=0)=>labels.push({text,x,y,font,fill,align,rot});
+const labels=[], composerLabels=[], nameBoxes=[]; const label=(text,x,y,font,fill,align='left',rot=0,namePriority=0)=>labels.push({text,x,y,font,fill,align,rot,namePriority});
+const overlaps=(a,b)=>a.x0<b.x1+3&&a.x1>b.x0-3&&a.y0<b.y1+2&&a.y1>b.y0-2;
+function drawComposerLabels(){
+  // Keep the overview open and legible instead of shrinking or boxing names.
+  composerLabels.sort((a,b)=>b.priority-a.priority||a.c.i-b.c.i);
+  for(const l of composerLabels){
+    g.save();g.font=l.font;const ink=g.measureText(l.c.shortName);g.restore();
+    const x=clamp(l.x,ink.width+8,W-8), y=l.y;
+    const box={c:l.c,x0:x-ink.width-5,x1:x+5,y0:y-ink.actualBoundingBoxAscent-6,y1:y+ink.actualBoundingBoxDescent+6,active:l.active};
+    if(!l.active&&(nameBoxes.some(b=>overlaps(box,b))||laneBoxes.some(b=>overlaps(box,b))))continue;
+    nameBoxes.push(box);
+    label(l.c.shortName,x,y,l.font,l.fill,'right',0,l.active?2:1);
+  }
+}
 function flushLabels(){ g.globalCompositeOperation='source-over'; g.lineJoin='round';
+  labels.sort((a,b)=>a.namePriority-b.namePriority);
   for(const l of labels){ g.save(); g.translate(l.x,l.y); if(l.rot)g.rotate(l.rot); g.font=l.font; g.textAlign=l.align;
-    g.lineWidth=3.5; g.strokeStyle='rgba(10,8,7,.8)'; g.shadowColor='rgba(0,0,0,.95)'; g.shadowBlur=7; g.strokeText(l.text,0,0); g.shadowBlur=0; g.fillStyle=l.fill; g.fillText(l.text,0,0); g.restore(); }
+    g.lineWidth=l.namePriority?5:3.5; g.strokeStyle=l.namePriority?'rgba(10,8,7,.95)':'rgba(10,8,7,.8)'; g.shadowColor='rgba(0,0,0,.95)'; g.shadowBlur=7; g.strokeText(l.text,0,0); g.shadowBlur=0; g.fillStyle=l.fill; g.fillText(l.text,0,0); g.restore(); }
   labels.length=0; }
 function drawEraLabels(eras){
   const inset=12, gap=14, available=W-2*inset, baseline=BOT()+ERA_BASELINE;
@@ -321,6 +338,7 @@ function drawEraLabels(eras){
 }
 let laneBoxes=[];
 function draw(){
+  nameBoxes.length=0;composerLabels.length=0;
   g.globalCompositeOperation='source-over'; g.fillStyle='#0a0807'; g.fillRect(0,0,W,H);
   const span=v1-v0, mid=(v0+v1)/2, F=activeFilter(), FE=F&&F.kind==='event'?F.v:null, FL=F&&F.kind==='lane'?F.v:null;
   // era mists; the era at the centre of the view is named larger and brighter
@@ -369,7 +387,11 @@ function draw(){
       let px=X(c.deathYear),py=yAt(c,c.deathYear); const pts=[[c.deathYear,.2],...c.life.after];
       for(let y=c.deathYear+1;y<=Math.min(MAX,revealYear);y+=stepYr*2){const s=curve(pts,y,1);const x=X(y),yy=yAt(c,c.deathYear);g.lineWidth=1+s*3;g.strokeStyle=`rgba(${r},${gg},${b},${(s*.32)*dim})`;g.beginPath();g.moveTo(px,py);g.lineTo(x,yy);g.stroke();px=x;py=yy;}
       g.setLineDash([]); g.lineCap='butt';}
-    const nx=X(c.birthYear); if(nx>-200&&nx<W) label(c.shortName,nx-6,yAt(c,c.birthYear)+4,`${focus===c||hoverC===c?'500 15px':'400 12.5px'} Cormorant Garamond`,`rgba(${Math.min(255,r+30)},${Math.min(255,gg+30)},${Math.min(255,b+30)},${clamp(.45*dim+.2,0,1)})`,'right');
+    const nx=X(c.birthYear); if(nx>-200&&nx<W){
+      const active=focus===c||hoverC===c, x=nx-6, y=yAt(c,c.birthYear)+4, font=`${active?'600 16px':'500 14px'} Cormorant Garamond`;
+      const priority=(active?10000:0)+(searchMatches.has(c)?1000:0)+(c.life?100:0)+c.works.length;
+      composerLabels.push({c,x,y,font,active,priority,fill:`rgba(${Math.min(255,r+30)},${Math.min(255,gg+30)},${Math.min(255,b+30)},${clamp(.6*dim+.2,0,1)})`});
+    }
     for(const w of c.works){ if(w.yearComposed>a1||w.yearComposed<a0)continue; const x=X(w.yearComposed),y=yAt(c,w.yearComposed); const hw=w===hoverW; const rr=(hw?6:2.2+zoomW*.6);
       const gr=g.createRadialGradient(x,y,0,x,y,rr*2.2);gr.addColorStop(0,`rgba(255,244,220,${.9*Math.min(1,dim)})`);gr.addColorStop(.4,`rgba(${r},${gg},${b},${.4*Math.min(1,dim)})`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
       g.fillStyle=gr; g.fillRect(x-rr*2.2,y-rr*2.2,rr*4.4,rr*4.4);
@@ -401,6 +423,7 @@ function draw(){
       y0:center-hitRadius,y1:center+hitRadius});
     label(text,captionX,y,g.font,visited?rgba(focus.rgb,1):on?'#f6e1b0':'rgba(216,203,180,.4)','left');
   });
+  drawComposerLabels();
   flushLabels();
   drawMini();
 }
@@ -437,11 +460,14 @@ cv.addEventListener('pointermove',e=>{ if(findGroup.contains(e.target))return;if
   pick(e.clientX,e.clientY); showTip(e.clientX,e.clientY);});
 function pick(mx,my){ hoverC=null;hoverE=null;hoverW=null;hoverL=null; const yr=Y2yr(mx); const span=v1-v0, zoomW=clamp(500/span,1,4), revealYear=lerp(MIN,MAX,reveal);
   for(const b of laneBoxes){ if(mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<b.y1){hoverL=b.l;return;} }
+  // Match the painted text, not a character-count estimate or a nearby thread.
+  const names=nameBoxes.filter(b=>mx>=b.x0&&mx<=b.x1&&my>=b.y0&&my<=b.y1);
+  names.sort((a,b)=>Number(b.active)-Number(a.active)||Math.abs(my-(a.y0+a.y1)/2)-Math.abs(my-(b.y0+b.y1)/2));
+  if(names.length){hoverC=names[0].c;return;}
   for(const c of comps){ for(const w of c.works){const d=Math.hypot(X(w.yearComposed)-mx,yAt(c,w.yearComposed)-my); if(d<9){hoverW=w;hoverC=c;return;}}}
   if(my>BOT()-2&&my<BOT()+26){ let bw=1e9; for(const e of EV){ const x=X(e.year), xe=X(evEnd(e)); const inside=mx>=x-7&&mx<=Math.max(xe,x)+7; if(inside&&xe-x<bw){bw=xe-x;hoverE=e;} } if(hoverE)return; }
   let best=1e9;
   for(const c of comps){ if(c.birthYear>revealYear) continue;
-    const nx=X(c.birthYear), ny=yAt(c,c.birthYear); if(mx<nx&&mx>nx-c.shortName.length*7-10&&Math.abs(my-ny)<10){hoverC=c;return;}
     if(yr<c.birthYear-.5||yr>c.deathYear+.5)continue; const yy=clamp(yr,c.birthYear,c.deathYear); const d=Math.abs(yAt(c,yy)-my);
     const tol=10+(1+output(c,yy)*5.5)*zoomW; if(d<tol&&d<best){best=d;hoverC=c;} }
   if(!hoverC){ for(const e of EV){ if(Math.abs(X(e.year)-mx)<5&&my>TOP&&my<BOT()){hoverE=e;break;} } } }
@@ -454,6 +480,7 @@ function showTip(mx,my){ let html='';
   tip.style.opacity=html?1:0; if(html){tip.innerHTML=html; tip.style.left=Math.min(W-340,mx+18)+'px'; tip.style.top=Math.min(H-180,my+18)+'px';} cv.style.cursor=html?'pointer':''; }
 function clickAt(e){
   if(findGroup.contains(e.target))return;
+  pick(e.clientX,e.clientY);
   if(hoverL){ pin=pin&&pin.kind==='lane'&&pin.v===hoverL?null:{kind:'lane',v:hoverL}; showTip(e.clientX,e.clientY); return; }
   if(hoverE&&!hoverC){ pin=pin&&pin.kind==='event'&&pin.v===hoverE?null:{kind:'event',v:hoverE}; showTip(e.clientX,e.clientY); return; }
   if(hoverC){ openLife(hoverC); return; }
@@ -471,7 +498,8 @@ function openLife(c){ if(!c||!Object.hasOwn(COMP,c.id)||COMP[c.id]!==c)return; f
   document.getElementById('lListen').onclick=()=>{const w=c.works[0];window.ROE_PLAYER.mount(document.getElementById('lPlayer'),w?.id, w?.spotifyUrl||`https://open.spotify.com/search/${encodeURIComponent(c.name)}`);};
   life.classList.add('open'); requestAnimationFrame(()=>{drawSeis(c);paintMore();});
   if(sound.started&&soundEnabled){ const n=[60,64,67,72]; n.forEach((m,i)=>sound.play(c.voice,m-(c.voice==='cello'?12:0),{when:sound.now()+i*.22,dur:1.2,vel:.42})); } }
-function closeLife(){ focus=null; life.classList.remove('open'); document.getElementById('lPlayer').replaceChildren(); tv0=1480; tv1=2000; }
+function closeLife(){ focus=null; life.classList.remove('open'); document.getElementById('lPlayer').replaceChildren(); tv0=1480; tv1=2000;
+  const hash=new URLSearchParams(location.hash.slice(1));if(hash.has('focus')){hash.delete('focus');history.replaceState(null,'',location.pathname+location.search+(hash.size?'#'+hash:''));} }
 addEventListener('keydown',e=>{if(e.key==='Escape'){ if(focus)closeLife(); else pin=null; }});
 function chooseComposer(c){
   if(!c||!Object.hasOwn(COMP,c.id)||COMP[c.id]!==c)return;
