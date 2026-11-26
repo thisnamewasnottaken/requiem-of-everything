@@ -99,6 +99,28 @@ test('compact landscape search has room for a readable query', async ({ page }) 
   await expect(page.locator('.sigil')).toHaveClass(/open/);
 });
 
+test('search buttons remain clickable when the browser does not focus buttons', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 374 });
+  await page.goto('river.html#still&focus=johann-sebastian-bach');
+  await expect(page.locator('#life')).toHaveClass(/open/);
+  // Emulate Safari's non-focusing button default, unless the app cancels it.
+  await page.locator('#findGroup').evaluate(group => {
+    group.addEventListener('mousedown', event => {
+      if (!event.defaultPrevented && event.target.closest('button')) {
+        event.preventDefault();
+        window.document.activeElement.blur();
+      }
+    });
+  });
+  await page.locator('#find').fill('Mozart');
+  await page.locator('.find-result').first().click();
+  await expect(page.locator('#lName')).toHaveText('Wolfgang Amadeus Mozart');
+  await page.locator('#find').fill('Bach');
+  await page.locator('#findClear').click();
+  await expect(page.locator('#find')).toHaveValue('');
+  await expect(page.locator('#life')).not.toHaveClass(/open/);
+});
+
 test('a hovered name painted over a country opens its composer', async ({ page }) => {
   // Isolate a real composer's lane to make the zoomed label overlap deterministic.
   await page.route('**/common/data.js', async route => {

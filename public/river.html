@@ -530,6 +530,8 @@ findInput.addEventListener('keydown',e=>{
   else if(e.key==='Escape'){e.preventDefault();clearComposerSearch();}
 });
 findClear.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();clearComposerSearch();});
+// Keep the expanded field stable when a browser does not focus clicked buttons.
+findGroup.addEventListener('mousedown',e=>{if(e.target.closest('button'))e.preventDefault();});
 findGroup.addEventListener('click',e=>e.stopPropagation());
 findResults.addEventListener('click',e=>{
   const option=e.target.closest('.find-result[data-composer-id]');if(!option)return;
