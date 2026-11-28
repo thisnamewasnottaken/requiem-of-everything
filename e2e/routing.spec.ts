@@ -58,7 +58,7 @@ test("visitors can enter V2 and open the River without WebGL2", async ({ page })
   await expect(page.locator("#glNotice")).toBeHidden();
   await page.getByRole("button", { name: "Enter in silence" }).click();
   await expect(page.locator("body")).toHaveClass(/\bentered\b/);
-  await page.getByRole("link", { name: /The River of Time/ }).click();
+  await page.getByRole("link", { name: /Variations Through Time/ }).click();
   await expect(page).toHaveURL(/\/requiem-of-everything\/river\.html$/);
   await expect(page.locator("#river")).toBeVisible();
 });

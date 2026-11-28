@@ -6,7 +6,7 @@ The repository contains two experiences, served side by side:
 
 | Local route | What to explore |
 | --- | --- |
-| [`/`](http://localhost:5173/) | V2: follow composers' lives in the River of Time, listen to instrument samples in the Concert Hall, and hear examples of musical terms in the Lexicon. |
+| [`/`](http://localhost:5173/) | V2: follow composers' lives in Variations Through Time, listen to instrument samples in the Concert Hall, and hear examples of musical terms in the Lexicon. |
 | [`/legacy/v1/`](http://localhost:5173/legacy/v1/) | The original React app: pan and zoom the Timeline, search or compare composers, browse the Terms glossary, and explore orchestral instruments. |
 
 Both offer English (UK), Afrikaans, Spanish, French, and Polish. The React app uses TypeScript, React, Vite, Zustand for state, D3 for scales and positioning, and i18next for translations. The rebuild uses plain HTML, CSS, and JavaScript with Web Audio for sound. The core site does not require a backend or API keys.

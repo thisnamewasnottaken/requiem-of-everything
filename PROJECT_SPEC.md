@@ -2,7 +2,7 @@
 
 > An interactive timeline of classical music: composers, compositions, and the world that shaped them.
 
-The deployment root serves the [V2 rebuild](docs/specs/features/rebuild-v2.md), with its Home, River of Time, Concert Hall and Lexicon. The original goals and milestones below describe the React app served under `legacy/v1/`. See [Architecture](ARCHITECTURE.md) for how both sites are built and deployed.
+The deployment root serves the [V2 rebuild](docs/specs/features/rebuild-v2.md), with its Home, Variations Through Time, Concert Hall and Lexicon. The original goals and milestones below describe the React app served under `legacy/v1/`. See [Architecture](ARCHITECTURE.md) for how both sites are built and deployed.
 
 ## 1. Vision
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The React timeline's viewport controls. V2 River of Time has [its own navigation](rebuild-v2.md#navigation).
+The React timeline's viewport controls. V2's Variations Through Time has [its own navigation](rebuild-v2.md#navigation).
 
 ## Viewport Model
 

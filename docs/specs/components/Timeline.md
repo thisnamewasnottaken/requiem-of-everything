@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The React app's interactive, zoomable, pannable timeline. It composes the era, composer, composition and event layers. The v2 River is a [separate implementation](../features/rebuild-v2.md).
+The React app's interactive, zoomable, pannable timeline. It composes the era, composer, composition and event layers. The V2 timeline, Variations Through Time, is a [separate implementation](../features/rebuild-v2.md).
 
 ## Props / Inputs
 

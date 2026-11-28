@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- **Variations Through Time** — renamed the V2 timeline across Home, page titles, navigation and Concert Hall life links in all five languages, keeping existing links working. Composer names are slightly larger and brighter, with stronger text halos, collision-aware overview labels and measured click/tap targets to make individual lives easier to isolate without changing the light-led visual style. Direct touch taps select without a prior hover; dismissing a searched life also clears its URL focus. On small screens, life cards stay above search controls and Hall follow-life links stay clear of the wrapping dock.
 - **V2 is now the main site** — the static experience serves the application root, the original React app remains available at `/legacy/v1/`, and old `/v2/` page links keep their queries and fragments when redirected.
 - **Documentation** — clarified that the React app still serves the deployment root and v2 ships beside it; aligned architecture diagrams, current behavior, and local validation steps with main.
 - **v2 navigation on narrow screens** — at 1180px and narrower the v2 nav collapses into a burger menu, and each page leaves itself out of the nav. Between 641 and 1499px, River of Time's search shrinks to a magnifier that expands while focused, so it no longer collides with the header. Spec: `docs/specs/features/rebuild-v2.md`.
